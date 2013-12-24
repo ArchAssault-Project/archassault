@@ -7,7 +7,7 @@ url='none'
 arch=('any')
 depends=('perl')
 license=('GPL')
-groups=('blackarch' 'blackarch-fuzzer')
+groups=('archassault' 'archassault-fuzzer')
 source=('http://data.gpo.zugaina.org/pentoo/app-fuzz/http-fuzz/files/http-fuzz.pl')
 md5sums=('399883f034a505b8b157649e7870a0ff')
 

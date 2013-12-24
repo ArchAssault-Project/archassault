@@ -1,21 +1,21 @@
-pkgname=blackarch-install-scripts
+pkgname=archassault-install-scripts
 pkgver=0.1
 pkgrel=1
 pkgdesc="Easy Blackarch Install Script"
 arch=('i686' 'x86_64')
-url="https://github.com/BlackArch/blackarch-install-scripts"
+url="https://github.com/BlackArch/archassault-install-scripts"
 license=('GPL')
-source=("https://github.com/BlackArch/blackarch-install-scripts/archive/master.zip")
+source=("https://github.com/BlackArch/archassault-install-scripts/archive/master.zip")
 md5sums=('SKIP')
 
 
 package() {
-  cd "$srcdir/blackarch-install-scripts-master"
+  cd "$srcdir/archassault-install-scripts-master"
 
   install -dm755 "$pkgdir/usr/bin/"
-  install -dm755 "$pkgdir/usr/share/blackarch-install-scripts"
+  install -dm755 "$pkgdir/usr/share/archassault-install-scripts"
 
-  cp -r --no-preserve=ownership * "$pkgdir/usr/share/blackarch-install-scripts"
+  cp -r --no-preserve=ownership * "$pkgdir/usr/share/archassault-install-scripts"
 
-  ln -s "/usr/share/blackarch-install-scripts/blackarch-install" "$pkgdir/usr/bin/blackarch-install"
+  ln -s "/usr/share/archassault-install-scripts/archassault-install" "$pkgdir/usr/bin/archassault-install"
 }

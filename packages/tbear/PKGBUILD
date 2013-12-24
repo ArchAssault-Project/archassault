@@ -7,7 +7,7 @@ arch=(i686 x86_64)
 url="http://freshmeat.net/projects/t-bear"
 license=('GPL3')
 depends=('bluez' 'ncurses')
-groups=('blackarch' 'blackarch-bluetooth')
+groups=('archassault' 'archassault-bluetooth')
 source=(http://dl.packetstormsecurity.net/wireless/tbear.tar.gz)
 md5sums=('727d788ca999db05f8d3f5dfcadaf360')
 

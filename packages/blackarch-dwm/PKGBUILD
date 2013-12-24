@@ -1,4 +1,4 @@
-pkgname=blackarch-dwm
+pkgname=archassault-dwm
 pkgver=6.0
 pkgrel=1
 pkgdesc="Dynamic window manager for X"
@@ -10,7 +10,7 @@ conflicts=('dwm')
 provides=('dwm')
 source=("http://git.suckless.org/dwm/snapshot/dwm-$pkgver.tar.bz2"
         'config.h'
-        'blackarch-dwm')
+        'archassault-dwm')
 md5sums=('b6521aa6bd9d58839a1cc759f693c52c'
          '1e8199b1a266a1141dbaa27f41c872c8'
          '97145db923b2d6e499f7b8f4488d250b')
@@ -27,5 +27,5 @@ package() {
 
   make DESTDIR="$pkgdir" install
 
-  cp "$srcdir/blackarch-dwm" "$pkgdir/usr/local/bin/"
+  cp "$srcdir/archassault-dwm" "$pkgdir/usr/local/bin/"
 }

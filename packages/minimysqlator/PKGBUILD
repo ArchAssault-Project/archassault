@@ -7,7 +7,7 @@ arch=(any)
 url="http://www.scrt.ch/pages_en/minimysqlator.html"
 license=('GPL')
 depends=('java-runtime')
-groups=('blackarch' 'blackarch-database')
+groups=('archassault' 'archassault-database')
 source=(http://www.scrt.ch/outils/mms/mms_05.jar
         http://www.scrt.ch/outils/mms/common_tables.txt)
 md5sums=('727350bcc40c05c40bae9a7c900600bb'

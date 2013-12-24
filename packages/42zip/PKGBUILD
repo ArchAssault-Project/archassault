@@ -4,7 +4,7 @@ pkgrel=1
 epoch=100
 pkgdesc='Recursive Zip archive bomb.'
 url='http://blog.fefe.de/?ts=b6cea88d'
-groups=('blackarch' 'blackarch-dos')
+groups=('archassault' 'archassault-dos')
 license=('unknown')
 arch=('any')
 source=('http://www.securityfocus.com/data/vulnerabilities/exploits/42.zip')

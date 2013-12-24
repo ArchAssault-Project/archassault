@@ -7,7 +7,7 @@ arch=('x86' 'x86_64')
 url='http://www.winstonsmith.info/julia/elettra/'
 license=('custom')
 depends=("wxgtk" "elettra")
-groups=('blackarch' 'blackarch-misc')
+groups=('archassault' 'archassault-misc')
 source=('http://www.winstonsmith.info/julia/elettra/elettra_gui.tar.gz')
 md5sums=('51f9466bce5bc1bf3022e5e3c33a1f2e')
 

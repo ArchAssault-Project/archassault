@@ -4,7 +4,7 @@ pkgrel=1
 epoch=100
 pkgdesc='Enumeration of GWT-RCP method calls.'
 url='http://www.gdssecurity.com/l/t/d.php?k=GwtEnum'
-groups=('blackarch' 'blackarch-webapp' 'blackarch-recon')
+groups=('archassault' 'archassault-webapp' 'archassault-recon')
 license=('CCPL')
 arch=('any')
 depends=('python2')

@@ -7,7 +7,7 @@ url='http://code.google.com/p/grokevt/'
 license=('GPL')
 depends=('python2' 'reglookup' 'cpio')
 arch=('any')
-groups=('blackarch' 'blackarch-forensic')
+groups=('archassault' 'archassault-forensic')
 source=("http://grokevt.googlecode.com/files/grokevt-$pkgver.tar.gz")
 md5sums=('729ebacf9abc79130c80a6e599bb78dc')
 

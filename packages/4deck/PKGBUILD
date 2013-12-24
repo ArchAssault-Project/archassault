@@ -1,6 +1,6 @@
 pkgname=4deck
 pkgver=0.1
-groups=('blackarch-arm' 'blackarch-drone' 'blackarch-meta-thedeck')
+groups=('archassault-arm' 'archassault-drone' 'archassault-meta-thedeck')
 pkgrel=1
 pkgdesc="An addon from The Deck Project. Create a magic hub. ARM ONLY SUPPORT"
 arch=('armv6h' 'armv7h')

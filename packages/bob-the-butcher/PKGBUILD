@@ -7,7 +7,7 @@ arch=('x86' 'x86_64')
 url='http://btb.banquise.net/'
 license=('GPL2')
 depends=('libevent')
-groups=('blackarch' 'blackarch-cracker')
+groups=('archassault' 'archassault-cracker')
 source=("http://packetstorm.igor.onlinedirect.bg/Crackers/bob-the-butcher-$pkgver.tar.gz")
 md5sums=('c76fcbcf87e229fa6f1ec06d0eeac759')
 

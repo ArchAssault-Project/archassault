@@ -7,7 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://airpwn.sourceforge.net"
 license=('GPL')
 depends=('pcre' 'libpcap' 'openssl' 'lorcon-old' 'wireless_tools' 'libnet' 'python')
-groups=('blackarch' 'blackarch-wireless')
+groups=('archassault' 'archassault-wireless')
 source=(http://downloads.sourceforge.net/airpwn/airpwn-$pkgver.tgz)
 md5sums=('c5538f5eadc2afa0bf3e873c4bfa2513')
 

@@ -7,7 +7,7 @@ arch=('x86' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.arpalert.org/'
 license=('GPL')
 depends=('libpcap')
-groups=('blackarch' 'blackarch-defensive')
+groups=('archassault' 'archassault-defensive')
 source=("http://www.arpalert.org/src/arpalert-$pkgver.tar.gz")
 md5sums=('7f027f74eaf94ad5759ccd9b20d0b854')
 

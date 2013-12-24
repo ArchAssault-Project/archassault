@@ -1,5 +1,5 @@
 _subarchs=(armv6h armv7h)
-pkgbase='distccd-blackarch'
+pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")
 pkgver=4.7.2
 pkgrel=1
@@ -45,7 +45,7 @@ _package_subarch() {
 for i in "${!_subarchs[@]}"; do
     _xtoolsdir="${source[i]##*/}"
     _xtoolsdir="${_xtoolsdir%%.*}"
-    eval 'package_distccd-blackarch-'${_subarchs[i]}'() {
+    eval 'package_distccd-archassault-'${_subarchs[i]}'() {
         _package_subarch '${_subarchs[i]}' '${_xtoolsdir}'
     }'
 done

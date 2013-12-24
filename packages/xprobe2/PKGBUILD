@@ -2,7 +2,7 @@ pkgname=xprobe2
 pkgver=0.3
 pkgrel=1
 epoch=100
-groups=('blackarch' 'blackarch-fingerprint')
+groups=('archassault' 'archassault-fingerprint')
 pkgdesc="An active OS fingerprinting tool"
 url='http://sourceforge.net/apps/mediawiki/xprobe/index.php?title=Main_Page'
 depends=('gcc' 'libpcap')

@@ -9,7 +9,7 @@ license=('custom')
 depends=('libdnet' 'libnet' 'libpcap')
 makedepends=('cmake' 'libdnet')
 backup=('etc/conf.d/arpon')
-groups=('blackarch' 'blackarch-defensive')
+groups=('archassault' 'archassault-defensive')
 source=("http://downloads.sourceforge.net/sourceforge/arpon/ArpON-$pkgver.tar.gz"
         "arpon"
         "arpon.conf.d")

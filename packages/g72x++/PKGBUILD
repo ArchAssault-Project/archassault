@@ -6,7 +6,7 @@ pkgdesc='Decoder for the g72x++ codec.'
 arch=('x86' 'x86_64')
 url='http://www.ps-auxw.de/'
 license=('GPL2')
-groups=('blackarch' 'blackarch-wireless')
+groups=('archassault' 'archassault-wireless')
 source=('http://www.ps-auxw.de/g72x++.tar.bz2')
 md5sums=('1375aa2313b5b23744538876d2d9da7a')
 

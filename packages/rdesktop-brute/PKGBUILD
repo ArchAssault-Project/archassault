@@ -9,7 +9,7 @@ url='http://www.rdesktop.org/'
 license=('GPL')
 arch=('x86' 'x86_64' 'armv6h' 'armv7h')
 depends=('rdesktop')
-groups=('blackarch' 'blackarch-cracker')
+groups=('archassault' 'archassault-cracker')
 source=("http://downloads.sourceforge.net/$_pkgname/$_pkgname-$pkgver.tar.gz"
         'http://www.foofus.net/~jmk/tools/rdp-brute-force-r805.diff')
 md5sums=('433546f60fc0f201e99307ba188369ed'

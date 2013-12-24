@@ -8,7 +8,7 @@ url="http://www.aircrack-ng.org"
 license=('GPL2')
 depends=('graphviz' 'python2')
 makedepends=("subversion")
-groups=('blackarch' 'blackarch-misc')
+groups=('archassault' 'archassault-misc')
 source=('svn+http://svn.aircrack-ng.org/trunk/scripts/airgraph-ng')
 md5sums=('SKIP')
 

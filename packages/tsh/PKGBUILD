@@ -4,7 +4,7 @@ pkgrel=1
 epoch=100
 pkgdesc='An open-source UNIX backdoor that compiles on all variants, has full pty support, and uses strong crypto for communication.'
 url='http://packetstormsecurity.com/search/?q=tsh'
-groups=('blackarch' 'blackarch-backdoor')
+groups=('archassault' 'archassault-backdoor')
 license=('custom')
 arch=('any')
 source=("http://packetstorm.igor.onlinedirect.bg/UNIX/penetration/tsh-$pkgver.tgz")

@@ -7,8 +7,8 @@ arch=('x86' 'x86_64' 'armv6h' 'armv7h')
 url='http://wiki.skullsecurity.org/Nbtool'
 source=('git+https://github.com/iagox86/nbtool.git')
 license=('GPL3')
-groups=('blackarch' 'blackarch-networking' 'blackarch-scanner'
-        'blackarch-recon')
+groups=('archassault' 'archassault-networking' 'archassault-scanner'
+        'archassault-recon')
 depends=('libpcap')
 makedepends=('git' 'nasm')
 provides=('nbtool' 'dnscat')

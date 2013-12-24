@@ -1,5 +1,5 @@
 pkgname=batman-alfred
-group=('blackarch' 'blackarch-wireless')
+group=('archassault' 'archassault-wireless')
 pkgver=2013.4.0
 pkgrel=2
 pkgdesc="Almighty Lightweight Fact Remote Exchange Daemon"

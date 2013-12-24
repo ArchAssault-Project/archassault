@@ -2,7 +2,7 @@ pkgname=wyd
 pkgver=0.2
 pkgrel=1
 epoch=100
-groups=('blackarch' 'blackarch-forensic' 'blackarch-cracker')
+groups=('archassault' 'archassault-forensic' 'archassault-cracker')
 pkgdesc="Gets keywords from personal files. IT security/forensic tool."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.remote-exploit.org/?page_id=418"

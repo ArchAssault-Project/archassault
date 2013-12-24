@@ -7,7 +7,7 @@ url="http://pdfcrack.sourceforge.net/"
 license=('GPL')
 depends=('glibc')
 source=("http://downloads.sourceforge.net/pdfcrack/pdfcrack-$pkgver.tar.gz")
-groups=('blackarch' 'blackarch-cracker')
+groups=('archassault' 'archassault-cracker')
 md5sums=('00bdb4c44dd209f493fc02d38c1a6377')
 
 build() {

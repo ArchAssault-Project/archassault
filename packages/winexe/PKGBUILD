@@ -8,7 +8,7 @@ url='http://sourceforge.net/projects/winexe/'
 license=('GPL3')
 depends=('gnutls' 'libsasl' 'popt' 'talloc' 'tdb')
 makedepends=('python2')
-groups=('blackarch' 'blackarch-misc' 'blackarch-windows')
+groups=('archassault' 'archassault-misc' 'archassault-windows')
 source=("http://downloads.sourceforge.net/project/$pkgname/$pkgname-$pkgver.tar.gz"
         "getopts.patch"
         "gnutls.patch"

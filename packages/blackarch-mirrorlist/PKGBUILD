@@ -1,12 +1,12 @@
-pkgname=blackarch-mirrorlist
+pkgname=archassault-mirrorlist
 pkgver=20131217
 pkgrel=1
 pkgdesc="BlackArch Linux mirror list for use by pacman"
 arch=('any')
-url="http://www.blackarch.org/mirrorlist/"
+url="http://www.archassault.org/mirrorlist/"
 license=('GPL')
-backup=(etc/pacman.d/mirrorlist-blackarch)
-source=(mirrorlist-blackarch)
+backup=(etc/pacman.d/mirrorlist-archassault)
+source=(mirrorlist-archassault)
 md5sums=('8e93e5714365a2c5c6af2d1564a3b296')
 
 # NOTE on building this package:
@@ -18,10 +18,10 @@ md5sums=('8e93e5714365a2c5c6af2d1564a3b296')
 # Leaving this in and commented out until our new site is live so we can build it with this method
 #updatelist() {
 #  rm -f mirrorlist
-#  wget -O mirrorlist https://www.blackarch.org/mirrorlist/all/smart/
+#  wget -O mirrorlist https://www.archassault.org/mirrorlist/all/smart/
 #}
 
 package() {
   mkdir -p $pkgdir/etc/pacman.d
-  install -m644 $srcdir/mirrorlist-blackarch $pkgdir/etc/pacman.d/
+  install -m644 $srcdir/mirrorlist-archassault $pkgdir/etc/pacman.d/
 }

@@ -2,12 +2,12 @@ pkgname=missidentify
 pkgver=1.0
 pkgrel=1
 epoch=100
-groups=('blackarch' 'blackarch-windows' 'blackarch-recon')
+groups=('archassault' 'archassault-windows' 'archassault-recon')
 pkgdesc="A program to find Win32 applications"
 url='http://missidentify.sourceforge.net/'
 license=('GPL2')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-grouups=('blackarch' 'blackarch-intel')
+grouups=('archassault' 'archassault-intel')
 source=("http://downloads.sourceforge.net/missidentify/missidentify-$pkgver.tar.gz")
 md5sums=('229123a59af1b538ec93bc98fc6115b4')
 
