@@ -1,8 +1,0 @@
-#!/bin/sh
-
-while true
-do
-  xsetroot -name "ArchAssault - $(date +"%a %b %d %r")"
-  sleep 1
-done &
-exec dwm

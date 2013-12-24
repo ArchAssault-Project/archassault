@@ -1,9 +1,0 @@
-##
-## ArchAssault Linux repository mirrorlist
-##
-
-## United States
-#Server = http://archassault.org/archassault/$repo/os/$arch
-
-# Germany
-#Server = http://archassault.nullsecurity.net/archassault/$repo/os/$arch
