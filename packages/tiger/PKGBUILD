@@ -1,0 +1,48 @@
+pkgname=tiger
+pkgver=3.2.3
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner' 'blackarch-automation')
+pkgdesc="A security scanner, that checks computer for known problems. Can also use tripwire, aide and chkrootkit."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.nongnu.org/tiger/'
+license=('GPL')
+depends=('perl')
+makedepends=('patch')
+backup=('etc/tiger/tigerrc' 'etc/tiger/cronrc')
+source=("http://download.savannah.gnu.org/releases/tiger/tiger-$pkgver.tar.gz"
+        tiger-makefile.diff
+        build-fix.diff)
+md5sums=('f41076f645da9de937819bf6d516e546'
+         'aadd12186c717dfe202d55d1192851c2'
+         '9e516291e4081733ca551fb46ad37c06')
+
+prepare() {
+  cd "$srcdir/tiger-$pkgver"
+  patch -Np0 -i "$srcdir/tiger-makefile.diff"
+  patch -Np0 -i "$srcdir/build-fix.diff"
+}
+
+build() {
+  cd "$srcdir/tiger-$pkgver"
+
+  ./configure --prefix=/usr \
+          --mandir=/usr/share/man \
+          --with-tigerhome=/usr/share/tiger \
+          --with-tigerconfig=/etc/tiger \
+          --with-tigerwork=/var/run/tiger \
+          --with-tigerlog=/var/log/tiger \
+          --with-tigerbin=/usr/bin
+
+  make
+}
+
+package() {
+  cd "$srcdir/tiger-$pkgver"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/share/tiger"
+  install -dm755 "$pkgdir/usr/bin"
+
+  make "DESTDIR=$pkgdir" install
+}

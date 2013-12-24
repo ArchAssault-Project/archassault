@@ -1,0 +1,38 @@
+pkgname=phrasendrescher
+pkgver=1.2.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-cracker')
+pkgdesc="A modular and multi processing pass phrase cracking tool"
+arch=(i686 x86_64)
+url='http://www.leidecker.info/projects/phrasendrescher/'
+license=('BSD')
+depends=('openssl' 'libssh2' 'gpgme')
+options=('!libtool')
+source=(http://www.leidecker.info/projects/phrasendrescher/phrasendrescher-$pkgver.tar.gz
+        phrasendrescher.patch)
+md5sums=('3f2093c3415dcaea2110db55c58cecb6'
+         'aaa7018d8c9ca036bc706cb4a8b4c428')
+
+prepare() {
+  cd "$srcdir/phrasendrescher-$pkgver"
+
+  patch -p0 -i ../phrasendrescher.patch
+}
+
+build() {
+  cd "$srcdir/phrasendrescher-$pkgver"
+
+  ./configure --prefix=/usr --with-plugins
+  make
+}
+
+package() {
+  cd "$srcdir/phrasendrescher-$pkgver"
+
+  make DESTDIR=$pkgdir install
+
+  # Fix conflict with community/pd.
+  mv "$pkgdir/usr/bin/pd" "$pkgdir/usr/bin/phrasendrescher"
+  mv "$pkgdir/usr/share/man/man1/pd.1" "$pkgdir/usr/share/man/man1/phrasendrescher.1"
+}

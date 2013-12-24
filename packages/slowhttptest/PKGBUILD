@@ -1,0 +1,22 @@
+pkgname=slowhttptest
+pkgver=1.5
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-dos')
+pkgdesc="A highly configurable tool that simulates application layer denial of service attacks"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://code.google.com/p/slowhttptest'
+license=('Apache')
+source=("http://slowhttptest.googlecode.com/files/slowhttptest-$pkgver.tar.gz")
+md5sums=('1437fdac96e99305f765a7f0b075b006')
+
+build() {
+  cd "$srcdir/slowhttptest-$pkgver"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/slowhttptest-$pkgver"
+  make "DESTDIR=$pkgdir" install
+}

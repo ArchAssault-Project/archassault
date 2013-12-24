@@ -1,0 +1,30 @@
+pkgname=bluesnarfer
+pkgver=0.1
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-bluetooth')
+pkgdesc="A bluetooth attacking tool"
+url="http://www.alighieri.org/project.html"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('custom')
+source=("http://www.alighieri.org/tools/bluesnarfer.tar.gz")
+md5sums=('ee1fcf2e12b74e8cf65f43cdd2c47b72')
+
+build() {
+  cd "$srcdir/bluesnarfer"
+  make
+}
+
+package() {
+  cd "$srcdir/bluesnarfer"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/share/bluesnarfer/"
+  install -dm755 "$pkgdir/usr/bin/"
+
+  # Docs.
+  install -m644 README "$pkgdir/usr/share/bluesnarfer/"
+
+  # Bin.
+  install -Dm755 bluesnarfer "$pkgdir/usr/bin/"
+}

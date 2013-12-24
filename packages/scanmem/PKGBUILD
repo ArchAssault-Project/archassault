@@ -1,0 +1,32 @@
+pkgname=scanmem
+pkgver=0.13
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-reversing')
+pkgdesc="A utility used to locate the address of a variable in an executing process."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://code.google.com/p/scanmem/'
+license=('GPL3')
+depends=('python2' 'pygtk')
+optdepends=('gksu: for the GameConqueror GUI.')
+source=(http://scanmem.googlecode.com/files/scanmem-$pkgver.tar.gz)
+md5sums=('1c23eda15db242ff0aac96d94be11db1')
+
+build() {
+  cd "$srcdir/scanmem-$pkgver"
+  chmod 755 configure
+  ./configure --enable-gui --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/scanmem-$pkgver"
+
+  make -s DESTDIR="$pkgdir" install
+
+  # Fix Python shebang lines.
+  sed 's|python|python2|g' -i "$pkgdir/usr/bin/gameconqueror"
+  sed 's|#!/usr/bin/env python|#!/usr/bin/env python2|g' -i \
+      "$pkgdir/usr/share/gameconqueror/"{backend.py,GameConqueror.py,hexview.py}
+}
+

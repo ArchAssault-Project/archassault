@@ -1,0 +1,18 @@
+pkgname=lbd
+pkgver=20130719
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-recon')
+pkgdesc="Load Balancing detector"
+url='http://ge.mine.nu/code/lbd'
+arch=('any')
+license=('GPL')
+depends=('bash')
+source=(http://ge.mine.nu/code/lbd)
+# If the hash is wrong, audit the script.
+md5sums=('de0378c208909945c685cef29c85dc9e')
+
+package() {
+  cd "$srcdir"
+  install -Dm755 lbd $pkgdir/usr/bin/lbd
+}

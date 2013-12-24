@@ -1,0 +1,20 @@
+pkgname=wfuzz
+pkgver=2.0
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-webapp' 'blackarch-fuzzer')
+pkgdesc="Utility to bruteforce web applications to find their not linked resources"
+url='http://code.google.com/p/wfuzz'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL' 'other')
+depends=('python2-pycurl')
+source=("http://wfuzz.googlecode.com/files/${pkgname}-${pkgver}.tgz")
+md5sums=('ff45b5171a3039c03fee8031a1dd2c83')
+
+package() {
+  mkdir -p $pkgdir/opt/wfuzz
+  mkdir -p $pkgdir/usr/bin
+  cp -r $srcdir/wfuzz-read-only/* $pkgdir/opt/wfuzz/
+  echo -e "#!/bin/bash\npython2.7 /opt/wfuzz/wfuzz.py \$@" > $pkgdir/usr/bin/wfuzz
+  chmod a+x $pkgdir/usr/bin/wfuzz
+}

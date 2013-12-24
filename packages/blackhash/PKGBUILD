@@ -1,0 +1,35 @@
+pkgname=blackhash
+pkgver=0.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-cracker')
+pkgdesc="Creates a filter from system hashes"
+url="http://16s.us/blackhash/"
+arch=('any')
+license=('GPL')
+depends=('boost' 'crypto++')
+source=("http://16s.us/software/Blackhash/Source/Blackhash_$pkgver.tar.gz")
+md5sums=('5feab8287fd1c951dfcd9be7c405d9c6')
+
+prepare(){
+  cd "$srcdir"
+
+  sed -i '3d' build_std_cpp.sh
+  sed -i '2d' build_std_cpp.sh
+}
+
+build(){
+  cd "$srcdir"
+  ./build_std_cpp.sh
+}
+
+package() {
+  cd "$srcdir"
+
+  # Base Directories.
+  install -dm755 "$pkgdir/usr/bin/"
+
+  # Bin.
+  install -m755 bh "$pkgdir/usr/bin/bh"
+  ln -s bh "$pkgdir/usr/bin/blackhash"
+}

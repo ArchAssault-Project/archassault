@@ -1,0 +1,27 @@
+pkgname=dhcpig
+pkgver=20131208
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner')
+pkgdesc="Enumerates hosts, subdomains, and emails from a given domain using google"
+url="https://github.com/kamorin/DHCPig"
+license=('GPL2')
+arch=('any')
+depends=('python2' 'git' 'scapy')
+source=("git+https://github.com/kamorin/DHCPig")
+md5sums=('SKIP')
+
+pkgver() {
+  # Upstream provides no version numbers.
+  date +%Y%m%d
+}
+
+prepare() {
+  cd "$srcdir/DHCPig"
+  sed -i 's/python/python2/' pig.py
+}
+
+package() {
+  cd "$srcdir/DHCPig"
+  install -Dm755 pig.py "$pkgdir/usr/bin/dhcpig"
+}

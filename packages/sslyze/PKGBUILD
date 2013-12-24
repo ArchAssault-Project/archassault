@@ -1,0 +1,29 @@
+pkgname=sslyze
+pkgver=0.6
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-misc')
+pkgdesc="Python tool for analyzing the configuration of SSL servers and for identifying misconfigurations"
+
+arch=('any')
+url='https://github.com/iSECPartners/sslyze'
+license=('GPL2')
+
+depends=('python2')
+source=(https://dl.dropbox.com/s/h4cc7q68jdmxay3/sslyze-${pkgver}_src.zip)
+md5sums=('d86b75faacb069a02c829fab2f45193c')
+
+package() {
+  # Install files.
+  install -dm755 "$pkgdir/usr/share"
+  cp --no-preserve=ownership -r $srcdir/sslyze-${pkgver}_src $pkgdir/usr/share/sslyze
+
+  # Create an indirect launcher.
+  install -dm755 $pkgdir/usr/bin
+  cat > "$pkgdir/usr/bin/sslyze" <<\EOF
+#!/bin/sh
+cd /usr/share/sslyze
+python2 sslyze.py $@
+EOF
+  chmod 755 "$pkgdir/usr/bin/sslyze"
+}

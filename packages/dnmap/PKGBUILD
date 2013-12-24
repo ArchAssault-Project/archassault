@@ -1,0 +1,36 @@
+pkgname=dnmap
+pkgver=0.6
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner')
+pkgdesc="The distributed nmap framwork"
+url="http://sourceforge.net/projects/dnmap/"
+license=('GPL3')
+arch=('any')
+depends=('twisted' 'python2-pyopenssl')
+install=dnmap.install
+source=("http://downloads.sourceforge.net/project/dnmap/dnmap_v$pkgver.tgz")
+md5sums=('5d45a7307406dc039b7e06a3c5c46995')
+
+prepare() {
+  cd "$srcdir/dnmap_v$pkgver"
+  sed -i 's/env python/env python2/' *.py
+}
+
+package() {
+  cd "$srcdir/dnmap_v$pkgver"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/dnmap"
+  install -dm755 "$pkgdir/usr/share/doc/dnmap"
+
+  # Docs.
+  install -m644 README "$pkgdir/usr/share/doc/dnmap"
+
+  install -m644 server.pem "$pkgdir/usr/share/dnmap"
+
+  # Bin.
+  install -m755 dnmap_client.py "$pkgdir/usr/bin/dnmap_client"
+  install -m755 dnmap_server.py "$pkgdir/usr/bin/dnmap_server"
+}

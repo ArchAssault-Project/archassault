@@ -1,0 +1,35 @@
+pkgname=fern-wifi-cracker
+pkgver=133
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-wireless' 'blackarch-cracker')
+pkgdesc="WEP, WPA wifi cracker for wireless penetration testing"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://code.google.com/p/fern-wifi-cracker/'
+license=('GPL2')
+#'macchanger'
+depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion')
+makedepends=('subversion')
+_svnmod="fern-wifi-cracker"
+source=("svn+http://fern-wifi-cracker.googlecode.com/svn/Fern-Wifi-Cracker/")
+md5sums=('SKIP')
+
+package() {
+  cd "$srcdir/Fern-Wifi-Cracker"
+
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/fern-wifi-cracker"
+
+  cp -R --no-preserve=ownership * "$pkgdir/usr/share/fern-wifi-cracker"
+
+  sed -i 's|python$|python2|g' execute.py
+
+  # Make joint script.
+  cat > "$pkgdir/usr/bin/fern" <<EOF
+#!/bin/sh
+cd /usr/share/fern-wifi-cracker
+python2 ./execute.py "\$@"
+EOF
+
+  chmod +x "$pkgdir/usr/bin/fern"
+}

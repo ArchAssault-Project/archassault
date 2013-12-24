@@ -1,0 +1,29 @@
+pkgname=enumiax
+pkgver=1.0
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner')
+pkgdesc="IAX enumerator"
+url='http://sourceforge.net/projects/enumiax/'
+license=('GPL')
+depends=('glibc')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+source=(http://downloads.sourceforge.net/enumiax/enumiax-$pkgver.tar.gz)
+md5sums=('3e3826559574b637c9ca8830f956154b')
+
+build() {
+  cd "$srcdir/enumiax-$pkgver"
+  make
+}
+
+prepare() {
+  cd "$srcdir/enumiax-$pkgver"
+  sed -i "s|ienumiaxtall|/bin/install|g" Makefile
+  sed -i "s|\${DEBUG}|$CFLAGS|g" base.mk
+}
+
+package() {
+  cd "$srcdir/enumiax-$pkgver"
+  install -dm755 "$pkgdir/usr/bin"
+  make BINDIR=$pkgdir/usr/bin install
+}

@@ -1,0 +1,29 @@
+pkgname=dex2jar
+pkgver=0.0.9.13
+_dlsuffix=
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-hardware' 'blackarch-reversing')
+pkgdesc="A tool for converting Android's .dex format to Java's .class format"
+arch=('any')
+url='http://code.google.com/p/dex2jar'
+license=('Apache')
+depends=('java-runtime')
+source=("http://dex2jar.googlecode.com/files/dex2jar-$pkgver${_dlsuffix}.zip")
+md5sums=('d7eaf257d877e574b4d4e23e7b63751d')
+
+package() {
+  cd "$srcdir/dex2jar-$pkgver"
+
+  # Make base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  # This package provides all of its own libraries.
+  install -dm755 "$pkgdir/opt/dex2jar/lib"
+
+  install -m644 lib/*.jar "$pkgdir/opt/dex2jar/lib"
+  install -m755 *.sh "$pkgdir/opt/dex2jar"
+
+  for bin in d2j-*.sh ; do
+    ln -s /opt/dex2jar/$bin "$pkgdir/usr/bin/${bin%.*}"
+  done
+}

@@ -1,0 +1,28 @@
+pkgname=thc-ipv6
+pkgver=2.3
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-exploitation' 'blackarch-dos' 'blackarch-networking')
+pkgdesc="A complete tool set to attack the inherent protocol weaknesses of IPv6 and ICMP6, and includes an easy to use packet factory library."
+url='http://thc.org/thc-ipv6/'
+depends=('libpcap' 'openssl')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=(GPL)
+source=("git+https://github.com/BlackArch/thc-ipv6.git")
+md5sums=('SKIP')
+
+prepare() {
+  cd $srcdir/thc-ipv6
+  sed -i 's|+=|=|' Makefile
+}
+
+build() {
+  cd $srcdir/thc-ipv6
+  make clean all
+}
+
+package() {
+  cd $srcdir/thc-ipv6
+  install -d "$pkgdir/usr/bin"
+  find . -type f -perm /o+x | xargs install -t "$pkgdir/usr/bin"
+}

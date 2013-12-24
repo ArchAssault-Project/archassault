@@ -1,0 +1,21 @@
+pkgname=xorsearch
+pkgver=1.9.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-crypto')
+pkgdesc="Program to search for a given string in an XOR, ROL or ROT encoded binary file."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://blog.didierstevens.com/programs/xorsearch/"
+license=('custom:public domain')
+source=("http://www.didierstevens.com/files/software/XORSearch_V${pkgver//./_}.zip")
+md5sums=('bf1ac6caa325b6d1af339b45782b8623')
+
+build() {
+  cd "$srcdir"
+  gcc -o xorsearch XORSearch.c
+}
+
+package() {
+  cd "$srcdir"
+  install -Dm755 xorsearch "$pkgdir/usr/bin/xorsearch"
+}

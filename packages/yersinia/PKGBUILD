@@ -1,0 +1,20 @@
+pkgname=yersinia
+pkgver=0.7.1
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-networking' 'blackarch-scanner')
+pkgdesc="A network tool designed to take advantage of some weakness in different network protocols"
+url='http://www.yersinia.net/'
+depends=('libpcap' 'libnet' 'gtk2')
+license=('GPL')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+
+source=(http://www.yersinia.net/download/yersinia-$pkgver.tar.gz)
+md5sums=('dd3b79a625482961fe4e8bd96edff179')
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./configure --prefix=/usr --with-pcap-includes=/usr/include/pcap
+  make
+  make DESTDIR=$pkgdir install
+}

@@ -1,0 +1,27 @@
+pkgname=hashtag
+pkgver=0.41
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-cracker')
+pkgdesc="A python script written to parse and identify password hashes."
+url="https://github.com/SmeegeSec/HashTag"
+arch=('any')
+license=('custom:unknown')
+depends=('python2')
+source=('git+https://github.com/SmeegeSec/HashTag.git')
+md5sums=('SKIP')
+
+pkgver(){
+  cd "$srcdir/HashTag/"
+  cat README.txt | grep -Ewi "Version" | awk '{ print $NF }'
+}
+
+prepare(){
+  cd "$srcdir/HashTag/"
+  sed -i 's/python/python2/' HashTag.py
+}
+
+package() {
+  cd "$srcdir/HashTag/"
+  install -Dm755 HashTag.py "$pkgdir/usr/bin/hashtag"
+}

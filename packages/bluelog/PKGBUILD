@@ -1,0 +1,22 @@
+pkgname=bluelog
+pkgver=1.0.4
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-bluetooth' 'blackarch-scanner')
+pkgdesc="A Bluetooth scanner and sniffer written to do a single task, log devices that are in discoverable mode"
+url='http://www.digifail.com/software/bluelog.shtml'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL2')
+makedepends=('bluez')
+source=("http://dl.packetstormsecurity.net/wireless/bluelog-$pkgver.tar.gz")
+md5sums=('2791fbb0333b0b414a4d2230c1e9e8e6')
+
+build () {
+  cd $srcdir/bluelog-$pkgver
+  make
+}
+
+package() {
+  cd $srcdir/bluelog-$pkgver
+  make DESTDIR="$pkgdir" install
+}

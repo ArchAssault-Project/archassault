@@ -1,0 +1,63 @@
+pkgname=ruby1.9
+pkgdesc='An object-oriented language for quick and easy programming'
+pkgver=1.9.3_p448
+pkgrel=2
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.ruby-lang.org/en/'
+license=('BSD' 'custom')
+depends=('openssl' 'libffi' 'libyaml')
+optdepends=('tk: for Ruby/TK')
+makedepends=('openssl' 'tk' 'libffi' 'doxygen' 'graphviz' 'libyaml')
+options=('!emptydirs' '!makeflags')
+source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2")
+md5sums=('aa710d386e5903f78f0231868255e6af')
+
+build() {
+  cd "ruby-${pkgver//_/-}"
+
+if [[ $CARCH == arm* ]] ; then
+  PKG_CONFIG=/usr/bin/pkg-config ./configure \
+    --prefix=/usr/share/ruby1.9 \
+    --enable-shared \
+    --enable-pthread \
+    --disable-rpath \
+    --disable-install-doc \
+    --disable-install-rdoc
+else
+  PKG_CONFIG=/usr/bin/pkg-config ./configure \
+    --prefix=/usr/share/ruby1.9 \
+    --enable-shared \
+    --enable-pthread \
+    --disable-rpath
+fi
+
+  make
+}
+
+check() {
+  cd "ruby-${pkgver//_/-}"
+
+  make test
+}
+
+package() {
+  cd "ruby-${pkgver//_/-}"
+
+  make DESTDIR="$pkgdir" install-nodoc
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/lib"
+
+  # Bin.
+  for i in erb irb rdoc ri ruby testrb rake gem; do
+    ln -s "/usr/share/ruby1.9/bin/$i" "$pkgdir/usr/bin/$i-1.9"
+  done
+
+  # Lib.
+  ln -s "/usr/share/ruby1.9/lib/libruby.so.1.9" "$pkgdir/usr/lib/libruby.so.1.9"
+
+  # License.
+  install -D -m644 COPYING "$pkgdir/usr/share/licenses/ruby1.9/LICENSE"
+  install -D -m644 BSDL "$pkgdir/usr/share/licenses/ruby1.9/BSDL"
+}

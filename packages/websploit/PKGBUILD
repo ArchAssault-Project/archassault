@@ -1,0 +1,27 @@
+pkgname=websploit
+pkgver=2.0.4
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-exploitation' 'blackarch-social' 'blackarch-scanner' 'blackarch-fuzzer')
+pkgdesc="An Open Source Project For, Social Engineering Works, Scan, Crawler & Analysis Web, Automatic Exploiter, Support Network Attacks"
+arch=('any')
+url='http://code.google.com/p/websploit/'
+license=('Unknown')
+source=("${pkgname}-${pkgver}.tar.gz::http://sourceforge.net/projects/websploit/files/WebSploit%20Framework%20V.${pkgver}/WebSploit%20Framework%20V.${pkgver}.tar.gz")
+depends=('python2' 'scapy')
+md5sums=('e0f9f75aad766e1f6ffefae171550529')
+
+package() {
+  cd "$srcdir/DEB Package"
+
+  ar x *.deb
+  tar xzf data.tar.gz -C "$pkgdir"
+
+  # Fix Python.
+  sed -i 's/^python\s/python2 /' "$pkgdir/usr/bin/websploit"
+
+  # Fix incompetence.
+  find "$pkgdir" -name '*~' -delete
+  chmod -R go=rX,u=rwX "$pkgdir/usr"
+  chmod -R a+x "$pkgdir/usr/bin"
+}

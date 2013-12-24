@@ -1,0 +1,28 @@
+pkgname=cowpatty
+pkgver=4.6
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-wireless' 'blackarch-cracker')
+pkgdesc="Wireless WPA/WPA2 PSK handshake cracking utility"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.wirelessdefence.org/Contents/Files/'
+license=('GPL')
+depends=('openssl' 'libpcap')
+options=(docs !makeflags)
+source=("http://www.wirelessdefence.org/Contents/Files/cowpatty-$pkgver.tgz")
+md5sums=('b90fd36ad987c99e7cc1d2a05a565cbd')
+
+build() {
+  cd "$srcdir/cowpatty-$pkgver"
+  # _FORTIFY_SOURCE causes issues.
+  CPPFLAGS= make
+}
+
+package() {
+  cd "$srcdir/cowpatty-$pkgver"
+
+  make DESTDIR="$pkgdir/" "BINDIR=/usr/bin/" install
+
+  install -Dm644 dict "$pkgdir/usr/share/cowpatty/dict"
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/cowpatty/COPYING"
+}

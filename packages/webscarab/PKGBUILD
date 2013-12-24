@@ -1,0 +1,25 @@
+pkgname=webscarab
+pkgver=20120422.001828
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-webapp' 'blackarch-proxy' 'blackarch-scanner' 'blackarch-fuzzer')
+pkgdesc="Framework for analysing applications that communicate using the HTTP and HTTPS protocols"
+arch=('any')
+url='http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project'
+license=('GPL2')
+depends=('java-runtime')
+noextract=(${pkgname}-one-${pkgver/./-}.jar)
+source=(http://dawes.za.net/rogan/${pkgname}/${pkgname}-one-${pkgver/./-}.jar)
+md5sums=('ac7b950b664f792b9d07cc2ccb78cba1')
+
+package() {
+  install -d "${pkgdir}/usr/share/${pkgname}"
+  install -d "${pkgdir}/usr/bin"
+  install -m755 $srcdir/${pkgname}-one-${pkgver/./-}.jar "${pkgdir}/usr/share/${pkgname}/${pkgname}.jar"
+
+  cat > ${pkgdir}/usr/bin/${pkgname} <<EOF
+#!/bin/sh
+exec "$JAVA_HOME/bin/java" -jar /usr/share/webscarab/webscarab.jar "$@"
+EOF
+  chmod +x ${pkgdir}/usr/bin/${pkgname}
+}

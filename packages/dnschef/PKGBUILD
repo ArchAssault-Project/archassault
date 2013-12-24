@@ -1,0 +1,30 @@
+pkgname=dnschef
+pkgver=0.2.1
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-proxy')
+pkgdesc="A highly configurable DNS proxy for pentesters"
+url="http://thesprawl.org/projects/dnschef/"
+arch=('any')
+depends=('python2')
+license=('GPL3')
+source=("http://thesprawl.org/media/projects/dnschef-$pkgver.tar.gz")
+md5sums=('cb567d575cc837c49e51d95349986875')
+
+prepare() {
+  cd "$srcdir/dnschef-$pkgver"
+  sed -i 's/env python/env python2/' *.py
+}
+
+package() {
+  cd "$srcdir/dnschef-$pkgver"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/dnschef"
+
+  cp -a * "$pkgdir/usr/share/dnschef"
+
+  # Bin.
+  ln -s /usr/share/dnschef/dnschef.py "$pkgdir/usr/bin/dnschef"
+}

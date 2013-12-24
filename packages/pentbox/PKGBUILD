@@ -1,0 +1,32 @@
+pkgname=pentbox
+pkgver=1.5
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner' 'blackarch-fuzzer')
+pkgdesc="A security suite that packs security and stability testing oriented tools for networks and systems"
+arch=('any')
+url='http://www.pentbox.net'
+license=('GPL3')
+source=("http://download.pentbox.net/releases/pentbox-${pkgver}-win.zip")
+depends=('ruby1.9')
+md5sums=('3599415b7c5375338ced02ea2af9d4df')
+options=('!strip')
+
+package() {
+  cd "$srcdir/pentbox-$pkgver"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/share/pentbox"
+  install -dm755 "$pkgdir/usr/bin"
+
+  # There might be a better way to install this. I don't know much about Ruby
+  #  though.
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/pentbox"
+
+  # Joint script.
+  cat > "$pkgdir/usr/bin/pentbox" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/pentbox/pentbox.rb "\$@"
+EOF
+  chmod +x "$pkgdir/usr/bin/pentbox"
+}

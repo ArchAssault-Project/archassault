@@ -1,0 +1,33 @@
+pkgname=perl-netpacket
+pkgver=1.4.3
+pkgrel=2
+pkgdesc="Assemble/disassemble network packets at the protocol level"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://search.cpan.org/dist/NetPacket/'
+license=('artistic2')
+makedepends=('perl-module-build>=0.360.100')
+provides=('perl-netpacket-arp=0.43.1' 'perl-netpacket-ethernet=0.43.1'
+          'perl-netpacket-icmp=0.43.1' 'perl-netpacket-icmpv6=0.43.1'
+          'perl-netpacket-igmp=0.43.1' 'perl-netpacket-ip=0.43.1'
+          'perl-netpacket-ipv6=0.43.1' 'perl-netpacket-pflog=0.43.1'
+          'perl-netpacket-tcp=0.43.1' 'perl-netpacket-udp=0.43.1')
+options=(!emptydirs)
+source=("http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/NetPacket-$pkgver.tar.gz")
+md5sums=('9ca7dfe00957a3bcb54f3bb10671eaef')
+
+build() {
+  cd "$srcdir/NetPacket-$pkgver"
+
+  PERL_MM_USE_DEFAULT=1 perl Build.PL INSTALLDIRS=vendor
+  ./Build
+}
+
+package() {
+  cd "$srcdir/NetPacket-$pkgver"
+
+  ./Build install destdir=${pkgdir}
+
+  # Remove perllocal.pod and .packlist.
+  find ${pkgdir} -name perllocal.pod -delete
+  find ${pkgdir} -name .packlist -delete
+}

@@ -1,0 +1,22 @@
+pkgname=hotpatch
+pkgver=0.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-backdoor')
+pkgdesc="Hot patches executables on Linux using .so file injection"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.selectiveintellect.com/hotpatch.html'
+license=('BSD')
+makedepends=('cmake')
+source=("git+https://github.com/vikasnkumar/hotpatch")
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir/hotpatch"
+  make
+}
+
+package() {
+  cd "$srcdir/hotpatch"
+  make DESTDIR="$pkgdir/" install
+}

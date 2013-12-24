@@ -1,0 +1,42 @@
+pkgname=airoscript
+pkgver=20131212
+pkgrel=1
+epoch=100
+pkgdesc="Script to simplify the use of aircrack-ng tools"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://midnightresearch.com/projects/wicrawl/"
+groups=('blackarch' 'blackarch-wireless')
+license=('GPL')
+depends=('mdk3' 'aircrack-ng' 'dhclient')
+options=(!makeflags)
+source=('git+http://github.com/patrickhno/Airoscript'
+        'Makefile.patch')
+md5sums=('SKIP'
+         '441dd3a5f804f3c65c4da93b367199c1')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+prepare() {
+  cd "$srcdir/Airoscript"
+
+  patch -Np1 < "$srcdir/Makefile.patch"
+
+  find -type f -exec sed -i 's|/sbin|/bin|g' {} \;
+}
+
+package() {
+  cd "$srcdir/Airoscript"
+
+  rm -rf src/locale/*
+
+  make "prefix=$pkgdir/usr" "aircrack_prefix=/usr" "etcdir=$pkgdir/etc/airoscript" install
+
+  # Fix conflict with extra/screen.
+  #mv "$pkgdir/etc/screenrc" "$pkgdir/etc/airoscript/screenrc"
+
+  sed -i 's|/local||' "$pkgdir"/etc/airoscript/*
+  sed -i 's|/minimal.theme|defaul.theme|' "$pkgdir"/etc/airoscript/*
+# TODO: wordlist
+}

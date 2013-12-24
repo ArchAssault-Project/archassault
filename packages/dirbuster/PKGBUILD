@@ -1,0 +1,29 @@
+pkgname=dirbuster
+pkgver=1.0_RC1
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner' 'blackarch-webapp')
+pkgdesc="An application designed to brute force directories and files names on web/application servers"
+url='http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project'
+license=('LGPL')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('java-runtime')
+source=("http://downloads.sourceforge.net/dirbuster/DirBuster-${pkgver/_/-}.tar.bz2")
+md5sums=('1e53740d6761fa2305dc13986145c43a')
+
+package() {
+  cd "$srcdir"
+
+  # Base directories.
+  install -dm755 "$pkgdir/opt"
+  install -dm755 "$pkgdir/usr/bin"
+
+  cp --no-preserve=ownership -r DirBuster-${pkgver/_/-} "$pkgdir/opt/dirbuster"
+
+  cat > "$pkgdir/usr/bin/dirbuster" <<EOF
+#!/bin/sh
+cd /opt/dirbuster
+java -jar DirBuster-${pkgver/_/-}.jar "\$@"
+EOF
+  chmod +x "$pkgdir/usr/bin/dirbuster"
+}

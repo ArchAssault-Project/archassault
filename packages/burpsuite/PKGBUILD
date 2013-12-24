@@ -1,0 +1,33 @@
+pkgname=burpsuite
+pkgver=1.5
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-webapp' 'blackarch-scanner' 'blackarch-fuzzer' 'blackarch-proxy')
+pkgdesc="An integrated platform for attacking web applications (free edition)."
+url='http://portswigger.net/burp/'
+depends=('java-runtime' 'giflib')
+arch=('any')
+license=('custom')
+noextract=("burpsuite.jar")
+source=("burpsuite.jar::http://portswigger.net/burp/burpsuite_free_v${pkgver}.jar" LICENSE)
+md5sums=('2d1af3b6bd7842977747984b7c37b190'
+         'dbd98d6f92f66558bd52295028bf28fd')
+
+package() {
+  cd ${srcdir}
+
+  # Make base directories.
+  install -dm755 $pkgdir/usr/share/licenses/burpsuite
+  install -dm755 $pkgdir/usr/share/burpsuite
+  install -dm755 $pkgdir/usr/bin
+
+  install -m644 burpsuite.jar $pkgdir/usr/share/burpsuite/burpsuite.jar
+  install -m644 LICENSE $pkgdir/usr/share/licenses/burpsuite
+
+  # Make joint script.
+  cat > ${pkgdir}/usr/bin/burpsuite <<EOF
+#!/bin/sh
+exec \$JAVA_HOME/bin/java -jar /usr/share/burpsuite/burpsuite.jar "\$@"
+EOF
+  chmod +x ${pkgdir}/usr/bin/burpsuite
+}

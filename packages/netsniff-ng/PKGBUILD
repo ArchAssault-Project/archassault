@@ -1,0 +1,27 @@
+pkgname=netsniff-ng
+pkgver=0.5.7
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-sniffer')
+pkgdesc="A high performance Linux network sniffer for packet inspection."
+makedepends=(cmake)
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://netsniff-ng.org/'
+license=('GPL2')
+source=(http://pub.netsniff-ng.org/netsniff-ng/netsniff-ng-${pkgver}.tar.gz)
+md5sums=('d2da7a75d163f839129c9ebb8b0004d0')
+
+build() {
+  cd "$srcdir/netsniff-ng-${pkgver}/src"
+  [[ -d build ]] || mkdir build
+  cd build
+  cmake ..
+  make
+}
+
+package() {
+  cd "$srcdir/netsniff-ng-${pkgver}/src"
+  cd build
+  make DESTDIR="$pkgdir" install
+  mv "$pkgdir/usr/sbin" "$pkgdir/usr/bin"
+}

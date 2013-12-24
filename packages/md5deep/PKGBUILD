@@ -1,0 +1,24 @@
+pkgname=md5deep
+pkgver=4.3
+pkgrel=1
+epoch=100
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('blackarch' 'blackarch-forensic')
+pkgdesc="Advanced checksum hashing tool"
+url='http://md5deep.sourceforge.net'
+license=('custom')
+source=("http://downloads.sourceforge.net/md5deep/md5deep-$pkgver.tar.gz")
+md5sums=('f172e686ca1df83a53308ad90f7f706d')
+
+build() {
+  cd "$srcdir/md5deep-$pkgver"
+
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/md5deep-$pkgver"
+
+  make "DESTDIR=$pkgdir" install
+}

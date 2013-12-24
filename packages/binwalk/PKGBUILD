@@ -1,0 +1,25 @@
+pkgname=binwalk
+pkgver=1.2.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-misc')
+pkgdesc="A tool for searching a given binary image for embedded files"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://code.google.com/p/binwalk/'
+license=('MIT')
+depends=('python2' 'python2-magic' 'python2-matplotlib')
+provides=('binwalk')
+source=("https://binwalk.googlecode.com/files/binwalk-$pkgver.tar.gz")
+md5sums=('77da02cbc2c6dbe80ec7f1e759e0224d')
+
+prepare() {
+  cd "$srcdir/binwalk-$pkgver/src"
+
+  sed -i 's/env python$/env python2/' bin/binwalk
+}
+
+package() {
+  cd "$srcdir/binwalk-$pkgver/src"
+
+  python2 setup.py install "--root=$pkgdir" --optimize=1
+}

@@ -1,0 +1,24 @@
+pkgname=libewf
+pkgver=20130416
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-forensic')
+pkgdesc="A library for support of the Expert Witness Compression Format (EWF)"
+url='https://code.google.com/p/libewf/'
+license=('LGPL3')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('util-linux' 'openssl')
+options=(!libtool)
+source=(http://kfgz.mydevil.net/libewf-${pkgver}.tar.gz)
+md5sums=('3791d6de5910a0f6b4427cdf1e6bc663')
+
+build() {
+  cd "$srcdir"/libewf-${pkgver}
+  ./configure --prefix=/usr --sysconfdir=/etc
+  make
+}
+
+package() {
+  cd "$srcdir"/libewf-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}

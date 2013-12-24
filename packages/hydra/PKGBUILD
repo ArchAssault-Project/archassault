@@ -1,0 +1,40 @@
+pkgname=hydra
+pkgver=7.4.2
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-cracker')
+pkgdesc="A very fast network logon cracker which support many different services."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.thc.org/thc-hydra/'
+license="GPL3"
+depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn')
+source=("git+https://github.com/BlackArch/hydra.git"
+        "fix-locations.patch")
+md5sums=('SKIP'
+         '869ca964fac894a670806d27a51ec843')
+
+prepare() {
+  cd $srcdir/hydra
+  patch -p1 < ../fix-locations.patch
+}
+
+build() {
+  cd $srcdir/hydra
+
+  ./configure
+  make
+}
+
+package() {
+  cd $srcdir/hydra
+
+  # Needed or else make install will not
+  # install sample default password files.
+  install -dm755 $pkgdir/usr/etc
+  make PREFIX=$pkgdir/usr install
+
+  # Conform to the FHS.
+  install -dm755 "$pkgdir/usr/share" "$pkgdir/etc"
+  mv "$pkgdir/usr/man" "$pkgdir/usr/share"
+  mv "$pkgdir/usr/etc" "$pkgdir/etc/hydra"
+}

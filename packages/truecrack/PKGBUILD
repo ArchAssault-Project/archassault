@@ -1,0 +1,26 @@
+pkgname=truecrack
+pkgver=35
+pkgrel=2
+epoch=100
+#groups=('blackarch' 'blackarch-cracker')
+pkgdesc="Password cracking for truecrypt(c) volumes."
+url="http://code.google.com/p/truecrack/"
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('cuda')
+source=("http://truecrack.googlecode.com/files/truecrack_v$pkgver.tar.gz")
+md5sums=('4f5b8a98322bcb22942d84c54dc347e4')
+
+build() {
+  cd "$srcdir/truecrack"
+
+  export PATH=$PATH:/opt/cuda/bin
+
+  ./configure
+  make
+}
+
+package() {
+  cd "$srcdir/truecrack"
+  make DESTDIR="$pkgdir" install
+}

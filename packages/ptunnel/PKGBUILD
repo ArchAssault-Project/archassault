@@ -1,0 +1,22 @@
+pkgname=ptunnel
+pkgver=0.72
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-tunnel' 'blackarch-networking')
+pkgdesc="A tool for reliably tunneling TCP connections over ICMP echo request and reply packets"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.cs.uit.no/~daniels/PingTunnel/#download'
+license=('BSD')
+source=(http://www.cs.uit.no/~daniels/PingTunnel/PingTunnel-$pkgver.tar.gz)
+md5sums=('c5f0c36d1a48d84ce7b5217f1ba52dd0')
+
+build() {
+  cd "$srcdir/PingTunnel"
+  make
+}
+
+package() {
+  cd "$srcdir/PingTunnel"
+  install -Dm755 ptunnel "$pkgdir/usr/bin/ptunnel"
+}
+

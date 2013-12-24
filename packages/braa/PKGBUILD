@@ -1,0 +1,25 @@
+pkgname=braa
+pkgver=0.82
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-scanner')
+pkgdesc="A mass snmp scanner"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://s-tech.elsat.net.pl/braa/'
+license=('GPL')
+depends=('glibc')
+makedepends=('subversion' 'nasm')
+provides=('nbtool' 'dnscat')
+source=("http://s-tech.elsat.net.pl/braa/braa-$pkgver.tar.gz")
+md5sums=('e28f8b0591672de9aaa7dcf54332f6ce')
+
+build() {
+  cd "$srcdir/braa-$pkgver"
+  make CFLAGS="$CFLAGS"
+}
+
+package() {
+  cd "$srcdir/braa-$pkgver"
+  install -Dm755 braa $pkgdir/usr/bin/braa
+  install -Dm644 README $pkgdir/usr/share/doc/braa/README
+}

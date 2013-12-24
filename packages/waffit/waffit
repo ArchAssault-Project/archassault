@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /usr/src/waffit
+python2 ./wafw00f.py "$@"

@@ -1,0 +1,32 @@
+pkgname=spooftooph
+pkgver=0.5
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-bluetooth')
+pkgdesc="Designed to automate spoofing or cloning Bluetooth device Name, Class, and Address. Cloning this information effectively allows Bluetooth device to hide in plain sight"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.hackfromacave.com/projects/spooftooph.html'
+license=('GPL')
+depends=('bluez' 'bluez-libs' 'ncurses')
+source=(http://downloads.sourceforge.net/spooftooph/spooftooph-$pkgver.tar.gz)
+md5sums=('2912c2c6ab8709835a963f77079669c2')
+
+build() {
+  cd "${srcdir}/spooftooph"
+  make
+}
+
+package() {
+  cd "${srcdir}/spooftooph"
+
+  # Make base directories.
+  install -dm755 $pkgdir/usr/bin
+  install -dm755 $pkgdir/usr/share/doc/spooftooph
+
+  # Install bin.
+  install -Dm755 $srcdir/spooftooph/spooftooph $pkgdir/usr/share/spooftooph/spooftooph
+  ln -sf /usr/share/spooftooph/spooftooph $pkgdir/usr/bin/spooftooph
+
+  # Install docs.
+  install -m644 CHANGELOG README $pkgdir/usr/share/doc/spooftooph
+}

@@ -1,0 +1,116 @@
+pkgname=metasploit
+pkgver=2013120401.90.g0c5d748
+pkgrel=1
+epoch=100
+groups=('blackarch' 'blackarch-exploitation' 'blackarch-fuzzer' 'blackarch-scanner')
+pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
+depends=('ruby1.9' 'libpcap' 'postgresql-libs' 'ruby1.9-activesupport>=3.0.0' 'ruby1.9-bcrypt-ruby' 'ruby1.9-json' 'ruby1.9-msgpack' 'ruby1.9-nokogiri' 'ruby1.9-packetfu=1.1.9' 'ruby1.9-activerecord' 'ruby1.9-metasploit_data_models' 'ruby1.9-pg>=0.11' 'ruby1.9-network_interface' 'ruby1.9-pcaprub' 'ruby1.9-redcarpet' 'ruby1.9-yard' 'ruby1.9-factory_girl>=4.1.0' 'ruby1.9-fivemat=1.2.1' 'ruby1.9-rake>=10.0.0' 'ruby1.9-database_cleaner' 'ruby1.9-rspec>=2.12' 'ruby1.9-shoulda-matchers' 'ruby1.9-simplecov=0.5.4' 'ruby1.9-timecop')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+optdepends=('java-runtime: msfgui'
+            'dradis: dradisis database system'
+            'postgresql: database')
+makedepends=('git')
+url='http://www.metasploit.com'
+license=('BSD')
+options=('!strip')
+source=('git+https://github.com/rapid7/metasploit-framework')
+md5sums=('SKIP')
+
+pkgver() {
+  cd metasploit-framework
+  git describe --always | sed 's|-|.|g'
+}
+
+package() {
+  cd "$srcdir/metasploit-framework"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/etc"
+  install -dm755 "$pkgdir/usr/share/metasploit"
+  install -dm755 "$pkgdir/usr/share/doc/metasploit"
+
+  # Shareable.
+  cp --no-preserve=ownership -R documentation/* "$pkgdir/usr/share/doc/metasploit"
+  cp --no-preserve=ownership README.md "$pkgdir/usr/share/doc/metasploit"
+
+  # Source + Bin.
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/metasploit"
+  rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
+
+  # Conform to the FHS.
+  mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
+  ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
+
+  cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfbinscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfcli" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfcli "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfconsole" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfconsole "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfd" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfd "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfelfscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfelfscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfencode" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfencode "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfmachscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfmachscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfpayload" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfpayload "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfpescan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfpescan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrop" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrop "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrpc" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrpc "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrpcd" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrpcd "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfvenom" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfvenom "\$@"
+EOF
+
+  chmod +x "$pkgdir"/usr/bin/*
+}
