@@ -28,7 +28,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/beef"
 
-  # BlackArch fixes applied to the Gemfile.
+  # ArchAssault fixes applied to the Gemfile.
   # We're changing gem "eventmachine", "0.12.10"
   # to             gem "eventmachine", ">=0.12.10"
   sed -i 's|0.12.10|>=0.12.10|' "$pkgdir/usr/share/beef/Gemfile"

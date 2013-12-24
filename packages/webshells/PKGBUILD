@@ -4,10 +4,10 @@ pkgrel=1
 epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-backdoor')
 pkgdesc="Web Backdoors"
-url="https://github.com/BlackArch/webshells"
+url="https://github.com/ArchAssault/webshells"
 arch=('any')
 license=('custom')
-source=("git+https://github.com/BlackArch/webshells.git")
+source=("git+https://github.com/ArchAssault/webshells.git")
 md5sums=('SKIP')
 
 pkgver() {

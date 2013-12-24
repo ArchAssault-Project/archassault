@@ -5,10 +5,10 @@ epoch=100
 groups=('archassault' 'archassault-automation' 'archassault-exploitation')
 pkgdesc='Fetch, install and search exploit archives from exploit sites.'
 arch=('any')
-url='https://github.com/BlackArch/sploitctl'
+url='https://github.com/ArchAssault/sploitctl'
 license=('unknown')
-source=('https://raw.github.com/BlackArch/sploitctl/master/sploitctl.sh'
-        'https://raw.github.com/BlackArch/sploitctl/master/web/url.lst')
+source=('https://raw.github.com/ArchAssault/sploitctl/master/sploitctl.sh'
+        'https://raw.github.com/ArchAssault/sploitctl/master/web/url.lst')
 md5sums=('6f0cef4019c67fe16f94aa942d295925'
          'ddbb43fd09aa41d647cca60ebaf385d4')
 

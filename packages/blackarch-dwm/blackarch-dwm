@@ -2,7 +2,7 @@
 
 while true
 do
-  xsetroot -name "BlackArch - $(date +"%a %b %d %r")"
+  xsetroot -name "ArchAssault - $(date +"%a %b %d %r")"
   sleep 1
 done &
 exec dwm

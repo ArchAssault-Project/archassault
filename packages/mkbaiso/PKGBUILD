@@ -2,12 +2,12 @@ pkgname=mkbaiso
 pkgver=13
 pkgrel=1
 epoch=100
-pkgdesc="Tools for creating BlackArch Linux live and install iso images"
+pkgdesc="Tools for creating ArchAssault Linux live and install iso images"
 arch=('any')
-url="https://github.com/BlackArch/mkbaiso"
+url="https://github.com/ArchAssault/mkbaiso"
 license=('GPL')
 depends=('archiso')
-source=("git+http://github.com/BlackArch/mkbaiso.git")
+source=("git+http://github.com/ArchAssault/mkbaiso.git")
 md5sums=('SKIP')
 
 package() {

@@ -3,7 +3,7 @@ post_upgrade() {
 		usr/bin/pacman-key --populate archassault
 	else
 		echo " >>> Run \`pacman-key --init\` to set up your pacman keyring."
-		echo " >>> Then run \`pacman-key --populate archassault\` to install the BlackArch keyring."
+		echo " >>> Then run \`pacman-key --populate archassault\` to install the ArchAssault keyring."
 	fi
 }
 

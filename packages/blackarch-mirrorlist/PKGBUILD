@@ -1,7 +1,7 @@
 pkgname=archassault-mirrorlist
 pkgver=20131217
 pkgrel=1
-pkgdesc="BlackArch Linux mirror list for use by pacman"
+pkgdesc="ArchAssault Linux mirror list for use by pacman"
 arch=('any')
 url="http://www.archassault.org/mirrorlist/"
 license=('GPL')

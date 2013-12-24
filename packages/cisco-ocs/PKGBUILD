@@ -10,7 +10,7 @@ license=('GPL2')
 depends=('gcc')
 # The true source is "http://www.question-defense.com/wp-content/uploads/OCS-0.2.c"
 #  but it will not download due to a User-agent string issue
-source=("git+https://github.com/BlackArch/cisco-ocs.git")
+source=("git+https://github.com/ArchAssault/cisco-ocs.git")
 md5sums=('SKIP')
 
 build() {

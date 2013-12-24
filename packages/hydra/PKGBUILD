@@ -8,7 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.thc.org/thc-hydra/'
 license="GPL3"
 depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn')
-source=("git+https://github.com/BlackArch/hydra.git"
+source=("git+https://github.com/ArchAssault/hydra.git"
         "fix-locations.patch")
 md5sums=('SKIP'
          '869ca964fac894a670806d27a51ec843')

@@ -8,7 +8,7 @@ url="http://www.digitalforensicssolutions.com/Scalpel/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL2')
 depends=('glibc' 'tre')
-source=('git+http://github.com/BlackArch/Scalpel-2.0'
+source=('git+http://github.com/ArchAssault/Scalpel-2.0'
         'conf-location.patch')
 md5sums=('SKIP'
          '2a6d0cab099b10a599208ec1081bdab3')

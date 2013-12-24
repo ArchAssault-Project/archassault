@@ -7,7 +7,7 @@ pkgdesc="A fast, asynchronous DNS scanner; it can be used for enumerating subdom
 url="http://www.blackhatlibrary.net/Dripper"
 arch=('any')
 license=('custom')
-source=("git+https://github.com/BlackArch/dripper.git")
+source=("git+https://github.com/ArchAssault/dripper.git")
 md5sums=('SKIP')
 
 pkgver() {

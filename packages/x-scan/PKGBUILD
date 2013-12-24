@@ -7,7 +7,7 @@ url='http://www.xfocus.org/'
 groups=('archassault' 'archassault-windows')
 license=('custom')
 arch=('any')
-source=("https://github.com/BlackArch/x-scan/raw/master/X-Scan-v$pkgver.zip")
+source=("https://github.com/ArchAssault/x-scan/raw/master/X-Scan-v$pkgver.zip")
 md5sums=('5cb7b849f16580b431d16700b343b9f6')
 
 package() {
