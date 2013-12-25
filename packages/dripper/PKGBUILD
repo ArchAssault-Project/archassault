@@ -1,17 +1,16 @@
 pkgname=dripper
-pkgver=v1.r1.gc9bb0c9
-pkgrel=1
+pkgver=20131225
+pkgrel=3
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A fast, asynchronous DNS scanner; it can be used for enumerating subdomains and enumerating boxes via reverse DNS."
 url="http://www.blackhatlibrary.net/Dripper"
 arch=('any')
 license=('custom')
-source=("git+https://github.com/ArchAssault/dripper.git")
+source=("git+https://github.com/ArchAssault-Project/dripper.git")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/dripper"
-  git describe --tags | sed -E 's/([^-]*-g)/r\1/;s/-/./g'
+  date +%Y%m%d
 }
 
 build(){
@@ -24,6 +23,12 @@ package() {
 
   # Base directories.
   install -dm755 "$pkgdir/usr/bin/"
-
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+ 
+  #Doc
+  install -m644 subs.txt "$pkgdir/usr/share/$pkgname"
+  install -m644 resolv.conf "$pkgdir/usr/share/$pkgname"
+ 
+  #Bin
   install -m755 dripper "$pkgdir/usr/bin/"
 }
