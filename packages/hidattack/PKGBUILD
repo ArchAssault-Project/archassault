@@ -1,7 +1,6 @@
 pkgname=hidattack
 pkgver=0.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-bluetooth')
 pkgdesc="HID Attack (attacking HID host implementations)"
 url='http://mulliner.org/bluetooth/hidattack.php'

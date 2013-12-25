@@ -2,7 +2,6 @@ pkgname=ruby-ronin-web
 _gemname=ronin-web
 pkgver=0.2.1
 pkgrel=1
-epoch=100
 pkgdesc="Ronin Web is a Ruby library for Ronin that provides support for web scraping and spidering functionality"
 arch=('any')
 license=('GPL3')

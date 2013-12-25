@@ -1,7 +1,6 @@
 pkgname=aesfix
 pkgver=1.0.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-forensic' 'archassault-cracker')
 pkgdesc="A tool to find AES key in RAM"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

@@ -1,7 +1,6 @@
 pkgname=mitmproxy
 pkgver=0.8
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-proxy' 'archassault-exploitation')
 pkgdesc="SSL-capable man-in-the-middle HTTP proxy"
 arch=('any')

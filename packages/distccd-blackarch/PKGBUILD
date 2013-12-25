@@ -3,7 +3,6 @@ pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")
 pkgver=4.7.2
 pkgrel=1
-epoch=100
 pkgdesc="An x-tools & distcc services package for ArchAssault ARM only for x86_64"
 arch=('x86_64')
 license=('GPL' )

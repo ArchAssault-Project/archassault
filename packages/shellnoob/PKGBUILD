@@ -1,7 +1,6 @@
 pkgname=shellnoob
 pkgver=2.0.0.0.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-exploitation' 'archassault-debugger')
 pkgdesc="A toolkit that eases the writing and debugging of shellcode"
 url="https://github.com/reyammer/shellnoob"

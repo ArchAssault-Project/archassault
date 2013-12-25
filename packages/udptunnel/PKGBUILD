@@ -1,7 +1,6 @@
 pkgname=udptunnel
 pkgver=19
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-tunnel' 'archassault-networking')
 pkgdesc="Tunnels TCP over UDP packets."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

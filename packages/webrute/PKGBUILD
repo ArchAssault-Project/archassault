@@ -1,7 +1,6 @@
 pkgname=webrute
 pkgver=3.3
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-scanner')
 pkgdesc='Web server directory brute forcer.'
 arch=('any')

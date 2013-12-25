@@ -2,7 +2,6 @@ pkgname=arachni
 _gemname=arachni
 pkgver=0.4.5.2
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp')
 pkgdesc="Arachni is a feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications."
 arch=('any')

@@ -1,7 +1,6 @@
 pkgname=sqlbrute
 pkgver=1.0
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
 pkgdesc="Brute forces data out of databases using blind SQL injection."
 arch=('any')
