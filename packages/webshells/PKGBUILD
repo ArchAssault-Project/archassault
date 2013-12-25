@@ -1,12 +1,12 @@
 pkgname=webshells
-pkgver=0.r6.690ebd9
+pkgver=0.r2.4e96370
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-backdoor')
 pkgdesc="Web Backdoors"
-url="https://github.com/ArchAssault/webshells"
+url="https://github.com/ArchAssault-Project/webshells"
 arch=('any')
 license=('custom')
-source=("git+https://github.com/ArchAssault/webshells.git")
+source=("git+https://github.com/ArchAssault-Project/webshells.git")
 md5sums=('SKIP')
 
 pkgver() {
