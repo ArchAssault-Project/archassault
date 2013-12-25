@@ -11,5 +11,5 @@ md5sums=('SKIP')
 
 package() {
   cd "$srcdir/mkassaultiso"
-  install -Dm755 "mkbassaultiso" $pkgdir/usr/bin/mkassaultiso
+  install -Dm755 "mkassaultiso" $pkgdir/usr/bin/mkassaultiso
 }
