@@ -1,5 +1,5 @@
 post_install () {
-	echo "You have to execute 'cp /usr/share/oh-my-zsh/zshrc ~/.zshrc' to use it."
+	echo "You have to execute 'cp /usr/share/oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc' to use it."
 }
 
 post_remove () {
