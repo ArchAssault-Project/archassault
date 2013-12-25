@@ -12,7 +12,7 @@ optdepends=('ruby: for some plugin functionality')
 install='oh-my-zsh-git.install'
 conflicts=('oh-my-zsh-git')
 provides=('oh-my-zsh-git')
-source=("git+https://github.com/ArchAssault/oh-my-zsh.git")
+source=("git+https://github.com/ArchAssault-Project/oh-my-zsh.git")
 md5sums=('SKIP')
  
 pkgver() {
