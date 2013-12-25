@@ -1,7 +1,6 @@
 pkgname=cowpatty
 pkgver=4.6
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="Wireless WPA/WPA2 PSK handshake cracking utility"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

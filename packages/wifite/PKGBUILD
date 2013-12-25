@@ -1,7 +1,6 @@
 pkgname=wifite
 pkgver=2
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="A tool to attack multiple WEP and WPA encrypted networks at the same time"
 arch=('any')

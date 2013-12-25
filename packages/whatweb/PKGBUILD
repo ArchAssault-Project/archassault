@@ -1,7 +1,6 @@
 pkgname=whatweb
 pkgver=0.4.7
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-recon')
 pkgdesc="Next generation web scanner that identifies what websites are running."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

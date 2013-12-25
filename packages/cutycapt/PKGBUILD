@@ -1,7 +1,6 @@
 pkgname=cutycapt
 pkgver=20131208
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-recon')
 pkgdesc="A Qt and WebKit based command-line utility that captures WebKit's rendering of a web page."
 arch=('any')

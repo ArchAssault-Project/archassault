@@ -1,7 +1,6 @@
 pkgname=sniffjoke
 pkgver=0.4.1
 pkgrel=1
-epoch=100
 license=(GPL)
 groups=('archassault' 'archassault-defensive')
 pkgdesc="Injects packets in the transmission flow that are able to seriously disturb passive analysis like sniffing, interception and low level information theft"

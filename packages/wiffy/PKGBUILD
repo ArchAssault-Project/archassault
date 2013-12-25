@@ -1,7 +1,6 @@
 pkgname=wiffy
 pkgver=0.2
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless' 'archassault-automation')
 pkgdesc="An Automated wifi hacking script"
 url="https://code.google.com/p/g0tmi1k/"

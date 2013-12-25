@@ -1,7 +1,6 @@
 pkgname=javasnoop
 pkgver=1.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A tool that lets you intercept methods, alter data and otherwise hack Java applications running on your computer"
 url="https://code.google.com/p/javasnoop/"

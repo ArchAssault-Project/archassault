@@ -1,7 +1,6 @@
 pkgname=dotdotpwn
 pkgver=3.0
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-fuzzer' 'archassault-exploitation')
 pkgdesc="The Transversal Directory Fuzzer"
 url="http://dotdotpwn.blogspot.com"

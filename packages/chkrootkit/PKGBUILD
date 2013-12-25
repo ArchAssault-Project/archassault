@@ -1,7 +1,6 @@
 pkgname=chkrootkit
 pkgver=0.49
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-defensive' 'archassault-forensic')
 pkgdesc="Checks for rootkits on a system"
 url="http://www.chkrootkit.org/"

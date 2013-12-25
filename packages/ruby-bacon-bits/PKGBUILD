@@ -2,7 +2,6 @@ pkgname=ruby-bacon-bits
 _gemname=${pkgname#ruby-}
 pkgver=0.1.0
 pkgrel=1
-epoch=100
 pkgdesc="Making bacon a little tastier."
 arch=('any')
 license=('custom')

@@ -1,7 +1,6 @@
 pkgname=smtpscan
 pkgver=0.5
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-fingerprint')
 pkgdesc="An SMTP scanner"
 arch=('any')

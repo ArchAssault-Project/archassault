@@ -2,7 +2,6 @@ pkgname=ruby-combinatorics
 _gemname=${pkgname#ruby-}
 pkgver=0.4.3
 pkgrel=1
-epoch=100
 pkgdesc="Bringing (more) Combinatorics to Ruby"
 arch=('any')
 license=('custom')

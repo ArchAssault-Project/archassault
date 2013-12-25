@@ -1,7 +1,6 @@
 pkgname=missidentify
 pkgver=1.0
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-windows' 'archassault-recon')
 pkgdesc="A program to find Win32 applications"
 url='http://missidentify.sourceforge.net/'

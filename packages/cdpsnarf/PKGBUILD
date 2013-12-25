@@ -1,7 +1,6 @@
 pkgname=cdpsnarf
 pkgver=0.1.6
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-sniffer')
 pkgdesc="Cisco discovery protocol sniffer"
 url="https://github.com/Zapotek/cdpsnarf"

@@ -1,7 +1,6 @@
 pkgname=dnsmap
 pkgver=0.30
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-fingerprint')
 pkgdesc="Passive DNS network mapper"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

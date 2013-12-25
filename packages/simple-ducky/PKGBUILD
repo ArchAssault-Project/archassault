@@ -1,7 +1,6 @@
 pkgname=simple-ducky
 pkgver=1.1.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-automation' 'archassault-exploitation')
 pkgdesc="A payload generator"
 url="https://code.google.com/p/simple-ducky-payload-generator"

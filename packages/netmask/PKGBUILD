@@ -1,7 +1,6 @@
 pkgname=netmask
 pkgver=2.3.12
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-recon')
 pkgdesc="Helps determine network masks"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

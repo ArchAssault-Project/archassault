@@ -1,7 +1,6 @@
 pkgname=cookie-cadger
 pkgver=1.06
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-scanner' 'archassault-fuzzer')
 pkgdesc="An auditing tool for Wi-Fi or wired Ethernet connections"
 url="https://cookiecadger.com/"
