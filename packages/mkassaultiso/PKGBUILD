@@ -1,16 +1,15 @@
-pkgname=mkbaiso
+pkgname=mkassaultiso
 pkgver=13
 pkgrel=1
-epoch=100
 pkgdesc="Tools for creating ArchAssault Linux live and install iso images"
 arch=('any')
-url="https://github.com/ArchAssault/mkbaiso"
-license=('GPL')
+url="https://github.com/ArchAssault-Project/mkassaultiso"
+license=('GPL3')
 depends=('archiso')
-source=("git+http://github.com/ArchAssault/mkbaiso.git")
+source=("git+https://github.com/ArchAssault-Project/mkassaultiso.git")
 md5sums=('SKIP')
 
 package() {
-  cd "$srcdir/mkbaiso"
-  install -Dm755 "mkbaiso" $pkgdir/usr/bin/mkbaiso
+  cd "$srcdir/mkassaultiso"
+  install -Dm755 "mkbassaultiso" $pkgdir/usr/bin/mkassaultiso
 }
