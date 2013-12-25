@@ -1,7 +1,6 @@
 pkgname=ufo-wardriving
 pkgver=4
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="Allows you to test the security of wireless networks by detecting their passwords based on the router model"
 url="http://www.ufo-wardriving.com/"

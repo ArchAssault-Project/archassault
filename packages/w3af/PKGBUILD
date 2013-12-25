@@ -1,7 +1,6 @@
 pkgname=w3af
 pkgver=1.5
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanner')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

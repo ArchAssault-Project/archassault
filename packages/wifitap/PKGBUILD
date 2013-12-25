@@ -2,7 +2,6 @@ _gitname="GDSSecurity"
 pkgname=wifitap
 pkgver=2b16088
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless')
 pkgdesc="WiFi injection tool through tun/tap device"
 arch=('any')

@@ -1,7 +1,6 @@
 pkgname=fierce
 pkgver=0.9.9
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A DNS scanner"
 arch=('any')

@@ -1,7 +1,6 @@
 pkgname=webslayer
 pkgver=5
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp')
 pkgdesc="A tool designed for brute forcing Web Applications"
 arch=('any')

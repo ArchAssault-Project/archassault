@@ -1,7 +1,6 @@
 pkgname=recstudio
 pkgver=4.0_20130717
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-reversing' 'archassault-decompiler')
 pkgdesc="Cross platform interactive decompiler"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

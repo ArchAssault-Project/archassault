@@ -1,7 +1,6 @@
 pkgname=bt_audit
 pkgver=0.1.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-bluetooth' 'archassault-fuzzer')
 pkgdesc="Bluetooth audit"
 url='http://www.betaversion.net/btdsd/download/'

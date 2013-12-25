@@ -1,7 +1,6 @@
 pkgname=wmat
 pkgver=latest
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp' 'archassault-cracker')
 pkgdesc="Automatic tool for testing webmail accounts"
 arch=('any')

@@ -1,7 +1,6 @@
 pkgname=cewl
 pkgver=4.3
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-automation' 'archassault-cracker')
 pkgdesc='A custom word list generator'
 arch=('any')

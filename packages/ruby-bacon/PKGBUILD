@@ -2,7 +2,6 @@ pkgname=ruby-bacon
 _gemname=${pkgname#ruby-}
 pkgver=1.2.0
 pkgrel=1
-epoch=100
 pkgdesc="a small RSpec clone"
 arch=('any')
 license=('custom')

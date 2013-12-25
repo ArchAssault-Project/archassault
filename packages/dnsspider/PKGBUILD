@@ -1,7 +1,6 @@
 pkgname=dnsspider
 pkgver=0.4
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-scanner' 'archassault-recon')
 pkgdesc="A very fast multithreaded bruteforcer of subdomains that leverages a wordlist and/or character permutation"
 url='http://nullsecurity.net/tools/scanner.html'

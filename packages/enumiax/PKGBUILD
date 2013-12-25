@@ -1,7 +1,6 @@
 pkgname=enumiax
 pkgver=1.0
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-scanner')
 pkgdesc="IAX enumerator"
 url='http://sourceforge.net/projects/enumiax/'

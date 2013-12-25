@@ -1,7 +1,6 @@
 pkgname=xsser
 pkgver=1.6
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-webapp')
 pkgdesc="A penetration testing tool for detecting and exploiting XSS vulnerabilites."
 arch=('any')

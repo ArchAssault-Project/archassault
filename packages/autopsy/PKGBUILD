@@ -1,7 +1,6 @@
 pkgname=autopsy
 pkgver=2.24
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-forensic')
 pkgdesc="A GUI for The Sleuth Kit."
 arch=('any')

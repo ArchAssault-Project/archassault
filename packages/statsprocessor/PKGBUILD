@@ -1,7 +1,6 @@
 pkgname=statsprocessor
 pkgver=0.082
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A high-performance word-generator based on per-position Markov-attack"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

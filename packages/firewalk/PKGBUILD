@@ -1,7 +1,6 @@
 pkgname=firewalk
 pkgver=5.0
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-fuzzer' 'archassault-scanner')
 pkgdesc="An active reconnaissance network security tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

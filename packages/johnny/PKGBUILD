@@ -1,7 +1,6 @@
 pkgname=johnny
 pkgver=20120424
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-cracker')
 pkgdesc="GUI for John the Ripper"
 url='http://openwall.info/wiki/john/johnny'

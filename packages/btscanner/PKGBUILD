@@ -1,7 +1,6 @@
 pkgname=btscanner
 pkgver=2.1
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-bluetooth' 'archassault-scanner')
 pkgdesc="Bluetooth device scanner."
 url='http://www.pentest.co.uk'

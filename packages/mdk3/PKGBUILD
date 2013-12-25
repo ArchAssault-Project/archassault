@@ -1,7 +1,6 @@
 pkgname=mdk3
 pkgver=6
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-wireless' 'archassault-fuzzer')
 pkgdesc="WLAN penetration tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

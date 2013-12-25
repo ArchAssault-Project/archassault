@@ -1,7 +1,6 @@
 pkgname=sipcrack
 pkgver=0.2
 pkgrel=1
-epoch=100
 groups=('archassault' 'archassault-cracker' 'archassault-voip')
 pkgdesc="A SIP protocol login cracker."
 license=('custom')
