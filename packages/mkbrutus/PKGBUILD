@@ -1,0 +1,32 @@
+pkgname=mkbrutus
+pkgver=20131226
+pkgrel=1
+groups=('archassault' 'archassault-fuzzer')
+pkgdesc="A tool developed in Python 3 that performs bruteforce attacks (dictionary-based) systems against RouterOS (ver. 3.x or newer) which have the 8728/TCP port open."
+url="http://mkbrutusproject.github.io/MKBRUTUS/"
+arch=('any')
+license=('GPL3')
+depends=('python')
+source=("git+https://github.com/mkbrutusproject/MKBRUTUS.git")
+md5sums=('SKIP')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+package() {
+  cd "$srcdir/MKBRUTUS"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
+
+cat > "$pkgdir/usr/bin/mkbrutus" << EOF
+#!/bin/sh
+cd /usr/share/mkbrutus
+python mkbrutus.py "\$@"
+EOF
+chmod +x "$pkgdir/usr/bin/mkbrutus"
+}
