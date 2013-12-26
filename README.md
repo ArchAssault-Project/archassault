@@ -7,19 +7,21 @@ We aim to give you everything you love about Arch Linux but designed around the 
 i686, x86_64, armv6h & armv7h.
 
 Our ARM based branch is designed to help build the security devices you desire, we also have support for drones (fixed wing, copters, micros)
-We Officially support the following ARM & AP hardware:
-ARM Boards:
-Beaglebone White
-Beaglebone Black
-Beaglebone-XM
-Gumstix Overo
-Raspberry Pi
-ODroid-XU
 
-AP Platforms:
-ArduPilot
-MatrixPilot
-Paprazzi
+We Officially support the following ARM & AP hardware:
+
+- ARM Boards:
+* Beaglebone White
+* Beaglebone Black
+* Beaglebone-XM
+* Gumstix Overo
+* Raspberry Pi
+* ODroid-XU
+
+- AP Platforms:
+* ArduPilot
+* MatrixPilot
+* Paprazzi
 
 If you would like to see your board officially supported please consider a donation to the team.
 
