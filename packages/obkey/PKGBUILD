@@ -1,7 +1,6 @@
 pkgname=obkey
 pkgver=1.0
 pkgrel=4
-epoch=100
 pkgdesc='Openbox Key Editor'
 arch=('any')
 url="http://code.google.com/p/obkey"
