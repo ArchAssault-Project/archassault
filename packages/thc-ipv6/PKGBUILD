@@ -7,7 +7,7 @@ url='http://thc.org/thc-ipv6/'
 depends=('libpcap' 'openssl')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=(GPL)
-source=("git+https://github.com/ArchAssault/thc-ipv6.git")
+source=("git+https://github.com/ArchAssault-Project/thc-ipv6.git")
 md5sums=('SKIP')
 
 prepare() {

@@ -6,7 +6,7 @@ arch=('any')
 license=('GPL2' 'custom')
 depends=('pcre' 'openssl' 'ca-certificates')
 url="http://freeworld.thc.org/releases.php"
-source=("git+https://github.com/ArchAssault/amap.git"
+source=("git+https://github.com/ArchAssault-Project/amap.git"
         "pcre.patch")
 md5sums=('SKIP'
          '1578a2075797fdeaba29918349905449')

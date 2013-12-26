@@ -1,0 +1,32 @@
+pkgname=backfuzz
+pkgver=20131226
+pkgrel=1
+groups=('archassault' 'archassault-fuzzer')
+pkgdesc="A protocol fuzzing toolkit."
+url="https://github.com/localh0t/backfuzz"
+arch=('any')
+license=('GPL3')
+depends=('python2')
+source=("git+https://github.com/localh0t/backfuzz.git")
+md5sums=('SKIP')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+package() {
+  cd "$srcdir/backfuzz"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
+
+cat > "$pkgdir/usr/bin/backfuzz" << EOF
+#!/bin/sh
+cd /usr/share/backfuzz
+python2 backfuzz.py "\$@"
+EOF
+chmod +x "$pkgdir/usr/bin/backfuzz"
+}
