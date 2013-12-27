@@ -1,0 +1,34 @@
+pkgname=mutator
+pkgver=0.2.2
+pkgrel=1
+groups=('archassault' 'archassault-wordlists')
+pkgdesc="A tool for arp posioning and dns poisoning attacks, written in python."
+url="https://github.com/ntrippar/ARPwner"
+arch=('any')
+license=('GPL3')
+depends=()
+source=("https://bitbucket.org/alone/mutator/downloads/mutator_release-v$pkgver-1-gc29ce2b.tar.gz")
+md5sums=('0c35a453680b72577eb0930695bea752')
+
+
+build(){
+  cd "$srcdir/mutator"
+  make
+}
+
+package() {
+  cd "$srcdir/mutator"
+
+  #Base directories
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+ 
+  #Docs
+  install -m644 README "$pkgdir/usr/share/$pkgname"
+  install -m644 COPYING "$pkgdir/usr/share/$pkgname"
+
+  #Bin
+  install -m755 mutator "$pkgdir/usr/bin/mutator"
+ 
+ 
+}
