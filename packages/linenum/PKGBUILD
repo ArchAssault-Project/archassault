@@ -1,0 +1,30 @@
+pkgname=linenum
+pkgver=20131227
+pkgrel=1
+groups=('archassault' 'archassault-scanner')
+pkgdesc="Scripted Local Linux Enumeration & Privilege Escalation Checks"
+url="https://github.com/rebootuser/LinEnum"
+arch=('any')
+license=('GPL3')
+depends=('bash')
+source=("git+https://github.com/rebootuser/LinEnum.git")
+md5sums=('SKIP')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+package() {
+  cd "$srcdir/LinEnum"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
+
+  #Bin
+  ln -s $pkgdir/usr/share/$pkgname/LinEnum.sh $pkgdir/usr/bin/linenum
+  ln -s $pkgdir/usr/share/$pkgname/LinEnum_sh.sh $pkgdir/usr/bin/linenum_sh
+  
+}
