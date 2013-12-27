@@ -1,6 +1,6 @@
 pkgname=ruby-simplecov
 _gemname=simplecov
-pkgver=0.5.4
+pkgver=0.8.2
 pkgrel=1
 pkgdesc="Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites"
 arch=('any')
