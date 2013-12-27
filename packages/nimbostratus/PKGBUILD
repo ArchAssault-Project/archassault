@@ -1,0 +1,32 @@
+pkgname=nimbostratus
+pkgver=20131227
+pkgrel=1
+groups=('archassault' 'archassault-fuzzer')
+pkgdesc="Tools for fingerprinting and exploiting Amazon cloud infrastructures"
+url="https://github.com/andresriancho/nimbostratus"
+arch=('any')
+license=('GPL3')
+depends=('python2' 'python2-boto')
+source=("git+https://github.com/andresriancho/nimbostratus.git")
+md5sums=('SKIP')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+package() {
+  cd "$srcdir/nimbostratus"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
+
+cat > "$pkgdir/usr/bin/nimbostratus" << EOF
+#!/bin/sh
+cd /usr/share/nimbostratus
+python2 nimbostratus "\$@"
+EOF
+chmod +x "$pkgdir/usr/bin/nimbostratus"
+}
