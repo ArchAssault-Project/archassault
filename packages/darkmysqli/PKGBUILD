@@ -3,7 +3,7 @@ pkgver='1.6'
 pkgrel=1
 pkgdesc='Multi-Purpose MySQL Injection Tool'
 arch=('any')
-url='https://github.com/ArchAssault/darkmysqli'
+url='https://github.com/ArchAssault-Project/darkmysqli'
 license=('unknown')
 depends=('python2')
 groups=('archassault' 'archassault-webapp' 'archassault-exploitation')
@@ -14,7 +14,7 @@ prepare() {
   cd "$srcdir/darkmysqli16"
 
   patch -p0 < darkmysqli.patch
-
+  
   sed -i '1s|bin/python|bin/env python2|' *.py
 }
 
