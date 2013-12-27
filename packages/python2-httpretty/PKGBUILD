@@ -1,0 +1,15 @@
+pkgname=python2-httpretty
+pkgver=0.4
+pkgrel=1
+pkgdesc="HTTP client mock for Python"
+arch=('any')
+url="https://pypi.python.org/pypi/httpretty/0.4"
+license=('LGPL')
+depends=('python2')
+source=("https://pypi.python.org/packages/source/h/httpretty/httpretty-$pkgver.tar.gz")
+md5sums=('db3b4820316e3c05db5e8de3ca06764d')
+
+package() {
+  cd "$srcdir"
+  python2 setup.py install "--root=$pkgdir" --optimize=1
+}
