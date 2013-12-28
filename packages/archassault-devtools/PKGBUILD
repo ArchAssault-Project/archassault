@@ -1,6 +1,6 @@
 pkgname=archassault-devtools
 _pkgname=devtools
-pkgver=20131223
+pkgver=20131228
 pkgrel=1
 pkgdesc='Tools for ArchAssault Linux package maintainers'
 arch=('i686' 'x86_64')
@@ -16,6 +16,8 @@ package() {
 	cd ${pkgdir}/usr/bin
 	ln -s archbuild archassault-x86_64-build
 	ln -s archbuild archassault-i686-build
+        ln -s archbuild archassault-testing-x86_64-build
+	ln -s archbuild archassault-testing-i686-build
 	install -d -m 0755 ${pkgdir}/usr/share/devtools
 	install -m 0644 ${srcdir}/pacman-archassault.conf ${pkgdir}/usr/share/devtools/
         install -m 0644 ${srcdir}/makepkg.x86_64.conf ${pkgdir}/usr/share/devtools/
