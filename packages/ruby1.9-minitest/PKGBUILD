@@ -1,5 +1,5 @@
 pkgname=ruby1.9-minitest
-pkgver=5.0.8
+pkgver=4.7.5
 pkgrel=1
 pkgdesc="Provides a complete suite of testing facilities supporting TDD, BDD, mocking and benchmarking."
 arch=(any)

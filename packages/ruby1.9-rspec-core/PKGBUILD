@@ -1,6 +1,6 @@
 pkgname=ruby1.9-rspec-core
 _gemname=rspec-core
-pkgver=2.13.1
+pkgver=2.14.5
 pkgrel=1
 pkgdesc="rspec-core gem"
 arch=('any')
