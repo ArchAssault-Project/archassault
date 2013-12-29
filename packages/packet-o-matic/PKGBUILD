@@ -6,7 +6,7 @@ arch=('x86' 'x86_64')
 url='http://www.packet-o-matic.org/'
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-tunnel')
-depends=('libpcap' 'libxml2' 'libnet')
+depends=('libpcap' 'libxml2' 'libnet' 'net-snmp')
 makedepends=('subversion')
 md5sums=('SKIP')
 _svntrunk='https://svn.tuxicoman.be/svn/packet-o-matic/trunk'
@@ -30,7 +30,7 @@ prepare() {
   aclocal
   automake --add-missing
   autoconf
-}
+}pacm
 
 build() {
   cd "$srcdir/$pkgname-build"
