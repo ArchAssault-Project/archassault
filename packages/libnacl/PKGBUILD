@@ -1,10 +1,11 @@
 pkgname=libnacl
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=(i686 x86_64)
 pkgver=20110221
 pkgrel=2
 pkgdesc="NaCl (pronounced 'salt') Networking and Cryptography library (works with pynacl)"
 url="http://nacl.cace-project.eu/"
 license=('Public Domain')
+options=('staticlibs')
 source=(http://hyperelliptic.org/nacl/nacl-${pkgver}.tar.bz2)
 md5sums=('7efb5715561c3d10dafd3fa97b4f2d20')
 
@@ -35,8 +36,8 @@ EOF
 
   shost=`hostname | sed 's/\..*//' | tr -cd '[a-z][A-Z][0-9]'`
 
-  install -D -m 644 build/$shost/lib/*/libnacl.a "${pkgdir}/usr/lib/libnacl.a"
-  install -D -m 644 build/$shost/lib/*/randombytes.o "${pkgdir}/usr/lib/randombytes.o"
+  install -Dm 644 build/$shost/lib/*/libnacl.a "${pkgdir}/usr/lib/libnacl.a"
+  install -Dm 644 build/$shost/lib/*/randombytes.o "${pkgdir}/usr/lib/randombytes.o"
 
   install -d "${pkgdir}/usr/include/nacl"
   install -t "${pkgdir}/usr/include/nacl" build/$shost/include/*/*
