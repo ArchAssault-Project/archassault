@@ -1,6 +1,6 @@
 pkgname=darkjumper
 pkgver=5.8
-pkgrel=1
+pkgrel=3
 pkgdesc="This tool will try to find every website that host at the same server at your target"
 depends=('perl' 'python2')
 url="http://sourceforge.net/projects/darkjumper/"
@@ -25,7 +25,7 @@ package() {
   install -dm755 $pkgdir/usr/share/darkjumper/
   install -dm755 $pkgdir/usr/bin/
   cp -a --no-preserve=ownership * $pkgdir/usr/share/darkjumper/
- 
-  for i in *.pl; do ln -s $pkgdir/usr/share/darkjumper/$i $pkgdir/usr/bin/$i;done
-  for i in *.py; do ln -s $pkgdir/usr/share/darkjumper/$i $pkgdir/usr/bin/$i;done
+
+  for i in *.pl; do ln -s /usr/share/darkjumper/$i $pkgdir/usr/bin/$i;done
+  for i in *.py; do ln -s /usr/share/darkjumper/$i $pkgdir/usr/bin/$i;done
 }
