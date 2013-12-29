@@ -1,22 +1,50 @@
 pkgname=arachni
-_gemname=arachni
 pkgver=0.4.5.2
 pkgrel=1
-groups=('archassault' 'archassault-webapp')
-pkgdesc="Arachni is a feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications."
+groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
+pkgdesc="Arachni - Web Application Security Scanner Framework"
 arch=('any')
-license=('')
-makedepends=('ruby')
-depends=('ruby-arachni-rpc-em=0.2' 'ruby-typhoeus>=0.3.3'
-         'ruby-addressable>=2.3.2' 'ruby-nokogiri>=1.5.7.rc1'
-         'ruby-sys-proctable>=0.9.1' 'ruby-terminal-table>=1.4.2')
-url='https://www.arachni-scanner.com'
-source=("http://rubygems.org/downloads/arachni-$pkgver.gem")
-md5sums=('927fb46409e0ced8c058d339f10412d1')
-noextract=("arachni-$pkgver.gem")
+url="https://github.com/Arachni/arachni"
+license=('GPL')
+depends=('ruby')
+makedepends=('git')
+conflicts=('arachni-git')
+if [[ $CARCH == "x86_64" ]]; then
+  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-x86_64.tar.gz")
+  md5sums=('ca4712e0c2706432a56d48916346380a')
+elif [[ $CARCH == "i686" ]]; then
+  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-i686.tar.gz")
+  md5sums=('e02da4d6d86d4daf93eeec5d3c95426a')
+fi
 
 package() {
-  cd "$srcdir"
-  local _gemdir=$(ruby -e 'puts Gem.default_dir')
-  gem install --ignore-dependencies --no-user-install -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
-}
+  mkdir -p "$pkgdir/usr/"{bin,share/arachni}
+  cd "$srcdir/arachni-$pkgver-0.4.2.1"
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/arachni/"
+  mkdir -p "$pkgdir/usr/share/arachni/scans"
+  cd "$pkgdir/usr/bin"
+
+cat > "$pkgdir/usr/bin/arachni" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+./bin/arachni "\$@"
+EOF
+  chmod +x "$pkgdir/usr/bin/arachni"
+
+cat > "$pkgdir/usr/bin/arachni_web" << EOF
+#!/bin/sh
+echo "Default account details:
+
+ Administrator:
+   E-mail address: admin@admin.admin
+   Password:       administrator
+
+ User:
+   E-mail address: user@user.user
+   Password:       regular_user"
+echo ""
+cd /usr/share/arachni
+./bin/arachni_web "\$@"
+EOF
+  chmod +x "$pkgdir/usr/bin/arachni_web"
+} 
