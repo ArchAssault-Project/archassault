@@ -7,7 +7,7 @@ arch=('any')
 url='http://code.google.com/p/peepdf/'
 license=('GPL3')
 makedepends=('subversion')
-depends=('python2')
+depends=('python2' 'python2-simplejson')
 source=('svn+http://peepdf.googlecode.com/svn/trunk/')
 md5sums=('SKIP')
 
