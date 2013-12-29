@@ -10,6 +10,10 @@ depends=('python2' 'python2-pillow')
 source=("http://deblaze-tool.appspot.com/download")
 md5sums=('f20acbd15915089aae5647e0131cff16')
 
+prepare() {
+  sed -i 's/import\ Image/from\ PIL\ import\ Image/' $srcdir/deblaze-$pkgver/outputManager.py
+}
+
 package() {
   cd "$srcdir/deblaze-$pkgver"
 
