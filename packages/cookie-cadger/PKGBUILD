@@ -1,6 +1,6 @@
 pkgname=cookie-cadger
 pkgver=1.06
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner' 'archassault-fuzzer')
 pkgdesc="An auditing tool for Wi-Fi or wired Ethernet connections"
 url="https://cookiecadger.com/"
@@ -17,7 +17,7 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/cookie-cadger"
 
-  cp -a * "$pkgdir/usr/share/cookie-cadger"
+  install -Dm755 CookieCadger-$pkgver.jar "$pkgdir/usr/share/cookie-cadger"
 
   cat > "$pkgdir/usr/bin/cookie-cadger" <<EOF
 #!/bin/sh
