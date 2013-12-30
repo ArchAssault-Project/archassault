@@ -13,18 +13,15 @@ md5sums=('SKIP'
 
 prepare(){
   cd "$srcdir/amap"
-  sed -i -e "s:etc/:share/amap/:g" amap-lib.c 
+  sed -i -e "s:etc/:share/amap/:g" amap-lib.c
   # Above change requires below change. See sources...
   sed -i '/strlen(AMAP_PREFIX/s: 5 : 12 :' amap-lib.c
   sed -i 's:/usr/local:/usr:' amap.h
   # Files to be updated are at different location, bug 207839.
   sed -i '/AMAP_RESOURCE/s:www:freeworld:' amap.h
-  
-  sed -i '/DATADIR/s:/etc:/share/amap:' Makefile.am 
-
+  sed -i '/DATADIR/s:/etc:/share/amap:' Makefile.am
   patch -p1 < ../pcre.patch
-}  
-  
+}
 
 build() {
   cd "$srcdir/amap"
@@ -50,7 +47,7 @@ package() {
 
 
   install -Dm755 amap "$pkgdir/usr/bin/amap"
-  ln -s "$pkgdir/usr/bin/amap" "$pkgdir/usr/bin/amap6"
+  ln -s "/usr/bin/amap" "$pkgdir/usr/bin/amap6"
   install -Dm755 amapcrap "$pkgdir/usr/bin/amapcrap"
 
   install -dm755 "$pkgdir/usr/share/amap"
