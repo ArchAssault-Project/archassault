@@ -1,6 +1,6 @@
 pkgname=blindsql
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Set of bash scripts for blind SQL injection attacks"
 arch=(any)
 url="http://www.enye-sec.org/programas.html"
@@ -22,7 +22,7 @@ package() {
   install -m755 sqlcheck.sh $pkgdir/usr/share/blindsql/sqlcheck.sh
 
   #Bins
-  ln -s $pkgdir/usr/share/blindsql/sqldata.sh $pkgdir/usr/bin/sqldata
-  ln -s $pkgdir/usr/share/blindsql/sqlcheck.sh $pkgdir/usr/bin/sqlcheck
+  ln -s /usr/share/blindsql/sqldata.sh $pkgdir/usr/bin/sqldata
+  ln -s /usr/share/blindsql/sqlcheck.sh $pkgdir/usr/bin/sqlcheck
 }
 
