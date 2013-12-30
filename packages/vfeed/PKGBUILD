@@ -27,5 +27,5 @@ package() {
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/vfeed"
 
   # Bin
-  ln -s "$pkgdir/usr/share/vfeed/vfeedcli.py" "$pkgdir/usr/bin/vfeed"
+  ln -s "/usr/share/vfeed/vfeedcli.py" "$pkgdir/usr/bin/vfeed"
 }
