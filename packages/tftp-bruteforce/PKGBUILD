@@ -21,6 +21,6 @@ package() {
   done
 
   chmod +x $pkgdir/usr/share/tftp-bruteforce/tftpbrute.pl
-  ln -sf $pkgdir/usr/share/tftp-bruteforce/tftpbrute.pl $pkgdir/usr/bin/tftpbrute
+  ln -sf /usr/share/tftp-bruteforce/tftpbrute.pl $pkgdir/usr/bin/tftpbrute
 }
 
