@@ -35,7 +35,7 @@ package(){
 
   cd "$srcdir/complemento/letdown/"
   install -Dm755 letdown $pkgdir/usr/share/complemento/letdown/letdown
-  ln -s $pkgdir/usr/share/complemento/letdown/letdown $pkgdir/usr/bin/letdown
+  ln -s /usr/share/complemento/letdown/letdown $pkgdir/usr/bin/letdown
   install -Dm644 readme $pkgdir/usr/share/complemento/letdown/readme
 
   cd payloads
@@ -45,12 +45,12 @@ package(){
 
   cd "$srcdir/complemento/httsquash/"
   install -Dm755 httsquash $pkgdir/usr/share/complemento/httsquash/httsquash
-  ln -s $pkgdir/usr/share/complemento/httsquash/httsquash $pkgdir/usr/bin/httsquash
+  ln -s /usr/share/complemento/httsquash/httsquash $pkgdir/usr/bin/httsquash
   install -Dm644 readme $pkgdir/usr/share/complemento/httsquash/readme
 
   cd "$srcdir/complemento/reverseraider/"
   install -Dm755 reverseraider $pkgdir/usr/share/complemento/reverseraider/reverseraider
-  ln -s $pkgdir/usr/share/complemento/reverseraider/reverseraider $pkgdir/usr/bin/reverseraider
+  ln -s /usr/share/complemento/reverseraider/reverseraider $pkgdir/usr/bin/reverseraider
 
   cd wordlists
   for lst in *; do
