@@ -17,7 +17,7 @@ build() {
 
 package(){
   cd "$srcdir/bunny"
-  
+
   #Base directories
   install -dm755 $pkgdir/usr/share/bunny
   install -dm755 $pkgdir/usr/bin/
@@ -25,6 +25,6 @@ package(){
   cp -a --no-preserve=ownership * $pkgdir/usr/share/bunny/
 
   #Binaries
-  ln -s $pkgdir/usr/share/bunny/bunny-main $pkgdir/usr/bin/bunny
+  ln -s /usr/share/bunny/bunny-main $pkgdir/usr/bin/bunny
 }
 
