@@ -1,6 +1,6 @@
 pkgname=linenum
 pkgver=20131227
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner')
 pkgdesc="Scripted Local Linux Enumeration & Privilege Escalation Checks"
 url="https://github.com/rebootuser/LinEnum"
@@ -24,7 +24,7 @@ package() {
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
 
   #Bin
-  ln -s $pkgdir/usr/share/$pkgname/LinEnum.sh $pkgdir/usr/bin/linenum
-  ln -s $pkgdir/usr/share/$pkgname/LinEnum_sh.sh $pkgdir/usr/bin/linenum_sh
-  
+  ln -s /usr/share/$pkgname/LinEnum.sh $pkgdir/usr/bin/linenum
+  ln -s /usr/share/$pkgname/LinEnum_sh.sh $pkgdir/usr/bin/linenum_sh
+
 }
