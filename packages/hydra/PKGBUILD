@@ -6,7 +6,7 @@ pkgdesc="A very fast network logon cracker which support many different services
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.thc.org/thc-hydra/'
 license="GPL3"
-depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn')
+depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn' 'ncpfs')
 source=("git+https://github.com/ArchAssault-Project/hydra.git"
         "fix-locations.patch")
 md5sums=('SKIP'
