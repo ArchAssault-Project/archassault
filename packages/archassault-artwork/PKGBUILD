@@ -11,7 +11,6 @@ md5sums=('SKIP')
 
 package() {
   cd "$srcdir/archassault-artwork"
-
   install -d "$pkgdir/usr/share/archassault/"{backgrounds,logos}
   install -m644 backgrounds/* "$pkgdir/usr/share/archassault/backgrounds/"
   install -m644 logos/* "$pkgdir/usr/share/archassault/logos/"
