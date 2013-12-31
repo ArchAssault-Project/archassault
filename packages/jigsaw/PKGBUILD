@@ -20,7 +20,10 @@ package() {
 
   cp -a --no-preserve=ownership lib jigsaw.rb "$pkgdir/usr/share/jigsaw"
   cat > "$pkgdir/usr/bin/jigsaw" <<EOF
-ruby /usr/share/jigsaw/jigsaw.rb
+#!/bin/sh
+
+cd /usr/share/jigsaw
+ruby ./jigsaw.rb "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/jigsaw"
 }
