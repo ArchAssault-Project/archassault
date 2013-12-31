@@ -1,0 +1,18 @@
+pkgname=archassault-artwork
+pkgver=0.1
+pkgrel=1
+groups=('archassault' 'archassault-misc')
+pkgdesc="The ArchAssault Project's collection of logos, backgrounds, icons, and other artwork."
+url='https://bitbucket.org/archassault/archassault-artwork'
+arch=('any')
+license=('GPL3')
+source=("git+https://bitbucket.org/archassault/archassault-artwork.git")
+md5sums=('SKIP')
+
+package() {
+  cd "$srcdir/archassault-artwork"
+
+  install -d "$pkgdir/usr/share/archassault/"{backgrounds,logos}
+  install -m644 backgrounds/* "$pkgdir/usr/share/archassault/backgrounds/"
+  install -m644 logos/* "$pkgdir/usr/share/archassault/logos/"
+}
