@@ -8,11 +8,15 @@ license=('GPL')
 groups=("archassault" "archassault-webapp" "archassault-scanner")
 
 if [[ "$CARCH" == 'i686' ]] || [[ "$CARCH" == 'armv6h' ]] || [[ "$CARCH" == 'armv7h' ]]; then
-    source=("http://downloads.sourceforge.net/getmantra/OWASP%20Mantra%20Janus%20Linux%2032.tar.gz")
-    md5sums=('92abfb0d6ddef2bf2c1612ccb98d2060')
+    source=("http://downloads.sourceforge.net/getmantra/OWASP%20Mantra%20Janus%20Linux%2032.tar.gz"
+	    "mantra.desktop")
+    md5sums=('92abfb0d6ddef2bf2c1612ccb98d2060'
+	     '8208c600acb96c20f0fc34315813a17b')
 elif [[ "$CARCH" == 'x86_64' ]]; then
-    source=("http://downloads.sourceforge.net/getmantra/OWASP%20Mantra%20Janus%20Linux%2064.tar.gz")
-    md5sums=('d12f797a064795b7b418d3ff9679e318')
+    source=("http://downloads.sourceforge.net/getmantra/OWASP%20Mantra%20Janus%20Linux%2064.tar.gz"
+	    "mantra.desktop")
+    md5sums=('d12f797a064795b7b418d3ff9679e318'
+	     '8208c600acb96c20f0fc34315813a17b')
 fi
 
 package(){
@@ -33,6 +37,9 @@ package(){
   install -Dm755 "$srcdir/OWASP Mantra" "$pkgdir/usr/share/owasp-mantra-firefox/"
   cp -a --no-preserve=ownership -R Mantra "$pkgdir/usr/share/owasp-mantra-firefox/"
 
+  # Install .desktop file
+  install -D -m644 "${srcdir}/mantra.desktop" "${pkgdir}/usr/share/applications/mantra.desktop"
+
   # Create joint script.
   cat > "$pkgdir/usr/bin/mantra" <<EOF
 #!/bin/sh
@@ -40,4 +47,3 @@ package(){
 EOF
   chmod +x $pkgdir/usr/bin/mantra
 }
-
