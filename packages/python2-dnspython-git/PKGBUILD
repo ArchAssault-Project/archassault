@@ -1,6 +1,6 @@
 pkgname=python2-dnspython-git
 pkgver=20121228
-pkgrel=1
+pkgrel=2
 pkgdesc="A DNS toolkit for python"
 arch=('any')
 url="http://www.dnspython.org"
