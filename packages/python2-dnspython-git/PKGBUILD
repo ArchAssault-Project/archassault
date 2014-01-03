@@ -9,7 +9,7 @@ depends=('python2')
 makedepends=('git')
 md5sums=('SKIP')
 
-_gitroot="git://www.dnspython.org/dnspython.git"
+_gitroot="https://github.com/rthalley/dnspython.git"
 _gitname="python2-dnspython"
 
 build() {
