@@ -8,7 +8,7 @@ url='http://www.thc.org/thc-hydra/'
 license="GPL3"
 depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn' 'ncpfs')
 source=("http://www.thc.org/releases/hydra-$pkgver.tar.gz")
-md5sums=('')
+md5sums=('62af688a07830d505d227bdaaeff9e0a')
 
 build() {
   cd $srcdir/hydra
