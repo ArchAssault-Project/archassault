@@ -1,0 +1,39 @@
+pkgname=bluebox-ng
+pkgver=20140103
+pkgrel=1
+groups=('archassault' 'archassault-scanner')
+pkgdesc="A GPL VoIP/UC vulnerability scanner."
+url="https://github.com/jesusprubio/bluebox-ng"
+arch=('any')
+license=('GPL3')
+depends=('nodejs' 'coffee-script')
+source=("git+https://github.com/jesusprubio/bluebox-ng.git")
+md5sums=('SKIP')
+
+pkgver() {
+  date +%Y%m%d
+}
+
+package() {
+  cd "$srcdir/bluebox-ng"
+
+  #Base dir
+  install -dm755 "$pkgdir/usr/bin/"
+
+  msg "Deleting old node_modules folder ..."
+  rm -rf node_modules
+  msg "Installing a new version of them ..."
+  npm install -g "--prefix=$pkgdir/usr"
+ 
+  msg "Running setup script"
+  cd "$pkgdir/usr/lib/node_modules/Bluebox-ng/"
+  coffee blueboxSetup.coffee
+
+cat > "$pkgdir/usr/bin/bluebox" << EOF
+#!/bin/sh
+cd /usr/lib/node_modules/Bluebox-ng/
+./bluebox.sh "\$@"
+EOF
+chmod +x "$pkgdir/usr/bin/bluebox"
+  
+}
