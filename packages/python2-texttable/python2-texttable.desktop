@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-texttable
+Comment=Generate a formatted text table using ASCII characters.
+Exec=python2-texttable
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

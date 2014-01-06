@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-pyx
+Comment=Python library for the creation of PostScript and PDF files
+Exec=python2-pyx
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

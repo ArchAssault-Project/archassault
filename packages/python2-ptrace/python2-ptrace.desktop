@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-ptrace
+Comment=python-ptrace is a debugger using ptrace (Linux, BSD and Darwin system call to trace processes) written in Python.
+Exec=python2-ptrace
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

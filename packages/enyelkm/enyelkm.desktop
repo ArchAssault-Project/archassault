@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Enyelkm
+Comment=Rootkit for Linux x86 kernels v2.6.
+Exec=enyelkm
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultBackdoor;

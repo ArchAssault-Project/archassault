@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Coffee-script
+Comment=CoffeeScript is a little language that compiles into JavaScript.
+Exec=coffee-script
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

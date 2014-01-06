@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Gr-fcdproplus
+Comment=GNU Radio source block for Funcube Dongle Pro +
+Exec=gr-fcdproplus
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Vnc-bypauth
+Comment=Multi-threaded bypass authentication scanner for VNC servers <= 4.1.1.
+Exec=vnc-bypauth
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultCracker;ArchAssaultExploitation;

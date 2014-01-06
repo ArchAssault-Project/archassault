@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=4deck
+Comment=An addon from The Deck Project. Create a magic hub. ARM ONLY SUPPORT
+Exec=4deck
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssaultArm;ArchAssaultDrone;ArchAssaultMetaThedeck;

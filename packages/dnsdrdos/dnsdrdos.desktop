@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Dnsdrdos
+Comment=Proof of concept code for distributed DNS reflection DoS
+Exec=dnsdrdos
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultDos;

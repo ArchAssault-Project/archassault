@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Admid-pack
+Comment=ADM DNS spoofing tools - Uses a variety of active and passive methods to spoof DNS packets. Very powerful.
+Exec=admid-pack
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

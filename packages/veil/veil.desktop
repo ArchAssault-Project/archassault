@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Veil
+Comment=A tool designed to generate metasploit payloads that bypass common anti-virus solutions.
+Exec=veil
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultAutomation;ArchAssaultExploitation;

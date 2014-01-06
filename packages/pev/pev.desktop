@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Pev
+Comment=Command line based tool for PE32/PE32+ file analysis
+Exec=pev
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultForensic;ArchAssaultReversing;

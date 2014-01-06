@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python-xbee
+Comment=Python tools for working with XBee radios
+Exec=python-xbee
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;
