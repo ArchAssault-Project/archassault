@@ -1,6 +1,6 @@
 pkgname=davoset
 pkgver=1.1.5
-pkgrel=1
+pkgrel=2
 pkgdesc="A tool for using Abuse of Functionality and XML External Entities vulnerabilities on some websites to attack other websites"
 arch=('any')
 url="http://websecurity.com.ua/davoset/"
@@ -27,4 +27,9 @@ package() {
   install -dm755 "$pkgdir/usr/share/davoset"
   install -Dm755 davoset.pl "$pkgdir/usr/bin/davoset"
   install -Dm644 *.txt "$pkgdir/usr/share/davoset"
+  cat > "$pkgdir/usr/bin/davoset" <<EOF
+#!/bin/sh
+cd /usr/share/davoset
+./davoset.pl
+EOF
 }
