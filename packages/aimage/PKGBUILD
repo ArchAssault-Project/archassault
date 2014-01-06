@@ -1,26 +1,25 @@
 pkgname='aimage'
 pkgver='3.2.5'
-pkgrel=1
+pkgrel=2
 pkgdesc='A program to create aff-images.'
 arch=('x86' 'x86_64')
 url='http://www.afflib.org'
 license=('custom')
 depends=('afflib')
 groups=('archassault' 'archassault-forensic')
-source=("http://pkgs.fedoraproject.org/repo/pkgs/aimage/aimage-$pkgver.tar.gz/07a11d653cdd1d7a5aefe4d99cdbd408/aimage-$pkgver.tar.gz")
-md5sums=('07a11d653cdd1d7a5aefe4d99cdbd408')
+source=("http://pkgs.fedoraproject.org/repo/pkgs/aimage/aimage-$pkgver.tar.gz/07a11d653cdd1d7a5aefe4d99cdbd408/aimage-$pkgver.tar.gz" "aimage.desktop")
+md5sums=('07a11d653cdd1d7a5aefe4d99cdbd408'
+         '1d4a91dd59817c3d8f206740bcbd0923')
 
 build() {
   cd "$srcdir/aimage-$pkgver"
-  
   ./configure --prefix=/usr --sysconfdir=/etc
   make
 }
 
 package() {
   cd "$srcdir/aimage-$pkgver"
-  
   make DESTDIR=$pkgdir install
-
+  install -Dm644 "$srcdir/aimage.desktop" "$pkgdir/usr/share/applications/aimage.desktop"
   install -D -m644 "COPYING" "$pkgdir/usr/share/licenses/aimage/COPYING"
 }
