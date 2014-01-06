@@ -1,5 +1,5 @@
 pkgname=airoscript
-pkgver=20131212
+pkgver=20140105
 pkgrel=1
 pkgdesc="Script to simplify the use of aircrack-ng tools"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,9 +9,11 @@ license=('GPL')
 depends=('mdk3' 'aircrack-ng' 'dhclient')
 options=(!makeflags)
 source=('git+http://github.com/patrickhno/Airoscript'
-        'Makefile.patch')
+        'Makefile.patch'
+        'airoscript.desktop')
 md5sums=('SKIP'
-         '441dd3a5f804f3c65c4da93b367199c1')
+         '441dd3a5f804f3c65c4da93b367199c1'
+         '60954cc909417e196a3baeefd6a4c5db')
 
 pkgver() {
   date +%Y%m%d
@@ -19,23 +21,17 @@ pkgver() {
 
 prepare() {
   cd "$srcdir/Airoscript"
-
   patch -Np1 < "$srcdir/Makefile.patch"
-
   find -type f -exec sed -i 's|/sbin|/bin|g' {} \;
 }
 
 package() {
   cd "$srcdir/Airoscript"
-
+  install -Dm644 "$srcdir/airoscript.desktop" "$pkgdir/usr/share/applications/airoscript.desktop"
   rm -rf src/locale/*
-
   make "prefix=$pkgdir/usr" "aircrack_prefix=/usr" "etcdir=$pkgdir/etc/airoscript" install
-
   # Fix conflict with extra/screen.
   #mv "$pkgdir/etc/screenrc" "$pkgdir/etc/airoscript/screenrc"
-
   sed -i 's|/local||' "$pkgdir"/etc/airoscript/*
   sed -i 's|/minimal.theme|defaul.theme|' "$pkgdir"/etc/airoscript/*
-# TODO: wordlist
 }
