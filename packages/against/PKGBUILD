@@ -1,5 +1,5 @@
 pkgname=against
-pkgver=20131208
+pkgver=20140105
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A very fast ssh attacking script which includes a multithreaded port scanning module (tcp connect) for discovering possible targets and a multithreaded brute-forcing module which attacks parallel (multiprocessing) all discovered hosts or given ip-adresses from a list"
@@ -7,8 +7,9 @@ url='http://nullsecurity.net/tools/cracker.html'
 arch=('any')
 license=('custom')
 depends=('python2-paramiko')
-source=('http://nullsecurity.net/tools/cracker/against.py')
-md5sums=('18cffea53cef93cb1daf8ca912066d18')
+source=('http://nullsecurity.net/tools/cracker/against.py' 'against.desktop')
+md5sums=('18cffea53cef93cb1daf8ca912066d18'
+         '7c5fe7dd0585e7184773d21b88e0ce0d')
 
 pkgver() {
   date +%Y%m%d
@@ -22,4 +23,5 @@ prepare() {
 package() {
   cd "$srcdir"
   install -Dm755 against.py "$pkgdir/usr/bin/against"
+  install -Dm644 "$srcdir/against.desktop" "$pkgdir/usr/share/applications/against.desktop"
 }
