@@ -6,8 +6,9 @@ pkgdesc="3proxy tiny free proxy server"
 url="http://3proxy.ru/"
 license=('GPL')
 arch=('any')
-source=("http://3proxy.ru/current/3proxy-$pkgver-devel.zip" "3proxy-win32")
-md5sums=('0d28526402992bf91f377c230617009c')
+source=("http://3proxy.ru/current/3proxy-$pkgver-devel.zip" "3proxy-win32.desktop")
+md5sums=('0d28526402992bf91f377c230617009c'
+         'dde146b9f36ab54e0598daa98002b199')
 
 package() {
   cd "$srcdir"
