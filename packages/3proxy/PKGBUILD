@@ -7,12 +7,12 @@ url="http://3proxy.ru/"
 license=('GPL')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 options=('!makeflags')
-source=(http://3proxy.ru/current/3proxy-$pkgver-devel.tgz)
-md5sums=('a04eab0ad1a1e4d7459460d9af9fe2df')
+source=("http://3proxy.ru/current/3proxy-$pkgver-devel.tgz" "3proxy.desktop")
+md5sums=('a04eab0ad1a1e4d7459460d9af9fe2df'
+         '4be7aaf1ac27b16a91f0d4b86a209f06')
 
 prepare() {
   cd "$srcdir/3proxy-$pkgver-devel"
-
   sed -i "s|/usr/bin/install|/bin/install|g" Makefile.Linux
   sed -i "s|/usr/local|/usr|g" Makefile.Linux
   sed -i "s|-s ||g" Makefile.Linux
@@ -22,15 +22,13 @@ prepare() {
 
 build() {
   cd "$srcdir/3proxy-$pkgver-devel"
-
   make -f Makefile.Linux prefix=/usr
 }
 
 package() {
   cd "$srcdir/3proxy-$pkgver-devel"
-
   make -f Makefile.Linux install "DESTDIR=$pkgdir/"
-
+  install -Dm644 $srcdir/3proxy.desktop "$pkgdir"/usr/share/applications/3proxy.desktop
   # Fix conflict with extra/libproxy.
   mv "$pkgdir/usr/bin/proxy" "$pkgdir/usr/bin/3proxy"
 }
