@@ -1,14 +1,15 @@
 pkgname=allthevhosts
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner' 'archassault-webapp')
 pkgdesc="A vhost discovery tool that scrapes various web applications"
 arch=('any')
 url="http://labs.portcullis.co.uk/tools/finding-all-the-vhosts/"
 license=('custom')
 depends=('python2' 'python2-beautifulsoup4')
-source=("http://labs.portcullis.co.uk/download/allthevhosts.tar.gz")
-md5sums=('be3c25a78d89f9b5234689250824fbed')
+source=("http://labs.portcullis.co.uk/download/allthevhosts.tar.gz" 'allthevhosts.desktop')
+md5sums=('be3c25a78d89f9b5234689250824fbed'
+         '115d4e61bf69aba0ebcd1774d1230096')
 
 prepare() {
   cd "$srcdir"
@@ -17,5 +18,6 @@ prepare() {
 
 package() {
   cd "$srcdir"
+  install -Dm644 "$srcdir/allthevhosts.desktop" "$pkgdir/usr/share/applications/allthevhosts.desktop"
   install -Dm755 allthevhosts.py "$pkgdir/usr/bin/allthevhosts"
 }
