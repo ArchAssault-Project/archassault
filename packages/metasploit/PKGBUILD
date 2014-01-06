@@ -41,7 +41,7 @@ package() {
   ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
 
   # Prevent updates with msfupdate
-  rm $pkgdir/usr/src/$pkgname/msfupdate
+  rm $pkgdir/usr/share/$pkgname/msfupdate
 
   cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
 #!/bin/sh
