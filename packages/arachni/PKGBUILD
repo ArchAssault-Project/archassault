@@ -1,6 +1,6 @@
 pkgname=arachni
 pkgver=0.4.5.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
 pkgdesc="Arachni - Web Application Security Scanner Framework"
 arch=('any')
@@ -10,15 +10,18 @@ depends=('ruby')
 makedepends=('git')
 conflicts=('arachni-git')
 if [[ $CARCH == "x86_64" ]]; then
-  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-x86_64.tar.gz")
-  md5sums=('ca4712e0c2706432a56d48916346380a')
+  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-x86_64.tar.gz"
+          'arachni.desktop')
+md5sums=('ca4712e0c2706432a56d48916346380a'
+         '6956f9cb4f5d8e19d9ea4ffcebb4bd24')
 elif [[ $CARCH == "i686" ]]; then
-  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-i686.tar.gz")
-  md5sums=('e02da4d6d86d4daf93eeec5d3c95426a')
+  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-i686.tar.gz"
+          'arachni.desktop')
 fi
 
 package() {
   mkdir -p "$pkgdir/usr/"{bin,share/arachni}
+  install -Dm644 "$srcdir/arachni.desktop" "$pkgdir/usr/share/applications/arachni.desktop"
   cd "$srcdir/arachni-$pkgver-0.4.2.1"
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/arachni/"
   mkdir -p "$pkgdir/usr/share/arachni/scans"
@@ -47,4 +50,4 @@ cd /usr/share/arachni
 ./bin/arachni_web "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/arachni_web"
-} 
+}
