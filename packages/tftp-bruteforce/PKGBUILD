@@ -1,6 +1,6 @@
 pkgname=tftp-bruteforce
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="TFTP-bruteforcer is a fast TFTP filename bruteforcer written in perl."
 url="http://www.hackingexposedcisco.com/"
 groups=('archassault' 'archassault-cracker')
@@ -12,14 +12,10 @@ md5sums=('e4b8103d5eae2ff3a0df51acffdc7a6c')
 
 package() {
   cd "$srcdir/TFTP-bruteforce"
-
-  install -d $pkgdir/usr/bin
-  install -d $pkgdir/usr/share/tftp-bruteforce
-
-  for file in README.txt brutefile.txt tftpbrute.pl; do
-    cp $file $pkgdir/usr/share/tftp-bruteforce/
-  done
-
+  install -Dm755 $pkgdir/usr/bin
+  install -Dm755 $pkgdir/usr/share/tftp-bruteforce
+  install -m644 README.txt brutefile.txt "$pkgdir/usr/share/tftp-bruteforce"
+  install -m755 tftpbrute.pl "$pkgdir/usr/share/tftp-bruteforce"
   chmod +x $pkgdir/usr/share/tftp-bruteforce/tftpbrute.pl
   ln -sf /usr/share/tftp-bruteforce/tftpbrute.pl $pkgdir/usr/bin/tftpbrute
 }
