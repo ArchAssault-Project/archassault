@@ -3,9 +3,8 @@ pkgver=0.6.7
 pkgrel=1
 pkgdesc="Parallel HTTP library on top of libcurl multi."
 arch=('any')
-license=('')
-makedepends=('ruby')
-depends=('ruby1.9-ethon>=0.6.2')
+license=('MIT')
+depends=('ruby1.9' 'ruby1.9-ethon>=0.6.2')
 url='https://github.com/typhoeus/typhoeus'
 source=("http://rubygems.org/downloads/typhoeus-$pkgver.gem")
 md5sums=('a240d5d79eda5ef18c93bb904fd8b1bb')

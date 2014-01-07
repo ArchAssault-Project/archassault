@@ -6,8 +6,7 @@ pkgdesc="Call JavaScript code and manipulate JavaScript objects from Ruby. Call 
 arch=('any')
 url="https://github.com/cowboyd/therubyracer"
 license=('MIT')
-depends=('ruby-libv8>=3.11.8.12' 'ruby-ref')
-makedepends=('rubygems')
+depends=('ruby' 'rubygems' 'ruby-libv8>=3.11.8.12' 'ruby-ref')
 options=('!distcc')
 source=("http://gems.rubyforge.org/gems/${_gemname}-${pkgver}.gem")
 noextract=("${_gemname}-${pkgver}.gem")
