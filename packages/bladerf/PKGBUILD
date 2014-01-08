@@ -1,13 +1,14 @@
 pkgname=bladerf
 pkgver=0.9.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Driver for bladeRF, allowing general purpose software defined radio (SDR)."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Nuand/bladeRF"
 license=('GPLv2')
 depends=('libusbx>=1.0.12')
 makedepends=('git' 'cmake' 'doxygen')
-#backup=("etc/bladerf.cfg")
+groups=('archassault')
+backup=("etc/bladerf.cfg")
 _git_commit='1d5aa6e2a4f2665b89c6e03ba35fa3d562828053'
 _firmware_file='bladeRF_fw_v1.5.3.img'
 source=("git+http://github.com/Nuand/bladeRF#commit=$_git_commit"
