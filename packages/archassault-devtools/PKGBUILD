@@ -1,9 +1,10 @@
 pkgname=archassault-devtools
 _pkgname=devtools
-pkgver=20131228
+pkgver=20140108
 pkgrel=1
 pkgdesc='Tools for ArchAssault Linux package maintainers'
 arch=('i686' 'x86_64')
+groups-('archassault' 'archassault-dev')
 license=('GPL')
 depends=('devtools')
 source=('pacman-archassault.conf' 'makepkg.i686.conf' 'makepkg.x86_64.conf')
