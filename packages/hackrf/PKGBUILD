@@ -1,11 +1,12 @@
 pkgname=hackrf
-pkgver=2013.07.1
-pkgrel=3
+pkgver=2014.01.08
+pkgrel=1
 pkgdesc="Driver for HackRF, allowing general purpose software defined radio (SDR)."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/mossmann/hackrf"
 license=('GPLv2')
 depends=('libusbx')
+groups=('archassault')
 makedepends=('cmake')
 source=("http://downloads.sourceforge.net/hackrf/hackrf-$pkgver.tar.xz"
         '52-hackrf.rules')
