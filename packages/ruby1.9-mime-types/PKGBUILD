@@ -1,4 +1,4 @@
-pkgname=ruby-mime-types
+pkgname=ruby1.9-mime-types
 pkgver=1.18
 pkgrel=2
 pkgdesc="MIME Content-Type database"
@@ -11,7 +11,7 @@ noextract=("${pkgname#*-}-${pkgver}.gem")
 sha256sums=('d3e53ba4162d4ee93ce75e644c7fca5503fad1c512277b9ca80ad43aa8103ae0')
 
 prepare() {
-  gem-1.9 install --no-user-install --no-{ri,rdoc,user-install} --ignore-dependencies -i . ${pkgname#*-}-${pkgver}.gem
+  gem-1.9 install --no-{ri,rdoc,user-install} --ignore-dependencies -i . ${pkgname#*-}-${pkgver}.gem
 }
 
 package() {
