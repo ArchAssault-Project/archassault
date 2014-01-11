@@ -1,10 +1,10 @@
 pkgname=maltego
 pkgver=3.3.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-forensic' 'archassault-recon' 'archassault-scanner')
-pkgdesc="An open source intelligence and forensics application, enabling to easily gather information about DNS, domains, IP addresses, websites, persons, etc."
+pkgdesc=("An open source intelligence and forensics application, enabling to easily gather information about DNS, domains, IP addresses, websites, persons, etc.")
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://www.paterva.com/web5'
+url=('http://www.paterva.com/web5')
 license=('GPL')
 depends=('java-environment' 'giflib' 'netbeans' 'python2')
 source=("https://www.paterva.com/malv32/community/maltego-radium-CE.community-2012-12-20.zip"
@@ -16,9 +16,9 @@ package() {
   cd ${srcdir}/v3.0
 
   # Create base directories.
-  install -d755 "$pkgdir/usr/share/maltego"
-  install -d755 "$pkgdir/usr/share/doc/maltego"
-  install -d755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/maltego"
+  install -dm755 "$pkgdir/usr/share/doc/maltego"
+  install -dm755 "$pkgdir/usr/bin"
 
   cp -pR bin etc groovy ide java maltego maltego-core-platform maltego-ui \
          platform "$pkgdir/usr/share/maltego"
