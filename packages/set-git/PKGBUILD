@@ -1,6 +1,6 @@
 pkgname=set-git
 pkgver=5.3.4
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-social' 'archassault-exploitation')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
@@ -78,7 +78,7 @@ package() {
 
   # Sharable.
   cp --no-preserve=ownership -R * "$pkgdir/usr/share/set"
-  cp --no-preserve=ownership -R readme/* README.txt "$pkgdir/usr/share/doc/set"
+  cp --no-preserve=ownership -R readme/* "$pkgdir/usr/share/doc/set"
 
   # Remove `setup.py`.
   rm "$pkgdir/usr/share/set/setup.py"
