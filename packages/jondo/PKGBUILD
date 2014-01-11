@@ -1,6 +1,6 @@
 pkgname=jondo
 pkgver=00.19.001
-pkgrel=1
+pkgrel=2
 pkgdesc='Redirects internet traffic trough a mix of proxy servers to hide the origin of the requests.'
 arch=('any')
 license=('BSD')
@@ -10,8 +10,7 @@ install="jondo.install"
 source=('https://anonymous-proxy-servers.net/downloads/jondo_linux.tar.bz2'
         'https://anonymous-proxy-servers.net/downloads/jondo_linux.tar.bz2.asc'
         'jondo'
-        'jondo.1'
-        'licence')
+        'jondo.1')
 sha256sums=('68fc519960c788ba5a36c3ef4871088d669f7d2ffcaf77cc8b4df25505233e33'
             'SKIP'
             '0a25c9f3ad376ea6b3c3ec87d7b6a534a30270e77ff1fc8b8c936f83f1d8df03'
@@ -28,7 +27,7 @@ package() {
   install -Dm644 jondo.1 ${pkgdir}/usr/share/man/man1/jondo.1
 
   # License
-  install -Dm644 licence ${pkgdir}/usr/share/licenses/jondo/LICENCE
+#  install -Dm644 licence ${pkgdir}/usr/share/licenses/jondo/LICENCE
 
   cd jondo_linux/
 
