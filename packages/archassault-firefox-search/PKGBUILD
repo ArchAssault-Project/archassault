@@ -1,7 +1,7 @@
 pkgname=archassault-firefox-search
 pkgver=0.8.2
-pkgrel=6
-pkgdesc="Firefox ArchAssault search engines (AUR, Pkgs, BBS, Wiki, etc.)"
+pkgrel=7
+pkgdesc="Firefox ArchAssault search engines (Pkgs, Wiki, Bugs etc.)"
 arch=('any')
 url="http://archlinux.org/"
 license=('GPL')
@@ -15,12 +15,9 @@ source=(aa-bugs-fs.xml
 	aa-pkgs.xml
 #	aa-wiki.xml
 	aur.xml)
-md5sums=('df18835df1ea78bc3fc0e05f934b1e46'
-         '0226a317c8bf23feaa80e21d1706f2d5'
-#         '4eaa3d26ac41077ee25b66127ad9ef0a'
-#         '2435c34ea6a012fe08a8d17a051e5f80'
-         '403c346ce089ec56c2db67f9f3d87514'
-#         'dbb93d1e793b92252b69f65110b33c42'
+md5sums=('fb5b169a7e4c55f474201e69cea98440'
+         'd6ba5cfcbc7995c90d156dc7187a64ae'
+         'fd53b76f57bc469cb94ed7565c4a0e81'
          'bd0896ec148707b6980d23adc6015448')
 
 package() {
