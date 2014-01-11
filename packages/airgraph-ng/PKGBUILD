@@ -1,6 +1,6 @@
 pkgname=airgraph-ng
 pkgver=2364
-pkgrel=2
+pkgrel=3
 pkgdesc="Graphing tool for the aircrack suite"
 arch=('any')
 url="http://www.aircrack-ng.org"
@@ -24,6 +24,6 @@ build() {
 
 package() {
   cd "${srcdir}/airgraph-ng"
-  isntall -Dm644 "$srcdir/airgraph-ng.desktop" "$pkgdir/usr/share/applications/airgraph-ng.desktop"
+  install -Dm644 "$srcdir/airgraph-ng.desktop" "$pkgdir/usr/share/applications/airgraph-ng.desktop"
   python2 setup.py install --root="${pkgdir}/" --prefix=/usr
 }
