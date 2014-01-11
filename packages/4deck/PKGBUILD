@@ -11,9 +11,9 @@ md5sums=('SKIP'
          'da84d10729de988baddd8d716e8e0c13')
 
 package() {
-  cd "$srcdir/4deck/code"
-  install -Dm755 4deck.sh "$pkgdir/usr/bin/4deck"
-  install -Dm755 prot-mount.sh "$pkgdir/usr/bin/prot-mount"
-  install -Dm755 prot-mount.sh "$pkgdir/usr/bin/prot-mount"
-  install -Dm644 "srcdir"/4deck.desktop "$pkgdir"/usr/share/applications/4deck.desktop
+  cd "${srcdir}/4deck/code"
+  install -Dm755 4deck.sh "${pkgdir}/usr/bin/4deck"
+  install -Dm755 prot-mount.sh "${pkgdir}/usr/bin/prot-mount"
+  install -Dm755 prot-mount.sh "${pkgdir}/usr/bin/prot-mount"
+  install -Dm644 "${srcdir}"/4deck.desktop "${pkgdir}"/usr/share/applications/4deck.desktop
 }
