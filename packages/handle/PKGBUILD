@@ -1,6 +1,6 @@
 pkgname='handle'
 pkgver=20140104
-pkgrel=1
+pkgrel=2
 pkgdesc='An small application designed to analyze your system searching for global objects related to running proccess and display information for every found object, like tokens, semaphores, ports, files,..'
 url='http://www.tarasco.org/security/handle/index.html'
 groups=('archassault' 'archassault-windows')
@@ -17,6 +17,6 @@ pkgver() {
 
 package() {
   cd "$srcdir"
-  install -Dm755 "$pkgdir/usr/share/windows/handle"
+  install -dm755 "$pkgdir/usr/share/windows/handle"
   cp -Lr * "$pkgdir/usr/share/windows/handle/"
 }
