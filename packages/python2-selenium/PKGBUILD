@@ -1,11 +1,10 @@
 pkgname=python2-selenium
 pkgver=2.38.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Python binding for Selenium Remote Control [Python 2]"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://pypi.python.org/pypi/selenium"
 license=('Apache')
-changelog='Changelog'
 depends=('python2')
 makedepends=('python2-setuptools')
 optdepends=('lib32-glibc: Firefox x86 webdriver support for x86_64')
