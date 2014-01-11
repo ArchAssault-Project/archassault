@@ -1,6 +1,6 @@
 pkgname='air'
 pkgver='2.0.0'
-pkgrel=3
+pkgrel=4
 pkgdesc='A GUI front-end to dd/dc3dd designed for easily creating forensic images.'
 url='http://air-imager.sourceforge.net/'
 groups=('archassault' 'archassault-forensic')
@@ -15,7 +15,7 @@ md5sums=('d4dff8fcaf94d555bd7f833097fe816d'
 
 package() {
   cd "$srcdir/air-$pkgver"
-  install -Dm644 "srcdir/air.desktop" "$pkgdir/usr/share/applications/air.desktop"
+  install -Dm644 "${srcdir}/air.desktop" "${pkgdir}/usr/share/applications/air.desktop"
   install -d -m755 "$pkgdir/var/log"
   export PERLTK_VER=$(pacman -Q perl-tk | awk -F' ' '{ print $2 }' |
   sed -e 's/-.*//' -e 's/_//')
