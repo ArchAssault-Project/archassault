@@ -1,6 +1,6 @@
 pkgname=beef
 pkgver=0.4.4.8.11.gadde527
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-exploitation')
 pkgdesc="BeEF, the Browser Exploitation Framework - it is a penetration testing tool that focuses on the web browser"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -10,7 +10,7 @@ makedepends=('git')
 depends=('ruby' 'ruby-sqlite3' 'ruby-thin>=1.5.1-1' 'ruby-sinatra>=1.4.4-1'
          'ruby-ansi' 'ruby-term-ansicolor' 'ruby-dm-core>=1.2.1-1' 'ruby-json'
          'ruby-data_objects>=0.10.13-1' 'ruby-dm-sqlite-adapter' 'ruby-parseconfig'
-         'ruby-dm-migrations' 'ruby-msfrpc-client' 'ruby-em-websocket>=0.3.8-1'
+         'ruby-dm-migrations' 'ruby1.9-msfrpc-client' 'ruby-em-websocket>=0.3.8-1'
          'ruby-addressable' 'ruby-dm-do-adapter' 'ruby-do_sqlite3>=0.10.13-1'
          'ruby-librex' 'ruby-jsmin' 'ruby-msgpack' 'ruby-twitter'
          'ruby-uglifier>=2.3.0-1' 'ruby-therubyracer>=0.11.4' 'ruby-rubyzip>=1.0.0-1'
