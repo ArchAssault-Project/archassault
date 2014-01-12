@@ -1,6 +1,6 @@
 pkgname=aeskeyfind
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-forensic' 'archassault-cracker')
 pkgdesc="A tool to find AES key in RAM"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -21,5 +21,5 @@ package() {
   install -dm755 "$pkgdir/usr/share/licenses/aeskeyfind"
   cp LICENSE "$pkgdir/usr/share/licenses/aeskeyfind/"
   install -m755 aeskeyfind "$pkgdir/usr/bin/aeskeyfind"
-  install -Dm644 "$srcdir/aeskeyfind.desktop" "$pkgdir/usr/share/applications/aesfix.desktop"
+  install -Dm644 "$srcdir/aeskeyfind.desktop" "$pkgdir/usr/share/applications/aeskeyfind.desktop"
 }
