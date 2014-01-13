@@ -1,0 +1,19 @@
+_gemname=librex
+pkgname=ruby1.9-$_gemname
+pkgver=0.0.68
+pkgrel=1
+pkgdesc='Ruby Exploitation Library'
+arch=(any)
+url='http://www.metasploit.com/'
+license=(BSD)
+depends=(ruby1.9)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha1sums=('74ea5b414fb3d2c68e43f982d32290e60b5696bf')
+
+package() {
+  local _gemdir="$(ruby-1.9 -e'puts Gem.default_dir')"
+  gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+}

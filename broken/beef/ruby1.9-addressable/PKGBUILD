@@ -1,0 +1,20 @@
+_gemname=addressable
+pkgname=ruby1.9-$_gemname
+pkgver=2.3.5
+pkgrel=1
+pkgdesc='URI Implementation'
+arch=(any)
+url='http://addressable.rubyforge.org/'
+license=('Apache License 2.0')
+depends=(ruby1.9)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha1sums=('29e58d7a32c1dcb6a9ea92eaf92b4b4fb745ce3d')
+
+package() {
+  local _gemdir="$(ruby-1.9 -e'puts Gem.default_dir')"
+  gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+  install -D -m644 "$pkgdir/$_gemdir/gems/$_gemname-$pkgver/LICENSE.txt" "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
+}
