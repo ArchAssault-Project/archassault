@@ -1,5 +1,5 @@
 pkgname=smtp-vrfy
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="An SMTP Protocol Hacker."
 groups=('archassault' 'archassault-scanner')
