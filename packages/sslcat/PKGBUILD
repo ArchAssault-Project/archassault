@@ -1,5 +1,5 @@
 pkgname=sslcat
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="SSLCat is a simple Unix utility that reads and writes data across an SSL enable network connection."
 url="http://www.bindshell.net/tools/sslcat"
