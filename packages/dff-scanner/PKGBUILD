@@ -1,5 +1,5 @@
 pkgname='dff-scanner'
-pkgver='latest'
+pkgver=1.1
 pkgrel=1
 pkgdesc='Tool for finding path of predictable resource locations.'
 arch=('any')
