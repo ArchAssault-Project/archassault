@@ -13,7 +13,6 @@ md5sums=('7672080300ece7919a031f9ca7beddce')
 prepare() {
   cd "$srcdir/bluepot"
   sed -i 's/BluePot.jar/\/usr\/share\/bluepot\/BluePot-0.1.jar/' run.sh
-  find . -name '.svn' -type d -exec rm -rf {}
 }
 
 
