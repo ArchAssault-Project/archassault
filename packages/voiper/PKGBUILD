@@ -6,7 +6,7 @@ url='http://voiper.sourceforge.net/'
 groups=('archassault' 'archassault-voip')
 depends=('python' 'wxpython')
 license=('GPL')
-arch=('x86' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=("http://downloads.sourceforge.net/voiper/$pkgname-$pkgver.tar.gz")
 md5sums=('d2bce38a993b51accf301fa3fe343565')
 
