@@ -22,8 +22,8 @@ package() {
   cd "$srcdir/ADMsnmp"
 
   install -Dm755 admsnmp "$pkgdir/usr/bin/admsnmp"
-  install -Dm755 "$pkgdir/usr/share/admsnmp"
-  install -Dm644 "$srcdir/admsnmp.dekstop" "$pkgdir/usr/share/applications/admsnmp.desktop"
+  install -dm755 "$pkgdir/usr/share/admsnmp"
+  install -Dm644 "$srcdir/admsnmp.desktop" "$pkgdir/usr/share/applications/admsnmp.desktop"
   cp ADMsnmp.README snmp.passwd "$pkgdir/usr/share/admsnmp/"
 }
 
