@@ -1,7 +1,3 @@
-# Maintainer: Jonne Haß <me@mrzyx.de>
-# Contributor: Alexsandr Pavlov <kidoz at mail dot ru>
-
-
 pkgname=ruby1.9-bundler
 _gemname=${pkgname#ruby1.9-}
 pkgver=1.3.5
