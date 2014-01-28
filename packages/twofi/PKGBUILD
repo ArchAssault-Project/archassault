@@ -6,7 +6,7 @@ pkgdesc='Twitter Words of Interest'
 arch=('any')
 url="http://www.digininja.org/projects/twofi.php"
 license=('CCPL')
-depends=('ruby' 'ruby-json')
+depends=('ruby')
 source=("http://www.digininja.org/files/twofi_$pkgver.tar.bz2")
 md5sums=('f708460f620fe8159f3ec6cf4f28cc75')
 
