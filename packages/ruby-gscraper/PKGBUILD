@@ -6,7 +6,7 @@ pkgdesc="Web-scraping interface to various Google Services."
 arch=('any')
 license=('')
 makedepends=('ruby')
-depends=('ruby-json>=1.6' 'ruby-uri-query_params>=0.5' 'ruby-mechanize>=2.0')
+depends=('ruby-uri-query_params>=0.5' 'ruby-mechanize>=2.0')
 url='https://github.com/postmodern/gscraper'
 source=("http://rubygems.org/downloads/gscraper-$pkgver.gem")
 md5sums=('c35960861315fdd86326915427c06b6a')
