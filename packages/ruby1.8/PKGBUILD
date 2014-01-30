@@ -66,7 +66,7 @@ package() {
 	install -dm755 $pkgdir/usr/bin
 	install -dm755 $pkgdir/usr/lib
 	for i in erb irb rdoc ri ruby testrb; do
-		ln -s /opt/ruby1.8/bin/$i $pkgdir/usr/bin/$i-1.8
+		ln -s /usr/share/ruby1.8/bin/$i $pkgdir/usr/bin/$i-1.8
 	done
 	ln -s /usr/share/ruby1.8/lib/libruby.so.1.8 $pkgdir/usr/lib/libruby.so.1.8
 }
