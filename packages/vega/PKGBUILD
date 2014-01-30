@@ -12,8 +12,7 @@ if [[ $CARCH == "x86_64" ]]; then
 elif [[ $CARCH == "i686" ]]; then
   source=("http://www.subgraph.com/downloads/VegaBuild-linux.gtk.x86.zip")
 fi
-md5sums=('1fb18ba012653f484add1b445da8f13d'
-		 '7568ef30a44a2328ac254a6e0858cc2b')
+md5sums=('1fb18ba012653f484add1b445da8f13d')
 
 package() {
   cd "$srcdir/vega"
