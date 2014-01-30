@@ -13,7 +13,7 @@ source=('git+http://github.com/AlekseyCherepanov/johnny.git'
         'johnny.desktop')
 md5sums=('SKIP'
          '24db229679d72a303ad1c9dd8c238cab'
-         '1650c897ad0fa04aebc29d9ab5a1a879')
+         '09458481d2db51d0e2485dc969b47e5e')
 
 build() {
   cd "$srcdir/johnny"
