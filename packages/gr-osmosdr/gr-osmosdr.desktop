@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Gr-osmosdr
+Comment=GNU Radio source block for Funcube Dongle, RTL-SDR, USRP and OsmoSDR devices
+Exec=gr-osmosdr
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

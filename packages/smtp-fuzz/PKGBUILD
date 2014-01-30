@@ -1,5 +1,5 @@
 pkgname=smtp-fuzz
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="Simple smtp fuzzer"
 url="none"

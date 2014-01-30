@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Fern-wifi-cracker
+Comment=WEP, WPA wifi cracker for wireless penetration testing
+Exec=fern-wifi-cracker
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultWireless;ArchAssaultCracker;

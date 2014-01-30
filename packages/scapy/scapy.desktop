@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Scapy
+Comment=A powerful interactive packet manipulation program written in Python
+Exec=scapy
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

@@ -1,6 +1,6 @@
 pkgname=w3af
 pkgver=1.5
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanner')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -11,7 +11,8 @@ depends=('python2' 'python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
          'python2-pdfminer' 'python2-futures' 'python2-pyopenssl' 'python2-lxml'
          'scapy' 'python2-guess-language' 'python2-cluster' 'python2-msgpack'
          'sqlite' 'python2-ntlm' 'python2-pygithub' 'python2-gitpython'
-         'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3')
+         'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3'
+         'python2-xdot')
 options=('!strip')
 source=('git+https://github.com/andresriancho/w3af'
         'w3af.desktop')

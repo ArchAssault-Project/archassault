@@ -1,6 +1,6 @@
 pkgname=unicornscan
 pkgver=0.4.7
-pkgrel=1
+pkgrel=3
 groups=('archassault' 'archassault-scanner')
 pkgdesc='A new information gathering and correlation engine.'
 url='http://www.unicornscan.org/'
@@ -23,13 +23,10 @@ build() {
 }
 
 package() {
-	cd "$pkgdir"
-	mkdir -p "etc/unicornscan"
+        cd "$srcdir/unicornscan-$pkgver"
+        make DESTDIR=$pkgdir install
 
-	cd "$pkgdir/etc/unicornscan"
-	ln -s /usr/share/GeoIP/GeoIP.dat GeoIP.dat
+        # Set GeoIP.dat for unicornscan
+	ln -s /usr/share/GeoIP/GeoIP.dat $pkgdir/etc/unicornscan/GeoIP.dat
 
-	cd "$srcdir/unicornscan-$pkgver"
-	install -Dm755 "src/unicornscan" "$pkgdir/usr/bin/unicornscan"
-	install -Dm644 "LICENSE" "$pkgdir/usr/share/licenses/unicornscan/LICENSE"
 }

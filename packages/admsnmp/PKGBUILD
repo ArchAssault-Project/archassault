@@ -1,27 +1,29 @@
 pkgname=admsnmp
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner')
 pkgdesc='ADM SNMP audit scanner.'
 license=('GPL')
 depends=('glibc')
 makedepends=('gcc')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-source=("http://packetstorm.wowhacker.com/groups/ADM/ADMsnmp.0.1.tgz")
-md5sums=('1b6909ab6ebaaaec49444f51d3162de2')
+source=("http://packetstorm.wowhacker.com/groups/ADM/ADMsnmp.0.1.tgz"
+        "admsnmp.desktop")
+md5sums=('1b6909ab6ebaaaec49444f51d3162de2'
+         'a2e5e650a726a5ca4421582576f0b5f2')
 
 build() {
   cd "$srcdir/ADMsnmp"
-  
+
   gcc $CFLAGS snmp.c -o admsnmp
 }
 
 package() {
   cd "$srcdir/ADMsnmp"
-  
+
   install -Dm755 admsnmp "$pkgdir/usr/bin/admsnmp"
-  install -d "$pkgdir/usr/share/admsnmp"
-  
+  install -dm755 "$pkgdir/usr/share/admsnmp"
+  install -Dm644 "$srcdir/admsnmp.desktop" "$pkgdir/usr/share/applications/admsnmp.desktop"
   cp ADMsnmp.README snmp.passwd "$pkgdir/usr/share/admsnmp/"
 }
 

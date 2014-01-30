@@ -1,5 +1,5 @@
 pkgname='goog-mail'
-pkgver='latest'
+pkgver=1.0
 pkgrel=1
 pkgdesc='Enumerate domain emails from google.'
 url='http://www.darkc0de.com/others/goog-mail.py'

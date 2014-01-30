@@ -1,19 +1,19 @@
 pkgname=3proxy-win32
 pkgver=0.7
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-windows')
 pkgdesc="3proxy tiny free proxy server"
 url="http://3proxy.ru/"
 license=('GPL')
 arch=('any')
-source=(http://3proxy.ru/current/3proxy-$pkgver-devel.zip)
-md5sums=('0d28526402992bf91f377c230617009c')
+source=("http://3proxy.ru/current/3proxy-$pkgver-devel.zip" "3proxy-win32.desktop")
+md5sums=('0d28526402992bf91f377c230617009c'
+         'dde146b9f36ab54e0598daa98002b199')
 
 package() {
   cd "$srcdir"
-
   rm *.zip # Remove symlinks
-
   install -dm755 "$pkgdir/usr/share/windows/3proxy-win32"
+  install -Dm644 "$srcdir"/3proxy-win32.desktop "$pkgdir"/usr/share/applications/3proxy-win32.desktop
   cp -r * "$pkgdir/usr/share/windows/3proxy-win32"
 }

@@ -1,12 +1,14 @@
 pkgname=argtable
 pkgver=2.11
-pkgrel=1
+pkgrel=2
 pkgdesc="ANSI C command line parser"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://argtable.sourceforge.net/"
 license=('GPL')
-source=("http://downloads.sourceforge.net/argtable/argtable${pkgver/./-}.tar.gz")
-md5sums=('6be6bdb5395b2de8063698f83db61791')
+source=("http://downloads.sourceforge.net/argtable/argtable${pkgver/./-}.tar.gz"
+        'argtable.desktop')
+md5sums=('6be6bdb5395b2de8063698f83db61791'
+         '0965e2cf1ad73c82651f8adb15445294')
 
 build() {
   cd "$srcdir/argtable${pkgver/./-}"
@@ -18,4 +20,5 @@ build() {
 package() {
   cd "$srcdir/argtable${pkgver/./-}"
   make "DESTDIR=$pkgdir" install
+  install -Dm644 "$srcdir/argtable.desktop" "$pkgdir/usr/share/applications/argtable.desktop"
 }

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Netdiscover
+Comment=An active/passive address reconnaissance tool, mainly developed for those wireless networks without dhcp server, when you are wardriving. It can be also used on hub/switched networks.
+Exec=netdiscover
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultRecon;ArchAssaultWireless;

@@ -1,5 +1,5 @@
 pkgname=erase-registrations
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="IAX flooder"
 url="http://www.hackingexposedvoip.com/"

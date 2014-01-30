@@ -34,7 +34,7 @@ Contact
 
 **IRC**: [irc://irc.freenode.net/ArchAssault](irc://irc.freenode.net/ArchAssault)
 
-The ArchAssault Project's GitHub Repo
+The ArchAssault Project's PKGBUILD Repo
 ---------------------------------
 
 PKGBUILD's for The ArchAssault Project packages

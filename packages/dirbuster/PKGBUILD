@@ -1,6 +1,6 @@
 pkgname=dirbuster
 pkgver=1.0_RC1
-pkgrel=1
+pkgrel=3
 groups=('archassault' 'archassault-scanner' 'archassault-webapp')
 pkgdesc="An application designed to brute force directories and files names on web/application servers"
 url='http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project'
@@ -11,17 +11,17 @@ source=("http://downloads.sourceforge.net/dirbuster/DirBuster-${pkgver/_/-}.tar.
 md5sums=('1e53740d6761fa2305dc13986145c43a')
 
 package() {
-  cd "$srcdir"
+  cd "$srcdir/DirBuster-${pkgver/_/-}"
 
   # Base directories.
-  install -dm755 "$pkgdir/opt"
+  install -dm755 "$pkgdir/usr/share/dirbuster"
   install -dm755 "$pkgdir/usr/bin"
 
-  cp --no-preserve=ownership -r DirBuster-${pkgver/_/-} "$pkgdir/opt/dirbuster"
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/dirbuster"
 
   cat > "$pkgdir/usr/bin/dirbuster" <<EOF
 #!/bin/sh
-cd /opt/dirbuster
+cd /usr/share/dirbuster
 java -jar DirBuster-${pkgver/_/-}.jar "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/dirbuster"

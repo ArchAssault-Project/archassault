@@ -1,26 +1,24 @@
 pkgname=netsniff-ng
-pkgver=0.5.7
+pkgver=0.5.8
 pkgrel=1
 groups=('archassault' 'archassault-sniffer')
 pkgdesc="A high performance Linux network sniffer for packet inspection."
-makedepends=(cmake)
+makedepends=()
+depends=('geoip' 'zlib' 'libnacl' 'libcap' 'liburcu' 'gnuplot' 'libcli' 'libnet' 'libnetfilter_conntrack' 'libpcap' 'libnl')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://netsniff-ng.org/'
 license=('GPL2')
-source=(http://pub.netsniff-ng.org/netsniff-ng/netsniff-ng-${pkgver}.tar.gz)
-md5sums=('d2da7a75d163f839129c9ebb8b0004d0')
+source=(http://pub.netsniff-ng.org/netsniff-ng/netsniff-ng-${pkgver}-rc5.tar.gz)
+md5sums=('7867c2c9b3e6f78f26f3fab2d19f40f5')
 
 build() {
-  cd "$srcdir/netsniff-ng-${pkgver}/src"
-  [[ -d build ]] || mkdir build
-  cd build
-  cmake ..
+  cd "$srcdir/netsniff-ng-${pkgver}-rc5/"
+  ./configure --prefix=/usr SBINDIR=/usr/bin
   make
 }
 
 package() {
-  cd "$srcdir/netsniff-ng-${pkgver}/src"
-  cd build
-  make DESTDIR="$pkgdir" install
-  mv "$pkgdir/usr/sbin" "$pkgdir/usr/bin"
+  cd "$srcdir/netsniff-ng-${pkgver}-rc5/"
+  sed -i 's/usr\/sbin/usr\/bin/' Makefile
+  make DESTDIR="${pkgdir}" install
 }

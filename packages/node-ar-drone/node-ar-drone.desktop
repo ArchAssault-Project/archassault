@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Node-ar-drone
+Comment=A node.js client for controlling Parrot AR Drone 2.0 quad-copters
+Exec=node-ar-drone
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

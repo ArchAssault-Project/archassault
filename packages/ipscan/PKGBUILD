@@ -18,7 +18,7 @@ elif [[ $CARCH == "x86_64" ]]; then
 fi
 md5sums=('d6f9d7186e530bfe56eaaa330c8ec3ba'
          '2ddec9efc5bec219792d18d9024efcdc'
-         'fe5be3a3aab791a07641cc6d38126b73')
+         'cf4d809ff9dc110f5e2725e18322a27c')
 
 package() {
   cd $srcdir

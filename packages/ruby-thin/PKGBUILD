@@ -6,7 +6,7 @@ pkgdesc="A thin and fast web server"
 arch=('any')
 url='http://code.macournoyer.com/thin/'
 license=('RUBY')
-depends=('ruby' 'rubygems' 'ruby-rack>=1.0.0' 'ruby-eventmachine>=0.12.6' 'ruby-daemons>=1.0.9')
+depends=('ruby' 'rubygems' 'ruby-eventmachine>=0.12.6' 'ruby-daemons>=1.0.9')
 source=("http://gems.rubyforge.org/gems/${_gemname}-${pkgver}.gem")
 md5sums=('01d46b8ad726ca17d0ec775f7019418c')
 

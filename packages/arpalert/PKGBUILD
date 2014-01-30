@@ -1,18 +1,19 @@
 pkgname='arpalert'
 pkgver='2.0.12'
-pkgrel=1
+pkgrel=2
 pkgdesc='Monitor ARP changes in ethernet networks.'
-arch=('x86' 'x86_64' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.arpalert.org/'
 license=('GPL')
 depends=('libpcap')
 groups=('archassault' 'archassault-defensive')
-source=("http://www.arpalert.org/src/arpalert-$pkgver.tar.gz")
-md5sums=('7f027f74eaf94ad5759ccd9b20d0b854')
+source=("http://www.arpalert.org/src/arpalert-$pkgver.tar.gz"
+        'arpalert.desktop')
+md5sums=('7f027f74eaf94ad5759ccd9b20d0b854'
+         '20e6247ddac9f20434a99b33f0cb318f')
 
 build() {
   cd "$srcdir/arpalert-$pkgver"
-
   ./configure --prefix=/ --exec-prefix=/usr \
               --includedir=/usr/include \
               --datarootdir=/usr/share
@@ -21,6 +22,6 @@ build() {
 
 package() {
   cd "$srcdir/arpalert-$pkgver"
-  
+  install -Dm644 "$srcdir/arpalert.desktop" "$pkgdir/usr/share/applications/arpalert.desktop"
   make DESTDIR="$pkgdir" install
 }

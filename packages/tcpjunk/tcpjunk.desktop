@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Tcpjunk
+Comment=A general tcp protocols testing and hacking utility
+Exec=tcpjunk
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultFuzzer;ArchAssaultExploitation;

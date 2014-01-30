@@ -5,8 +5,7 @@ pkgdesc="Python extension module for libpcap."
 url="http://code.google.com/p/pypcap/"
 license=('custom')
 arch=('any')
-depends=('python' 'libpcap')
-makedepends=()
+depends=('python2' 'libpcap')
 source=("http://pypcap.googlecode.com/files/pypcap-$pkgver.tar.gz"
         'python2-pypcap.patch')
 md5sums=('034c3cbbfa81aa19e8f685b767c65764'
@@ -20,9 +19,10 @@ prepare() {
 
 build() {
   cd "$srcdir/pypcap-$pkgver"
-  
+
   python2 setup.py config
   python2 setup.py build
+  python2 setup.py build_py
 }
 
 package() {

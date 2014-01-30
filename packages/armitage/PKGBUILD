@@ -1,5 +1,5 @@
 pkgname=armitage
-pkgver=2013.08.21
+pkgver=2014.01.05
 pkgrel=1
 groups=('archassault' 'archassault-exploitation')
 pkgdesc="A graphical cyber attack management tool for Metasploit"
@@ -11,9 +11,16 @@ makedepends=('apache-ant' 'zip' 'unzip' 'subversion')
 provides=('armitage')
 install=armitage.install
 source=('svn+http://armitage.googlecode.com/svn/trunk/'
-        'armitage.install')
+        'armitage.install'
+        'armitage.desktop')
 md5sums=('SKIP'
-         '5234326f9ff41ff8694cb35a557af895')
+         '5234326f9ff41ff8694cb35a557af895'
+         'ea00bc187f090bf67116aaee6c201ae9')
+
+pkgver() {
+  cd trunk
+  svnversion | tr -d [A-Z]
+}
 
 prepare() {
   cd "$srcdir/trunk"
@@ -27,17 +34,14 @@ build() {
 
 package() {
   cd "$srcdir/trunk"
-  # Base directories.
   install -dm755 "$pkgdir/usr/share"
   install -dm755 "$pkgdir/usr/bin"
-
-  # Joint script.
   cat > "$pkgdir/usr/bin/armitage" <<\EOF
 #!/bin/sh
 java -jar /usr/share/armitage/armitage.jar "$@"
 EOF
   chmod +x "$pkgdir/usr/bin/armitage"
-
-  # Everything else.
   tar -xzf "$srcdir/trunk/armitage.tgz" -C "$pkgdir/usr/share"
+  install -Dm644 "$srcdir/armitage.desktop" "$pkgdir/usr/share/applications/armitage.desktop"
+  chown -R root:root "$pkgdir"/*
 }

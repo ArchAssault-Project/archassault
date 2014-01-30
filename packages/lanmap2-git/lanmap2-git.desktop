@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Lanmap2-git
+Comment=Passive network mapping tool
+Exec=lanmap2-git
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultNetworking;ArchAssaultRecon;

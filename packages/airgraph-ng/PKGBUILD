@@ -1,15 +1,16 @@
 pkgname=airgraph-ng
 pkgver=2364
-pkgrel=1
+pkgrel=3
 pkgdesc="Graphing tool for the aircrack suite"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://www.aircrack-ng.org"
 license=('GPL2')
 depends=('graphviz' 'python2')
 makedepends=("subversion")
 groups=('archassault' 'archassault-misc')
-source=('svn+http://svn.aircrack-ng.org/trunk/scripts/airgraph-ng')
-md5sums=('SKIP')
+source=('svn+http://svn.aircrack-ng.org/trunk/scripts/airgraph-ng' 'airgraph-ng.desktop')
+md5sums=('SKIP'
+         'b016312e3c258803359c50acd8b85318')
 
 pkgver() {
   cd airgraph-ng
@@ -23,5 +24,6 @@ build() {
 
 package() {
   cd "${srcdir}/airgraph-ng"
+  install -Dm644 "$srcdir/airgraph-ng.desktop" "$pkgdir/usr/share/applications/airgraph-ng.desktop"
   python2 setup.py install --root="${pkgdir}/" --prefix=/usr
 }

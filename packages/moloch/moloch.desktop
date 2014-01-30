@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Moloch
+Comment=An open source large scale IPv4 full PCAP capturing, indexing and database system.
+Exec=moloch
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

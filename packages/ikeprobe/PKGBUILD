@@ -1,5 +1,5 @@
 pkgname='ikeprobe'
-pkgver='latest'
+pkgver=1.0
 pkgrel=1
 pkgdesc='Determine vulnerabilities in the PSK implementation of the VPN server.'
 url='http://www.ernw.de/download/ikeprobe.zip'

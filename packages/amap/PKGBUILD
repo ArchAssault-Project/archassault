@@ -1,30 +1,30 @@
 pkgname=amap
 pkgver=5.4
-pkgrel=2
+pkgrel=4
 pkgdesc="Next-generation tool for assisting network penetration testing."
 arch=('i686' 'x86_64')
 license=('GPL2' 'custom')
+groups=('archassault')
 depends=('pcre' 'openssl' 'ca-certificates')
 url="http://freeworld.thc.org/releases.php"
 source=("git+https://github.com/ArchAssault-Project/amap.git"
-        "pcre.patch")
+        "pcre.patch"
+        'amap.desktop')
 md5sums=('SKIP'
-         '1578a2075797fdeaba29918349905449')
+         '1578a2075797fdeaba29918349905449'
+         '3b94522522e8162ad831108bc2a55284')
 
 prepare(){
   cd "$srcdir/amap"
-  sed -i -e "s:etc/:share/amap/:g" amap-lib.c 
+  sed -i -e "s:etc/:share/amap/:g" amap-lib.c
   # Above change requires below change. See sources...
   sed -i '/strlen(AMAP_PREFIX/s: 5 : 12 :' amap-lib.c
   sed -i 's:/usr/local:/usr:' amap.h
   # Files to be updated are at different location, bug 207839.
   sed -i '/AMAP_RESOURCE/s:www:freeworld:' amap.h
-  
-  sed -i '/DATADIR/s:/etc:/share/amap:' Makefile.am 
-
+  sed -i '/DATADIR/s:/etc:/share/amap:' Makefile.am
   patch -p1 < ../pcre.patch
-}  
-  
+}
 
 build() {
   cd "$srcdir/amap"
@@ -40,23 +40,18 @@ build() {
        -e '/^XDEFINES=/s:=:=-DOPENSSL:' \
        -e '/^XLIBS=/s:=:=-lcrypto -lssl:' \
        Makefile
-
   export CFLAGS=$CFLAGS
   make
 }
 
 package() {
   cd "$srcdir/amap"
-
-
   install -Dm755 amap "$pkgdir/usr/bin/amap"
-  ln -s "$pkgdir/usr/bin/amap" "$pkgdir/usr/bin/amap6"
+  ln -s "/usr/bin/amap" "$pkgdir/usr/bin/amap6"
   install -Dm755 amapcrap "$pkgdir/usr/bin/amapcrap"
-
   install -dm755 "$pkgdir/usr/share/amap"
   install -Dm644 appdefs.* "$pkgdir/usr/share/amap/"
-
   install -Dm644 amap.1 "$pkgdir/usr/share/man/man1/amap.1"
-
   install -Dm644 LICENCE.AMAP "$pkgdir/usr/share/licenses/amap/LICENCE"
+  install -Dm644 "$srcdir/amap.desktop" "$pkgdir/usr/share/applications/amap.desktop"
 }

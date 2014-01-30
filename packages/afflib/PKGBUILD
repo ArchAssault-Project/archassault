@@ -1,14 +1,15 @@
 pkgname=afflib
 pkgver=3.7.1
-pkgrel=1
+pkgrel=3
 groups=('archassault' 'archassault-forensic')
 pkgdesc="An extensible open format for the storage of disk images and related forensic information"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.afflib.org'
 license=('custom')
-depends=('zlib' 'openssl' 'fuse')
-source=("https://github.com/downloads/simsong/AFFLIBv3/afflib-$pkgver.tar.gz")
-md5sums=('c6751d461aaf6acf9d15303cde539e44')
+depends=('zlib' 'openssl' 'fuse' 'expat')
+source=("https://github.com/downloads/simsong/AFFLIBv3/afflib-$pkgver.tar.gz" "afflib.desktop")
+md5sums=('c6751d461aaf6acf9d15303cde539e44'
+         '7c9e0e3268f1922bf5d0b3bdf1f4236b')
 
 build() {
   cd "$srcdir/afflib-$pkgver"
@@ -19,4 +20,5 @@ build() {
 package() {
   cd "$srcdir/afflib-$pkgver"
   make "DESTDIR=$pkgdir" install
+  install -Dm644 "$srcdir/afflib.desktop" "$pkgdir/usr/share/applications/afflib.desktop"
 }

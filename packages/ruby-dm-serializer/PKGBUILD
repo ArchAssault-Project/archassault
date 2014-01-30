@@ -5,7 +5,7 @@ pkgrel=1
 pkgdesc="DataMapper plugin for serializing Resources and Collections"
 arch=('any')
 license=('BSD')
-depends=('ruby' 'ruby-fastercsv>=1.5' 'ruby-multi_json>=1.0' 'ruby-json>=1.6' 'ruby-json_pure>=1.6' 'ruby-dm-core>=1.2.0')
+depends=('ruby' 'ruby-fastercsv>=1.5' 'ruby-multi_json>=1.0' 'ruby-json_pure>=1.6' 'ruby-dm-core>=1.2.0')
 url='http://datamapper.org'
 source=("http://rubygems.org/downloads/dm-serializer-$pkgver.gem")
 md5sums=('b4f0152b5e954d4e5557c74fe92c9851')

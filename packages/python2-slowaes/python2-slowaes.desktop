@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-slowaes
+Comment=Implementation of AES in Python
+Exec=python2-slowaes
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

@@ -1,0 +1,11 @@
+python-magic
+python-utidylib
+python-ipcalc
+python-xbee
+python-urllib3
+shiboken
+powerfuzzer
+meshdeck
+tuxcut
+fimap
+

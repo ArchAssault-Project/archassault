@@ -1,13 +1,13 @@
 pkgname=ruby-coderay
-pkgver=1.1.0
-pkgrel=0
+pkgver=1.0.5
+pkgrel=1
 pkgdesc="Fast syntax highlighting for selected languages."
 arch=('any')
 license=('MIT')
 depends=('ruby')
 url='http://coderay.rubychan.de'
 source=("http://rubygems.org/downloads/coderay-$pkgver.gem")
-md5sums=('2fa78bc78816c3ae7d0475f6dbc76611')
+md5sums=('bc0686868dc85ae4202b8bdafb4349a8')
 noextract=("coderay-$pkgver.gem")
 
 package() {

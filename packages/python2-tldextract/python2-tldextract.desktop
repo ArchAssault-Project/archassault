@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-tldextract
+Comment=Accurately separates the gTLD or ccTLD (generic or country code top-level domain) from the registered domain and subdomains of a URL
+Exec=python2-tldextract
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;Development;

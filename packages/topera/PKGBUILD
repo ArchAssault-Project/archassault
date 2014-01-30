@@ -1,11 +1,11 @@
 pkgname=topera
-pkgver=20131227
+pkgver=20140107
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A new security tools for IPv6, with the particularity that their attacks can't be detected by Snort."
 url="https://github.com/toperaproject/topera"
 arch=('any')
-license=('GPL3')
+license=('GPL2')
 depends=('python2' 'scapy')
 source=("git+https://github.com/toperaproject/topera.git")
 md5sums=('SKIP')

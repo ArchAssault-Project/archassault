@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-pydns
+Comment=Python2 module for performing DNS queries
+Exec=python2-pydns
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

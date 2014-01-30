@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Tiger
+Comment=A security scanner, that checks computer for known problems. Can also use tripwire, aide and chkrootkit.
+Exec=tiger
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultScanner;ArchAssaultAutomation;

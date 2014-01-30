@@ -18,5 +18,18 @@ build() {
 
 package() {
   cd "$srcdir/bletchley-src-$pkgver"
+
+  export PYTHONSITE=`python -c "import site; print(site.getsitepackages()[0])"`
+
+  # Install Dirs
+  install -dm755 "${pkgdir}/usr/lib"
+  install -dm755 "${pkgdir}${PYTHONSITE}"
+  install -dm755 "${pkgdir}${PYTHONSITE}/bletchley"
+  install -dm755 "$pkgdir/usr/bin"
+
+  # Install Python3 site-packages files and folders
+  cp -a --no-preserve=ownership -R lib/bletchley ${pkgdir}`python -c "import site; print(site.getsitepackages()[0])"`
+
+  # Install Bins
   PREFIX="$pkgdir/usr/" scons install
 }

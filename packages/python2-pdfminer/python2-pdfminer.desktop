@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-pdfminer
+Comment=A tool for extracting information from PDF documents
+Exec=python2-pdfminer
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

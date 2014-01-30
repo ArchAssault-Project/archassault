@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-demjson
+Comment=Encoder, decoder, and lint/validator for JSON (JavaScript Object Notation) compliant with RFC 4627
+Exec=python2-demjson
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

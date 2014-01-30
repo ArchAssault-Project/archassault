@@ -1,0 +1,8 @@
+##
+## ArchAssault repository mirrorlist
+## Generated on 2014-01-28
+##
+
+## United States
+#Server = http://repo.archassault.org/archassault/$repo/os/$arch
+

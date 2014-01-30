@@ -1,14 +1,15 @@
 pkgname=ace
 pkgver=1.10
-pkgrel=1
+pkgrel=3
 groups=('archassault' 'archassault-voip')
 pkgdesc="Automated Corporate Enumerator. A simple yet powerful VoIP Corporate Directory enumeration tool that mimics the behavior of an IP Phone in order to download the name and extension entries that a given phone can display on its screen interface"
 url='http://ucsniff.sourceforge.net/ace.html'
 license=('GPL')
 depends=('libpcap')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-source=("http://downloads.sourceforge.net/ucsniff/ace-$pkgver.tar.gz")
-md5sums=('42788723aeb1c41145371e49a64d5bc5')
+source=("http://downloads.sourceforge.net/ucsniff/ace-$pkgver.tar.gz" "ace.desktop")
+md5sums=('42788723aeb1c41145371e49a64d5bc5'
+         'dd96a8450ece62dfdbf120aa63e38e31')
 
 prepare() {
   cd "$srcdir/ace-$pkgver"
@@ -24,4 +25,5 @@ build() {
 package() {
   cd "$srcdir/ace-$pkgver"
   install -Dm755 ace "$pkgdir/usr/bin/ace"
+  install -Dm644 "$srcdir/ace.desktop" "$pkgdir/usr/share/applications/ace.desktop"
 }

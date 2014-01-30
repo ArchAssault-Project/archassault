@@ -1,0 +1,19 @@
+_gemname=libv8
+pkgname=ruby1.9-$_gemname
+pkgver=3.16.14.3
+pkgrel=1
+pkgdesc='Distribution of the V8 JavaScript engine'
+arch=(any)
+url='http://github.com/cowboyd/libv8'
+license=(MIT)
+depends=(ruby1.9)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha1sums=('f13e4f6aab75ba55d9997b89ee8fa2fc9bd1b784')
+
+package() {
+  local _gemdir="$(ruby-1.9 -e'puts Gem.default_dir')"
+  gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+}

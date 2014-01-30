@@ -2,12 +2,13 @@ _subarchs=(armv6h armv7h)
 pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")
 pkgver=4.7.2
-pkgrel=1
+pkgrel=2
 pkgdesc="An x-tools & distcc services package for ArchAssault ARM only for x86_64"
 arch=('x86_64')
 license=('GPL' )
 url="http://archlinuxarm.org/developers/distcc-cross-compiling"
 depends=('distcc')
+backup=('etc/conf.d/distccd-armv7h.conf' 'etc/conf.d/distccd-armv7h.service' 'etc/conf.d/distccd-armv6h.conf' 'etc/conf.d/distccd-armv6h.service')
 options=('libtool' 'emptydirs' '!strip')
 source=(http://archlinuxarm.org/builder/xtools/x-tools6h.tar.xz
 	http://archlinuxarm.org/builder/xtools/x-tools7h.tar.xz

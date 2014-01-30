@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-requests_ntlm
+Comment=Allows for HTTP NTLM authentication using the requests library
+Exec=python2-requests_ntlm
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

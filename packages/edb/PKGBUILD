@@ -14,7 +14,7 @@ provides=('edb-debugger')
 source=(http://www.codef00.com/projects/debugger-$pkgver.tgz
         edb.desktop)
 md5sums=('c34e60c5c5c02c716cdcfb669f74e13f'
-         'e9be4ef10362b0ae251dfb8f7d122395')
+         'a08fb481bc46f47c6c004f7b8bd928e4')
 
 build() {
   cd $srcdir/debugger

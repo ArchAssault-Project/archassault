@@ -4,5 +4,5 @@ Type=Application
 Comment=Fast host and port scanner
 Exec=ipscan
 TryExec=ipscan
-Icon=ipscan.png
+Icon=archassault-menu.png
 Categories=Application;Network

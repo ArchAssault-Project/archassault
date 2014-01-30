@@ -7,8 +7,9 @@ url="http://packetstormsecurity.com/files/51127/airflood-0.1.tar.gz.html"
 license=('GPL')
 depends=('glibc')
 groups=('archassault' 'archassault-wireless')
-source=(http://dl.packetstormsecurity.net/wireless/airflood-$pkgver.tar.gz)
-md5sums=('c18b1f667c8e3c187803964aaa561a67')
+source=("http://dl.packetstormsecurity.net/wireless/airflood-$pkgver.tar.gz" 'airflood.desktop')
+md5sums=('c18b1f667c8e3c187803964aaa561a67'
+         '017f5095fc5af3a3490d76945c45a1dd')
 
 build() {
   cd "$srcdir/airflood-$pkgver"
@@ -17,6 +18,6 @@ build() {
 
 package(){
   cd "$srcdir/airflood-$pkgver"
-
+  install -Dm644 "$srcdir/airflood.desktop" "$pkgdir/usr/share/applications/airflood.desktop"
   install -Dm755 airflood "$pkgdir/usr/bin/airflood"
 }

@@ -9,7 +9,7 @@ makedepends=('glib2' 'yara')
 source=("https://github.com/aol/moloch/archive/v$pkgver.tar.gz"
         "build_fix.patch")
 options=('!strip')
-                
+
 md5sums=('a5fdb9717b8ae31ba0017bd3a05eda60'
          '51f520e632d50ceae5b2de6a2fa94046')
 
@@ -23,5 +23,7 @@ build(){
 package() {
   cd "$srcdir/moloch-$pkgver"
   make DESTDIR=$pkgdir install
+  mv "$pkgdir/usr/share/moloch/bin" "$pkgdir/usr/bin"
+  find "$pkgdir" -name '*.a' -exec chmod -x {} +
 }
 

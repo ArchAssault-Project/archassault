@@ -1,5 +1,5 @@
 pkgname=ghettotooth
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="Ghettodriving for bluetooth"
 url="http://www.oldskoolphreak.com/tfiles/ghettotooth.txt"

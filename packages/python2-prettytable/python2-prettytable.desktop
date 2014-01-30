@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python2-prettytable
+Comment=A simple Python library for easily displaying tabular data in a visually appealing ASCII table format
+Exec=python2-prettytable
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=Application;

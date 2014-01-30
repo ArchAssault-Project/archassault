@@ -1,5 +1,5 @@
 pkgname=teardown
-pkgver=latest
+pkgver=1.0
 pkgrel=1
 pkgdesc="Command line tool to send a BYE request to tear down a call."
 url="http://www.hackingexposedvoip.com/"
