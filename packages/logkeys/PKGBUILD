@@ -12,8 +12,8 @@ backup=('etc/conf.d/logkeysd')
 source=("http://logkeys.googlecode.com/files/logkeys-$pkgver.tar.gz"
         logkeys-stdout.patch logkeysd.conf logkeys.service)
 md5sums=('19362a382b65e89c66ea4c5642297589'
-         'c11258ab13560081c2cdb56ccd31c6cd'
-         'c05608a47e303e8f604f46d1ed22aa4a'
+         '8718a499a50d5607bde054aa48594406'
+         '0ddf617f1c51e2362a1c7a08c1cd62f6'
          'bd70a5e5601168bbf7bf7f91ee530d14')
 
 prepare() {
