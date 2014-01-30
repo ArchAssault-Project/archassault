@@ -8,7 +8,7 @@ license=('GPL2' 'MIT' 'PerlArtistic')
 depends=('ruby1.9')
 source=("http://rubygems.org/downloads/${pkgname#*-}-${pkgver}.gem")
 noextract=("${pkgname#*-}-${pkgver}.gem")
-sha256sums=('d3e53ba4162d4ee93ce75e644c7fca5503fad1c512277b9ca80ad43aa8103ae0')
+sha256sums=('f880433aa2aae29df84a6ccb6e58cbf0bc65876571ea5a86906d96f654de4702')
 
 prepare() {
   gem-1.9 install --no-{ri,rdoc,user-install} --ignore-dependencies -i . ${pkgname#*-}-${pkgver}.gem
