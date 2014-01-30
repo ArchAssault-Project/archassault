@@ -6,7 +6,7 @@ arch=('any')
 url="http://mark0.net/soft-trid-e.html"
 license=('CUSTOM')
 source=(triddefs-$pkgver.zip::http://mark0.net/download/triddefs.zip)
-md5sums=('612cad94c18793fb64192188421353f2')
+md5sums=('29719d62ec9fa6b91330cd1984360985')
 
 package() {
   cd "$srcdir"
