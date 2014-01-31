@@ -1,11 +1,13 @@
 pkgname=archassault-keyring
-pkgver=20140108
+pkgver=20140131
 pkgrel=1
 pkgdesc='ArchAssault PGP keyring'
 arch=('any')
 url='https://bitbucket.org/archassault/archassault-keyring.git'
+depends=('gnupg-largekeys')
 makedepends=('git')
 license=('GPL')
+groups=('archassault' 'archassault-dev')
 install="${pkgname}.install"
 source=("aa-keyring::git+https://bitbucket.org/archassault/archassault-keyring.git")
 md5sums=('SKIP')
