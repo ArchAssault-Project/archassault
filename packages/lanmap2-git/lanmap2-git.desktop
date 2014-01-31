@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Name=Lanmap2-git
-Comment=Passive network mapping tool
-Exec=lanmap2-git
+Name=Lanmap2
+Comment=Builds database/visualizations of LAN structure from passively sifted information.
+Exec=sh -c "cd /usr/share/lanmap2-git && sudo ./cap;${SHELL:-bash}"
 Icon=archassault-menu.png
 Terminal=false
 StartupNotify=false
-Categories=ArchAssault;ArchAssaultNetworking;ArchAssaultRecon;
+Categories=ArchAssault;ArchAssaultNetworking;ArchAssaultMisc;
