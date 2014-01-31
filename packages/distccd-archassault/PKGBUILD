@@ -17,11 +17,11 @@ source=(http://archlinuxarm.org/builder/xtools/x-tools6h.tar.xz
 	distccd-armv6h.conf
 	distccd-armv6h.service
         )
-md5sums=('90af57b6610b622340edc7166f316761'
-         'ad5ebe4481ceff9ebcebd80ac1c11303'
-         '4c7552805af92262356d262b14c8f173'
+md5sums=('9cbdc2c73f8065b189c12b8c0bb400bc'
+         '52a70194828fcc18e82da0d455c2f718'
+         '717a4bc07b1c7ad4461603a633e6a008'
          'e760b78b6d8c4d94ba1540ee0a9e33b9'
-         '8bd7cddb50f8c41f6a3e87a1d1d95b0b'
+         'c15d726a8b9708eda6d274dbae11783e'
          '0f2ed6569e6f9de9ce63c9550b68a7a7')
 
 _package_subarch() {
