@@ -1,53 +1,79 @@
 pkgname=arachni
 pkgver=0.4.5.2
-pkgrel=2
+pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
-pkgdesc="Arachni - Web Application Security Scanner Framework"
+pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
 arch=('any')
+license=('apache')
 url="https://github.com/Arachni/arachni"
 license=('GPL')
 depends=('ruby')
 makedepends=('git')
-conflicts=('arachni-git')
-if [[ $CARCH == "x86_64" ]]; then
-  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-x86_64.tar.gz"
-          'arachni.desktop')
-md5sums=('ca4712e0c2706432a56d48916346380a'
-         '6956f9cb4f5d8e19d9ea4ffcebb4bd24')
-elif [[ $CARCH == "i686" ]]; then
-  source=("http://downloads.arachni-scanner.com/arachni-$pkgver-0.4.2.1-linux-i686.tar.gz"
-          'arachni.desktop')
-fi
+url='https://www.arachni-scanner.com'
+source=('git+git://github.com/Arachni/arachni.git')
+install='arachni.install'
+md5sums=('SKIP')
+
+pkgver() {
+  cd arachni
+
+  git describe --always | sed 's|-|.|g' | sed 's/^v//'
+}
 
 package() {
-  mkdir -p "$pkgdir/usr/"{bin,share/arachni}
-  install -Dm644 "$srcdir/arachni.desktop" "$pkgdir/usr/share/applications/arachni.desktop"
-  cd "$srcdir/arachni-$pkgver-0.4.2.1"
-  cp -a --no-preserve=ownership * "$pkgdir/usr/share/arachni/"
-  mkdir -p "$pkgdir/usr/share/arachni/scans"
-  cd "$pkgdir/usr/bin"
+  cd "$srcdir/arachni"
 
-cat > "$pkgdir/usr/bin/arachni" << EOF
+  install -d -m755 "$pkgdir/usr/bin"
+  install -d -m755 "$pkgdir/usr/share/arachni"
+  install -d -m755 "$pkgdir/usr/share/doc/arachni"
+  install -d -m755 "$pkgdir/usr/share/licenses/arachni"
+
+  install -m644 LICENSE.md "$pkgdir/usr/share/licenses/arachni"
+
+  install -m644 *.md "$pkgdir/usr/share/doc/arachni"
+
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/arachni"
+
+  cat > "$pkgdir/usr/bin/arachni" << EOF
 #!/bin/sh
 cd /usr/share/arachni
 ./bin/arachni "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/arachni"
 
-cat > "$pkgdir/usr/bin/arachni_web" << EOF
+  cat > "$pkgdir/usr/bin/arachni_console" << EOF
 #!/bin/sh
-echo "Default account details:
-
- Administrator:
-   E-mail address: admin@admin.admin
-   Password:       administrator
-
- User:
-   E-mail address: user@user.user
-   Password:       regular_user"
-echo ""
 cd /usr/share/arachni
-./bin/arachni_web "\$@"
+./bin/arachni_console "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/arachni_web"
+
+  cat > "$pkgdir/usr/bin/arachni_multi" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+./bin/arachni_multi "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/arachni_rpc" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+./bin/arachni_rpc "\$@"
+EOF
+  cat > "$pkgdir/usr/bin/arachni_rpcd" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+ruby /usr/share/arachni/bin/arachni_rpcd "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/arachni_rpcd_monitor" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+ruby /usr/share/arachni/bin/arachni_rpcd_monitor "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/arachni_script" << EOF
+#!/bin/sh
+cd /usr/share/arachni
+ruby /usr/share/arachni/bin/arachni_script "\$@"
+EOF
+
+  chmod +x "$pkgdir"/usr/bin/*
 }
