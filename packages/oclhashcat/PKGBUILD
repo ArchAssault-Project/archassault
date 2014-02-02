@@ -4,7 +4,7 @@ pkgver=1.01
 pkgrel=2
 pkgdesc="Worlds fastest WPA cracker with dictionary mutation engine"
 url=('http://hashcat.net/oclhashcat/')
-arch=('i686' 'x86_64')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('custom')
 optdepends=('nvidia-utils>=319.37: For for gpu support via Nvidia CUDA'
 	    'catalyst-utils>=13.4: For gpu support via ATI Stream'
