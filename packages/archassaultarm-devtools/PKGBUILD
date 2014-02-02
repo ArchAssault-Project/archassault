@@ -1,0 +1,31 @@
+pkgname=archassaultarm-devtools
+pkgver=20140108
+pkgrel=1
+pkgdesc='Tools for ArchAssault ARM package maintainers'
+arch=('armv6h' 'armv7h')
+groups=('archassault-dev')
+license=('GPL')
+depends=('devtools-alarm')
+source=('pacman-archassault-armv6h.conf' 
+		'pacman-archassault-armv7h.conf' 
+		'makepkg.armv6h.conf' 
+		'makepkg.armv7h.conf'
+		)
+sha256sums=('7a6840e39bcfaaec2e9da61ad26c38663dd7a91efcc2e93b9ccfd7e3f994298c'
+            'a8b6bb4f6f23b333a3fe35b894b36c3ffc98e9af3f68d1a6df16ad27d71515b2'
+            '9a44ac0dadb73173a9602a5c69010423acb9d5fd5b17f197331881c229d59e05'
+            'f90a11ba0c3f6eed2897a7df810a47c1a88007306d9193507a7a1376fd7fa359')
+
+package() {
+	install -dm 755 "${pkgdir}/usr/bin"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-armv6h-build"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-armv7h-build"
+    ln -s archbuild "${pkgdir}/usr/bin/archassault-testing-armv6h-build"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-testing-armv7h-build"
+	install -dm755 "${pkgdir}/usr/share/devtools"
+	install -m644 "${srcdir}/pacman-archassault-armv6h.conf ${pkgdir}/usr/share/devtools/"
+	install -m644 "${srcdir}/pacman-archassault-armv7h.conf ${pkgdir}/usr/share/devtools/"
+    install -m644 "${srcdir}/makepkg.armv6h.conf ${pkgdir}/usr/share/devtools/"
+    install -m644 "${srcdir}/makepkg.armv7h.conf ${pkgdir}/usr/share/devtools/"
+}
+
