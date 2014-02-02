@@ -71,7 +71,7 @@ EOF
 
   # Bin
   install -m755 httsquash "$pkgdir/usr/share/complemento/httsquash"
-  ln -s /usr/share/complemento/httsquash "$pkgdir/usr/bin/httsquash"
+  ln -s /usr/share/complemento/httsquash/httsquash "$pkgdir/usr/bin/httsquash"
 
   # Doc
   install -m644 readme "$pkgdir/usr/share/doc/complemento/readme-httsquash"
