@@ -11,8 +11,8 @@ source=("git+https://github.com/kamorin/DHCPig")
 md5sums=('SKIP')
 
 pkgver() {
-  # Upstream provides no version numbers.
-  date +%Y%m%d
+  cd DHCPig
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
 prepare() {
