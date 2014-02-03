@@ -1,6 +1,6 @@
 pkgname=autopsy
 pkgver=2.24
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-forensic')
 pkgdesc="A GUI for The Sleuth Kit."
 arch=('any')
@@ -41,7 +41,7 @@ package() {
 
   install -m644 "$srcdir/autopsy.pl" "$pkgdir/etc"
   cp --no-preserve=ownership -r help lib pict "$pkgdir/usr/lib/autopsy/"
-  cp --no-preserve=ownership -r man "$pkgdir/usr"
+  cp --no-preserve=ownership -r man "$pkgdir/usr/share"
 
   ln -s ../lib/autopsy/autopsy "$pkgdir/usr/bin/autopsy"
 }

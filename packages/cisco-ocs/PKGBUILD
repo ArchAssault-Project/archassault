@@ -1,6 +1,6 @@
 pkgname=cisco-ocs
 pkgver=0.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Cisco Router Default Password Scanner"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -14,7 +14,6 @@ md5sums=('SKIP')
 
 build() {
   cd "$srcdir/cisco-ocs"
-  export CFLAGS=$CFLAGS
   gcc -Wall -Wextra -lpthread "OCS-$pkgver.c" -o cisco-ocs
 }
 

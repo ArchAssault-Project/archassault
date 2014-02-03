@@ -1,0 +1,20 @@
+pkgname=ropeadope
+pkgver=1.1
+pkgrel=1
+pkgdesc="A linux log cleaner."
+arch=('any')
+url="http://www.highhacksociety.com/"
+license=('custom:unknown')
+depends=('python2')
+source=('http://www.nullsecurity.net/tools/logcleaner/ropeadope.py')
+md5sums=('cf45c95eef207fbb04603b859f4ea090')
+
+prepare(){
+  cd "$srcdir"
+  sed -i 's|env python$|env python2|' ropeadope.py
+}
+
+package() {
+  cd "$srcdir"
+  install -Dm755 ropeadope.py "$pkgdir/usr/bin/ropeadope"
+}
