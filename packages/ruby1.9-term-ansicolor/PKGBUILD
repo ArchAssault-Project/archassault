@@ -1,7 +1,7 @@
 _gemname=term-ansicolor
 pkgname=ruby1.9-$_gemname
 pkgver=1.2.2
-pkgrel=1
+pkgrel=2
 pkgdesc='Ruby library that colors strings using ANSI escape sequences'
 arch=(any)
 url='http://flori.github.com/term-ansicolor'
@@ -17,4 +17,9 @@ package() {
   gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
   rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
   install -D -m644 "$pkgdir/$_gemdir/gems/$_gemname-$pkgver/COPYING" "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+
+  mv "$pkgdir"/usr/bin/colortab "$pkgdir"/usr/bin/colortab-1.9
+  mv "$pkgdir"/usr/bin/decolor "$pkgdir"/usr/bin/decolor-1.9
+  mv "$pkgdir"//usr/bin/term_display "$pkgdir"/usr/bin/term_display-1.9
+  mv "$pkgdir"/usr/bin/term_mandel "$pkgdir"/usr/bin/term_mandel-1.9
 }
