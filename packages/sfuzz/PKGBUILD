@@ -1,11 +1,12 @@
 pkgname=sfuzz
 pkgver=0.7.0
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="Simple Fuzzer is a simple fuzzer"
 url='http://aconole.brad-x.com/programs/sfuzz.html'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('BSD')
+makedepends=('git')
 source=('git+https://github.com/orgcandman/Simple-Fuzzer')
 md5sums=('SKIP')
 
@@ -22,5 +23,5 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share"
 
-  make DESTDIR=$pkgdir install
+  make "BIN_DIR=$pkgdir/usr/bin" "SHARE_DIR=$pkgdir/usr/share/" install
 }
