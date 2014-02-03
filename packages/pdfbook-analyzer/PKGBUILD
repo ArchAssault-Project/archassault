@@ -18,5 +18,5 @@ prepare() {
 
 package() {
   cd "$srcdir/code"
-  install -Dm755 pdfbook.v2.py "$pkgdir/usr/bin/pdfbook"
+  install -Dm755 pdfbook.v2.py "$pkgdir/usr/bin/pdfbook-analyzer"
 }
