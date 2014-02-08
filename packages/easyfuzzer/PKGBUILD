@@ -1,17 +1,17 @@
 pkgname='easyfuzzer'
-pkgver='3.2'
-pkgrel=2
+pkgver='3.6'
+pkgrel=4
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
 pkgdesc='A flexible fuzzer, not only for web, has a CSV output for efficient output analysis (platform independant).'
 arch=('any')
 url='http://www.mh-sec.de/downloads.html.en'
 license=('custom:unknown')
-depends=('perl')
+depends=('perl' 'perl-io-socket')
 source=("http://www.mh-sec.de/downloads/easyfuzzer-$pkgver.tar.gz")
-md5sums=('6bb79e3c2f4af6b78338113a9b0876a3')
+md5sums=('3acc241ca3ae89c49c93489a959d5789')
 
 package() {
-  cd "$srcdir/easyfuzzer-$pkgver"
+  cd "$srcdir/easyfuzzer"
 
   for f in *.pl
   do
