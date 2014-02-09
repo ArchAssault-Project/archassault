@@ -1,5 +1,5 @@
 pkgname=mfoc
-pkgver=0.10.6
+pkgver=0.10.7
 pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="Mifare Classic Offline Cracker"
@@ -7,8 +7,8 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://code.google.com/p/mfoc/'
 license=('GPL2')
 depends=("libnfc>=1.7.0")
-source=("http://mfoc.googlecode.com/files/mfoc-$pkgver.tar.gz")
-md5sums=('1a0c2508d363eea78bda141a5b6b38f4')
+source=("http://mfoc.googlecode.com/files/mfoc-$pkgver.tar.bz2")
+md5sums=('e47d32b1f01ebc5ccceca699c80c5081')
 
 build() {
   cd $srcdir/mfoc-$pkgver
