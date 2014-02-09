@@ -1,6 +1,6 @@
 pkgname=evilgrade-git
 pkgver=r7.22dc742
-pkgrel=2
+pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Modular framework that takes advantage of poor upgrade implementations by injecting fake updates"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
