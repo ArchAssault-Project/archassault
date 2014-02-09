@@ -1,5 +1,5 @@
 pkgname='pdfcrack'
-pkgver='0.11'
+pkgver='0.12'
 pkgrel=1
 pkgdesc='Password recovery tool for PDF-files.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -8,7 +8,7 @@ license=('GPL')
 depends=('glibc')
 source=("http://downloads.sourceforge.net/pdfcrack/pdfcrack-$pkgver.tar.gz")
 groups=('archassault' 'archassault-cracker')
-md5sums=('00bdb4c44dd209f493fc02d38c1a6377')
+md5sums=('58137b8eb02c8c7a8a038b2effd49bc9')
 
 build() {
   cd "$srcdir"/pdfcrack-$pkgver
@@ -19,6 +19,5 @@ build() {
 package() {
   cd "$srcdir"/pdfcrack-$pkgver
 
-	install -D -m755 "$srcdir/pdfcrack-$pkgver/pdfcrack" \
-	"$pkgdir/usr/bin/pdfcrack"
+  install -D -m755 "pdfcrack" "$pkgdir/usr/bin/pdfcrack"
 }
