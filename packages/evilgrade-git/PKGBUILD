@@ -1,19 +1,27 @@
-pkgname=evilgrade
-pkgver=2.0.0
-pkgrel=1
+pkgname=evilgrade-git
+pkgver=r7.22dc742
+pkgrel=2
 groups=('archassault' 'archassault-misc')
 pkgdesc="Modular framework that takes advantage of poor upgrade implementations by injecting fake updates"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://www.infobyte.com.ar/developments.html'
+url='https://github.com/infobyte/evilgrade'
 license=('GPL')
-depends=('perl' 'perl-data-dump' 'perl-io-socket-ssl' 'perl-digest-sha1')
-source=("http://www.infobyte.com.ar/down/isr-evilgrade-$pkgver.tar.gz"
-        "evilgrade")
-md5sums=('eea56454613528ea4cf28f916e2eacb2'
+depends=('perl' 'perl-data-dump' 'perl-io-socket-ssl' 'perl-digest-sha1' 'perl-rpc-xml' 'java-environment')
+makedepends=('git')
+provides=('evilgrade')
+replaces=('evlgrade')
+source=("git+https://github.com/infobyte/evilgrade.git"
+        "evilgrade.sh")
+md5sums=('SKIP'
          '9887bc389768f4171e8e4828b03b0b19')
 
+pkgver() {
+  cd "$srcdir/evilgrade"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
 package() {
-  cd "$srcdir/isr-evilgrade"
+  cd "$srcdir/evilgrade"
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/evilgrade"
@@ -23,5 +31,5 @@ package() {
      "$pkgdir/usr/share/evilgrade"
 
   install -m644 docs/{AUTHOR,CHANGES,CONTRIBUTORS,FILES,README} "$pkgdir/usr/share/doc/evilgrade"
-  install -Dm755 "$srcdir/evilgrade" "$pkgdir/usr/bin/evilgrade"
+  install -Dm755 "$srcdir/evilgrade.sh" "$pkgdir/usr/bin/evilgrade"
 }
