@@ -6,6 +6,7 @@ arch=('any')
 url="http://www.rubyonrails.org"
 license=('MIT')
 depends=('ruby1.9' 'rubygems' 'ruby1.9-activesupport' 'ruby1.9-builder')
+makedepends=('ruby1.9')
 source=(http://rubygems.org/downloads/activemodel-${pkgver}.gem)
 noextract=(activemodel-${pkgver}.gem)
 sha256sums=('1fdc588872479414562fe521ebb122c881581a99395f9b4f13d1e91c8d3ce7f7')
