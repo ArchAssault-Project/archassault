@@ -1,0 +1,18 @@
+pkgname=parsero
+pkgver=0.6
+pkgrel=1
+groups=('archassault' 'archassault-recon')
+pkgdesc="A Robots.txt audit tool"
+url='https://github.com/behindthefirewalls/Parsero'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL2')
+depends=('python' 'python-urllib3' 'python-beautifulsoup4')
+source=("git+https://github.com/behindthefirewalls/Parsero.git")
+md5sums=('SKIP')
+
+package() {
+  cd $srcdir/Parsero
+
+  install -Dm755 parsero.py $pkgdir/usr/bin/parsero
+
+}
