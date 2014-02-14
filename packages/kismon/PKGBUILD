@@ -1,6 +1,6 @@
 pkgname=kismon
 pkgver=0.6
-pkgrel=2
+pkgrel=1
 pkgdesc="A PyGTK client that creates a map of a network"
 arch=('any')
 groups=('archassault')
