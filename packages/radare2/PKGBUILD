@@ -1,7 +1,7 @@
 pkgname="radare2"
 pkgver=0.9.6
 pkgrel=1
-groups=('archassault' 'archassault-reversing' 'archassault-disassembler' 'archassault-debugger')
+groups=('archassault' 'archassault-reversing' 'archassault-disassembler' 'archassault-debugging')
 pkgdesc="Open-source tools to disasm, debug, analyze and manipulate binary files"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://radare.org"
