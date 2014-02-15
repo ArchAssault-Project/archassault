@@ -6,7 +6,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('libgnomeui' 'gtk' 'libnotify' 'libbonoboui')
 url="http://arpantispoofer.sourceforge.net/"
 license=('GPL')
-groups=('archassault' 'archassault-defensive')
+groups=('archassault' 'archassault-defense')
 source=("http://downloads.sourceforge.net/project/arpantispoofer/linux-src/arpantispoofer-linux-$pkgver.tar.bz2"
         'arpantispoofer.desktop')
 md5sums=('b9526c394e15df95da7669bd06b8c1d5'
