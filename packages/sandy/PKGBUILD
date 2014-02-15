@@ -1,7 +1,7 @@
 pkgname=sandy
 pkgver=20131227
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="An open-source Samsung phone encryption assessment framework."
 url="https://github.com/donctl/sandy"
 arch=('any')

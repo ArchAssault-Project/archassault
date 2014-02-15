@@ -1,7 +1,7 @@
 pkgname=cisco-torch
 pkgver=0.4b
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-fingerprinting' 'archassault-exploit')
+groups=('archassault' 'archassault-scanners' 'archassault-fingerprinting' 'archassault-exploit')
 pkgdesc="Cisco Torch mass scanning, fingerprintinging, and exploit tool."
 url="http://www.arhont.com"
 license=('LGPL')

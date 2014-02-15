@@ -1,7 +1,7 @@
 pkgname=skipfish
 pkgver=2.10b
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="A fully automated, active web application security reconnaissancenaissance tool"
 arch=('any')
 license=('Apache')

@@ -1,7 +1,7 @@
 pkgname=lynis
 pkgver=1.4.0
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing tool for Unix (specialists)"
 url='http://www.rootkit.nl/projects/lynis.html'
 license=('GPL3')

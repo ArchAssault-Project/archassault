@@ -1,7 +1,7 @@
 pkgname=canari
 pkgver=1.0
 pkgrel=1
-groups=('archassault' 'archassault-forensic' 'archassault-reconnaissance' 'archassault-scanner')
+groups=('archassault' 'archassault-forensic' 'archassault-reconnaissance' 'archassault-scanners')
 pkgdesc="A transform framework for maltego"
 url="http://www.canariproject.com"
 arch=('any')

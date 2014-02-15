@@ -1,7 +1,7 @@
 pkgname=nikto
 pkgver=2.1.5
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="A web server scanner which performs comprehensive tests against web servers for multiple items"
 url='http://www.cirt.net/nikto2'
 license=('GPL')

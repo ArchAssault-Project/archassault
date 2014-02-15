@@ -1,7 +1,7 @@
 pkgname=bluelog
 pkgver=1.0.4
 pkgrel=1
-groups=('archassault' 'archassault-bluetooth' 'archassault-scanner')
+groups=('archassault' 'archassault-bluetooth' 'archassault-scanners')
 pkgdesc="A Bluetooth scanner and sniffer written to do a single task, log devices that are in discoverable mode"
 url='http://www.digifail.com/software/bluelog.shtml'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

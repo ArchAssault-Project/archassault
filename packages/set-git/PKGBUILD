@@ -1,7 +1,7 @@
 pkgname=set-git
 pkgver=5.3.4
 pkgrel=2
-groups=('archassault' 'archassault-social' 'archassault-exploit')
+groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
 url='https://www.trustedsec.com/downloads/social-engineer-toolkit'
