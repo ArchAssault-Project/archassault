@@ -19,5 +19,5 @@ prepare() {
 
 package() {
   cd "$srcdir/samdump2-$pkgver"
-  make LIBS=-lcrypto install DESTDIR="$pkgdir"
+  make LIBS=-lcryptography install DESTDIR="$pkgdir"
 }

@@ -6,7 +6,7 @@ pkgdesc="Utility to perform security audits of SSL/TLS clients"
 url='https://github.com/grwl/sslcaudit'
 arch=('any')
 license=('GPL3')
-depends=('python2' 'python2-m2crypto')
+depends=('python2' 'python2-m2cryptography')
 source=('git+https://github.com/grwl/sslcaudit.git')
 md5sums=('SKIP')
 

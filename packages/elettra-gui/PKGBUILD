@@ -1,7 +1,7 @@
 pkgname='elettra-gui'
 pkgver='1.0'
 pkgrel=1
-pkgdesc='Gui for the elettra crypto application.'
+pkgdesc='Gui for the elettra cryptography application.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.winstonsmith.info/julia/elettra/'
 license=('custom')

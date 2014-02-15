@@ -1,7 +1,7 @@
 pkgname=ctunnel
 pkgver=0.6
 pkgrel=1
-pkgdesc="Tunnel and/or proxy TCP or UDP connections via a cryptographic tunnel."
+pkgdesc="Tunnel and/or proxy TCP or UDP connections via a cryptographygraphic tunnel."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://nardcore.org/ctunnel"
 license=('GPL')

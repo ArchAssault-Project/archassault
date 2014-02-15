@@ -6,13 +6,13 @@ pkgdesc="Creates a filter from system hashes"
 url="http://16s.us/blackhash/"
 arch=('any')
 license=('GPL')
-depends=('boost' 'crypto++')
+depends=('boost' 'cryptography++')
 source=("http://16s.us/software/Blackhash/Source/Blackhash_$pkgver.tar.gz")
 md5sums=('5feab8287fd1c951dfcd9be7c405d9c6')
 
 build(){
   cd "$srcdir"
-  g++ -std=c++11 -Wall -Wextra -o bh main_std_cpp.cpp -lcryptopp -lpthread
+  g++ -std=c++11 -Wall -Wextra -o bh main_std_cpp.cpp -lcryptographypp -lpthread
 }
 
 package() {

@@ -39,7 +39,7 @@ build() {
       Makefile
   sed -i \
        -e '/^XDEFINES=/s:=:=-DOPENSSL:' \
-       -e '/^XLIBS=/s:=:=-lcrypto -lssl:' \
+       -e '/^XLIBS=/s:=:=-lcryptography -lssl:' \
        Makefile
   export CFLAGS=$CFLAGS
   make

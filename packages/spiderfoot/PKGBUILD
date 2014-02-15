@@ -6,7 +6,7 @@ pkgdesc="The Open Source Footprinting Tool"
 url='http://spiderfoot.net'
 arch=('any')
 license=('GPL2')
-depends=('python2' 'python2-mako' 'python2-cherrypy' 'python2-m2crypto')
+depends=('python2' 'python2-mako' 'python2-cherrypy' 'python2-m2cryptography')
 source=("http://downloads.sourceforge.net/project/spiderfoot/spiderfoot-$pkgver-src.tar.gz")
 md5sums=('ac2c25b4b38439a203162615399f7e60')
 

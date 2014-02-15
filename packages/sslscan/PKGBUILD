@@ -12,7 +12,7 @@ md5sums=('1a890d031996ab252efb535511bd58db')
 
 build() {
   cd "$srcdir/sslscan-$pkgver"
-  sed -i 's/-lssl/-lssl -lcrypto/g' Makefile
+  sed -i 's/-lssl/-lssl -lcryptography/g' Makefile
   make
 }
 

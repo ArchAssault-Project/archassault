@@ -1,7 +1,7 @@
 pkgname=hash-identifier
 pkgver=1.1
 pkgrel=1
-groups=('archassault' 'archassault-crypto')
+groups=('archassault' 'archassault-cryptography')
 pkgdesc="Identifies the different types of hashes used to encrypt data, especially passwords"
 arch=('any')
 url='http://code.google.com/p/hash-identifier'

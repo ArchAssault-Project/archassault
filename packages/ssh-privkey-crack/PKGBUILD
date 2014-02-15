@@ -11,7 +11,7 @@ md5sums=('SKIP')
 
 build() {
   cd "$srcdir/svn/trunk/ssh-key-crack"
-  gcc -Wall $CFLAGS -lssl -lcrypto -o ssh-privkey-crack ssh-privkey-crack.c
+  gcc -Wall $CFLAGS -lssl -lcryptography -o ssh-privkey-crack ssh-privkey-crack.c
 }
 
 package() {
