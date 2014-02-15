@@ -22,7 +22,7 @@ prepare() {
 build() {
   cd "$srcdir/libdnet-$pkgver"
 
-  autoreconf -I config --force --install
+  autoreconnaissancef -I config --force --install
   ./configure --prefix=/usr --sbindir=/usr/bin
   make
 }

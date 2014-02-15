@@ -1,7 +1,7 @@
 pkgname=spiderfoot
 pkgver=2.1.0
 pkgrel=1
-groups=('archassault' 'archassault-recon')
+groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="The Open Source Footprinting Tool"
 url='http://spiderfoot.net'
 arch=('any')

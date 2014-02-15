@@ -3,7 +3,7 @@ pkgver=20131217
 pkgrel=1
 pkgdesc='Enumeration of GWT-RCP method calls.'
 url='http://www.gdssecurity.com/l/t/d.php?k=GwtEnum'
-groups=('archassault' 'archassault-webapp' 'archassault-recon')
+groups=('archassault' 'archassault-webapp' 'archassault-reconnaissance')
 license=('CCPL')
 arch=('any')
 depends=('python2')

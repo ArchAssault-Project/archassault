@@ -7,7 +7,7 @@ url='http://wiki.skullsecurity.org/Nbtool'
 source=('git+https://github.com/iagox86/nbtool.git')
 license=('GPL3')
 groups=('archassault' 'archassault-networking' 'archassault-scanner'
-        'archassault-recon')
+        'archassault-reconnaissance')
 depends=('libpcap')
 makedepends=('git' 'nasm')
 provides=('nbtool' 'dnscat')

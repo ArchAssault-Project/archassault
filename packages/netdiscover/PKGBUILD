@@ -1,8 +1,8 @@
 pkgname=netdiscover
 pkgver=0.3
 pkgrel=1
-groups=('archassault' 'archassault-recon' 'archassault-wireless')
-pkgdesc="An active/passive address reconnaissance tool, mainly developed for those wireless networks without dhcp server, when you are wardriving. It can be also used on hub/switched networks."
+groups=('archassault' 'archassault-reconnaissance' 'archassault-wireless')
+pkgdesc="An active/passive address reconnaissancenaissance tool, mainly developed for those wireless networks without dhcp server, when you are wardriving. It can be also used on hub/switched networks."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://nixgeneration.com/~jaime/netdiscover/'
 license=('GPL')
