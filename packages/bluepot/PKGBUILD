@@ -1,7 +1,7 @@
 pkgname=bluepot
 pkgver=0.1
 pkgrel=2
-groups=('archassault' 'archassault-bluetooth' 'archassault-honeypot')
+groups=('archassault' 'archassault-bluetooth')
 pkgdesc="A Bluetooth Honeypot written in Java, it runs on Linux"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('java-environment')
