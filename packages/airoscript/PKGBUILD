@@ -2,12 +2,13 @@ pkgname=airoscript
 pkgver=20140105
 pkgrel=1
 pkgdesc="Script to simplify the use of aircrack-ng tools"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://midnightresearch.com/projects/wicrawl/"
 groups=('archassault' 'archassault-wireless')
 license=('GPL')
 depends=('mdk3' 'aircrack-ng' 'dhclient')
 options=(!makeflags)
+makedepends=('git')
 source=('git+http://github.com/patrickhno/Airoscript'
         'Makefile.patch'
         'airoscript.desktop')
@@ -16,7 +17,8 @@ md5sums=('SKIP'
          '60954cc909417e196a3baeefd6a4c5db')
 
 pkgver() {
-  date +%Y%m%d
+  cd Airoscript
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
 prepare() {

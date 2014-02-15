@@ -4,7 +4,7 @@ pkgrel=2
 pkgdesc="Complemento is a collection of tools for pentester: LetDown is a powerful tcp flooder ReverseRaider is a domain scanner that use wordlist scanning or reverse resolution scanning Httsquash is an http server scanner, banner grabber and data retriever"
 url="http://complemento.sourceforge.net"
 license="GPL"
-groups=('archassault' 'archassault-scanner' 'archassault-fingerprint')
+groups=('archassault' 'archassault-scanners' 'archassault-fingerprinting')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('glibc' 'c-ares' 'libnet' 'python2' 'libpcap' 'curl')
 source=(http://downloads.sourceforge.net/complemento/complemento-$pkgver.tar.gz)
@@ -71,7 +71,7 @@ EOF
 
   # Bin
   install -m755 httsquash "$pkgdir/usr/share/complemento/httsquash"
-  ln -s /usr/share/complemento/httsquash "$pkgdir/usr/bin/httsquash"
+  ln -s /usr/share/complemento/httsquash/httsquash "$pkgdir/usr/bin/httsquash"
 
   # Doc
   install -m644 readme "$pkgdir/usr/share/doc/complemento/readme-httsquash"

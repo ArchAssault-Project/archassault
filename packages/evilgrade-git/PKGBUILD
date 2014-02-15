@@ -1,0 +1,35 @@
+pkgname=evilgrade-git
+pkgver=r7.22dc742
+pkgrel=1
+groups=('archassault' 'archassault-misc')
+pkgdesc="Modular framework that takes advantage of poor upgrade implementations by injecting fake updates"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='https://github.com/infobyte/evilgrade'
+license=('GPL')
+depends=('perl' 'perl-data-dump' 'perl-io-socket-ssl' 'perl-digest-sha1' 'perl-rpc-xml' 'java-environment')
+makedepends=('git')
+provides=('evilgrade')
+replaces=('evlgrade')
+source=("git+https://github.com/infobyte/evilgrade.git"
+        "evilgrade.sh")
+md5sums=('SKIP'
+         '9887bc389768f4171e8e4828b03b0b19')
+
+pkgver() {
+  cd "$srcdir/evilgrade"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/evilgrade"
+
+  # Make base directories.
+  install -dm755 "$pkgdir/usr/share/evilgrade"
+  install -dm755 "$pkgdir/usr/share/doc/evilgrade"
+
+  cp --no-preserve=ownership -r agent evilgrade include isrcore modules \
+     "$pkgdir/usr/share/evilgrade"
+
+  install -m644 docs/{AUTHOR,CHANGES,CONTRIBUTORS,FILES,README} "$pkgdir/usr/share/doc/evilgrade"
+  install -Dm755 "$srcdir/evilgrade.sh" "$pkgdir/usr/bin/evilgrade"
+}

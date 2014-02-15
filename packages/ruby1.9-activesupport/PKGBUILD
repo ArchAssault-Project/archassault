@@ -6,7 +6,7 @@ arch=(any)
 url="http://www.rubyonrails.org"
 license=('MIT')
 depends=('ruby1.9' 'ruby1.9-i18n' 'ruby1.9-multi_json' 'ruby1.9-minitest' 'ruby1.9-thread_safe' 'ruby1.9-tzinfo')
-makedepends=('rubygems')
+makedepends=('ruby1.9')
 source=(http://rubygems.org/downloads/activesupport-${pkgver}.gem
         'tzinfo-1.0.patch')
 noextract=(activesupport-${pkgver}.gem)

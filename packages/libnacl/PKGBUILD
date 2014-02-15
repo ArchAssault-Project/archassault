@@ -27,9 +27,9 @@ EOF
   # Remove the tests and some problematic directories
   # The assembly implementations are nice, but aren't position independent so we can't use them
   rm -rf tests
-  rm -rf crypto_onetimeauth/poly1305/amd64
-  rm -rf crypto_onetimeauth/poly1305/x86
-  rm -rf crypto_stream/salsa20*/*xmm*
+  rm -rf cryptography_onetimeauth/poly1305/amd64
+  rm -rf cryptography_onetimeauth/poly1305/x86
+  rm -rf cryptography_stream/salsa20*/*xmm*
 
   msg "This will take some time. Go get a coffee or something ;-)"
   ./do

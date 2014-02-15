@@ -5,6 +5,7 @@ pkgdesc='Automatic samdump creation script.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://github.com/jensp/samydeluxe'
 groups=('archassault' 'archassault-cracker')
+makedepends=('git')
 depends=('bash' 'samdump2')
 md5sums=('SKIP')
 source=('git+https://github.com/jensp/samydeluxe.git')

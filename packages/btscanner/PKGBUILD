@@ -1,7 +1,7 @@
 pkgname=btscanner
 pkgver=2.1
 pkgrel=1
-groups=('archassault' 'archassault-bluetooth' 'archassault-scanner')
+groups=('archassault' 'archassault-bluetooth' 'archassault-scanners')
 pkgdesc="Bluetooth device scanner."
 url='http://www.pentest.co.uk'
 depends=('bluez-libs' 'bluez-utils' 'libxml2' 'ncurses')

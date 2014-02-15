@@ -1,14 +1,15 @@
 pkgname='ms-sys'
-pkgver='2.2.0'
+pkgver='2.3.0'
 pkgrel=1
 pkgdesc='A tool to write Win9x-.. master boot records (mbr) under linux - RTM!'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://ms-sys.sourceforge.net/'
 license=('GPL2')
-groups=('archassault' 'archassault-binary' 'archassault-backdoor'
+groups=('archassault' 'archassault-backdoor'
         'archassault-forensics')
 source=("http://downloads.sourceforge.net/sourceforge/ms-sys/ms-sys-$pkgver.tar.gz")
-md5sums=('aed171c3b354e7c755e1b9fd9bd8c384')
+depends=('glibc')
+md5sums=('46d186707c7767db664afe681f8eaad6')
 
 prepare() {
   cd "$srcdir/ms-sys-$pkgver"

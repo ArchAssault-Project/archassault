@@ -2,13 +2,13 @@ pkgname='asp-audit'
 pkgver='2BETA'
 _pkgver='v2'
 pkgrel=1
-pkgdesc="An ASP fingerprinting tool and vulnerability scanner."
+pkgdesc="An ASP fingerprintinging tool and vulnerability scanner."
 arch=('any')
 url="http://seclists.org/basics/2006/Sep/128"
 license=('unknown')
 depends=('perl')
-groups=('archassault' 'archassault-webapp' 'archassault-fingerprint'
-        'archassault-scanner')
+groups=('archassault' 'archassault-webapp' 'archassault-fingerprinting'
+        'archassault-scanners')
 source=("http://packetstorm.igor.onlinedirect.bg/UNIX/scanners/asp-audit-$_pkgver.tar.gz")
 md5sums=('eb2e18829326115db3ebccf76b97a127')
 

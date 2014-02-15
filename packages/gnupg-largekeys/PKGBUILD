@@ -1,16 +1,16 @@
 pkgname=gnupg-largekeys
 pkgver=2.0.22
-pkgrel=1
+pkgrel=2
 pkgdesc='Complete and free implementation of the OpenPGP standard'
 url='http://www.gnupg.org/'
 license=('GPL')
-arch=('i686' 'x86_64' 'armv7h')
+arch=('i686' 'x86_64' 'armv7h' 'armv6h')
 optdepends=('curl: gpg2keys_curl'
             'libldap: gpg2keys_ldap'
             'libusb-compat: scdaemon')
 makedepends=('curl' 'libldap' 'libusb-compat')
 depends=('bzip2' 'libksba' 'libgcrypt' 'pth' 'libassuan' 'readline' 'pinentry' 'dirmngr')
-source=("ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-${pkgver}.tar.bz2"
+source=("ftp://ftp.gnupg.org/gcrypt/${pkgname%%-largekeys}/${pkgname%%-largekeys}-${pkgver}.tar.bz2"
         'protect-tool-env.patch'
         'gnupg2-large-keys.patch'
         'install')
@@ -26,13 +26,13 @@ provides=("gnupg2=${pkgver}" "gnupg=${pkgver}")
 replaces=('gnupg2' 'gnupg')
 
 prepare() {
-	cd "${srcdir}/gnupg-${pkgver}"
+	cd "${srcdir}/${pkgname%%-largekeys}-${pkgver}"
 	patch -p1 -i ../protect-tool-env.patch # FS#31900
 	patch -p1 -i ../gnupg2-large-keys.patch
 }
 
 build() {
-	cd "${srcdir}/gnupg-${pkgver}"
+	cd "${srcdir}/${pkgname%%-largekeys}-${pkgver}"
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \

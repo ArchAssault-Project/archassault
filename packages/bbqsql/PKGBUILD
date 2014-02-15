@@ -1,8 +1,8 @@
 pkgname=bbqsql
 pkgver=1.2
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-exploitation')
-pkgdesc="SQL injection exploitation tool"
+groups=('archassault' 'archassault-webapp' 'archassault-exploit')
+pkgdesc="SQL injection exploit tool"
 arch=('any')
 url="https://github.com/neohapsis/bbqsql"
 license=('BSD')

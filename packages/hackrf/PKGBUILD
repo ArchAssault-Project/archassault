@@ -1,5 +1,5 @@
 pkgname=hackrf
-pkgver=2014.01.08
+pkgver=2013.07.1
 pkgrel=1
 pkgdesc="Driver for HackRF, allowing general purpose software defined radio (SDR)."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

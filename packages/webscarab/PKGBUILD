@@ -1,7 +1,7 @@
 pkgname=webscarab
 pkgver=20120422.001828
-pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-proxy' 'archassault-scanner' 'archassault-fuzzer')
+pkgrel=2
+groups=('archassault' 'archassault-webapp' 'archassault-proxy' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Framework for analysing applications that communicate using the HTTP and HTTPS protocols"
 arch=('any')
 url='http://www.owasp.org/index.php/Category:OWASP_WebScarab_Project'
@@ -12,13 +12,13 @@ source=(http://dawes.za.net/rogan/${pkgname}/${pkgname}-one-${pkgver/./-}.jar)
 md5sums=('ac7b950b664f792b9d07cc2ccb78cba1')
 
 package() {
-  install -d "${pkgdir}/usr/share/${pkgname}"
-  install -d "${pkgdir}/usr/bin"
-  install -m755 $srcdir/${pkgname}-one-${pkgver/./-}.jar "${pkgdir}/usr/share/${pkgname}/${pkgname}.jar"
+  install -dm755 "$pkgdir/usr/share/webscarab"
+  install -dm755 "$pkgdir/usr/bin"
+  install -m755 "$srcdir/webscarab-one-${pkgver/./-}.jar" "$pkgdir/usr/share/webscarab/webscarab.jar"
 
-  cat > ${pkgdir}/usr/bin/${pkgname} <<EOF
+  cat > "$pkgdir/usr/bin/webscarab" <<EOF
 #!/bin/sh
-exec "$JAVA_HOME/bin/java" -jar /usr/share/webscarab/webscarab.jar "$@"
+exec java -jar /usr/share/webscarab/webscarab.jar "\$@"
 EOF
-  chmod +x ${pkgdir}/usr/bin/${pkgname}
+  chmod +x "$pkgdir/usr/bin/webscarab"
 }

@@ -6,7 +6,7 @@ arch=('any')
 url='http://www.cqure.net/wp/mssqlscan/'
 license=('GPL')
 depends=('java-runtime')
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 source=("http://www.cqure.net/tools/mssqlscan-bin-${pkgver//./_}.zip")
 md5sums=('7d089524d6a889d68a8d004b977695ff')
 

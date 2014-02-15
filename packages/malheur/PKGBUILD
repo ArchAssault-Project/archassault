@@ -1,0 +1,28 @@
+pkgname=malheur
+pkgver=0.5.4
+pkgrel=1
+groups=('archassault' 'archassault-forensic' 'archassault-malware')
+pkgdesc="A tool for the automatic analyze of malware behavior (program behavior recorded from malicious software in a sandbox environment)"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://www.mlsec.org/malheur/"
+license=('GPL3')
+depends=('libconfig>=1.4' 'libarchive>=2.70')
+makedepends=('uthash>=1.7')
+source=("http://www.mlsec.org/malheur/files/malheur-$pkgver.tar.gz")
+md5sums=('4fb8acff52cb5fd2c5922bc2cfc9b2ca')
+
+build() {
+  cd $srcdir/malheur-$pkgver
+  ./configure --prefix=/usr/ --sysconfdir=/etc --localstatedir=/var --enable-openmp
+  make
+}
+
+check(){
+  cd $srcdir/malheur-$pkgver
+  make check
+}
+
+package() {
+  cd $srcdir/malheur-$pkgver
+  make DESTDIR=$pkgdir install
+}

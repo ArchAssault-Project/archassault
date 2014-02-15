@@ -1,7 +1,7 @@
 pkgname=deblaze
 pkgver=0.3
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="A remote method enumeration tool for flex servers"
 url="http://deblaze-tool.appspot.com/"
 arch=('any')

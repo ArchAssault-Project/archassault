@@ -12,8 +12,5 @@ md5sums=('SKIP')
 package() {
   cd "$srcdir/phply"
   python2 setup.py install "--root=$pkgdir" --optimize=1
-
-  # Fix a conflict with community/python2-poster.
-  # This probably shouldn't be here anyways.
-  rm "$pkgdir/usr/lib/python2.7/site-packages/tests/__init__.pyc"
+  rm -rf "$pkgdir/usr/lib/python2.7/site-packages/tests"
 }

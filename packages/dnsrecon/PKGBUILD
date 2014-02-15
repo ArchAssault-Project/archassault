@@ -1,17 +1,17 @@
-pkgname=dnsrecon
+pkgname=dnsreconnaissance
 pkgver=0.8.5
 pkgrel=1
-groups=('archassault' 'archassault-recon')
+groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="Python script for enumeration of hosts, subdomains and emails from a given domain using google."
-url="https://github.com/darkoperator/dnsrecon"
+url="https://github.com/darkoperator/dnsreconnaissance"
 license=('custom')
 arch=('any')
 depends=('python2' 'git' 'python2-netaddr' 'python2-dnspython')
-source=("git+https://github.com/darkoperator/dnsrecon")
+source=("git+https://github.com/darkoperator/dnsreconnaissance")
 md5sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/dnsrecon"
+  cd "$srcdir/dnsreconnaissance"
 
   # We have to get the version number from the README file. It's better than nothing.
   grep -m1 'Version ' README.md | sed 's/.* //'
@@ -23,12 +23,12 @@ package() {
   install -dm755 "$pkgdir/usr/share"
   install -dm755 "$pkgdir/usr/bin"
 
-  cp -a * "$pkgdir/usr/share/dnsrecon"
+  cp -a * "$pkgdir/usr/share/dnsreconnaissance"
 
-cat > "$pkgdir/usr/bin/dnsrecon" << EOF
+cat > "$pkgdir/usr/bin/dnsreconnaissance" << EOF
 #!/bin/sh
-cd /usr/share/dnsrecon
-python dnsrecon.py "\$@"
+cd /usr/share/dnsreconnaissance
+python dnsreconnaissance.py "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/dnsrecon"
+  chmod +x "$pkgdir/usr/bin/dnsreconnaissance"
 }

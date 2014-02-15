@@ -1,12 +1,13 @@
 pkgname=jboss-autopwn
 pkgver=0.r1.3bc2d29
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="A JBoss script for obtaining remote shell access"
 url="https://github.com/SpiderLabs/jboss-autopwn"
 arch=('any')
 license=('GPL3')
 depends=('metasploit' 'sbd' 'curl')
+makedepends=('git')
 source=("git+https://github.com/SpiderLabs/jboss-autopwn.git")
 md5sums=('SKIP')
 

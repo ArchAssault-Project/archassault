@@ -1,27 +1,32 @@
 pkgname=archassault-devtools
 _pkgname=devtools
 pkgver=20140108
-pkgrel=1
-pkgdesc='Tools for ArchAssault Linux package maintainers'
-arch=('i686' 'x86_64')
-groups-('archassault' 'archassault-dev')
+pkgrel=2
+pkgdesc='Tools for ArchAssault i686 & x86_64 package maintainers'
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+groups=('archassault-dev')
 license=('GPL')
 depends=('devtools')
-source=('pacman-archassault.conf' 'makepkg.i686.conf' 'makepkg.x86_64.conf')
-md5sums=('448527902025ace412eb7f5fb82484a4'
-         '4b6370122ed0047273056589f5917136'
-         '068b283470cd52dfb08c19cc00418055')
+source=('pacman-archassault-x86_64.conf' 
+		'pacman-archassault-i686.conf' 
+		'makepkg.i686.conf' 
+		'makepkg.x86_64.conf'
+		)
+sha256sums=('7a6840e39bcfaaec2e9da61ad26c38663dd7a91efcc2e93b9ccfd7e3f994298c'
+            'a8b6bb4f6f23b333a3fe35b894b36c3ffc98e9af3f68d1a6df16ad27d71515b2'
+            '9a44ac0dadb73173a9602a5c69010423acb9d5fd5b17f197331881c229d59e05'
+            'f90a11ba0c3f6eed2897a7df810a47c1a88007306d9193507a7a1376fd7fa359')
 
 package() {
-	install -d -m 0755 ${pkgdir}/usr/bin
-	cd ${pkgdir}/usr/bin
-	ln -s archbuild archassault-x86_64-build
-	ln -s archbuild archassault-i686-build
-        ln -s archbuild archassault-testing-x86_64-build
-	ln -s archbuild archassault-testing-i686-build
-	install -d -m 0755 ${pkgdir}/usr/share/devtools
-	install -m 0644 ${srcdir}/pacman-archassault.conf ${pkgdir}/usr/share/devtools/
-        install -m 0644 ${srcdir}/makepkg.x86_64.conf ${pkgdir}/usr/share/devtools/
-        install -m 0644 ${srcdir}/makepkg.i686.conf ${pkgdir}/usr/share/devtools/
+	install -dm755 "${pkgdir}/usr/bin"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-x86_64-build"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-i686-build"
+    ln -s archbuild "${pkgdir}/usr/bin/archassault-testing-x86_64-build"
+	ln -s archbuild "${pkgdir}/usr/bin/archassault-testing-i686-build"
+	install -dm755 "${pkgdir}/usr/share/devtools"
+	install -m644 "${srcdir}/pacman-archassault-i686.conf" "${pkgdir}/usr/share/devtools/"
+	install -m644 "${srcdir}/pacman-archassault-x86_64.conf" "${pkgdir}/usr/share/devtools/"
+    install -m644 "${srcdir}/makepkg.x86_64.conf" "${pkgdir}/usr/share/devtools/"
+    install -m644 "${srcdir}/makepkg.i686.conf" "${pkgdir}/usr/share/devtools/"
 }
 

@@ -1,30 +1,30 @@
 pkgname=edb
-pkgver=0.9.18
-pkgrel=1
-groups=('archassault' 'archassault-reversing' 'archassault-debugger')
-pkgdesc="A QT4-based binary mode debugger with the goal of having usability on par with OllyDbg."
+pkgver=0.9.20
+pkgrel=2
+groups=('archassault' 'archassault-reversing' 'archassault-debugging')
+pkgdesc="A QT4-based binary mode debugging with the goal of having usability on par with OllyDbg."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.codef00.com/projects.php#Debugger'
 license=('GPL2')
 depends=('qt4>=4.5')
 makedepends=('boost>=1.35.0')
 install=edb.install
-conflicts=('edb-debugger')
-provides=('edb-debugger')
-source=(http://www.codef00.com/projects/debugger-$pkgver.tgz
+conflicts=('edb-debugging')
+provides=('edb-debugging')
+source=(http://www.codef00.com/projects/debugging-$pkgver.tgz
         edb.desktop)
-md5sums=('c34e60c5c5c02c716cdcfb669f74e13f'
+md5sums=('5916d415f598fae8632dd763f58e11d1'
          'a08fb481bc46f47c6c004f7b8bd928e4')
 
 build() {
-  cd $srcdir/debugger
+  cd $srcdir/debugging
 
   qmake-qt4 -makefile DEFAULT_PLUGIN_PATH="/usr/lib/edb/"
   make
 }
 
 package() {
-  cd $srcdir/debugger
+  cd $srcdir/debugging
 
   make INSTALL_ROOT=$pkgdir/usr install
 

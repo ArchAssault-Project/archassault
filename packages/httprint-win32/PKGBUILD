@@ -1,7 +1,7 @@
 pkgname='httprint-win32'
 pkgver='301'
 pkgrel=1
-pkgdesc='A web server fingerprinting tool (Windows binaries).'
+pkgdesc='A web server fingerprintinging tool (Windows binaries).'
 arch=('any')
 url='http://net-square.com/httprint'
 license=('custom')

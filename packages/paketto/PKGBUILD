@@ -1,7 +1,7 @@
 pkgname=paketto
 pkgver=1.10
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc='Advanced TCP/IP Toolkit.'
 url='http://www.doxpara.com/paketto'
 license=('GPL')

@@ -1,24 +1,24 @@
 pkgname='easyfuzzer'
-pkgver='3.2'
-pkgrel=1
+pkgver='3.6'
+pkgrel=4
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
-pkgdesc='A flexible fuzzer, not only for web, has a CSV output for efficient output analysis (platform independant).'
+pkgdesc='A flexible fuzzer, not only for web, has a CSV output for efficient output analyze (platform independant).'
 arch=('any')
 url='http://www.mh-sec.de/downloads.html.en'
-license=('unknown')
-depends=('perl')
+license=('custom:unknown')
+depends=('perl' 'perl-io-socket')
 source=("http://www.mh-sec.de/downloads/easyfuzzer-$pkgver.tar.gz")
-md5sums=('6bb79e3c2f4af6b78338113a9b0876a3')
+md5sums=('3acc241ca3ae89c49c93489a959d5789')
 
 package() {
-  cd "$srcdir/easyfuzzer-$pkgver"
+  cd "$srcdir/easyfuzzer"
 
   for f in *.pl
   do
     install -Dm755 "$f" "$pkgdir/usr/bin/${f%.*}"
   done
 
-  install -Dm644 "header.txt" "$pkgdir/usr/share/header.txt"
+  install -Dm644 "header.txt" "$pkgdir/usr/share/easyfuzzer/header.txt"
 
-  install -Dm644 "README.easyfuzzer" "$pkgdir/usr/share/README.easyfuzzer"
+  install -Dm644 "README.easyfuzzer" "$pkgdir/usr/share/doc/easyfuzzer/README.easyfuzzer"
 }

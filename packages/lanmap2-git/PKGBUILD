@@ -1,51 +1,31 @@
-pkgname=lanmap2-git
-pkgver=20121006
+pkgname='lanmap2-git'
+pkgver=20140131
 pkgrel=1
-pkgdesc="Passive network mapping tool"
+pkgdesc="Builds database/visualizations of LAN structure from passively sifted information."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="http://github.com/rflynn/lanmap2"
+url='http://github.com/pizza/lanmap2'
 license=('GPL')
-groups=('archassault')
-depends=('sqlite3' 'libpcap' 'php' 'graphviz')
-makedepends=('git' 'gcc')
-provides=('lanmap2')
-conflicts=('lanmap2')
-install='lanmap2.install'
+groups=('archassault' 'archassault-networking' 'archassault-misc')
+depends=('php' 'libpcap' 'graphviz' 'sqlite3' 'readline' 'php-sqlite')
+source=('git+https://github.com/rflynn/lanmap2')
 md5sums=('SKIP')
-_gitroot="git://github.com/rflynn/lanmap2.git"
-_gitname="lanmap2"
+install='lanmap2-git.install'
+
+pkgver() {
+  cd "$srcdir"
+
+  date +%Y%m%d
+}
 
 build() {
+  cd "$srcdir/lanmap2"
+
+  make
+}
+
+package() {
   cd "$srcdir"
-  msg "Connecting to GIT server...."
-
-  if [ -d $_gitname ] ; then
-    cd $_gitname && git pull origin
-    msg "The local files are updated."
-  else
-    git clone $_gitroot $_gitname
-  fi
-
-  msg "GIT checkout done or server timeout"
-  msg "Starting make..."
-
-  rm -rf "$srcdir/$_gitname-build"
-  git clone "$srcdir/$_gitname" "$srcdir/$_gitname-build"
-  cd "$srcdir/$_gitname-build"
-
-  (cd db; ./build-db.sh)
-  sed -i 's/DbFile\[\] = .*/DbFile\[\] = "db\/db";/g' src/report.c
-
-  make -C src
-  make -C tools
+  
+  mkdir -p "$pkgdir/usr/share/lanmap2"
+  cp -r lanmap2/* "$pkgdir/usr/share/lanmap2/"
 }
-
-package ()
-{
-  mkdir -p ${pkgdir}/usr/share/${pkgname}/{,tools}
-  install -m755 ${srcdir}/$_gitname-build/src/cap ${pkgdir}/usr/share/${pkgname}/
-  install -m755 ${srcdir}/$_gitname-build/tools/os-graph ${pkgdir}/usr/share/${pkgname}/tools
-  install -m755 ${srcdir}/$_gitname-build/tools/oui2insert ${pkgdir}/usr/share/${pkgname}/tools
-  cp -R ${srcdir}/$_gitname-build/{graph,web,db,img} ${pkgdir}/usr/share/${pkgname}/
-}
-

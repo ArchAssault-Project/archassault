@@ -1,12 +1,12 @@
 _gemname=faraday
 pkgname=ruby1.9-$_gemname
 pkgver=0.8.9
-pkgrel=1
+pkgrel=2
 pkgdesc='HTTP/REST API client library.'
 arch=(any)
 url='https://github.com/lostisland/faraday'
 license=(MIT)
-depends=(ruby1.9 ruby1.9-multipart-post-1)
+depends=('ruby1.9' 'ruby1.9-multipart-post')
 options=(!emptydirs)
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)

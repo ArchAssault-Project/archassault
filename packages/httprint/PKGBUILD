@@ -1,8 +1,8 @@
 pkgname=httprint
 pkgver=301
 pkgrel=1
-groups=('archassault' 'archassault-fingerprint')
-pkgdesc='A web server fingerprinting tool.'
+groups=('archassault' 'archassault-fingerprinting')
+pkgdesc='A web server fingerprintinging tool.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.net-square.com/httprint.html'
 license=('custom:NON-GPL')

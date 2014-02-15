@@ -1,7 +1,7 @@
 pkgname=irpas
 pkgver=0.10
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="Internetwork Routing Protocol Attack Suite."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://phenoelit-us.org/irpas'

@@ -6,7 +6,7 @@ pkgdesc="A memory forensics toolkit"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://www.volatilesystems.com/default/volatility'
 license=('GPL')
-depends=('python2' 'python2-crypto')
+depends=('python2' 'python2-cryptography')
 source=("http://volatility.googlecode.com/files/volatility-$pkgver.tar.gz")
 md5sums=('2628ac9ba0cb15e08381d3761e21ca3e')
 

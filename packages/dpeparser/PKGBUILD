@@ -6,6 +6,7 @@ arch=('any')
 url="http://www.toolswatch.org/dpe/"
 license=('GPL')
 groups=('archassault' 'archassault-cracker')
+depends=('python2')
 source=('http://www.toolswatch.org/dpe/dpeparser.py')
 md5sums=('f802cc1d26190fdba0f4cfe5a7f1aaa8')
 

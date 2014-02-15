@@ -1,7 +1,7 @@
 pkgname=set-git
 pkgver=5.3.4
 pkgrel=2
-groups=('archassault' 'archassault-social' 'archassault-exploitation')
+groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
 url='https://www.trustedsec.com/downloads/social-engineer-toolkit'
@@ -18,8 +18,8 @@ optdepends=('ettercap: DNS spoofing and ARP cache poisoning capabilities'
             'upx: executable packer for better AV evasion'
             'aircrack-ng: rouge access point capabilities'
             'dsniff: DNS spoofing capabilities'
-            'python2-crypto: Encrypted communications'
-            'metasploit: metasploit exploitation payloads')
+            'python2-cryptography: Encrypted communications'
+            'metasploit: metasploit exploit payloads')
 options=('!strip')
 conflicts=('set-git' 'set')
 source=('git+https://github.com/trustedsec/social-engineer-toolkit/')
@@ -50,8 +50,8 @@ prepare() {
   # Fix all Metasploit calls using 'ruby' and change-to 'ruby-1.9'
   grep -Rl python ./ | xargs sed -i 's|ruby|ruby-1.9|g'
 
-  # Fix all calls to 'python-pycrypto' change to 'python2-crypto'
-  grep -Rl python-pycrypto ./ | xargs sed -i 's|python-pycrypto|python2-crypto|g'
+  # Fix all calls to 'python-pycryptography' change to 'python2-cryptography'
+  grep -Rl python-pycryptography ./ | xargs sed -i 's|python-pycryptography|python2-cryptography|g'
 
   # ArchAssault Fixes
   cd "$srcdir/social-engineer-toolkit/config"

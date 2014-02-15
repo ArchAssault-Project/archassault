@@ -1,8 +1,8 @@
 pkgname=ropgadget
 pkgver=4.0.2
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
-pkgdesc="Lets you search your gadgets on your binaries (ELF format) to facilitate your ROP exploitation."
+groups=('archassault' 'archassault-exploit')
+pkgdesc="Lets you search your gadgets on your binaries (ELF format) to facilitate your ROP exploit."
 url='https://github.com/JonathanSalwan/ROPgadget'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
