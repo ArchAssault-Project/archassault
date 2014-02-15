@@ -1,7 +1,7 @@
 pkgname=veil
 pkgver=2.2.0.r116
 pkgrel=1
-groups=('archassault' 'archassault-autonomous' 'archassault-exploitation')
+groups=('archassault' 'archassault-autonomous' 'archassault-exploit')
 pkgdesc="A tool designed to generate metasploit payloads that bypass common anti-virus solutions."
 url="https://github.com/veil-evasion/Veil"
 arch=('any')

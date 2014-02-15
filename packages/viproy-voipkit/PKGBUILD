@@ -1,7 +1,7 @@
 pkgname=viproy-voipkit
 pkgver=20131102
 pkgrel=1
-groups=('archassault' 'archassault-exploitation' 'archassault-fuzzer' 'archassault-scanner')
+groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanner')
 pkgdesc="VIPROY - VoIP Pen-Test Kit for Metasploit Framework"
 depends=('ruby1.9' 'metasploit')
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')

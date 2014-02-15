@@ -1,7 +1,7 @@
 pkgname=subterfuge
 pkgver=5.0
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="Automated Man-in-the-Middle Attack Framework"
 url='http://kinozoa.com'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

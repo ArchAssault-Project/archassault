@@ -1,7 +1,7 @@
 pkgname=mitmproxy
 pkgver=0.10
 pkgrel=1
-groups=('archassault' 'archassault-proxy' 'archassault-exploitation')
+groups=('archassault' 'archassault-proxy' 'archassault-exploit')
 pkgdesc="SSL-capable man-in-the-middle HTTP proxy"
 arch=('any')
 license=('GPL')

@@ -1,7 +1,7 @@
 pkgname=tcpjunk
 pkgver=2.9.03
 pkgrel=1
-groups=('archassault' 'archassault-fuzzer' 'archassault-exploitation')
+groups=('archassault' 'archassault-fuzzer' 'archassault-exploit')
 pkgdesc="A general tcp protocols testing and hacking utility"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://code.google.com/p/tcpjunk'

@@ -1,7 +1,7 @@
 pkgname=set-git
 pkgver=5.3.4
 pkgrel=2
-groups=('archassault' 'archassault-social' 'archassault-exploitation')
+groups=('archassault' 'archassault-social' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
 url='https://www.trustedsec.com/downloads/social-engineer-toolkit'
@@ -19,7 +19,7 @@ optdepends=('ettercap: DNS spoofing and ARP cache poisoning capabilities'
             'aircrack-ng: rouge access point capabilities'
             'dsniff: DNS spoofing capabilities'
             'python2-cryptography: Encrypted communications'
-            'metasploit: metasploit exploitation payloads')
+            'metasploit: metasploit exploit payloads')
 options=('!strip')
 conflicts=('set-git' 'set')
 source=('git+https://github.com/trustedsec/social-engineer-toolkit/')

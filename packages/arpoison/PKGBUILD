@@ -1,7 +1,7 @@
 pkgname=arpoison
 pkgver=0.6
 pkgrel=2
-groups=('archassault' 'archassault-exploitation' 'archassault-spoof')
+groups=('archassault' 'archassault-exploit' 'archassault-spoof')
 pkgdesc='The UNIX arp cache update utility'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.arpoison.net"
