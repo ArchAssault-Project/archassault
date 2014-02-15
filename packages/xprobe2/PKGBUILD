@@ -1,8 +1,8 @@
 pkgname=xprobe2
 pkgver=0.3
 pkgrel=1
-groups=('archassault' 'archassault-fingerprint')
-pkgdesc="An active OS fingerprinting tool"
+groups=('archassault' 'archassault-fingerprinting')
+pkgdesc="An active OS fingerprintinging tool"
 url='http://sourceforge.net/apps/mediawiki/xprobe/index.php?title=Main_Page'
 depends=('gcc' 'libpcap')
 source=('http://downloads.sourceforge.net/project/xprobe/xprobe2/Xprobe2%200.3/'xprobe2'-'$pkgver'.tar.gz'
