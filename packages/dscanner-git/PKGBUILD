@@ -1,0 +1,29 @@
+pkgname=dscanner-git
+pkgver=r314.4bac267
+pkgrel=1
+pkgdesc="Swiss-army knife for D source code"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://github.com/Hackerpilot/Dscanner"
+license=('Custom')
+depends=('glibc')
+makedepends=('dmd' 'git')
+provides=('dscanner')
+options=('!strip')
+source=("$pkgname"::'git+https://github.com/Hackerpilot/Dscanner')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd "$srcdir/$pkgname"
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -Dm755 dscanner "$pkgdir/usr/bin/dscanner"
+  install -Dm644 LICENSE_1_0.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
