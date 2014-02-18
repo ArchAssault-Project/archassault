@@ -1,6 +1,6 @@
 pkgname=reaver
 pkgver=1.4
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Implements a brute force attack against wifi protected setup WPS registrar PINs in order to recover WPA/WPA2 passphrases"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -14,7 +14,7 @@ md5sums=('SKIP')
 build() {
   cd "$srcdir/trunk/src"
 
-  ./configure
+  ./configure --prefix=/usr --sysconfdir=/etc/
   make
 }
 
@@ -25,9 +25,9 @@ package() {
 
   # Base directories.
   install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/etc"
+  install -dm755 "$pkgdir/etc/reaver/"
 
   install -m755 reaver "$pkgdir/usr/bin"
   install -m755 wash "$pkgdir/usr/bin"
-  install -m644 reaver.db "$pkgdir/etc"
+  install -m644 reaver.db "$pkgdir/etc/reaver"
 }
