@@ -13,13 +13,11 @@ md5sums=('034c3cbbfa81aa19e8f685b767c65764'
 
 prepare() {
   cd "$srcdir/pypcap-$pkgver"
-
-  patch -p0 < ../../python2-pypcap.patch
+  patch -p0 < ../python2-pypcap.patch
 }
 
 build() {
   cd "$srcdir/pypcap-$pkgver"
-
   python2 setup.py config
   python2 setup.py build
   python2 setup.py build_py
@@ -27,8 +25,6 @@ build() {
 
 package() {
   cd "$srcdir/pypcap-$pkgver"
-
   python2 setup.py install "--root=$pkgdir"
-
   install -Dm644 "$srcdir/pypcap-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/pypcap/LICENSE"
 }

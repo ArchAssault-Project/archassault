@@ -7,6 +7,7 @@ arch=('any')
 url='http://yapsy.sourceforge.net/'
 license=('BSD')
 depends=('python2')
+makedepends=('python2-setuptools')
 options=(!emptydirs)
 source=("http://pypi.python.org/packages/source/$(echo ${_pyname} | cut -c1)/${_pyname}/${_pyname}-${pkgver}-pythons2n3.tar.gz")
 md5sums=('d905b574d4f55ff62e02603ec3dc89b3')

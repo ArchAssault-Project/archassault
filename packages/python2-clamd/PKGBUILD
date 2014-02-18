@@ -1,11 +1,12 @@
 pkgname=python2-clamd
 pkgver=1.0.1
-pkgrel=2
+pkgrel=3
 pkgdesc="A python interface to Clamd (an anti-virus engine)"
 arch=('any')
 url="https://pypi.python.org/pypi/clamd"
 license=('LGPL')
-depends=('python2')
+depends=('python2') 
+makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/c/clamd/clamd-$pkgver.zip")
 md5sums=('1c2e15b9fbd053efa95b2093849372d2')
 

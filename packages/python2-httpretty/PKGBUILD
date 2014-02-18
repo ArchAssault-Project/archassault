@@ -6,6 +6,7 @@ arch=('any')
 url="https://pypi.python.org/pypi/httpretty/0.4"
 license=('LGPL')
 depends=('python2')
+makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/h/httpretty/httpretty-$pkgver.tar.gz")
 md5sums=('db3b4820316e3c05db5e8de3ca06764d')
 

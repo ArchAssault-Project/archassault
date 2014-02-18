@@ -11,7 +11,8 @@ md5sums=('b7def25257afb612e8da052ee6759dac')
 
 build() {
     cd "$srcdir"/udis86-"$pkgver"
-    ./configure --enable-shared --prefix="/usr"
+	# Configure does not respect the --docdir parameter fixed below
+    ./configure --enable-shared --prefix=/usr
     make
 }
 
