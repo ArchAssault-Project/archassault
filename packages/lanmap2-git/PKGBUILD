@@ -7,6 +7,7 @@ url='http://github.com/pizza/lanmap2'
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-misc')
 depends=('php' 'libpcap' 'graphviz' 'sqlite3' 'readline' 'php-sqlite')
+makedepends=('git')
 source=('git+https://github.com/rflynn/lanmap2')
 md5sums=('SKIP')
 install='lanmap2-git.install'
