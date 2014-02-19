@@ -11,7 +11,7 @@ source=("https://github.com/aol/moloch/archive/v$pkgver.tar.gz"
 options=('!strip')
 
 md5sums=('a5fdb9717b8ae31ba0017bd3a05eda60'
-         '51f520e632d50ceae5b2de6a2fa94046')
+         'f1650b4011635c914ee1908af13131da')
 
 build(){
  cd "$srcdir/moloch-$pkgver"
