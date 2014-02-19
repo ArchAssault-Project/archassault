@@ -7,7 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://code.google.com/p/rebind/"
 license=('MIT')
 depends=('sqlite3' 'readline')
-makedepends=('subversion')
+makedepends=('python2' 'subversion')
 source=("https://rebind.googlecode.com/files/rebind_${pkgver//./-}.tar.gz")
 md5sums=('aadb50e55ebb25827c075949c3808276')
 
