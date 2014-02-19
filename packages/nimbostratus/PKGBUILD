@@ -7,6 +7,7 @@ url="https://github.com/andresriancho/nimbostratus"
 arch=('any')
 license=('GPL3')
 depends=('python2' 'python2-boto')
+makedepends=('git')
 source=("git+https://github.com/andresriancho/nimbostratus.git")
 md5sums=('SKIP')
 
