@@ -7,6 +7,7 @@ url='https://github.com/behindthefirewalls/Parsero'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL2')
 depends=('python' 'python-urllib3' 'python-beautifulsoup4')
+makedepends=('git')
 source=("git+https://github.com/behindthefirewalls/Parsero.git")
 md5sums=('SKIP')
 
