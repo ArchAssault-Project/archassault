@@ -6,7 +6,7 @@ pkgdesc="MIFARE Classic Universal toolKit"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://code.google.com/p/mfcuk/'
 license=('GPL2')
-depends=("libnearfield>=1.7.0")
+depends=("libnfc")
 source=("http://mfcuk.googlecode.com/files/mfcuk-$pkgver.tar.gz")
 md5sums=('14fb27e7d33129add85ee76373d9cc28')
 
