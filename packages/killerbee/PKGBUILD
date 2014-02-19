@@ -1,12 +1,12 @@
 pkgname=killerbee
 pkgrel=1
 pkgver=82
-groups=('archassault' 'archassault-wireless' 'archassault-exploitation')
+groups=('archassault' 'archassault-wireless' 'archassault-exploit')
 pkgdesc="Framework and tools for exploiting ZigBee and IEEE 802.15.4 networks."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://code.google.com/p/killerbee/'
 license=('BSD')
-depends=('python2' 'python2-crypto' 'python2-pyusb' 'pygtk' 'python2-cairo' 'python2-pyserial')
+depends=('python2' 'python2-cryptography' 'python2-pyusb' 'pygtk' 'python2-cairo' 'python2-pyserial')
 conflicts=('killerbee-svn')
 provides=('killerbee-svn')
 options=(!emptydirs)

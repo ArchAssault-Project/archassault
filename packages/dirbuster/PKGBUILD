@@ -1,7 +1,7 @@
 pkgname=dirbuster
 pkgver=1.0_RC1
 pkgrel=3
-groups=('archassault' 'archassault-scanner' 'archassault-webapp')
+groups=('archassault' 'archassault-scanners' 'archassault-webapp')
 pkgdesc="An application designed to brute force directories and files names on web/application servers"
 url='http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project'
 license=('LGPL')

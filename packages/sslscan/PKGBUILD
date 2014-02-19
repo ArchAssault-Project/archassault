@@ -1,7 +1,7 @@
 pkgname=sslscan
 pkgver=1.8.2
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="A fast tools to scan SSL services, such as HTTPS."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://sourceforge.net/projects/sslscan/'
@@ -12,7 +12,7 @@ md5sums=('1a890d031996ab252efb535511bd58db')
 
 build() {
   cd "$srcdir/sslscan-$pkgver"
-  sed -i 's/-lssl/-lssl -lcrypto/g' Makefile
+  sed -i 's/-lssl/-lssl -lcryptography/g' Makefile
   make
 }
 

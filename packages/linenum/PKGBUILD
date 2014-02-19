@@ -1,7 +1,7 @@
 pkgname=linenum
 pkgver=20131227
 pkgrel=2
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="Scripted Local Linux Enumeration & Privilege Escalation Checks"
 url="https://github.com/rebootuser/LinEnum"
 arch=('any')

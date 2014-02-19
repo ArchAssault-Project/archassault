@@ -21,9 +21,9 @@ package() {
 
   tar xfz oracle_checkpwd_linux.tar.gz -C "$pkgdir/usr/share/checkpwd"
   if [[ $CARCH = x86_64 ]] ; then
-  ln -s /usr/lib32/libcrypto.so "$pkgdir/usr/share/checkpwd/libcrypto.so.0"
+  ln -s /usr/lib32/libcryptography.so "$pkgdir/usr/share/checkpwd/libcryptography.so.0"
   else
-  ln -s /usr/lib/libcrypto.so "$pkgdir/usr/share/checkpwd/libcrypto.so.0"
+  ln -s /usr/lib/libcryptography.so "$pkgdir/usr/share/checkpwd/libcryptography.so.0"
   fi
 
   install -Dm755 checkpwd.sh "$pkgdir/usr/bin/checkpwd"

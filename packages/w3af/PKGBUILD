@@ -1,7 +1,7 @@
 pkgname=w3af
 pkgver=1.5
 pkgrel=3
-groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanner')
+groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://w3af.sourceforge.net/'

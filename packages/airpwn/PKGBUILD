@@ -17,7 +17,7 @@ build() {
   ./configure --prefix=/usr --mandir=/usr/share/man
   sed -i 's/python2.4/python2/g' conf.h
   sed -i 's|python2/Python\.h|python2.7/Python.h|' conf.h
-  sed -i 's|LDFLAGS = |LDFLAGS = -lssl -lcrypto -lorcon -lpthread -lpcre -lpcap -lnet -lpython2.7|g' Makefile
+  sed -i 's|LDFLAGS = |LDFLAGS = -lssl -lcryptography -lorcon -lpthread -lpcre -lpcap -lnet -lpython2.7|g' Makefile
   make
 }
 

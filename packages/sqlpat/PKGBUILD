@@ -14,8 +14,8 @@ md5sums=('bc0981277e76bacff2daa4b159363de9')
 build() {
   cd "$srcdir/$_pkgname"
 
-  gcc $CFLAGS bf.c crypto.c sqlbf.c -o sqlbf -I include/ -lpthread -lm -lssl \
-    -lcrypto
+  gcc $CFLAGS bf.c cryptography.c sqlbf.c -o sqlbf -I include/ -lpthread -lm -lssl \
+    -lcryptography
 }
 
 package() {

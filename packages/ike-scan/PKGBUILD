@@ -1,8 +1,8 @@
 pkgname=ike-scan
 pkgver=1.9
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
-pkgdesc="A tool that uses IKE protocol to discover, fingerprint and test IPSec VPN servers"
+groups=('archassault' 'archassault-scanners')
+pkgdesc="A tool that uses IKE protocol to discover, fingerprinting and test IPSec VPN servers"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.nta-monitor.com/tools/ike-scan/'
 license=('GPL')

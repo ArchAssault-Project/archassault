@@ -1,8 +1,8 @@
 pkgname=ollydbg
 pkgver=201g
 pkgrel=3
-groups=('archassault' 'archassault-debugger' 'archassault-windows')
-pkgdesc="A 32-bit assembler-level analysing debugger"
+groups=('archassault' 'archassault-debugging' 'archassault-windows')
+pkgdesc="A 32-bit assembler-level analysing debugging"
 arch=('i686' 'x86_64')
 url='http://www.ollydbg.de'
 license=('custom')

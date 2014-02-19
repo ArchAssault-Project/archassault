@@ -1,7 +1,7 @@
 pkgname=conscan
 pkgver=0.5
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Concrete5 blackbox vulnerability scanner"
 arch=('any')
 url='https://github.com/TheXerocouk/conscan'

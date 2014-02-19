@@ -6,7 +6,7 @@ arch=('any')
 url='https://github.com/ArchAssault-Project/darkmysqli'
 license=('unknown')
 depends=('python2')
-groups=('archassault' 'archassault-webapp' 'archassault-exploitation')
+groups=('archassault' 'archassault-webapp' 'archassault-exploit')
 source=("https://github.com/ArchAssault-Project/darkmysqli/raw/master/darkmysqli${pkgver//./}.tar.gz")
 md5sums=('321de32771d631f1d9b3aa281302add0')
 

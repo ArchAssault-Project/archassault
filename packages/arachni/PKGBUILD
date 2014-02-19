@@ -1,7 +1,7 @@
 pkgname=arachni
 pkgver=0.4.5.2
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
 arch=('any')
 license=('apache')

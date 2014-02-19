@@ -1,7 +1,7 @@
 pkgname=rfcat
 pkgver=130515
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="RF ChipCon-based Attack Toolset"
 url="http://code.google.com/p/rfcat"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

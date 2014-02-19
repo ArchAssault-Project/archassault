@@ -12,7 +12,7 @@ md5sums=('1574813385fbe652736b439accec7120')
 
  build() {
   cd $srcdir/spectools-${pkgver//_/-}
-  autoreconf --install
+  autoreconnaissancef --install
   ./configure --prefix=/usr --sysconfdir=/etc
   make
 }

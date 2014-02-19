@@ -1,7 +1,7 @@
 pkgname=hamster
 pkgver=2.0.0
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="Tool for HTTP session sidejacking."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://hamster.erratasec.com/'

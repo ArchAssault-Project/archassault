@@ -5,7 +5,7 @@ pkgdesc='Converts Motorola and Intel hex files to binary.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://hex2bin.sourceforge.net/'
 license=('GPL')
-groups=('archassault' 'archassault-binary')
+groups=('archassault')
 source=("http://downloads.sourceforge.net/project/hex2bin/hex2bin/Hex2bin-$pkgver.tar.bz2")
 md5sums=('0a72e092a7d33a19432c0de8d255902a')
 

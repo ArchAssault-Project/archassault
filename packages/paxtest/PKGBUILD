@@ -1,7 +1,7 @@
 pkgname=paxtest
 pkgver=0.9.11
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="PaX regression test suite."
 url='http://pax.grsecurity.net/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

@@ -1,8 +1,8 @@
 pkgname=dnswalk
 pkgver=2.0.2
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-recon')
-pkgdesc="A DNS debugger"
+groups=('archassault' 'archassault-scanners' 'archassault-reconnaissance')
+pkgdesc="A DNS debugging"
 url='http://sourceforge.net/projects/dnswalk/'
 license=('GPL')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

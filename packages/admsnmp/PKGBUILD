@@ -1,7 +1,7 @@
 pkgname=admsnmp
 pkgver=0.1
 pkgrel=2
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc='ADM SNMP audit scanner.'
 license=('GPL')
 depends=('glibc')
