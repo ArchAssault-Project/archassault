@@ -4,6 +4,7 @@ pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Self contained web shells and other attacks via .htaccess files."
 url="https://github.com/wireghoul/htshells"
+makedepends=('git')
 arch=('any')
 license=('GPL3')
 source=("git+https://github.com/wireghoul/htshells.git")
