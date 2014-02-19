@@ -7,6 +7,7 @@ url="https://github.com/SpiderLabs/Responder"
 license=('custom')
 arch=('any')
 depends=('python2')
+makedepends=('git')
 source=("git+https://github.com/SpiderLabs/Responder")
 md5sums=('SKIP')
 
