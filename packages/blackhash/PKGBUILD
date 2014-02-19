@@ -6,7 +6,7 @@ pkgdesc="Creates a filter from system hashes"
 url="http://16s.us/blackhash/"
 arch=('any')
 license=('GPL')
-depends=('boost' 'cryptography++')
+depends=('boost' 'crypto++')
 source=("http://16s.us/software/Blackhash/Source/Blackhash_$pkgver.tar.gz")
 md5sums=('5feab8287fd1c951dfcd9be7c405d9c6')
 
