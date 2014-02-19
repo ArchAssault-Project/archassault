@@ -16,7 +16,7 @@ pkgver() {
 
   # We have to get the version number from the CHANGELOG file. It's better than
   #  nothing.
-  grep -m1 'ChangeLog ' CHANGELOG.txt | sed 's/.* //;s/:$//'
+  grep -m1 'ChangeLog ' CHANGELOG | sed 's/.* //;s/:$//'
 }
 
 package() {
