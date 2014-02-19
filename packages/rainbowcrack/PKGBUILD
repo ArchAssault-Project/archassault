@@ -24,7 +24,7 @@ build() {
   sed -i 's/md2.h/mdc2.h/g' Hash*.*
 
   # DSO link fix for cryptography
-  sed -i "s/-lssl/& -lcryptography/" makefile.linux
+  sed -i "s/-lssl/& -lcrypto/" makefile.linux
 
   # MDC2 fix
   sed -i 's/MD2/MDC2/g' Hash*.*
