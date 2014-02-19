@@ -7,6 +7,7 @@ url="https://github.com/ntrippar/ARPwner"
 arch=('any')
 license=('GPL3')
 depends=('python2' 'python2-pypcap')
+makedepends=('git')
 source=("git+https://github.com/ntrippar/ARPwner.git")
 md5sums=('SKIP')
 
