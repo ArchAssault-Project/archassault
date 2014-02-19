@@ -6,6 +6,7 @@ arch=("any")
 url="http://github.com/jensp/passcracking"
 license=('custom:unkown')
 depends=('python2')
+makedepends=('git')
 groups=('archassault' 'archassault-cracker')
 source=("git+https://github.com/jensp/passcracking.git")
 md5sums=('SKIP')
