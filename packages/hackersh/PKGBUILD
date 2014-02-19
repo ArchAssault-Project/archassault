@@ -7,6 +7,7 @@ arch=('any')
 url='http://www.hackersh.org/'
 license=('GPL')
 depends=('python2' 'pythonect' 'python2-prettytable' 'python2-netaddr')
+makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/H/Hackersh/Hackersh-$pkgver.tar.gz")
 md5sums=('6343e39b48980ee224ba0f8dd55678e0')
 
