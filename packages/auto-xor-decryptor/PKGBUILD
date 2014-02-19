@@ -17,5 +17,5 @@ pkgver() {
 
 package() {
   cd "$srcdir/scripts"
-  install -Dm755 auto_xor_decryptographyr.py "$pkgdir/usr/bin/auto_xor_decrypter"
+  install -Dm755 auto_xor_decryptor.py "$pkgdir/usr/bin/auto_xor_decrypter"
 }
