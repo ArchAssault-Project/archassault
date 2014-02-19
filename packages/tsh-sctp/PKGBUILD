@@ -5,7 +5,7 @@ pkgdesc="An open-source UNIX backdoor"
 url="https://github.com/infodox/tsh-sctp"
 arch=(any)
 license=('GPL')
-depends=('')
+makedepends=('git')
 source=("git+https://github.com/infodox/tsh-sctp.git")
 md5sums=('SKIP')
 
