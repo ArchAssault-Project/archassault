@@ -7,6 +7,7 @@ url="https://github.com/toperaproject/topera"
 arch=('any')
 license=('GPL2')
 depends=('python2' 'scapy')
+makedepends=('git')
 source=("git+https://github.com/toperaproject/topera.git")
 md5sums=('SKIP')
 
