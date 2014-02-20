@@ -24,10 +24,10 @@ package() {
   install -Dm644 brutefile.txt $pkgdir/usr/share/cisco-torch/
   install -Dm644 community.txt $pkgdir/usr/share/cisco-torch/
   install -Dm644 torch.conf $pkgdir/usr/share/cisco-torch/
-  install -Dm644 fingerprinting.db $pkgdir/usr/share/cisco-torch/
+  install -Dm644 tfingerprint.db $pkgdir/usr/share/cisco-torch/
 
-  for f in brutefile.txt community.txt fingerprinting.db password.txt \
-           tfingerprinting.db torch.conf users.txt; do
+  for f in brutefile.txt community.txt tfingerprint.db password.txt \
+           tfingerprint.db torch.conf users.txt; do
     install -Dm644 $f $pkgdir/usr/share/cisco-torch/
   done
 
