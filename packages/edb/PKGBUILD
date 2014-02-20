@@ -9,22 +9,22 @@ license=('GPL2')
 depends=('qt4>=4.5')
 makedepends=('boost>=1.35.0')
 install=edb.install
-conflicts=('edb-debugging')
-provides=('edb-debugging')
-source=(http://www.codef00.com/projects/debugging-$pkgver.tgz
+conflicts=('edb-debugger')
+provides=('edb-debugger')
+source=(http://www.codef00.com/projects/debugger-$pkgver.tgz
         edb.desktop)
 md5sums=('5916d415f598fae8632dd763f58e11d1'
          'a08fb481bc46f47c6c004f7b8bd928e4')
 
 build() {
-  cd $srcdir/debugging
+  cd $srcdir/debugger
 
   qmake-qt4 -makefile DEFAULT_PLUGIN_PATH="/usr/lib/edb/"
   make
 }
 
 package() {
-  cd $srcdir/debugging
+  cd $srcdir/debugger
 
   make INSTALL_ROOT=$pkgdir/usr install
 
