@@ -16,7 +16,7 @@ build(){
   cd "$srcdir/tcpxtract-$pkgver"
 
   # Applying conf_default_path patch
-  patch -Np0 -i "$srcdir/src/conf_default_path.patch"
+  patch -Np0 -i "$srcdir/conf_default_path.patch"
 }
 
 package() {
