@@ -1,6 +1,6 @@
 pkgname=sipcrack
 pkgver=0.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cracker' 'archassault-voip')
 pkgdesc="A SIP protocol login cracker."
 depends=('libpcap' 'openssl')
