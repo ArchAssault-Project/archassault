@@ -6,8 +6,8 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.snort.org'
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-scanners' 'archassault-autonomous')
-depends=('libdaq-static' 'libdnet' 'libpcap' 'openssl' 'pcre' 'zlib')
-makedepends=('ca-certificates')
+depends=('util-linux' 'libpcap' 'pcre')
+makedepends=('ca-certificates' 'libdaq-static' 'libdnet')
 backup=('etc/conf.d/snort'
         'etc/snort/snort.conf'
         'etc/snort/threshold.conf'
