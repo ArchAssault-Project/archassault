@@ -7,6 +7,7 @@ url="http://rakudave.ch/jnetmap"
 license=('GPL3')
 depends=('java-runtime')
 source=(http://sourceforge.net/projects/$pkgname/files/jNetMap%20$pkgver/jNetMap-$pkgver.jar)
+noextract=("jNetMap-$pkgver.jar")
 sha256sums=('67a21c7fa3d82ca3c153587ab7187a0dcaac4f99344c796fab1e188ba58599c0')
 
 package() {
