@@ -1,7 +1,7 @@
 pkgname=missionplanner
 pkgver=1.2.55
 pkgrel=1
-groups=('archassault' 'archassault-drone')
+groups=('archassault-drone')
 pkgdesc="A GroundControl Station for Ardupilot"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://code.google.com/p/ardupilot-mega/wiki/Mission"
