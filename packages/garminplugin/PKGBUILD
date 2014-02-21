@@ -6,7 +6,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.andreas-diesner.de/garminplugin/doku.php"
 license=('GPL')
 #makedepends=("xulrunner")
-depends=("garmintools" "tinyxml" "libusb")
+depends=('garmintools' 'tinyxml' 'libusb-compat')
 source=(https://github.com/adiesner/GarminPlugin/archive/V${pkgver}.zip)
 sha256sums=('821742d059508130a5e46ae2e595bfd9bc9d9863810f14fdb5d79f388bb94b2d')
 

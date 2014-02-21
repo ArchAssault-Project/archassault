@@ -5,9 +5,10 @@ groups=('archassault' 'archassault-proxy' 'archassault-cracker')
 pkgdesc="Transparent proxy that decrypts SSL traffic and prints out IRC messages."
 url="https://github.com/jtripper/sslnuke"
 arch=('any')
+makedepends=('git')
 license=('GPL2')
 install='sslnuke.install'
-source=("git+https://github.com/jtRIPper/sslnuke.git"
+source=("git+https://github.com/jtripper/sslnuke.git"
         "sslnuke.install")
 md5sums=('SKIP'
          '30dc76b857af964909400af5abe97fdc')

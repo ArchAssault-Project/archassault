@@ -1,5 +1,5 @@
 pkgname=sploitego
-pkgver=1.0
+pkgver=20140220
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Maltego Penetration Testing Transforms"
@@ -7,7 +7,7 @@ url="https://github.com/allfro/sploitego"
 arch=('any')
 license=('GPL2')
 depends=('python2' 'nmap' 'p0f' 'amap' 'metasploit')
-makedepends=('git')
+makedepends=('git' 'python2-setuptools')
 optdepends=('nessus')
 install='sploitego.install'
 source=("git+https://github.com/allfro/sploitego.git"
@@ -16,11 +16,8 @@ md5sums=('SKIP'
          '512d661f0405ccaa1a08c41ff95bb863')
 
 pkgver() {
-  cd "$srcdir/sploitego"
-
-  # Use the tag of the last commit.
-  local _ver=$(git describe --long)
-  printf "%s" "${_ver//-/.}"
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build(){
