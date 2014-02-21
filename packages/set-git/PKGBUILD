@@ -1,6 +1,6 @@
 pkgname=set-git
-pkgver=5.3.4
-pkgrel=2
+pkgver=5.4.6
+pkgrel=1
 groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
@@ -27,7 +27,7 @@ md5sums=('SKIP')
 backup=('usr/share/set/config/set_config')
 
 pkgver() {
-  cd social-engineer-toolkit
+  cd "$srcdir/social-engineer-toolkit"
   git describe --tags | sed 's/-.*//'
 }
 
@@ -37,7 +37,7 @@ prepare() {
   # Fix shebangs in all .py files
   sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
       -i -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
-      $(find ${srcdir}/social-engineer-toolkit -name '*.py')
+      $(find "${srcdir}"/social-engineer-toolkit -name '*.py')
 
   # Fix shebands in all se*
   sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
@@ -50,8 +50,8 @@ prepare() {
   # Fix all Metasploit calls using 'ruby' and change-to 'ruby-1.9'
   grep -Rl python ./ | xargs sed -i 's|ruby|ruby-1.9|g'
 
-  # Fix all calls to 'python-pycryptography' change to 'python2-cryptography'
-  grep -Rl python-pycryptography ./ | xargs sed -i 's|python-pycryptography|python2-cryptography|g'
+  # Fix all calls to 'python-pycrypto' change to 'python2-crypto'
+  grep -Rl python-pycrypto ./ | xargs sed -i 's|python-pycrypto|python2-crypto|g'
 
   # ArchAssault Fixes
   cd "$srcdir/social-engineer-toolkit/config"
