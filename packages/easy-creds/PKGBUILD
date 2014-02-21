@@ -1,0 +1,25 @@
+pkgname=easy_creds
+pkgver=3.8
+pkgrel=1
+groups=('archassault' 'archassault-networking')
+pkgdesc='a bash script that leverages ettercap and other tools to obtain credentials.'
+arch=('any')
+url='http://easy-creds.sourceforge.net/'
+license=('GPL2')
+depends=('bash' 'ettercap' 'dsniff' 'dhcp' 'hostapd' 'ipcalc' 'screen' 'freeradius' 'hamster' 'sslstrip' 'metasploit' 'mdk3' 'aircrack-ng' 'asleap')
+source=("https://downloads.sourceforge.net/project/easy-creds/easy-creds-$pkgver-DEV.tar.gz")
+sha256sums=('1c34ae1705333e6d760b1b3cbc4600cd37c03f4579e54390ecaa8803e24ef994')
+
+package() {
+  cd "$srcdir/easy-creds"
+
+  install -dm755 "$pkgdir/usr/share/easy-creds"
+  install -dm755 "$pkgdir/usr/bin"
+   
+  install -m644 definitions.sslstrip "$pkgdir/usr/share/easy-creds/"
+  install -m644 README "$pkgdir/usr/share/easy-creds/"
+
+  install -m755 easy-creds.sh "$pkgdir/usr/share/easy-creds/easy-creds.sh"
+
+  ln -sf $pkgdir/usr/share/easy-creds/easy-creds.sh $pkgdir/usr/bin/easy-creds
+}
