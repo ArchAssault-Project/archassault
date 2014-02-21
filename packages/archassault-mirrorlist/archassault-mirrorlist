@@ -1,8 +1,15 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-01-28
+## Generated on 2014-02-21
 ##
+
+## Denmark
+#Server = http://mirrors.dotsrc.org/archassault/$repo/os/$arch
+
+## United Kingdom
+#Server = http://www.mirrorservice.org/sites/repo.archassault.org/archassault/$repo/os/$arch
 
 ## United States
 #Server = http://repo.archassault.org/archassault/$repo/os/$arch
+#Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 

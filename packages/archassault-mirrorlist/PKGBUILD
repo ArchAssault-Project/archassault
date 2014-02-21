@@ -1,5 +1,5 @@
 pkgname=archassault-mirrorlist
-pkgver=20140128
+pkgver=20140220
 pkgrel=1
 pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
@@ -16,7 +16,7 @@ source=(archassault-mirrorlist)
 
 updatelist() {
   rm -f archassault-mirrorlist
-  wget --no-check-certificate -O archassault-mirrorlist https://archlassault.org/mirrorlist/all/http/
+  wget --no-check-certificate -O archassault-mirrorlist https://archassault.org/mirrorlist/all/http/
 }
 
 package() {
