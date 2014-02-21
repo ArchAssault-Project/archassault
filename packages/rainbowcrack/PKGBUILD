@@ -7,6 +7,7 @@ arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://project-rainbowcrack.com/"
 license=('custom')
 depends=('openssl')
+makedepends=('git')
 source=("git+http://github.com/ArchAssault-Project/rainbowcrack"
         "http://www.oxid.it/downloads/rc_patch_mysql_pix.zip")
 md5sums=('SKIP'
@@ -22,7 +23,7 @@ build() {
   sed -i "11i#include <stdlib.h>\n#include <string.h>" Public.h
   sed -i 's/md2.h/mdc2.h/g' Hash*.*
 
-  # DSO link fix for crypto
+  # DSO link fix for cryptography
   sed -i "s/-lssl/& -lcrypto/" makefile.linux
 
   # MDC2 fix

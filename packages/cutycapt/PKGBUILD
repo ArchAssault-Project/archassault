@@ -1,7 +1,7 @@
 pkgname=cutycapt
 pkgver=10
 pkgrel=1
-groups=('archassault' 'archassault-recon')
+groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A Qt and WebKit based command-line utility that captures WebKit's rendering of a web page."
 arch=('any')
 url='http://cutycapt.sourceforge.net/'

@@ -6,7 +6,7 @@ pkgdesc="A suite of tools for the Wake on LAN feature of network attached comput
 arch=('any')
 url='http://code.google.com/p/wol-e/'
 license=('GPL3')
-depends=('impacket' 'scapy' 'python2-pcapy')
+depends=('python2' 'bash')
 source=("http://wol-e.googlecode.com/files/wol-e-$pkgver.tar")
 md5sums=('4a67aed6965cafe56ed8762fb72af647')
 

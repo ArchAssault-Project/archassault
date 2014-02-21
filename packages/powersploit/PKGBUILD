@@ -1,7 +1,7 @@
 pkgname=powersploit
 pkgver=2.2
 pkgrel=1
-groups=('archassault' 'archassault-windows' 'archassault-exploitation')
+groups=('archassault' 'archassault-windows' 'archassault-exploit')
 pkgdesc="A PowerShell Post-Exploitation Framework"
 url="https://github.com/mattifestation/PowerSploit"
 arch=(any)

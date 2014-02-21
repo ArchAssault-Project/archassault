@@ -1,7 +1,7 @@
 pkgname=hcraft
 pkgver=1.0.0
 pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+groups=('archassault' 'archassault-exploit')
 pkgdesc="HTTP Vuln Request Crafter"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://sourceforge.net/projects/hcraft/"

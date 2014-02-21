@@ -1,8 +1,8 @@
 pkgname=kolkata
 pkgver=3.0
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-fingerprint')
-pkgdesc="A web application fingerprinting engine written in Perl that combines cryptography with IDS evasion."
+groups=('archassault' 'archassault-webapp' 'archassault-fingerprinting')
+pkgdesc="A web application fingerprintinging engine written in Perl that combines cryptographygraphy with IDS evasion."
 url="http://www.blackhatlibrary.net/Kolkata"
 arch=('any')
 license=('GPL2')

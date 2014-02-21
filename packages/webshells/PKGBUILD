@@ -5,6 +5,7 @@ groups=('archassault' 'archassault-webapp' 'archassault-backdoor')
 pkgdesc="Web Backdoors"
 url="https://github.com/ArchAssault-Project/webshells"
 arch=('any')
+makedepends=('git')
 license=('custom')
 source=("git+https://github.com/ArchAssault-Project/webshells.git")
 md5sums=('SKIP')

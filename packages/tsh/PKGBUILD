@@ -1,7 +1,7 @@
 pkgname='tsh'
 pkgver='0.6'
 pkgrel=1
-pkgdesc='An open-source UNIX backdoor that compiles on all variants, has full pty support, and uses strong crypto for communication.'
+pkgdesc='An open-source UNIX backdoor that compiles on all variants, has full pty support, and uses strong cryptography for communication.'
 url='http://packetstormsecurity.com/search/?q=tsh'
 groups=('archassault' 'archassault-backdoor')
 license=('custom')

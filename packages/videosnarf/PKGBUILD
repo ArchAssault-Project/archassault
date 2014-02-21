@@ -1,12 +1,13 @@
 pkgname=videosnarf
 pkgver=0.63
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
-pkgdesc="A new security assessment tool for pcap analysis"
+groups=('archassault' 'archassault-scanners')
+pkgdesc="A new security assessment tool for pcap analyze"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://ucsniff.sourceforge.net/videosnarf.html"
 license=('GPL')
-depends=('libpcap' 'libnet')
+depends=('libpcap')
+makedepends=('libnet')
 source=(http://downloads.sourceforge.net/project/ucsniff/videosnarf/videosnarf-$pkgver.tar.gz
         videosnarf-0.63-fix-linking.patch)
 

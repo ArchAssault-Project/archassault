@@ -7,6 +7,7 @@ url="https://github.com/localh0t/backfuzz"
 arch=('any')
 license=('GPL3')
 depends=('python2')
+makedepends=('git')
 source=("git+https://github.com/localh0t/backfuzz.git")
 md5sums=('SKIP')
 

@@ -1,7 +1,7 @@
 pkgname=ratproxy
 pkgver=1.58
 pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-proxy' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-webapp' 'archassault-proxy' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="A passive web application security assessment tool"
 url="http://code.google.com/p/ratproxy/"
 license=('APACHE')

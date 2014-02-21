@@ -1,8 +1,8 @@
 pkgname=cisco-torch
 pkgver=0.4b
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-fingerprint' 'archassault-exploitation')
-pkgdesc="Cisco Torch mass scanning, fingerprinting, and exploitation tool."
+groups=('archassault' 'archassault-scanners' 'archassault-fingerprinting' 'archassault-exploit')
+pkgdesc="Cisco Torch mass scanning, fingerprintinging, and exploit tool."
 url="http://www.arhont.com"
 license=('LGPL')
 depends=('perl' 'perl-net-telnet' 'perl-net-snmp' 'perl-net-ssh-perl' 'perl-net-ssleay')
@@ -24,9 +24,9 @@ package() {
   install -Dm644 brutefile.txt $pkgdir/usr/share/cisco-torch/
   install -Dm644 community.txt $pkgdir/usr/share/cisco-torch/
   install -Dm644 torch.conf $pkgdir/usr/share/cisco-torch/
-  install -Dm644 fingerprint.db $pkgdir/usr/share/cisco-torch/
+  install -Dm644 tfingerprint.db $pkgdir/usr/share/cisco-torch/
 
-  for f in brutefile.txt community.txt fingerprint.db password.txt \
+  for f in brutefile.txt community.txt tfingerprint.db password.txt \
            tfingerprint.db torch.conf users.txt; do
     install -Dm644 $f $pkgdir/usr/share/cisco-torch/
   done

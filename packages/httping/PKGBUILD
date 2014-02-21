@@ -7,7 +7,7 @@ depends=('openssl')
 optdepends=('ncurses' 'fftw')
 url=('http://www.vanheusden.com/httping/')
 license=('GPL')
-groups=('archassault' 'archassault-networking' 'archassault-recon')
+groups=('archassault' 'archassault-networking' 'archassault-reconnaissance')
 source=("http://www.vanheusden.com/httping/httping-$pkgver.tgz")
 md5sums=('a4ed1ab05a1cc9fc473ade53c1e5927b')
 

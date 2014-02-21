@@ -1,11 +1,12 @@
 pkgname=sctpscan
 pkgver=1.0
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-recon')
+groups=('archassault' 'archassault-scanners' 'archassault-reconnaissance')
 pkgdesc="A network scanner for discovery and security"
 url="http://www.p1sec.com/"
 arch=('any')
 depends=('glib2')
+makedepends=('git')
 license=('GPL3')
 source=("git+https://github.com/philpraxis/sctpscan.git")
 md5sums=('SKIP')

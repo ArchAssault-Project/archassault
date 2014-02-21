@@ -1,10 +1,10 @@
-pkgname=auto-xor-decryptor
+pkgname=auto-xor-decryptographyr
 pkgver=3.6a1f8f7
 pkgrel=1
-groups=('archassault' 'archassault-crypto')
-pkgdesc="Automatic XOR decryptor tool."
+groups=('archassault' 'archassault-cryptography')
+pkgdesc="Automatic XOR decryptographyr tool."
 arch=('any')
-url="http://www.blog.mrg-effitas.com/publishing-of-mrg-effitas-automatic-xor-decryptor-tool/"
+url="http://www.blog.mrg-effitas.com/publishing-of-mrg-effitas-automatic-xor-decryptographyr-tool/"
 license=('GPL')
 depends=('python')
 source=("git+https://github.com/MRGEffitas/scripts")

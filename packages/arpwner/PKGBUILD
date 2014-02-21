@@ -1,12 +1,13 @@
 pkgname=arpwner
 pkgver=20131226
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="A tool for arp posioning and dns poisoning attacks, written in python."
 url="https://github.com/ntrippar/ARPwner"
 arch=('any')
 license=('GPL3')
 depends=('python2' 'python2-pypcap')
+makedepends=('git')
 source=("git+https://github.com/ntrippar/ARPwner.git")
 md5sums=('SKIP')
 

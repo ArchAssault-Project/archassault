@@ -6,7 +6,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.arpalert.org/'
 license=('GPL')
 depends=('libpcap')
-groups=('archassault' 'archassault-defensive')
+groups=('archassault' 'archassault-defense')
 source=("http://www.arpalert.org/src/arpalert-$pkgver.tar.gz"
         'arpalert.desktop')
 md5sums=('7f027f74eaf94ad5759ccd9b20d0b854'

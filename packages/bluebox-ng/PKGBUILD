@@ -1,12 +1,13 @@
 pkgname=bluebox-ng
 pkgver=20140103
 pkgrel=1
-groups=('archassault' 'archassault-scanner')
+groups=('archassault' 'archassault-scanners')
 pkgdesc="A GPL VoIP/UC vulnerability scanner."
 url="https://github.com/jesusprubio/bluebox-ng"
 arch=('any')
 license=('GPL3')
 depends=('nodejs' 'coffee-script')
+makedepends=('git')
 source=("git+https://github.com/jesusprubio/bluebox-ng.git")
 md5sums=('SKIP')
 

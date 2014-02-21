@@ -8,7 +8,7 @@ url='http://xsser.sourceforge.net/'
 license=('GPL3')
 depends=('orbited' 'python2' 'python2-beautifulsoup3' 'python2-pycurl' 'twisted'
          'pygtk')
-makedepends=('subversion')
+makedepends=('subversion' 'python2-setuptools')
 optdepends=('pygtkmoz')
 source=("http://downloads.sourceforge.net/project/xsser/xsser_$pkgver-1.tar.gz")
 md5sums=('SKIP')

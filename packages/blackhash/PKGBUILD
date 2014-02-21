@@ -12,7 +12,7 @@ md5sums=('5feab8287fd1c951dfcd9be7c405d9c6')
 
 build(){
   cd "$srcdir"
-  g++ -std=c++11 -Wall -Wextra -o bh main_std_cpp.cpp -lcryptopp -lpthread
+  g++ -std=c++11 -Wall -Wextra -o bh main_std_cpp.cpp -lcryptographypp -lpthread
 }
 
 package() {

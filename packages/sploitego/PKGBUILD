@@ -1,12 +1,13 @@
 pkgname=sploitego
 pkgver=1.0
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-fuzzer')
+groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Maltego Penetration Testing Transforms"
 url="https://github.com/allfro/sploitego"
 arch=('any')
 license=('GPL2')
 depends=('python2' 'nmap' 'p0f' 'amap' 'metasploit')
+makedepends=('git')
 optdepends=('nessus')
 install='sploitego.install'
 source=("git+https://github.com/allfro/sploitego.git"

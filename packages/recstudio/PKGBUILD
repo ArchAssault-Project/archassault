@@ -1,8 +1,8 @@
 pkgname=recstudio
 pkgver=4.0_20130717
 pkgrel=1
-groups=('archassault' 'archassault-reversing' 'archassault-decompiler')
-pkgdesc="Cross platform interactive decompiler"
+groups=('archassault' 'archassault-reversing' 'archassault-decompile')
+pkgdesc="Cross platform interactive decompile"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.backerstreet.com/rec/rec.htm'
 license=('custom')

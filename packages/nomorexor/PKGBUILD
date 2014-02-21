@@ -1,8 +1,8 @@
 pkgname=nomorexor
 pkgver=0.1
 pkgrel=1
-groups=('archassault' 'archassault-crypto')
-pkgdesc="Tool to help guess a files 256 byte XOR key by using frequency analysis"
+groups=('archassault' 'archassault-cryptography')
+pkgdesc="Tool to help guess a files 256 byte XOR key by using frequency analyze"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/hiddenillusion/NoMoreXOR"
 license=('unknown')

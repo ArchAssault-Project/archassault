@@ -1,5 +1,5 @@
 pkgname=responder
-pkgver=1.9
+pkgver=2.0
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A LLMNR and NBT-NS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication."
@@ -7,6 +7,7 @@ url="https://github.com/SpiderLabs/Responder"
 license=('custom')
 arch=('any')
 depends=('python2')
+makedepends=('git')
 source=("git+https://github.com/SpiderLabs/Responder")
 md5sums=('SKIP')
 
@@ -15,7 +16,7 @@ pkgver() {
 
   # We have to get the version number from the CHANGELOG file. It's better than
   #  nothing.
-  grep -m1 'ChangeLog ' CHANGELOG.txt | sed 's/.* //;s/:$//'
+  grep -m1 'ChangeLog ' CHANGELOG | sed 's/.* //;s/:$//'
 }
 
 package() {

@@ -1,6 +1,8 @@
 The ArchAssault Project
 ========================
 
+Main Development is being done on BitBucket, GH will get pushes roughly once a month. 
+
 **The ArchAssault Project** is an Arch Linux based Distro for penetration testers, security professionals and all-around linux enthusiasts.
 
 We aim to give you everything you love about Arch Linux but designed around the needs and wants of security professionals. We currently support

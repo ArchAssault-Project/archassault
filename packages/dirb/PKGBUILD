@@ -1,7 +1,7 @@
 pkgname=dirb
 pkgver=2.04
 pkgrel=1
-groups=('archassault' 'archassault-scanner' 'archassault-webapp')
+groups=('archassault' 'archassault-scanners' 'archassault-webapp')
 pkgdesc="A web content scanner, brute forceing for hidden files"
 url='http://dirb.sourceforge.net/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

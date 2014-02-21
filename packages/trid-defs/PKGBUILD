@@ -5,6 +5,7 @@ pkgdesc="Filesignature database for trid"
 arch=('any')
 url="http://mark0.net/soft-trid-e.html"
 license=('CUSTOM')
+makedepends=('unzip')
 source=(triddefs-$pkgver.zip::http://mark0.net/download/triddefs.zip)
 md5sums=('29719d62ec9fa6b91330cd1984360985')
 

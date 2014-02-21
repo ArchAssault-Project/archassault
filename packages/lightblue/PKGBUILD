@@ -1,11 +1,12 @@
 pkgname='lightblue'
 pkgver='0.4'
-pkgrel=1
+pkgrel=2
 pkgdesc='A cross-platform Bluetooth API for Python which provides simple access to Bluetooth operations'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://lightblue.sourceforge.net/'
 license=('GPL')
-depends=('python2')
+depends=('python2' 'openobex')
+makedepends=('bluez-libs')
 source=("http://ufpr.dl.sourceforge.net/sourceforge/lightblue/lightblue-$pkgver.tar.gz")
 md5sums=('2f2bf66faa4bf1a79eb28a47584077b7')
 

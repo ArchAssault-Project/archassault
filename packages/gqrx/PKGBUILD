@@ -14,7 +14,7 @@ source=("gqrx-$pkgver.tar.gz::https://codeload.github.com/csete/gqrx/tar.gz/v$pk
         'gqrx.desktop')
 md5sums=('ff771b9c31ee17f704859398362b8cc0'
          'f7032a8883c89bd80e0d0fd36f861c59'
-         '810f89195231c18f32af92522aade721')
+         '3268f1a5a928a72b9264401d1376c22f')
 
 build() {
   cd "$srcdir/gqrx-$pkgver"

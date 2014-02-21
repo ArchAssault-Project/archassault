@@ -6,6 +6,7 @@ arch=('any')
 url="https://github.com/ArchAssault-Project/mkassaultiso"
 license=('GPL3')
 depends=('archiso')
+makedepends=('git')
 source=("git+https://github.com/ArchAssault-Project/mkassaultiso.git")
 md5sums=('SKIP')
 

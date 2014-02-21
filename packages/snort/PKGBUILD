@@ -1,13 +1,13 @@
 pkgname=snort
 pkgver=2.9.5.6
-pkgrel=1
+pkgrel=2
 pkgdesc="A lightweight network intrusion detection system."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.snort.org'
 license=('GPL')
-groups=('archassault' 'archassault-networking' 'archassault-scanner' 'archassault-automation')
-depends=('libdaq-static' 'libdnet' 'libpcap' 'openssl' 'pcre' 'zlib')
-makedepends=('ca-certificates')
+groups=('archassault' 'archassault-networking' 'archassault-scanners' 'archassault-autonomous')
+depends=('util-linux' 'libpcap' 'pcre')
+makedepends=('ca-certificates' 'libdaq-static' 'libdnet')
 backup=('etc/conf.d/snort'
         'etc/snort/snort.conf'
         'etc/snort/threshold.conf'
