@@ -1,0 +1,22 @@
+pkgname=python2-instagram
+pkgver=20140220
+pkgrel=1
+pkgdesc="Instagram api library for python."
+url='http://github.com/m00n/tweepy'
+license=('custom')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+makedepends=('git' 'setuptools')
+source=('git+https://github.com/Instagram/python-instagram.git')
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir"
+  cp -r "$srcdir/python-instagram" "$srcdir/python-instagram-build"
+  cd python-instagram-build
+  python2 setup.py build
+}
+
+package() {
+  cd "$srcdir/python-instagram-build"
+  python2 setup.py install --root=$pkgdir
+}
