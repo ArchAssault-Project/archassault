@@ -7,6 +7,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/Distrotech/${_name}"
 license=('GPL2')
 makedepends=('git')
+depends=('glibc')
 source=("${_name}::${url//https/git}.git")
 sha256sums=('SKIP')
 
