@@ -1,11 +1,11 @@
 pkgname=fbht-git
-pkgver=r9.b2d3bb8
+pkgver=r10.62937f4
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Facebook Hacking Tool"
 arch=('any')
 url='https://github.com/chinoogawa/fbht-linux'
-license=('GPL2')
+license=('custom')
 depends=('python2' 'python2-mechanize' 'python2-networkx' 'python2-matplotlib' 'python2-numpy')
 makedepends=('git')
 provides=('fbht')
@@ -32,7 +32,7 @@ package() {
   # Licenes and docs
   install -dm755 "$pkgdir/usr/share/fbht/dumps"
   install -dm755 "$pkgdir/usr/share/fbht/logs"
-  #install -Dm644 "LICENSE" "$pkgdir/usr/share/fbht/"
+  install -Dm644 "Lisence" "$pkgdir/usr/share/fbht/"
   install -Dm644 "README.md" "$pkgdir/usr/share/fbht/"
   cp -a --no-preserve=ownership dumps/* "$pkgdir/usr/share/fbht/dumps/"
   cp -a --no-preserve=ownership logs/* "$pkgdir/usr/share/fbht/logs/"
