@@ -1,6 +1,7 @@
 pkgname=sploitego
 pkgver=20140220
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Maltego Penetration Testing Transforms"
 url="https://github.com/allfro/sploitego"
