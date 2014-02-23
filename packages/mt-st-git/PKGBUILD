@@ -5,9 +5,9 @@ pkgrel=1
 pkgdesc='Utilities for managing magnetic tape storage devices'
 arch=('i686' 'x86_64')
 url="https://github.com/Distrotech/${_name}"
-license=('GPLv2')
+license=('GPL2')
 makedepends=('git')
-depends=('tar')
+depends=('glibc')
 source=("${_name}::${url//https/git}.git")
 sha256sums=('SKIP')
 
