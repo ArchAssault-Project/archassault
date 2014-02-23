@@ -1,6 +1,7 @@
 pkgname=airoscript
 pkgver=20140105
 pkgrel=1
+epoch=1
 pkgdesc="Script to simplify the use of aircrack-ng tools"
 arch=('any')
 url="http://midnightresearch.com/projects/wicrawl/"
