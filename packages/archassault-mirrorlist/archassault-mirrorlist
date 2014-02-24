@@ -11,6 +11,7 @@
 
 ## United States
 #Server = http://repo.archassault.org/archassault/$repo/os/$arch
+#Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.umd.edu/archassault/$repo/os/$arch
 
