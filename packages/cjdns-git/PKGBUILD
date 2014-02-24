@@ -1,0 +1,46 @@
+_pkgname=cjdns
+pkgname=${_pkgname}-git
+pkgver=0.3.1937
+pkgrel=1
+pkgdesc="A routing engine designed for security, scalability, speed and ease of use."
+url="https://github.com/cjdelisle/${_pkgname}"
+license=('GPL3')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+makedepends=('git' 'nodejs')
+optdepends=('libnacl: speed up the build process by skipping the need to compile cnacl' 'cjdscript: provides the collection of working scripts included with cjdns' 'cjdnsify: allows you to run programs bound exclusively to your cjdns connection' 'cjdns-git-sysvinit: support for sysvinit style init (rc.d)')
+source=("git://github.com/cjdelisle/${_pkgname}.git#branch=master")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}/${_pkgname}"
+
+    ## Set the package version from the git repo we just cloned or pulled
+    git describe --always | sed 's|-|.|g;s|[^\.]*\.||;s|\.[^\.]*$||'
+}
+
+prepare() {
+    cd "${srcdir}/${_pkgname}"
+
+    ## Clean previous builds and resync
+    ./clean
+}
+
+build() {
+    cd "${srcdir}"/${_pkgname}
+
+    ## Disable Arch's generic makepkg optimizations (set via /etc/makepkg.conf) in favour of those specified by cjdns
+    unset MAKEFLAGS
+    unset CFLAGS
+    unset CPPFLAGS
+
+    ## Build using the ./do script
+    NO_DEBUG=1 ./do
+}
+
+package() {
+    cd "${srcdir}"/${_pkgname}
+
+    ## Add the cjdroute binary and systemd service file to the package
+    install -D -m755 cjdroute "${pkgdir}"/usr/bin/cjdroute
+    install -D -m644 contrib/systemd/${_pkgname}.service "${pkgdir}"/usr/lib/systemd/system/${_pkgname}.service
+}
