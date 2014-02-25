@@ -1,7 +1,7 @@
 pkgname=cryptonark
 _pkgname=cnark
 pkgver=0.4.9
-pkgrel=1
+pkgrel=2
 pkgdesc="SSL security checker"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://blog.techstacks.com/cryptonark.html"
@@ -11,6 +11,8 @@ depends=('perl-io-socket-ssl'
          'perl-tie-hash-indexed'
 	 'perl-modern-perl'
 	 'perl-mozilla-ca')
+provides=('cryptographynark')
+replaces=('cryptographynark')
 source=("http://www.techstacks.com/files/${_pkgname}-v${pkgver}.tar.gz")
 md5sums=('69801fb90ea0ee1367a13186107a5349')
 
