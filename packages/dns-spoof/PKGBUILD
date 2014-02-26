@@ -25,5 +25,5 @@ build(){
 package() {
   cd "$srcdir/dns-spoof"
 
-  install -Dm755 dns-spoof $pkgdir/usr/bin/dnsspoof
+  install -Dm755 dns-spoof $pkgdir/usr/bin/dns-spoof
 }

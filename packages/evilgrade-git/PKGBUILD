@@ -9,7 +9,7 @@ license=('GPL')
 depends=('perl' 'perl-data-dump' 'perl-io-socket-ssl' 'perl-digest-sha1' 'perl-rpc-xml' 'java-environment')
 makedepends=('git')
 provides=('evilgrade')
-replaces=('evlgrade')
+replaces=('evilgrade')
 source=("git+https://github.com/infobyte/evilgrade.git"
         "evilgrade.sh")
 md5sums=('SKIP'
