@@ -1,5 +1,5 @@
 pkgname=responder
-pkgver=2.0
+pkgver=2.0.1
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A LLMNR and NBT-NS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication."
@@ -8,8 +8,9 @@ license=('custom')
 arch=('any')
 depends=('python2')
 makedepends=('git')
-source=("git+https://github.com/SpiderLabs/Responder")
-md5sums=('SKIP')
+source=("git+https://github.com/SpiderLabs/Responder" 'responder.desktop')
+sha512sums=('SKIP'
+            'da830751eea5dd3ca6bc9a80892daf4c21b3e96ef9b309cacb65a82f10b6da7e4c6613c78ebb8c6825304bb9a8ca8d705d645db9bf47e742b8541030df8a7e10')
 
 pkgver() {
   cd "$srcdir/Responder"
@@ -25,6 +26,8 @@ package() {
   # Base directories.
   install -dm755 "$pkgdir/usr/share"
   install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/applications"
+  install -dm644 "$srcdir/responder.desktop" "$pkgdir/usr/share/applications"
 
   cp -a * "$pkgdir/usr/share/responder"
 
