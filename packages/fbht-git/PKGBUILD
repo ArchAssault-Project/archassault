@@ -1,12 +1,12 @@
 pkgname=fbht-git
 pkgver=r10.62937f4
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Facebook Hacking Tool"
 arch=('any')
 url='https://github.com/chinoogawa/fbht-linux'
 license=('custom')
-depends=('python2' 'python2-mechanize' 'python2-networkx' 'python2-matplotlib' 'python2-numpy')
+depends=('python2' 'python2-mechanize' 'python2-networkx' 'python2-matplotlib' 'python2-numpy' 'python2-simplejson')
 makedepends=('git')
 provides=('fbht')
 source=("git+https://github.com/chinoogawa/fbht-linux.git")
