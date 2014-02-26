@@ -1,6 +1,6 @@
 pkgname=archassault-meta
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -24,7 +24,7 @@ package () {
                 ophcrack
                 ngrep
                 nbtscan
-				lsof
+		lsof
                 mtr
                 macchanger
                 kismet
@@ -48,6 +48,8 @@ package () {
                 bsdiff
                 arp-scan
                 dnscrypt-proxy
+                httptunnel
+                libmircohttpd
                 hexedit
                 dhex
                 testdisk)
