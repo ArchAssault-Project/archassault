@@ -1,0 +1,26 @@
+# Maintainer:  <plewis@aur.archlinux.org>
+_gemname=commander
+pkgname=ruby-$_gemname
+pkgver=4.1.6
+pkgrel=1
+pkgdesc="The complete solution for Ruby command-line executables."
+arch=(any)
+url="http://visionmedia.github.com/commander/"
+license=('MIT')
+depends=('ruby' 'ruby-highline')
+makedepends=('rubygems')
+source=("http://gems.rubyforge.org/gems/$_gemname-$pkgver.gem")
+noextract=($_gemname-$pkgver.gem)
+sha256sums=('4bd7cbc75bad33a2b1ecb53980ab3aaf648d64ba81da04e4a3920f041c443175')
+
+package() {
+  cd "$srcdir"
+  # _gemdir is defined inside package() because if ruby[gems] is not installed on
+  # the system, makepkg will exit with an error when sourcing the PKGBUILD.
+  local _gemdir="$(ruby -rubygems -e'puts Gem.default_dir')"
+
+  gem install --no-user-install --ignore-dependencies -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" \
+    "$_gemname-$pkgver.gem"
+}
+
+# vim:set ts=2 sw=2 et:
