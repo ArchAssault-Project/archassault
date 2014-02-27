@@ -52,5 +52,6 @@ package () {
                 libmircohttpd
                 hexedit
                 dhex
-                testdisk)
+                testdisk
+				perl-image-exiftool)
 }
