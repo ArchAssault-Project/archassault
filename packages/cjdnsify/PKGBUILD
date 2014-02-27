@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Prurigro
+pkgname=cjdnsify
+pkgver=d9ac2dd
+pkgrel=1
+pkgdesc="A script that allows you to run programs bound exclusively to your cjdns connection"
+url="https://github.com/prurigro/${pkgname}"
+license=('GPL2')
+makedepends=('git')
+depends=('cjdns-git' 'force_bind')
+arch=('any')
+backup=("etc/default/${pkgname}")
+
+source=("git://github.com/prurigro/${pkgname}.git#branch=master")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}/${pkgname}"
+    git describe --always | sed 's|-|.|g;s|[^\.]*\.||;s|\.[^\.]*$||'
+}
+
+package() {
+    install -D -m755 "${srcdir}"/${pkgname}/${pkgname} "${pkgdir}"/usr/bin/${pkgname}
+    install -D -m644 "${srcdir}"/${pkgname}/${pkgname}.conf "${pkgdir}"/etc/default/${pkgname}
+}
