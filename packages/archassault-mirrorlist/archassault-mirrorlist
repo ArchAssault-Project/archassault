@@ -1,10 +1,16 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-02-24
+## Generated on 2014-02-28
 ##
 
 ## Denmark
 #Server = http://mirrors.dotsrc.org/archassault/$repo/os/$arch
+
+## Germany
+#Server = http://mirror3.layerjet.com/archassault/$repo/os/$arch
+
+## Singapore
+#Server = http://mirror.debugsecurity.com/archassault/$repo/os/$arch
 
 ## United Kingdom
 #Server = http://www.mirrorservice.org/sites/repo.archassault.org/archassault/$repo/os/$arch
