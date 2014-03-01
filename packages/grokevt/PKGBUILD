@@ -1,5 +1,5 @@
 pkgname='grokevt'
-pkgver='0.4.1'
+pkgver='0.5.0'
 pkgrel=1
 pkgdesc='A collection of scripts built for reading Windows® NT/2K/XP/2K eventlog files.'
 url='http://code.google.com/p/grokevt/'
@@ -8,7 +8,7 @@ depends=('python2' 'reglookup' 'cpio')
 arch=('any')
 groups=('archassault' 'archassault-forensic')
 source=("http://grokevt.googlecode.com/files/grokevt-$pkgver.tar.gz")
-md5sums=('729ebacf9abc79130c80a6e599bb78dc')
+sha512sums=('67a6034810cdc77d50776bc8e9b203137ae0d1aa399d7618ada409fba23cd46541927ef1d6087c6d68f182b14911a820d3020748b35d13dc741e12defd65b4fa')
 
 build() {
   cd "$srcdir/grokevt-$pkgver"
