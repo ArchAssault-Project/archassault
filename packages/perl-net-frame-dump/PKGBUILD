@@ -8,6 +8,7 @@ arch=('any')
 url='http://search.cpan.org/~gomor/Net-Frame-Dump-1.13/lib/Net/Frame/Dump.pm'
 license=('GPL' 'PerlArtistic')
 depends=('perl>=5.10.0')
+makedepends=('perl-net-pcap' 'perl-class-gomor' 'perl-net-frame')
 options=(!emptydirs)
 source=("http://search.cpan.org/CPAN/authors/id/G/GO/$_author/$_perlmod-$pkgver.tar.gz")
 md5sums=('36d73e029ccfabd6abb0ad3e9589e308')
