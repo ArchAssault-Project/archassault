@@ -1,0 +1,37 @@
+# Maintainer: ArchAssault <team AT archassault org>
+pkgname=eyewitness-git
+pkgver=1
+pkgrel=1
+pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
+arch=('any')
+url="https://github.com/ChrisTruncer/EyeWitness"
+license=('GNU')
+groups=('archassault')
+depends=('python2' 'python2-pyqt4' 'ghost.py')
+makedepends=('git')
+options=(!emptydirs)
+source=('git+https://github.com/ChrisTruncer/EyeWitness.git')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/EyeWitness"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/EyeWitness"
+  install -dm755 "$pkgdir/usr/share/eyewitness"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/licenses/eyewitness"
+  install -m755 EyeWitness.py "$pkgdir/usr/share/eyewitness/EyeWitness.py"
+  install -m644 LICENSE "$pkgdir/usr/share/licenses/eyewitness/LICENSE"
+  install -m644 signatures.txt "$pkgdir/usr/share/eyewitness/signatures.txt"
+  cat > $pkgdir/usr/bin/EyeWitness.py <<EOF
+#!/bin/sh
+cd /usr/share/eyewitness/
+python2 EyeWitness.py "\$@"
+EOF
+  chmod +x $pkgdir/usr/bin/mitmer
+}
+
+# vim:set ts=2 sw=2 et:
