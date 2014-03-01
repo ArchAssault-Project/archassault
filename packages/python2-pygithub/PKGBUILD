@@ -1,6 +1,6 @@
 pkgname=python2-pygithub
-pkgver=1.20.0
-pkgrel=2
+pkgver=1.23.0
+pkgrel=1
 pkgdesc="Provides access to the full Github API v3"
 arch=('any')
 url='https://pypi.python.org/pypi/PyGithub'
@@ -8,7 +8,7 @@ license=('LGPL')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/P/PyGithub/PyGithub-$pkgver.tar.gz")
-md5sums=('f917f81eaa5ccc5ef9097c30ace0b078')
+sha512sums=('15955e617bcde6191509c5a8f3aacede6afeab66fc5f355dd4d0560a88ab667e71f5bd5d576430b9ab15e949608f2cade99b1af9eb1447636cf01e01caec95c6')
 
 package() {
   cd "$srcdir/PyGithub-$pkgver"
