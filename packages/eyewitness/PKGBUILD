@@ -5,7 +5,7 @@ pkgrel=1
 pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
 arch=('any')
 url="https://github.com/ChrisTruncer/EyeWitness"
-license=('GNU')
+license=('GPL3')
 groups=('archassault')
 depends=('python2' 'python2-pyqt4' 'ghost.py')
 makedepends=('git')
@@ -31,7 +31,7 @@ package() {
 cd /usr/share/eyewitness/
 python2 EyeWitness.py "\$@"
 EOF
-  chmod +x $pkgdir/usr/bin/mitmer
+  chmod +x $pkgdir/usr/bin/EyeWitness.py
 }
 
 # vim:set ts=2 sw=2 et:
