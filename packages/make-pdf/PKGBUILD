@@ -1,5 +1,5 @@
 pkgname=make-pdf
-pkgver=0.1.1
+pkgver=0.1.4
 pkgrel=1
 pkgdesc="This tool will embed javascript inside a PDF document"
 arch=('any')
@@ -8,7 +8,7 @@ groups=('archassault' 'archassault-forensic')
 depends=('python2' 'dos2unix')
 license=('GPL')
 source=(http://www.didierstevens.com/files/software/make-pdf\_V${pkgver//./_}.zip)
-md5sums=('9af2e343b78553021c989e8e22355531')
+sha512sums=('a7d1dc1669aca98b081089ef7f0a2fb24a23a281b63f50ccd2721390c4a69b31f03ddfdca57df2842e059a948916dd7b8a2777b497a9dc10701d83fa6f2d5a67')
 
 prepare(){
   cd "$srcdir"
