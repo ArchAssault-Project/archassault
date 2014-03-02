@@ -1,12 +1,14 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby-librex
 _gemname=${pkgname#ruby-}
 pkgver=0.0.68
-pkgrel=2
+pkgrel=4
 pkgdesc="Rex provides a variety of classes useful for security testing and exploit development"
 arch=('any')
 url="http://www.metasploit.com/"
 license=('BSD')
-depends=('ruby' 'rubygems')
+depends=('ruby' 'rubygems' 'perl')
+options=('!emptydirs')
 source=(http://rubygems.org/downloads/${_gemname}-${pkgver}.gem)
 noextract=(${_gemname}-${pkgver}.gem)
 md5sums=('069ac838b47ad76870f7c6ba7b2f9bf4')
