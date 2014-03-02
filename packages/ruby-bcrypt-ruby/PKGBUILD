@@ -1,13 +1,14 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby-bcrypt-ruby
 pkgver=3.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="OpenBSD's bcrypt() password hashing algorithm."
-arch=('any')
-license=('')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+license=('MIT')
 makedepends=('ruby')
 url='http://bcrypt-ruby.rubyforge.org'
 source=("http://rubygems.org/downloads/bcrypt-ruby-$pkgver.gem")
-md5sums=('a85f11df1bcadba1f6ad10053c3c1af8')
+sha512sums=('a7adb1535892042213f515153f0381cdec39c68ba767e363b9073890451e3e86073f49557f1a63d29a681792fd43f25c12d7e87047190dde278bf0313af948fd')
 noextract=("bcrypt-ruby-$pkgver.gem")
 
 package() {
