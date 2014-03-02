@@ -1,10 +1,11 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=beleth
 pkgver=0.r32.568c547
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A Multi-threaded Dictionary based SSH cracker"
 url="https://github.com/chokepoint/Beleth"
-arch=('any')
+arch=('armv7h' 'armv6h' 'i686' 'x86_64')
 license=('custom')
 depends=('libssh2')
 makedepends=('git')
