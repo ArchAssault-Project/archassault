@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby1.9-network_interface
 _gemname=network_interface
 pkgver=0.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A cross platform gem to help get network interface information"
-arch=('any')
-license=('')
+arch=('armv7h' 'armv6h' 'i686' 'x86_64')
+license=('MIT')
 makedepends=('ruby1.9')
+options=('!emptydirs')
 url='https://github.com/rapid7/network_interface'
 source=("http://rubygems.org/downloads/network_interface-$pkgver.gem")
-md5sums=('5b1143fba983822c4f7ae5d5964cb252')
+sha512sums=('db41bcb5669ddec954d5910b0c53a5dab81d4283d8e45eb88cdc855084ddcc7219b506745f6dacd172b5c17479f28a68b68f40e1928d573cdf22c567805e498c')
 noextract=("network_interface-$pkgver.gem")
 
 package() {
