@@ -25,6 +25,8 @@ prepare() {
 }
 
 build() {
+  cd "$srcdir/qgroundcontrol/libs/thirdParty/libxbee"
+  make PREFIX=/usr
   cd "$srcdir/qgroundcontrol"
   qmake-qt4 -o Makefile qgroundcontrol.pro
   patch -p1 -i $srcdir/qgroundcontrol.patch
@@ -32,10 +34,12 @@ build() {
 }
 
 package() {
-  cd "$srcdir/qgroundcontrol"
+  cd "$srcdir/qgroundcontrol/libs/thirdParty/libxbee"
   install -dm755 "$pkgdir/usr/share/qgroundcontrol"
+  install -dm755 "$pkgdir/usr/bin" 
+  make DESTDIR="$pkdir" install
+  cd "$srcdir/qgroundcontrol"
   cp -a --no-preserve=ownership release/* "$pkgdir/usr/share/qgroundcontrol/"
-  install -dm755 "$pkgdir/usr/bin"
 
 cat > "$pkgdir/usr/bin/qgroundcontrol" << EOF
 #!/bin/sh
