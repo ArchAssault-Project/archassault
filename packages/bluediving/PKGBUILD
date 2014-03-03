@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=bluediving
 pkgver=0.9
-pkgrel=6
+pkgrel=7
 pkgdesc="A Bluetooth penetration testing suite"
 url='http://bluediving.sourceforge.net/'
 license=('GPL')
@@ -9,33 +10,25 @@ depends=('bluez-utils' 'sox' 'obexftp' 'readline' 'expat' 'perl-xml-simple' 'ope
 install=bluediving.install
 source=("http://downloads.sourceforge.net/sourceforge/bluediving/bluediving-$pkgver.tgz"
         'btftp.patch')
-md5sums=('53365a068e7e65a2b047b96998ad3f9d'
-         '377e88f992f4e0ea45b0fb888899bd93')
+sha512sums=('8fc941cca2b4623eb5b9b6f34bb5ba4e7ea20861d537642627769a4245a9355e9640569e035478c55afd06e45bfd7fc7f26993a07ed207156e28962755e16e8e'
+            'd922ad8c501ee65c2562271c958a33c17daa5899b186158b2428854818fd9d33e9aaac6b5b231fcb151b2fa002f1f66ccf2d82cac58516a32dd8a09605e404a4')
 
 prepare() {
   cd "$srcdir/bluediving-$pkgver"
-
   # Change the bluedivingNG.conf path to /etc.
   sed -i -e 's/bluedivingNG.conf/\/etc\/bluedivingNG.conf/g' bluedivingNG.pl
-
   # Change the paths of the compiled tools to /usr/bin/.
   sed -i -e 's/tools\//\/usr\/bin\//g' bluedivingNG.conf
-
   # Change the why-the-hell-am-I-having-such-a-long-name vcard path.
   sed -i -e '/vcards\/AAAA/ c\  <vcard>/usr/share/bluediving/AAA.vcf</vcard>' bluedivingNG.conf
-
   # Change the sounds paths.
   sed -i -e 's/sounds\//\/usr\/share\/bluediving\//g' bluedivingNG.conf
-
   # Fix libxml2 missing includes compilation error.
   sed -i -e 's/gcc/gcc `xml2-config --cflags`/g' tools/btftp_src/Makefile
-
   # Fix bss directory path.
   sed -i -e 's/bss-0.6/bss-0.8/g' tools/make_tools.sh
-
   cd tools/btftp_src
   patch < "$srcdir/btftp.patch"
-
   cp -f obex.c ../btobex_src
 }
 
