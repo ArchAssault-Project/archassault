@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org> 
 pkgname=armitage
 pkgver=1135
 pkgrel=1
@@ -12,9 +13,9 @@ install=armitage.install
 source=('svn+http://armitage.googlecode.com/svn/trunk/'
         'armitage.install'
         'armitage.desktop')
-md5sums=('SKIP'
-         '5234326f9ff41ff8694cb35a557af895'
-         'ea00bc187f090bf67116aaee6c201ae9')
+sha512sums=('SKIP'
+            'c986d01c29de2b8a2b4541433063cbce4ec82a55508bcf74877614ccc9809a8751462b2467aba296a679ff146ba1e6fe60c405cfa18cb6705bc2f6fd595dd998'
+            '514baf2b71846878fdbf230eb87ff47f73dbc43bc1d3b61ee76bb3fb6aa25895139bb291c8bb99bd010527a8e991080236f2031221b7e360d9a8d81614ccff97')
 
 pkgver() {
   cd trunk
