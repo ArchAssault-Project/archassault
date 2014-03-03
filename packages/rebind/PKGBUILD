@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=rebind
 pkgver=0.3.4
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-exploit')
 pkgdesc="DNS Rebinding Tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
