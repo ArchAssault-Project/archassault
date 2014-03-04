@@ -1,20 +1,24 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=wpscan
-pkgver=1146.f1ec85a
-pkgrel=1
+pkgver=1300.249af32
+pkgrel=4
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
 arch=('any')
 url="http://wpscan.org"
 license=('GPL3')
-makedepends=('git' 'libxslt' 'ruby1.9-bundler' 'ruby1.9-mime-types' 'ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table' 'ruby1.9-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov' 'ruby1.9-rspec' 'ruby1.9-rspec-mocks')
+depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
+				'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
+				'ruby1.9-rspec' 'ruby1.9-mime-types')
+makedepends=('git' 'libxslt')
 options=(!strip)
 source=('git+http://github.com/wpscanteam/wpscan')
 md5sums=('SKIP')
 
-pkgver() {
-  cd wpscan
-  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
-}
+#pkgver() {
+#  cd wpscan
+#  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+#}
 
 package() {
   cd "$srcdir/wpscan"
@@ -26,7 +30,7 @@ package() {
 
   cat > "$pkgdir/usr/bin/wpscan" <<EOF
 #!/bin/sh
-ruby /usr/share/wpscan/wpscan.rb "\$@"
+ruby-1.9 /usr/share/wpscan/wpscan.rb "\$@"
 EOF
   sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "$pkgdir/usr/share/wpscan/lib/common/common_helper.rb"
   sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "$pkgdir/usr/share/wpscan/lib/common/common_helper.rb"
