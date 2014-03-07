@@ -1,5 +1,5 @@
 pkgname=archassault-mirrorlist
-pkgver=20140220
+pkgver=20140307
 pkgrel=1
 pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
