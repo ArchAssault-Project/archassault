@@ -1,0 +1,29 @@
+# Maintainer: Jeremy Lynch <jl archassault org>
+pkgbase=archassault-meta-armsetup
+pkgname=('archassault-meta-armv6' 'archassault-meta-armv7')
+pkgver=0.1
+pkgrel=1
+arch=('armv6h' 'armv7h')
+url='https://www.archassault.org/'
+license=('MIT')
+groups=('archassault')
+
+package_archassault-meta-armv6() {
+	pkgdesc=('Meta package for ArchAssault armv6h setup')
+	depends=('archassault-keyring' 'archassault-mirrorlist')
+  optdepends=('gnupg-largekeys' 'cryptsetup-nuke-keys' 'archassault-meta')
+
+  install -dm755 "$pkgdir/etc/"
+  install -dm644 pacman.conf "$pkgdir/etc/pacman.conf"
+}
+
+package_archassault-meta-armv7() {
+  pkgdesc=('Meta package for ArchAssault armv7h setup')
+  depends=('archassault-keyring' 'archassault-mirrorlist')
+  optdepends=('gnupg-largekeys' 'cryptsetup-nuke-keys' 'archassault-meta')
+
+  install -dm755 "$pkgdir/etc/"
+  install -dm644 pacman.conf "$pkgdir/etc/pacman.conf" 
+}
+
+# vim:set ts=2 sw=2 et:
