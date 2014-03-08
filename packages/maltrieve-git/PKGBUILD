@@ -1,0 +1,51 @@
+# Maintainer: ArchAssault <team at archassault dot org>
+pkgname=maltrieve-git
+pkgver=r60.465f162
+pkgrel=1
+groups=('archassault' 'archassault-malware')
+pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
+arch=('any')
+url='https://github.com/technoskald/maltrieve'
+license=('GPL3')
+depends=('python2' 'python2-beautifulsoup4' 'python2-lxml')
+makedepends=('git')
+provides=('maltrieve')
+source=("git+https://github.com/technoskald/maltrieve.git")
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/maltrieve"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/maltrieve"
+
+  # Make base directories.
+  install -dm755 "$pkgdir/usr/share/maltrieve"
+  install -dm755 "$pkgdir/usr/bin"
+
+  #Bins
+  install -Dm644 MultiPartForm.py "$pkgdir/usr/share/maltrieve/"
+  install -Dm755 maltrieve.py "$pkgdir/usr/share/maltrieve/"
+  install -Dm755 maltrievecategorizer.sh "$pkgdir/usr/share/maltrieve/"
+  install -Dm755 malutil.py "$pkgdir/usr/share/maltrieve/" 
+  ln -s "$pkgdir/usr/share/maltrieve/maltrievecategorizer.sh" "$pkgdir/usr/bin/maltrievecategorizer"
+ 
+cat > "$pkgdir/usr/bin/maltrieve" << EOF
+#!/bin/sh
+cd /usr/share/maltrieve
+python2 maltrieve.py "\$@"
+EOF
+
+cat > "$pkgdir/usr/bin/malutil" << EOF
+#!/bin/sh
+cd /usr/share/maltrieve
+python2 malutil.py "\$@"
+EOF
+
+
+chmod +x "$pkgdir/usr/bin/malutil"
+chmod +x "$pkgdir/usr/bin/maltrieve"
+
+}
