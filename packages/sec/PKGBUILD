@@ -6,12 +6,14 @@ pkgname=sec
 pkgver=2.7.5
 pkgrel=1
 pkgdesc="A logfile monitoring tool with support for event correlation, written in perl"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://kodu.neti.ee/~risto/sec/"
 license=('GPL')
 depends=('perl')
 source=("http://downloads.sourceforge.net/simple-evcorr/${pkgname}-${pkgver}.tar.gz"
 	'sec.service')
+sha512sums=('fdbf62c7f14d0e793d33bdaadc503feb13867763b8699fbab20288d7ff9136925ffbf7890a961c24488a4a036aca9f0a13c55cca814ca23f7fb4092291a2196f'
+            '49ba9dfda023b615cb8c3312a2000eadbe5798deb4f7232ee3927ecd9ea5ee1751e35a430a135f52850336e9a02e3c309187d60b2db9b64e5ba84af5a17102d4')
 
 package() {
 	cd ${srcdir}/${pkgname}-${pkgver}
@@ -31,5 +33,3 @@ package() {
 	install -D -m0644 ${srcdir}/sec.service ${pkgdir}/usr/lib/systemd/system/sec.service
 }
 
-sha256sums=('a21dcbb61aa99930f911b79e9412b875af12b08722a78295d210b896f23a0301'
-            '8aa9b458d3c95f76e5fe164b119c38108e640a970abcee4a1c76f70b134b98a9')
