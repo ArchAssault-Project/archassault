@@ -1,29 +1,26 @@
 # Maintainer: Jeremy Lynch <jl archassault org>
-pkgbase=archassault-meta-armsetup
-pkgname=('archassault-meta-armv6' 'archassault-meta-armv7')
-pkgver=0.1
-pkgrel=1
-arch=('armv6h' 'armv7h')
-url='https://www.archassault.org/'
-license=('MIT')
+pkgname=archassault-meta-armsetup
+pkgver=1
+pkgrel=7
+arch=('any')
+url='https://archassault.org/'
+license=('GPL')
+pkgdesc=('Meta package for ArchAssault arm setup')
+optdepends=('gnupg-largekeys' 'cryptsetup-nuke-keys' 'archassault-meta')
 groups=('archassault')
+install=archassault-meta-arm.install
+provides=('archassault-keyring' 'archassault-mirrorlist')
+conflicts=('archassault-keyring' 'archassault-mirrorlist')
+source=('archassault-mirrorlist' "aa-keyring::git+https://bitbucket.org/archassault/archassault-keyring.git")
+sha512sums=('0c94a85da0f2d0ca4cf6c4bf9d5a2a0831e8d59630de1ab112ef810f0f73d11c17357e66e01745b824cb268fdd71b818badda18b57e5890768bcdd6b0379d757'
+            'SKIP')
 
-package_archassault-meta-armv6() {
-	pkgdesc=('Meta package for ArchAssault armv6h setup')
-	depends=('archassault-keyring' 'archassault-mirrorlist')
-  optdepends=('gnupg-largekeys' 'cryptsetup-nuke-keys' 'archassault-meta')
-
-  install -dm755 "$pkgdir/etc/"
-  install -dm644 pacman.conf "$pkgdir/etc/pacman.conf"
-}
-
-package_archassault-meta-armv7() {
-  pkgdesc=('Meta package for ArchAssault armv7h setup')
-  depends=('archassault-keyring' 'archassault-mirrorlist')
-  optdepends=('gnupg-largekeys' 'cryptsetup-nuke-keys' 'archassault-meta')
-
-  install -dm755 "$pkgdir/etc/"
-  install -dm644 pacman.conf "$pkgdir/etc/pacman.conf" 
+package() {
+  install -dm755 "$pkgdir/etc/pacman.d"
+  install -dm755 "$pkgdir/usr/share/licenses/archassault-meta-arm"
+  install -m644 archassault-mirrorlist "$pkgdir/etc/pacman.d/archassault-mirrorlist"
+  cd "$srcdir"/aa-keyring
+  make PREFIX=/usr DESTDIR=${pkgdir} install
 }
 
 # vim:set ts=2 sw=2 et:
