@@ -5,6 +5,7 @@ pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
 url="http://archassault.org/mirrorlist/"
 license=('GPL')
+groups=('archassault')
 backup=(etc/pacman.d/archassault-mirrorlist)
 source=(archassault-mirrorlist)
 
