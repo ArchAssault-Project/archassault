@@ -1,12 +1,13 @@
+# Maintainer: ArchAssault <team archassault org>
 _gemname=libv8
 pkgname=ruby1.9-$_gemname
 pkgver=3.16.14.3
 pkgrel=2
 pkgdesc='Distribution of the V8 JavaScript engine'
-arch=(any)
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url='http://github.com/cowboyd/libv8'
-license=(MIT)
-depends=('ruby1.9' 'python2')
+license=('MIT')
+depends=('ruby1.9' 'python2' 'bash')
 options=('!emptydirs' '!distcc')
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)
