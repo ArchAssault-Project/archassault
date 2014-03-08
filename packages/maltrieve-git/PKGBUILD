@@ -30,7 +30,7 @@ package() {
   install -Dm755 maltrieve.py "$pkgdir/usr/share/maltrieve/"
   install -Dm755 maltrievecategorizer.sh "$pkgdir/usr/share/maltrieve/"
   install -Dm755 malutil.py "$pkgdir/usr/share/maltrieve/" 
-  ln -s "$pkgdir/usr/share/maltrieve/maltrievecategorizer.sh" "$pkgdir/usr/bin/maltrievecategorizer"
+  ln -s "/usr/share/maltrieve/maltrievecategorizer.sh" "$pkgdir/usr/bin/maltrievecategorizer"
  
 cat > "$pkgdir/usr/bin/maltrieve" << EOF
 #!/bin/sh
