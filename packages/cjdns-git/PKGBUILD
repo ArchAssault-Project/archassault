@@ -1,5 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 # Contributor: Prurigro
+# Contributor: Werecat
+# Contributor: Xyne
 
 _pkgname=cjdns
 pkgname=${_pkgname}-git
