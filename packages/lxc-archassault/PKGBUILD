@@ -8,9 +8,13 @@ url="https://bitbucket.org/archassault"
 license=('GPL2')
 arch=('any')
 depends=('lxc')
-source=("$pkgname")
-sha256sums=('dec496163d7d31fd895e619dfbc1ba6e3d32fa65958d4f8c2c05d158044349c2')
+source=("$pkgname" 'pacman-i686.conf' 'pacman-x86_64.conf')
+sha512sums=('12590ce8728daf72579ce5234abf1faa51c2117c440659ec8cf78ec709637b8b37bb3f17e3e049c6b1c39f7ba734b670b556501adc7c6dcaa01b127ca5f2f1af'
+            '39bab0a3e36e336c0caa133e7204b8d3c51254d1ab613f739214286250398f4a85df4fb93f10a0866eab6b0e73842885f9c7fffc2c467e827b4e32216974f071'
+            'ab3280c81f075b8e71d0e3b886a2c4f5b96c2adf1086a28e2f87b5bbc974ac7a425e75a1b55336d697680f75826494065eea62d931ca5dde40c765c7c391ad93')
 
 package() {
-    install -D -m755 "${pkgname}" "${pkgdir}/usr/share/lxc/templates/${pkgname}"
+	install -Dm755 "${pkgname}" "${pkgdir}/usr/share/lxc/templates/${pkgname}"
+	install -m644 pacman-i686.conf "${pkgdir}/usr/share/lxc/templates/pacman-i686.conf"
+	isntall -m644 pacman-x86_64.conf "${pkgdir}/usr/share/lxc/templates/pacman-x86_64.conf" 
 }
