@@ -8,6 +8,7 @@ url="https://github.com/trustedsec/ridenum"
 arch=('any')
 license=('custom')
 depends=('python2' 'python2-pexpect')
+makedepends=('git')
 source=("git+https://github.com/trustedsec/ridenum.git")
 sha512sums=('SKIP')
 
