@@ -43,11 +43,10 @@ lxc_network_link="br0"
 default_path="@LXCPATH@"
 default_locale="en-US.UTF-8"
 default_timezone="UTC"
-if [[ "$arch" == x86_64 ]] ; then
-    pacman_config="/usr/share/lxc/templates/pacman-archassault-x86_64.conf"
-else
-    pacman_config="/usr/share/lxc/templates/pacman-archassault-i686.conf"
-fi
+[[ "$arch" == x86_64 ]] \
+    && pacman_config="/usr/share/lxc/contrib/lxc-archassault-pacman-archassault-x86_64.conf" \
+    || pacman_config="/usr/share/lxc/contrib/lxc-archassault-pacman-archassault-i686.conf"
+
 # sort of minimal package set
 base_packages=(
     "systemd"
