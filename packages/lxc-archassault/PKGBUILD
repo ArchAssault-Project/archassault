@@ -1,0 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: prurigro
+pkgname=lxc-archassault
+pkgver=1
+pkgrel=1
+pkgdesc="An LXC template for ArchAssault"
+url="https://bitbucket.org/archassault"
+license=('GPL2')
+arch=('any')
+depends=('lxc')
+source=("$pkgname")
+sha256sums=('dec496163d7d31fd895e619dfbc1ba6e3d32fa65958d4f8c2c05d158044349c2')
+
+package() {
+    install -D -m755 "${pkgname}" "${pkgdir}/usr/share/lxc/templates/${pkgname}"
+}
