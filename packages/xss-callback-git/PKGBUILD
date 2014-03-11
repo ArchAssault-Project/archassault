@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=xss-callback-git
+pkgver=r9.9d02e9c
+pkgrel=1
+pkgdesc="https://github.com/PaulSec/XSS-Callback"
+arch=('any')
+url="https://github.com/falconindy/expac"
+license=('MIT')
+depends=('nodejs')
+makedepends=('git')
+conflicts=('xss-callback')
+provides=('xss-callback')
+source=("$pkgname"::'git+https://github.com/PaulSec/XSS-Callback.git')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -dm755 "$pkgdir/usr/share/xss-callback"
+  install -dm755 "$pkgdir/usr/share/licenses/xss-callback-git"
+  cp -R --no-preserve=ownership * "$pkgdir/usr/share/xss-callback"
+}
