@@ -23,4 +23,10 @@ package() {
   install -dm755 "$pkgdir/usr/share/xss-callback"
   install -dm755 "$pkgdir/usr/share/licenses/xss-callback-git"
   cp -R --no-preserve=ownership * "$pkgdir/usr/share/xss-callback"
+  cat > $pkgdir/usr/bin/xss-callback <<EOF
+#!/bin/sh
+cd /usr/share/xss-callback
+node server.js
+EOF
+  chmod +x $pkgdir/usr/bin/xss-callback
 }
