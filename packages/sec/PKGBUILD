@@ -1,15 +1,16 @@
-#Maintainer: ArchAssault <team at archassault dot org>
+# Maintainer: ArchAssault <team at archassault dot org>
 # Contributor: Christian Hesse <mail@eworm.de>
 # Contributor: Ansuransax <ansuransax at hotmail dot com>
 
 pkgname=sec
 pkgver=2.7.5
-pkgrel=1
+pkgrel=2
 pkgdesc="A logfile monitoring tool with support for event correlation, written in perl"
 arch=('any')
 url="http://kodu.neti.ee/~risto/sec/"
 license=('GPL')
 depends=('perl')
+groups=('archassault')
 source=("http://downloads.sourceforge.net/simple-evcorr/${pkgname}-${pkgver}.tar.gz"
 	'sec.service')
 sha512sums=('fdbf62c7f14d0e793d33bdaadc503feb13867763b8699fbab20288d7ff9136925ffbf7890a961c24488a4a036aca9f0a13c55cca814ca23f7fb4092291a2196f'
