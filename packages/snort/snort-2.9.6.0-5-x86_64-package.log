@@ -1,0 +1,778 @@
+Making install in src
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/src'
+Making install in sfutil
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/sfutil'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/sfutil'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/sfutil'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/sfutil'
+Making install in win32
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/win32'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/win32'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/win32'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/win32'
+Making install in output-plugins
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/output-plugins'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/output-plugins'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/output-plugins'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/output-plugins'
+Making install in detection-plugins
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+make  install-am
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/detection-plugins'
+Making install in dynamic-plugins
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+Making install in sf_engine
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+make  install-recursive
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+Making install in examples
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine/examples'
+make[6]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine/examples'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine/examples'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine/examples'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+make[6]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicengine'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_engine.la '/build/snort/pkg/snort/usr/lib/snort_dynamicengine'
+libtool: install: /usr/bin/install -c .libs/libsf_engine.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicengine/libsf_engine.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicengine && { ln -s -f libsf_engine.so.0.0.0 libsf_engine.so.0 || { rm -f libsf_engine.so.0 && ln -s libsf_engine.so.0.0.0 libsf_engine.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicengine && { ln -s -f libsf_engine.so.0.0.0 libsf_engine.so || { rm -f libsf_engine.so && ln -s libsf_engine.so.0.0.0 libsf_engine.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_engine.lai /build/snort/pkg/snort/usr/lib/snort_dynamicengine/libsf_engine.la
+libtool: install: /usr/bin/install -c .libs/libsf_engine.a /build/snort/pkg/snort/usr/lib/snort_dynamicengine/libsf_engine.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicengine/libsf_engine.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicengine/libsf_engine.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicengine'
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_engine'
+Making install in sf_preproc_example
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_preproc_example'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_preproc_example'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_preproc_example'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins/sf_preproc_example'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-plugins'
+Making install in preprocessors
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+Making install in HttpInspect
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+Making install in include
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/include'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/include'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/include'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/include'
+Making install in utils
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/utils'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/utils'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/utils'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/utils'
+Making install in user_interface
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/user_interface'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/user_interface'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/user_interface'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/user_interface'
+Making install in session_inspection
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/session_inspection'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/session_inspection'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/session_inspection'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/session_inspection'
+Making install in mode_inspection
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/mode_inspection'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/mode_inspection'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/mode_inspection'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/mode_inspection'
+Making install in anomaly_detection
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/anomaly_detection'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/anomaly_detection'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/anomaly_detection'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/anomaly_detection'
+Making install in event_output
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/event_output'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/event_output'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/event_output'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/event_output'
+Making install in server
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/server'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/server'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/server'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/server'
+Making install in client
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/client'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/client'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/client'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/client'
+Making install in normalization
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/normalization'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/normalization'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/normalization'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect/normalization'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/HttpInspect'
+Making install in Stream5
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/Stream5'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/Stream5'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/Stream5'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors/Stream5'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/preprocessors'
+Making install in parser
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/parser'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/parser'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/parser'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/parser'
+Making install in dynamic-preprocessors
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make  install-recursive
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+Making install in .
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make DESTDIR=`pwd`/build install-preproclibLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libsf_dynamic_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc'
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/build/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort/dynamic_preproc'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/include/snort/dynamic_preproc'
+ /usr/bin/install -c -m 644 libs/ssl.h libs/sfcommon.h libs/sf_preproc_info.h include/sf_snort_packet.h include/sf_protocols.h include/sf_snort_plugin_api.h include/sf_decompression.h include/sfPolicyUserData.h include/snort_debug.h include/snort_bounds.h include/cpuclock.h include/profiler.h include/bitop.h include/mempool.h include/sf_sdlist_types.h include/sf_ip.h include/sfrt_flat.h include/sfrt_flat_dir.h include/segment_mem.h include/sf_dynamic_common.h include/sf_dynamic_engine.h include/sf_dynamic_define.h include/sf_dynamic_meta.h include/sf_dynamic_preprocessor.h include/sf_dynamic_preproc_lib.h include/ipv6_port.h include/sfPolicy.h include/sfrt.h include/sfrt_dir.h include/sfrt_trie.h include/obfuscation.h include/stream_api.h include/str_search.h include/preprocids.h include/sfcontrol.h include/idle_processing.h include/sf_seqnums.h include/file_api.h '/build/snort/pkg/snort/usr/include/snort/dynamic_preproc'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort/dynamic_preproc'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libsf_dynamic_preproc.la '/build/snort/pkg/snort/usr/lib/snort/dynamic_preproc'
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_preproc.lai /build/snort/pkg/snort/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_preproc.a /build/snort/pkg/snort/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort/dynamic_preproc/libsf_dynamic_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort/dynamic_preproc'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+Making install in libs
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/libs'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/libs'
+make[5]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 snort_preproc.pc '/build/snort/pkg/snort/usr/lib/pkgconfig'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/libs'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/libs'
+Making install in ftptelnet
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ftptelnet_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so.0 || { rm -f libsf_ftptelnet_preproc.so.0 && ln -s libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so || { rm -f libsf_ftptelnet_preproc.so && ln -s libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet/../build/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ftptelnet_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so.0 || { rm -f libsf_ftptelnet_preproc.so.0 && ln -s libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so || { rm -f libsf_ftptelnet_preproc.so && ln -s libsf_ftptelnet_preproc.so.0.0.0 libsf_ftptelnet_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ftptelnet_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ftptelnet_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ftptelnet'
+Making install in pop
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_pop_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so.0 || { rm -f libsf_pop_preproc.so.0 && ln -s libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so || { rm -f libsf_pop_preproc.so && ln -s libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop/../build/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_pop_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so.0 || { rm -f libsf_pop_preproc.so.0 && ln -s libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so || { rm -f libsf_pop_preproc.so && ln -s libsf_pop_preproc.so.0.0.0 libsf_pop_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_pop_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_pop_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/pop'
+Making install in imap
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_imap_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so.0 || { rm -f libsf_imap_preproc.so.0 && ln -s libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so || { rm -f libsf_imap_preproc.so && ln -s libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap/../build/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_imap_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so.0 || { rm -f libsf_imap_preproc.so.0 && ln -s libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so || { rm -f libsf_imap_preproc.so && ln -s libsf_imap_preproc.so.0.0.0 libsf_imap_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_imap_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_imap_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/imap'
+Making install in smtp
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_smtp_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so.0 || { rm -f libsf_smtp_preproc.so.0 && ln -s libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so || { rm -f libsf_smtp_preproc.so && ln -s libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_smtp_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so.0 || { rm -f libsf_smtp_preproc.so.0 && ln -s libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so || { rm -f libsf_smtp_preproc.so && ln -s libsf_smtp_preproc.so.0.0.0 libsf_smtp_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_smtp_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_smtp_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/smtp'
+Making install in ssh
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ssh_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so.0 || { rm -f libsf_ssh_preproc.so.0 && ln -s libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so || { rm -f libsf_ssh_preproc.so && ln -s libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ssh_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so.0 || { rm -f libsf_ssh_preproc.so.0 && ln -s libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so || { rm -f libsf_ssh_preproc.so && ln -s libsf_ssh_preproc.so.0.0.0 libsf_ssh_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ssh_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssh_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssh'
+Making install in dns
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dns_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so.0 || { rm -f libsf_dns_preproc.so.0 && ln -s libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so || { rm -f libsf_dns_preproc.so && ln -s libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns/../build/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dns_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so.0 || { rm -f libsf_dns_preproc.so.0 && ln -s libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so || { rm -f libsf_dns_preproc.so && ln -s libsf_dns_preproc.so.0.0.0 libsf_dns_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dns_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dns_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dns'
+Making install in ssl
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ssl_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so.0 || { rm -f libsf_ssl_preproc.so.0 && ln -s libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so || { rm -f libsf_ssl_preproc.so && ln -s libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl/../build/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_ssl_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so.0 || { rm -f libsf_ssl_preproc.so.0 && ln -s libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so || { rm -f libsf_ssl_preproc.so && ln -s libsf_ssl_preproc.so.0.0.0 libsf_ssl_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_ssl_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_ssl_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/ssl'
+Making install in dcerpc2
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dce2_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so.0 || { rm -f libsf_dce2_preproc.so.0 && ln -s libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so || { rm -f libsf_dce2_preproc.so && ln -s libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2/../build/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dce2_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so.0 || { rm -f libsf_dce2_preproc.so.0 && ln -s libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so || { rm -f libsf_dce2_preproc.so && ln -s libsf_dce2_preproc.so.0.0.0 libsf_dce2_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dce2_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dce2_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dcerpc2'
+Making install in sdf
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_sdf_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so.0 || { rm -f libsf_sdf_preproc.so.0 && ln -s libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so || { rm -f libsf_sdf_preproc.so && ln -s libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf/../build/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_sdf_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so.0 || { rm -f libsf_sdf_preproc.so.0 && ln -s libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so || { rm -f libsf_sdf_preproc.so && ln -s libsf_sdf_preproc.so.0.0.0 libsf_sdf_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_sdf_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sdf_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sdf'
+Making install in sip
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_sip_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so.0 || { rm -f libsf_sip_preproc.so.0 && ln -s libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so || { rm -f libsf_sip_preproc.so && ln -s libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip/../build/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_sip_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so.0 || { rm -f libsf_sip_preproc.so.0 && ln -s libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so || { rm -f libsf_sip_preproc.so && ln -s libsf_sip_preproc.so.0.0.0 libsf_sip_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_sip_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_sip_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/sip'
+Making install in reputation
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_reputation_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so.0 || { rm -f libsf_reputation_preproc.so.0 && ln -s libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so || { rm -f libsf_reputation_preproc.so && ln -s libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation/../build/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_reputation_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so.0 || { rm -f libsf_reputation_preproc.so.0 && ln -s libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so || { rm -f libsf_reputation_preproc.so && ln -s libsf_reputation_preproc.so.0.0.0 libsf_reputation_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_reputation_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_reputation_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/reputation'
+Making install in gtp
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_gtp_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so.0 || { rm -f libsf_gtp_preproc.so.0 && ln -s libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so || { rm -f libsf_gtp_preproc.so && ln -s libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp/../build/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_gtp_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so.0 || { rm -f libsf_gtp_preproc.so.0 && ln -s libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so || { rm -f libsf_gtp_preproc.so && ln -s libsf_gtp_preproc.so.0.0.0 libsf_gtp_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_gtp_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_gtp_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/gtp'
+Making install in modbus
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_modbus_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so.0 || { rm -f libsf_modbus_preproc.so.0 && ln -s libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so || { rm -f libsf_modbus_preproc.so && ln -s libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus/../build/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_modbus_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so.0 || { rm -f libsf_modbus_preproc.so.0 && ln -s libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so || { rm -f libsf_modbus_preproc.so && ln -s libsf_modbus_preproc.so.0.0.0 libsf_modbus_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_modbus_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_modbus_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/modbus'
+Making install in dnp3
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+make DESTDIR=`pwd`/../build install-libLTLIBRARIES
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+ /usr/bin/mkdir -p '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dnp3_preproc.la '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.so.0.0.0 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.so.0.0.0
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so.0 || { rm -f libsf_dnp3_preproc.so.0 && ln -s libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so.0; }; })
+libtool: install: (cd /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so || { rm -f libsf_dnp3_preproc.so && ln -s libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.lai /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.a /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: chmod 644 /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: ranlib /build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3/../build/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+make[5]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dnp3_preproc.la '/build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor'
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.so.0.0.0 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.so.0.0.0
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so.0 || { rm -f libsf_dnp3_preproc.so.0 && ln -s libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so.0; }; })
+libtool: install: (cd /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor && { ln -s -f libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so || { rm -f libsf_dnp3_preproc.so && ln -s libsf_dnp3_preproc.so.0.0.0 libsf_dnp3_preproc.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.lai /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.la
+libtool: install: /usr/bin/install -c .libs/libsf_dnp3_preproc.a /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort_dynamicpreprocessor/libsf_dnp3_preproc.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort_dynamicpreprocessor'
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors/dnp3'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-preprocessors'
+Making install in dynamic-output
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+Making install in .
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+Making install in plugins
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/plugins'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/plugins'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/plugins'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/plugins'
+Making install in libs
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/libs'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/libs'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/include/snort/dynamic_output'
+ /usr/bin/install -c -m 644 ../../../src/dynamic-output/plugins/output_lib.h ../../../src/dynamic-output/plugins/output_api.h ../../../src/dynamic-output/plugins/output_common.h ../../../src/dynamic-preprocessors/include/obfuscation.h ../../../src/dynamic-preprocessors/include/ipv6_port.h ../../../src/dynamic-preprocessors/include/sf_ip.h ../../../src/dynamic-preprocessors/include/snort_debug.h ../../../src/dynamic-preprocessors/include/sfPolicy.h ../../../src/dynamic-preprocessors/include/sf_dynamic_common.h ../../../src/dynamic-preprocessors/include/stream_api.h ../../../src/dynamic-preprocessors/include/preprocids.h ../../../src/dynamic-preprocessors/include/bitop.h ../../../src/dynamic-preprocessors/include/sf_snort_packet.h ../../../src/dynamic-preprocessors/include/sf_protocols.h ../../../src/dynamic-preprocessors/include/sfrt.h ../../../src/dynamic-preprocessors/include/sfrt_dir.h ../../../src/dynamic-preprocessors/include/sfrt_trie.h '/build/snort/pkg/snort/usr/include/snort/dynamic_output'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/snort/dynamic_output'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libsf_dynamic_output.la '/build/snort/pkg/snort/usr/lib/snort/dynamic_output'
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_output.lai /build/snort/pkg/snort/usr/lib/snort/dynamic_output/libsf_dynamic_output.la
+libtool: install: /usr/bin/install -c .libs/libsf_dynamic_output.a /build/snort/pkg/snort/usr/lib/snort/dynamic_output/libsf_dynamic_output.a
+libtool: install: chmod 644 /build/snort/pkg/snort/usr/lib/snort/dynamic_output/libsf_dynamic_output.a
+libtool: install: ranlib /build/snort/pkg/snort/usr/lib/snort/dynamic_output/libsf_dynamic_output.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib/snort/dynamic_output'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 snort_output.pc '/build/snort/pkg/snort/usr/lib/pkgconfig'
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/libs'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output/libs'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/dynamic-output'
+Making install in target-based
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/target-based'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/target-based'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/target-based'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/target-based'
+Making install in control
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/control'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/control'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/control'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/control'
+Making install in file-process
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+Making install in libs
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/file-process/libs'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/file-process/libs'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/file-process/libs'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/file-process/libs'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+make[4]: Entering directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src/file-process'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/src'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/src'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c snort '/build/snort/pkg/snort/usr/bin'
+libtool: install: /usr/bin/install -c snort /build/snort/pkg/snort/usr/bin/snort
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/src'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/src'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/src'
+Making install in doc
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/doc'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/doc'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/share/doc/snort'
+ /usr/bin/install -c -m 644 AUTHORS BUGS CREDITS generators INSTALL NEWS PROBLEMS README README.active README.alert_order README.asn1 README.counts README.csv README.daq README.dcerpc2 README.decode README.decoder_preproc_rules README.dnp3 README.dns README.event_queue README.file README.file_ips README.filters README.flowbits README.frag3 README.ftptelnet README.gre README.GTP README.ha README.http_inspect README.imap README.ipip README.ipv6 README.modbus README.multipleconfigs README.normalize README.pcap_readmode README.PerfProfiling README.PLUGINS README.pop '/build/snort/pkg/snort/usr/share/doc/snort'
+ /usr/bin/install -c -m 644 README.ppm README.reload README.reputation README.rzb_saac README.sensitive_data README.sfportscan README.SMTP README.ssh README.ssl README.sip README.stream5 README.tag README.thresholding README.UNSOCK README.unified2 README.variables README.WIN32 TODO USAGE WISHLIST '/build/snort/pkg/snort/usr/share/doc/snort'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/doc'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/doc'
+Making install in etc
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/etc'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/etc'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/etc'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/etc'
+Making install in templates
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/templates'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/templates'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/templates'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/templates'
+Making install in rpm
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/rpm'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/rpm'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/rpm'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/rpm'
+Making install in m4
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/m4'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/m4'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/m4'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/m4'
+Making install in preproc_rules
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/preproc_rules'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/preproc_rules'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/preproc_rules'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/preproc_rules'
+Making install in tools
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0/tools'
+Making install in u2boat
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/tools/u2boat'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/tools/u2boat'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/bin'
+  /bin/sh ../../libtool   --mode=install /usr/bin/install -c u2boat '/build/snort/pkg/snort/usr/bin'
+libtool: install: /usr/bin/install -c u2boat /build/snort/pkg/snort/usr/bin/u2boat
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/share/doc/snort'
+ /usr/bin/install -c -m 644 README.u2boat '/build/snort/pkg/snort/usr/share/doc/snort'
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools/u2boat'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools/u2boat'
+Making install in u2spewfoo
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/tools/u2spewfoo'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/tools/u2spewfoo'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/bin'
+  /bin/sh ../../libtool   --mode=install /usr/bin/install -c u2spewfoo '/build/snort/pkg/snort/usr/bin'
+libtool: install: /usr/bin/install -c u2spewfoo /build/snort/pkg/snort/usr/bin/u2spewfoo
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools/u2spewfoo'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools/u2spewfoo'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0/tools'
+make[3]: Entering directory '/build/snort/src/snort-2.9.6.0/tools'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0/tools'
+make[1]: Entering directory '/build/snort/src/snort-2.9.6.0'
+make[2]: Entering directory '/build/snort/src/snort-2.9.6.0'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/share/man/man8'
+ /usr/bin/install -c -m 644 snort.8 '/build/snort/pkg/snort/usr/share/man/man8'
+ /usr/bin/mkdir -p '/build/snort/pkg/snort/usr/lib/pkgconfig'
+ /usr/bin/install -c -m 644 snort.pc '/build/snort/pkg/snort/usr/lib/pkgconfig'
+make[2]: Leaving directory '/build/snort/src/snort-2.9.6.0'
+make[1]: Leaving directory '/build/snort/src/snort-2.9.6.0'
