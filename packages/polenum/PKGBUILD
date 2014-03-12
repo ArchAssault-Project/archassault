@@ -3,12 +3,12 @@ pkgname=polenum
 pkgver=0.2
 pkgrel=5
 pkgdesc="a python script to extract the password policy information from a windows machine."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://labs.portcullis.co.uk/application/polenum/"
 license=('apache')
 depends=('impacket' 'python2')
 source=("http://labs.portcullis.co.uk/download/polenum-$pkgver.tar.bz2")
-sha512sums=('4101c2acfa5442bd75418afaa405624d')
+sha512sums=('0df0c6ab73f1a53ce03cba9d1442c4741156951244712eec9d0e5781ebab2e0fd8872815011857173bc17f34a3d1f0386d886ca93c649011280ebd26f37fc52d')
 prepare() {
   cd "$srcdir/polenum-$pkgver"
 
