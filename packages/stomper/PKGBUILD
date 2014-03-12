@@ -10,7 +10,7 @@ depends=('python2')
 groups=('archassault')
 makedepends=('python2-distribute')
 source=("http://stomper.googlecode.com/files/stomper-$pkgver.tar.gz")
-sha512sums=('474d12bcd36a27e3b5278e19d908914d')
+sha512sums=('61ffe4b4bc163be6370ebf52e79e2e93ad8f3b85787468968ae1d841f675d55fad281f3db12bcae6176d6921e86131cb1f1bab32045bda1a872a4e51badeff0b')
 
 package() {
   cd $srcdir/stomper-$pkgver
