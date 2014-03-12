@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org>
 _name='portspoof'
 pkgname="${_name}-git"
 pkgver=1.1.7.geb01745
@@ -7,6 +8,7 @@ url='http://portspoof.org/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL2')
 makedepends=('git')
+groups=('archassault')
 depends=('gcc-libs')
 source=("${_name}::git://github.com/drk1wi/${_name}.git")
 sha256sums=('SKIP')
