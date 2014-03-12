@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=trid-defs
 pkgver=2013.09.29
 pkgrel=1
@@ -7,7 +8,7 @@ url="http://mark0.net/soft-trid-e.html"
 license=('CUSTOM')
 makedepends=('unzip')
 source=(triddefs-$pkgver.zip::http://mark0.net/download/triddefs.zip)
-md5sums=('29719d62ec9fa6b91330cd1984360985')
+sha512sums=('29719d62ec9fa6b91330cd1984360985')
 
 package() {
   cd "$srcdir"
