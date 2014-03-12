@@ -2,6 +2,7 @@ pkgname=orbited
 pkgver=0.7.10
 pkgrel=5
 pkgdesc="A browser(javascript)->tcp bridge; Comet is used to emulate TCP connections in the browser; Allows you to connect a web browser directly to an IRC or XMPP server, for instance."
+groups=('archassault')
 arch=('any')
 url='http://www.orbited.org'
 license=('MIT')
