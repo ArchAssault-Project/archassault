@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=lynis
-pkgver=1.4.3
+pkgver=1.4.5
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing tool for Unix (specialists)"
@@ -9,7 +9,7 @@ license=('GPL3')
 arch=('any')
 depends=('bash')
 source=("http://cisofy.com/files/lynis-$pkgver.tar.gz")
-sha512sums=('0bd91d3fd88386ed54cd9d63b7a898a2060028f1dc1e093155187ba5a2c0680f90886e1964de187a1c156dab28e23dc51b1f3e9a0c118ad9d21922afc753bc0a')
+sha512sums=('295b2b7f85e12f838febd9feb32576703c9411199dce3c398b9d897ec0f9464dbb35a8f0f7c4212a4701c5c5648985ab2bd3ea40652cee1689601b1e58500555')
 
 package() {
   cd "$srcdir/lynis-$pkgver"
