@@ -5,6 +5,7 @@ pkgver=0.1
 pkgrel=1
 pkgdesc="Highly readable supplement to man pages. Shows simple, concise examples for unix commands."
 arch=(any)
+groups=('archassault')
 url="http://bropages.org/"
 license=('unknown')
 depends=('ruby' 'ruby-rest-client' 'ruby-commander' 'ruby-highline'
