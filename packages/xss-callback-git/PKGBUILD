@@ -21,7 +21,8 @@ pkgver() {
 
 package() {
   cd "$srcdir/$pkgname"
-  install -dm755 "$pkgdir/usr/share/xss-callback"
+  install -dm755 "$pkgdir/usr/bin/"
+	install -dm755 "$pkgdir/usr/share/xss-callback"
   install -dm755 "$pkgdir/usr/share/licenses/xss-callback-git"
   cp -R --no-preserve=ownership * "$pkgdir/usr/share/xss-callback"
   cat > $pkgdir/usr/bin/xss-callback <<EOF
