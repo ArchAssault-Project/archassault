@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ssdeep
 pkgver=2.10
-pkgrel=1
+pkgrel=2
 pkgdesc="A program for computing context triggered piecewise hashes"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://ssdeep.sourceforge.net/"
 license=('GPL')
 depends=('gcc-libs')
+groups=('archassault')
 options=('!libtool')
 source=("http://downloads.sourceforge.net/ssdeep/ssdeep-$pkgver.tar.gz")
-md5sums=('8f65e2c555b61b9209c0854fc7f2731b')
+sha512sums=('8f65e2c555b61b9209c0854fc7f2731b')
 
 build() {
   cd "$srcdir/ssdeep-$pkgver"
