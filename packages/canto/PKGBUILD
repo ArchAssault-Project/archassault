@@ -1,16 +1,18 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=canto
 pkgver=0.7.10
-pkgrel=1
+pkgrel=2
 pkgdesc="A ncurses Atom/RSS/RDF aggregator"
 url="http://codezen.org/canto/"
 license='GPL'
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+groups=('archassault')
 makedepends=('python2')
 depends=('ncurses' 'python2' 'python2-chardet')
 optdepends=('python2-feedparser: instead of built-in')
 install=canto.install
 source=(http://codezen.org/static/canto-$pkgver.tar.gz)
-md5sums=('541d1770496866a5d513305e118b2ab5')
+sha512sums=('541d1770496866a5d513305e118b2ab5')
 
 
 package() {
