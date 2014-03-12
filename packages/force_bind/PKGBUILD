@@ -7,7 +7,7 @@ pkgrel=3
 pkgdesc="Force binding on a specific IP and/or port, change TTL/TOS/KA/MSS/REUSEADDR/FWMARK/PRIORITY. Works with both IPv4 and IPv6. Also, you can enforce bandwidth per process or per socket"
 url="http://kernel.embedromix.ro/us/"
 license=('GPL3')
-makedepends=('gcc')
+groups=('archassault-networking')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=("http://kernel.embedromix.ro/us/${pkgname}/${pkgname}-${pkgver}.tar.gz"
         "${pkgname}.1.gz")
