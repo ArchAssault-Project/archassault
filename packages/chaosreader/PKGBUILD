@@ -2,11 +2,12 @@
 # Contributor: quaker4lyf <quaker4lyf(at)yahoo(dot)com>
 pkgname=chaosreader
 pkgver=0.94
-pkgrel=1
+pkgrel=2
 pkgdesc="Fetch application data from snoop or tcpdump logs"
 arch=('any')
 url="http://www.brendangregg.com/chaosreader.html"
 license=('GPL')
+groups=('archassault')
 depends=(perl)
 filename="$pkgname$pkgver"
 source=("http://softlayer.dl.sourceforge.net/sourceforge/chaosreader/$filename")
