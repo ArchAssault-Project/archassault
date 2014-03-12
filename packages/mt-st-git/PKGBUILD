@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org>
 _name='mt-st'
 pkgname="${_name}-git"
 pkgver=5.7676fc4
@@ -5,6 +6,7 @@ pkgrel=1
 pkgdesc='Utilities for managing magnetic tape storage devices'
 arch=('i686' 'x86_64')
 url="https://github.com/Distrotech/${_name}"
+groups=('archassault')
 license=('GPL2')
 makedepends=('git')
 depends=('glibc')
