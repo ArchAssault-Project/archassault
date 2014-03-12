@@ -10,7 +10,7 @@ depends=('gcc-libs')
 groups=('archassault')
 options=('!libtool')
 source=("http://downloads.sourceforge.net/ssdeep/ssdeep-$pkgver.tar.gz")
-sha512sums=('8f65e2c555b61b9209c0854fc7f2731b')
+sha512sums=('971eb681ac6e94fee4cf81c4036a652f196297874ed8e547523a6d104323a4fb08385c2aa9a735e9fe49048a822ab538adfaf3bfe2238cc7520bad83ac700753')
 
 build() {
   cd "$srcdir/ssdeep-$pkgver"
