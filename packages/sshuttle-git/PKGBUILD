@@ -3,7 +3,7 @@ pkgname=sshuttle-git
 pkgver=20131227
 pkgrel=1
 pkgdesc="Transparent proxy server that works as a poor man's VPN. Forwards all TCP packets over ssh (and even DNS requests when using --dns option). Doesn't require admin privileges on the server side."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="https://github.com/apenwarr/sshuttle"
 license=('GPL')
 groups=('archassault')
@@ -14,7 +14,7 @@ conflicts=('sshuttle')
 source=("git+https://github.com/apenwarr/sshuttle.git"
         "arch-install.patch")
 sha512sums=('SKIP'
-         '15ed72e2b68dd07ef97abfdcb828d188')
+            'c477928733001de8bbfcbd4d83a9469adafb425c5cfaed59a52d57bea518d6bfdb3a533bc3793a7ed047b947395935fc3cd38fab001cc63fb1dcab3abde0c20d')
 
 pkgver() {
   date +%Y%m%d
