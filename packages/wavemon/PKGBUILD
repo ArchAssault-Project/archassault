@@ -1,4 +1,5 @@
 # Maintainer: ArchAssault <team archassault org>
+# Contributor: Beej Jorgensen <beej@beej.us>
 pkgname=wavemon
 pkgver=0.7.6
 pkgrel=1
@@ -15,10 +16,8 @@ sha512sums=('d5863bd5ea4ead763b07eb723a2017d1ad53708f5a92cd90522aa508e144f02b60a
 
 build() {
   cd "$srcdir/wavemon-$pkgver"
-
   ./configure --prefix=/usr --mandir=/usr/share/man
-
-  make
+  CFLAGS="$CFLAGS -O3 -Wall -pthread" make
 }
 
 package(){
