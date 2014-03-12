@@ -1,7 +1,8 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=oclhashcat
 _pkgname=oclHashcat
 pkgver=1.01
-pkgrel=2
+pkgrel=3
 pkgdesc="Worlds fastest WPA cracker with dictionary mutation engine"
 url=('http://hashcat.net/oclhashcat/')
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
