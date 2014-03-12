@@ -28,5 +28,5 @@ package() {
 cd /usr/share/xss-callback
 node server.js
 EOF
-  chmod +x $pkgdir/usr/bin/xss-callback
+  chmod +x "$pkgdir/usr/bin/xss-callback"
 }
