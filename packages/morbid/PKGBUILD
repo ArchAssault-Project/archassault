@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=morbid
 pkgver=0.8.7.3
-pkgrel=4
+pkgrel=5
 pkgdesc="A Twisted-based publish/subscribe messaging server that uses the STOMP protocol"
 arch=('any')
 url='http://pypi.python.org/pypi/morbid/'
 license=('MIT')
+groups=('archassault')
 depends=(python2)
 makedepends=(python2-distribute)
 source=(http://pypi.python.org/packages/source/m/morbid/morbid-$pkgver.tar.gz)
-md5sums=('5a2458def7e583a10c46c046dbab9c4a')
+sha512sums=('5a2458def7e583a10c46c046dbab9c4a')
 
 package() {
   cd $srcdir/morbid-$pkgver
