@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=sshuttle-git
 pkgver=20131227
 pkgrel=1
@@ -5,11 +6,14 @@ pkgdesc="Transparent proxy server that works as a poor man's VPN. Forwards all T
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/apenwarr/sshuttle"
 license=('GPL')
+groups=('archassault')
 depends=('python2' 'iptables')
 makedepends=('git')
+provides=('sshuttle')
+conflicts=('sshuttle')
 source=("git+https://github.com/apenwarr/sshuttle.git"
         "arch-install.patch")
-md5sums=('SKIP'
+sha512sums=('SKIP'
          '15ed72e2b68dd07ef97abfdcb828d188')
 
 pkgver() {
