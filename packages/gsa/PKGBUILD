@@ -11,7 +11,7 @@ depends=('glibc' 'libmicrohttpd' 'libxml2' 'glib2' 'libssh' 'libxslt' 'gnutls' '
 makedepends=('gcc' 'automake' 'cmake' 'doxygen' 'xmltoman')
 backup=(etc/openvas/gsad_log.conf)
 source=(http://wald.intevation.org/frs/download.php/1422/greenbone-security-assistant-4.0.2.tar.gz)
-sha512sums=('d0c81070cb58cad1b7b41e51d69d3288')
+sha512sums=('34a32f21f6a9c3b35d8048f5f46da686084b58ac3d60aa83ea95d7c5eaab7d8fe781e4cef1b3fb5df5ddc11ccbf21907f90e1a56a27824033630a89acb306aab')
 
 
 build() {
