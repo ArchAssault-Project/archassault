@@ -10,7 +10,7 @@ groups=('archassault')
 depends=('libnfc')
 makedepends=('automake' 'readline' 'openssl')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/4ZM/mfterm/archive/v1.0.3.tar.gz")
-sha512sums=('0d410d5f3d8613d1068ef8494ba2bf86')
+sha512sums=('6a63068a38fcd35b58c1efadd0111638e0f9b61ba63d9949fec63b7107cfbf1d9b71c0c900cad7932fa1311e07e9ac2b4c47724566a1062fdc15c162536a80b0')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
