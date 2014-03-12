@@ -6,7 +6,6 @@ pkgdesc="A ncurses Atom/RSS/RDF aggregator"
 url="http://codezen.org/canto/"
 license='GPL'
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
-groups=('archassault')
 makedepends=('python2')
 depends=('ncurses' 'python2' 'python2-chardet')
 optdepends=('python2-feedparser: instead of built-in')
