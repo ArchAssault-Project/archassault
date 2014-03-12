@@ -1,18 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=mfterm
 pkgver=1.0.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Terminal for working with Mifare Classic 1-4k tags"
 url="https://github.com/4ZM/mfterm"
 arch=('x86_64' 'i686' 'armv6h' 'amv7h')
 license=('GPL')
+groups=('archassault')
 depends=('libnfc')
-optdepends=()
 makedepends=('automake' 'readline' 'openssl')
-conflicts=()
-replaces=()
-backup=()
 source=("$pkgname-$pkgver.tar.gz::https://github.com/4ZM/mfterm/archive/v1.0.3.tar.gz")
-md5sums=('0d410d5f3d8613d1068ef8494ba2bf86')
+sha512sums=('0d410d5f3d8613d1068ef8494ba2bf86')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
