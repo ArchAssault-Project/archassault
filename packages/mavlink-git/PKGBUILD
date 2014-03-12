@@ -1,9 +1,10 @@
 pkgname=mavlink-git
 pkgver=20140220
-pkgrel=2
+pkgrel=3
 pkgdesc="MAVLink micro air vehicle marshalling / communication libraries"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://qgroundcontrol.org/mavlink/"
+groups=('archassault-drone')
 license=('LGPL')
 makedepends=('git' 'cmake' 'python2' 'python2-setuptools')
 provides=('python2-mavlink')
