@@ -8,6 +8,7 @@ url="https://github.com/falconindy/expac"
 license=('MIT')
 depends=('nodejs')
 makedepends=('git')
+groups=('archassault')
 conflicts=('xss-callback')
 provides=('xss-callback')
 source=("$pkgname"::'git+https://github.com/PaulSec/XSS-Callback.git')
