@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team at archassault com>
 _gemname=bropages
 pkgname=bropages
-pkgver=0.1
+pkgver=0.1.0
 pkgrel=2
 pkgdesc="Highly readable supplement to man pages. Shows simple, concise examples for unix commands."
 arch=(any)
@@ -13,7 +13,7 @@ depends=('ruby' 'ruby-rest-client' 'ruby-commander' 'ruby-highline'
 makedepends=('ruby')
 source=(http://rubygems.org/downloads/${_gemname}-${pkgver}.gem)
 noextract=(${_gemname}-${pkgver}.gem)
-md5sums=('1c3462d96f07d6ccf952e11b41e8d789')
+sha512sums=('3c9415796353f6cd11a79e48fb46831adaf0cb2f2a37eca93f519d794b5596cd056c5b7329ddb5184e29c1af70e256bb2bd631b757d92d9e83faebd942064da2')
 
 package() {
   cd "${srcdir}"
