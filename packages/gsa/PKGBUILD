@@ -1,15 +1,17 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=gsa
 pkgver=4.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Greenbone Security Assistant (gsa) - OpenVAS web frontend"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=GPL
+groups=('archassault')
 depends=('glibc' 'libmicrohttpd' 'libxml2' 'glib2' 'libssh' 'libxslt' 'gnutls' 'openvas-libraries')
 makedepends=('gcc' 'automake' 'cmake' 'doxygen' 'xmltoman')
 backup=(etc/openvas/gsad_log.conf)
 source=(http://wald.intevation.org/frs/download.php/1422/greenbone-security-assistant-4.0.2.tar.gz)
-md5sums=('d0c81070cb58cad1b7b41e51d69d3288')
+sha512sums=('d0c81070cb58cad1b7b41e51d69d3288')
 
 
 build() {
