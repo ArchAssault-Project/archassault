@@ -1,3 +1,7 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Jason Plum <jplum@archlinuxarm.org>
+# Contributor: Kevin Mihelich <kevin@archlinuxarm.org>
+# Contributor: Josh Cartwright <joshc@eso.teric.us>
 _subarchs=(armv6h armv7h)
 pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")

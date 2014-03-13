@@ -1,3 +1,6 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Pierre Schmitz <pierre@archlinux.de>
+# Contributor ALARM: Kevin Mihelich <kevin@archlinuxarm.org>
 pkgname=archassault-devtools
 _pkgname=devtools
 pkgver=20140108

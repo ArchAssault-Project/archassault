@@ -3,14 +3,14 @@ pkgname=impacket
 pkgver=0.9.10
 pkgrel=5
 pkgdesc="Collection of Python2 classes focused on providing access to network packets"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://oss.coresecurity.com/projects/impacket.html'
 license=('Apache')
 depends=('python2' 'python2-crypto')
 optdepends=('python2-pcapy: traffic sniffing example programs')
 makedepends=('sed')
 source=("https://impacket.googlecode.com/files/impacket-$pkgver.tar.gz")
-sha512sums=('345a29e6f12b738567b206b139b20cb0')
+sha512sums=('1218575525d6bd615706ff268ea48a6595ba4ae5c5925c786dee4a9d6c67101bfa484226de0ca00da7937342f725e7c5d67232beac4d676045ca50a967c11a2d')
 
 package() {
   cd "${srcdir}/impacket-${pkgver}"
