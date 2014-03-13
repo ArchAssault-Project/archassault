@@ -22,7 +22,7 @@ source=('knock::git+https://github.com/jvinet/knock.git'
         'knockd.service')
 sha512sums=('SKIP'
             '3ea2ae9392d3d79bb5df6b75090f6c1a9548979e01dcd4a75471cfa46dbc70401a166496b5158f90fc61326a554acacc38f8605aab02b5b53b75d60a7d80648a'
-            '5c32e52a2b0d2d3a5c81d8a59e938152207eaa1ce810f648fd35c6444b6a7a5264430721b1205e98edb2457a14ae3f2647855c496a16f2ec7d638adc158a7da8')
+            '6e5fec91e07fb74169798f320607bd413258af0af48bd2a9c006a02bc97ce4ea9a5293eb9e166b9870c086bf147fca1462b98b3d914d7a28708e9fa2cc9c85cb')
 
 pkgver() {
     cd "$srcdir/${_pkgname}"
