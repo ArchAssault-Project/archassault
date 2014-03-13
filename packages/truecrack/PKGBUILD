@@ -1,14 +1,15 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=truecrack
 pkgver=35
-pkgrel=2
-#groups=('archassault' 'archassault-cracker')
+pkgrel=3
+groups=('archassault' 'archassault-cracker')
 pkgdesc="Password cracking for truecrypt(c) volumes."
 url="http://code.google.com/p/truecrack/"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL3')
 depends=('cuda')
 source=("http://truecrack.googlecode.com/files/truecrack_v$pkgver.tar.gz")
-md5sums=('4f5b8a98322bcb22942d84c54dc347e4')
+sha512sums=('888a5ceb159b7874975107e8820692321799a2f8c78bdd8e158ed19b647edb13fd90d2fb4e48ccdd433f7141fb4d192636cfb5a0dce76252f646b5ccca6268e7')
 
 build() {
   cd "$srcdir/truecrack"
