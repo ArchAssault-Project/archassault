@@ -9,8 +9,8 @@ license=('GPL')
 groups=('archassault')
 source=("http://downloads.sourceforge.net/argtable/argtable${pkgver/./-}.tar.gz"
         'argtable.desktop')
-sha512sums=('6be6bdb5395b2de8063698f83db61791'
-         '0965e2cf1ad73c82651f8adb15445294')
+sha512sums=('ad9d11963a215586fa3df7b0afa10585abd22d3b83419fffdae7002aca89bad045ee362821090807c76720b3058c00d675837c48f877e830d49ce1f3c6bc9322'
+            'ac02bc3a815880f04b060342ea4e0864feaf72f8bc4d20bee0b7ad30e63bd4925c710fa038824398678c111a3dd0fbf0a61b21ac44d583111b65a5378cc45303')
 
 build() {
   cd "$srcdir/argtable${pkgver/./-}"
