@@ -8,7 +8,7 @@ url="http://mark0.net/soft-trid-e.html"
 license=('CUSTOM')
 makedepends=('unzip')
 source=(triddefs-$pkgver.zip::http://mark0.net/download/triddefs.zip)
-sha512sums=('29719d62ec9fa6b91330cd1984360985')
+sha512sums=('228cd9c7f8b6bf8c2021f86e6a58452a498b77b5aa82700d3ff6409cf256af0c423854aec1c625a85d2ccf3fc1492e9893d796c239dca8cf127cfb687fbb1475')
 
 package() {
   cd "$srcdir"
