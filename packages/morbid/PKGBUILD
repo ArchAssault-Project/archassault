@@ -10,7 +10,7 @@ groups=('archassault')
 depends=(python2)
 makedepends=(python2-distribute)
 source=(http://pypi.python.org/packages/source/m/morbid/morbid-$pkgver.tar.gz)
-sha512sums=('5a2458def7e583a10c46c046dbab9c4a')
+sha512sums=('50a01e75ecf1691dcb6f4354647038627196eb4cd37d6e44812912bf0890870d307c8705f6894ecc389a86508d2dc81ed9195408b922c5ad140104a9b78c26dc')
 
 package() {
   cd $srcdir/morbid-$pkgver
