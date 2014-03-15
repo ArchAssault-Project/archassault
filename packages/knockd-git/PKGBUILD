@@ -13,6 +13,7 @@ pkgdesc="A simple port-knocking daemon and client"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.zeroflux.org/projects/knock"
 license=(GPL)
+groups=('archassault')
 depends=('libpcap')
 conflicts=('knockd')
 makedepends=(git)
