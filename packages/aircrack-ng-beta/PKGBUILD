@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=aircrack-ng-beta
 pkgver=1.2
-pkgrel=3
+pkgrel=4
 pkgdesc="A key cracker for the 802.11 WEP and WPA-PSK protocols"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.aircrack-ng.org"
@@ -10,8 +11,8 @@ conflicts=('aircrack-ng-scripts')
 replaces=('aircrack-ng-scripts')
 provides=('aircrack-ng-scripts')
 source=("http://download.aircrack-ng.org/aircrack-ng-$pkgver-beta2.tar.gz" "aircrack-ng-beta.desktop")
-md5sums=('f1c0f1d5e7eb063e40e109283599356b'
-         '005640e089a27e0fb6befdb7761d6f76')
+sha512sums=('c1f680b9093748a5d398fe99ca122639019d03aad14f59f423da4644f1e207ee0cdd82bbf001ba64b8aacc5523282ab22fad0a2bc26a1035659dc1cdf13f9f96'
+            'a8c4d5ff441ecd42101995d8f4881c49034b54ac5111dad47a35ce8620910f89b4ebceaee74f9026de9a432c0769c67392d12245d62f8b2b6dc0953e41a4b695')
 
 build() {
   cd "$srcdir/aircrack-ng-$pkgver-beta2"
