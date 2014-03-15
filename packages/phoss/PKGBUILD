@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=phoss
 pkgver=0.1.13
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-sniffers' 'archassault-cracker')
 pkgdesc="Sniffer designed to find HTTP, FTP, LDAP, Telnet, IMAP4, VNC and POP3 logins."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,9 +10,11 @@ license=('custom')
 depends=('libpcap')
 makedepends=('make' 'gcc')
 source=(http://www.phenoelit.org/phoss/PHoss_src.tar.gz
-				http://www.phenoelit.org/phoss/PHoss.diff)
-md5sums=('0c6d2f47ff9808b288c88ba6881ac286'
-         'adff53f3bff2d56f84dc30fae9588095')
+				http://www.phenoelit.org/phoss/PHoss.diff
+				'phoss.desktop')
+sha512sums=('2616d573495d0bcc0f510ee4fdabd80c21ba3a0d6dd858c42a8e3c51bb074afb389a4d3466c3a5351949287b842ff874ffd2d261cc84204c5a021bd04cd274ed'
+            '959c08b9cf5643615241cab954c309773e3f00bf23576a169fe7a06018430abe96201d4994224a1a30e28255a0962dbd7b42bbe49a918325f9ac454773151b95'
+            '4d465b0e9bee637b1bd71e0228bc66c52303a4dc2b321b183827491d378f47e2339cb8b2b72a9aca928baa9e6c7c1e88385ee735497d21cbd39c7b220a160eee')
 
 prepare() {
 	cd "$srcdir/PHoss"
@@ -28,5 +31,6 @@ build() {
 package() {
 	cd "$srcdir/PHoss"
 
-	install -Dm755 PHoss "$pkgdir/usr/sbin/PHoss"
+	install -Dm755 PHoss "$pkgdir/usr/bin/PHoss"
+  install -Dm644 "$srcdir/phoss.desktop" "$pkgdir/usr/share/applications/phoss.desktop"
 }
