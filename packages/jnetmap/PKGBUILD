@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=jnetmap
 pkgver=0.5.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Graphical network monitoring and documentation tool"
 arch=('any')
 url="http://rakudave.ch/jnetmap"
 license=('GPL3')
-depends=('java-runtime')
+groups=('archassault')
+depends=('java-environment')
 source=(http://sourceforge.net/projects/$pkgname/files/jNetMap%20$pkgver/jNetMap-$pkgver.jar)
 noextract=("jNetMap-$pkgver.jar")
-sha256sums=('67a21c7fa3d82ca3c153587ab7187a0dcaac4f99344c796fab1e188ba58599c0')
+sha512sums=('9bee9906922b226db9d62df985e1a69d4d5a72d7089bfc7e7915bbc134f35acaf75056e279853043880278c879cac0460915474714bd15f38a534e1ce7e87d70')
 
 package() {
   cd ${srcdir}
