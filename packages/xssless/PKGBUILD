@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=xssless
 pkgver=r24.59732fb
 pkgrel=1
@@ -5,6 +6,7 @@ pkgdesc="An automated XSS payload generator written in python."
 url="https://github.com/mandatoryprogrammer/xssless"
 arch=(any)
 license=('GPLv2')
+groups=('archassault')
 depends=('python2' 'python2-beautifulsoup4')
 makedepends=('git')
 source=("git+https://github.com/mandatoryprogrammer/xssless.git")
