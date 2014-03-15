@@ -23,11 +23,17 @@ tags
 *.deb
 *.dmg
 *.egg
+*.exe
 *.gem
 *.gz
 *.iso
 *.jar
+*.java
 *.lzma
+*.log
+Makefile*
+*.o
+*.out
 *.pdf
 *.rar
 *.rpm
@@ -38,4 +44,5 @@ tags
 *.xz
 *.zip
 *.key
-
+*.h
+*.c
