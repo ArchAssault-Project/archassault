@@ -1,43 +1,44 @@
+# Maintainer: ArchAssault <team archassault org>
+
 pkgname=gqrx
 pkgver=2.2.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-wireless')
 pkgdesc="SDR receiver for Funcube Dongle, RTL-SDR, USRP and OsmoSDR devices"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr"
+url="http://oz9aec.net/index.php/gnu-radio/${pkgname}-sdr"
 license=('GPL')
-depends=('qt4>=4.6' 'boost-libs' 'fftw' 'libusb' 'gsl' 'alsa-lib' 'libpulse' 'libuhd' 'pulseaudio' 'gnuradio' 'gr-osmosdr')
+depends=('qt4>=4.6' 'libpulse' 'gr-osmosdr')
 makedepends=('boost')
-install='gqrx.install'
-source=("gqrx-$pkgver.tar.gz::https://codeload.github.com/csete/gqrx/tar.gz/v$pkgver"
-        'gqrx.png'
-        'gqrx.desktop')
-md5sums=('ff771b9c31ee17f704859398362b8cc0'
-         'f7032a8883c89bd80e0d0fd36f861c59'
-         '3268f1a5a928a72b9264401d1376c22f')
+install="${pkgname}.install"
+source=("${pkgname}-${pkgver}.tar.gz::https://codeload.github.com/csete/${pkgname}/tar.gz/v${pkgver}"
+        "${pkgname}.png"
+        "${pkgname}.desktop")
+sha512sums=('8e900075ce823978556a977aa8ab1bd86efc6ac28e37a16f2eac0d5965438bbe348c0a11d3a25b7d743a5a59ecf3022de8d663e34968f4216d30ed03e8a3afbd'
+            '7411c8dc35f9a1729f43013341eaeb352f8f1a4e16a7fd991011a37fe0a5388f4b8d2426e80941672f252879cffcc4e157b1a9e3a8f4c6c20a5691b0835925e4'
+            '89c35ffbe007c8bc2311d8a40611cfa49aa210607a45ff71eff35b8d9f6de100c769bc446c2fabb19d7688bd01281906eaa7c57bc847d6a9ff7642a32eb371f8')
+
+prepare() {
+    cd "${pkgname}-${pkgver}"
+
+    # If a previous build exists, delete it
+    [[ -d build ]] && rm -rf build
+
+    # Create the build folder
+    install -d build
+}
 
 build() {
-  cd "$srcdir/gqrx-$pkgver"
+    cd "${pkgname}-${pkgver}/build"
 
-  mkdir build
-  cd build
-
-  qmake-qt4 PREFIX=/usr/ ..
-  make
+    qmake-qt4 PREFIX=/usr/ ..
+    make
 }
 
 package() {
-  cd "$srcdir"
+    install -Dm644 "${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    install -Dm644 "${pkgname}.png" "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
 
-  # Base directories.
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/applications"
-  install -dm755 "$pkgdir/usr/share/pixmaps"
-
-  install -Dm644 gqrx.desktop "$pkgdir/usr/share/applications"
-  install -Dm644 gqrx.png "$pkgdir/usr/share/pixmaps"
-
-  cd "gqrx-$pkgver/build"
-
-  make install "INSTALL_ROOT=$pkgdir"
+    cd "${pkgname}-${pkgver}/build"
+    make install INSTALL_ROOT="${pkgdir}"
 }
