@@ -9,6 +9,7 @@ backup=(etc/bro/{broccoli.conf,broctl.cfg,networks.cfg,node.cfg})
 license=('BSD')
 depends=('libpcap' 'ruby' 'file' 'geoip' 'python2')
 makedepends=('cmake' 'swig' 'git')
+groups=('archassault')
 options=('emptydirs')
 optdepends=('gperftools: Faster malloc() and useful diagnostic utilites (recompile after installing)')
 _gitroot="git://git.bro-ids.org/bro.git"

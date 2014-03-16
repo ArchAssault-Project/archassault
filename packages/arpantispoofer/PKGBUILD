@@ -1,16 +1,18 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=arpantispoofer
 pkgver=1.0.1.32
-pkgrel=3
+pkgrel=4
 pkgdesc="A utility to detect and resist BIDIRECTIONAL ARP spoofing. It can anti-spoof for not only the local host, but also other hosts in the same subnet. It is also a handy helper for gateways which don't work well with ARP."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('libgnomeui' 'gtk' 'libnotify' 'libbonoboui')
 url="http://arpantispoofer.sourceforge.net/"
 license=('GPL')
 groups=('archassault' 'archassault-defense')
+options=('!emptydirs')
 source=("http://downloads.sourceforge.net/project/arpantispoofer/linux-src/arpantispoofer-linux-$pkgver.tar.bz2"
         'arpantispoofer.desktop')
-md5sums=('b9526c394e15df95da7669bd06b8c1d5'
-         '937af693621caebcbb809d79a242f72d')
+sha512sums=('91723e59f3eac0095752aa5231d474c2641f069337848969296a49131768612baf2ff1692329a5aaee49c07f478b029bd9d35affa9d7db4dbcb2784dec64f33d'
+            'fbe9db22f859919f4145f8e398fe62fefc9b4bab9b3c5a87772a55e19962c5572d4fe0e15ff04713ad361e06d7352ecc17354b17676e1fd1a96ead84e964c6a4')
 
 prepare() {
 

@@ -1,0 +1,23 @@
+pkgname=python2-ivy
+_pkgname=ivy-python
+pkgver=r1.be81ccf
+pkgrel=1
+pkgdesc="Python2 bindings for ivy"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='https://github.com/ArchAssault-Project/ivy-python'
+license=('custom')
+makedepends=('python2')
+source=("git+https://github.com/ArchAssault-Project/ivy-python.git")
+sha256sums=('SKIP')
+provides=('python2-ivy')
+
+pkgver() {
+  cd "$srcdir/$_pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/$_pkgname"
+  python2 setup.py install --root=$pkgdir/ --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/python2-ivy/README"
+}

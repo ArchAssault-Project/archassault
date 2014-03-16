@@ -44,4 +44,4 @@ snmpscan/snmpscan-0.1.pl
 *.py
 *.mtz
 *.cpp
-/*/*/
+#/*/*/
