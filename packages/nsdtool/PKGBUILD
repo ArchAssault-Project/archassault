@@ -16,4 +16,10 @@ package() {
 	install -Dm755 "$pkgdir/usr/share/nsdtool"
 	cp -a --no-preserve=ownership project/* "$pkgdir/usr/share/nsdtool"
 	install -m644 README "$pkgdir/usr/share/nsdtool/README"
+	cat > "$pkgdir/usr/bin/nsdtool" <<EOF
+#!/bin/bash
+cd /usr/share/nsdtool
+./main.py "\$@"
+EOF
+  chmod +x "$pkgdir/usr/bin/sqlninja"
 }
