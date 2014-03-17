@@ -1,3 +1,5 @@
+# Maintainer: ArchAssault <team archassautl org>
+# Contributor: Théophile Studer
 pkgname=python2-yara
 pkgver=2.1.0
 pkgrel=1
@@ -9,15 +11,15 @@ license=('APACHE')
 replaces=('yara-python')
 depends=('python2' 'yara')
 source=("https://github.com/plusvic/yara/archive/$pkgver.tar.gz")
-md5sums=('7708b51eb61c560691ee9640af111625')
+sha512sums=('082a603ea648e4d83d45d6e30937c60eb0bf2092fb1c6845103380be12f9b72a05e439403cd08cbccdc598ba1d5cd51d394db3d989d154e95a91317d6d4ff8e5')
 
 build() {
   cd "$srcdir/yara-$pkgver/yara-python"
   sed -i 's|env python$|env python2|' *.py
+	python2 setup.py build
 }
 
 package() {
   cd "$srcdir/yara-$pkgver/yara-python"
-  python2 setup.py build
   python2 setup.py install --root="$pkgdir/" --optimize=1
 }
