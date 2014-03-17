@@ -1,3 +1,5 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: codemunkii
 pkgname=libbtbb
 pkgver=2014.02.R2
 pkgrel=3
@@ -7,7 +9,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
 depends=('glibc')
 source=("https://github.com/greatscottgadgets/libbtbb/archive/2014-02-R2.tar.gz")
-md5sums=('17734432854183e4ca1c287172fa5477')
+sha512sums=('4696f043061b15455be6c6aab8b4b1ee3823cb736014237eadbf60fca0ae54457aab160b23a1a067192b8c811d363586ac7f4b45cfa55e54f6fac24967dccfd2')
 
 build() {
   cd "$srcdir/libbtbb-${pkgver//./-}"
