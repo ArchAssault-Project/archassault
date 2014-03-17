@@ -1,25 +1,23 @@
 pkgname=libbtbb
-pkgver=2012.10.R3
-pkgrel=2
+pkgver=2014.02.R2
+pkgrel=3
 pkgdesc="A library to decode Bluetooth baseband packets, as produced by the Ubertooth and GR-Bluetooth projects."
-url="http://sourceforge.net/projects/libbtbb/"
+url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
 depends=('glibc')
-source=("http://downloads.sourceforge.net/project/libbtbb/libbtbb-2012-10-R3.tar.xz")
-md5sums=('9e865be366a336d3b295663e691d274e')
+source=("https://github.com/greatscottgadgets/libbtbb/archive/2014-02-R2.tar.gz")
+md5sums=('17734432854183e4ca1c287172fa5477')
 
 build() {
   cd "$srcdir/libbtbb-${pkgver//./-}"
-  make
+  mkdir build
 }
 
 package() {
-  cd "$srcdir/libbtbb-${pkgver//./-}"
+  cd "$srcdir/libbtbb-${pkgver//./-}/build"
 
-  # Base directories.
-  install -dm755 "$pkgdir/usr/lib"
-  install -dm755 "$pkgdir/usr/include"
-
-  make LDCONFIG= "INSTALL_DIR=$pkgdir/usr/lib/" "INCLUDE_DIR=$pkgdir/usr/include/" install
+  cmake -DCMAKE_INSTALL_PREFIX="$pkgdir/usr" ..
+  make
+  make install
 }
