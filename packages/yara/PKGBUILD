@@ -2,7 +2,7 @@
 # Contributor: Théophile Studer
 pkgname=yara
 pkgver=2.1.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
