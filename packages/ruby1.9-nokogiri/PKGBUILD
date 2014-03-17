@@ -2,7 +2,7 @@
 pkgname=ruby1.9-nokogiri
 _gemname=nokogiri
 pkgver=1.6.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('MIT')
