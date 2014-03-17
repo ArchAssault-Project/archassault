@@ -1,11 +1,15 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Jeremy Lynch <jl@archassault.org>
+# Contributor: Dan McGee <dan@archlinux.org>
 pkgname=archassault-mirrorlist
-pkgver=20140307
+pkgver=20140316
 pkgrel=1
 pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
 url="http://archassault.org/mirrorlist/"
 license=('GPL')
 groups=('archassault' 'archassault-base')
+replaces=('archassault-meta-armsetup')
 backup=(etc/pacman.d/archassault-mirrorlist)
 source=(archassault-mirrorlist)
 
