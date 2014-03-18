@@ -1,7 +1,7 @@
 post_install() {
-  setcap cap_net_raw,cap_net_admin=eip /opt/cuckoo/cuckoo_tcpdump
+  setcap cap_net_raw,cap_net_admin=eip /usr/share/cuckoo/cuckoo_tcpdump
   grep -q '^cuckoo:' /etc/group || groupadd cuckoo
-  chgrp -R cuckoo /opt/cuckoo
+  chgrp -R cuckoo /usr/share/cuckoo
   echo "Add yourself to the cuckoo group to use cuckoo as an unprivledged user."
 }
 

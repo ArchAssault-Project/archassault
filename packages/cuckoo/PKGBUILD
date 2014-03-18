@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=cuckoo
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A malware analyze system"
 url="http://cuckoosandbox.org/"
 arch=('any')
