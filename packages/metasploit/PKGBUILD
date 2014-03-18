@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=20140130.90.g0c5d748
+pkgver=90.g0c5d748
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
 depends=('ruby1.9' 'libpcap' 'libxslt' 'postgresql' 'postgresql-libs' 'ruby1.9-robots' 'ruby1.9-json' 'ruby1.9-activesupport' 'ruby1.9-bundler' 'ruby1.9-bcrypt-ruby' 'ruby1.9-msgpack' 'ruby1.9-nokogiri' 'ruby1.9-packetfu' 'ruby1.9-activerecord' 'ruby1.9-metasploit_data_models' 'ruby1.9-pg' 'ruby1.9-network_interface' 'ruby1.9-pcaprub' 'ruby1.9-redcarpet' 'ruby1.9-yard' 'ruby1.9-factory_girl' 'ruby1.9-fivemat' 'ruby1.9-rake' 'ruby1.9-database_cleaner' 'ruby1.9-rspec' 'ruby1.9-shoulda-matchers' 'ruby1.9-simplecov' 'ruby1.9-timecop')
@@ -17,7 +18,7 @@ md5sums=('SKIP')
 
 pkgver() {
   cd metasploit-framework
-  git describe --always | sed 's|-|.|g'
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
