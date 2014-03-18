@@ -9,11 +9,12 @@ license=('MIT')
 groups=('archassault')
 depends=('python')
 source=("http://www.curesec.com/data/tools/$pkgname.tar.bz2")
-sha512sums=('433c855055e00879b09c56c9a9e856442efbbc118588a271bec794f91cf7a87c07557341f146070af16d8ac1ba3b484b7195f29bf3936b7cee680528ff1e694e')
+sha512sums=('1430e68644d91b1bb7b89ca28ef851fd81955696b62feacd184c48ecafc7008e312fca987f9a187bb5943749730590ce473e99bbe2de0e7fd6c89ff004e8f7de')
 
 package() {
   cd "$srcdir/$pkgname"
-  install -Dm755 "$pkgdir/usr/share/nsdtool"
+  install -dm755 "$pkgdir/usr/share/nsdtool"
+  install -dm755 "$pkgdir/usr/bin"
   cp -a --no-preserve=ownership project/* "$pkgdir/usr/share/nsdtool"
   install -m644 README "$pkgdir/usr/share/nsdtool/README"
   install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/nsdtool/LICENSE.txt"
