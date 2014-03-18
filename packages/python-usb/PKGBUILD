@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Codemunkii
+
+pkgname=python-pyusb
+pkgver=1.0.0b1
+pkgrel=1
+pkgdesc="A pure Python module which provides USB access."
+arch=('any')
+url="https://github.com/walac/pyusb"
+license=('Custom')
+makedepends=('python-distribute')
+depends=('python' 'libusb-compat')
+source=("https://github.com/walac/pyusb/archive/${pkgver}.tar.gz")
+md5sums=('fe439e0a84749f06eddd65927b7496ad')
+
+build() {
+  cd $srcdir/pyusb-$pkgver
+  python setup.py build
+}
+
+package() {
+  cd $srcdir/pyusb-$pkgver
+  python setup.py install -f --root="$pkgdir"
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
