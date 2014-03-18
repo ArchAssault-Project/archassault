@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-ffi
 pkgver=1.9.3
 pkgrel=1

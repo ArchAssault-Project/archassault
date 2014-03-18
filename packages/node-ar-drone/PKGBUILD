@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=node-ar-drone
 pkgver=v0.3.1
 pkgrel=1

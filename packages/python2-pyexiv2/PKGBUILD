@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pyexiv2
 _pkgname=pyexiv2
 pkgver=0.3.2

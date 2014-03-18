@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=batman-adv
 pkgver=2013.4.0
 pkgrel=2

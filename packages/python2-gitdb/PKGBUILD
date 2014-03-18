@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-gitdb
 pkgver=0.5.4
 pkgrel=2

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=qgroundcontrol-git
 pkgver=r3643.812348f
 pkgrel=1

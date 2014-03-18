@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pcapy
 pkgver=0.10.8
 pkgrel=3

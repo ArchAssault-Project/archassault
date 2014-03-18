@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _author=DARREN
 _perlmod=Net-Nslookup
 pkgname=perl-net-nslookup

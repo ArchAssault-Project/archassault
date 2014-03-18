@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-networkx
 _pythonname=networkx
 pkgver=1.8.1

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-tweepy
 pkgver=20100216
 pkgrel=5

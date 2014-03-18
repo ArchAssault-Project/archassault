@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pyside
 _pkgrealname=pyside
 pkgver=1.2.1

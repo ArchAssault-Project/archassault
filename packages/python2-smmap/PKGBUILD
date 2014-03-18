@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-smmap
 pkgver=0.8.2
 pkgrel=2

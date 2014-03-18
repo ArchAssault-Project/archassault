@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='http-enum'
 pkgver='0.3'
 pkgrel=1

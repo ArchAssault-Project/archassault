@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=mitmproxy
 pkgver=0.10.1
 pkgrel=1

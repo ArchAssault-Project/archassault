@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-module-build-tiny'
 _pkgname='Module-Build-Tiny'
 pkgver='0.028'

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=seclists
 pkgver=r50.9dc0d15
 pkgrel=1

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-equalizer
 pkgver=0.0.9
 pkgrel=1

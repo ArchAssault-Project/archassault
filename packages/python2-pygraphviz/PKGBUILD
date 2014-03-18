@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pygraphviz
 pkgver=1.1
 pkgrel=4

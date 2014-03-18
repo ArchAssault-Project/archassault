@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=zaproxy
 pkgver=2.1.0
 pkgrel=1

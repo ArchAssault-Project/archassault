@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=tsh-sctp
 pkgver=r2.850a2da
 pkgrel=1

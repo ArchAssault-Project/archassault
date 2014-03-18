@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-net-ssh
 pkgver=2.7.0
 pkgrel=0

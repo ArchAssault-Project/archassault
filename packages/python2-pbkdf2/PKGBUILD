@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pbkdf2
 _pkgname=pbkdf2
 pkgver=1.3

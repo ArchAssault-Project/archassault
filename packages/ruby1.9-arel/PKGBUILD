@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-arel
 pkgver=3.0.2
 pkgrel=1

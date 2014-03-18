@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-py-bcrypt
 pkgver=0.4
 pkgrel=2

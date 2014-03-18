@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-paint
 _gemname=${pkgname#ruby-}
 pkgver=0.8.6

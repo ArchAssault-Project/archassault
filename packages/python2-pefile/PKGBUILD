@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pefile
 pkgver=1.2.10_114
 pkgrel=4

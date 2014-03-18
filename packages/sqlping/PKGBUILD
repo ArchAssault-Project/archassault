@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='sqlping'
 pkgver='3'
 pkgrel=1

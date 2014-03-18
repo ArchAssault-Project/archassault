@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _pkgname=pysnmp
 pkgname=python2-$_pkgname
 pkgver=4.2.3

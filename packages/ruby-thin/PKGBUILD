@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-thin
 _gemname=thin
 pkgver=1.6.1

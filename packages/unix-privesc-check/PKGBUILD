@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=unix-privesc-check
 pkgver=1.4
 pkgrel=1

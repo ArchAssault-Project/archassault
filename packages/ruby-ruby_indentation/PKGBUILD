@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-ruby_indentation
 _gemname=${pkgname#ruby-}
 pkgver=0.2.0

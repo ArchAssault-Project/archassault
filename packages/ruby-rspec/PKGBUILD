@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-rspec
 _gemname=rspec
 pkgver=2.14.1

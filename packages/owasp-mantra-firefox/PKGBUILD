@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=owasp-mantra-firefox
 pkgver=0.92b
 pkgrel=1

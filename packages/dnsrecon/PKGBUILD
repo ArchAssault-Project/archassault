@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=dnsrecon
 pkgver=0.8.5
 pkgrel=1

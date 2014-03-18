@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pyx
 pkgver=0.12.1
 pkgrel=2

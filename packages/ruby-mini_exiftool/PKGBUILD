@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-mini_exiftool
 _gemname=mini_exiftool
 pkgver=2.3.0

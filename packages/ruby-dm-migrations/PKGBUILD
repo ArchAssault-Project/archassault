@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-dm-migrations
 _gemname=${pkgname#ruby-}
 pkgver=1.2.0

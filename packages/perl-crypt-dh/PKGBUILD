@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-crypt-dh
 pkgver=0.07
 pkgrel=5

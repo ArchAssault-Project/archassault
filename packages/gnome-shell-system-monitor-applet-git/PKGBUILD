@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=gnome-shell-system-monitor-applet-git
 pkgver=651.452ffc5
 _gitname=gnome-shell-system-monitor-applet

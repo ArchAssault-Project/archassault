@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=scrape-dns-git
 pkgver=r52.0d6b69e
 pkgrel=1

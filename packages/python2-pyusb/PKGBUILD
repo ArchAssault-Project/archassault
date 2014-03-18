@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _pkgname=pyusb
 pkgname=python2-pyusb
 pkgver=0.4.3

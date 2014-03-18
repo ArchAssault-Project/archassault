@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pdfminer
 pkgver=20110515
 pkgrel=2

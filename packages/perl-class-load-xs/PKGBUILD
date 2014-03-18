@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-class-load-xs
 _lastauthor=D/DR/DROLSKY
 _pkgname=Class-Load-XS

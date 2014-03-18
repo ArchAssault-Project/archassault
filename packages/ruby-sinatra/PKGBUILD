@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-sinatra
 _gemname=${ruby-sinatra}
 pkgver=1.4.4

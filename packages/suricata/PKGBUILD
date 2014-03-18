@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
 pkgver=1.4.7
 pkgrel=3

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-tilt
 _gemname=${pkgname#ruby-}
 pkgver=1.3.6
