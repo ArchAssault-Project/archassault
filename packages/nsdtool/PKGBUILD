@@ -5,7 +5,7 @@ pkgrel=1
 pkgdesc="toolset of scripts used to detect netgear switches in local networks. The tool contains some extra features like bruteforce and setting a new password"
 arch=('any')
 url="http://www.curesec.com/en/publications/tools.html"
-license=('CUSTOM')
+license=('MIT')
 groups=('archassault')
 depends=('python')
 source=("http://www.curesec.com/data/tools/$pkgname.tar.bz2")
@@ -13,13 +13,14 @@ sha512sums=('433c855055e00879b09c56c9a9e856442efbbc118588a271bec794f91cf7a87c075
 
 package() {
   cd "$srcdir/$pkgname"
-	install -Dm755 "$pkgdir/usr/share/nsdtool"
-	cp -a --no-preserve=ownership project/* "$pkgdir/usr/share/nsdtool"
-	install -m644 README "$pkgdir/usr/share/nsdtool/README"
-	cat > "$pkgdir/usr/bin/nsdtool" <<EOF
+  install -Dm755 "$pkgdir/usr/share/nsdtool"
+  cp -a --no-preserve=ownership project/* "$pkgdir/usr/share/nsdtool"
+  install -m644 README "$pkgdir/usr/share/nsdtool/README"
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/nsdtool/LICENSE.txt"
+  cat > "$pkgdir/usr/bin/nsdtool" <<EOF
 #!/bin/bash
 cd /usr/share/nsdtool
-./main.py "\$@"
+python main.py "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/sqlninja"
+  chmod +x "$pkgdir/usr/bin/nsdtool"
 }
