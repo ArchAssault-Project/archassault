@@ -9,6 +9,7 @@ pkgdesc="A 2.4 GHz wireless development board suitable for Bluetooth experimenta
 url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
+makedepends=('python-distribute')
 depends=('libusbx' 'libbtbb' 'bluez-libs' 'python-numpy')
 source=("https://github.com/greatscottgadgets/ubertooth/archive/2014-02-R2.tar.gz"
 	'ubertooth.desktop')
