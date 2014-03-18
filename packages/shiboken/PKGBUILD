@@ -1,3 +1,5 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
 pkgname=shiboken
 pkgver=1.2.1
 pkgrel=4
