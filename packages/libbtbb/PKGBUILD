@@ -1,5 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-# Contributor: codemunkii
+# Contributor: Codemunkii
+
 pkgname=libbtbb
 pkgver=2014.02.R2
 pkgrel=3
