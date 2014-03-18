@@ -15,7 +15,7 @@ depends=('python2' 'python2-sqlalchemy' 'python2-dpkt' 'python2-jinja'
 source=("http://downloads.cuckoosandbox.org/$pkgver/cuckoo_$pkgver.tar.gz"
 				'cuckoo.desktop')
 sha512sums=('9c73a7032a3082b8392866e4d6e01c6053a2ac5e3de9754883f11a2d2923c9c50710cfe1c79202be183c0929e6f092e6701111ea2402b202d6af2d9c0de57a95'
-            '04278b40480d7518e19821739d7cb6267133fe8d6590017756fecbdce1a96a93cdc8a8ae9ebe8e76697e931824e2f11bb74d190f7776ae6ed8995168705d67ed')
+            'fde1e6d9c4bea273d848b9dbee09027f6eb7e8b48116ee4bcaddef314c7c22f8bca5a3e7e9dabe06d007fe603fe7c1cd518b2c707b41866945b0adf83dcc42a4')
 
 prepare() {
    cd "$srcdir/cuckoo"
