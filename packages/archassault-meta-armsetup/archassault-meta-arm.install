@@ -1,5 +1,5 @@
 pre_install() {
-	if [[ ! -d /etc/pacman.d/gnupg ]] ; then
+	if [[ ! -f /etc/pacman.d/keyrings/archlinuxarm.gpg ]] ; then
 		sed -i '/# An example of a custom package repository./i \
 [archassault] \
 SigLevel = Required DatabaseOptional \
