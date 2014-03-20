@@ -1,13 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=veil
-pkgver=2.2.0.r116
+pkgver=191.r
 pkgrel=1
 groups=('archassault' 'archassault-autonomous' 'archassault-exploit')
 pkgdesc="A tool designed to generate metasploit payloads that bypass common anti-virus solutions."
-url="https://github.com/veil-evasion/Veil"
+url="https://github.com/Veil-Framework/Veil-Evasion"
 arch=('any')
 license=('GPL2')
 depends=('python2' 'python2-cryptography' 'metasploit')
+makedepends=('git')
 ##
 # 'setup/setup.sh' wants to run the following to install deps ::
 #
@@ -16,7 +17,7 @@ depends=('python2' 'python2-cryptography' 'metasploit')
 #  wget https://www.veil-evasion.com/InstallMe/requiredfiles.zip --no-check-certificate
 #  wget https://www.veil-evasion.com/InstallMe/pyinstaller-2.0.zip --no-check-certificate
 ##
-source=("git+https://github.com/veil-evasion/Veil")
+source=("Veil::git+https://github.com/Veil-Framework/Veil-Evasion.git")
 md5sums=('SKIP')
 
 pkgver() {
@@ -27,24 +28,18 @@ pkgver() {
 
 prepare() {
   cd "$srcdir/Veil"
-  grep -iRl 'python' "$srcdir/Veil" |
-    xargs sed -i -e 's|#!.*/usr/bin/python|#!/usr/bin/python2|' \
-                 -e 's|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
-  sed -i 's|python update.py|python2 update.py|' "$srcdir/Veil/setup/setup.sh"
+  find "${srcdir}/Veil" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
 }
 
 package() {
   cd "$srcdir/Veil"
-  # Base directories.
   install -dm755 "$pkgdir/usr/share/veil"
   install -dm755 "$pkgdir/usr/bin/"
-
   cp -a * "$pkgdir/usr/share/veil"
-
   cat > "$pkgdir/usr/bin/veil" << EOF
 #!/bin/sh
 cd /usr/share/veil/
-python2 Veil.py "\$@"
+python2 Veil-Evasion.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/veil"
 }

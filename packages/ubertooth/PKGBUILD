@@ -3,12 +3,13 @@
 
 pkgname=ubertooth
 pkgver=2014.02.R2
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-bluetooth')
 pkgdesc="A 2.4 GHz wireless development board suitable for Bluetooth experimentation. Open source hardware and software. Tools only"
 url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
+makedepends=('cmake' 'libpcap')
 depends=('libusbx' 'libbtbb' 'bluez-libs' 'python-numpy')
 source=("https://github.com/greatscottgadgets/ubertooth/archive/2014-02-R2.tar.gz"
 	'ubertooth.desktop' 'specan_ui.patch' 'usb_dfu.patch')
@@ -23,10 +24,10 @@ build() {
   mkdir build
   
   cd "$srcdir/ubertooth-${pkgver//./-}/host/python/specan_ui"
-  patch CMakeLists.txt < $startdir/specan_ui.patch
+  patch CMakeLists.txt < $srcdir/specan_ui.patch
 
   cd "$srcdir/ubertooth-${pkgver//./-}/host/python/usb_dfu"
-  patch CMakeLists.txt < $startdir/usb_dfu.patch
+  patch CMakeLists.txt < $srcdir/usb_dfu.patch
 }
 
 package() {
