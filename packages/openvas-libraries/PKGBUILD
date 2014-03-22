@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-libraries
 pkgver=7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="The OpenVAS libraries"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
@@ -13,24 +13,24 @@ options=('!makeflags')
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
 # Here's a list of downloads for future reference: http://wald.intevation.org/frs/?group_id=29
-source=("http://wald.intevation.org/frs/download.php/1450/openvas-libraries-7.0+beta3.tar.gz")
-md5sums=('6f784eb9b3ba4eef53843635946626d4')
+source=("http://wald.intevation.org/frs/download.php/1568/openvas-libraries-7.0+beta7.tar.gz")
+sha512sums=('926c8cb2112acbe97871bf5ba98f58828da65fc47b42975770af8b5e58eed27e909052b5bde03730d5a20c4ae89a69325c41f40f2c945860d4c0dac4547a1857')
 
 prepare() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver+beta7"
 
   find . -name 'CMakeLists.txt' -exec sed -i 's/-Werror//' {} \;
 }
 
 build() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver+beta7"
 
   cmake -DCMAKE_INSTALL_PREFIX=/usr -DLIBDIR=/usr/lib -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make CFLAGS=-Wno-error CC=--disable-werror
 }
 
 package() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver+beta7"
 
   make "DESTDIR=$pkgdir/" install
 }
