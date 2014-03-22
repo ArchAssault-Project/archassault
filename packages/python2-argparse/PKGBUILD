@@ -1,0 +1,29 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Nicolas Pouillard (http://nicolaspouillard.fr)
+# Contributor: Lukas Linhart <bugs@almad.net>
+# Contributor: Changaco <changaco Î±Ï„ changaco Î´Î¿Ï„ net>
+# Contributor: Nicolas Pouillard <nicolas.pouillard@gmail.com>
+# Contributor: James Bulmer <nekinie@gmail.com>
+
+pkgname="python2-argparse"
+pkgver=1.2.1
+pkgrel=2
+pkgdesc="Python command-line parsing library"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://code.google.com/p/argparse/"
+license=("custom")
+depends=("python2")
+makedepends=("python2-setuptools")
+source=("http://argparse.googlecode.com/files/argparse-${pkgver}.tar.gz")
+sha512sums=("2fbef8cb61e506c706957ab6e135840c")
+
+build() {
+  cd "${srcdir}/argparse-${pkgver}/"
+  python2 setup.py build
+}
+
+package() {
+  cd "${srcdir}/argparse-${pkgver}/"
+  python2 setup.py install --root="${pkgdir}/" --optimize=1
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/python2-argparse/LICENSE"
+}
