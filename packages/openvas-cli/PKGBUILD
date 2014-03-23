@@ -1,29 +1,30 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-cli
-pkgver=1.2.0
+pkgver=1.3
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The OpenVAS Command-Line Interface"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
-depends=('gtk2' 'openvas-libraries' 'cmake')
+depends=('openvas-libraries')
+makedepends=('cmake' 'xmltoman' 'doxygen')
 options=('!makeflags' '!buildflags')
 # The file downloaded is determined by the `/1323/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
-source=('http://wald.intevation.org/frs/download.php/1323/openvas-cli-1.2.0.tar.gz')
-md5sums=('e712eb71f3a13cc1b70b50f696465f8e')
+source=('http://wald.intevation.org/frs/download.php/1408/openvas-cli-1.3+beta2.tar.gz')
+sha512sums=('9d0b2ced090ac68317550edc9b7254b182f6aa8b48bba77de3aaad4ca83a311f689190271f819a94bf2359f6d8d4ce95cf107663a396376f649bfcfb7acb657f')
 
 build() {
-  cd "$srcdir/openvas-cli-$pkgver"
+  cd "$srcdir/openvas-cli-$pkgver+beta2"
 
   cmake -DCMAKE_INSTALL_PREFIX=/usr -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make
 }
 
 package() {
-  cd "$srcdir/openvas-cli-$pkgver"
+  cd "$srcdir/openvas-cli-$pkgver+beta2"
 
   make DESTDIR="$pkgdir/" install
 }

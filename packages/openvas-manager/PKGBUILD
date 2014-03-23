@@ -1,37 +1,41 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-manager
-pkgver=4.0.4
+pkgver=5.0
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The OpenVAS Manager is a layer between the OpenVAS Scanner and various client applications"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
+provides=(openvas-administrator)
+conflicts=(openvas-administrator)
+replaces=(openvas-administratory)
 # TODO: some of these belong in makedepends... double check though.
 # check other packages as well.
-depends=('glib2' 'openvas-libraries' 'cmake')
+depends=('glib2' 'openvas-libraries')
+makedepends=('cmake' 'doxygen' 'sqlite3' 'xmltoman')
 options=('!makeflags !buildflags')
 # The file downloaded is determined by the `/1421/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
-source=('http://wald.intevation.org/frs/download.php/1434/openvas-manager-4.0.4.tar.gz')
-md5sums=('782238496faa2c55ea505ffdae4b41b1')
+source=('http://wald.intevation.org/frs/download.php/1576/openvas-manager-5.0+beta10.tar.gz')
+sha512sums=('cf85f2aec73d6bd4deb778280a9cbf969a24eabd6614300350bf2ba1a8cc5dfc1f833e2ca969506f1116877760f483cfec25146490017193350b9a79c2470f92')
 
 prepare() {
-  cd "$srcdir/openvas-manager-$pkgver"
+  cd "$srcdir/openvas-manager-$pkgver+beta10"
 
   find . -name 'CMakeLists.txt' -exec sed -i 's/-Werror//' {} \;
 }
 
 build() {
-  cd "$srcdir/openvas-manager-$pkgver"
+  cd "$srcdir/openvas-manager-$pkgver+beta10"
 
   cmake -DSBINDIR=/usr/bin -DCMAKE_INSTALL_PREFIX=/usr -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make
 }
 
 package() {
-  cd "$srcdir/openvas-manager-$pkgver"
+  cd "$srcdir/openvas-manager-$pkgver+beta10"
 
   make DESTDIR="$pkgdir/" install
 }

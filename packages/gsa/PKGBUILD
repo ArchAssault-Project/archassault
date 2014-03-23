@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=gsa
-pkgver=4.0.2
-pkgrel=3
+pkgver=5.0
+pkgrel=1
 pkgdesc="Greenbone Security Assistant (gsa) - OpenVAS web frontend"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
@@ -9,18 +9,21 @@ license=GPL
 groups=('archassault')
 depends=('glibc' 'libmicrohttpd' 'libxml2' 'glib2' 'libssh' 'libxslt' 'gnutls' 'openvas-libraries')
 makedepends=('gcc' 'automake' 'cmake' 'doxygen' 'xmltoman')
+provides=('greenbone-security-assistant')
+conflicts=('greenbone-security-assistant')
+replaces=('greenbone-security-assistant')
 backup=(etc/openvas/gsad_log.conf)
-source=(http://wald.intevation.org/frs/download.php/1422/greenbone-security-assistant-4.0.2.tar.gz)
-sha512sums=('34a32f21f6a9c3b35d8048f5f46da686084b58ac3d60aa83ea95d7c5eaab7d8fe781e4cef1b3fb5df5ddc11ccbf21907f90e1a56a27824033630a89acb306aab')
+source=(http://wald.intevation.org/frs/download.php/1580/greenbone-security-assistant-5.0+beta10.tar.gz)
+sha512sums=('b6b590a62ae3c32c138d7823556d519bb8230ca420749607957b31dbc8fd494c83b9c71318585240f02d462fafab828b7db676caaf5a561e9885392b36c3becb')
 
 
 build() {
-  cd "$srcdir/greenbone-security-assistant-$pkgver"
+  cd "$srcdir/greenbone-security-assistant-$pkgver+beta10"
   cmake -DSBINDIR=/usr/bin -DCMAKE_INSTALL_PREFIX=/usr -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make
 }
 
 package() {
-  cd "$srcdir/greenbone-security-assistant-$pkgver"
+  cd "$srcdir/greenbone-security-assistant-$pkgver+beta10"
   make DESTDIR="$pkgdir/" install
 }
