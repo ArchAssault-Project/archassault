@@ -1,0 +1,39 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=hashid-git
+pkgver=r119.7430b57
+pkgrel=1
+pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
+url="https://github.com/psypanda/hashID"
+arch=('any')
+license=('GPL3')
+groups=('archassault')
+depends=('python')
+makedepends=('git')
+provides=('hashid')
+conflicts=('hashid')
+replaces=('hashid')
+source=(hashid-git::git+https://github.com/psypanda/hashID.git)
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/hashid-git"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir"/hashid-git
+  install -dm755 "$pkgdir"/usr/bin/
+  install -dm755 "$pkgdir"/usr/share/hashid-git
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
+  install -m644 README.md "$pkgdir"/usr/share/hashid-git/README.md
+  install -m644 CHANGELOG.md "$pkgdir"/usr/share/hashid-git/CHANGELOG.md
+  install -Dm755 python/hashid.py "$pkgdir"/usr/share/hashid-git/python/hashid.py
+  cp -a --no-preserve=ownership js "$pkgdir"/usr/share/hashid-git/
+  cat > "$pkgdir"/usr/bin/hashid.py <<EOF
+#!/bin/sh
+cd /usr/share/hashid-git
+python hashid.py "\$@"
+EOF
+  chmod +x "$pkgdir"/usr/bin/hashid.py
+}
+
