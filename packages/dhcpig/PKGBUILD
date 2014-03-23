@@ -9,6 +9,9 @@ url="https://github.com/kamorin/DHCPig"
 license=('GPL2')
 arch=('any')
 depends=('python2' 'git' 'scapy')
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
 source=("git+https://github.com/kamorin/DHCPig")
 md5sums=('SKIP')
 

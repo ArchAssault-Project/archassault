@@ -8,6 +8,9 @@ url="https://www.owasp.org/index.php/OWASP_OWTF"
 license=('custom')
 arch=('any')
 depends=('python2' 'python2-jinja' 'python2-tornado' 'python2-pycurl'
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
          'python2-pexpect' 'python2-lxml')
 makedepends=('git')
 options=('!strip')

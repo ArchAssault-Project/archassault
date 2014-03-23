@@ -8,6 +8,9 @@ url='http://beefproject.com/'
 license=('Apache')
 makedepends=('git')
 depends=('ruby1.9' 'ruby1.9-sqlite3' 'ruby1.9-thin' 'ruby1.9-sinatra'
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
          'ruby1.9-ansi' 'ruby1.9-term-ansicolor' 'ruby1.9-dm-core' 'ruby1.9-json'
          'ruby1.9-data_objects' 'ruby1.9-dm-sqlite-adapter' 'ruby1.9-parseconfig'
          'ruby1.9-dm-migrations' 'ruby1.9-msfrpc-client' 'ruby1.9-em-websocket'
