@@ -1,7 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
 
-pkgbase=python-pyside-common
 pkgname=python-pyside-common
 pkgver=1.2.1
 pkgrel=1
