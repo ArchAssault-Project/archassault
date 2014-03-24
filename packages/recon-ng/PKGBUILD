@@ -8,9 +8,6 @@ arch=('any')
 url='https://bitbucket.org/LaNMaSteR53/recon-ng'
 license=('GPL3')
 depends=('python2' 'python2-slowaes' 'python2-dnspython' 'python2-jsonrpclib')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
 makedepends=('git')
 source=("git+https://bitbucket.org/LaNMaSteR53/recon-ng.git"
         "recon-ng.sh"

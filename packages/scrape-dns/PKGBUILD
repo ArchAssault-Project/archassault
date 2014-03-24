@@ -8,9 +8,6 @@ arch=('any')
 url='https://github.com/304GEEK/Scrape-DNS'
 license=('GPL2')
 depends=('bash' 'dnsutils')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
 source=("git+https://github.com/304GEEK/Scrape-DNS.git")
 sha256sums=('SKIP')
 

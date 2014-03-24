@@ -8,9 +8,6 @@ arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://project-rainbowcrack.com/"
 license=('custom')
 depends=('openssl')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
 makedepends=('git')
 source=("git+http://github.com/ArchAssault-Project/rainbowcrack"
         "http://www.oxid.it/downloads/rc_patch_mysql_pix.zip")

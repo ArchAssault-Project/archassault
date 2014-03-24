@@ -18,12 +18,14 @@ prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/ usr/bin/python2|'
 }
 
-
 package() {
   cd "$srcdir"
+
   install -dm755 "$pkgdir/usr/share/responder"
   install -dm755 "$pkgdir/usr/bin"
+
   cp -a * "$pkgdir/usr/share/responder"
+
   cat > "$pkgdir/usr/bin/responder" <<EOF
 #!/bin/sh
 python2 /usr/share/responder/Responder.py "\$@"

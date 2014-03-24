@@ -8,9 +8,6 @@ pkgdesc="Injects packets in the transmission flow that are able to seriously dis
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.delirandom.net/sniffjoke/'
 depends=('iptables' 'tcpdump')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
 makedepends=('cmake' 'git')
 source=('git+https://github.com/vecna/sniffjoke'
 	 CMake.patch)

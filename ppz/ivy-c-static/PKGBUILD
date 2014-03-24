@@ -10,9 +10,6 @@ source=("git+https://github.com/ArchAssault-Project/ivy-c.git"
         "man_path.patch")
 options=('staticlibs' '!libtool')
 depends=('tk' 'glib2' 'libxt')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
 makedepends=('git')
 sha256sums=('SKIP'
             '665053919bc934d39707ddde27a3ca249cdabb7735b21ddec5ffa9cf289acd9e')
