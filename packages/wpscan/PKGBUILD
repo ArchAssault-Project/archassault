@@ -8,12 +8,12 @@ arch=('any')
 url="http://wpscan.org"
 license=('GPL3')
 depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
-				'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
-				'ruby1.9-rspec' 'ruby1.9-mime-types')
-makedepends=('git' 'libxslt')
 provides=('non-gitname')
 conflicts=('non-gitname')
 replaces=('non-gitname')
+				'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
+				'ruby1.9-rspec' 'ruby1.9-mime-types')
+makedepends=('git' 'libxslt')
 options=(!strip)
 source=('git+http://github.com/wpscanteam/wpscan')
 md5sums=('SKIP')
