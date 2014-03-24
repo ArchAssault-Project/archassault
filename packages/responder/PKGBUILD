@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=responder
-pkgver=2.0.2
+pkgver=2.0.5
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A LLMNR and NBT-NS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication."
@@ -8,28 +8,22 @@ url="https://github.com/SpiderLabs/Responder"
 license=('custom')
 arch=('any')
 depends=('python2')
-provides=('non-gitname')
-conflicts=('non-gitname')
-replaces=('non-gitname')
-makedepends=('git')
-source=("git+https://github.com/SpiderLabs/Responder" 'responder.desktop')
-sha512sums=('SKIP'
+makedepends=('unzip')
+source=("https://github.com/SpiderLabs/Responder/archive/v$pkgver.zip" 'responder.desktop')
+sha512sums=('53b224647cecc0e74c5e3c07e11022e415d909519294203fb08420287d114b7b6577da09a1c2c5d877a67774b34d8c663e460cc7b2988a72d7fec1519622b6e2'
             'da830751eea5dd3ca6bc9a80892daf4c21b3e96ef9b309cacb65a82f10b6da7e4c6613c78ebb8c6825304bb9a8ca8d705d645db9bf47e742b8541030df8a7e10')
 
 prepare() {
-  cd "$srcdir/Responder"
-  git checkout v"$pkgver"
+   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env       python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/ usr/bin/python2|'
 }
+
 
 package() {
   cd "$srcdir"
-
-  # Base directories.
   install -dm755 "$pkgdir/usr/share"
   install -dm755 "$pkgdir/usr/bin"
-
   cp -a * "$pkgdir/usr/share/responder"
-
   cat > "$pkgdir/usr/bin/responder" <<EOF
 #!/bin/sh
 python2 /usr/share/responder/Responder.py "\$@"
