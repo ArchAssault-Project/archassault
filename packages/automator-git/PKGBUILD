@@ -8,6 +8,9 @@ arch=('any')
 url='https://github.com/1aN0rmus/TekDefense-Automater'
 license=('MIT')
 depends=('python2')
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
 source=("git+https://github.com/1aN0rmus/TekDefense-Automater.git")
 sha256sums=('SKIP')
 

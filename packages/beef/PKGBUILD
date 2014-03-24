@@ -17,6 +17,9 @@ depends=('ruby1.9' 'python2' 'sqlite' 'ruby1.9-bundler' 'ruby1.9-sqlite3' 'ruby1
          'ruby1.9-uglifier' 'ruby1.9-therubyracer' 'ruby1.9-rubyzip'
          'ruby1.9-simple_oauth')
 _gitname='beef'
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
 source=('git+http://github.com/beefproject/beef.git')
 md5sums=('SKIP')
 

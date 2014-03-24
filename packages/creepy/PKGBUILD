@@ -12,6 +12,9 @@ makedepends=('git')
 depends=('python2' 'python2-tweepy' 'python2-flickrapi'
          'python2-configobj' 'python2-pyqt4' 'python2-instagram'
          'python2-yapsy')
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
 source=('git+https://github.com/ilektrojohn/creepy.git')
 md5sums=('SKIP')
 

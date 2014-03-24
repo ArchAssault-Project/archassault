@@ -9,6 +9,9 @@ url='https://www.trustedsec.com/downloads/artillery/'
 license=('BSD')
 makedepends=('git')
 depends=('python2')
+provides=('non-gitname')
+conflicts=('non-gitname')
+replaces=('non-gitname')
 source=('git+https://github.com/trustedsec/artillery/')
 md5sums=('SKIP')
 
