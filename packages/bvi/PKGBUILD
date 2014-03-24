@@ -7,11 +7,12 @@ _pkgver=1.4.0beta
 pkgrel=1
 pkgdesc="A display-oriented editor for binary files operate like 'vi' editor"
 url="http://bvi.sourceforge.net"
-arch=('any')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 depends=('ncurses')
-license="GPL"
+groups=('archassault')
+license=('GPL')
 source=('http://downloads.sourceforge.net/sourceforge/bvi/'$pkgname-$_pkgver'.src.tar.gz')
-md5sums=('460684427d2fe253013fa0d78c8ca4e4')
+sha512sums=('6727ad89ef79ffc79e49192e2887470356822f29b395acdeabb1374b542d3ba322cd0eb183cab846c1f6a32e937838f034cb01914a2b27f13c95d549d2e0b595')
 
 build (){
   cd "$srcdir/$pkgname-$_pkgver"
