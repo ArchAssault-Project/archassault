@@ -1,6 +1,6 @@
 #!/bin/bash
 # Generates changelog day by day
-#NEXT=$(date --date='1 day')
+# ArchAssault
 echo "CHANGELOG"
 echo ----------------------
 git log --no-merges --format="%cd" --date=short | sort -u -r | while read DATE ; do
