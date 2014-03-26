@@ -59,6 +59,3 @@ package_archassault-meta-iso-all() {
 				perl-image-exiftool)
 }
 
-package_archassault-meta-openbox-desktop() {
-
-}
