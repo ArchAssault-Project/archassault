@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=0trace
 pkgver=1.5
 pkgrel=1
@@ -8,12 +9,8 @@ url="http://jon.oberheide.org/0trace/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPLv3')
 depends=('libdnet' 'python2-dpkt' 'python2-pypcap')
-source=("http://jon.oberheide.org/0trace/downloads/0trace.py")
-md5sums=('15a33fca56731af49e61001e38689c63')
-
-prepare() {
-  sed -i 's/python/python2/g' "$srcdir/0trace.py"
-}
+source=("0trace.py")
+sha512sums=('f3b34fc94a8f41b3c1d770fc63501c690d146bb5f563901f94895d1ec4b98493ff4e57a600864d446d21ded3e47a1a64b88f60ed917a6b06097c5e1740024f24')
 
 package() {
   cd "$srcdir"
