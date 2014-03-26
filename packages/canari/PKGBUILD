@@ -8,6 +8,7 @@ url="http://www.canariproject.com"
 arch=('any')
 license=('GPL2')
 depends=('python2')
+makedepends=('python2-setuptools')
 source=("http://pypi.canariproject.com/canari/canari-latest.tar.gz")
 md5sums=('cf19f6c47129555c2ed53a73b6c14bd5')
 
