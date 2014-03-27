@@ -3,7 +3,7 @@
 
 pkgname=python-pyusb
 pkgver=1.0.0b1
-pkgrel=1
+pkgrel=2
 pkgdesc="A pure Python module which provides USB access."
 arch=('any')
 url="https://github.com/walac/pyusb"
@@ -20,6 +20,6 @@ build() {
 
 package() {
   cd $srcdir/pyusb-$pkgver
-  python setup.py install -f --root="$pkgdir"
+  python setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
   install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }
