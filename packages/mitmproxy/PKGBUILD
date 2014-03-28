@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=mitmproxy
 pkgver=0.10.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-proxy' 'archassault-exploit')
 pkgdesc="SSL-capable man-in-the-middle HTTP proxy"
 arch=('any')
@@ -14,5 +14,6 @@ sha512sums=('2bef02f07942177044afa24749c4e8e2ba1aae5ee33e2cbffbecc557a09351865b7
 
 package() {
   cd $srcdir/mitmproxy-$pkgver/
-  python2 setup.py install --root=$pkgdir
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
 }
