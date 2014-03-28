@@ -14,5 +14,5 @@ sha512sums=('61ffe4b4bc163be6370ebf52e79e2e93ad8f3b85787468968ae1d841f675d55fad2
 
 package() {
   cd $srcdir/stomper-$pkgver
-  python2 setup.py install --root=$pkgdir --prefix=/usr
+  python2 setup.py install --root=$pkgdir --prefix=/usr --optimize=1
 }
