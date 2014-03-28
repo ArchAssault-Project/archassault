@@ -24,11 +24,7 @@ prepare(){
 
 package() {
   cd "$srcdir/GoldenEye"
-
-  # Make base directories.
   install -dm755 "$pkgdir/usr/share/doc/goldeneye"
-
-
   install -m644 README.md "$pkgdir/usr/share/doc/goldeneye"
   install -Dm755 goldeneye.py "$pkgdir/usr/bin/goldeneye"
 }
