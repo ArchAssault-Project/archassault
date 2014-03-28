@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=morbid
 pkgver=0.8.7.3
-pkgrel=5
+pkgrel=6
 pkgdesc="A Twisted-based publish/subscribe messaging server that uses the STOMP protocol"
 arch=('any')
 url='http://pypi.python.org/pypi/morbid/'
@@ -14,5 +14,5 @@ sha512sums=('50a01e75ecf1691dcb6f4354647038627196eb4cd37d6e44812912bf0890870d307
 
 package() {
   cd $srcdir/morbid-$pkgver
-  python2 setup.py install --root=$pkgdir --prefix=/usr
+  python2 setup.py install --root=$pkgdir --prefix=/usr --optimize=1
 }
