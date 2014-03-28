@@ -1,36 +1,31 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
-pkgver=1.4.7
-pkgrel=3
+pkgver=2.0
+pkgrel=1
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
 license=('GPL2')
 groups=('archassault')
-depends=('libcap-ng' 'libnet' 'libpcap' 'libyaml' 'pcre')
+depends=('zlib' 'libcap-ng' 'libnetfilter_queue' 'libnfnetlink' 'libnet' 'libpcap' 'libyaml' 'pcre' 'python2-magic' 'file')
 optdepends=('snort: suricata can use rulesets provided by snort')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
-sha256sums=('ae4a117d23a8a304f6fba9bd5b7442422b64e4d6bf5ac1e17312b8ee443a6bc9')
+sha512sums=('4f5df23822641f14fdbb6b6ca20ed178ecfa648e17c2640d8724c629c29e0e34403d1702f5be1d1049e3c443290f5a73f3d705bb5c909c24149890813b8b69a5')
 
 build() {
   cd ${srcdir}/$pkgname-$pkgver
-
-  ./configure --prefix=/usr --sysconfdir=/etc/$pkgname
+  ./configure --prefix=/usr --sysconfdir=/etc
   make
 }
 
 package() {
   cd ${srcdir}/$pkgname-$pkgver
-
   make DESTDIR=${pkgdir} install
-
   install -d ${pkgdir}/var/log/$pkgname
-
   install -D -m644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
   install -D -m644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
   install -D -m644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
- 
   install -d "${pkgdir}/etc/$pkgname/rules"
   install -D -m644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
 }
