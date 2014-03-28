@@ -1,0 +1,52 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=bamf-git
+pkgver=r28.3e99e6f
+pkgrel=1
+pkgdesc="a modular framework designed to be a platform to launch attacks against botnets."
+url="https://github.com/bwall/BAMF"
+arch=('any')
+license=('MIT')
+groups=('archassault')
+depends=('python2')
+makedepends=('git')
+provides=('bamf' 'botnet-attack-modular-framework')
+conflicts=('bamf' 'botnet-attack-modular-framework')
+replaces=('bamf' 'botnet-attack-modular-framework')
+source=(bamf-git::git+https://github.com/bwall/BAMF.git)
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/bamf-git"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+}
+
+package() {
+  cd "$srcdir"/bamf-git
+  install -dm755 "$pkgdir"/usr/bin/
+  install -dm755 "$pkgdir"/usr/share/bamf-git
+  install -Dm644 LICENSE.TXT "$pkgdir"/usr/share/licenses/bamf-git/LICENSE
+  install -m644 README.md "$pkgdir"/usr/share/bamf-git/README.md
+  install -m644 bamfdetect.py "$pkgdir"/usr/share/bamf-git/bamfdetect.py
+  install -m644 bamfbrute.py "$pkgdir"/usr/share/bamf-git/bamfbrute.py
+  cp --no-preserve=ownership -a bamfdetect IntegrationQueue "$pkgdir"/usr/share/bamf-git
+  chmod u+rwX,g+rwX,o+rX -R "$pkgdir"/usr/share/bamf-git
+  cat > "$pkgdir"/usr/bin/bamfdetect.py <<EOF
+#!/bin/sh
+cd /usr/share/bamf-git
+python2 bamfbrute.py "\$@"
+EOF
+  chmod +x "$pkgdir"/usr/bin/bamfdetect.py
+  cat > "$pkgdir"/usr/bin/bamfbrute.py <<EOF
+#!/bin/sh
+cd /usr/share/bamf-git
+python2 bamfdetect.py "\$@"
+EOF
+  chmod +x "$pkgdir"/usr/bin/bamfbrute.py
+}
+
+

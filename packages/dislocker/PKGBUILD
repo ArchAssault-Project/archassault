@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team@archassault.org> <https://archassault.org>
+pkgname=dislocker
+pkgver=0.3
+pkgrel=1
+pkgdesc="A tool to exploit the hash length extension attack in various hashing algorithms. With FUSE capabilities built in"
+arch=('armv6h' 'i686' 'armv7h' 'x86_64')
+url="http://www.hsc.fr/ressources/outils/dislocker/"
+license=('GPL2')
+groups=('archassault')
+depends=('fuse')
+source=(http://www.hsc.fr/ressources/outils/dislocker/download/dislocker.tar.gz)
+md5sums=('6db62efa910d9914b2721b387cc5c1fb')
+
+build() {
+  cd "$srcdir/$pkgname"/src
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -dm755 "$pkgdir"/usr/bin
+  install -dm755 "$pkgdir"/usr/share/man/man1
+  install -Dm644 README.txt "$pkgdir"/usr/share/dislocker/README.txt
+  install -Dm644 CHANGELOG.txt "$pkgdir"/usr/share/dislocker/CHANGELOG.txt
+  install -Dm644 LICENSE.txt "$pkgdir"/usr/share/licenses/dislocker/LICENSE
+  cd src
+  make INSTALL_PATH="$pkgdir"/usr/bin/ MAN_PATH="$pkgdir"/usr/share/man/man1 install
+}

@@ -1,12 +1,12 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-instagram
-pkgver=20140220
+pkgver=20140327
 pkgrel=1
 pkgdesc="Instagram api library for python."
 url='http://github.com/m00n/tweepy'
 license=('custom')
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-makedepends=('git' 'setuptools')
+arch=('any')
+makedepends=('git' 'python2-setuptools')
 source=('git+https://github.com/Instagram/python-instagram.git')
 md5sums=('SKIP')
 
@@ -19,5 +19,5 @@ build() {
 
 package() {
   cd "$srcdir/python-instagram-build"
-  python2 setup.py install --root=$pkgdir
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
 }

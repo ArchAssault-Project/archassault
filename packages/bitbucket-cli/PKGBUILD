@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bitbucket-cli
-pkgver=0.3.0
+pkgver=0.4.1
 pkgrel=1
 pkgdesc='Command-line tool for accessing BitBucket'
 arch=('any')
@@ -9,9 +9,9 @@ license=('BSD')
 depends=('python2-requests')
 makedepends=('python2-distribute')
 source=("http://pypi.python.org/packages/source/b/$pkgname/$pkgname-$pkgver.tar.gz")
-md5sums=('cac48e952dc9560069b9971057c0b6b4')
+sha512sums=('6f2fb6b6646f586aa19820c2e8dba8936c6348630014306815f40bd0e8790f236240b168ba5215905f64636f6158364cb1be826458b8725198a14af468ce48f4')
 
-build() {
-	  cd "${srcdir}/${pkgname}-${pkgver}"
-	  python2 ./setup.py install --root="${pkgdir}" --prefix="/usr"
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --prefix=/usr --optimize=1
 }

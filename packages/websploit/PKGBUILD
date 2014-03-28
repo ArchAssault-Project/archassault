@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=websploit
 pkgver=2.0.4
-pkgrel=1
+pkgrel=3
 groups=('archassault' 'archassault-exploit' 'archassault-social-engineering' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="An Open Source Project For, Social Engineering Works, Scan, Crawler & Analysis Web, Automatic Exploiter, Support Network Attacks"
 arch=('any')
@@ -18,10 +18,13 @@ package() {
   tar xzf data.tar.gz -C "$pkgdir"
 
   # Fix Python.
-  sed -i 's/^python\s/python2 /' "$pkgdir/usr/bin/websploit"
+  find "$pkgdir" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' "$pkgdir"/usr/share/websploit/websploit
+  sed -i 's|python|python2|' "$pkgdir"/usr/bin/websploit
 
   # Fix incompetence.
   find "$pkgdir" -name '*~' -delete
   chmod -R go=rX,u=rwX "$pkgdir/usr"
+  chown -R root:root "$pkgdir"/usr
   chmod -R a+x "$pkgdir/usr/bin"
 }

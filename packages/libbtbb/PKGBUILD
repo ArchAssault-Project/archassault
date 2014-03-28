@@ -1,5 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
-# Contributor: Codemunkii
+# Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
 
 pkgname=libbtbb
 pkgver=2014.02.R2
@@ -8,8 +8,8 @@ pkgdesc="A library to decode Bluetooth baseband packets, as produced by the Uber
 url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
-depends=('glibc')
-makedepends=('cmake')
+depends=('glibc' 'python')
+makedepends=('cmake' 'libpcap')
 source=("https://github.com/greatscottgadgets/libbtbb/archive/2014-02-R2.tar.gz")
 sha512sums=('4696f043061b15455be6c6aab8b4b1ee3823cb736014237eadbf60fca0ae54457aab160b23a1a067192b8c811d363586ac7f4b45cfa55e54f6fac24967dccfd2')
 

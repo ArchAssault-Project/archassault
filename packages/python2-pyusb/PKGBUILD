@@ -1,26 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
-_pkgname=pyusb
+# Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
+
 pkgname=python2-pyusb
-pkgver=0.4.3
-pkgrel=9
-pkgdesc="A native Python module written in C which provides USB access."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://pyusb.berlios.de/'
-license=('custom')
-depends=('python2' 'libusb-compat')
+pkgver=1.0.0b1
+pkgrel=2
+pkgdesc="A pure Python2 module which provides USB access."
+arch=('any')
+url="https://github.com/walac/pyusb"
+license=('Custom')
 makedepends=('python2-distribute')
-conflicts=($_pkgname=$pkgver)
-provides=($_pkgname)
-source=("http://downloads.sourceforge.net/project/${_pkgname}/PyUSB%200.x/$pkgver/${_pkgname}-$pkgver.tar.gz")
-md5sums=('a1a43bc6407caccbc22073c56439aa06')
+depends=('python2' 'libusb-compat')
+source=("https://github.com/walac/pyusb/archive/${pkgver}.tar.gz")
+sha512sums=('9fe1d6a095e3e144374296e5793050475e4fd7c374afb88f1b33cc622aeb0df0bd1813918ce1307706ecd12daf3790d11a1a8e0e4b13f3ffe48f11109fc0afaf')
 
 build() {
-  cd $srcdir/$_pkgname-$pkgver
+  cd $srcdir/pyusb-$pkgver
   python2 setup.py build
 }
 
 package() {
-  cd $srcdir/$_pkgname-$pkgver
-  python2 setup.py install -f --root="$pkgdir"
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/python2-pyusb/LICENSE
+  cd $srcdir/pyusb-$pkgver
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }

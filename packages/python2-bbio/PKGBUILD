@@ -1,16 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-bbio
-pkgver=0.0.18
+pkgver=0.0.19
 pkgrel=1
 pkgdesc="A module to control BeagleBone IO channels"
-arch=("any")
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=("MIT")
 url="https://github.com/adafruit/adafruit-beaglebone-io-python"
 depends=("python2")
 makedepends=("python2-distribute")
-provides=("python2-bbio")
 source=("https://pypi.python.org/packages/source/A/Adafruit_BBIO/Adafruit_BBIO-${pkgver}.tar.gz")
-sha256sums=('14e7efcd1a7fba40417272381cb0aaf83deb18eff966cd7259ea5b85017778cd')
+sha512sums=('51fc55da3e3d34ecef396d7a7483e9fd456d0b28b8283c328f345be542431b369548a2a100759cc48c48b50f0d021a39b248c24bae2bb2b7d0beb12caa4aca0f')
 
 build() {
   cd "${srcdir}/Adafruit_BBIO-${pkgver}"
@@ -19,5 +18,6 @@ build() {
 
 package() {
   cd "${srcdir}/Adafruit_BBIO-${pkgver}"
-  python2 setup.py install --root="${pkgdir}/" --prefix=/usr
+  python2 setup.py install --root="${pkgdir}" --prefix=/usr --optimize=1
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
 }

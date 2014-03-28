@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org> 
 pkgname='ncp'
 pkgver='1.2.4'
-pkgrel=5
+pkgrel=6
 pkgdesc='A fast file copy tool for LANs.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.fefe.de/ncp/'
@@ -15,19 +15,20 @@ sha512sums=('7332cffef56ec8dd8afefbb3f3dda455bc4465a61476cb7a751f9fa0b9cc1c125e2
 
 prepare() {
   cd "$srcdir/ncp-$pkgver"
-  
   # Update the internal version string.
   patch -Np1 -i ../ncp-${pkgver}_version-string.patch
 }
 
 build() {
   cd "$srcdir/ncp-$pkgver"
-  
-  make
+  # Fixes ELF with executable stack
+  make CFLAGS="$CFLAGS -Wa,--noexecstack -Wl,-z,noexecstack "
 }
 
 package() {
   cd "$srcdir/ncp-$pkgver"
   
   make "PREFIX=$pkgdir/usr" install
+  install -dm755 "$pkgdir"/usr/share/man
+  mv "$pkgdir"/usr/man "$pkgdir"/usr/share/man
 }

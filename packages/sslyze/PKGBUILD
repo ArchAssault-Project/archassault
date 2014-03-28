@@ -1,23 +1,27 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sslyze
-pkgver=0.6
+pkgver=0.8
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Python tool for analyzing the configuration of SSL servers and for identifying misconfigurations"
-
 arch=('any')
 url='https://github.com/iSECPartners/sslyze'
 license=('GPL2')
-
 depends=('python2')
-source=(https://dl.dropbox.com/s/h4cc7q68jdmxay3/sslyze-${pkgver}_src.zip)
-md5sums=('d86b75faacb069a02c829fab2f45193c')
+source=("https://github.com/iSECPartners/sslyze/archive/release-$pkgver.zip")
+sha512sums=('775ff416f57698c64dbd48fbee6986bcec2da4bfc059cedb0480db35c492076c05e36cd048fd3fe09fbafe5215af98ee696a4a5562429336833003558e2e4692')
+
+prepare() {
+   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/ usr/bin/python2|'
+}
 
 package() {
-  # Install files.
-  install -dm755 "$pkgdir/usr/share"
-  cp --no-preserve=ownership -r $srcdir/sslyze-${pkgver}_src $pkgdir/usr/share/sslyze
-
+  cd "$srcdir"/sslyze-release-"$pkgver"
+  install -Dm755 sslyze.py "$pkgdir"/usr/share/sslyze/sslyze.py
+  cp -r --no-preserve=ownership plugins test utils "$pkgdir"/usr/share/sslyze
+  install -Dm644 LICENSE.txt "$pkgdir"/usr/share/licenses/sslyze/LICENSE.txt
+  install -m644 AUTHORS.txt "$pkgdir"/usr/share/sslyze/AUTHORS.txt
   # Create an indirect launcher.
   install -dm755 $pkgdir/usr/bin
   cat > "$pkgdir/usr/bin/sslyze" <<\EOF

@@ -1,12 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=impacket
 pkgver=0.9.10
-pkgrel=5
+pkgrel=6
 pkgdesc="Collection of Python2 classes focused on providing access to network packets"
 arch=('any')
 url='http://oss.coresecurity.com/projects/impacket.html'
 license=('Apache')
 depends=('python2' 'python2-crypto')
+groups=('archassault')
 optdepends=('python2-pcapy: traffic sniffing example programs')
 makedepends=('sed')
 source=("https://impacket.googlecode.com/files/impacket-$pkgver.tar.gz")

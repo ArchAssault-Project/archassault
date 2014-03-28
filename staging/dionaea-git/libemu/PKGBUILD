@@ -1,0 +1,26 @@
+# Maintainer: Gagou <gagou@rez-gif.supelec.fr>
+pkgname=libemu
+pkgver=20130119
+pkgrel=1
+pkgdesc="A small library written in c offering basic x86 emulation and shellcode detection"
+url="http://libemu.carnivore.it/"
+license=(GPL)
+arch=('i686' 'x86_64')
+depends=('glibc')
+makedepends=('git' 'python2')
+options=(!libtool)
+source=("libemu::git://git.carnivore.it/libemu.git")
+sha512sums=('SKIP')
+_gitname="libemu"
+
+build() {
+  cd "$srcdir/$_gitname"
+  sed -i s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g ./configure.ac 
+  autoreconf -v -i
+  ./configure --prefix=/usr 
+}
+package() {
+  cd "$srcdir/$_gitname"
+  make DESTDIR=$pkgdir install
+}
+

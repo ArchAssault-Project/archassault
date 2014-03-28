@@ -12,6 +12,7 @@ package_archassault-meta-iso-all() {
 	pkgdesc=('Meta package for ArchAssault')
 		depends=(aircrack-ng
 				gnu-netcat
+				fcrackzip
 				nmap
 				wireshark-cli
 				wireshark-gtk
@@ -58,6 +59,3 @@ package_archassault-meta-iso-all() {
 				perl-image-exiftool)
 }
 
-package_archassault-meta-openbox-desktop() {
-
-}
