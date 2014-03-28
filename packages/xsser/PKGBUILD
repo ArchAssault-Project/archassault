@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=xsser
 pkgver=1.6
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp')
 pkgdesc="A penetration testing tool for detecting and exploiting XSS vulnerabilites."
 arch=('any')
@@ -16,5 +16,6 @@ md5sums=('SKIP')
 
 package() {
   cd "$srcdir/xsser-public"
-  python2 setup.py install --prefix=/usr --root="$pkgdir"
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
 }
