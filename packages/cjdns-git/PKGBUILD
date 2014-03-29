@@ -6,34 +6,34 @@
 _pkgname=cjdns
 pkgname=${_pkgname}-git
 pkgver=0.3.2073
-pkgrel=3
+pkgrel=4
 pkgdesc="A routing engine designed for security, scalability, speed and ease of use."
 url="https://github.com/cjdelisle/${_pkgname}"
 license=('GPL3')
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
-groups=('archassault-networking')
+groups=('archassault' 'archassault-networking')
 depends=('glibc')
 makedepends=('git' 'nodejs' 'python2')
 optdepends=('libnacl: speed up the build process by skipping the need to compile cnacl' 'cjdscript: provides the collection of working scripts included with cjdns' 'cjdnsify: allows you to run programs bound exclusively to your cjdns connection' 'cjdns-git-sysvinit: support for sysvinit style init (rc.d)')
 source=("git://github.com/cjdelisle/${_pkgname}.git#branch=master")
-sha256sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-    cd "${srcdir}/${_pkgname}"
+    cd $_pkgname
 
     ## Set the package version from the git repo we just cloned or pulled
     git describe --always | sed 's|-|.|g;s|[^\.]*\.||;s|\.[^\.]*$||'
 }
 
 prepare() {
-    cd "${srcdir}/${_pkgname}"
+    cd $_pkgname
 
     ## Create a directory to prepend to $PATH so  'python' points to 'python2'
     if [[ ! -e "${srcdir}/pybin/python" ]]; then install -d "${srcdir}/pybin" && ln -s /usr/bin/python2 "${srcdir}/pybin/python"; fi
 }
 
 build() {
-    cd "${srcdir}"/${_pkgname}
+    cd $_pkgname
 
     ## Disable Arch's generic makepkg optimizations (set via /etc/makepkg.conf) in favour of those specified by cjdns
     unset MAKEFLAGS
@@ -45,7 +45,7 @@ build() {
 }
 
 package() {
-    cd "${srcdir}"/${_pkgname}
+    cd $_pkgname
 
     ## Add the cjdroute binary and systemd service file to the package
     install -D -m755 cjdroute "${pkgdir}"/usr/bin/cjdroute
