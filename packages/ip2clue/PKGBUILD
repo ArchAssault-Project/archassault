@@ -3,14 +3,13 @@
 
 pkgname=ip2clue
 pkgver=0.0.92
-pkgrel=1
+pkgrel=2
 pkgdesc="A mall memory/CPU footprint daemon to lookup country (and other info) based on IP (v4 and v6)"
 url="http://kernel.embedromix.ro/us/"
 license=('GPL3')
-groups=('archassault-networking')
+groups=('archassault' 'archassault-networking')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-depends=('conn')
-makedepends=()
+depends=('bash' 'conn')
 source=("http://kernel.embedromix.ro/us/${pkgname}/${pkgname}-${pkgver}.tar.gz"
         "${pkgname}d.service")
 sha512sums=('87c247d9be634ef594fa5b2c8c135680877e258672deb36e39e2883ee1493dc29b7f5809ca46e83409938968016bb30b16ab304d2f6b5e0a3c664907839d61df'
@@ -25,8 +24,11 @@ build() {
 package() {
     install -Dm644 "${pkgname}d.service" "${pkgdir}/usr/lib/systemd/system/${pkgname}d.service"
 
+    # Install
     cd "${pkgname}-${pkgver}"
     make DESTDIR="${pkgdir}" install
 
-    rm -rf "${pkgdir}/etc/rc.d"
+    # Clean up install
+    rm -rf "${pkgdir}/var" # Empty after installing
+    rm -rf "${pkgdir}/etc/rc.d" # We're using systemd instead
 }
