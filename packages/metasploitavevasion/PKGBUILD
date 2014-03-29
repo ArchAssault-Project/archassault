@@ -3,12 +3,12 @@
 
 pkgname=metasploitavevasion
 pkgver=1.5aa
-pkgrel=1
-pkgdesc="Metasploit AV Evasion Tool"
+pkgrel=2
+pkgdesc="Metasploit payload generator that avoids most Anti-Virus products."
 url="https://github.com/nccgroup/${pkgname}"
 license=('AGPL3')
 arch=('any')
-groups=('archassault-exploit')
+groups=('archassault' 'archassault-exploit')
 depends=('metasploit' 'mingw-w64-gcc')
 source=("https://github.com/nccgroup/${pkgname}/archive/master.zip"
         "${pkgname}.sh"
@@ -22,7 +22,7 @@ sha512sums=('1e9bf9bb327f70b6c3ae18d139c9056b079458814111fdae108527a38fbbd1fbea1
             '3ec039e6671a7059d2de518f327b47a30ab6f1b66955fee3ce79282796a3b3f5764666ed8bee9c8ee5cab6142a4643099a733994dd961f3705cd1e72db772977')
 
 prepare() {
-    cd "${pkgname}-master"
+    cd ${pkgname}-master
     patch -p1 < ../${pkgname}-archassault.patch
 }
 
@@ -30,5 +30,5 @@ package() {
     install -Dm644 ${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
     install -Dm644 ${pkgname}.png "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
     install -Dm755 ${pkgname}.sh "${pkgdir}/usr/bin/${pkgname}"
-    install -Dm755 "${pkgname}-master/avoid.sh" "${pkgdir}/usr/bin/avoid.sh"
+    install -Dm755 ${pkgname}-master/avoid.sh "${pkgdir}/usr/bin/avoid.sh"
 }
