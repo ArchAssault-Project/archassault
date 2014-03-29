@@ -5,7 +5,6 @@ pkgver=0.1
 pkgrel=2
 pkgdesc="Finds duplicat files and directories and outputs a parsable list that can be used to delete them"
 url="http://kernel.embedromix.ro/us/"
-groups=('archassault')
 depends=('openssl')
 license=('GPL3')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
