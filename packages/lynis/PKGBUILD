@@ -25,7 +25,6 @@ package() {
   # Install plugins, include, db.
   install -d "$pkgdir/usr/share/lynis"
   cp -a --no-preserve=ownership db include plugins "$pkgdir/usr/share/lynis"
-  chmod -R u=rwX,go=rX "$pkgdir/usr/share/lynis"
 
   # Install misc files.
   install -m644 -t "$pkgdir/usr/share/lynis" README INSTALL CHANGELOG FAQ
