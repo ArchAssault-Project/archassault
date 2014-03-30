@@ -8,4 +8,6 @@ New tools released:
 
 [pip3line](https://github.com/nccgroup/pip3line) - The Swiss army knife of byte manipulation
 
+[websockify](https://github.com/kanaka/websockify) - Creates a WebSocket to TCP proxy/bridge. 
+
 Thanks for the newest requests.
