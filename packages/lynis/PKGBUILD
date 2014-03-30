@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=lynis
 pkgver=1.4.8
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing and system hardning tool for Unix/Linux"
 url='http://www.rootkit.nl/projects/lynis.html'
