@@ -12,6 +12,7 @@ if [ $CARCH == 'i686' ]; then
 elif [ $CARCH == 'x86_64' ]; then
      depends=('qt4' 'python2' 'python' 'gcc-libs-multilib' 'openssl' 'distorm' 'xdg-utils')
 fi
+makedepends=('cmake')
 source=("https://github.com/nccgroup/pip3line/archive/$pkgver.tar.gz" "py3-pip3line.patch" "pip3line.install" "libdir.patch") 
 sha512sums=('0d3122630c8362c21264ea561fedb3f2dd0ad830fb423a4ab16821e1ff6f063e772aabfba5793ac23e920deabd8752b5f4c97c38b2a52c70636129c9bfa71e41'
             '4173d38f1996c0de52b5a13845a3a3b2888703e252de0f1db1980840288b68ce31c18a1bd6490224e1ae2ecbcac1463a776435f71f0a62c5328343602256db24'
