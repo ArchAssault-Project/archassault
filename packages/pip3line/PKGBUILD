@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pip3line
 pkgver=2.4
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="Swiss army knife of byte manipulation"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -29,7 +29,7 @@ build(){
   cd "$srcdir/pip3line-$pkgver"
   mkdir build
   cd build
-  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DALL=ON -DWITH_DISTORM=ON -DWITH_OPENSSL=ON -DWITH_PYTHON27=ON  -DWITH_PYTHON3=ON ../
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_SKIP_RPATH=ON -DALL=ON -DWITH_DISTORM=ON -DWITH_OPENSSL=ON -DWITH_PYTHON27=ON  -DWITH_PYTHON3=ON ../
   make
 }
 
