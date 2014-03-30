@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=blacksheepwall
+pkgver=2.0.3
+pkgrel=1
+pkgdesc='hostname reconnaissance tool written in Go'
+arch=('x86_64' 'i686' 'armv6h' 'armv7h')
+url='https://github.com/tomsteele/blacksheepwall'
+license=('CUSTOM')
+makedepends=('go')
+source=("https://github.com/tomsteele/blacksheepwall/archive/v$pkgver.zip")
+sha512sums=('eb414be3ca7d15eeb7f6c22f44fc267f77337b083e90f65496da47eb3df9418e09e4a7fe9afadce692a107466a30e68b93c646305513ba6eca28a2d7f5681b53')
+
+build() {
+  export GOROOT="$srcdir/$pkgname-$pkgver"
+  export GOPATH="$pkgdir"
+  
+  cd "$pkgname-$pkgver"
+
+  go build -v -o bsheepwall
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 "$pkgname" "$pkgdir/usr/bin/$pkgname"
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/blacksheepwall/LICENSE
+}
+
