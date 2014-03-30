@@ -8,6 +8,7 @@ url='http://www.rootkit.nl/projects/lynis.html'
 license=('GPL3')
 arch=('any')
 depends=('bash')
+optdepends=('net-tools: networking tests')
 source=("http://cisofy.com/files/lynis-$pkgver.tar.gz")
 sha512sums=('ff75d5a3f6336e6497d73bbee09b84aebdeb7b6d2715edef69e2ed5f8ae516f20158d72f6e8cc920dd71c47008612f0e19ae820a345c584959cea99bcfcd2a3c')
 
