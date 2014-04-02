@@ -3,7 +3,7 @@
 
 pkgname=lynis
 pkgver=1.4.8
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing and system hardning tool for Unix/Linux"
 url='http://www.rootkit.nl/projects/lynis.html'
@@ -19,15 +19,16 @@ package() {
   cd "$srcdir/lynis-$pkgver"
 
   # Profile.
-  install -Dm 644 default.prf "$pkgdir/etc/lynis/default.prf"
+  install -Dm644 default.prf "$pkgdir/etc/lynis/default.prf"
 
   # Bin.
-  install -Dm 755 lynis "$pkgdir/usr/bin/lynis"
+  install -Dm755 lynis "$pkgdir/usr/bin/lynis"
 
   # Install plugins, include, db.
-  install -d "$pkgdir/usr/share/lynis"
-  cp -a --no-preserve=ownership db include plugins "$pkgdir/usr/share/lynis"
-
+  install -dm755 "$pkgdir/usr/share/lynis"
+  install -dm755 db "$pkgdir"/usr/share/lynis
+  install -dm755 include "$pkgdir"/usr/share/lynis
+  install -dm755 plugins "$pkgdir"/usr/share/lynis
   # Install misc files.
   install -m644 -t "$pkgdir/usr/share/lynis" README INSTALL CHANGELOG FAQ
 
