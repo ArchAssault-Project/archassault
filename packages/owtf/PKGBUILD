@@ -1,22 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=owtf
-pkgver=0.40
+pkgname=owtf-git
+pkgver=r508.87d7e3b
 pkgrel=1
 groups=('archassault' 'archassault-webapp')
 pkgdesc="The Offensive (Web) Testing Framework"
 url="https://www.owasp.org/index.php/OWASP_OWTF"
 license=('custom')
-arch=('any')
+arch=('armv7h' 'armv6h' 'i686' 'x86_64')
 depends=('python2' 'python2-jinja' 'python2-tornado' 'python2-pycurl'
-         'python2-pexpect' 'python2-lxml')
+         'python2-pexpect' 'python2-lxml' 'java-environment')
+optdepends=('skipfish' 'metagoofil' 'set' 'wpscan' 'theharvester'
+	    'metasploit' 'whatweb' 'cms-explorer' 'whapiti' 'arachini'
+	    'dnsrecon' 'dirbuster' 'w3af' 'lbd' 'nikto' 'tlssled'
+	    'httprint' 'hydra') 
 makedepends=('git')
 options=('!strip')
+provides=('owtf')
+replaces=('owtf')
+conflicts=('owtf')
 source=("git+https://github.com/7a/owtf")
 md5sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/owtf"
-  grep -m1 'Version ' README | sed 's/.* //'
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
@@ -27,10 +34,12 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
 
   cp -a * "$pkgdir/usr/share/owtf"
-
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
+#  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2
   cat > "$pkgdir/usr/bin/owtf" << EOF
 #!/bin/sh
-python2 /usr/share/owtf/owtf.py "\$@"
+cd /usr/share/owtf
+python2 owtf.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/owtf"
 }
