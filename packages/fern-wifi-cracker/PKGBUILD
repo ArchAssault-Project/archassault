@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fern-wifi-cracker
 pkgver=133
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="WEP, WPA wifi cracker for wireless penetration testing"
 arch=('any')
 url='http://code.google.com/p/fern-wifi-cracker/'
 license=('GPL2')
-depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion' 'scapy')
+depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion' 'python2-scapy' 'macchanger')
 makedepends=('subversion')
 _svnmod="fern-wifi-cracker"
 source=("svn+http://fern-wifi-cracker.googlecode.com/svn/Fern-Wifi-Cracker/")
