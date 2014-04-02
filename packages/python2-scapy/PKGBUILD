@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-scapy
+pkgver=2.2.0.dev
+pkgrel=1
+pkgdesc="Scapy: interactive packet manipulation tool"
+url="http://www.secdev.org/projects/scapy"
+depends=('python2' )
+makedepends=('python2-setuptools' )
+license=('GPL2')
+arch=('any')
+source=('https://pypi.python.org/packages/source/s/scapy/scapy-2.2.0-dev.zip')
+sha512sums=('4fb27a151ad48eead264ccf38ff16921da96d1d8e2f98bf8dc9d77e665a8b6854ea034e9cb639cf642a6a4884f4f51517e4264a9a87a024063c26820efe277c0')
+
+build() {
+  cd "$srcdir"/scapy-2.2.0-dev
+  python2 setup.py build
+}
+
+package() {
+  cd "$srcdir"/scapy-2.2.0-dev
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
+}
