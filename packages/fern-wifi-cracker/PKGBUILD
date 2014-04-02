@@ -1,14 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fern-wifi-cracker
 pkgver=133
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="WEP, WPA wifi cracker for wireless penetration testing"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://code.google.com/p/fern-wifi-cracker/'
 license=('GPL2')
-#'macchanger'
-depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion')
+depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion' 'scapy')
 makedepends=('subversion')
 _svnmod="fern-wifi-cracker"
 source=("svn+http://fern-wifi-cracker.googlecode.com/svn/Fern-Wifi-Cracker/")
@@ -22,8 +21,7 @@ package() {
 
   cp -R --no-preserve=ownership * "$pkgdir/usr/share/fern-wifi-cracker"
 
-  sed -i 's|python$|python2|g' execute.py
-
+  sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' "$pkgdir"/usr/share/fern-wifi-cracker/execute.py
   # Make joint script.
   cat > "$pkgdir/usr/bin/fern" <<EOF
 #!/bin/sh
