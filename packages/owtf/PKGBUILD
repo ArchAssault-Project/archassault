@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=owtf-git
 pkgver=r508.87d7e3b
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp')
 pkgdesc="The Offensive (Web) Testing Framework"
 url="https://www.owasp.org/index.php/OWASP_OWTF"
@@ -12,14 +12,15 @@ depends=('python2' 'python2-jinja' 'python2-tornado' 'python2-pycurl'
 optdepends=('skipfish' 'metagoofil' 'set' 'wpscan' 'theharvester'
 	    'metasploit' 'whatweb' 'cms-explorer' 'whapiti' 'arachini'
 	    'dnsrecon' 'dirbuster' 'w3af' 'lbd' 'nikto' 'tlssled'
-	    'httprint' 'hydra') 
+	    'httprint' 'hydra' 'wafw00f' 'ssl-cipher' 'websecurify' 'hoppy') 
 makedepends=('git')
 options=('!strip')
 provides=('owtf')
 replaces=('owtf')
 conflicts=('owtf')
-source=("git+https://github.com/7a/owtf")
-md5sums=('SKIP')
+source=("git+https://github.com/7a/owtf" "LICENSE")
+sha512sums=('SKIP'
+            '9a46df3e73cb5bfd87b266d591010497368e9d1e2980c3f7c0fbbe7832a37db62fba3f6b72015b9e577f0080073536f5b6a1dfa05316bcc9c4697f34a9f5dc7c')
 
 pkgver() {
   cd "$srcdir/owtf"
@@ -32,9 +33,11 @@ package() {
   # Base directories.
   install -dm755 "$pkgdir/usr/share/owtf"
   install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/licenses/owtf"
 
   cp -a * "$pkgdir/usr/share/owtf"
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
+  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/owtf"
   cat > "$pkgdir/usr/bin/owtf" << EOF
 #!/bin/sh
 cd /usr/share/owtf
