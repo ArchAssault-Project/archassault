@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=davoset
-pkgver=1.1.8
+pkgver=1.1.9
 pkgrel=1
 pkgdesc="A tool for using Abuse of Functionality and XML External Entities vulnerabilities on some websites to attack other websites"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('perl')
 makedepends=('unrar' 'dos2unix')
 options=('!emptydirs')
 source=("davoset-$pkgver.rar::http://websecurity.com.ua/uploads/2014/DAVOSET_v.$pkgver.rar")
-sha512sums=('045f6ae1e55311eac57ece7d8dedc9ef12b52e192879126b3970bcb368763521cc2e6a65cd2d16423c96b8b66525515a9b40754030b3889d381c48bd15dc11f9')
+sha512sums=('dc9a07db32837a44caf8881dbeaeecb575adb7aa06b7649837f35f15f58d3a18231c630d25c6d5667df580dbfc5de237342b081c53dac82c6289daeea4e55dad')
 noextract=("davoset-$pkgver.rar")
 install="davoset.install"
 
