@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=w3af
-pkgver=1.5
-pkgrel=3
+pkgver=1.6
+pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -17,8 +17,8 @@ depends=('python2' 'python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
 options=('!strip')
 source=('git+https://github.com/andresriancho/w3af'
         'w3af.desktop')
-md5sums=('SKIP'
-         '8a76a9004c928f19d64bf6ab0d20b3f3')
+sha512sums=('SKIP'
+            'b1c643340f3afbe5e34f6d9afd5d93c8bd336afa6093b94e0120aa4f4b3ffff5c87996b5d40a0c4937db263dc2e6020a3e9ff2a03f6850a25d4f9aa876e4d8bf')
 
 _checkout() {
   cd "$srcdir/w3af"
@@ -35,11 +35,6 @@ prepare() {
   # Delete some of the stuff from w3af-extlib (stuff that needs to be installed) -> dependencies
   rm -rf w3af/extlib/fpconst-0.7.2
   rm -rf w3af/extlib/SOAPpy
-
-  # Enforce python2
-  sed -i -e 's|#!\s*/usr/bin/python[^\d.]*$|#!/usr/bin/python2|' \
-         -e 's|#!\s*/usr/bin/env python[^\d.]*$|#!/usr/bin/env python2|' \
-         $(find . -name '*.py') w3af_{console,gui}
 
   # Remove dependency checks.
   sed -i 's/dependency_check()/#&/' w3af_{console,gui}
@@ -61,7 +56,9 @@ package() {
   cp --no-preserve=ownership -a * "$pkgdir/usr/share/w3af"
 
   install -Dm644 "$srcdir/w3af.desktop" "$pkgdir/usr/share/applications"
-
+  find "${pkgdir}" -type f | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/python|/usr/bin/python2|'
+  find "${pkgdir}"/usr/share/w3af/ -type f | xargs sed -i 's|/usr/bin/python|/usr/bin/python2|'
   # Joint script for w3af_console.
   cat > "$pkgdir/usr/bin/w3af" <<EOF
 #!/bin/sh
