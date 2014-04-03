@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bletchley
 pkgver=0.0.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="A collection of practical application cryptanalyze tools."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -14,7 +14,7 @@ md5sums=('2a1071f7a20a9cf18e143c989a686cfb')
 
 build() {
   cd "$srcdir/bletchley-src-$pkgver"
-  scons
+  scons -Q PREFIX=/usr
 }
 
 package() {
@@ -32,5 +32,5 @@ package() {
   cp -a --no-preserve=ownership -R lib/bletchley ${pkgdir}`python -c "import site; print(site.getsitepackages()[0])"`
 
   # Install Bins
-  PREFIX="$pkgdir/usr/" scons install
+  PREFIX=/usr DESTDIR="$pkgdir" scons install
 }

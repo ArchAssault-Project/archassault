@@ -5,6 +5,6 @@ Name=Owtf
 Comment=The Offensive (Web) Testing Framework
 Exec=owtf
 Icon=archassault-menu.png
-Terminal=false
+Terminal=true
 StartupNotify=false
 Categories=ArchAssault;ArchAssaultWebapp;
