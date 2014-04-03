@@ -1,14 +1,15 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=2.1.1
+pkgver=2.1.2
 pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
-arch=('any')
+arch=('x86_64' 'i686' 'armv6h' 'armv7h')
 url='http://www.capstone-engine.org/index.html'
+depends=('glibc')
 license=('GPL')
 source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz")
-sha512sums=('83525c76318867e25ca27259f952279d0c1432d13c5588461b010a908a8457a7f907360b0b2643e75dc3d508a00b2a2e318694b866a8e4f84e44e36698cfd496')
+sha512sums=('0367122a6f9c529b3beede0f3edb153f66a77eac8d782a43053dd89ec456c77104aebf9eb9277505137bef68aabb04f0bd9f6026407afcdb91f94f69600671e0')
 
 build() {
   cd "$srcdir/capstone-$pkgver"
