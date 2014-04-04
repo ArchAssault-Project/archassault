@@ -1,19 +1,30 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=creepy
-pkgver=20121023
-pkgrel=2
+pkgname=creepy-git
+pkgver=r137.9f60449
+pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-social-engineering')
 pkgdesc="A geolocation information gatherer. Offers geolocation information gathering through social networking platforms."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://github.com/ilektrojohn/creepy'
 license=('GPL3')
 provides=('creepy')
+replaces=('creepy')
 makedepends=('git')
 depends=('python2' 'python2-tweepy' 'python2-flickrapi'
          'python2-configobj' 'python2-pyqt4' 'python2-instagram'
          'python2-yapsy')
-source=('git+https://github.com/ilektrojohn/creepy.git')
-md5sums=('SKIP')
+source=('creepy::git+https://github.com/ilektrojohn/creepy.git')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/creepy"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare(){
+  grep -iRl 'python' "$srcdir/creepy" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
 
 package() {
   cd "$srcdir/creepy"
@@ -21,7 +32,6 @@ package() {
   # Make base directories.
   install -d -m755 "$pkgdir/usr/share/creepy"
   install -d -m755 "$pkgdir/usr/bin"
-  install -d -m755 "$pkgdir/usr/share/creepy/doc"
   cp -R --no-preserve=ownership creepy gui "$pkgdir/usr/share/creepy"
   # Make joint script.
   cat > "$pkgdir/usr/bin/creepy" <<EOF
