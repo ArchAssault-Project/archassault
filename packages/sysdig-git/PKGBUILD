@@ -7,6 +7,7 @@ pkgdesc="Open source system-level exploration and troubleshooting tool"
 arch=('i686' 'x86_64' 'armv7h' 'armv6h')
 url="http://www.sysdig.org/"
 license=('GPL2')
+groups=('archassault')
 if [[ $CARCH == x86_64 ]] ; then
   depends=('gcc-libs-multilib' 'dkms')
 else
