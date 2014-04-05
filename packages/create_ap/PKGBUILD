@@ -2,7 +2,7 @@
 # Contributor:  Shaw <puxx@mail.ustc.edu.cn>
 pkgname=create_ap-git
 pkgver=r44.d556cd1
-pkgrel=1
+pkgrel=2
 pkgdesc="A shell script to create a NATed/Bridged Software Access Point(aka WiFi)"
 arch=('any')
 url="https://github.com/oblique/create_ap"
@@ -10,6 +10,7 @@ license=('BSD')
 depends=('hostapd' 'iproute2' 'iw' 'dnsmasq' 'iptables' 'bridge-utils' 'dhclient')
 makedepends=('git')
 optdepends=('haveged')
+groups=('archassault')
 provides=('create_ap')
 conflicts=('create_ap')
 replaces=('create_ap')
