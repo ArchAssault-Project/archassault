@@ -20,4 +20,6 @@ New tools released:
 
 * [python2-docopt](https://github.com/docopt/docopt) - Pythonic command line arguments parser, that will make you smile
 
+* [python2-pysqli-git](https://github.com/sysdream/pysqli) - Python SQL injection framework
+
 Thanks for the newest requests.
