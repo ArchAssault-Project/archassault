@@ -12,4 +12,6 @@ New tools released:
 
 * [svn-extractor-git](https://github.com/anantshri/svn-extractor) - A simple script to extract all web resources by means of .SVN folder exposed over network.
 
+* [python2-idstools](https://pypi.python.org/pypi/idstools) - A collection of Python libraries for working with IDS systems (typically Snort and Suricata).
+
 Thanks for the newest requests.
