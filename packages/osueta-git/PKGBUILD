@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=osueta-git
-pkgver=r57.947d94d
+pkgver=r63.038cf9e
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A simple Python script to exploit the OpenSSH User Enumeration Timing Attack."
