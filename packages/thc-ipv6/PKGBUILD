@@ -1,29 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=thc-ipv6
-pkgver=2.3
+pkgver=2.5
 pkgrel=1
 groups=('archassault' 'archassault-exploit' 'archassault-dos' 'archassault-networking')
 pkgdesc="A complete tool set to attack the inherent protocol weaknesses of IPv6 and ICMP6, and includes an easy to use packet factory library."
 url='http://thc.org/thc-ipv6/'
 depends=('libpcap' 'openssl')
-makedepends=('git')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=(GPL)
-source=("git+https://github.com/ArchAssault-Project/thc-ipv6.git")
-md5sums=('SKIP')
+source=("http://www.thc.org/releases/$pkgname-$pkgver.tar.gz")
+md5sums=('726cedf423c1058f9d7d02957965bceb')
 
 prepare() {
-  cd $srcdir/thc-ipv6
+  cd "$srcdir"/thc-ipv6-"$pkgver"
   sed -i 's|+=|=|' Makefile
 }
 
 build() {
-  cd $srcdir/thc-ipv6
+  cd "$srcdir"/thc-ipv6-"$pkgver"
   make clean all
 }
 
 package() {
-  cd $srcdir/thc-ipv6
-  install -d "$pkgdir/usr/bin"
-  find . -type f -perm /o+x | xargs install -t "$pkgdir/usr/bin"
+  cd "$srcdir"/thc-ipv6-"$pkgver"
+  for bin in $(find . -type f -perm /o+x); do
+    install -D $bin $pkgdir/usr/bin/$bin
+  done
 }
