@@ -8,7 +8,10 @@ arch=('any')
 url='https://github.com/YoshiyukiYamauchi/mrtparse'
 license=('APACHE')
 provides=('mrtparse')
+conflicts=('mrtparse')
+replaces=('mrtparse')
 depends=('python2')
+makedepends=('git')
 source=("mrtparse::git+https://github.com/YoshiyukiYamauchi/mrtparse.git")
 sha512sums=('SKIP')
 
