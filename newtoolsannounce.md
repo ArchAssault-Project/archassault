@@ -16,4 +16,6 @@ New tools released:
 
 * [mobiusft](http://savannah.nongnu.org/projects/mobiusft) - An open-source forensic framework written in Python/GTK that manages cases and case items, providing an abstract interface for developing extensions.
 
+* [secscan](http://code.google.com/p/secscan-py/) - A Web Apps Scanner and Much more utilities
+
 Thanks for the newest requests.
