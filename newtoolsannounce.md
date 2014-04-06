@@ -4,7 +4,7 @@ New tools released:
 
 * [hulk-git](https://github.com/grafov/hulk) - HULK DoS tool ported to Go with some additional features.
 
-* [themole[(http://sourceforge.net/projects/themole/) - Automatic SQL Injection Exploitation Tool
+* [themole](http://sourceforge.net/projects/themole/) - Automatic SQL Injection Exploitation Tool
 
 * [mrtparse-git](https://github.com/YoshiyukiYamauchi/mrtparse) - A module to read and analyze the MRT format data.
 
