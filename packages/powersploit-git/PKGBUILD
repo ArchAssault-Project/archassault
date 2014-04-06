@@ -1,6 +1,6 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=powersploit-git
-pkgver=r205.5fabddc
+pkgver=r206.946328c
 pkgrel=1
 groups=('archassault' 'archassault-windows' 'archassault-exploitation')
 pkgdesc="A PowerShell Post-Exploitation Framework"
