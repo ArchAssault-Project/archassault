@@ -9,6 +9,7 @@ url='https://github.com/ebranca/owasp-pysec'
 license=('APACHE')
 provides=('owasp-pysec')
 depends=('python2' 'kyotocabinet' 'kyotocabinet-python2')
+makedepends=('git')
 source=("owasp-pysec::git+https://github.com/ebranca/owasp-pysec.git")
 sha512sums=('SKIP')
 
