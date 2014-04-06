@@ -14,4 +14,6 @@ New tools released:
 
 * [python2-idstools](https://pypi.python.org/pypi/idstools) - A collection of Python libraries for working with IDS systems (typically Snort and Suricata).
 
+* [mobiusft](http://savannah.nongnu.org/projects/mobiusft) - An open-source forensic framework written in Python/GTK that manages cases and case items, providing an abstract interface for developing extensions.
+
 Thanks for the newest requests.
