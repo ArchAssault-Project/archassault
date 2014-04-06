@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
+
+pkgname=python2-docopt
+pkgver=0.6.1
+pkgrel=2
+groups=('archassault')
+pkgdesc="Pythonic option parser, that will make you smile"
+arch=(any)
+url="https://github.com/docopt/docopt"
+license=('MIT')
+depends=('python2')
+makedepends=('python2-setuptools')
+source=("http://pypi.python.org/packages/source/d/docopt/docopt-$pkgver.tar.gz" LICENSE-MIT)
+
+build() {
+	cd "$srcdir/${pkgname/python2-}-$pkgver"
+	python2 setup.py build
+}
+
+package() {
+	cd "$srcdir/${pkgname/python2-}-$pkgver"
+	python2 setup.py install --skip-build -O1 --root="$pkgdir"
+	install -Dm0644 "$srcdir/LICENSE-MIT" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
+sha512sums=('8316a1fbd7253d2f7bed0baf07bc023d53b29e01abe69a1898a381c54321024e2f075567cc93488283a5125d7a82c32180f2a99ec07a9ec778e064c0a72e9cc1'
+            'f1249b5bcc79d76c6eda9a696fa4de004906637e0ae4f2e613bb9303c054f6f9c60b45a330e0910691ed14f5954a0c04a7827af6cfbba2c6024ff7fbbdd811f4')
