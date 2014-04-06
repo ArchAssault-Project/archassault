@@ -18,4 +18,6 @@ New tools released:
 
 * [secscan](http://code.google.com/p/secscan-py/) - A Web Apps Scanner and Much more utilities
 
+* [python2-docopt](https://github.com/docopt/docopt) - Pythonic command line arguments parser, that will make you smile
+
 Thanks for the newest requests.
