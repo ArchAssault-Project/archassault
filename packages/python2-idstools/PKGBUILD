@@ -7,6 +7,8 @@ arch=('any')
 url='https://pypi.python.org/pypi/idstools'
 license=('BSD')
 depends=('python2')
+makedepends=('python2-setuptools')
+groups=('archassault')
 source=("https://pypi.python.org/packages/source/i/idstools/idstools-$pkgver.tar.gz")
 sha512sums=('05dec357dcf41ec33958fd28e3d41552ddbdb79e5a875b4ef4567df104f22fe448db12493635880cc8578d4605c192612fc05361477fed8057a8750a91b70b97')
 
