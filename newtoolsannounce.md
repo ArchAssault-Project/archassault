@@ -18,7 +18,8 @@ New tools released:
 
 * [secscan](http://code.google.com/p/secscan-py/) - A Web Apps Scanner and Much more utilities
 
-* [python2-docopt](https://github.com/docopt/docopt) - Pythonic command line arguments parser, that will make you smile
+* [python2-bowcaster-git](https://github.com/zcutlip/bowcaster) - A framework, implemented in Python, is intended to aid those developing exploits by providing useful set of tools and modules, such as payloads,
+encoders, connect-back servers, etc.
 
 * [python2-pysqli-git](https://github.com/sysdream/pysqli) - Python SQL injection framework
 
