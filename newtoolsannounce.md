@@ -25,4 +25,6 @@ encoders, connect-back servers, etc.
 
 * [dumpzilla](http://www.dumpzilla.org/) - A forensic tool for firefox
 
+* [wig-git](https://github.com/jekyc/wig) - A WebApp Information Gatherer
+
 Thanks for the newest requests.
