@@ -23,4 +23,6 @@ encoders, connect-back servers, etc.
 
 * [python2-pysqli-git](https://github.com/sysdream/pysqli) - Python SQL injection framework
 
+* [dumpzilla](http://www.dumpzilla.org/) - A forensic tool for firefox
+
 Thanks for the newest requests.
