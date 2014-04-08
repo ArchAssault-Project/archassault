@@ -9,6 +9,7 @@ url='https://github.com/jekyc/wig'
 license=('custom')
 provides=('wig')
 depends=('python')
+makedepends=('git')
 source=("wig::git+https://github.com/jekyc/wig.git")
 sha512sums=('SKIP')
 
