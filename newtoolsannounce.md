@@ -27,4 +27,6 @@ encoders, connect-back servers, etc.
 
 * [wig-git](https://github.com/jekyc/wig) - A WebApp Information Gatherer
 
+* [cecster](https://github.com/nccgroup/CECster) - A GUI-based tool to perform security testing against the HDMI CEC (Consumer Electronics Control) and HEC (HDMI Ethernet Channel) protocols
+
 Thanks for the newest requests.
