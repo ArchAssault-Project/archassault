@@ -2,7 +2,7 @@
 # Contributor: Prurigro
 
 pkgname=codecrypt
-pkgver=1.5
+pkgver=1.6
 pkgrel=1
 pkgdesc="A GnuPG-like program for encryption and signing that uses only quantum-computer-resistant algorithms"
 url="http://packetstormsecurity.com/files/125647/CodeCrypt-1.5.html"
@@ -12,7 +12,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('crypto++' 'gmp')
 source=("http://packetstorm.foofus.com/crypt/misc/${pkgname}-${pkgver}.tar.gz"
         "crypto++-to-cryptopp.patch")
-sha512sums=('196cdb2ef3cfb4a102f277cd62ca771402e48e7322ec5ef938e8bcd332ac0f0644fb1c1c25c35ffff471842ac5cc698f13c5b820db2331f545beccc1a1925682'
+sha512sums=('5086d99766bd06a5cd53e5ce9ecd8f1c35b1788a137ce9734714e7f5e20ac2ca75a83bc53ea718523610cbdec100a336ef137f0d5bcfdddc27661cf80e1b763f'
             '673afe80c8424b76e83c48b0b4ccedd274dc77329471457a676ad161ac48d0145938b32bcdc6ff9b98e24725127b2b545a7b2ec762fe33d211cf33c63d289dcc')
 
 prepare() {
