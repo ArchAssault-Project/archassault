@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=creepy-git
 pkgver=r137.9f60449
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners' 'archassault-social-engineering')
 pkgdesc="A geolocation information gatherer. Offers geolocation information gathering through social networking platforms."
 arch=('any')
