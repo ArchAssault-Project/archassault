@@ -7,7 +7,11 @@ pkgdesc="Concrete5 blackbox vulnerability scanner"
 arch=('any')
 url='https://github.com/TheXerocouk/conscan'
 license=('GPL')
+depends=('python2')
 makedepends=('git')
+provides=('conscan')
+replaces=('conscan')
+conflicts=('conscan')
 source=('git+https://github.com/TheXerocouk/conscan')
 sha512sums=('SKIP')
 
@@ -17,9 +21,8 @@ pkgver() {
 }
 
 prepare() {
-  cd "$srcdir/conscan"
-
-  sed -i 's|/bin/python|/bin/python2|' conscan.py
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
 }
 
 package() {
