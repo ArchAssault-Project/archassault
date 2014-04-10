@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=conscan
-pkgver=0.5
+pkgname=conscan-git
+pkgver=r13.5746eac
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="Concrete5 blackbox vulnerability scanner"
@@ -9,7 +9,12 @@ url='https://github.com/TheXerocouk/conscan'
 license=('GPL')
 makedepends=('git')
 source=('git+https://github.com/TheXerocouk/conscan')
-sha1sums=('SKIP')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/conscan"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 prepare() {
   cd "$srcdir/conscan"
