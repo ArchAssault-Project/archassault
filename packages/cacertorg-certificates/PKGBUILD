@@ -1,5 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 # Contributor: Prurigro
+# Contributor: Neal <neal.oakey-at-oakey-dev.de>
 
 pkgname=cacertorg-certificates
 pkgver=20140223
