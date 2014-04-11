@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=ircsnapshot
-pkgver=1
+pkgver=r93.9ba3c6c
 pkgrel=1
 pkgdesc="Tool to gather information from IRC servers"
 arch=('any')
@@ -28,6 +28,8 @@ package() {
   install -m755 "$srcdir/$pkgname/$pkgname/to.gexf.py" "$pkgdir/usr/share/ircsnapshot/bin/to.gexf.py"
   install -m644 "$srcdir/$pkgname/$pkgname/example.png" "$pkgdir/usr/share/ircsnapshot/example.png"
   install -m644 LICENSE.TXT "$pkgdir/usr/share/licenses/ircsnapshot/"
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+#  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
   cat > $pkgdir/usr/bin/ircsnapshot <<EOF
 #!/bin/sh
 python2 /usr/share/ircsnapshot/bin/ircsnapshot.py "\$@"
