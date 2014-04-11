@@ -4,4 +4,6 @@ New tools released:
 
 * [fatback](http://sourceforge.net/projects/fatback/) - *NIX tool for recovering files from FAT file systems.
 
+* [stegdetect](http://www.outguess.org/detection.php) - Automated tool for detecting steganographic content in images.
+
 Thanks for the newest requests.
