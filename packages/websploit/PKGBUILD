@@ -14,17 +14,11 @@ sha512sums=('0714813ca92357085a3c551b2bd20d797b963669a8299ce973dad3f39932862a05e
 package() {
   cd "$srcdir"
   install -dm0755 "$pkgdir"/usr/share
-#  ar x *.deb
   tar xf wsf-205.tar.gz -C "$pkgdir"/usr/share
-
-  # Fix Python.
   find "$pkgdir" -type f | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
-#  sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' "$pkgdir"/usr/share/websploit/websploit
-#  sed -i 's|python|python2|' "$pkgdir"/usr/bin/websploit
   find "$pkgdir" -name '*~' -delete
   chmod -R go=rX,u=rwX "$pkgdir/usr"
   chown -R root:root "$pkgdir"/usr
-#  chmod -R a+x "$pkgdir/usr/bin"
   chmod 0755 "$pkgdir"/usr/share/websploit/*
   chmod 0755 "$pkgdir"/usr/share/websploit/modules*
   chmod 0755 "$pkgdir"/usr/share/websploit/modules/fakeupdate/*
