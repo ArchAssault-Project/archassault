@@ -8,13 +8,14 @@
 #   Fabiano Furtado <fusca14 at gmail dot com>
 pkgname=fwknop
 pkgver=2.6.1
-pkgrel=1
+pkgrel=2
 pkgdesc='FireWall KNock OPerator: Single Packet Authorization and Port Knocking'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url=http://www.cipherdyne.org/fwknop
 license=(GPL)
 depends=(gpgme iptables libpcap)
 options=(!libtool)
+groups=('archassault')
 backup=(
   etc/$pkgname/access.conf
   etc/$pkgname/fwknopd.conf
