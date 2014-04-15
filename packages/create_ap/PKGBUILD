@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor:  Shaw <puxx@mail.ustc.edu.cn>
 pkgname=create_ap-git
-pkgver=r44.d556cd1
-pkgrel=2
+pkgver=r47.104c556
+pkgrel=1
 pkgdesc="A shell script to create a NATed/Bridged Software Access Point(aka WiFi)"
 arch=('any')
 url="https://github.com/oblique/create_ap"
