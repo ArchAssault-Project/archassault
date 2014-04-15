@@ -20,7 +20,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/rawr"
 
-  sed -i '1s/env python/env python2/' rawr.py
+  sed -i '1s/env python/env python2/' rawr.py lib/requests/certs.py
 }
 
 package() {
