@@ -2,12 +2,11 @@
 pkgname=ruby1.9-nokogiri
 _gemname=nokogiri
 pkgver=1.6.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('MIT')
-makedepends=('ruby1.9')
-depends=('ruby1.9-mini_portile')
+depends=('ruby1.9' 'ruby1.9-mini_portile' 'python' 'libxml2' 'libxslt')
 options=('!emptydirs' '!distcc')
 url='http://nokogiri.org'
 source=("http://rubygems.org/downloads/nokogiri-$pkgver.gem")
@@ -16,6 +15,7 @@ noextract=("nokogiri-$pkgver.gem")
 
 package() {
   cd "$srcdir"
+  export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
   local _gemdir="$(ruby-1.9 -rubygems -e'puts Gem.default_dir')"
   gem-1.9 install --ignore-dependencies --no-user-install --no-rdoc --no-ri -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
 }
