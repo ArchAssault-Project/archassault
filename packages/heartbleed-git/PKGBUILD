@@ -2,7 +2,7 @@
 # Contributor: Jerome Leclanche <jerome@leclan.ch>
 _pkgname=Heartbleed
 pkgname=heartbleed-git
-pkgver=33.fe75b57
+pkgver=72.v0.2.0.r1.geecd019
 pkgrel=1
 pkgdesc="Test whether a host is vulnerable to the Heartbleed attack"
 arch=('armv6h' 'armv7h' 'x86_64' 'i686')
@@ -17,7 +17,7 @@ sha512sums=('SKIP'
 
 pkgver() {
 	cd "$srcdir/$_pkgname"
-	echo "$(git rev-list --count HEAD).$(git describe --always)"
+	echo "$(git rev-list --count HEAD).$(git describe --always | sed -r 's/([^-]*-g)/r\1/;s/-/./g')"
 }
 
 build() {
