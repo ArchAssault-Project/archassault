@@ -1,40 +1,34 @@
 # Maintainer: Gagou <gagou@rez-gif.supelec.fr>
 pkgname=liblcfg
-pkgver=20130119
+pkgver=r24.750bc90
 pkgrel=1
 pkgdesc="A lightweight configuration file library written in C99"
 url="http://liblcfg.carnivore.it/"
 license=(GPL)
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=(glibc)
-makedepends=(git)
+makdepends=('git')
+sha512sums=('SKIP'
+            'db1d1cd57fb7d450c0bf498b8f8f400650b7a55e734d374f889a844436dff4e92f656c359a5050ff6819a5ef07e1db86f2b5e523355d8e7b9b510de32a8ea818')
+source=("$pkgname::git://git.carnivore.it/liblcfg.git"
+        "Makefile.patch")
 
-_gitroot="git://git.carnivore.it/liblcfg.git"
-_gitname="liblcfg"
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
 
 build() {
-  msg "Connecting to GIT server...."
-
-  if [ -d $_gitname ] ; then
-    cd $_gitname && git pull origin
-    msg "The local files are updated."
-  else
-    git clone $_gitroot $_gitname
-  fi
-
-  msg "GIT checkout done or server timeout"
-  msg "Starting make..."
-
-  rm -rf "$srcdir/$_gitname-build"
-  git clone "$srcdir/$_gitname" "$srcdir/$_gitname-build"
-  cd "$srcdir/$_gitname-build/code"
+ cd "$srcdir/$pkgname/code"
 
   sed -i s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g ./configure.ac 
   autoreconf -i
-  ./configure --prefix=/usr || return 1
-  make || return 1
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+  patch -i $srcdir/Makefile.patch
+  make
 }
 package() {
-  cd "$srcdir/$_gitname-build/code"
+  cd "$srcdir/$pkgname/code"
   make DESTDIR=$pkgdir install
 }
