@@ -1,26 +1,51 @@
-# Maintainer: Gagou <gagou@rez-gif.supelec.fr>
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Gagou <gagou@rez-gif.supelec.fr>
 pkgname=libemu
-pkgver=20130119
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="A small library written in c offering basic x86 emulation and shellcode detection"
 url="http://libemu.carnivore.it/"
 license=(GPL)
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('glibc')
-makedepends=('git' 'python2')
-options=(!libtool)
-source=("libemu::git://git.carnivore.it/libemu.git")
-sha512sums=('SKIP')
-_gitname="libemu"
+makedepends=('git')
+sha512sums=('SKIP'
+            '6c51aca95f392bd7ea5ffc5a3d27af5fd1d9b8f4519f06fd3af1b2f8103b3ccf827b4d78cc110c1acec3e7f647e1add742324646e3025365c6eb1402dc2ffc8c'
+            '61b3d0e33d03a46034b3b334a6b0b473c1ba3460c775a2a9eca010824292d4310a32b1f094f408999ff90c816624b59deb5889e11130dc3ff7dcfd9dea1fb3f4'
+            '30a55cf4cf968c33ab855902e7b5c2651991bf46c8fd88268b42c77a95e999414fa64d98589b092f42ef94becec1077441d655e09b72d90dd3fbec4e07a4fc94'
+            '82b0240a7200548ac2eeca13e7649188408a24bec61fa5c360dff687ce90b3ef2557b4d7a4a26bca718d56fe5e57aabae0e9d25817692c541616904a3a3bc9b3')
+source=("$pkgname::git://git.carnivore.it/libemu.git"
+        "http://patch-tracker.debian.org/patch/series/dl/libemu/0.2.0+git20120122-1.2/05_unused_local_typedefs"
+        "http://patch-tracker.debian.org/patch/series/dl/libemu/0.2.0+git20120122-1.2/01_no_rpath_python"
+        "http://patch-tracker.debian.org/patch/series/dl/libemu/0.2.0+git20120122-1.2/03_remove_rpath_and_fix_ldflags"
+        "http://patch-tracker.debian.org/patch/series/dl/libemu/0.2.0+git20120122-1.2/04_recognize_gnu")
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare(){
+  cd "$srcdir/libemu"
+  patch -p1 -i $srcdir/01_no_rpath_python
+  patch -p1 -i $srcdir/03_remove_rpath_and_fix_ldflags
+  patch -p1 -i $srcdir/04_recognize_gnu
+  patch -p1 -i $srcdir/05_unused_local_typedefs
+  sed -i s/python/python2/g bindings/python/Makefile.am
+}
 
 build() {
-  cd "$srcdir/$_gitname"
+  cd "$srcdir/libemu"
+
   sed -i s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g ./configure.ac 
   autoreconf -v -i
-  ./configure --prefix=/usr 
+  ./configure --prefix=/usr --exec-prefix=/usr --enable-python-bindings
+  make
 }
 package() {
-  cd "$srcdir/$_gitname"
+  cd "$srcdir/libemu"
+  #fix python2 bindings
+  sed -i 's|setup.py\ install|setup.py\ install\ --root="\($)pkgdir"\ --optimize=1|' bindings/python/Makefile
   make DESTDIR=$pkgdir install
 }
 
