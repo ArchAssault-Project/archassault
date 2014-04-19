@@ -45,7 +45,7 @@ build() {
 package() {
   cd "$srcdir/libemu"
   #fix python2 bindings
-  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root="$pkgdir"\ --optimize=1'|' bindings/python/Makefile
+  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root=\"$pkgdir\"\ --optimize=1'|' bindings/python/Makefile
   make DESTDIR=$pkgdir install
 }
 
