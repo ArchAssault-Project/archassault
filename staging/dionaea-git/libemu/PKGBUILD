@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 # Contributor: Gagou <gagou@rez-gif.supelec.fr>
 pkgname=libemu
-pkgver=0.2.0
+pkgver=r571.ab48695
 pkgrel=1
 pkgdesc="A small library written in c offering basic x86 emulation and shellcode detection"
 url="http://libemu.carnivore.it/"
@@ -45,7 +45,7 @@ build() {
 package() {
   cd "$srcdir/libemu"
   #fix python2 bindings
-  sed -i 's|setup.py\ install|setup.py\ install\ --root="\($)pkgdir"\ --optimize=1|' bindings/python/Makefile
+  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root="$pkgdir"\ --optimize=1'|' bindings/python/Makefile
   make DESTDIR=$pkgdir install
 }
 
