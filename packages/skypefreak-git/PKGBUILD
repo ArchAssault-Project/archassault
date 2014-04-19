@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=skypefreak-git
-pkgver=r15.ea94db5
+pkgver=r27.5833699
 pkgrel=1
 pkgdesc="A Forensic Framework for Skype"
 url="https://github.com/OsandaMalith/SkypeFreak"
