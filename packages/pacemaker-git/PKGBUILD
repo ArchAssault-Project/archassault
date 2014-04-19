@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pacemaker-git
-pkgver=r26.5a2c511
+pkgver=r75.15ee2e1
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A CVE-2014-0160 client exploit"
