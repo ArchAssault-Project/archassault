@@ -7,9 +7,9 @@ pkgdesc="Swiss army knife of byte manipulation"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/nccgroup/pip3line'
 license=('GPL3')
-if [ $CARCH == 'i686' ]; then
+if [[ "$CARCH" == 'i686' ]]; then
      depends=('qt4' 'python2' 'python' 'gcc-libs' 'openssl' 'distorm' 'xdg-utils')
-elif [ $CARCH == 'x86_64' ]; then
+elif [[ "$CARCH" == 'x86_64' ]]; then
      depends=('qt4' 'python2' 'python' 'gcc-libs-multilib' 'openssl' 'distorm' 'xdg-utils')
 fi
 makedepends=('cmake')
