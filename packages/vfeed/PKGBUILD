@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=vfeed
-pkgver=0.1
+pkgver=0.4.8
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Open Source Cross Linked and Aggregated Local Vulnerability Database main repository"
@@ -25,9 +25,7 @@ package() {
   # Base directories.
   install -dm755 "$pkgdir/usr/share/vfeed"
   install -dm755 "$pkgdir/usr/bin/"
-
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/vfeed/LICENSE
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/vfeed"
-
-  # Bin
   ln -s "/usr/share/vfeed/vfeedcli.py" "$pkgdir/usr/bin/vfeed"
 }

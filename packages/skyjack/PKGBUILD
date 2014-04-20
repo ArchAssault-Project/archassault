@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=skyjack
-pkgver=6.079851f
+pkgver=7.5f7a25e
 pkgrel=1
 groups=('archassault' 'archassault-drone')
 pkgdesc="Takes over Parrot drones, deauthenticating their true owner and taking over control, turning them into zombie drones under your own control"

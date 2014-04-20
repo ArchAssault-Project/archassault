@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor:  Shaw <puxx@mail.ustc.edu.cn>
 pkgname=create_ap-git
-pkgver=r44.d556cd1
+pkgver=r47.104c556
 pkgrel=1
 pkgdesc="A shell script to create a NATed/Bridged Software Access Point(aka WiFi)"
 arch=('any')
@@ -10,6 +10,7 @@ license=('BSD')
 depends=('hostapd' 'iproute2' 'iw' 'dnsmasq' 'iptables' 'bridge-utils' 'dhclient')
 makedepends=('git')
 optdepends=('haveged')
+groups=('archassault')
 provides=('create_ap')
 conflicts=('create_ap')
 replaces=('create_ap')

@@ -1,29 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='httping'
-pkgver='2.3.3'
+pkgver='2.3.4'
 pkgrel=1
 pkgdesc="A 'ping'-like tool for http-requests."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-depends=('openssl')
-optdepends=('ncurses' 'fftw')
+depends=('openssl' 'fftw')
 url=('http://www.vanheusden.com/httping/')
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-reconnaissance')
 source=("http://www.vanheusden.com/httping/httping-$pkgver.tgz")
-md5sums=('a4ed1ab05a1cc9fc473ade53c1e5927b')
+sha512sums=('680139d907a49b0a7b13904af8437331168e0b3cf838c3443b81b82cb36204d238a7497a7456bb3d39e0ae79fd0b0425f789f6ef72d1a1ec17bdb987e0afa148')
 
 build() {
-  cd "$srcdir/httping-$pkgver"
-
+  cd "$srcdir"/httping-"$pkgver"
   make
 }
 
 package() {
-  cd "$srcdir/httping-$pkgver"
-
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/man/nl/man1"
-  install -dm755 "$pkgdir/usr/share/locale/nl/LC_MESSAGES/"
-
-	make "DESTDIR=$pkgdir" install
+  cd "$srcdir"/httping-"$pkgver"
+  install -dm755 "$pkgdir"/usr/bin
+  install -dm755 "$pkgdir"/usr/share/man/nl/man1
+  install -dm755 "$pkgdir"/usr/share/locale/nl/LC_MESSAGES
+  make DESTDIR="$pkgdir" install
 }

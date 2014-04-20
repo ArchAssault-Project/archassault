@@ -1,26 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=zaproxy
-pkgver=2.1.0
+pkgver=2.3.0.1
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
 pkgdesc="An integrated penetration testing tool for finding vulnerabilities in web applications"
 arch=('any')
 url='http://code.google.com/p/zaproxy/'
 license=('Apache')
-depends=('java-runtime')
-source=("http://zaproxy.googlecode.com/files/ZAP_${pkgver}_Linux.tar.gz"
+depends=('bash' 'java-environment')
+source=("http://downloads.sourceforge.net/sourceforge/zaproxy/2.3.0/ZAP_2.3.0.1_Linux.tar.gz"
         zap.sh)
-md5sums=('352505dd3a68639a77c3144b21372a1a'
-         'e0b842647bd2d79d9885dfaf3e939615')
+sha512sums=('1fe2314fc0d460629d96e07961a4b5e9f64934608d86cd26855af67dcea9c5ce583fbe543170bba7c73cf9e2518558bb8c9994c035d06e8b5fc1d3a132534978'
+            '673b6484b4cc228af0b30f7ce6bc7a2fb5f2e4ed1e9fe2aab6c784ff4b8114a346a6d1001499e122ed9dd833139cf689063a44dbbe64c395cba39f8017954c6e')
 
 package() {
   cd "$srcdir/ZAP_$pkgver"
-
-  # Make base directories.
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/zaproxy"
-
   cp --no-preserve=ownership -R * "$pkgdir/usr/share/zaproxy"
-
   install -Dm755 "$srcdir/zap.sh" "$pkgdir/usr/bin/zaproxy"
 }

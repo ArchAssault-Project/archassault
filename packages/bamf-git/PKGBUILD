@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bamf-git
-pkgver=r28.3e99e6f
+pkgver=r33.2525222
 pkgrel=1
 pkgdesc="a modular framework designed to be a platform to launch attacks against botnets."
 url="https://github.com/bwall/BAMF"

@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=mobiusft
+pkgver=0.5.19
+pkgrel=1
+groups=('archassault' 'archassault-forensics')
+pkgdesc="An open-source forensic framework written in Python/GTK that manages cases and case items, providing an abstract interface for developing extensions."
+arch=('any')
+url='http://savannah.nongnu.org/projects/mobiusft'
+license=('GPL2')
+depends=('python2' 'pygtk')
+source=("http://download.savannah.gnu.org/releases/mobiusft/mobiusft-$pkgver.tar.gz")
+sha512sums=('692923601634c9519aeaf3209bf913779fc62a06d2c31b0661cf692e7ab2e41a1352e96ecffdae4e0a5cd75b1d547a2eb2f3b7e1648b251b59d2c225508b8184')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/mobiusft-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+
+package() {
+  cd "$srcdir/mobiusft-$pkgver"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+}

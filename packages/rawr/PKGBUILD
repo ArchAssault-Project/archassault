@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rawr
-pkgver=12.3570732
-pkgrel=2
+pkgver=33.54355a5
+pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc="Rapid Assessment of Web Resources. A web enumerator."
 arch=('any')
@@ -20,7 +20,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/rawr"
 
-  sed -i '1s/env python/env python2/' rawr.py
+  sed -i '1s/env python/env python2/' rawr.py lib/requests/certs.py
 }
 
 package() {

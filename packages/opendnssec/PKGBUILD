@@ -1,0 +1,60 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Javier Torres <javitonino [at] gmail [dot] com>
+pkgname=opendnssec
+pkgver=1.4.5
+pkgrel=1
+pkgdesc="Turn-key solution for DNSSEC (sqlite3)"
+arch=('i686' 'x86_64' 'armv7h' 'armv6h')
+url="http://www.opendnssec.org/"
+license=('BSD')
+groups=('archassault')
+depends=('libxml2' 'ldns' 'sqlite3')
+makedepends=('doxygen' 'dot2tex' 'automake-1.11' 'java-environment')
+optdepends=('softhsm: key storage')
+options=('!emptydirs')
+backup=("etc/opendnssec/conf.xml"
+        "etc/opendnssec/kasp.xml"
+        "etc/opendnssec/zonelist.xml")
+install="opendnssec.install"
+source=("http://www.opendnssec.org/files/source/${pkgname}-${pkgver}.tar.gz"
+	"pid-path.patch"
+        "ods-signer.service"
+        "ods-enforcer.service")
+sha512sums=('8882fef3a643cd89064d40642af590bce813b9372b9affb846c191b9c12a0402d9eb0f9142394bbebc99a4cc38b856212e918b1b5affd1082f40b413b670ecd4'
+            '74f386ec8db1ff3a1dd4faf8e1d7eaa6e04f1ab0f89d5289f440ed1c2fe7040d8688ce27796d04d8152c235369297ce829f5dec0aa205c3e62263ae759e15d4a'
+            '28d868feedbee8251b0000556705ee094707782dad2072f4e37ebff3ac1658d09c884488dd6852e9734fa859218048daff50b66fe25930f6445619e3c89ca877'
+            'a3700c82e6577bdacbce9cfd749e71e3c749814884ad4e9a1359e97105f9c045dc1472ba231ecb52c23855cacf67874623c8eef715955bfd41239b199d03a0db')
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  # /var/lib/run -> /var/run
+  patch -p0 < "${srcdir}/pid-path.patch"
+#  aclocal
+#  autoconf
+#  automake --add-missing
+  ./configure --prefix=/usr --datarootdir=/usr/share --localstatedir=/var/lib --sysconfdir=/etc --with-pkcs11-softhsm=/usr/lib/libsofthsm.so --sbindir=/usr/bin
+  # Create the correct (/var/run/opendnssec) directory
+  sed -i \
+  -e "s/\$(INSTALL) -d \$(DESTDIR)\$(localstatedir)\/run\/opendnssec/#Removed/" \
+  -e "s/\$(INSTALL) -d \$(DESTDIR)\$(localstatedir)\/run/\$(INSTALL) -d \$(DESTDIR)\$(OPENDNSSEC_PID_DIR)/" \
+  Makefile
+  CFLAGS='$CFLAGS -fuse-ld=gold' make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  install -d "${pkgdir}/var/run/opendnssec"
+  make DESTDIR="${pkgdir}" install
+  install -Dm0644 LICENSE "$pkgdir"/usr/share/licenses/opendnssec/LICENSE
+  install -Dm0644 "${srcdir}/ods-signer.service" \
+        "${pkgdir}/usr/lib/systemd/system/ods-signer.service"
+  install -Dm0644 "${srcdir}/ods-enforcer.service" \
+        "${pkgdir}/usr/lib/systemd/system/ods-enforcer.service"
+  install -Dm0644 "enforcer/utils/migrate_adapters_1.sqlite3" \
+        "${pkgdir}/usr/share/opendnssec"
+#  chown 227:227 "${pkgdir}/etc/opendnssec" -R
+#  chown 227:227 "${pkgdir}/var/lib/opendnssec" -R
+#  chown 227:227 "${pkgdir}/var/run/opendnssec" -R
+  chmod 750 "${pkgdir}/var/lib/opendnssec" \
+            "${pkgdir}/var/run/opendnssec"
+}

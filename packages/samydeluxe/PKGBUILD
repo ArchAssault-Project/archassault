@@ -1,11 +1,12 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='samydeluxe'
-pkgver='20131219'
+pkgver=20140415
 pkgrel=1
 pkgdesc='Automatic samdump creation script.'
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://github.com/jensp/samydeluxe'
 groups=('archassault' 'archassault-cracker')
+license=('UNKNOWN')
 makedepends=('git')
 depends=('bash' 'samdump2')
 md5sums=('SKIP')
@@ -14,16 +15,13 @@ _gitname='samydeluxe'
 
 pkgver() {
   cd "$srcdir"
-
   date +%Y%m%d
 }
 
 package() {
   cd "$srcdir"
-
   rm -rf "$srcdir/$_gitname-build"
   cp -r "$srcdir/$_gitname" "$srcdir/$_gitname-build"
   cd "$srcdir/$_gitname-build"
-  
   install -D -m755 "samydeluxe" "$pkgdir/usr/bin/samydeluxe"
 }

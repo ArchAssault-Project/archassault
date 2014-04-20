@@ -1,7 +1,7 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=bokken-hg
 pkgver=r354.03f4af8fd99a
-pkgrel=2
+pkgrel=3
 pkgdesc="GUI for radare2 and pyew"
 arch=('any')
 url="http://inguma.eu/projects/bokken"
@@ -10,7 +10,7 @@ depends=('python2'
          'pygtksourceview2'
          'graphviz'
          'r2-bindings')
-
+groups=('archassault')
 optdepends=('pyew: For pyew backend support'
             'radare2-bindings-git: For r2 backend support (devel)')
 makedepends=('mercurial')

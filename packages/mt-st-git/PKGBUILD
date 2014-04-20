@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 _name='mt-st'
 pkgname="${_name}-git"
-pkgver=5.7676fc4
+pkgver=6.ece9c03
 pkgrel=1
 pkgdesc='Utilities for managing magnetic tape storage devices'
 arch=('i686' 'x86_64')

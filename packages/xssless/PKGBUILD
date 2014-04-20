@@ -1,11 +1,11 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=xssless
-pkgver=r24.59732fb
+pkgver=r34.d474fc6
 pkgrel=1
 pkgdesc="An automated XSS payload generator written in python."
 url="https://github.com/mandatoryprogrammer/xssless"
-arch=(any)
-license=('GPLv2')
+arch=('any')
+license=('GPL2')
 groups=('archassault')
 depends=('python2' 'python2-beautifulsoup4')
 makedepends=('git')
@@ -32,7 +32,8 @@ package() {
 
 cat > "$pkgdir/usr/bin/xssless" << EOF
 #!/bin/sh
-python2 /usr/share/xssless/xssless.py "\$@"
+cd /usr/share/xssless
+python2 xssless.py "\$@"
 EOF
  chmod +x "$pkgdir/usr/bin/xssless"
 }

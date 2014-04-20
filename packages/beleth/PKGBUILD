@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beleth
-pkgver=0.r32.568c547
+pkgver=0.r36.0963699
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A Multi-threaded Dictionary based SSH cracker"

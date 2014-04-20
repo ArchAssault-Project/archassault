@@ -1,12 +1,13 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=powersploit-git
-pkgver=r205.5fabddc
+pkgver=r213.22f984c
 pkgrel=1
 groups=('archassault' 'archassault-windows' 'archassault-exploitation')
 pkgdesc="A PowerShell Post-Exploitation Framework"
 url="https://github.com/mattifestation/PowerSploit"
 arch=(any)
 license=('custom')
+makedepends=('git')
 source=("git+https://github.com/mattifestation/PowerSploit.git")
 provides=('powersploit')
 replaces=('powersploit')

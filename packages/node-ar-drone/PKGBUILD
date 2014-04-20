@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=node-ar-drone
-pkgver=v0.3.1
+pkgver=v0.3.1.3.gdcfce20
 pkgrel=1
 pkgdesc="A node.js client for controlling Parrot AR Drone 2.0 quad-copters"
 arch=('any')

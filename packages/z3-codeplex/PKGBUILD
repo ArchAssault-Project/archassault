@@ -9,7 +9,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://z3.codeplex.com/"
 license=('custom')
 makedepends=('python2')
-if [ $CARCH == 'x86_64' ]; then
+if [[ "$CARCH" == 'x86_64' ]]; then
       depends='gcc-libs-multilib'
 else  
       depends='gcc-libs'
