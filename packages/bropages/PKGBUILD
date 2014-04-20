@@ -2,12 +2,13 @@
 _gemname=bropages
 pkgname=bropages
 pkgver=0.1.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Highly readable supplement to man pages. Shows simple, concise examples for unix commands."
 arch=(any)
 groups=('archassault')
 url="http://bropages.org/"
 license=('custom')
+options=('!emptydirs')
 depends=('ruby' 'ruby-rest-client' 'ruby-commander' 'ruby-highline'
         'ruby-json_pure' 'ruby-smart_colored')
 makedepends=('ruby')
@@ -25,5 +26,5 @@ package() {
 
   mkdir -p "${pkgdir}/usr/bin"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/bropages/LICENSE"
-  ln -s ${_gemdir}/bin/bro ${pkgdir}/usr/bin/bro
+  ln -s ${_gemdir}/bin/bro ${pkgdir}/usr/bin/bropages
 }
