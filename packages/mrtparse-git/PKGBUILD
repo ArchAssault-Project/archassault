@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=mrtparse-git
-pkgver=r258.4616d1d
+pkgver=r259.72fb9e5
 pkgrel=1
 groups=('archassault')
 pkgdesc="a module to read and analyze the MRT format data."
