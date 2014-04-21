@@ -1,7 +1,10 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-03-07
+## Generated on 2014-04-21
 ##
+
+## Australia
+#Server = http://archassault.mirror.uber.com.au/$repo/os/$arch
 
 ## Denmark
 #Server = http://mirrors.dotsrc.org/archassault/$repo/os/$arch
