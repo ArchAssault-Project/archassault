@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webshag
 pkgver=1.10
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="A multi-threaded, multi-platform web server audit tool."
 url="http://www.scrt.ch/en/attack/downloads/webshag"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL3')
-depends=('python2' 'wxpython' 'nmap' 'nikto')
+depends=('python2' 'wxpython2.8' 'nmap' 'nikto')
 makedepends=('dos2unix')
 source=("http://www.scrt.ch/outils/webshag/ws110.tar.gz"
         "webshag.install"
