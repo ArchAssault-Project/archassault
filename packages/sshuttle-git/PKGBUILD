@@ -1,6 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=sshuttle-git
-pkgver=20140405
+# Keeping pkgver as date since upstream development seems dead
+pkgver=20140422
 pkgrel=1
 pkgdesc="Transparent proxy server that works as a poor man's VPN. Forwards all TCP packets over ssh (and even DNS requests when using --dns option). Doesn't require admin privileges on the server side."
 arch=('any')
