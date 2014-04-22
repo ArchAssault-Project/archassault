@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webshag
 pkgver=1.10
-pkgrel=3
+pkgrel=4
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc="A multi-threaded, multi-platform web server audit tool."
 url="http://www.scrt.ch/en/attack/downloads/webshag"
@@ -37,19 +37,22 @@ package() {
   # Base directories.
   install -dm755 "$pkgdir/usr/share/webshag"
   install -dm755 "$pkgdir/usr/bin"
-
-  cp -La --no-preserve=ownership * "$pkgdir/usr/share/webshag"
+  install -m755 webshag_gui.py "$pkgdir"/usr/share/webshag/webshag_gui.py
+  install -m755 webshag_cli.py "$pkgdir"/usr/share/webshag/webshag_cli.py
+  cp -a --no-preserve=ownership webshag database config "$pkgdir/usr/share/webshag"
 
   # Bin.
   cat > "$pkgdir/usr/bin/webshag_cli" << EOF
 #!/bin/sh
-/usr/share/webshag/webshag_cli.py "\$@"
+cd /usr/share/webshag
+python2 webshag_cli.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/webshag_cli"
 
 cat > "$pkgdir/usr/bin/webshag_gui" << EOF
 #!/bin/sh
-/usr/share/webshag/webshag_gui.py "\$@"
+cd /usr/share/webshag
+python2 webshag_gui.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/webshag_gui"
 }
