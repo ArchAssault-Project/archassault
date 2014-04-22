@@ -7,6 +7,7 @@ groups=('archassault' 'archassault-fuzzer')
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://codemonkey.org.uk/projects/trinity/"
 license=('GPL')
+depends=('glibc')
 makedepends=('git')
 source=('git+git://git.codemonkey.org.uk/trinity')
 md5sums=('SKIP')
