@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bully
-pkgver=1.0.20
+pkgver=1.0.22
 pkgrel=1
 groups=('archassault' 'archassault-cracker' 'archassault-wireless')
 pkgdesc="A wifi-protected-setup (WPS) brute force attack tool."
