@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=libbfio
+pkgver=20140105
+pkgrel=1
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
+pkgdesc="Library to provide basic file input/output abstraction."
+url='https://code.google.com/p/libbfio/'
+license=('GPL')
+depends=('glibc')
+source=("https://googledrive.com/host/0B3fBvzttpiiSTERGV3V4bnZ3dlk/libbfio-alpha-$pkgver.tar.gz")
+sha512sums=('a3710eeffc58cf0a1ae2080673fba3a978ca1d48fd8af2da416b5467856f4cc2a3097a0e1f576f5dd4b733b203619861051ec3b263331e865664e1c2e1429765')
+
+
+build() {
+   cd "$srcdir/libbfio-$pkgver"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/libbfio-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}

@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=libpff
+pkgver=20120802
+pkgrel=1
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
+pkgdesc="Library and tools to access the Personal Folder File (PFF) and the Offline Folder File (OFF) format."
+url='https://code.google.com/p/libpff/'
+license=('GPL')
+depends=('glibc')
+options=('!libtool')
+source=("https://googledrive.com/host/0B3fBvzttpiiScU9qcG5ScEZKZE0/libpff-alpha-$pkgver.tar.gz")
+sha512sums=('ea9d994c97fbcc95b268e4bf032391a1bf7ce7009c89692166c0ad821de61657c56c40c294926167da5816fb8ca6ea9d3f8c1da85c8c14f8d9611fa502c5bdfc')
+
+
+build() {
+   cd "$srcdir/libpff-$pkgver"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/libpff-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}
