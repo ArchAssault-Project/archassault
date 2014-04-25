@@ -8,7 +8,8 @@ pkgdesc="A small daemon that creates virtual hosts on a network."
 url="https://github.com/DataSoft/Honeyd/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=("GPL")
-depends=('libdnet' 'libevent' 'libedit' 'libpcap' 'pcre' 'zlib')
+depends=('libdnet' 'libevent' 'libedit' 'libpcap' 'pcre' 'zlib' 'tcl')
+makedepends=('python2')
 options=('!makeflags')
 source=("https://github.com/DataSoft/Honeyd/archive/honeyd-$pkgver.tar.gz"
         "python.patch")
