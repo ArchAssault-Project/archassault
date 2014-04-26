@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Borja Ruiz <borja [at] libcrack [dot] so> 
 pkgname=sysdig-git
-pkgver=0.1.72.r270.g331871a
+pkgver=0.1.72.r288.g2bbfbb3
 pkgrel=1
 pkgdesc="Open source system-level exploration and troubleshooting tool"
 arch=('i686' 'x86_64' 'armv7h' 'armv6h')
@@ -28,7 +28,7 @@ build() {
   cd "$srcdir/$pkgname"
   mkdir build
   cd build
-  cmake  -DSYSDIG_VERSION="$pkgver" -DCMAKE_INSTALL_PREFIX=/usr ..
+  cmake -DSYSDIG_VERSION="$pkgver" -DCMAKE_INSTALL_PREFIX=/usr ..
   make -j1
 }
 
