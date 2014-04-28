@@ -2,7 +2,7 @@
 # Contributor: Jerome Leclanche <jerome@leclan.ch>
 _pkgname=Heartbleed
 pkgname=heartbleed-git
-pkgver=74.v0.2.0.r3.g6a74713
+pkgver=102.v0.2.0.r31.g3ef5294
 pkgrel=1
 pkgdesc="Test whether a host is vulnerable to the Heartbleed attack"
 arch=('armv6h' 'armv7h' 'x86_64' 'i686')
