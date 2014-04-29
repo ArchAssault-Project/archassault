@@ -1,31 +1,27 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pyew
-pkgver=2.0
+pkgver=2.3.0
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="a (command line) python tool to analyse malware."
 arch=('any')
 url='https://code.google.com/p/pyew/'
 license=('GPL2')
-if [[ $CARCH == 'i686' ]]; then
-     source=("https://pyew.googlecode.com/files/pyew-$pkgver-linux-x86.tar.gz")
-     depends=('distorm' 'python2')
-     sha512sums=('6055f859a58d81b4b9a7d829dd59a7799640a708394a6c51e76e5b3d3c435cae725e155fc74d969ccf9d973a77c9fcfc08fab732c7c6e22485ea30674a0ea895')
-elif [[ $CARCH == 'x86_64' ]]; then
-     source=("https://pyew.googlecode.com/files/pyew-$pkgver-linux-amd64.tar.gz")
-     sha512sums=('7f34e6e1fb5ed51c4c2408c7f69277562c58a7a885b40e665a1ed9a44283738bacff63e13b602b24eb2c2d6b944755263873a9f59aa5d1d3f4fe3f38d193b6e9')
-     depends=('distorm' 'python2')
-fi
+depends=('distorm' 'python2')
+makedepends=('mercurial')
+source=('pyew::hg+https://code.google.com/p/pyew/')
+sha512sums=('SKIP')
 
 prepare(){
-  grep -iRl 'python' "$srcdir/pyew-$pkgver-linux" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
-  sed -i 's|python$|python2|' $srcdir/$pkgname-$pkgver-linux/plugins/OleFileIO_PL.py
+  grep -iRl 'python' "$srcdir/pyew" | xargs sed -i 's|#!.*/usr/bin/python2.4|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  grep -iRl 'python' "$srcdir/pyew" | xargs sed -i 's|#!.*/usr/bin/python$|#!/usr/bin/python2|'  
+  sed -i 's|/usr/local/bin/python|/usr/bin/python2|' $srcdir/$pkgname/plugins/OleFileIO_PL.py
 }
   
 
 
 package(){
-  cd "$srcdir/pyew-$pkgver-linux"
+  cd "$srcdir/pyew"
   install -dm755 "$pkgdir/usr/share/$pkgname"
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
