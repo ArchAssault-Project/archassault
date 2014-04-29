@@ -46,7 +46,7 @@ package(){
 cat > "$pkgdir/usr/bin/$pkgname" <<EOF
 #!/bin/sh
 cd /usr/share/pyew
-exec ./pyew.py  
+python2 ./pyew.py "\$@"
 EOF
 
 chmod +x $pkgdir/usr/bin/$pkgname
