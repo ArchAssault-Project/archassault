@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=set-git
-pkgver=5.4.8
+pkgver=5.4.8.r697.ga766279
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
@@ -31,7 +32,7 @@ backup=('usr/share/set/config/set_config')
 
 pkgver() {
   cd "$srcdir/social-engineer-toolkit"
-  git describe --tags | sed 's/-.*//'
+  git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g'
 }
 
 prepare() {
