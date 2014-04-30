@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=tilt-git
 pkgver=62.fd35f68
-pkgrel=1
+pkgrel=2
 groups=('archassault')
 pkgdesc="Terminal Ip Lookup Tool"
 arch=('any')
@@ -35,7 +35,7 @@ package() {
   cat > "$pkgdir"/usr/bin/tilt.py <<EOF
 #!/bin/sh
 cd /usr/share/tilt
-python tilt.py "\$@"
+python2 tilt.py "\$@"
 EOF
   chmod +x "$pkgdir"/usr/bin/tilt.py
 }
