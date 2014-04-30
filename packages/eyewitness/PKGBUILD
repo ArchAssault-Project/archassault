@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=eyewitness-git
-pkgver=1
+pkgver=r96.d079063
 pkgrel=1
 pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
 arch=('any')
@@ -10,6 +10,9 @@ groups=('archassault')
 depends=('python2' 'python2-pyqt4' 'ghost.py')
 makedepends=('git')
 options=(!emptydirs)
+provides=('eyewitness')
+replaces=('eyewitness')
+conflicts=('eyewitness')
 source=('git+https://github.com/ChrisTruncer/EyeWitness.git')
 sha512sums=('SKIP')
 
