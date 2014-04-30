@@ -15,20 +15,27 @@ source=("http://hashcat.net/files/${_pkgname}-${pkgver}.7z")
 sha512sums=('a2e7d64a3fc80f41e935f6555e113913cc5c84bdc3e57c7bdcd3e08f88ee918354ebc7e809a3cccd1997ef520a964f52373e17f5c0f0bfca78759e197d57f979')
 options=('!strip')
 package() {
-  find "${srcdir}/${_pkgname}-${pkgver}" \( -name "*.cmd" -o -name "*.exe" \) -print | xargs -i rm {}
-  mkdir -p "${pkgdir}/opt" "${pkgdir}/usr/bin"
+  cd "$srcdir/$_pkgname-$pkgver"
+  find . \( -name "*.cmd" -o -name "*.exe" \) -print | xargs -i rm {}
+  install -dm755 "$pkgdir/usr/share/$pkgname" 
+  install -dm755 "$pkgdir/usr/bin"
   if [ "${CARCH}" = "x86_64" ]; then
-    rm ${srcdir}/${_pkgname}-${pkgver}/oclHashcat32.bin
-    echo -e "#!/bin/bash\n/opt/${pkgname}/cudaHashcat64.bin \$@" > $pkgdir/usr/bin/cudaHashcat
-    chmod a+x $pkgdir/usr/bin/cudaHashcat
-    echo -e "#!/bin/bash\n/opt/${pkgname}/oclHashcat64.bin \$@" > $pkgdir/usr/bin/oclHashcat
+    rm oclHashcat32.bin
+    echo -e "#!/bin/bash\n/usr/share/$pkgname/oclHashcat64.bin \$@" > $pkgdir/usr/bin/oclHashcat
     chmod a+x $pkgdir/usr/bin/oclHashcat
   else
-    rm ${srcdir}/${_pkgname}-${pkgver}/oclHashcat64.bin
-    echo -e "#!/bin/bash\n/opt/oclhashcat/cudaHashcat32.bin \$@" > $pkgdir/usr/bin/cudaHashcat
-    chmod a+x $pkgdir/usr/bin/cudaHashcat
-    echo -e "#!/bin/bash\n/opt/oclhashcat/oclHashcat32.bin \$@" > $pkgdir/usr/bin/oclHashcat
+    rm oclHashcat64.bin
+    echo -e "#!/bin/bash\n/usr/share/$pkgname/oclHashcat32.bin \$@" > $pkgdir/usr/bin/oclHashcat
     chmod a+x $pkgdir/usr/bin/oclHashcat
   fi
-  cp -rv "${srcdir}/${_pkgname}-${pkgver}" "${pkgdir}/opt/oclhashcat"
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
+  find "$pkgdir/" -iname "*.txt" -print | xargs -i chmod 644 {}
+  find "$pkgdir/" -iname "*.llvmir" -print |xargs -i chmod 644 {}
+  find "$pkgdir/" -iname "*.hash" -print | xargs -i chmod 644 {}
+  find "$pkgdir/" -iname "*.sh" -print | xargs -i chmod 644 {}
+  find "$pkgdir/" -iname "*.rule" -print | xargs -i chmod 644 {} 
+  find "$pkgdir/" -iname "*.hcmask" -print | xargs -i chmod 644 {}
+  find "$pkgdir/" -iname "*.bin" -print | xargs -i chmod 755 {}
+  find "$pkgdir/" -iname "*.hcstat" -print | xargs -i chmod 644 {}
 }
+
