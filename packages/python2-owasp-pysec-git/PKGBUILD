@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=python2-owasp-pysec-git
-pkgver=r124.4a53111
+pkgver=r133.7c8041c
 pkgrel=1
 groups=('archassault')
 pkgdesc="OWASP Python Security Project"

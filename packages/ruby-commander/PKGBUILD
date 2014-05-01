@@ -1,17 +1,19 @@
 # Maintainer:  <plewis@aur.archlinux.org>
 _gemname=commander
 pkgname=ruby-$_gemname
-pkgver=4.1.6
+pkgver=4.1.5
 pkgrel=1
+epoch=1
 pkgdesc="The complete solution for Ruby command-line executables."
 arch=(any)
 url="http://visionmedia.github.com/commander/"
 license=('MIT')
 depends=('ruby' 'ruby-highline')
 makedepends=('rubygems')
+options=('!emptydirs')
 source=("http://gems.rubyforge.org/gems/$_gemname-$pkgver.gem")
 noextract=($_gemname-$pkgver.gem)
-sha256sums=('4bd7cbc75bad33a2b1ecb53980ab3aaf648d64ba81da04e4a3920f041c443175')
+sha512sums=('134007a072df75c49256aa42e24eeba566f61d4de8bc7aa35f9d0e6b2cf347e6d2a4465c781a485b00672b4797d52902f19aa83656a419cc6a3f2b558d7423a2')
 
 package() {
   cd "$srcdir"

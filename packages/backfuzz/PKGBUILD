@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=backfuzz
-pkgver=20131226
+pkgver=20140430
 pkgrel=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A protocol fuzzing toolkit."

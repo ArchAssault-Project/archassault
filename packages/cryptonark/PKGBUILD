@@ -4,7 +4,7 @@ _pkgname=cnark
 pkgver=0.4.9
 pkgrel=1
 pkgdesc="SSL security checker"
-arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+arch=('any')
 url="http://blog.techstacks.com/cryptonark.html"
 license=('GPL')
 groups=('archassault')
@@ -13,7 +13,7 @@ depends=('perl-io-socket-ssl'
 	 'perl-modern-perl'
 	 'perl-mozilla-ca')
 source=("http://www.techstacks.com/files/${_pkgname}-v${pkgver}.tar.gz")
-md5sums=('69801fb90ea0ee1367a13186107a5349')
+sha512sums=('f24c3e3c45ab58f9aff26cf966585045d548a5e226b345b5098f1860c6178bf4c9ebb01cdcdf4c7b578f34995cb018faed14b48af8f47c19aca27d296fe1b057')
 
 package() {
 	cd "$srcdir"

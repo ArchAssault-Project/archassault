@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=eh
+pkgver=1.1.0
+pkgrel=1
+groups=('archassault' 'archassault-scanner')
+pkgdesc="Extracts hosts (IP/Hostnames) from files"
+arch=('any')
+url='https://github.com/bwall/ExtractHosts'
+license=('MIT')
+depends=('python2')
+makedepends=('python2-setuptools')
+provides=('extracthosts')
+source=("https://github.com/bwall/ExtractHosts/archive/v$pkgver.tar.gz")
+md5sums=('5a137dd0ff91fdd7ed005ae13eb21a4a')
+
+
+package() {
+  cd "$srcdir/ExtractHosts-$pkgver"
+  install -dm755 "$pkgdir/usr/share/licenses/eh"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/eh/"
+}

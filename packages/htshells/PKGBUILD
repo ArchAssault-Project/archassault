@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=htshells
-pkgver=6b5d0df
+pkgver=760b5e9
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Self contained web shells and other attacks via .htaccess files."

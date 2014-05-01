@@ -1,0 +1,51 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=pyew
+pkgver=2.3.0
+pkgrel=1
+groups=('archassault' 'archassault-malware')
+pkgdesc="a (command line) python tool to analyse malware."
+arch=('any')
+url='https://code.google.com/p/pyew/'
+license=('GPL2')
+depends=('distorm' 'python2')
+makedepends=('mercurial')
+source=('pyew::hg+https://code.google.com/p/pyew/')
+sha512sums=('SKIP')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/pyew" | xargs sed -i 's|#!.*/usr/bin/python2.4|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  grep -iRl 'python' "$srcdir/pyew" | xargs sed -i 's|#!.*/usr/bin/python$|#!/usr/bin/python2|'  
+  sed -i 's|/usr/local/bin/python|/usr/bin/python2|' $srcdir/$pkgname/plugins/OleFileIO_PL.py
+}
+  
+
+
+package(){
+  cd "$srcdir/pyew"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
+
+  for i in *.py; do install -Dm755 $i $pkgdir/usr/share/$pkgname/$i;done
+  install -Dm755 pyew "$pkgdir/usr/share/$pkgname/pyew"
+  for i in Elf anal contrib logo plugins scripts; do 
+           install -dm755 $pkgdir/usr/share/$pkgname/$i
+           cp -a --no-preserve=ownership $i/* "$pkgdir/usr/share/$pkgname/$i/";
+  done
+
+  #docs
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 ChangeLog "$pkgdir/usr/share/$pkgname/ChangeLog"
+  install -Dm644 AUTHORS "$pkgdir/usr/share/$pkgname/AUTHORS"
+  install -Dm644 COPYING "$pkgdir/usr/share/$pkgname/COPYING"
+
+cat > "$pkgdir/usr/bin/$pkgname" <<EOF
+#!/bin/sh
+cd /usr/share/pyew
+python2 ./pyew.py "\$@"
+EOF
+
+chmod +x $pkgdir/usr/bin/$pkgname
+   
+}
+
