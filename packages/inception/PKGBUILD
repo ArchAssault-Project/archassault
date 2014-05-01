@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=inception-git
-pkgver=0.2.5
+pkgver=v0.3.5.r0.g1878c98
 pkgrel=1
 pkgdesc="A FireWire physical memory manipulation and hacking tool exploiting IEEE 1394 SBP-2 DMA."
 url="http://www.breaknenter.org/projects/inception/"

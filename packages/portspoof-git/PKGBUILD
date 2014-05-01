@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 _name='portspoof'
 pkgname="${_name}-git"
-pkgver=1.1.10.g4d50ce6
-pkgrel=2
+pkgver=1.2.1.gc07b53d
+pkgrel=1
 pkgdesc='A lightweight, fast, portable and secure addition to any firewall system or security infrastructure.'
 url='http://portspoof.org/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

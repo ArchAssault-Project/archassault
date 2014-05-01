@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=spipscan-git
-pkgver=r59.f0c5397
+pkgver=r61.00c87ce
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="SPIP (CMS) Scanner for penetration testing purpose written in Python"
