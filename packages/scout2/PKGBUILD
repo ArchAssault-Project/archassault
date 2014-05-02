@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=scout2-git
-pkgver=r104.fc90800
+pkgver=r110.0051a6b
 pkgrel=1
 pkgdesc="Security auditing tool for AWS environments"
 url="http://isecpartners.github.io/Scout2/"
