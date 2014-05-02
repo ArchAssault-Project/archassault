@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=eyewitness-git
-pkgver=r102.88801ac
-pkgrel=3
+pkgver=r109.016627c
+pkgrel=1
 pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
 arch=('any')
 url="https://github.com/ChrisTruncer/EyeWitness"

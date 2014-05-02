@@ -1,19 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashcat-utils
-pkgver=0.9
+pkgver=1.0
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Utilites for Hashcat"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://hashcat.net/wiki/doku.php?id=hashcat_utils'
 license=('custom')
+depends=('glibc')
 makedepends=('p7zip')
-if [[ "$CARCH" == 'x86_64' ]]; then
-      source=("http://hashcat.net/files/hashcat-utils-$pkgver-64.7z")
-elif [[ "$CARCH" == 'i686' ]]; then
-      source=("http://hashcat.net/files/hashcat-utils-$pkgver-32.7z")
-fi
-md5sums=('7199585f9e5bc8fafee0c67a3f44fb74')
+source=('http://hashcat.net/tools/hashcat-utils/hashcat-utils-1.0.7z')
+sha512sums=('7094b3411f350437e589d4a3ccd8a715a57a50b72d578d1675080de9f959dfc8366310e3e955170d2fdfa1977abb3f22b88b01bac28f684191cce80421005608')
 
 prepare() {
   cd "$srcdir/hashcat-utils-$pkgver"
@@ -35,9 +32,7 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
 
   # Bin.
-  for bin in combinator.bin cutb.bin expander.bin gate.bin hcstatgen.bin \
-    len.bin morph.bin permute.bin prepare.bin req.bin rli.bin rli2.bin \
-    splitlen.bin
+  for bin in $(ls *.bin)
   do
     install -m755 "$bin" "$pkgdir/usr/bin/hashcat-${bin%.bin}"
   done
