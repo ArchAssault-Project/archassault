@@ -19,8 +19,7 @@ pkgver() {
 
 prepare() {
   cd "$srcdir"
-#  dos2unix -F ldapenum.pl
-#  sed -i '1 s|^|#!/usr/bin/perl|' ldapenum.pl
+  sed -i '1 s|^|#!/usr/bin/perl|' ldapenum.pl
 }
 
 package() {
