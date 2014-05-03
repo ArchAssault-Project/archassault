@@ -1,37 +1,31 @@
-# Maintainer: ArchAssault <team@archassault.org>
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Prurigro
+
 pkgname=johnny
-pkgver=20120424
+pkgver=1.1.3
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="GUI for John the Ripper"
-url='http://openwall.info/wiki/john/johnny'
-arch=('any')
+url='http://openwall.info/wiki/john/$pkgname'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
 depends=('qt4>=4.7.0' 'john')
 makedepends=('git')
-source=('git+http://github.com/AlekseyCherepanov/johnny.git'
-        'johnny-128.png'
-        'johnny.desktop')
-md5sums=('SKIP'
-         '24db229679d72a303ad1c9dd8c238cab'
-         '09458481d2db51d0e2485dc969b47e5e')
+source=("http://openwall.info/wiki/_media/john/${pkgname}${pkgver}.tar.gz"
+        "${pkgname}.png"
+        "${pkgname}.desktop")
+sha512sums=('b3d8b0b0cdcf78d7311fc46646cbff18a01c02e6efc780e7f7de5f48640c33794d4fdcdde64d1867a65e893b3322694f6f9eb50ab8dca9e91076cf9533e4557f'
+            'e67c16802b19b5fa169cc9c804b0ea295f4b39ef9cf7af4693c8b8e490eedfcf7e1edef6e52c19120a7d2ae4fac618bdabb359d3900afdfe9c23d9f6069fd4d0'
+            '39f7773575bf81e5e4e83c43f802421d73ddd8853dedf99a263f966a27e0dda7d5e18b439cc8815553f1861f60f7afb88f382fa4515b8e9858bd1111f87fbc6e')
 
 build() {
-  cd "$srcdir/johnny"
-  /usr/lib/qt4/bin/qmake
-  make
+    cd ${pkgname}${pkgver}
+    qmake-qt4
+    make
 }
 
 package() {
-  cd "$srcdir/johnny"
-
-  # Make base directories.
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/applications"
-
-  # Install bin.
-  install -m755 $srcdir/johnny/johnny "$pkgdir/usr/bin"
-
-  # Install desktop file.
-  install -m644 "$srcdir/johnny.desktop" "$pkgdir/usr/share/applications/johnny.desktop"
+    install -Dm644 ${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    install -Dm644 ${pkgname}.png "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
+    install -Dm755 "${pkgname}${pkgver}/${pkgname}" "${pkgdir}/usr/bin/${pkgname}"
 }
