@@ -14,7 +14,8 @@ depends=('ruby1.9' 'ruby1.9-sqlite3' 'ruby1.9-thin' 'ruby1.9-sinatra'
          'ruby1.9-addressable' 'ruby1.9-dm-do-adapter' 'ruby1.9-do_sqlite3'
          'ruby-librex' 'ruby-jsmin' 'ruby-msgpack' 'ruby-twitter'
          'ruby1.9-uglifier' 'ruby1.9-therubyracer' 'ruby1.9-rubyzip'
-         'ruby1.9-simple_oauth' 'ruby1.9-faraday' 'ruby1.9-sourcify' 'ruby1.9-rubydns')
+         'ruby1.9-simple_oauth' 'ruby1.9-faraday' 'ruby1.9-sourcify' 'ruby1.9-rubydns'
+         'ruby1.9-geoip')
 _gitname='beef'
 source=('git+http://github.com/beefproject/beef.git')
 md5sums=('SKIP')
