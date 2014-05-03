@@ -1,21 +1,21 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=beef
-pkgver=0.4.4.8.11.gadde527
-pkgrel=2
-groups=('archassault' 'archassault-exploitation')
+pkgver=0.4.5.0.6.ge8e4180
+pkgrel=1
+groups=('archassault' 'archassault-exploit')
 pkgdesc="BeEF, the Browser Exploitation Framework - it is a penetration testing tool that focuses on the web browser"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://beefproject.com/'
 license=('Apache')
-makedepends=('git')
-depends=('ruby1.9' 'ruby1.9-sqlite3' 'ruby1.9-thin' 'ruby1.9-sinatra'
-         'ruby1.9-ansi' 'ruby1.9-term-ansicolor' 'ruby1.9-dm-core' 'ruby1.9-json'
+makedepends=('git' 'java-environment')
+depends=('ruby1.9' 'python2' 'sqlite' 'ruby1.9-bundler' 'ruby1.9-sqlite3' 'ruby1.9-thin' 'ruby1.9-sinatra'
+         'ruby1.9-ansi' 'ruby1.9-term-ansicolor' 'ruby1.9-dm-core' 'ruby1.9-faraday'
          'ruby1.9-data_objects' 'ruby1.9-dm-sqlite-adapter' 'ruby1.9-parseconfig'
          'ruby1.9-dm-migrations' 'ruby1.9-msfrpc-client' 'ruby1.9-em-websocket'
          'ruby1.9-addressable' 'ruby1.9-dm-do-adapter' 'ruby1.9-do_sqlite3'
-         'ruby-librex' 'ruby-jsmin' 'ruby-msgpack' 'ruby-twitter'
+         'ruby1.9-librex' 'ruby1.9-jsmin' 'ruby1.9-msgpack' 'ruby1.9-twitter'
          'ruby1.9-uglifier' 'ruby1.9-therubyracer' 'ruby1.9-rubyzip'
-         'ruby1.9-simple_oauth' 'ruby1.9-faraday' 'ruby1.9-sourcify' 'ruby1.9-rubydns'
-         'ruby1.9-geoip')
+         'ruby1.9-simple_oauth' 'ruby1.9-geoip')
 _gitname='beef'
 source=('git+http://github.com/beefproject/beef.git')
 md5sums=('SKIP')
@@ -29,18 +29,22 @@ prepare() {
   cd "$srcdir/beef"
 
   # ArchAssault fixes applied to the Gemfile.
-  # We're changing gem "eventmachine", "0.12.10"
-  # to             gem "eventmachine", ">=0.12.10"
-  sed -i 's|0.12.10|>=0.12.10|' "$srcdir/beef/Gemfile"
+  #
+  # Changing the sinatra requirement from 1.4.2 to >=1.4.2
+  sed -i 's|1.4.2|>=1.4.2|' "$srcdir/beef/Gemfile"
 
-  # Changing the sinatra requirement from 1.4.2 to >=1.4.4
-  sed -i 's|1.4.2|>=1.4.4|' "$srcdir/beef/Gemfile"
+  # Changing the em-websocket requirement from ~> 0.3.6 to >=0.3.6
+  sed -i 's|~> 0.3.6|>=0.3.6|' "$srcdir/beef/Gemfile"
 
-  # Changing uglifier gem requirement from ~> 2.2.1 TO >=1.2.4
-  sed -i 's|~> 2.2.1|>=2.3.0|' "$srcdir/beef/Gemfile"
+  # Changing uglifier gem requirement from ~> 2.2.1 TO >=2.2.1
+  sed -i 's|~> 2.2.1|>=2.2.1|' "$srcdir/beef/Gemfile"
 
-  # Adding a 'ruby-rack-protection' gem requirement >=1.5.1
+  # Changing rubyzip gem requirement from ~> 1.0.0 TO >=1.0.0
+  sed -i 's|~> 1.0.0|>=1.0.0|' "$srcdir/beef/Gemfile"
+
+  # Adding a 'ruby1.9-rack-protection' gem requirement >=1.5.1
   sed -i '/gem "rack"/agem "rack-protection", ">=1.5.1"' "$srcdir/beef/Gemfile"
+
 }
 
 package() {
@@ -50,12 +54,13 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/beef"
 
-  git clone $srcdir/beef ${pkgdir}/usr/share/beef
+  #git clone "$srcdir/beef" "$pkgdir/usr/share/beef"
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/beef"
 
   cat > "$pkgdir/usr/bin/beef" <<EOF
 #!/bin/sh
 cd /usr/share/beef
-ruby beef "\$@"
+ruby-1.9 beef "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/beef"
 }
