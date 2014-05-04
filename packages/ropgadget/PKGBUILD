@@ -12,11 +12,6 @@ makedepends=('git')
 source=("https://github.com/JonathanSalwan/ROPgadget/archive/v$pkgver.tar.gz")
 sha512sums=('a0a33fdf873ab000c341c0bdd794c0c28594ca12a4f8d11a778cee5828fbabdef5cace6776cae5a574dc65859bebe84efb25fbc0a66abf2348ad288cfd81ddba')
 
-prepare(){
-  cd "$srcdir/ROPgadget-$pkgver"
-  sed -i 's|env python2|python2|' ROPgadget.py
-}
-
 package(){
   cd "$srcdir/ROPgadget-$pkgver"
   
