@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Borja Ruiz <borja [at] libcrack [dot] so> 
 pkgname=sysdig-git
-pkgver=0.1.72.r315.gd1bd092
-pkgrel=2
+pkgver=0.1.72.r329.g11bbb7d
+pkgrel=1
 pkgdesc="Open source system-level exploration and troubleshooting tool"
 arch=('i686' 'x86_64' 'armv7h' 'armv6h')
 url="http://www.sysdig.org/"
