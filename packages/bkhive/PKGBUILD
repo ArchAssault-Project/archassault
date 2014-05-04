@@ -7,6 +7,7 @@ pkgver=1.1.1
 pkgrel=1
 pkgdesc="Program for dumping the syskey bootkey from a Windows NT/2K/XP system hive"
 arch=('i686' 'x86_64')
+groups=('archassault' 'archassault-crackers')
 url="http://sourceforge.net/projects/ophcrack"
 license=('GPL')
 depends=('glibc')
