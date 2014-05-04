@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=trinity
-pkgver=1.1.1307.g5237242
+pkgver=1.1.1349.g18ebf71
 pkgrel=1
 pkgdesc="A Linux System call fuzzer"
 groups=('archassault' 'archassault-fuzzer')
@@ -8,8 +8,8 @@ arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://codemonkey.org.uk/projects/trinity/"
 license=('GPL')
 depends=('glibc')
-makedepends=('git')
-source=('git+git://git.codemonkey.org.uk/trinity')
+makedepends=('git' 'linux-headers')
+source=('git+https://github.com/kernelslacker/trinity.git')
 md5sums=('SKIP')
 
 pkgver() {
