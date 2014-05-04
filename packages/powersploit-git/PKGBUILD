@@ -11,6 +11,7 @@ makedepends=('git')
 source=("git+https://github.com/mattifestation/PowerSploit.git")
 provides=('powersploit')
 replaces=('powersploit')
+conflicts=('powersploit')
 sha512sums=('SKIP')
 
 pkgver() {
