@@ -2,7 +2,7 @@
 # Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
 
 pkgname=lynis
-pkgver=1.5.1
+pkgver=1.5.2
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing and system hardning tool for Unix/Linux"
@@ -13,7 +13,7 @@ backup=('etc/lynis/default.prf')
 depends=('bash')
 optdepends=('net-tools: networking tests')
 source=("http://cisofy.com/files/lynis-$pkgver.tar.gz")
-sha512sums=('50747475e0395748a1cfd0612a241c1308bdebf767d76e4376329ab540105e9456227ca33d144405896029c344cb841d38243df88e3b4a5d3fa5fa4a57914740')
+sha512sums=('c5c4cb2649044eaf29647785122de7d57f1fb7cfec99c00144c548584b9fec29c5de03ff8a81bf84ccba33e5374a9834a56d54ff8e56879e9f21da22fffab13e')
 
 package() {
   cd "$srcdir/lynis-$pkgver"
