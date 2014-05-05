@@ -6,7 +6,7 @@ pkgname=bkhive
 pkgver=1.1.1
 pkgrel=1
 pkgdesc="Program for dumping the syskey bootkey from a Windows NT/2K/XP system hive"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-crackers')
 url="http://sourceforge.net/projects/ophcrack"
 license=('GPL')
@@ -16,7 +16,8 @@ replaces=('bkhive2')
 conflicts=('bkhive2')
 source=(http://downloads.sourceforge.net/ophcrack/$pkgname-$pkgver.tar.gz \
 	syskey.txt)
-md5sums=('bb5e076f3051c60331a7831b6c11719d' '8987a02d580924ac9c1da7196c083c05')
+sha512sums=('bb5e076f3051c60331a7831b6c11719d'
+	   '8987a02d580924ac9c1da7196c083c05')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
