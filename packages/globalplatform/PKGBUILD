@@ -5,7 +5,7 @@
 pkgname=globalplatform
 pkgver=6.0.0
 pkgrel=1
-pkgdesc="GlobalPlatform libraries"
+pkgdesc="Global Platform libraries"
 license=('GPL3')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://sourceforge.net/projects/globalplatform/"
