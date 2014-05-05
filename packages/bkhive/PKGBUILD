@@ -16,8 +16,8 @@ replaces=('bkhive2')
 conflicts=('bkhive2')
 source=(http://downloads.sourceforge.net/ophcrack/$pkgname-$pkgver.tar.gz \
 	syskey.txt)
-sha512sums=('bb5e076f3051c60331a7831b6c11719d'
-	   '8987a02d580924ac9c1da7196c083c05')
+sha512sums=('2962732f024d8e2c4bc3b1ffcf11caa99f18af0dd2e6c0844db721cf10c7bd565947beb4f05fccf63ffce287b82479c8e7019318da41545bd25c55a821973b69'
+            '87455911f6f007b832591688418ec5aa4451ced31126d0bf25d15523e9014942fae6a34c2bfd431187ecb3831c14bffa5b5e2b1cf37f50f879afb428c1f19c9e')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
