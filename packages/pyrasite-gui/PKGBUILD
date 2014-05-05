@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassualt.org>
 # Contributor: Nathaniel Case <qalthos@gmail.com>
-pkgname=pyrasite-gui
+pkgname=python2-pyrasite-gui
 pkgver=2.0beta7
 pkgrel=1
 pkgdesc="Code injection and introspection of running Python processes"
