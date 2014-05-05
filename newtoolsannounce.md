@@ -8,6 +8,7 @@ New tools released:
 * [ipdecap](https://github.com/lpefferkorn/ipdecap) - Decapsulate traffic encapsulated within GRE, IPIP, 6in4, ESP (ipsec) protocols, can also remove IEEE 802.1Q (virtual lan) header.
 * [pyrasite-gui](https://github.com/lmacken/pyrasite-gui) - A graphical interface for monitoring and interacting with running Python processes
 * [gpshell](https://sourceforge.net/p/globalplatform/wiki/Home/) - A  command line tool for the management of GlobalPlatform compliant smart cards
+* [hbad](http://www.curesec.com/en/publications/tools.html) - A Heartbleed client side test tool
 
 
 Thanks for the newest requests.
