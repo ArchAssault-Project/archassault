@@ -1,6 +1,6 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-05-01
+## Generated on 2014-05-05
 ##
 
 ## Australia
@@ -20,6 +20,7 @@
 
 ## Russian Federation
 #Server = http://mirror.mephi.ru/archassault/$repo/os/$arch
+#Server = http://mirror.yandex.ru/mirrors/archassault/$repo/os/$arch
 
 ## Singapore
 #Server = http://mirror.debugsecurity.com/archassault/$repo/os/$arch
