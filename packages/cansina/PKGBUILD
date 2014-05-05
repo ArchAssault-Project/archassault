@@ -8,6 +8,7 @@ arch=('any')
 url='https://github.com/deibit/cansina'
 license=('GPL3')
 depends=('python2' 'python2-requests' 'java-environment')
+makedepends=('git')
 source=("git+https://github.com/deibit/cansina.git")
 sha512sums=('SKIP')
 
