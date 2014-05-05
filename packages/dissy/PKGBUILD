@@ -10,7 +10,7 @@ groups=('archassault' 'archassault-malware')
 arch=('any')
 url="http://dissy.googlecode.com/"
 license=('GPL')
-depends=('pygtk' 'pywebkitgtk')
+depends=('pygtk' 'pywebkitgtk' 'desktop-file-utils')
 install="$pkgname.install"
 source=("https://dissy.googlecode.com/files/$pkgname-$pkgver.tar.gz"
         "$pkgname.desktop")
