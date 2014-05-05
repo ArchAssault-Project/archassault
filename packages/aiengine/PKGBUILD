@@ -8,9 +8,9 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://bitbucket.org/camp0/aiengine"
 license=('GPL3')
 if [ $CARCH == 'x86_64' ]; then
-     makedepends=('boost-libs' 'python2' 'gcc-libs-multilib')
+     makedepends=('boost' 'python2' 'gcc-libs-multilib')
 else 
-     makedepends=('boost-libs' 'python2' 'gcc-libs')
+     makedepends=('boost' 'python2' 'gcc-libs')
 fi
 depends=('pcre' 'libpcap' 'boost-libs' 'python2')
 source=("https://bitbucket.org/camp0/aiengine/downloads/aiengine-$pkgver.tar.gz")
