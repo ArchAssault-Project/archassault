@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Peter Richard Lewis <plewis@aur.archlinux.org>
+# Contributor: Emiliano Vavassori <syntaxerrormmm@gmail.com>
+
+pkgname=ruby-highline
+_gemname=highline
+pkgver=1.6.20
+pkgrel=1
+epoch=1
+pkgdesc="A high-level text user interface toolkit for Ruby"
+arch=('any')
+url="http://rubygems.org/gems/highline"
+license=('GPL2' 'RUBY')
+depends=('ruby')
+makedepends=('rubygems')
+source=(http://rubygems.org/downloads/${_gemname}-${pkgver}.gem)
+noextract=(${_gemname}-${pkgver}.gem)
+sha512sums=('8d8d0111737d1993e22efdd6404cc3b732fa0a8242667a82115c96972c0bc5553b40f2717e6b4ea04385d91163a81c7d2efe1ecb42ca6fc7b9b7b42fa56e88d0')
+
+package() {
+  cd "${srcdir}"
+  local _gemdir="$(env ruby -rubygems -e 'puts Gem.default_dir')"
+
+  gem install --no-user-install -f -i "${pkgdir}${_gemdir}" --ignore-dependencies ${_gemname}-${pkgver}.gem
+}
