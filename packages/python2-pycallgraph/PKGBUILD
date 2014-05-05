@@ -8,7 +8,7 @@ arch=('any')
 url="http://pycallgraph.slowchop.com/"
 license=('GPL2')
 depends=('python2' 'graphviz')
-makedepends=('git')
+makedepends=('git' 'python2-setuptools')
 source=("git+https://github.com/gak/pycallgraph.git")
 sha512sums=('SKIP')
 
