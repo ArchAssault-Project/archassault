@@ -1,0 +1,36 @@
+# Maintainer: ArchAssault <team archassautl org>
+pkgname=cansina
+pkgver=1.0
+pkgrel=1
+groups=('archassault' 'archassault-scanner')
+pkgdesc="A python-based Web Content Discovery Tool"
+arch=('any')
+url='https://github.com/deibit/cansina'
+license=('GPL3')
+depends=('python2' 'python2-requests' 'java-environment')
+makedepends=('git')
+source=("git+https://github.com/deibit/cansina.git")
+sha512sums=('SKIP')
+
+
+prepare(){
+  grep -iRl 'python' "$srcdir/cansina" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  sed -i 's|python|python2|' $srcdir/cansina/viewer.py
+}
+
+
+package() {
+  cd "$srcdir/cansina"
+  install -dm755 $pkgdir/usr/share/$pkgname
+  install -dm755 $pkgdir/usr/bin
+  for py in *.py; do install -Dm755 $py $pkgdir/usr/share/$pkgname;done
+  install -Dm644 payload_test.txt $pkgdir/usr/share/$pkgname
+  for i in assets fuzzdb; do install -dm755 $i $pkgdir/usr/share/$pkgname/$i; cp -a --no-preserve=ownership $i/* "$pkgdir/usr/share/$pkgname/$i/";done
+
+cat > $pkgdir/usr/bin/cansina <<EOF
+#!/bin/sh
+cd /usr/share/cansina
+python2 ./cansina.py "\$@"
+EOF
+chmod +x $pkgdir/usr/bin/cansina
+}

@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
 pkgver=2.1.2
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -15,15 +15,23 @@ sha512sums=('0367122a6f9c529b3beede0f3edb153f66a77eac8d782a43053dd89ec456c77104a
 prepare(){
   cd "$srcdir/capstone-$pkgver"
   patch -i $srcdir/libdir.patch
+  cd bindings/python
+  sed -i 's|python|python2|' Makefile
 }
 
 
 build() {
   cd "$srcdir/capstone-$pkgver"
   make
+  cd bindings/python
+  make  
 }
 
 package() {
   cd "$srcdir/capstone-$pkgver"
+  make DESTDIR="$pkgdir" install
+  cd bindings/python
+  #fix python2 bindings
+  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root=\"$pkgdir\"\ --optimize=1'|' Makefile
   make DESTDIR="$pkgdir" install
 }

@@ -2,7 +2,7 @@
 # Contributor: Jeremy Lynch <jl@archassault.org>
 # Contributor: Dan McGee <dan@archlinux.org>
 pkgname=archassault-mirrorlist
-pkgver=20140501
+pkgver=20140505
 pkgrel=1
 pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
@@ -29,5 +29,5 @@ package() {
   install -m644 $srcdir/archassault-mirrorlist $pkgdir/etc/pacman.d/
 }
 
-sha512sums=('b2dc952f5ba936b0e6f02cf82dfb64458e9b171f3b488b923ed1874e6f69d65699991039e7d44ee73d9db55c77ad29058ac1ff18c8abaea5ea8fe32d532794fb')
+sha512sums=('0980776e069ab14211bbaeb4155199907305f5344f740790ad0d70396331cbda74afe094146356978a1cbc780ccde72ddf386cfa2566afa312d2f2cc964046fc')
 
