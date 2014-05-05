@@ -5,7 +5,7 @@
 pkgname=gpshell
 pkgver=1.4.4
 pkgrel=1
-pkgdesc="Gpshell GlobalPlatform command shell"
+pkgdesc="GlobalPlatform command shell"
 groups=('archassault' 'archassault-misc')
 license=('GPL3')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
