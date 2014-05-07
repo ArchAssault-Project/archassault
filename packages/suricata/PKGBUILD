@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
 pkgver=2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
@@ -13,9 +13,15 @@ backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
 sha512sums=('4f5df23822641f14fdbb6b6ca20ed178ecfa648e17c2640d8724c629c29e0e34403d1702f5be1d1049e3c443290f5a73f3d705bb5c909c24149890813b8b69a5')
 
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+}
+
 build() {
   cd ${srcdir}/$pkgname-$pkgver
-  ./configure --prefix=/usr --sysconfdir=/etc
+  ./configure --prefix=/usr --sysconfdir=/etc HAVE_PYTHON_CONFIG=/usr/bin/python2
   make
 }
 
