@@ -2,7 +2,7 @@
 # Contributor: Jeremy Lynch <jl@archassault.org>
 # Contributor: Dan McGee <dan@archlinux.org>
 pkgname=archassault-mirrorlist
-pkgver=20140505
+pkgver=20140507
 pkgrel=1
 pkgdesc="ArchAssault Project mirror list for use by pacman"
 arch=('any')
