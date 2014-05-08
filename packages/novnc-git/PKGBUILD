@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=novnc-git
-pkgver=r762.c77938e
+pkgver=r764.dd3a8a1
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="VNC client using HTML5 (Web Sockets, Canvas) with encryption (wss://) support."
