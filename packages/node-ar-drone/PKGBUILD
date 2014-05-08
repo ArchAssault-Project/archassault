@@ -20,4 +20,5 @@ package() {
   cd "$srcdir"
   npm install node-ar-drone -g "--prefix=$pkgdir/usr"
   chown -R root:root "$pkgdir"/*
+  install -Dm644 node-ar-drone/LICENSE "$pkgdir"/usr/share/licenses/node-ar-drone/LICENSE
 }
