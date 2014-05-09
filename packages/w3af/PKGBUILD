@@ -7,13 +7,23 @@ pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://w3af.sourceforge.net/'
 license=('GPL')
-depends=('python2' 'python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
+if [ $CARCH == 'x86_64' ]; then
+     depends=('python2' 'python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
+         'python2-phply' 'python2-pysqlite' 'python2-nltk' 'python2-chardet'
+         'python2-pdfminer' 'python2-futures' 'python2-pyopenssl' 'python2-lxml'
+         'scapy' 'python2-guess-language' 'python2-cluster' 'python2-msgpack'
+         'sqlite' 'python2-ntlm' 'python2-pygithub' 'python2-gitpython'
+         'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3'
+         'python2-xdot' 'libxml2' 'libxslt' 'lib32-glibc')
+else
+     depends=('python2' 'python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
          'python2-phply' 'python2-pysqlite' 'python2-nltk' 'python2-chardet'
          'python2-pdfminer' 'python2-futures' 'python2-pyopenssl' 'python2-lxml'
          'scapy' 'python2-guess-language' 'python2-cluster' 'python2-msgpack'
          'sqlite' 'python2-ntlm' 'python2-pygithub' 'python2-gitpython'
          'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3'
          'python2-xdot' 'libxml2' 'libxslt')
+fi
 options=('!strip')
 source=('git+https://github.com/andresriancho/w3af'
         'w3af.desktop')
@@ -59,6 +69,8 @@ package() {
   find "${pkgdir}" -type f | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/python|/usr/bin/python2|'
   find "${pkgdir}"/usr/share/w3af/ -type f | xargs sed -i 's|/usr/bin/python|/usr/bin/python2|'
+  # fixing one python file
+  sed -i 's|python222.5|python2|' $pkgdir/usr/share/w3af/w3af/core/data/parsers/pynarcissus/jsparser.py
   # Joint script for w3af_console.
   cat > "$pkgdir/usr/bin/w3af" <<EOF
 #!/bin/sh
