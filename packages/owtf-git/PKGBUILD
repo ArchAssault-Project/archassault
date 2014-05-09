@@ -32,7 +32,7 @@ package() {
   install -dm755 "$pkgdir/usr/share/owtf-git"
   install -dm755 "$pkgdir/usr/bin"
   install -Dm644 "$srcdir"/LICENSE "$pkgdir"/usr/share/licenses/owtf-git/LICENSE
-  cp -a * "$pkgdir"/usr/share/owtf
+  cp -a --no-preserve=owner * "$pkgdir"/usr/share/owtf-git
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
   cat > "$pkgdir/usr/bin/owtf" << EOF
 #!/bin/sh
