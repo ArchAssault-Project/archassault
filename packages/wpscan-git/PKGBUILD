@@ -12,6 +12,9 @@ depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
 	'ruby1.9-rspec' 'ruby1.9-mime-types')
 makedepends=('git' 'libxslt')
 options=(!strip)
+replaces=('wpscan')
+conflicts=('wpscan')
+provides=('wpscan')
 source=('git+http://github.com/wpscanteam/wpscan')
 md5sums=('SKIP')
 
