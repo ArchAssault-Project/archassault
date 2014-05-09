@@ -1,5 +1,5 @@
 # Maintainer: ArchAssault <team archassault org>
-pkgname=wpscan
+pkgname=wpscan-git
 pkgver=1450.9e58098
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
@@ -23,10 +23,10 @@ pkgver() {
 package() {
   cd "$srcdir/wpscan"
 
-  install -dm755 "$pkgdir/usr/share/wpscan"
+  install -dm755 "$pkgdir/usr/share/wpscan-git"
   install -dm755 "$pkgdir/usr/bin"
 
-  cp -a * "$pkgdir/usr/share/wpscan"
+  cp -a --no-preserve=owner * "$pkgdir/usr/share/wpscan-git"
 
   cat > "$pkgdir/usr/bin/wpscan" <<EOF
 #!/bin/sh
