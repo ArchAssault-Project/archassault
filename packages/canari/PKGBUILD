@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=canari
-pkgver=1.0
-pkgrel=2
+pkgver=1.1
+pkgrel=1
 groups=('archassault' 'archassault-forensic' 'archassault-reconnaissance' 'archassault-scanners')
 pkgdesc="A transform framework for maltego"
 url="http://www.canariproject.com"
@@ -10,7 +10,7 @@ license=('GPL2')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=("http://pypi.canariproject.com/canari/canari-latest.tar.gz")
-sha512sums=('e5f4b5528470b21cd9c3e89e0df37109177921fb03146702407f50c820f70c8d5571f22e0ae46e85b76ef0bc5b1135da9060b2100b92c4119be4ef28330247ea')
+sha512sums=('124afe8fbd1e1bbc96d95d6f6b61296cc4aa6e1911be0d2aa1410eb32fb92d8e4560b8134197e111d3929f2fe55565a060fc8a3b571422b066e33db42069dd5a')
 
 build(){
   cd "$srcdir/canari-$pkgver"

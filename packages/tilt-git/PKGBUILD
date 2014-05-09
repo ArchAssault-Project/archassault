@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=tilt-git
-pkgver=62.fd35f68
-pkgrel=2
+pkgver=88.5e76a6c
+pkgrel=1
 groups=('archassault')
 pkgdesc="Terminal Ip Lookup Tool"
 arch=('any')

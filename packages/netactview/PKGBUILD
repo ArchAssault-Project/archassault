@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=netactview
-pkgver=0.6.1
+pkgver=0.6.2
 pkgrel=1
 pkgdesc="A graphical network connections viewer for Linux similar in functionality with Netstat"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -10,7 +10,7 @@ groups=('archassault' 'archassault-misc')
 depends=('libgnome' 'libglade' 'gksu')
 makedepends=('intltool')
 source=(http://downloads.sourceforge.net/netactview/netactview-$pkgver.tar.bz2)
-md5sums=('a6d14aaa2c0be9433cd61c1a410aca17')
+sha512sums=('414d9d3e2bcfedcc98a1870eb53018dbbd40c7374ade2fbbfd766e39c4c2eeafa30932c815e29b889888ef4c2d29233e994610bafa195752869353b3dde84a69')
 
 build() {
   cd $srcdir/netactview-$pkgver

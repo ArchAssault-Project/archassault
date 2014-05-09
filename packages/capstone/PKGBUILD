@@ -8,6 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.capstone-engine.org/index.html'
 license=('GPL')
 depends=('glibc')
+makedepends=('python2')
 source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "libdir.patch")
 sha512sums=('0367122a6f9c529b3beede0f3edb153f66a77eac8d782a43053dd89ec456c77104aebf9eb9277505137bef68aabb04f0bd9f6026407afcdb91f94f69600671e0'
             'f8fe6cfbb04ac69a6a621ada9801045585744eebcfd859206eec59c09e907705d9346090481917dd8ca0470f3ddbf2243c136e7b9a0d5e36197435b5a8d94db1')

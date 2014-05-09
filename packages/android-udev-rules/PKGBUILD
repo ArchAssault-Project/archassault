@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=android-udev-rules
-pkgver=2.4
+pkgver=2.5
 pkgrel=1
 pkgdesc="Android udev rules"
 groups=('archassault' 'archassault-mobile')
