@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=r24456.c9e3561
+pkgver=r24477.184ec08
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
@@ -43,7 +43,7 @@ package() {
   ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
 
   # Prevent updates with msfupdate
-  rm $pkgdir/usr/share/$pkgname/msfupdate
+  #rm $pkgdir/usr/share/$pkgname/msfupdate
 
   cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
 #!/bin/sh
