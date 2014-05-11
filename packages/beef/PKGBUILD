@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beef
-pkgver=0.4.5.0.6.ge8e4180
+pkgver=0.4.5.0.59.gdbeedb1
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="BeEF, the Browser Exploitation Framework - it is a penetration testing tool that focuses on the web browser"
