@@ -110,10 +110,10 @@ ruby-1.9 /usr/share/metasploit/msfrpcd "\$@"
 EOF
 
 # Commenting out since we are locking out msfupdate
-#  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
-##!/bin/sh
-#ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
-#EOF
+  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
+EOF
 
   cat > "$pkgdir/usr/bin/msfvenom" <<EOF
 #!/bin/sh
