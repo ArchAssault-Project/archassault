@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beef
 pkgver=0.4.5.0.59.gdbeedb1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-exploit')
 pkgdesc="BeEF, the Browser Exploitation Framework - it is a penetration testing tool that focuses on the web browser"
 arch=('any')
@@ -15,8 +15,7 @@ depends=('ruby1.9' 'python2' 'sqlite' 'ruby1.9-bundler' 'ruby1.9-sqlite3' 'ruby1
          'ruby1.9-addressable' 'ruby1.9-dm-do-adapter' 'ruby1.9-do_sqlite3'
          'ruby1.9-librex' 'ruby1.9-jsmin' 'ruby1.9-msgpack' 'ruby1.9-twitter'
          'ruby1.9-uglifier' 'ruby1.9-therubyracer' 'ruby1.9-rubyzip'
-         'ruby1.9-simple_oauth' 'ruby1.9-geoip' 'ruby1.9-sourcify' 'ruby1.9-rubydns'
-	 'java-environment')
+         'ruby1.9-simple_oauth' 'ruby1.9-geoip')
 _gitname='beef'
 source=('git+http://github.com/beefproject/beef.git')
 md5sums=('SKIP')
@@ -45,6 +44,9 @@ prepare() {
 
   # Adding a 'ruby1.9-rack-protection' gem requirement >=1.5.1
   sed -i '/gem "rack"/agem "rack-protection", ">=1.5.1"' "$srcdir/beef/Gemfile"
+  
+  # Changing rubydns gem from 0.7.0 TO >=0.7.0
+  sed -i 's|0.7.0|>=0.7.0|' "$srcdir/beef/Gemfile"
 
 }
 
