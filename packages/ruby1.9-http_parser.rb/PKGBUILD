@@ -9,7 +9,7 @@ license=('')
 makedepends=('ruby1.9')
 url='http://github.com/tmm1/http_parser.rb'
 source=("http://rubygems.org/downloads/http_parser.rb-$pkgver.gem")
-md5sums=('1c9d471b7fd78d5857d6d12fe016278e')
+sha512sums=('3596a9344b28a4a03ae12f4df61595b7477ef4ec687a092213f94bb2ae2181780a055eefa9e54b59938e0d15822e7c75a2cb3b37a2b112058ee307b40dc1a1b2')
 noextract=("http_parser.rb-$pkgver.gem")
 
 package() {
