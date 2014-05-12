@@ -7,9 +7,7 @@ pkgdesc="A python library for the Twitter API. OAuth, complete coverage, streami
 url='http://github.com/m00n/tweepy'
 license=('custom')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-makedepends=('git' 'python2-setuptools')
-conflicts=('tweepy-git')
-provides=('tweepy-git')
+makedepends=('python2-setuptools')
 source=("https://github.com/m00n/tweepy/archive/$pkgver.tar.gz")
 md5sums=('66e523fb88cb5df3147b8256066c42f0')
 
