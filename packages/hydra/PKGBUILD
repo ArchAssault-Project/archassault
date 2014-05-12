@@ -1,20 +1,20 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hydra
-pkgver=7.6
-pkgrel=2
+pkgver=8.0
+pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A very fast network logon cracker which support many different services."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.thc.org/thc-hydra/'
-license="GPL3"
-depends=('postgresql-libs' 'subversion' 'libssh' 'flamerobin' 'libmariadbclient' 'libidn' 'ncpfs')
+license=("GPL3")
+depends=('postgresql-libs' 'subversion' 'libssh' 'libmariadbclient' 'libidn' 'ncpfs' 'gtk2' 'libfbclient')
 source=("http://www.thc.org/releases/hydra-$pkgver.tar.gz")
-md5sums=('62af688a07830d505d227bdaaeff9e0a')
+sha512sums=('07d74aca73bba4268ee8b7e791454eb7f1a80233c1b56735f8b6b8c611e6c8a7ee66644b945ecc116e730e08f6e9882d332e3e866eb52bc972e4de22ad9e35e4')
 
 build() {
   cd $srcdir/hydra-"${pkgver}"
 
-  ./configure
+  ./configure --prefix=/usr
   make
 }
 
