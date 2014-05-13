@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=r24477.184ec08
+pkgver=r24491.6b154b3
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
@@ -36,7 +36,8 @@ package() {
 
   # Source + Bin.
   cp --no-preserve=ownership -R * "$pkgdir/usr/share/metasploit"
-  rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
+  # Commenting out to put back in for now
+  #rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
 
   # Conform to the FHS.
   mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
