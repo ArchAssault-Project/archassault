@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=rawr
-pkgver=33.54355a5
+pkgname=rawr-git
+pkgver=34.2986875
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc="Rapid Assessment of Web Resources. A web enumerator."
@@ -9,6 +9,9 @@ url="https://bitbucket.org/al14s/rawr/wiki/Home"
 license=('GPL3')
 makedepends=('git')
 depends=('nmap' 'python2' 'graphviz' 'python2-pygraphviz' 'python2-lxml' 'phantomjs')
+replaces=('rawr')
+conflicts=('rawr')
+provides=('rawr')
 source=("git+https://bitbucket.org/al14s/rawr.git")
 md5sums=('SKIP')
 
