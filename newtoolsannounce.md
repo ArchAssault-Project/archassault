@@ -9,6 +9,9 @@ New tools released:
 * [pyrasite-gui](https://github.com/lmacken/pyrasite-gui) - A graphical interface for monitoring and interacting with running Python processes
 * [gpshell](https://sourceforge.net/p/globalplatform/wiki/Home/) - A  command line tool for the management of GlobalPlatform compliant smart cards
 * [hbad](http://www.curesec.com/en/publications/tools.html) - A Heartbleed client side test tool
+* [webpwn3r](https://github.com/zigoo0/webpwn3r) - A python based Web Applications Security Scanner
+* [climber](https://github.com/raffaele-forte/climber) - Check UNIX/Linux systems for privilege escalation
+* [nield](http://nield.sourceforge.net/) - A tool to receive notifications from kernel through netlink socket, and generate logs related to interfaces, neighbor cache(ARP,NDP), IP address(IPv4,IPv6), routing, FIB rules, traffic control.
 
 
 Thanks for the newest requests.
