@@ -1,6 +1,6 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-05-14
+## Generated on 2014-05-15
 ##
 
 ## Australia
@@ -33,6 +33,7 @@
 
 ## United Kingdom
 #Server = http://mirror.bytemark.co.uk/archassault/$repo/os/$arch
+#Server = http://mirror.catn.com/pub/archassault/$repo/os/$arch
 #Server = http://www.mirrorservice.org/sites/repo.archassault.org/archassault/$repo/os/$arch
 
 ## United States
