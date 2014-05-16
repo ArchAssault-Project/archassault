@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=r24447.8c55858
+pkgver=r24510.9fbda3e
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
@@ -36,14 +36,15 @@ package() {
 
   # Source + Bin.
   cp --no-preserve=ownership -R * "$pkgdir/usr/share/metasploit"
-  rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
+  # Commenting out to put back in for now
+  #rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
 
   # Conform to the FHS.
   mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
   ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
 
   # Prevent updates with msfupdate
-  rm $pkgdir/usr/share/$pkgname/msfupdate
+  #rm $pkgdir/usr/share/$pkgname/msfupdate
 
   cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
 #!/bin/sh
@@ -110,10 +111,10 @@ ruby-1.9 /usr/share/metasploit/msfrpcd "\$@"
 EOF
 
 # Commenting out since we are locking out msfupdate
-#  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
-##!/bin/sh
-#ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
-#EOF
+  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
+EOF
 
   cat > "$pkgdir/usr/bin/msfvenom" <<EOF
 #!/bin/sh
