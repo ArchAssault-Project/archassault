@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=owtf-git
-pkgver=r508.87d7e3b
-pkgrel=2
+pkgver=r543.fe62288
+pkgrel=1
 groups=('archassault' 'archassault-webapp')
 pkgdesc="The Offensive (Web) Testing Framework"
 url="https://www.owasp.org/index.php/OWASP_OWTF"
@@ -29,19 +29,15 @@ pkgver() {
 
 package() {
   cd "$srcdir/owtf"
-
-  # Base directories.
-  install -dm755 "$pkgdir/usr/share/owtf"
+  install -dm755 "$pkgdir/usr/share/owtf-git"
   install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/licenses/owtf"
-
-  cp -a * "$pkgdir/usr/share/owtf"
+  install -Dm644 "$srcdir"/LICENSE "$pkgdir"/usr/share/licenses/owtf-git/LICENSE
+  cp -a --no-preserve=owner * "$pkgdir"/usr/share/owtf-git
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|/usr/bin/env python|/usr/bin/env python2|'
-  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/owtf"
   cat > "$pkgdir/usr/bin/owtf" << EOF
 #!/bin/sh
 cd /usr/share/owtf
-python2 owtf.py "\$@"
+python2 ./owtf.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/owtf"
 }

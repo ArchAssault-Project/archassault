@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Mantas M. <grawity@gmail.com>
 pkgname=ding-libs-git
-pkgver=0.3.0.1.49.geb98ff0
+pkgver=0.3.0.1.51.g56d5c94
 pkgrel=1
 pkgdesc="'D is not GLib' utility libraries"
 arch=('i686' 'x86_64')

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
-pkgname=wireless-ids
-pkgver=1.0
+pkgname=wireless-ids-git
+pkgver=r24.b132071
 pkgrel=1
 groups=('archassault' 'archassault-defensive')
 pkgdesc="Ability to detect suspicious activity such as (WEP/WPA/WPS) attack by sniffing the air for wireless packets."
@@ -9,8 +9,17 @@ url='https://github.com/SYWorks/wireless-ids'
 license=('GPL2')
 depends=('python2')
 makedepends=('git')
-source=("git+https://github.com/SYWorks/wireless-ids.git")
+provides=('wireless-ids')
+conflicts=('wireless-ids')
+replaces=('wireless-ids')
+source=("wireless-ids::git+https://github.com/SYWorks/wireless-ids.git")
 sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/wireless-ids"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
 
 
 prepare(){

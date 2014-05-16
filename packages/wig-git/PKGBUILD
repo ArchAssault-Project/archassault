@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=wig-git
-pkgver=r103.55de6d8
+pkgver=r109.752c496
 pkgrel=1
 groups=('archassault' 'archassault-webapps' 'archassault-scanners')
 pkgdesc="WebApp Information Gatherer"
