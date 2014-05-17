@@ -1,26 +1,27 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=aeskeyfind
-pkgver=1.0
-pkgrel=3
-groups=('archassault' 'archassault-forensic' 'archassault-cracker')
-pkgdesc="A tool to find AES key in RAM"
+# Contributor: Kyle Keen <keenerd@gmail.com>
+pkgname=multimon-ng
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="An sdr decoder, supports pocsag, ufsk, clipfsk, afsk, hapn, fsk, dtmf, zvei."
+url="http://dekar.wc3edit.net/2012/05/24/multimonng/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="http://citp.princeton.edu/memory/code/"
-license=('BSD')
-source=("http://citp.princeton.edu/memory-content/src/aeskeyfind-$pkgver.tar.gz" "aeskeyfind.desktop")
-md5sums=('25d0256b0c5ef839bcd25e5ec399d458'
-         'c7ada4ddc32b187651f27c0b5610df67')
+license=("GPL2")
+depends=('libpulse')
+makedepends=('qt4')
+optdepends=('sox: wav conversion')
+source=("https://github.com/EliasOenal/multimon-ng/archive/$pkgver.tar.gz")
+sha512sums=('624cd1893d185a6ed9c4ea2777afefb7ca8ceba9defcb7690738a50aacc025407e7b18b779b9e2a53f0e9a728476003c77b2232d740a1cef08c2e9a18c0f24ea')
 
 build() {
-  cd $srcdir/aeskeyfind
-  make
+  cd "$srcdir/$pkgname-$pkgver"
+
+  qmake-qt4 PREFIX=/usr multimon-ng.pro
+  sed -i 's/-lpulse-simple/& -lpulse/' Makefile
+  make PREFIX=/usr
 }
 
 package() {
-  cd $srcdir/aeskeyfind
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/licenses/aeskeyfind"
-  cp LICENSE "$pkgdir/usr/share/licenses/aeskeyfind/"
-  install -m755 aeskeyfind "$pkgdir/usr/bin/aeskeyfind"
-  install -Dm644 "$srcdir/aeskeyfind.desktop" "$pkgdir/usr/share/applications/aeskeyfind.desktop"
+  cd "$srcdir/$pkgname-$pkgver"
+  install -Dm755 multimon-ng "$pkgdir/usr/bin/multimon-ng"
 }
