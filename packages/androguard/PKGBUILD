@@ -9,6 +9,7 @@ url='https://code.google.com/p/androguard/'
 license=('Apache')
 groups=('archassault')
 depends=('python2')
+makedepends=('python2-setuptools')
 optdepends=(
     'ipython2: interactive analysis support'
     'python2-pygments: color support'
