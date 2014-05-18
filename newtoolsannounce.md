@@ -8,7 +8,7 @@ Newest tools added:
 * [darm](https://github.com/jbremer/darm) - A light-weight and efficient disassembler written in C for the ARMv7 instruction set.
 * [peachpy](https://bitbucket.org/MDukhan/peachpy) - A Python framework for writing high-performance assembly kernels.
 * [haystack](https://github.com/trolldbois/python-haystack/) - A Python Framework for Finding C Structures from process memory - heap analysis - Memory structures forensics.
-
+* [androguard](https://code.google.com/p/androguard/) - A Python framework for Android application analysis.
 
 
 
