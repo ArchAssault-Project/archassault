@@ -60,4 +60,5 @@ package_archassault-meta-iso-all() {
                                 recoll
                                 nemesis)
 }
-
+archassault-meta-openbox-desktop() {
+}
