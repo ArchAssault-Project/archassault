@@ -27,6 +27,6 @@ sha512sums=('682cc56b0065fb481c95b82dd1150654bafab9eb2d1fd22de85de4d3bd3f8bde15a
 
 package() {
     cd "$srcdir/androguard-$pkgver"
-    python2 setup.py install --root="$pkgdir/" --optimize=1
+    python2 setup.py install --root="$pkgdir" --optimize=1
     sed -i 's|env python$|env python2|' $pkgdir/usr/lib/python2.7/site-packages/androguard/core/bytecodes/libdvm/test_dvm.py
 }
