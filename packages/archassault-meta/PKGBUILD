@@ -2,7 +2,7 @@
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all' 'archassault-meta-openbox-desktop')
 pkgver=0.1
-pkgrel=3
+pkgrel=4
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -57,6 +57,7 @@ package_archassault-meta-iso-all() {
 				dhex
 				testdisk
 				perl-image-exiftool
-                                recoll)
+                                recoll
+                                nemesis)
 }
 
