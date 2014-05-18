@@ -1,0 +1,19 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-peachpy
+_pkgname=PeachPy
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="A Python framework for writing high-performance assembly kernels."
+arch=('any')
+url="https://pypi.python.org/pypi/PeachPy/0.0.1"
+license=('custom')
+depends=('python2')
+makedepends=('python2-setuptools')
+source=("http://pypi.python.org/packages/source/P/$_pkgname/$_pkgname-$pkgver.zip")
+md5sums=('9e41ae48b72537f7788482ddec6b9958')
+
+package() {
+  cd "$srcdir/$_pkgname-$pkgver"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE.txt $pkgdir/usr/share/licenses/$pkgname/LICENSE.txt
+}
