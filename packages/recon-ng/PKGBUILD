@@ -14,9 +14,9 @@ source=("git+https://bitbucket.org/LaNMaSteR53/recon-ng.git"
         "recon-cli.sh"
         "recon-rpc.sh")
 sha512sums=('SKIP'
-         'db9592b02efa88a45b9d4319e4f3c8b2'
-         '5fb21c6589dd593036f54c026af88ec3'
-         'a54d328beb89f77221b1bb65bcbd3ae6')
+            '0db687f52bdb306990ee51a4a07822685f8468a6acd2b4447ab57efe3b2aa09d6d2e74ffbf32f66d3ab8bec0dfd76a694399a4907fc5eb812f9ec01e5d8de2b0'
+            'ca78c0d7a46b0ad2677e6b59a65fbf3e9457c7387e5bbcfd0ac468e4d6aebd18929d07467cd74f8b4087dff681a436c642000675d59ef383c0d75ab50f55196b'
+            'fc67b96e456fcf2b18d07674143e7a012191900676e570fb8394ef4eff2f8db6fbb3d23c8c5db12a70ab2ecdc9cdfc64c972efcf84a4f26086b1850d42a512c5')
 
 pkgver() {
   cd "$srcdir/recon-ng"
