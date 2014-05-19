@@ -1,8 +1,8 @@
 # Maintainer: Arch3y <arch3y archassault org>
 pkgbase=archassault-meta
-pkgname=('archassault-meta-iso-all' 'archassault-meta-openbox-desktop')
+pkgname=('archassault-meta-iso-all')
 pkgver=0.1
-pkgrel=3
+pkgrel=4
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -57,6 +57,6 @@ package_archassault-meta-iso-all() {
 				dhex
 				testdisk
 				perl-image-exiftool
-                                recoll)
+                                recoll
+                                nemesis)
 }
-

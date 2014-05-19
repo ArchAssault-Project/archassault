@@ -9,13 +9,19 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/JiaoXianjun/LTE-Cell-Scanner"
 license=('GPL3')
 if [[ $CARCH == 'x86_64' ]]; then
-      depends=('itpp' 'libcl' 'boost-libs' 'gcc-libs-multilib' 'rtl-sdr' 'fftw')
+      depends=('itpp' 'boost' 'gcc-libs-multilib' 'rtl-sdr' 'hackrf')
 else  
-      depends=('itpp' 'libcl' 'boost-libs' 'gcc-libs' 'rtl-sdr' 'fftw')
+      depends=('itpp' 'boost' 'gcc-libs' 'rtl-sdr' 'hackrf')
 fi
-makedepends=('cmake')
-source=("https://github.com/JiaoXianjun/LTE-Cell-Scanner/archive/v$pkgver.tar.gz")
-sha512sums=('24f92f57b8ce40b7ba3a1cefc7750057465bbecc404ceaa24b7f03d9c52cc5e480e264cf3ba0fe14f145ae5b8044ca8ebbbe1386f56764d27f8aa94f1450a240')
+
+source=("https://github.com/JiaoXianjun/LTE-Cell-Scanner/archive/v$pkgver.tar.gz" "findhackrf.patch")
+sha512sums=('24f92f57b8ce40b7ba3a1cefc7750057465bbecc404ceaa24b7f03d9c52cc5e480e264cf3ba0fe14f145ae5b8044ca8ebbbe1386f56764d27f8aa94f1450a240'
+            '106602b4e5632ab59318e44d4d046a4d9735d03a161223eb971f88822441bc0f876008ee71dda391ed0c26fc3d28ecf3f11a323fd89eb3198b430da0f1578014')
+
+prepare(){
+  cd "$srcdir/$_pkgname-$pkgver/cmake/Modules"
+  patch -i $srcdir/findhackrf.patch
+}
 
 build() {
   cd $srcdir/$_pkgname-$pkgver

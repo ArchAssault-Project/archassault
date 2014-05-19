@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org> 
 pkgname=armitage
-pkgver=1192
+pkgver=1193
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A graphical cyber attack management tool for Metasploit"
