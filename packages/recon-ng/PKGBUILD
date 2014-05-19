@@ -13,14 +13,13 @@ source=("git+https://bitbucket.org/LaNMaSteR53/recon-ng.git"
         "recon-ng.sh"
         "recon-cli.sh"
         "recon-rpc.sh")
-md5sums=('SKIP'
+sha512sums=('SKIP'
          'db9592b02efa88a45b9d4319e4f3c8b2'
          '5fb21c6589dd593036f54c026af88ec3'
          'a54d328beb89f77221b1bb65bcbd3ae6')
 
 pkgver() {
   cd "$srcdir/recon-ng"
-
   echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
@@ -33,10 +32,10 @@ prepare() {
 
 package() {
   cd "$srcdir/recon-ng"
-  install -d -m755 "$pkgdir/usr/bin"
-  install -D -m755 "$srcdir/recon-ng.sh" "$pkgdir/usr/bin/recon-ng"
-  install -D -m755 "$srcdir/recon-cli.sh" "$pkgdir/usr/bin/recon-cli"
-  install -D -m755 "$srcdir/recon-rpc.sh" "$pkgdir/usr/bin/recon-rpc"
-  install -d -m755 "$pkgdir/usr/share/recon-ng"
+  install -dm755 "$pkgdir/usr/bin"
+  install -Dm755 "$srcdir/recon-ng.sh" "$pkgdir/usr/bin/recon-ng"
+  install -Dm755 "$srcdir/recon-cli.sh" "$pkgdir/usr/bin/recon-cli"
+  install -Dm755 "$srcdir/recon-rpc.sh" "$pkgdir/usr/bin/recon-rpc"
+  install -dm755 "$pkgdir/usr/share/recon-ng"
   cp -R * "$pkgdir/usr/share/recon-ng"
 }
