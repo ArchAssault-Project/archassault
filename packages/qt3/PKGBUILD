@@ -1,12 +1,11 @@
-# $Id$
-# Maintainer: Eric Bélanger <eric@archlinux.org>
-
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Eric Bélanger <eric@archlinux.org>
 pkgname=qt3
 pkgver=3.3.8b
 pkgrel=8
 epoch=1
 pkgdesc="A cross-platform application and UI framework"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.trolltech.com/products/qt/index.html"
 license=('GPL')
 depends=('libpng' 'libxmu' 'libxcursor' 'libxinerama' 'glu' 'libxft'
@@ -21,14 +20,14 @@ source=(ftp://ftp.qt-project.org/qt/source/qt-x11-free-${pkgver}.tar.gz
         qt3-png15.patch qt-copy-kde-patches.tar.bz2 qt-patches.tar.bz2
         eastern_asian_languagues.diff qt-odbc.patch gcc-4.6.patch 
         qt-x11-free-3.3.5-makelibshared.patch)
-sha1sums=('745def6250dc7f337dbb265e20bf38dcb41fd854'
-          '3d19510c46016a1a211d97bf8f82b01498b1b33c'
-          '33418e5b117458af23c72cdbffc0c339bc34bdc4'
-          '116afa0e737bdf27ea27f9b3653aeb56db9ec151'
-          '40c7b8f06a21f809ddeb8b5560e9da63ccac6a17'
-          '1346320614f6f86fbeb10b9fbad721dea29f5b61'
-          'd9b83b8f6f9c8bd98d290dc1d0e9913a00b62c3f'
-          'e89720eac87c3e925d0efae6a16f334c5159e4f6')
+sha512sums=('09b5179d6fb6ff1fa63c44150200436c195e45bb9620cd64e9182db79dfdf758ac734c8aac9c668932efb27ecaa9bfbfe11835736335a35c9423eab2ca83efd2'
+            'a9ebb35b6ca11d6e8712a33b0a4dc63b1a8038b09ec282f97e909d2a60bc83d93210df8f45c91b504f29eb0b760faa54b2a30e82e96298090033ed8e3882681b'
+            '12ef8c5fe27d6010b2910ffc1423af019c09946d7b357497d4defdfa8d795f86b1ef913828f78cf2360bb999fea6723c6769279dc7df4dbae8b64507cac8ade4'
+            'a4fb94ce049d8598f1e1548c6f7d3f3a00ab9d9e6defdf196ed02d1351dadb291b26ba8623794527a3efcf470efd12bb9ce27f50a487ec9e235499f5ae87e43b'
+            '840f9d24a3ebc8bc179e4679d859cb4219c9059c8664d3b96f2fffb189abdd0872748d6b92d46961ed052bdbadffbc82edb1299901850c1c92c676311f2acf16'
+            'c44be35fa91d7eeccd124040d6262ddee62d7b94d0d32066e81aa1218ac6e6bf38b2724443c9481439a085357b4bebe521047d8af95e4b3bec46ca92ebff9df7'
+            '7d946a0a5b4e2374c3831668077f0d0f62bd3a3a2cc4db567f365fef72b80a351f3768276b3f51bff88153b6735f25cfb9043a1f3644cf3279be17f2eb14609b'
+            '1c549fec1fc1af911dbc72ddd43194606b5d3df8f87f01ade83f2317b15cdb4064f97ca959e8d5107d6d0a26fef96b2266e05e969b66f81e1cfbe7c57be087f2')
 
 # qt-copy-kde-patches come from http://websvn.kde.org/trunk/qt-copy/patches/
 # other qt-patches come from fedora and gentoo
