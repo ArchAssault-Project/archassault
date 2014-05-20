@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dscanner-git
-pkgver=r555.25f0d93
+pkgver=r558.12d6120
 pkgrel=1
 pkgdesc="Swiss-army knife for D source code"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
