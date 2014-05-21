@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webpwn3r-git
-pkgver=0.r31.eda5d1a
+pkgver=0.r35.3fb27bb
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A python based Web Applications Security Scanner"
