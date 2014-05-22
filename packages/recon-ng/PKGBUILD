@@ -38,4 +38,6 @@ package() {
   install -Dm755 "$srcdir/recon-rpc.sh" "$pkgdir/usr/bin/recon-rpc"
   install -dm755 "$pkgdir/usr/share/recon-ng"
   cp -R * "$pkgdir/usr/share/recon-ng"
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
 }
