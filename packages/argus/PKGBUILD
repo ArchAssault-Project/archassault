@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=argus
+pkgver=3.0.6.1
+pkgrel=1
+groups=('archassault' 'archassault-networking' 'archassault-defensive')
+pkgdesc=""
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://qosient.com/argus/"
+depends=('zlib' 'bash' 'perl' 'libpcap')
+license=('GPL3')
+source=("http://qosient.com/argus/src/argus-$pkgver.tar.gz")
+sha512sums=('449bcad07bcc7afe7b2397a84ac604b75beb08b1efa14a4b431d660d9f12299d182b33e0a96c7da9e4a384c5deb70eabfcb5e7caf93a42b3e1c33e99b356bf88')
+
+build() {
+  cd $srcdir/argus-$pkgver
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd $srcdir/argus-$pkgver
+  make DESTDIR=$pkgdir install
+  install -Dm644 COPYING $pkgdir/usr/share/licenses/$pkgname/LICENSE
+  mv $pkgdir/usr/argus $pkgdir/usr/share/
+  cp -a --no-preserve=ownership doc/* $pkgdir/usr/share/doc/argus-3.0/
+}
