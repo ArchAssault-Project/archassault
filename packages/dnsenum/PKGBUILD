@@ -4,24 +4,24 @@ pkgver=1.2.4.1
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-reconnaissance')
 pkgdesc="Perl script that enumerates DNS information from a domain, attempts zone transfers, performs a brute force dictionary style attack, and then performs reverse look-ups on the results"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='https://github.com/fwaeytens/dnsenum'
 license=('GPL')
-depends=('perl' 'perl-net-dns' 'perl-net-ip' 'perl-net-netmask')
+depends=('perl' 'perl-net-dns' 'perl-net-ip' 'perl-net-netmask' 'perl-strin-random')
 optdepends=('perl-www-mechanize: google scraping support'
             'perl-net-whois-ip: whois query support')
 source=("https://github.com/fwaeytens/dnsenum/archive/$pkgver.zip")
 sha512sums=('bbd6facf6936c24ae36597332f8de32883fe8fd281be18a418c197617bcd85f8816fa58d55d4dfd1f7db16cc878cb63db6728941fb5c0b48eafdae9eb2eca241')
 
 package() {
-  cd ${srcdir}
+  cd "$srcdir/$pkgname-$pkgver"
 
   # Base directories.
   install -dm755 ${pkgdir}/usr/bin
   install -dm755 ${pkgdir}/usr/share/doc/dnsenum
 
   # Docs.
-  install -Dm644 README.txt ${pkgdir}/usr/share/doc/dnsenum/README.txt
+  install -Dm644 README.md ${pkgdir}/usr/share/doc/dnsenum/README.md
 
   # Script.
   install -Dm755 dnsenum.pl ${pkgdir}/usr/share/dnsenum/dnsenum.pl
