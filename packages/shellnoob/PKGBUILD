@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=shellnoob
-pkgver=2.0.0.0.1
+pkgver=2.1
 pkgrel=1
 groups=('archassault' 'archassault-exploit' 'archassault-debugging')
 pkgdesc="A toolkit that eases the writing and debugging of shellcode"
@@ -9,7 +9,7 @@ arch=('any')
 license=('MIT')
 depends=('python2')
 source=("https://github.com/reyammer/shellnoob/archive/v$pkgver.tar.gz")
-md5sums=('0bcc95a8eccab0c73e98b3bb4e445999')
+md5sums=('5628a3197cfed3238f818a3badddda69')
 
 prepare() {
   cd "shellnoob-$pkgver"
