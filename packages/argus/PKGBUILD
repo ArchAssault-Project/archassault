@@ -1,9 +1,9 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=argus
 pkgver=3.0.6.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
-pkgdesc="Networking monitoring flow analyzer"
+pkgdesc="Network Monitoring Tool with Flow control"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://qosient.com/argus/"
 depends=('zlib' 'bash' 'perl' 'libpcap')
@@ -13,7 +13,7 @@ sha512sums=('449bcad07bcc7afe7b2397a84ac604b75beb08b1efa14a4b431d660d9f12299d182
 
 build() {
   cd $srcdir/argus-$pkgver
-  ./configure --prefix=/usr
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --mandir=/usr/share/man --docdir=/usr/share/doc/argus --pdfdir=/usr/share/argus/pdf
   make
 }
 
@@ -22,5 +22,4 @@ package() {
   make DESTDIR=$pkgdir install
   install -Dm644 COPYING $pkgdir/usr/share/licenses/$pkgname/LICENSE
   mv $pkgdir/usr/argus $pkgdir/usr/share/
-  cp -a --no-preserve=ownership doc/* $pkgdir/usr/share/doc/argus-3.0/
 }
