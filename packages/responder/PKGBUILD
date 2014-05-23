@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=responder
-pkgver=2.0.5
-pkgrel=3
+pkgver=2.0.8
+pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A LLMNR and NBT-NS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication."
 url="https://github.com/SpiderLabs/Responder"
@@ -10,7 +10,7 @@ arch=('any')
 depends=('python2')
 makedepends=('unzip')
 source=("https://github.com/SpiderLabs/Responder/archive/v$pkgver.zip" 'responder.desktop' 'LICENSE')
-sha512sums=('53b224647cecc0e74c5e3c07e11022e415d909519294203fb08420287d114b7b6577da09a1c2c5d877a67774b34d8c663e460cc7b2988a72d7fec1519622b6e2'
+sha512sums=('26aef706b94cd17e3824a6fd6596b90b323a032a06ca31fbe977cea52bb4a380aacad11306418dafab9c6bef4164e3208435c52e6f37499326cb58454614eeca'
             'da830751eea5dd3ca6bc9a80892daf4c21b3e96ef9b309cacb65a82f10b6da7e4c6613c78ebb8c6825304bb9a8ca8d705d645db9bf47e742b8541030df8a7e10'
             '49254b769f161d19ade5858a4eb4eba7ce791051cb04bdabba4184ee8409e7bb83e3ec0941dfe3fc71d09fe5abff6d6d8b22b4ec8ffaa82f63a3dd91cc979551')
 
