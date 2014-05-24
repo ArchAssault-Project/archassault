@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
-pkgver=r60.465f162
+pkgver=r61.ffed12b
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
