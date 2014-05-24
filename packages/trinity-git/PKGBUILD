@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=trinity-git
-pkgver=1.1.1515.g7335d0c
+pkgver=1.1.1528.g164dba6
 pkgrel=1
 pkgdesc="A Linux System call fuzzer"
 groups=('archassault' 'archassault-fuzzer')
