@@ -7,7 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.snort.org'
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-scanners' 'archassault-autonomous')
-depends=('libpcap' 'libdaq-static' 'pcre' 'libdnet')
+depends=('libpcap' 'libdaq-static' 'pcre' 'libdnet' 'libutil-linux' 'openssl')
 makedepends=('ca-certificates' 'tcpdump' 'bison' 'flex')
 backup=('etc/conf.d/snort'
 		'etc/snort/snort.conf'
@@ -69,4 +69,5 @@ package() {
 		echo 'include $RULE_PATH/emerging.conf' >> "${pkgdir}/etc/snort/snort.conf"
 		cp ${srcdir}/rules/* "${pkgdir}/etc/snort/rules"
 		find "${pkgdir}/etc/snort" -type f -name "Makefile*" -exec rm {} \;
+		mv "$pkgdir"/usr/src "$pkgdir"/usr/include/snort
 }
