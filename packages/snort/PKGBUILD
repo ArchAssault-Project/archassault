@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=snort
-pkgver=2.9.6.0
-pkgrel=5
+pkgver=2.9.6.1
+pkgrel=1
 pkgdesc="A lightweight network intrusion detection system."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.snort.org'
@@ -28,7 +28,7 @@ source=("http://www.snort.org/dl/snort-current/snort-${pkgver}.tar.gz"
 		'local.rules'
 		'white_list.rules'
 		'black_list.rules')
-sha512sums=('8af7ce53019c3a13745d2a92b4e8fd93d32431349cd3265034ad8e4a7312c73c034d6773e63eaa96e909c4b9d2a8c2c275533b9cc661cbc02375fb9cf815f995'
+sha512sums=('455b92900efa098ca85f81290f2b4bfff756d6db1b7f85352f3d17e24e4139c69bde27b4d250aa1291146773f54b891dc8ed877d1bb82fa354bd3e5b8db572a7'
             '6f882da312fe5138b32192d7f3d7f56a614e1782688e5e8a132950e25f40ce844a67dfcae766365459d4244fc151a87310a4a109b730313b460e664e29cd59ab'
             '96d3a27752c60cec9b188cdc358f3a38c0f6f0a179e16f3778abaf6385cc82169cdf0b41ea9bf39cfa64455e6ca5e484c2d952c72ced0901512b4750343ec5d9'
             '08341de9f302622b40917914e5e67c0f79c1800c463be7675bb019a3c033c3302a1be522ffd7a5b4759211f962ce4557557ea2653c4c89843dbd33b95a2e2e35'
