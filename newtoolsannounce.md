@@ -5,5 +5,7 @@ Newest tools added:
 * [rtpinsertsound](http://www.hackingvoip.com/sec_tools.html) - A tool to insert audio into a specified audio (i.e. RTP) stream.
 * [tlspretense](https://github.com/iSECPartners/tlspretense) - A test framework for testing SSL/TLS client certificate validation.
 * [bittwist](http://bittwist.sourceforge.net/index.html) - A simple yet powerful libpcap-based Ethernet packet generator.
+* [fuzzap-git](https://github.com/lostincynicism/FuzzAP) - A python script for obfuscating wireless networks.
+* [wpbf-git](https://github.com/dejanlevaja/wpbf) - Multithreaded WordPress brute forcer.
 
 Thanks for the most recent requests.
