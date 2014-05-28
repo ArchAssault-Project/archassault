@@ -7,5 +7,6 @@ Newest tools added:
 * [bittwist](http://bittwist.sourceforge.net/index.html) - A simple yet powerful libpcap-based Ethernet packet generator.
 * [fuzzap-git](https://github.com/lostincynicism/FuzzAP) - A python script for obfuscating wireless networks.
 * [wpbf-git](https://github.com/dejanlevaja/wpbf) - Multithreaded WordPress brute forcer.
+* [centry-git](https://github.com/0xPoly/Centry) - A Panic button for protection against cold boot attacks
 
 Thanks for the most recent requests.
