@@ -36,7 +36,7 @@ package() {
 cat > "$pkgdir/usr/bin/centry" << EOF
 #!/bin/sh
 cd /usr/share/centry
-python centry.py "\$@"
+python ./centry.py "\$@"
 EOF
 
 chmod +x "$pkgdir/usr/bin/centry"
