@@ -1,9 +1,9 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=argus-clients
 pkgver=3.0.6.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
-pkgdesc=""
+pkgdesc="Network monitoring client for Argus"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://qosient.com/argus/"
 depends=('libedit' 'geoip' 'libmariadbclient' 'libsasl')
