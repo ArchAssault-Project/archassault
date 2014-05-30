@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=p0f
-pkgver=3.06b
+pkgver=3.07b
 pkgrel=1
 groups=('archassault' 'archassault-sniffers' 'archassault-fingerprinting')
 pkgdesc="Purely passive TCP/IP traffic fingerprintinging tool "
@@ -9,7 +9,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL3')
 depends=('libpcap')
 source=("http://lcamtuf.coredump.cx/p0f3/releases/p0f-$pkgver.tgz")
-md5sums=('1a07d6220d9e57d8d098905b7ca6844a')
+sha512sums=('79dd0637015055a5bf1f017ea3ae9d5b916c4299df0b364450ffb4a9d736c95a27a2874ac537cfcaec5e588fd507891ee7012d6d41459c6dd68638efc1a708da')
 
 # Additional tools: p0f-client & p0f-sendsyn
 _p0ftools=true

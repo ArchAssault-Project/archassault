@@ -7,20 +7,19 @@ pkgdesc="Listens to network traffic and picks out images from TCP streams it obs
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.ex-parrot.com/~chris/driftnet/'
 license=('GPL')
-depends=('libjpeg' 'libpcap' 'gtk' 'giflib')
+depends=('libjpeg' 'libpcap' 'gtk2' 'giflib')
 makedepends=('imake')
 source=("http://www.ex-parrot.com/~chris/driftnet/driftnet-$pkgver.tar.gz"
-        'gif.patch')
-md5sums=('8e11d77770452f97bb3c23f510489815'
-         '000ee0aa95be57c3fc46840b0cf4b2e2')
+        'driftnet-gtk2.patch')
+sha512sums=('3e4d1f350215625ffb19e59f04d47406487c8176992f4780b9d1bc6ab7153f127c0989996e147c9a3221b18b8d52fa8db4d234a4f2045f568df90078f4dd43aa'
+            '2a59c105d3a7437ea08db802f1dbb610cae6f1347eb57e531167db5c6ecc08a6badff010e41971d3cde73c8dd340a64798969292213400157a90cf0edf021a6e')
 
 prepare() {
   cd "$srcdir/driftnet-$pkgver"
 
-  # This library has been combined with giflib.
-  sed -i 's/-lungif//' Makefile
-
-  patch < "$srcdir/gif.patch"
+  # Replace gtk-1.2 with gtk-2.0
+  patch -i "$srcdir/driftnet-gtk2.patch"
+  
 }
 
 build() {

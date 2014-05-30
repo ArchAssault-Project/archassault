@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=dhcpig
-pkgver=20131208
+pkgname=dhcpig-git
+pkgver=r69.cc4109a
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanners')
@@ -8,13 +8,17 @@ pkgdesc="Enumerates hosts, subdomains, and emails from a given domain using goog
 url="https://github.com/kamorin/DHCPig"
 license=('GPL2')
 arch=('any')
-depends=('python2' 'git' 'scapy')
+depends=('python2' 'scapy')
+makedepends=('git')
+provides=('dhcpig')
+conflicts=('dhcpig')
+replaces=('dhcpig')
 source=("git+https://github.com/kamorin/DHCPig")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
   cd DHCPig
-  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {

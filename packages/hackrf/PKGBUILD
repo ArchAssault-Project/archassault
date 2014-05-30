@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hackrf
 pkgver=2014.04.1
-pkgrel=1
+pkgrel=3
 pkgdesc="Driver for HackRF, allowing general purpose software defined radio (SDR)."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/mossmann/hackrf"
