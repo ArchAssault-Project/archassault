@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=backdoor-factory
-pkgver=0.r56.fa56b0a
+pkgver=0.r58.a529aa8
 pkgrel=1
 groups=('archassault' 'archassault-backdoor')
 pkgdesc="Patch win32/64 binaries with shellcode"
