@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=oclhashcat
 _pkgname=oclHashcat
-pkgver=1.20
+pkgver=1.21
 pkgrel=1
 pkgdesc="Worlds fastest WPA cracker with dictionary mutation engine"
 url=('http://hashcat.net/oclhashcat/')
@@ -12,7 +12,7 @@ optdepends=('nvidia-utils>=319.37: For for gpu support via Nvidia CUDA'
 	    'catalyst-utils>=13.4: For gpu support via ATI Stream'
 	    'opencl-catalyst: For gpu support via ATI Stream')
 source=("http://hashcat.net/files/${_pkgname}-${pkgver}.7z")
-sha512sums=('a2e7d64a3fc80f41e935f6555e113913cc5c84bdc3e57c7bdcd3e08f88ee918354ebc7e809a3cccd1997ef520a964f52373e17f5c0f0bfca78759e197d57f979')
+sha512sums=('c3767cd2bd463b6b18129172197cc22b7a324a9fdd30a2e2355344f59c634cc89f2e4c5c510dc69b98332a7764ecd155755937ac559b030bb685522970235438')
 options=('!strip')
 package() {
   cd "$srcdir/$_pkgname-$pkgver"

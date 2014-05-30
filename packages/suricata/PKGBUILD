@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
-pkgver=2.0
-pkgrel=2
+pkgver=2.0.1
+pkgrel=1
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
@@ -11,7 +11,7 @@ depends=('zlib' 'libcap-ng' 'libnetfilter_queue' 'libnfnetlink' 'libnet' 'libpca
 optdepends=('snort: suricata can use rulesets provided by snort')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
-sha512sums=('4f5df23822641f14fdbb6b6ca20ed178ecfa648e17c2640d8724c629c29e0e34403d1702f5be1d1049e3c443290f5a73f3d705bb5c909c24149890813b8b69a5')
+sha512sums=('8591ddf86cd6043eea3abbe5a2533ea7f84bfe9d743106f260397333f37a9c8b8af031ea386012ea98dcb065ab36b39dba3c33f59e6a250bc312551864dc2774')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"
@@ -29,9 +29,9 @@ package() {
   cd ${srcdir}/$pkgname-$pkgver
   make DESTDIR=${pkgdir} install
   install -d ${pkgdir}/var/log/$pkgname
-  install -D -m644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
-  install -D -m644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
-  install -D -m644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
+  install -Dm644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
+  install -Dm644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
+  install -Dm644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
   install -d "${pkgdir}/etc/$pkgname/rules"
-  install -D -m644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
+  install -Dm644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
 }

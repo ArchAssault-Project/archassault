@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=parsero
-pkgver=0.71
+pkgver=0.75
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A Robots.txt audit tool"
