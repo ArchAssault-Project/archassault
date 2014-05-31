@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=ruby1.9
 pkgdesc='An object-oriented language for quick and easy programming'
-pkgver=1.9.3_p545
+pkgver=1.9.3_p547
 pkgrel=1
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.ruby-lang.org/en/'
@@ -12,7 +12,7 @@ makedepends=('openssl' 'tk' 'libffi' 'doxygen' 'graphviz' 'libyaml')
 options=('!emptydirs' '!makeflags')
 provides=('ruby1.9-gems')
 source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2")
-sha512sums=('7fbdaac5950abcb3cc9a2f99f441eced5f2a7d0c9107a41fb4b6caf299e372edab2be24a294ec1a6d6863b865f9cb5511ca1c15ec6bb1f45e60ffa7ab5480e04')
+sha512sums=('d6e166f7a12ffa57d0287f7eaa7cd7717f09a745beb58f2755331874086df1a69c71144cfce5ba00d46cc44da46317fbc0d18f44a7bd65f2b2aaf149331e0d26')
 
 build() {
   cd "ruby-${pkgver//_/-}"
