@@ -21,24 +21,12 @@ sha512sums=('d6e166f7a12ffa57d0287f7eaa7cd7717f09a745beb58f2755331874086df1a69c7
 
 build() {
   cd "ruby-${pkgver//_/-}"
-
-if [[ $CARCH == arm* ]] ; then
-  PKG_CONFIG=/usr/bin/pkg-config ./configure \
-    --prefix=/usr/share/ruby1.9 \
-    --enable-shared \
-    --enable-pthread \
-    --disable-rpath \
-    --disable-install-doc \
-    --disable-install-rdoc \
-    --program-suffix=-1.9
-else
   PKG_CONFIG=/usr/bin/pkg-config ./configure \
     --prefix=/usr/share/$pkgname \
     --enable-shared \
     --enable-pthread \
     --disable-rpath \
     --program-suffix=-1.9 
-fi
   make
 }
 
