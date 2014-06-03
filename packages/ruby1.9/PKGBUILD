@@ -29,7 +29,7 @@ if [[ $CARCH == arm* ]] ; then
     --enable-pthread \
     --disable-rpath \
     --disable-install-doc \
-    --disable-install-rdoc 
+    --disable-install-rdoc \
     --program-suffix=-1.9
 else
   PKG_CONFIG=/usr/bin/pkg-config ./configure \
