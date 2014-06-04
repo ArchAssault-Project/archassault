@@ -2,25 +2,17 @@
 # Contributor: Prurigro
 
 pkgname=chkrootkit
-pkgver=0.49
-pkgrel=2
+pkgver=0.50
+pkgrel=1
 groups=('archassault' 'archassault-defense' 'archassault-forensic')
 pkgdesc="Checks for rootkits on a system"
 url="http://www.chkrootkit.org/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL2')
 depends=('bash')
-source=("ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit.tar.gz"
-        "no-suckit-check.patch")
-sha512sums=('b796547fc483635ff6ee4e953f7dda34913189459de05b547522b79f8edeef5adae72cc05515b8ff9382cbabffd93cae7d114a40636e14c55da513bb42b05909'
-            'bd1d6c300f916d1b543baa9e5131610a4f96b91a628f9c1a10f4b235666e6469ad15c47cf08c8774e97aa8123566eaf6c100023eeb53bb74ccb51f09b5ffdb67')
+source=("ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit.tar.gz")
+sha512sums=('9f26fd34e85b58b13dedc5f38a889ae258bb2c0f1ff40e99c149e23f93890e956f94204b1bb2241584454e99168c53b583f52777083454237f3ba343424dba1c')
 
-prepare(){
-  cd "chkrootkit-${pkgver}"
-
-  #Apply the patch to remove the Suckit test as systemd gives a false positive
-  patch -p1 < ../no-suckit-check.patch
-}
 
 build(){
   cd "chkrootkit-${pkgver}"
