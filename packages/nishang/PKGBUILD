@@ -1,19 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=nishang
-pkgver=0.3.0
+pkgver=0.3.5
 pkgrel=1
 groups=('archassault' 'archassault-windows')
 pkgdesc="Using PowerShell for Penetration Testing"
 url="https://code.google.com/p/nishang/"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('GPL3')
-source=("https://nishang.googlecode.com/files/nishang_$pkgver.zip")
-md5sums=('1fe12b73c0877861bfa178fc27f43b2a')
+source=("https://github.com/samratashok/nishang/archive/v$pkgver.zip")
+sha512sums=('8b2b433c9e3ae1c02ec6bf5a69f495e59649fd476089a5bf96e82a66757575317b50dcaf8a73b3e833840ac37a02e1fe2514921fed5434686dec14a9df53666c')
 
 package() {
-  cd "$srcdir/nishang"
-
-  install -dm755 "$pkgdir/usr/share/windows/nishang"
-
-  cp -a --no-preserve=ownership * "$pkgdir/usr/share/windows/nishang"
+  cd "$srcdir/nishang-$pkgver"
+  install -dm755 "$pkgdir/usr/share/nishang"
+  cp -ar --no-preserve=ownership * "$pkgdir/usr/share/nishang"
 }
