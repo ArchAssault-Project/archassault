@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team archassault.org>
+# Contributor: Rudy Matela <rudy@matela.com.br>
+pkgname=nfdump
+pkgver=1.6.12
+pkgrel=1
+pkgdesc="A set of tools to collect and process netflow data."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://nfdump.sourceforge.net/"
+license=('BSD')
+depends=('glibc')
+makedepends=('flex' 'bison')
+source=("http://downloads.sourceforge.net/nfdump/$pkgname-$pkgver.tar.gz")
+sha512sums=('4ff61c14746f34f47588545e58e4e2fa679cc107192cb81d4ece1b7e18ad9ae1d3ce7663b90a302a64a3cc72cdd55718a446c5323ac100ed5fc3601931d866ad')
+
+build() {
+	cd "$srcdir/$pkgname-$pkgver"
+
+	./configure --prefix=/usr
+	make
+}
+
+package() {
+	cd "$srcdir/$pkgname-$pkgver"
+
+	make DESTDIR="$pkgdir/" install
+	install -dm755 "$pkgdir/usr/share/licenses/nfdump"
+	install -Dm644 "COPYING" "$pkgdir/usr/share/licenses/nfdump/COPYING"
+}
