@@ -6,5 +6,7 @@ Newest tools added:
 *[wpa_supplicant-cupid](https://github.com/lgrangeia/cupid) - A utility providing key negotiation for WPA wireless networks - patched with cupid(https://github.com/lgrangeia/cupid).
 *[hostapd-cupid](https://github.com/lgrangeia/cupid) - IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator with cupid patch(https://github.com/lgrangeia/cupid/).
 *[nfdump](http://nfdump.sourceforge.net/) - A set of tools to collect and process netflow data.
+*[yasat](http://yasat.sourceforge.net/) - A simple stupid audit tool.
+
 
 Thanks for the most recent requests.
