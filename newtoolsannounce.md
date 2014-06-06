@@ -8,5 +8,6 @@ Newest tools added:
 *[nfdump](http://nfdump.sourceforge.net/) - A set of tools to collect and process netflow data.
 *[yasat](http://yasat.sourceforge.net/) - A simple stupid audit tool.
 *[httpry](http://dumpsterventures.com/jason/httpry/) - A specialized packet sniffer designed for displaying and logging HTTP traffic.
+*[peda-git](https://github.com/longld/peda) - Python Exploit Development Assistance for GDB.
 
 Thanks for the most recent requests.
