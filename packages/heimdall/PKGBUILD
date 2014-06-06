@@ -15,8 +15,6 @@ license=('MIT')
 depends=('libusb' 'qt4')
 optdepends=('android-udev: udev rules to connect Android devices to your linux box')
 makedepends=('git')
-conflicts=('${pkgname}')
-provides=('${pkgname}')
 install="${pkgname}.install"
 source=("git://github.com/Benjamin-Dobell/${pkgname}"
         "${pkgname}.desktop"
