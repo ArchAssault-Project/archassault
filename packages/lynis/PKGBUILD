@@ -13,7 +13,7 @@ backup=('etc/lynis/default.prf')
 depends=('bash')
 optdepends=('net-tools: networking tests')
 source=("http://cisofy.com/files/lynis-$pkgver.tar.gz")
-sha512sums=('b883b5ac44922f839bb9a357b02c1ae23e57eca99546f125ac8d7d1ac6da8febb53a2ec205f58563d186966e4aa70eb054d26e9b0790a31b17301299e68fafb5')
+sha512sums=('a9c47441298c69f58bd9a8936dedca70199b97c4419b3c903c2c561edd692efb38aa8a65fb6fd23dbd1a9b6710485f6f365bbb2812a0ad8cc06f4e5694153851')
 
 package() {
   cd "$srcdir/lynis-$pkgver"
