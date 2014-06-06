@@ -7,6 +7,6 @@ Newest tools added:
 *[hostapd-cupid](https://github.com/lgrangeia/cupid) - IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator with cupid patch(https://github.com/lgrangeia/cupid/).
 *[nfdump](http://nfdump.sourceforge.net/) - A set of tools to collect and process netflow data.
 *[yasat](http://yasat.sourceforge.net/) - A simple stupid audit tool.
-
+*[httpry](http://dumpsterventures.com/jason/httpry/) - A specialized packet sniffer designed for displaying and logging HTTP traffic.
 
 Thanks for the most recent requests.
