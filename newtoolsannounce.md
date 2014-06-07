@@ -10,5 +10,6 @@ Newest tools added:
 *[httpry](http://dumpsterventures.com/jason/httpry/) - A specialized packet sniffer designed for displaying and logging HTTP traffic.
 *[peda-git](https://github.com/longld/peda) - Python Exploit Development Assistance for GDB.
 *[wpsnitch-git](https://code.google.com/p/wpsnitch/) - A wordpress scraper.
+*[iphoneanalyzer](http://www.crypticbit.com/zen/products/iphoneanalyzer) - Allows you to forensically examine or recover date from in iOS device.
 
 Thanks for the most recent requests.
