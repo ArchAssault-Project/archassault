@@ -9,5 +9,6 @@ Newest tools added:
 *[yasat](http://yasat.sourceforge.net/) - A simple stupid audit tool.
 *[httpry](http://dumpsterventures.com/jason/httpry/) - A specialized packet sniffer designed for displaying and logging HTTP traffic.
 *[peda-git](https://github.com/longld/peda) - Python Exploit Development Assistance for GDB.
+*[wpsnitch-git](https://code.google.com/p/wpsnitch/) - A wordpress scraper.
 
 Thanks for the most recent requests.
