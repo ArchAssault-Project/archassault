@@ -11,5 +11,6 @@ Newest tools added:
 *[peda-git](https://github.com/longld/peda) - Python Exploit Development Assistance for GDB.
 *[wpsnitch-git](https://code.google.com/p/wpsnitch/) - A wordpress scraper.
 *[iphoneanalyzer](http://www.crypticbit.com/zen/products/iphoneanalyzer) - Allows you to forensically examine or recover date from in iOS device.
+*[pcredz](https://github.com/lgandx/PCredz) - A tool that extracts credit card numbers, NTLM(DCE-RPC, HTTP, SQL, LDAP, etc), Kerberos (AS-REQ Pre-Auth etype 23), HTTP Basic, SNMP, POP, SMTP, FTP, IMAP, and more from a pcap file or from a live interface.
 
 Thanks for the most recent requests.
