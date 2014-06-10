@@ -1,0 +1,29 @@
+# Maintainer: ArchAssault <team archassault.org>
+pkgname=pcredz
+pkgver=0.9
+pkgrel=1
+groups=('archassault' 'archassault-sniffer')
+pkgdesc="A tool that extracts credit card numbers, NTLM(DCE-RPC, HTTP, SQL, LDAP, etc), Kerberos (AS-REQ Pre-Auth etype 23), HTTP Basic, SNMP, POP, SMTP, FTP, IMAP, and more from a pcap file or from a live interface."
+arch=('any')
+url='https://github.com/lgandx/PCredz'
+license=('GPL2')
+depends=('python2' 'python2-pypcap')
+source=("http://dl.packetstormsecurity.net/sniffers/PCredz-0.9.zip")
+sha512sums=('b14fb68317f75be25e473753f9e069a802f6c47a5fcea770b85ba454f542b6f4b734dfaeddd8a28c2a30295a8c5570828fea99e8eae82a1a7ba39d9f95779eea')
+
+prepare(){
+  cd "$srcdir/PCredz-master"
+  sed -i "s|env python$|env python2|" Pcredz
+}
+
+package() {
+  cd "$srcdir/PCredz-master"
+
+  # Make base directories.
+  install -dm755 "$pkgdir/usr/share/pcredz"
+  install -dm755 "$pkgdir/usr/bin"
+
+  install -Dm644 Readme.md "$pkgdir/usr/share/$pkgname/Readme.md"
+  install -Dm755 Pcredz "$pkgdir/usr/bin/$pkgname"
+
+}
