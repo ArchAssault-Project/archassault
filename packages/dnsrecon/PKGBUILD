@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=dnsrecon
-pkgver=0.8.5
+pkgver=0.8.8
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="Python script for enumeration of hosts, subdomains and emails from a given domain using google."
