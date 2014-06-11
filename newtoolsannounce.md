@@ -14,5 +14,6 @@ Newest tools added:
 *[pcredz](https://github.com/lgandx/PCredz) - A tool that extracts credit card numbers, NTLM(DCE-RPC, HTTP, SQL, LDAP, etc), Kerberos (AS-REQ Pre-Auth etype 23), HTTP Basic, SNMP, POP, SMTP, FTP, IMAP, and more from a pcap file or from a live interface.
 *[python2-uefi-firmware-parser](https://github.com/theopolis/uefi-firmware-parser) - Parse BIOS/Intel ME/UEFI firmware related structures: Volumes, FileSystems, Files, etc
 *[crackserver-git](https://github.com/averagesecurityguy/crack) - An XMLRPC server for password cracking
+*[dumb0-git](https://github.com/0verl0ad/Dumb0) - A simple tool to dump users in popular forums and CMS
 
 Thanks for the most recent requests.
