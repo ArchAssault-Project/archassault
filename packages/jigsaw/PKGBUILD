@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=jigsaw
 pkgver=1.3
-pkgrel=4
-groups=('archassault' 'archassault-social-engineering' 'archassault-scanners')
+pkgrel=5
+groups=('archassault' 'archassault-socialengineering' 'archassault-scanners')
 pkgdesc="A simple ruby script for enumerating information about a company's employees. It is useful for Social Engineering or Email Phishing. Source no long on GitHub available as tarball in ours."
 arch=('any')
 url="https://github.com/pentestgeek/jigsaw"
