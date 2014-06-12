@@ -1,11 +1,11 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webacoo
 pkgver=0.2.3
-pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-backdoor')
+pkgrel=2
+groups=('archassault' 'archassault-webapps' 'archassault-backdoors')
 pkgdesc="Web Backdoor Cookie Script-Kit"
 url="https://bechtsoudis.com/webacoo/"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('GPL3')
 depends=('perl' 'perl-io-socket-socks')
 makedepends=('git')
