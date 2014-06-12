@@ -16,6 +16,7 @@ Newest tools added:
 *[crackserver-git](https://github.com/averagesecurityguy/crack) - An XMLRPC server for password cracking
 *[dumb0-git](https://github.com/0verl0ad/Dumb0) - A simple tool to dump users in popular forums and CMS
 *[prometheus-git](https://github.com/averagesecurityguy/prometheus) - A Firwall analyzer written in ruby.
+*[xsssniper](https://github.com/gbrindisi/xsssniper) - An automatic XSS discovery tool
 
 
 Thanks for the most recent requests.
