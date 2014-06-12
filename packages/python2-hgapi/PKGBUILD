@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Stefan Tatschner <stefan.tatschner at gmail dot com>
+# Contributor: Yeison Cardona <yeison.eng@gmail.com>
+
+pkgname=python2-hgapi
+_pkgname=hgapi
+pkgver=1.7.1
+pkgrel=1
+pkgdesc="hgapi is a pure-Python API to Mercurial, that uses the command-line interface instead of the internal Mercurial API."
+arch=('any')
+url="https://bitbucket.org/haard/hgapi/"
+license=('MIT')
+depends=('python2')
+makedepends=('python2-setuptools' 'mercurial')
+source=("${_pkgname}-${pkgver}::https://pypi.python.org/packages/source/h/hgapi/${_pkgname}-${pkgver}.tar.gz")
+sha512sums=('f52b9a4b9d80a7097d0ea2d62fe14b1147bd651fb214065d4ae588726370b7a21da3caf34a83f18b1deaafe75f7ae3362402ff78f2733cc870f271160fd2761d')
+
+package() {
+    cd "$srcdir/${_pkgname}-${pkgver}"
+
+    python2 setup.py install --root=$pkgdir --optimize=1
+
+    install -Dm644 README.rst $pkgdir/usr/share/licenses/$pkgname/LICENSE
+}
+
