@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=asleap
 pkgver=2.2
-pkgrel=1
-groups=('archassault' 'archassault-cracker')
+pkgrel=2
+groups=('archassault' 'archassault-crackers')
 pkgdesc="Actively recover LEAP/PPTP passwords."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=(GPL)
 url='http://www.willhackforsushi.com/Asleap.html'
-depends=(openssl libpcap)
+depends=('openssl' 'libpcap')
 source=(http://www.willhackforsushi.com/code/asleap/$pkgver/asleap-$pkgver.tgz)
-md5sums=('a1d06729fb2addcc5b09bfc14f9b3173')
+sha512sums=('123d624e2c3e0f6b8d4974947044adb68a5e4e307a9b1117e866c64f0e7df7ec22570eebebedea281ba60d3f37ff21a2581867f7ff3fdd9d3ad34e315bc14836')
 
 build() {
   cd "$srcdir/asleap-$pkgver"
