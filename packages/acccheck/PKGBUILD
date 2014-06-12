@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=acccheck
 pkgver=0.2.1
-pkgrel=2
-groups=('archassault' 'archassault-cracker')
+pkgrel=3
+groups=('archassault' 'archassault-crackers')
 pkgdesc="A password dictionary attack tool that targets windows authentication via the SMB protocol."
 url='http://labs.portcullis.co.uk/tools/acccheck/'
 arch=('any')
 license=('GPL2')
 depends=('perl' 'smbclient')
 source=("http://labs.portcullis.co.uk/download/acccheck-${pkgver//./-}.tar.gz" "acccheck.desktop")
-md5sums=('ad14f58e04bc683fce5f72ef3cdb745d'
-         '22305fab5dee14ccdfa85cc3d407a3ca')
+sha512sums=('28c1c5fa465e14d5447c42f539b95d436f303de801f6687d4cf22bd9f77371c68f84ad7b655c845bc42b6bdab851c379a72081feea2e1860e6619c089447238b'
+            '548ba309e814796b1c1b6dadf2be24679533fb48444045367e6cce8c28a5350e67b60b2a38ac0ee49c1e28d140c0976573f8afb4a9932fba5ff6382244bc4915')
 
 package() {
   cd "$srcdir/acccheck-${pkgver//./-}"
