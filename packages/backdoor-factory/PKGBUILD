@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=backdoor-factory
-pkgver=0.r63.6051eb
-pkgrel=1
-groups=('archassault' 'archassault-backdoor')
+pkgver=0.r63.6051eb4
+pkgrel=2
+groups=('archassault' 'archassault-backdoors')
 pkgdesc="Patch win32/64 binaries with shellcode"
 url="https://github.com/secretsquirrel/the-backdoor-factory"
 arch=('any')
