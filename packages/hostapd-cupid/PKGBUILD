@@ -10,6 +10,7 @@ url="http://w1.fi/"
 license=('custom')
 groups=('archassault-wireless')
 depends=('openssl' 'libnl1')
+makedepends=('git')
 backup=('etc/hostapd-cupid/hostapd.conf'
         'etc/hostapd-cupid/hlr_auc_gw.milenage_db'
         'etc/hostapd-cupid/hostapd.accept'
