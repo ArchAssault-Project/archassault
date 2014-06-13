@@ -8,6 +8,7 @@ pkgdesc="A utility providing key negotiation for WPA wireless networks - patched
 url="http://hostap.epitest.fi/wpa_supplicant"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('openssl' 'libdbus' 'readline' 'libnl')
+makedepends=('git')
 groups=('archassault-wireless')
 license=('GPL')
 backup=('etc/wpa_supplicant-cupid/wpa_supplicant.conf')
