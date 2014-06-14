@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=csfrt
-pkgver=r26.e0b5e1f
+pkgver=r32.17146bb
 pkgrel=1
 pkgdesc="In few words, this is a simple HTTP Server in NodeJS that will communicate with the clients (victims) and send them payload that will be executed using JavaScript"
 arch=('any')
