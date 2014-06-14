@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=wpscan-git
-pkgver=1490.83e3373
+pkgver=1494.2cc4dc7
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
@@ -9,7 +9,7 @@ url="http://wpscan.org"
 license=('GPL3')
 depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
 	'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
-	'ruby1.9-rspec' 'ruby1.9-mime-types')
+	'ruby1.9-rspec' 'ruby1.9-mime-types' 'ruby1.9-bundler')
 makedepends=('git' 'libxslt')
 options=(!strip)
 replaces=('wpscan')
