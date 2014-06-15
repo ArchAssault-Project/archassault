@@ -19,5 +19,6 @@ Newest tools added:
 *[xsssniper](https://github.com/gbrindisi/xsssniper) - An automatic XSS discovery tool
 *[wordpot-git](https://github.com/gbrindisi/wordpot) - A Wordpress Honeypot
 *[xssya-git](https://github.com/yehia-mamdouh/XSSYA) - A Cross Site Scripting Scanner & Vulnerability Confirmation (Working in two Methods)
+*[liffy-git](https://github.com/rotlogix/liffy) - A Local File Inclusion Exploitation Tool.
 
 Thanks for the most recent requests.
