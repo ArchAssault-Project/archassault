@@ -1,0 +1,20 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Andrey Mikhaylenko <neithere at gmail dot com>
+_distname=blessings
+pkgname=python2-$_distname
+pkgver=1.5.1
+pkgrel=1
+pkgdesc="A thin, practical wrapper around terminal coloring, styling, and positioning"
+arch=(any)
+url="https://github.com/erikrose/blessings"
+license=('MIT')
+depends=('python2')
+makedepends=('python2-setuptools')
+source=("http://pypi.python.org/packages/source/${_distname:0:1}/$_distname/$_distname-$pkgver.tar.gz")
+sha512sums=('43d26d12c7f847e4766354a46eea0ce485d69b74feac5a672be167f1656c4450ff340a7a1be61ef7fd4f9cf395e2719fc0d4034f6db6612851bafc5e330e7ee6')
+
+package() {
+  cd "$srcdir/$_distname-$pkgver"
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
