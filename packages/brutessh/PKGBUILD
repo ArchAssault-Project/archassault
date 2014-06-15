@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=brutessh
 pkgver=0.5
-pkgrel=1
+pkgrel=2
 pkgdesc="A simple sshd password bruteforcer using a wordlist, it's very fast for internal networks. It's multithreads."
 url="http://www.edge-security.com/edge-soft.php"
-groups=('archassault' 'archassault-cracker')
+groups=('archassault' 'archassault-crackers')
 license=('GPL')
 arch=(any)
 depends=('python2' 'python2-paramiko')
 source=(http://www.edge-security.com/soft/${pkgname}-${pkgver}.tar.bz2)
-md5sums=('cca1876df785713fc74cec194d3d2c45')
+sha512sums=('21f0a50807c5c416eb81bc9ca3f8af35e7f2d59f676c26452ba0a5b6ca84d549c60c6de81ae5b2e2dfe05de2be96d6cc464ef32db9c982f8dbeb114615582abd')
 
 package() {
   cd "$srcdir/brutessh"
