@@ -2,7 +2,7 @@
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
 pkgver=0.1
-pkgrel=4
+pkgrel=5
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -58,5 +58,6 @@ package_archassault-meta-iso-all() {
 				testdisk
 				perl-image-exiftool
                                 recoll
-                                nemesis)
+                                nemesis
+                                chntpw)
 }
