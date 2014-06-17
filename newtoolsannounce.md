@@ -20,5 +20,6 @@ Newest tools added:
 *[wordpot-git](https://github.com/gbrindisi/wordpot) - A Wordpress Honeypot
 *[xssya-git](https://github.com/yehia-mamdouh/XSSYA) - A Cross Site Scripting Scanner & Vulnerability Confirmation (Working in two Methods)
 *[liffy-git](https://github.com/rotlogix/liffy) - A Local File Inclusion Exploitation Tool.
+*[xssf](https://code.google.com/p/xssf) - A Cross-Site Scripting Framework for metasploit.
 
 Thanks for the most recent requests.
