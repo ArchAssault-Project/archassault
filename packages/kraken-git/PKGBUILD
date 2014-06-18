@@ -14,7 +14,7 @@ license=("GPL3")
 if [[ $CARCH == 'x86_64' ]]; then
       depends=('gcc-libs-multilib')
 else
-      depends=('gcc-libs-multilib')
+      depends=('gcc-libs')
 fi
 provides=('kraken')
 replaces=('kraken')
