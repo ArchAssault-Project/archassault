@@ -1,41 +1,42 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=eyewitness-git
-pkgver=r182.9cd240f
+pkgver=r184.1c941b4
 pkgrel=1
 pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
 arch=('any')
 url="https://github.com/ChrisTruncer/EyeWitness"
 license=('GPL3')
 groups=('archassault')
-depends=('python2' 'python2-pyqt4' 'ghost.py' 'python2-netaddr')
+depends=('python2-pyqt4' 'ghost.py' 'python2-netaddr')
 makedepends=('git')
 provides=('eyewitness')
 replaces=('eyewitness')
 conflicts=('eyewitness')
-options=(!emptydirs)
+options=('!emptydirs')
 source=('git+https://github.com/ChrisTruncer/EyeWitness.git')
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/EyeWitness"
+  cd "$srcdir"/EyeWitness
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  cd "$srcdir/EyeWitness"
-  install -dm755 "$pkgdir/usr/share/eyewitness"
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/licenses/eyewitness"
-  install -m755 EyeWitness.py "$pkgdir/usr/share/eyewitness/EyeWitness.py"
-  install -m644 LICENSE "$pkgdir/usr/share/licenses/eyewitness/LICENSE"
-  install -m644 signatures.txt "$pkgdir/usr/share/eyewitness/signatures.txt"
-  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
-  cat > $pkgdir/usr/bin/EyeWitness.py <<EOF
+  cd "$srcdir"/EyeWitness
+  install -dm755 "$pkgdir"/usr/share/eyewitness-git
+  install -dm755 "$pkgdir"/usr/bin
+  install -dm755 "$pkgdir"/usr/share/licenses/eyewitness-git
+  install -m755 EyeWitness.py "$pkgdir"/usr/share/eyewitness-git/EyeWitness.py
+  install -m644 LICENSE "$pkgdir"/usr/share/licenses/eyewitness-git/LICENSE
+  install -m644 CHANGELOG "$pkgdir"/usr/share/eyewitness-git/CHANGELOG
+  install -m644 README.md "$pkgdir"/usr/share/eyewitness-git/README.md
+  install -m644 signatures.txt "$pkgdir"/usr/share/eyewitness-git/signatures.txt
+  find "$pkgdir" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  cat > "$pkgdir"/usr/bin/EyeWitness.py <<EOF
 #!/bin/sh
 cd /usr/share/eyewitness/
 python2 ./EyeWitness.py "\$@"
 EOF
-  chmod +x $pkgdir/usr/bin/EyeWitness.py
+  chmod +x "$pkgdir"/usr/bin/EyeWitness.py
 }
 
-# vim:set ts=2 sw=2 et:

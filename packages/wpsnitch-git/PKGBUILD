@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team archassault.org>
+pkgname=wpsnitch-git
+pkgver=r1.aa3ca3b
+pkgrel=1
+groups=('archassault' 'archassault-webapps')
+pkgdesc="A wordpress scraper"
+arch=('any')
+url='https://code.google.com/p/wpsnitch/'
+license=('GPL3')
+depends=('bash')
+makedepends=('git')
+provides=('wpsnitch')
+conflicts=('wpsnitch')
+replaces=('wpsnitch')
+source=("git+https://code.google.com/p/wpsnitch/")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/wpsnitch"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/wpsnitch"
+  install -Dm755 wp-snitch "$pkgdir/usr/bin/wpsnitch"
+
+}

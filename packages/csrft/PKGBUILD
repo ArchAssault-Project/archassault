@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=csfrt
-pkgver=r24.e7f9521
+pkgver=r32.17146bb
 pkgrel=1
 pkgdesc="In few words, this is a simple HTTP Server in NodeJS that will communicate with the clients (victims) and send them payload that will be executed using JavaScript"
 arch=('any')
@@ -22,11 +22,11 @@ package() {
   install -dm755 "$pkgdir/usr/bin/"
   install -dm755 "$pkgdir/usr/share/csfrt"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/csfrt/LICENSE"
-  cp -R --no-preserve=ownership * "$pkgdir/usr/share/csfrt"
+  cp -aR --no-preserve=ownership * "$pkgdir/usr/share/csfrt"
   cat > $pkgdir/usr/bin/csfrt<<EOF
 #!/bin/sh
 cd /usr/share/csfrt
-node server.js
+node ./server.js
 EOF
   chmod +x "$pkgdir/usr/bin/csfrt"
 }

@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=creepy-git
 pkgver=r137.9f60449
-pkgrel=2
-groups=('archassault' 'archassault-scanners' 'archassault-social-engineering')
+pkgrel=4
+groups=('archassault' 'archassault-scanners' 'archassault-socialengineering')
 pkgdesc="A geolocation information gatherer. Offers geolocation information gathering through social networking platforms."
 arch=('any')
 url='http://github.com/ilektrojohn/creepy'
@@ -33,7 +33,7 @@ package() {
   # Make base directories.
   install -d -m755 "$pkgdir/usr/share/creepy"
   install -d -m755 "$pkgdir/usr/bin"
-  cp -R --no-preserve=ownership creepy gui "$pkgdir/usr/share/creepy"
+  cp -aR --no-preserve=ownership creepy gui "$pkgdir/usr/share/creepy"
   # Make joint script.
   cat > "$pkgdir/usr/bin/creepy" <<EOF
 #!/bin/sh

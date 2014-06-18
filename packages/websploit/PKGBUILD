@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=websploit
 pkgver=2.0.5
-pkgrel=1
-groups=('archassault' 'archassault-exploit' 'archassault-social-engineering' 'archassault-scanners' 'archassault-fuzzer')
+pkgrel=2
+groups=('archassault' 'archassault-exploits' 'archassault-socialengineering' 'archassault-scanners' 'archassault-fuzzers')
 pkgdesc="An Open Source Project For, Social Engineering Works, Scan, Crawler & Analysis Web, Automatic Exploiter, Support Network Attacks"
 arch=('any')
 url='http://code.google.com/p/websploit/'

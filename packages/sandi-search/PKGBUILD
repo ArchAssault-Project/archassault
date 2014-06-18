@@ -1,8 +1,8 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=sandi-search
 pkgver=13
-pkgrel=1
-groups=('archassault' 'archassault-exploitation')
+pkgrel=2
+groups=('archassault' 'archassault-exploit')
 pkgdesc="An open source project for search the exploits from exploit databases ..."
 arch=('any')
 url='https://sourceforge.net/projects/sandisearch/'

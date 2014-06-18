@@ -1,33 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Prurigro
 pkgname=fern-wifi-cracker
-pkgver=133
-pkgrel=4
+pkgver=219
+pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="WEP, WPA wifi cracker for wireless penetration testing"
 arch=('any')
-url='http://code.google.com/p/fern-wifi-cracker/'
+url="http://code.google.com/p/${pkgname}/"
 license=('GPL2')
-depends=('python2' 'python2-pyqt4' 'aircrack-ng' 'xterm' 'subversion' 'scapy' 'macchanger')
+depends=('python2' 'python2-pyqt4' 'macchanger' 'xterm' 'aircrack-ng' 'subversion' 'scapy' 'gksu')
 makedepends=('subversion')
-_svnmod="fern-wifi-cracker"
-source=("svn+http://fern-wifi-cracker.googlecode.com/svn/Fern-Wifi-Cracker/")
-md5sums=('SKIP')
+source=("svn+http://${pkgname}.googlecode.com/svn/Fern-Wifi-Cracker#revision=${pkgver}" "${pkgname}.desktop")
+sha512sums=('SKIP' '786000d5f7c59eb89d43d6f6ce57ea00091d7a2aa654b3f02c67854c8862879e807ea9a60462bea6ea62340374e535563a00a353df7b004bf121eec989e9f26c')
+
+prepare() {
+    sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' Fern-Wifi-Cracker/execute.py
+}
 
 package() {
-  cd "$srcdir/Fern-Wifi-Cracker"
+    install -Dm644 "${pkgname}.desktop" "${pkgdir}/usr/share/applications/${pkgname}.desktop"
 
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/fern-wifi-cracker"
+    install -d "${pkgdir}/usr/bin"
+    echo -e '#!/usr/bin/env bash\n\ncd /usr/share/fern-wifi-cracker\npython2 ./execute.py "\$@"' > "${pkgdir}/usr/bin/${pkgname}"
+    chmod 755 "${pkgdir}/usr/bin/${pkgname}"
 
-  cp -R --no-preserve=ownership * "$pkgdir/usr/share/fern-wifi-cracker"
-
-  sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' "$pkgdir"/usr/share/fern-wifi-cracker/execute.py
-  # Make joint script.
-  cat > "$pkgdir/usr/bin/fern" <<EOF
-#!/bin/sh
-cd /usr/share/fern-wifi-cracker
-python2 ./execute.py "\$@"
-EOF
-
-  chmod +x "$pkgdir/usr/bin/fern"
+    install -d "${pkgdir}/usr/share/${pkgname}"
+    cp -R --no-preserve=ownership Fern-Wifi-Cracker/* "${pkgdir}/usr/share/${pkgname}/"
 }
