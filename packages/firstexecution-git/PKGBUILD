@@ -1,8 +1,8 @@
 #Maintainer: ArchAssault <team at archassault dot org>
 pkgname=firstexecution-git
 pkgver=r6.a275793
-pkgrel=1
-groups=('archassault' 'archassault-exploits')
+pkgrel=2
+groups=('archassault' 'archassault-exploit')
 pkgdesc="A Collection of different ways to execute code outside of the expected entry points"
 arch=('any')
 url='https://github.com/nccgroup/firstexecution'

@@ -1,0 +1,45 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=xssya-git
+pkgver=r13.15ebdfe
+pkgrel=1
+groups=('archassault' 'archassault-webapps')
+pkgdesc="A Cross Site Scripting Scanner & Vulnerability Confirmation (Working in two Methods)"
+arch=('any')
+url='https://github.com/yehia-mamdouh/XSSYA'
+license=('custom')
+depends=('python2' 'python2-colorama')
+makedepends=('git')
+provides=('xssya')
+replaces=('xssya')
+conflicts=('xssya')
+source=("xssya::git+https://github.com/yehia-mamdouh/XSSYA.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/xssya"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+
+prepare(){
+  grep -iRl 'python' "$srcdir/xssya" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+
+package() {
+  cd "$srcdir/xssya"
+  install -dm755 "$pkgdir/usr/bin/"
+  install -Dm755 custom.py "$pkgdir/usr/share/xssya/custom.py"
+  install -Dm755 xssya.py "$pkgdir/usr/share/xssya/xssya.py"
+  install -Dm644 README.md "$pkgdir/usr/share/xssya/README.md"
+  install -Dm644 AUTHOR.txt "$pkgdir/usr/share/xssya/AUTHOR.txt"
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+cat > "$pkgdir/usr/bin/xssya" <<EOF
+#!/bin/sh
+cd /usr/share/xssya
+python2 ./xssya.py "\$@"
+EOF
+
+chmod +x "$pkgdir/usr/bin/xssya"
+}

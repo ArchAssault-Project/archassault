@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=powershell-payload-excel-delivery
 pkgver=r37.35a2d03
-pkgrel=1
-groups=('archassault' 'archassault-exploits')
+pkgrel=2
+groups=('archassault' 'archassault-windowsapps' 'archassault-exploit')
 pkgdesc="A VBA macro that uses invoke-shellcode to execute a powershell payload in memory."
 arch=('any')
 url='https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery'
@@ -22,6 +22,7 @@ package() {
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/powershell-payload-excel-delivery"
+  install -Dm644 License.txt "$pkgdir/usr/share/licenses/$pkgname/License.txt"
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/powershell-payload-excel-delivery"
   
 

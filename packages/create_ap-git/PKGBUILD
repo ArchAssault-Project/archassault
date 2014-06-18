@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor:  Shaw <puxx@mail.ustc.edu.cn>
 pkgname=create_ap-git
-pkgver=r47.104c556
+pkgver=r50.7096520
 pkgrel=1
 pkgdesc="A shell script to create a NATed/Bridged Software Access Point(aka WiFi)"
 arch=('any')
@@ -28,5 +28,6 @@ package() {
   install -Dm755 "create_ap" "${pkgdir}/usr/bin/create_ap"
   install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/create_ap-git/LICENSE"
   install -Dm644 "create_ap.service" "${pkgdir}/usr/share/create_ap-git/create_ap.service.example"
+  install -m644 README.md "$pkgdir"/usr/share/create_ap-git/README.md
 }
 

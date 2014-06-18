@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=clusterd-git
-pkgver=r95.81ac3f1
+pkgver=r109.a748bff
 pkgrel=1
 pkgdesc="automates the fingerprinting, reconnaissance, and exploitation phases of an application server attack"
 url="https://github.com/hatRiot/clusterd"
@@ -32,7 +32,7 @@ package() {
   install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/clusterd-git/LICENSE
   install -m644 README.md "$pkgdir"/usr/share/clusterd-git/README.md
   install -m755 clusterd.py "$pkgdir"/usr/share/clusterd-git/clusterd.py
-  cp --no-preserve=ownership -a src "$pkgdir"/usr/share/clusterd-git
+  cp --no-preserve=ownership -ar src "$pkgdir"/usr/share/clusterd-git
   chmod u+rwX,g+rwX,o+rX -R "$pkgdir"/usr/share/clusterd-git/src
   cat > "$pkgdir"/usr/bin/clusterd.py <<EOF
 #!/bin/sh

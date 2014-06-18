@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-moose
 _cpanname=Moose
-pkgver='2.1005'
-pkgrel=4
+pkgver='2.1208'
+pkgrel=1
 pkgdesc="A postmodern object system for Perl 5"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('PerlArtistic' 'GPL')
@@ -18,7 +18,7 @@ depends=('perl-class-load>=0.09' 'perl-class-load-xs>=0.01'
 makedepends=('perl-dist-checkconflicts>=0.02' 'perl-test-fatal>=0.001' 'perl-test-requires>=0.05' 'perl-test-without-module')
 url="https://metacpan.org/release/$_cpanname"
 source=("http://cpan.metacpan.org/authors/id/E/ET/ETHER/$_cpanname-$pkgver.tar.gz")
-md5sums=('8878c5b28ee5312c31983f2de3167db1')
+md5sums=('e8d8d010f1f5a25e8b913ae0b4bd8fea')
 
 build() {
   cd "$srcdir/$_cpanname-$pkgver"

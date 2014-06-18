@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=centry-git
-pkgver=r68.4cdf8c5
+pkgver=r70.1f2f8a4
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="A Panic button for protection against cold boot attacks"
@@ -27,7 +27,7 @@ package() {
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/centry"
   install -dm755 "$pkgdir/usr/bin"
-
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/centry/LICENSE
   install -Dm755 centry.py "$pkgdir/usr/share/centry/centry.py"
   install -Dm644 icon.xbm "$pkgdir/usr/share/centry/"
   install -Dm644 screenshot.png "$pkgdir/usr/share/centry/"

@@ -2,6 +2,7 @@
 pkgname=sulley
 pkgver=1.0.c9a9418
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A pure-python fully automated and unattended fuzzing framework"
 arch=('any')
@@ -14,7 +15,6 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/sulley"
-
   # Grabbing major-version from install script
   printf "%s.%s" \
     $(grep -i 'define PRODUCT_VERSION' installer/Nullsoft\ Installer\ Script.nsi | cut -d'"' -f2) \
@@ -28,9 +28,6 @@ prepare() {
 
 package() {
   cd "$srcdir/sulley"
-
-  # Base directory.
   install -dm755 "$pkgdir/usr/share/sulley"
-
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/sulley/"
 }

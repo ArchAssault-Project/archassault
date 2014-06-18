@@ -1,13 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=dnsrecon
-pkgver=0.8.5
+pkgver=0.8.8
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="Python script for enumeration of hosts, subdomains and emails from a given domain using google."
 url="https://github.com/darkoperator/dnsrecon"
 license=('custom')
 arch=('any')
-depends=('python2' 'git' 'python2-netaddr' 'python2-dnspython')
+depends=('python2' 'python2-netaddr' 'python2-dnspython')
+makedepends=('git')
 source=("git+https://github.com/darkoperator/dnsrecon")
 md5sums=('SKIP')
 
@@ -32,4 +33,5 @@ cd /usr/share/dnsrecon
 python dnsrecon.py "\$@"
 EOF
   chmod +x "$pkgdir/usr/bin/dnsrecon"
+  rm -rf "$pkgdir"/usr/share/dnsrecon/.git
 }

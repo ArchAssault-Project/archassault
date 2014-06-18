@@ -1,0 +1,38 @@
+# Maintainer: ArchAssault <team archassault.org>
+pkgname=peda-git
+pkgver=r45.d0bd978
+pkgrel=1
+groups=('archassault' 'archassault-exploits')
+pkgdesc="A Python Exploit Development Assistant for GDB"
+arch=('any')
+url='https://github.com/longld/peda'
+license=('custom')
+depends=('python2' 'gdb' 'nasm')
+makedepends=('git')
+source=("git+https://github.com/longld/peda.git")
+install='peda-git.install'
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/peda"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare(){
+  grep -iRl 'python' "$srcdir/peda" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+
+package() {
+  cd "$srcdir/peda"
+
+  # Make base directories.
+  install -dm755 "$pkgdir/usr/share/peda"
+  install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
+  install -dm755 "$pkgdir/usr/share/peda/lib"
+
+  install -Dm644 peda.py "$pkgdir/usr/share/peda/"
+  install -Dm644 lib/* "$pkgdir/usr/share/peda/lib/"
+  install -Dm644 README "$pkgdir/usr/share/peda/"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"  
+}

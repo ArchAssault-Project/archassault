@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arachni
 pkgver=0.4.7
-pkgrel=3
+pkgrel=4
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
 arch=('any')
 license=('apache')
 url="https://github.com/Arachni/arachni"
 license=('GPL')
-depends=('ruby1.9' 'ruby1.9-yard' 'ruby1.9-bundler' 'ruby1.9-sinatra-contrib' 'ruby1.9-rspec' 'ruby1.9-redcarpet' 'ruby1.9-thin' 'ruby1.9-nokogiri' 'ruby1.9-rb-readline' 'ruby1.9-awesome_print' 'ruby1.9-highline' 'ruby1.9-addressable' 'ruby1.9-arachni-rpc' 'ruby1.9-sys-proctable' 'ruby1.9-typhoeus-arachni' 'ruby1.9-terminal-table' 'ruby1.9-pony')
+depends=('ruby1.9' 'ruby1.9-yard' 'ruby1.9-bundler' 'ruby1.9-sinatra-contrib' 'ruby1.9-rspec' 'ruby1.9-redcarpet' 'ruby1.9-thin' 'ruby1.9-nokogiri' 'ruby1.9-rb-readline' 'ruby1.9-awesome_print' 'ruby1.9-highline' 'ruby1.9-addressable' 'ruby1.9-arachni-rpc' 'ruby1.9-sys-proctable' 'ruby1.9-typhoeus-arachni' 'ruby1.9-terminal-table' 'ruby1.9-pony' 'ruby1.9-arachni-rpc-em')
 makedepends=('git')
 url='https://www.arachni-scanner.com'
 source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
