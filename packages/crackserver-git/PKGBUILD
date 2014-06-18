@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=crackserver-git
-pkgver=r20.57db6fa
-pkgrel=1
+pkgver=r31.c268a80
+pkgrel=2
 groups=('archassault' 'archassault-cracker')
 pkgdesc="An XMLRPC server for password cracking"
 arch=('any')
@@ -29,9 +29,11 @@ package() {
   cd "$srcdir/crack"
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/crackserver/modules"
+  install -dm755 "$pkgdir/usr/share/crackserver/config"
   install -Dm755 crackserver.py "$pkgdir/usr/share/crackserver/crackserver.py"
   install -Dm755 crackclient.py "$pkgdir/usr/share/crackserver/crackclient.py"
-  install -Dm644 default.cfg "$pkgdir/usr/share/crackserver/default.cfg"
+  install -Dm755 crack.py "$pkgdir/usr/share/crackserver/crack.py"
+  install -Dm644 config/* "$pkgdir/usr/share/crackserver/config/"
   install -Dm644 modules/* "$pkgdir/usr/share/crackserver/modules/"
   install -Dm644 README.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
@@ -47,7 +49,14 @@ cd /usr/share/crackserver
 python2 crackclient.py "\$@"
 EOF
 
+cat > "$pkgdir/usr/bin/crack-standalone" <<EOF
+#!/bin/sh
+cd /usr/share/crackserver
+python2 crack.py "\$@"
+EOF
+
 chmod +x $pkgdir/usr/bin/crackserver
 chmod +x $pkgdir/usr/bin/crackclient
+chmod +x $pkgdir/usr/bin/crack-standalone
 
 }
