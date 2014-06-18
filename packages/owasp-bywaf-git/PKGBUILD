@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=owasp-bywaf-git
-pkgver=r6.166ade3
+pkgver=r20.9bf4487
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A web application penetration testing framework (WAPTF)."
@@ -8,7 +8,7 @@ arch=('any')
 url='https://github.com/depasonico/OWASP-ByWaf'
 license=('custom')
 depends=('python2' 'python2-sqlalchemy')
-makedepends=('python2-setuptools')
+makedepends=('python2-setuptools' 'git')
 provides=('owasp-bywaf')
 replaces=('owasp-bywaf')
 conflicts=('owasp-bywaf')
