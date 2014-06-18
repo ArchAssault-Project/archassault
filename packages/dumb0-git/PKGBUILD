@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=dumb0-git
-pkgver=r14.0956b30
+pkgver=r18.403b351
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A simple tool to dump users in popular forums and CMS :)"
