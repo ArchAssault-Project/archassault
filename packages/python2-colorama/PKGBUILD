@@ -2,7 +2,7 @@
 # Contributor: Alexander Duscheleit <jinks@archlinux.us>
 pkgname=python2-colorama
 pkgver=0.3.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Python API for cross-platform colored terminal text."
 arch=('any')
 url="http://pypi.python.org/pypi/colorama"
@@ -20,8 +20,7 @@ build() {
 
 package() {
   cd "$srcdir/colorama-$pkgver"
-
   python2 setup.py install --root=$pkgdir --optimize=1
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
 }
 
-# vim:set ts=2 sw=2 et:
