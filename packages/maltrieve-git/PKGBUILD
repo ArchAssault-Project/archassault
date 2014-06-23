@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
-pkgver=r61.ffed12b
+pkgver=r84.6d0cf25
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
@@ -29,7 +29,6 @@ package() {
   install -Dm644 MultiPartForm.py "$pkgdir/usr/share/maltrieve/"
   install -Dm755 maltrieve.py "$pkgdir/usr/share/maltrieve/"
   install -Dm755 maltrievecategorizer.sh "$pkgdir/usr/share/maltrieve/"
-  install -Dm755 malutil.py "$pkgdir/usr/share/maltrieve/" 
   ln -s "/usr/share/maltrieve/maltrievecategorizer.sh" "$pkgdir/usr/bin/maltrievecategorizer"
  
 cat > "$pkgdir/usr/bin/maltrieve" << EOF
