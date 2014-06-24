@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rawr-git
-pkgver=35.4748de1
+pkgver=39.aac6a99
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc="Rapid Assessment of Web Resources. A web enumerator."
@@ -8,12 +8,12 @@ arch=('any')
 url="https://bitbucket.org/al14s/rawr/wiki/Home"
 license=('GPL3')
 makedepends=('git')
-depends=('nmap' 'python2' 'graphviz' 'python2-pygraphviz' 'python2-lxml' 'phantomjs')
+depends=('nmap' 'python2' 'graphviz' 'python2-pygraphviz' 'python2-lxml' 'phantomjs' 'python2-pillow')
 replaces=('rawr')
 conflicts=('rawr')
 provides=('rawr')
 source=("git+https://bitbucket.org/al14s/rawr.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
   cd rawr
@@ -23,7 +23,7 @@ pkgver() {
 prepare() {
   cd "$srcdir/rawr"
 
-  sed -i '1s/env python/env python2/' rawr.py lib/requests/certs.py
+  sed -i '1s/env python/env python2/' rawr.py lib/requests/certs.py lib/requests/packages/chardet/chardetect.py
 }
 
 package() {
