@@ -14,7 +14,7 @@ if [[ $CARCH == 'x86_64' ]]; then
                     '3e8624602d5d37ff8ae4eb0dd8f6813f4573460f69ec3d8e21ca404979b8448109197cefa239302627eddfab277a347f842f81c0f1ea7c9f9de2dd7c1b847527')
 else
         depends=('gcc-libs')
-        source=("http://project-rainbowcrack.com/rainbowcrack-$kpgver-linux32.zip" "rainbowcrack.desktop")
+        source=("http://project-rainbowcrack.com/rainbowcrack-$pkgver-linux32.zip" "rainbowcrack.desktop")
         sha512sums=('c33fd82c72b0eac43ffd509424bc5c05d92a52c6c1fe89cb8c640abc4690bb149d162c1c58be80c3d666d400f485b83783da72b701eb446a4357ed017b51903a'
                     '3e8624602d5d37ff8ae4eb0dd8f6813f4573460f69ec3d8e21ca404979b8448109197cefa239302627eddfab277a347f842f81c0f1ea7c9f9de2dd7c1b847527')
 fi
