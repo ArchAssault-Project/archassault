@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=owasp-bywaf-git
-pkgver=r24.4f8277c
+pkgver=r26.e730d1b
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A web application penetration testing framework (WAPTF)."
