@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=w3af
-pkgver=1.6.0.2
-pkgrel=2
+pkgver=1.6.0.3
+pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
