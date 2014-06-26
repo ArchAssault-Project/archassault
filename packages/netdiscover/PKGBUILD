@@ -2,7 +2,7 @@
 pkgname=netdiscover
 _pkgver=0.3
 _betanum=6
-pkgver=${_pkgver}.${_betanum}
+pkgver=${_pkgver}.beta${_betanum}
 pkgrel=2
 groups=('archassault' 'archassault-reconnaissance' 'archassault-wireless')
 pkgdesc="An active/passive address reconnaissancenaissance tool, mainly developed for those wireless networks without dhcp server, when you are wardriving. It can be also used on hub/switched networks."
