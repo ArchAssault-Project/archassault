@@ -1,30 +1,24 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=killerbee
+pkgver=1.0
 pkgrel=1
-pkgver=83
 groups=('archassault' 'archassault-wireless' 'archassault-exploit')
 pkgdesc="Framework and tools for exploiting ZigBee and IEEE 802.15.4 networks."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='https://code.google.com/p/killerbee/'
 license=('BSD')
 depends=('python2' 'python2-crypto' 'python2-pyusb' 'pygtk' 'python2-cairo' 'python2-pyserial')
-conflicts=('killerbee-svn')
-provides=('killerbee-svn')
-options=(!emptydirs)
-source=("svn+http://killerbee.googlecode.com/svn/trunk/")
-md5sums=('SKIP')
+source=("https://killerbee.googlecode.com/files/killerbee_1_0.tar")
+sha512sums=('c5391111d4b88cf727f4d98584168b2fbd4f5ddcf198120ae495d86dd9dd28a3cbb8f1410b27d064408725af929c0e6abc159a4e01f08a25a119e6af2021d119')
 
-pkgver() {
-  cd "${srcdir}/trunk"
-  svnversion | tr -d [A-z]
-}
 
 prepare() {
-  cd "${srcdir}/trunk/killerbee"
+  cd "$srcdir/killerbee-$pkgver"
   sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|' tools/*
 }
 
 package() {
-  cd "${srcdir}/trunk/killerbee"
+  cd "$srcdir/killerbee-$pkgver"
   python2 setup.py install --root="${pkgdir}/" --optimize=1
+  install -Dm644 LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
 }
