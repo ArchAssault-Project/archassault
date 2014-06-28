@@ -1,5 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=killerbee
+pkgname=killerbee-svn
 pkgrel=1
 pkgver=89
 groups=('archassault' 'archassault-wireless' 'archassault-exploit')
@@ -8,11 +8,12 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://code.google.com/p/killerbee/'
 license=('BSD')
 depends=('python2' 'python2-crypto' 'python2-pyusb' 'pygtk' 'python2-cairo' 'python2-pyserial')
-conflicts=('killerbee-svn')
-provides=('killerbee-svn')
+conflicts=('killerbee')
+provides=('killerbee')
+replaces=('killerbee')
 options=(!emptydirs)
 source=("svn+http://killerbee.googlecode.com/svn/trunk/")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/trunk"
@@ -28,4 +29,5 @@ package() {
   cd "${srcdir}/trunk/killerbee"
   python2 setup.py install --root="${pkgdir}/" --optimize=1
   install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
+  find $pkgdir -type f -iname "*.py" |xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
 }
