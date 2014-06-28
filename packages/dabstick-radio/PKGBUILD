@@ -6,6 +6,7 @@ pkgname=dabstick-radio
 pkgver=0.96
 pkgrel=1
 pkgdesc="The DAB decoding software (SDR-J)"
+groups=('archassault' 'archassault-hardware')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.sdr-j.tk/"
 license=('GPL2')
