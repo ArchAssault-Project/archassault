@@ -1,0 +1,74 @@
+# Maintainer: ArchAssualt <team@archassault.org
+# Contributor: Kyle Keen <keenerd@gmail.com>
+
+pkgname=sdrangelove-git
+pkgver=r169.7820104
+pkgrel=1
+pkgdesc="A high speed SDR waterfall display."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://sdr.osmocom.org/trac/wiki/sdrangelove"
+license=('GPL')
+depends=('qt5-multimedia' 'rtl-sdr' 'libpulse' 'mesa' 'fftw')
+# build with gr-osmosdr for more hardware
+makedepends=('git' 'cmake')
+optdepends=('pulseaudio: sound output')
+conflicts=('sdrangelove')
+provides=('sdrangelove')
+replaces=('sdrangelove')
+source=("git://git.osmocom.org/sdrangelove.git")
+sha512sums=('SKIP')
+
+_gitname="sdrangelove"
+
+pkgver() {
+  cd "$srcdir/$_gitname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+
+build() {
+  cd "$srcdir/$_gitname"
+  # todo, tetra needs the API changes from eeb7a07683c applied
+  #sed -i 's|#\(.*tetra.*\)|\1|' plugins/channel/CMakeLists.txt
+  mkdir build
+  cd build
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_SKIP_RPATH=TRUE \
+        -Wno-dev ../
+  make
+}
+
+package() {
+  cd "$srcdir/$_gitname/build"
+  # missing target and sane linking
+  #make DESTDIR="$pkgdir" install
+  install -Dm755 sdrangelove "$pkgdir/usr/bin/sdrangelove"
+  install -Dm755 libsdrbase.so "$pkgdir/usr/lib/libsdrbase.so"
+
+  # all the plugins
+  #cp -r plugins "$pkgdir/opt/$pkgname/"
+  #pushd plugins/samplesource/gnuradio
+  #install -Dm755 libinputgnuradio.so "$pkgdir/opt/$pkgname/plugins/samplesource/gnuradio/libinputgnuradio.so"
+  #install -Dm644 ui_gnuradiogui.h "$pkgdir/opt/$pkgname/plugins/samplesource/gnuradio/ui_gnuradiogui.h"
+  #popd
+  pushd plugins/samplesource/rtlsdr
+  install -Dm755 libinputrtlsdr.so "$pkgdir/usr/lib/libinputrtlsdr.so"
+  install -Dm644 ui_rtlsdrgui.h "$pkgdir/usr/include/ui_rtlsdrgui.h"
+  popd
+  pushd plugins/channel/nfm
+  install -Dm755 libdemodnfm.so "$pkgdir/usr/lib/libdemodnfm.so"
+  install -Dm644 ui_nfmdemodgui.h "$pkgdir/usr/include/nfm/ui_nfmdemodgui.h"
+  popd
+  pushd plugins/channel/tcpsrc
+  install -Dm755 libdemodtcpsrc.so "$pkgdir/usr/lib/libdemodtcpsrc.so"
+  install -Dm644 ui_tcpsrcgui.h "$pkgdir/usr/include/ui_tcpsrcgui.h"
+  popd
+  # todo, tetra
+
+  #mkdir -p "$pkgdir/usr/bin"
+  #echo -e "#!/bin/bash\ncd /opt/sdrangelove-git/\nLD_LIBRARY_PATH=./ ./sdrangelove\ncd -" > "$pkgdir/usr/bin/sdrangelove"
+  #echo -e "#!/bin/bash\npulseaudio --start\nsdrangelove\npulseaudio -k" > "$pkgdir/usr/bin/sdrangelove-alsa"
+  #chmod +x "$pkgdir/usr/bin/sdrangelove"
+  #chmod +x "$pkgdir/usr/bin/sdrangelove-alsa"
+}
+
+# vim:set ts=2 sw=2 et:
