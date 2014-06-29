@@ -6,7 +6,7 @@
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 pkgname=gnupg-largekeys
 pkgver=2.0.24
-pkgrel=1
+pkgrel=2
 pkgdesc='Complete and free implementation of the OpenPGP standard'
 url='http://www.gnupg.org/'
 license=('GPL')
@@ -19,10 +19,12 @@ depends=('bzip2' 'libksba' 'libgcrypt' 'pth' 'libassuan' 'readline' 'pinentry' '
 source=("ftp://ftp.gnupg.org/gcrypt/${pkgname%%-largekeys}/${pkgname%%-largekeys}-${pkgver}.tar.bz2"
         'protect-tool-env.patch'
         'gnupg2-large-keys.patch'
+        'filter.patch'
         'install')
 sha512sums=('5bb879bcadd7006e57580537530517550970a6c71397b9c6630df14925d3d6a8929a51b21e01e4ba33cefa1d845c42f0fa0fdfa0128771794273d544eb514380'
             '903568aa053c5f4eb3f334071ac0dbc085045a960e9312da7e55e4a80e5c6fa6f3ad0b0ea3b464fc05d17193dac46ef4ab6e20dca7e57dc93ed213b11cb80bbc'
             'a03c91fb20f2ec900bc5d91d0fb0f2be4dc36df8f9550cc41894736979a07e8321895a9eca872d2820a44cebb2bd2c12aa27de470c10b7f75010f528b1130769'
+            'fb73bad45768bbcc763b08c76c616277eeaed1494611fbd41389edd2dc0edd43d504eedf32806a27a2355bfe40763737be45255862f62addafda9d70de4fea55'
             'b3a125ee70b2042d158fc68e9e15660a87c5c30e5810570ea40376f2df3701973cf1c9e6481953b0415d9368ed7e93d6540274814207eee7e9a6852c51883ba3')
 
 install=install
@@ -34,6 +36,7 @@ replaces=('gnupg2' 'gnupg')
 prepare() {
 	cd "${srcdir}/${pkgname%%-largekeys}-${pkgver}"
 	patch -p1 -i ../protect-tool-env.patch # FS#31900
+	patch -p1 -i ../filter.patch
 	patch -p1 -i ../gnupg2-large-keys.patch
 }
 
@@ -45,6 +48,7 @@ build() {
 		--sbindir=/usr/bin \
 		--libexecdir=/usr/lib/gnupg \
 		--enable-maintainer-mode \
+		--enable-standard-socket \
 		--enable-symcryptrun \
 		--enable-gpgtar \
 
