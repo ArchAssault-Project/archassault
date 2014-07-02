@@ -8,5 +8,6 @@ Newest tools added:
 * [praeda-git](https://github.com/percx/Praeda) - An automated data/information harvesting tool designed to gather critical information from various embedded devices.
 * [azazel-git](https://github.com/chokepoint/azazel) - A userland rootkit based off of the original LD_PRELOAD technique from Jynx rootkit.
 * [american-fuzzy-lop](https://code.google.com/p/american-fuzzy-lop/) - A practical, instrumentation-driven fuzzer for binary formats.
+* [pytinydns-git](https://github.com/chokepoint/pytinydns) - A tiny DNS server that resolves A records to IPs.
 
 Thanks for the most recent requests.
