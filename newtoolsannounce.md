@@ -4,5 +4,6 @@ Newest tools added:
 * [rtl_433-git](https://github.com/merbanan/rtl_433) - An Application using librtlsdr to decode the temperature from a wireless temperature sensor (433.92MHz)
 * [dabstick-radio](http://www.sdr-j.tk/) - The DAB decoding software (SDR-J)
 * [iosforensic](https://github.com/Flo354/iOSForensic) - An [iOS forensic tool](https://www.owasp.org/index.php/Projects/OWASP_iOSForensic)
+* [flowinspect-git](https://github.com/7h3rAm/flowinspect) - A Network Inspection Tool
 
 Thanks for the most recent requests.
