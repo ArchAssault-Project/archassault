@@ -9,5 +9,6 @@ Newest tools added:
 * [azazel-git](https://github.com/chokepoint/azazel) - A userland rootkit based off of the original LD_PRELOAD technique from Jynx rootkit.
 * [american-fuzzy-lop](https://code.google.com/p/american-fuzzy-lop/) - A practical, instrumentation-driven fuzzer for binary formats.
 * [pytinydns-git](https://github.com/chokepoint/pytinydns) - A tiny DNS server that resolves A records to IPs.
+* [crypthook-git](https://github.com/chokepoint/CryptHook) - TCP/UDP symmetric encryption tunnel wrapper
 
 Thanks for the most recent requests.
