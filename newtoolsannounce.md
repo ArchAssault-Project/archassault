@@ -6,5 +6,6 @@ Newest tools added:
 * [iosforensic](https://github.com/Flo354/iOSForensic) - An [iOS forensic tool](https://www.owasp.org/index.php/Projects/OWASP_iOSForensic)
 * [flowinspect-git](https://github.com/7h3rAm/flowinspect) - A Network Inspection Tool
 * [praeda-git](https://github.com/percx/Praeda) - An automated data/information harvesting tool designed to gather critical information from various embedded devices.
+* [azazel-git](https://github.com/chokepoint/azazel) - A userland rootkit based off of the original LD_PRELOAD technique from Jynx rootkit.
 
 Thanks for the most recent requests.
