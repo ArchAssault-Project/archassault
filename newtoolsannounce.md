@@ -5,5 +5,6 @@ Newest tools added:
 * [dabstick-radio](http://www.sdr-j.tk/) - The DAB decoding software (SDR-J)
 * [iosforensic](https://github.com/Flo354/iOSForensic) - An [iOS forensic tool](https://www.owasp.org/index.php/Projects/OWASP_iOSForensic)
 * [flowinspect-git](https://github.com/7h3rAm/flowinspect) - A Network Inspection Tool
+* [praeda-git](https://github.com/percx/Praeda) - An automated data/information harvesting tool designed to gather critical information from various embedded devices.
 
 Thanks for the most recent requests.
