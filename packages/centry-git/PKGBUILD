@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=centry-git
-pkgver=r70.1f2f8a4
+pkgver=r72.6de2868
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="A Panic button for protection against cold boot attacks"
