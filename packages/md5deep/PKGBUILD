@@ -1,5 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
-
+# Contributor drathir <drathir87@gmail.com>
 pkgname=md5deep
 pkgver=4.4
 pkgrel=1
@@ -7,7 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-forensic')
 pkgdesc="Advanced checksum hashing tool"
 url="https://github.com/jessek/hashdeep"
-license=('Public Domain')
+license=('Public Domain' 'GPL')
 
 # Copyright and license stuff:
 #
@@ -21,7 +21,11 @@ license=('Public Domain')
 # Special Agent with the United States Air Force Office of Special Investigations (AFOSI).
 # As such, md5deep exists in the public domain under 17 USC 105.
 
-depends=('glibc')
+if [ $CARCH == 'x86_64' ]; then
+     depends=('gcc-libs-multilib' 'glibc')
+else
+     depends=('gcc-libs' 'glibc')
+fi
 source=("https://github.com/jessek/hashdeep/archive/release-$pkgver.tar.gz")
 md5sums=('9ccfd5ba3e3d9cffddeb118cacad0c27')
 sha1sums=('cb4e313352974299c32bc55fe56396adb74517ef')
@@ -43,4 +47,5 @@ package() {
   cd "$srcdir/hashdeep-release-$pkgver"
 
   make DESTDIR=$pkgdir install
+  install -D -m644 "$srcdir/hashdeep-release-$pkgver/COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
