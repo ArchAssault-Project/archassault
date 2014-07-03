@@ -1,4 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname='perl-test-checkdeps'
 _pkgname='Test-CheckDeps'
 pkgver='0.010'
@@ -7,6 +8,7 @@ pkgdesc="Check for presence of dependencies"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
+#perl-test-checkdeps W: Dependency included and not needed ('perl') ('perl-cpan-meta-check') ('perl-module-build-tiny')
 depends=('perl' 'perl-cpan-meta-check>=0.007' 'perl-module-build-tiny')
 makedepends=()
 url='http://search.cpan.org/dist/Test-CheckDeps'
