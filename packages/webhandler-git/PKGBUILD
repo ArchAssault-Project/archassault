@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webhandler-git
-pkgver=r317.20f707f
+pkgver=r318.c059b9c
 pkgrel=1
 groups=('archassault' 'archassault-webapp')
 pkgdesc="A handler for PHP system functions & also an alternative 'netcat' handler."
