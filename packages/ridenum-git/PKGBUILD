@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=ridenum-git
-pkgver=r38.876ccc0
+pkgver=r39.ebbfaca
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Rid_enum is a null session RID cycle attack for brute forcing domain controllers."
