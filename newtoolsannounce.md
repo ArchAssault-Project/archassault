@@ -10,5 +10,6 @@ Newest tools added:
 * [american-fuzzy-lop](https://code.google.com/p/american-fuzzy-lop/) - A practical, instrumentation-driven fuzzer for binary formats.
 * [pytinydns-git](https://github.com/chokepoint/pytinydns) - A tiny DNS server that resolves A records to IPs.
 * [crypthook-git](https://github.com/chokepoint/CryptHook) - TCP/UDP symmetric encryption tunnel wrapper
+* [viper-git](https://github.com/botherder/viper) - A Binary analysis framework
 
 Thanks for the most recent requests.
