@@ -1,4 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=libnacl
 arch=(i686 x86_64)
 pkgver=20110221
