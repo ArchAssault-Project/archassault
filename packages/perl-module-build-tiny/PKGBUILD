@@ -1,18 +1,20 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname='perl-module-build-tiny'
 _pkgname='Module-Build-Tiny'
-pkgver='0.028'
-pkgrel=2
+pkgver='0.036'
+pkgrel='1'
 pkgdesc="A tiny replacement for Module::Build"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl>=5.8.1' 'perl-extutils-helpers>=0.020' 'perl-extutils-installpaths>=0.002')
-makedepends=()
+#perl-module-build-tiny W: Dependency included and not needed ('perl') ('perl-extutils-config') ('perl-extutils-helpers') ('perl-extutils-installpaths')
+depends=('perl>=5.8.1' 'perl-extutils-config>=0.003' 'perl-extutils-helpers>=0.020' 'perl-extutils-installpaths>=0.002')
+makedepends=('perl-test-harness>=3.29')
 provides=("module-build-tiny=${pkgver}" "Module::Build::Tiny=${pkgver}" "perl-module-build-tiny=${pkgver}")
 url="http://search.cpan.org/dist/Module-Build-Tiny"
 source=("http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/${_pkgname}-${pkgver}.tar.gz")
-sha512sums=('62b65cc124d1f72f6a93f775dbeeb857667b713909fe5619f10f71e5f7a17e664bb4661475b14793024c2889f030de9afc2595b0f0a044ad4a47fa68a8b3844b')
+sha512sums=('7f0d01354eaa08611b6b207ef362fbebd941838c1191c652c014f3ac2fe0eee32c64f8eb6711ca557f4f021f6fab8f64e155adf7bf183952021e6af3da1533dc')
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
