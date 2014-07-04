@@ -8,7 +8,6 @@ pkgdesc="A tiny replacement for Module::Build"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-#perl-module-build-tiny W: Dependency included and not needed ('perl') ('perl-extutils-config') ('perl-extutils-helpers') ('perl-extutils-installpaths')
 depends=('perl>=5.8.1' 'perl-extutils-config>=0.003' 'perl-extutils-helpers>=0.020' 'perl-extutils-installpaths>=0.002')
 makedepends=('perl-test-harness>=3.29')
 provides=("module-build-tiny=${pkgver}" "Module::Build::Tiny=${pkgver}" "perl-module-build-tiny=${pkgver}")
