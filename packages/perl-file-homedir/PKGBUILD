@@ -8,13 +8,10 @@ pkgdesc="Find your home and other directories on any platform"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-#perl-file-homedir W: Dependency included and not needed ('perl-file-which')
 depends=('perl-file-which')
 makedepends=()
 url="http://search.cpan.org/dist/File-HomeDir/"
 source=("http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/$_cpanname-$pkgver.tar.gz")
-md5sums=('aa290cab9db52e2f76280fd1febf794e')
-sha1sums=('c89743d57e15fba79238728f0456f80160aff024')
 sha512sums=('e033b9a60583a76e7b270b99bc113b5dfd616853e7a9e05c34e03bff3cabfa15f8e50a84a932dfb6ed7c2df0aceba3d0c16cd99e08d82a02c9fbe3747af7e994')
 
 build() {
