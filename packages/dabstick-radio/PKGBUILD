@@ -4,10 +4,10 @@
 
 pkgname=dabstick-radio
 pkgver=0.96
-pkgrel=1
+pkgrel=2
 pkgdesc="The DAB decoding software (SDR-J)"
 groups=('archassault' 'archassault-hardware')
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('x86_64')
 url="http://www.sdr-j.tk/"
 license=('GPL2')
 depends=('fftw' 'qwt' 'faad2' 'portaudio' 'rtl-sdr')
@@ -27,7 +27,7 @@ build() {
   export CFLAGS="${CFLAGS} -Wno-unused"
   export CXXFLAGS="${CFLAGS}"
   cmake ..
-  make -j1
+  make
 }
 
 package () {
