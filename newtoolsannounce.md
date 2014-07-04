@@ -14,5 +14,6 @@ Newest tools added:
 * [python2-pty-shells-git](https://github.com/infodox/python-pty-shells) - Python PTY backdoors - full PTY or nothing! http://insecurety.net
 * [birp-git](https://github.com/sensepost/birp) - Big Iron Recon & Pwnage
 * [snoopy-ng-git](https://github.com/sensepost/snoopy-ng) - Snoopy v2.0 - modular digital terrestrial tracking framework
+* [rr](https://github.com/mozilla/rr) - Record and Replay Framework
 
 Thanks for the most recent requests.
