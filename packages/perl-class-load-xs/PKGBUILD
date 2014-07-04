@@ -9,12 +9,11 @@ pkgdesc="XS implementation of parts of Class::Load"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('PerlArtistic2')
 options=('!emptydirs')
-#perl-class-load-xs W: Dependency included and not needed ('perl-class-load')
 depends=('perl-class-load')
 checkdepends=('perl-test-requires' 'perl-test-without-module')
 url="http://search.cpan.org/dist/${_pkgname}/"
 source=(http://search.cpan.org/CPAN/authors/id/${_lastauthor}/${_pkgname}-${pkgver}.tar.gz)
-sha256sums=('67f5e120ed79d853ad5941bca42d5fe4a1ed2324cc8f79d2918aead9d8cf1be9')
+sha512sums=('ee0a8a9ee031906f1b388bc564e1ac00703e2cfecb745d83f640d46b7bfd708ad38f199029a8292767169521ab130be5c6db8888382758025b94429ac5d3db5d')
 
 build() {
   export PERL_MM_USE_DEFAULT=1 PERL_AUTOINSTALL="--skipdeps" \
