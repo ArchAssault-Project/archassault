@@ -9,13 +9,10 @@ arch=(any)
 license=('PerlArtistic' 'GPL')
 url="http://search.cpan.org/dist/ExtUtils-InstallPaths/"
 options=(!emptydirs)
-#perl-extutils-installpaths W: Dependency included and not needed ('perl') ('perl-extutils-config')
 depends=('perl>=5.10.1' 'perl-extutils-config>=0.002')
 makedepends=('perl')
 provides=("extutils-installpaths=${pkgver}" "ExtUtils::InstallPaths=${pkgver}" "perl-extutils-installpaths=${pkgver}")
 source=("http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/${_pkgname}-${pkgver}.tar.gz")
-md5sums=('f0b00cc6c04653588a6298fa1f16c07f')
-sha1sums=('0faf32f66444ad6844aef70add175d75f2c069b2')
 sha512sums=('3639e8e05b2d59d1a5c4548d74e51158ce6e6b2260d2958f5500b7bb2f64470b72b8b9690e3ec917ff6db8baf0a81038178336bccbc272116e16b520cac73f0f')
 
 build() {
