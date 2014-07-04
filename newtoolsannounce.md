@@ -13,6 +13,6 @@ Newest tools added:
 * [viper-git](https://github.com/botherder/viper) - A Binary analysis framework
 * [python2-pty-shells-git](https://github.com/infodox/python-pty-shells) - Python PTY backdoors - full PTY or nothing! http://insecurety.net
 * [birp-git](https://github.com/sensepost/birp) - Big Iron Recon & Pwnage
-
+* [snoopy-ng-git](https://github.com/sensepost/snoopy-ng) - Snoopy v2.0 - modular digital terrestrial tracking framework
 
 Thanks for the most recent requests.
