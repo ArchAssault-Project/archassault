@@ -11,5 +11,7 @@ Newest tools added:
 * [pytinydns-git](https://github.com/chokepoint/pytinydns) - A tiny DNS server that resolves A records to IPs.
 * [crypthook-git](https://github.com/chokepoint/CryptHook) - TCP/UDP symmetric encryption tunnel wrapper
 * [viper-git](https://github.com/botherder/viper) - A Binary analysis framework
+* [python2-pty-shells-git](https://github.com/infodox/python-pty-shells) - Python PTY backdoors - full PTY or nothing! http://insecurety.net
+
 
 Thanks for the most recent requests.
