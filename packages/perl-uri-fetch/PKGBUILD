@@ -12,7 +12,7 @@ options=('!emptydirs')
 depends=('perl>=5.8.1' 'perl-class-errorhandler' 'perl-libwww' 'perl-uri')
 makedepends=()
 url='http://search.cpan.org/dist/URI-Fetch'
-source=('http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/URI-Fetch-0.10.tar.gz')
+source=("http://cpan.metacpan.org/authors/id/N/NE/NEILB/URI-Fetch-$pkgver.tar.gz")
 sha512sums=('3780c879712c6e88e6b409ad1f5d081a09fbbaabde96b29b167573375bfc68b656ded7acd03282648b77236602d052f2bda88461142dd29bea8b47396629331f')
 _distdir="URI-Fetch-0.10"
 
