@@ -7,6 +7,7 @@ arch=('any')
 url="https://github.com/infodox/python-pty-shells"
 license=('custom')
 depends=('python2' 'python2-pysctp')
+makedepends=('git')
 provides=('pty-shells')
 replaces=('pty-shellls')
 conflicts=('pty-shells')
