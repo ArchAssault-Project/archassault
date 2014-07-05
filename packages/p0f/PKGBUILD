@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=p0f
 pkgver=3.07b
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-sniffers' 'archassault-fingerprinting')
 pkgdesc="Purely passive TCP/IP traffic fingerprintinging tool "
 url='http://lcamtuf.coredump.cx/p0f3/'
@@ -27,6 +27,7 @@ prepare() {
 build() {
   cd "${srcdir}/p0f-${pkgver}"
 
+  export CFLAGS="$CFLAGS -fPIC"
   make
 
   # Additional tools.

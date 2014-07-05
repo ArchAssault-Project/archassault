@@ -2,7 +2,7 @@
 # Contributor: B00ker
 pkgname=openvas-manager
 pkgver=5.0.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The OpenVAS Manager is a layer between the OpenVAS Scanner and various client applications"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -12,7 +12,7 @@ provides=(openvas-administrator)
 conflicts=(openvas-administrator)
 replaces=(openvas-administratory)
 depends=('glib2' 'openvas-libraries' 'sqlite' 'libassuan')
-makedepends=('cmake' 'doxygen' 'sqlite3' 'xmltoman' 'gnutls' 'libxslt')
+makedepends=('cmake' 'doxygen' 'graphviz' 'sqlite3' 'xmltoman' 'gnutls' 'libxslt')
 options=('!makeflags !buildflags')
 # Needs to be full path to file 
 source=("http://wald.intevation.org/frs/download.php/1667/openvas-manager-$pkgver.tar.gz")
