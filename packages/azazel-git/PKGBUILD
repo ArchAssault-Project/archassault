@@ -8,6 +8,7 @@ arch=('any')
 url="https://github.com/chokepoint/azazel"
 license=('GPL2')
 depends=('python2')
+makedepends=('git')
 provides=('azazel')
 replaces=('azazel')
 conflicts=('azazel')
