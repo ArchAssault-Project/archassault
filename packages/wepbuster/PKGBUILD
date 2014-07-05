@@ -1,19 +1,20 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=wepbuster
 pkgver=1.0_beta_0.7
 pkgrel=1
 pkgdesc="script for automating aircrack-ng"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://code.google.com/p/wepbuster/"
 license=('BSD')
 depends=("aircrack-ng" "perl-term-readkey" "perl-expect" 
          "perl-file-slurp" "perl-number-range" "perl-algorithm-permute")
 groups=('archassault' 'archassault-wireless')
-source=(http://wepbuster.googlecode.com/files/wepbuster-$pkgver.tgz)
-md5sums=('61b9013d81a65db6b33c8dc024fcc898')
+source=("http://wepbuster.googlecode.com/files/$pkgname-$pkgver.tgz")
+sha512sums=('c73dadb9ba009d2c2c3c467418c64c9ddbbf818e31266f11de82386848fbc8594b2a98f3441a9298b2774f1b2ae8ee83a2bb5789c2c6168e405aeb39975e312b')
 
 package() {
-  cd "$srcdir/wepbuster-1.0_beta"
+  cd "$srcdir/$pkgname-1.0_beta"
   install -Dm755 wepbuster "$pkgdir"/usr/bin/wepbuster
 }
 
