@@ -4,11 +4,12 @@ pkgver=0.25b
 pkgrel=1
 groups=('archassault' 'archassault-fuzzers')
 pkgdesc="A practical, instrumentation-driven fuzzer for binary formats" 
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64')
 url="https://code.google.com/p/american-fuzzy-lop/"
 license=('APACHE')
 if [[ $CARCH == 'x86_64' ]]; then
       depends=('lib32-glibc')
+      makedepends=('gcc-multilib')
 else
       depends=('glibc')
 fi
