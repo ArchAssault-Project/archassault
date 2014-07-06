@@ -1,14 +1,15 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ctunnel
-pkgver=0.6
+pkgver=0.7a
 pkgrel=1
-pkgdesc="Tunnel and/or proxy TCP or UDP connections via a cryptographygraphic tunnel."
+pkgdesc="Tunnel and/or proxy TCP or UDP connections via a cryptographygraphic tunnel compiled with Openssl."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://nardcore.org/ctunnel"
 license=('GPL')
-depends=('zlib' 'libgcrypt')
+depends=('zlib' 'openssl')
 groups=('archassault' 'archassault-tunneling')
 source=(http://nardcore.org/ctunnel/ctunnel-$pkgver.tar.gz)
-md5sums=('23ba8758fb92dd71915b869ea82aa475')
+sha512sums=('935b986f4637d0f6fc9fa8b782119821326cc1c4eb8c1fa21c8f5598124d1c77bdc15abeb6721bfeabdbd8a6add350a13d34d9b61ef5c742b36639db351bac95')
 
 build() {
   cd $srcdir/ctunnel-$pkgver

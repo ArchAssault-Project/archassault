@@ -1,14 +1,15 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=spiderfoot
-pkgver=2.1.0
+pkgver=2.1.5
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="The Open Source Footprinting Tool"
 url='http://spiderfoot.net'
 arch=('any')
 license=('GPL2')
-depends=('python2' 'python2-mako' 'python2-cherrypy' 'python2-m2cryptography')
+depends=('python2' 'python2-mako' 'python2-cherrypy' 'python2-m2crypto' 'python2-netaddr')
 source=("http://downloads.sourceforge.net/project/spiderfoot/spiderfoot-$pkgver-src.tar.gz")
-md5sums=('ac2c25b4b38439a203162615399f7e60')
+sha512sums=('b4dd23d104def4e6ad6dacf44d7f96f792dc43c7621450497d6ec959a2d09000ea1d93d5b0df522ed39c10034e33321632c5f8ec4113b501a9bbd4891ad7709d')
 
 package() {
   cd "$srcdir/spiderfoot-$pkgver"

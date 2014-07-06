@@ -1,0 +1,42 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributors:
+#   Florian Pritz <f-p@gmx.at> (Original)
+#   Xyne <xyne at archlinux dot us>
+#   thiagoc
+#   Chris <chris at christopherjones dot us>
+#   henning mueller <henning@orgizm.net>
+#   Fabiano Furtado <fusca14 at gmail dot com>
+pkgname=fwknop
+pkgver=2.6.2
+pkgrel=1
+pkgdesc='FireWall KNock OPerator: Single Packet Authorization and Port Knocking'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url=http://www.cipherdyne.org/fwknop
+license=(GPL)
+depends=(gpgme iptables libpcap)
+options=(!libtool)
+groups=('archassault')
+backup=(
+  etc/$pkgname/access.conf
+  etc/$pkgname/fwknopd.conf
+)
+install=fwknop.install
+source=(
+  http://www.cipherdyne.org/fwknop/download/$pkgname-$pkgver.tar.bz2
+  fwknopd.service
+)
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --sbindir=/usr/bin
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make DESTDIR="$pkgdir" install
+  install -D -m 755 "$srcdir/fwknopd.service" "$pkgdir/usr/lib/systemd/system/fwknopd.service"
+}
+
+sha512sums=('d8b55a01c40aab35c14f2a9d37193989d1e04c8ba0711276045471ada6052a446565840372d0c26eec1d4b8fe0b7fa7a44015a107e0b44ede38f42f0712e9f4d'
+            '32ac720dd5dedd373a932a2cd2799fcfc7fcc97eba6e1dfba69a25b138c136fe9cbe54e50f98fc055333f97fe99b3d0c2377d940e3168ca5347e088c8536afb8')

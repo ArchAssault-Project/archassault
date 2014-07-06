@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=mkassaultiso
 pkgver=13
 pkgrel=1
@@ -6,6 +7,7 @@ arch=('any')
 url="https://github.com/ArchAssault-Project/mkassaultiso"
 license=('GPL3')
 depends=('archiso')
+makedepends=('git')
 source=("git+https://github.com/ArchAssault-Project/mkassaultiso.git")
 md5sums=('SKIP')
 

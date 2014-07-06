@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=binwally
 pkgver=0.r3.ca092a7
 pkgrel=1
@@ -7,6 +8,7 @@ url="https://github.com/bmaia/binwally"
 arch=(any)
 license=('MIT')
 depends=('python2' 'cython2' 'python2-pydeep' 'ssdeep')
+makedepends=('git')
 source=("git+https://github.com/bmaia/binwally.git")
 md5sums=('SKIP')
 

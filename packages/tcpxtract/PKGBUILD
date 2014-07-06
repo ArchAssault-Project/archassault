@@ -1,6 +1,4 @@
-# TODO: remove startdir
-# TODO: make package function
-
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=tcpxtract
 pkgver=1.0.1
 pkgrel=1
@@ -16,12 +14,15 @@ md5sums=('1d8fe172d4590c33a157798e08dc0ccd'
          'c7964f1e9c1315ae2d2b94c2bd06b4b7')
 
 build(){
-  cd $srcdir/tcpxtract-$pkgver
+  cd "$srcdir/tcpxtract-$pkgver"
 
   # Applying conf_default_path patch
-  patch -Np0 -i $startdir/src/conf_default_path.patch
+  patch -Np0 -i "$srcdir/conf_default_path.patch"
+}
 
+package() {
+  cd "$srcdir/tcpxtract-$pkgver"
   ./configure --prefix=/usr --sysconfdir=/etc
   make
-  make DESTDIR=$pkgdir install
+  make DESTDIR="$pkgdir" install
 }

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ohrwurm
 pkgver=0.1
 pkgrel=1
@@ -5,7 +6,8 @@ groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A small and simple RTP fuzzer"
 url='http://mazzoo.de/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-depends=('glibc')
+depends=('glibc' 'libpcap')
+makedepends=('git')
 license=('GPL')
 source=("git+https://github.com/mazzoo/ohrwurm")
 md5sums=('SKIP')

@@ -1,0 +1,37 @@
+# Maintainer: ArchAssault <team AT archassault org>
+pkgname=xcavator-git
+pkgver=r5.bd9e2d8
+pkgrel=1
+pkgdesc="man-in-the-middle and phishing attack tool that steals the victim's credentials of some web services like Facebook"
+arch=('any')
+url="https://github.com/nccgroup/xcavator"
+license=('GPL3')
+groups=('archassault')
+depends=('python' 'pysmb')
+makedepends=('git')
+options=(!emptydirs)
+source=('git+https://github.com/nccgroup/xcavator.git')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/xcavator"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/xcavator"
+  install -dm755 "$pkgdir/usr/share/xcavator"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/licenses/xcavator"
+  install -m755 xcavator.py "$pkgdir/usr/share/xcavator/xcavator.py"
+  install -m644 LICENSE "$pkgdir/usr/share/licenses/xcavator/LICENSE"
+  cp -Ra --no-preserve=ownership protocols "$pkgdir/usr/share/xcavator/"
+  cat > $pkgdir/usr/bin/xcavator <<EOF
+#!/bin/sh
+cd /usr/share/xcavator/bin/
+python xcavator.py "\$@"
+EOF
+  chmod +x $pkgdir/usr/bin/xcavator
+}
+
+# vim:set ts=2 sw=2 et:

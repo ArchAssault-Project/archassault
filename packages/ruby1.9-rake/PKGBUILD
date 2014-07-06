@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-rake
 _gemname=rake
 pkgver=10.1.0

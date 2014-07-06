@@ -1,7 +1,8 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _pkgname=pysnmp
 pkgname=python2-$_pkgname
 pkgver=4.2.3
-pkgrel=4
+pkgrel=5
 pkgdesc="SNMP library for Python"
 url='http://sourceforge.net/projects/pysnmp/'
 license=('BSD')
@@ -12,14 +13,12 @@ optdepends=("python2-pysnmp-mibs")
 conflicts=('pysnmp')
 provides=('pysnmp')
 source=(http://downloads.sourceforge.net/sourceforge/$_pkgname/$_pkgname-$pkgver.tar.gz)
-md5sums=('6ddc2cf14081361a61191632f22b7c15')
+sha512sums=('a6de589d1677e8f48770372864cd74087c70b0db22bfbce363eec75bca34552969ccc473ea1c2d9cee3bbf2f4738d09acdfb07684a04f81a613ba908636aecd3')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"
-
-  python2 setup.py install --root="$pkgdir"
-  install -D -m 644 LICENSE "$pkgdir/usr/share/licenses/python2-pysnmp/LICENSE"
-
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/python2-pysnmp/LICENSE
   # Package python module only.
-  rm -fr "$pkgdir/usr/bin"
+  rm -fr "$pkgdir"/usr/bin
 }

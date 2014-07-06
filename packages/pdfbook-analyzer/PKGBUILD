@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=pdfbook-analyzer
-pkgver=
+pkgver=2014220
 groups=('archassault' 'archassault-forensics')
 pkgrel=1
 pkgdesc="Utility for facebook memory forensics."

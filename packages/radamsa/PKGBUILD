@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=radamsa
 pkgver=0.3
 pkgrel=1
@@ -7,7 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://code.google.com/p/ouspg/wiki/Radamsa"
 license=("MIT")
 source=("https://ouspg.googlecode.com/files/radamsa-$pkgver.tar.gz")
-md5sums=('0a09f2a4ea66c49f14856d2bcd76231e')
+sha512sums=('a2ab64910889d2823fdb2798b98f219e0c1f4781991f58773ef23277cb406e682f655fad6d451f41207fbda5c95d5a25cf6d65e828253d98c89c978ba9698b60')
 
 build() {
   cd "$srcdir/radamsa-$pkgver"

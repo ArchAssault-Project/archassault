@@ -1,15 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pyx
-pkgver=0.12.1
-pkgrel=2
+pkgver=0.13
+pkgrel=1
 pkgdesc="Python library for the creation of PostScript and PDF files"
 arch=('any')
 url='http://pyx.sourceforge.net'
 license=('GPL')
 depends=('python2' 'texlive-core')
 source=(http://downloads.sourceforge.net/sourceforge/pyx/PyX-$pkgver.tar.gz)
-md5sums=('04263eb002553dae0e8a1d0eeb805ec1')
+sha512sums=('cab0c22f0862ae20cff92504ededf4fcf5820d5773130fb258de1a95d295ca4fe657b85d5ccd52021a4f84403e6db8eebe9f676fa405781738502456123eb05c')
 
 package() {
   cd $srcdir/PyX-$pkgver
-  python2 setup.py install --root=$pkgdir
+  python2 setup.py install --prefix=/usr --root=$pkgdir --optimize=1
 }

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-rpc-xml'
 pkgver='0.78'
 pkgrel='1'

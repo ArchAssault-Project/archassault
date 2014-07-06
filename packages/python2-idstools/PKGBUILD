@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-idstools
+pkgver=0.3.1
+pkgrel=1
+pkgdesc="A collection of Python libraries for working with IDS systems (typically Snort and Suricata)."
+arch=('any')
+url='https://pypi.python.org/pypi/idstools'
+license=('BSD')
+depends=('python2')
+makedepends=('python2-setuptools')
+groups=('archassault')
+source=("https://pypi.python.org/packages/source/i/idstools/idstools-$pkgver.tar.gz")
+sha512sums=('05dec357dcf41ec33958fd28e3d41552ddbdb79e5a875b4ef4567df104f22fe448db12493635880cc8578d4605c192612fc05361477fed8057a8750a91b70b97')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/idstools-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|' 
+}
+
+
+package() {
+  cd "${srcdir}/idstools-${pkgver}"
+  
+  python2 setup.py install --root=$pkgdir --optimize=1
+}

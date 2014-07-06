@@ -1,13 +1,15 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pygithub
-pkgver=1.20.0
-pkgrel=2
+pkgver=1.25.0
+pkgrel=1
 pkgdesc="Provides access to the full Github API v3"
 arch=('any')
 url='https://pypi.python.org/pypi/PyGithub'
 license=('LGPL')
 depends=('python2')
+makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/P/PyGithub/PyGithub-$pkgver.tar.gz")
-md5sums=('f917f81eaa5ccc5ef9097c30ace0b078')
+sha512sums=('f5444faa6ce42fa7d6105a16a87440fbae96ea5c39786fac73feee617fd1bde75c154ab87ecb0b8e7d98bd5bc7127ebab841aaaaabad05eba2000baa62f8d011')
 
 package() {
   cd "$srcdir/PyGithub-$pkgver"

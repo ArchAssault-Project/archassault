@@ -1,60 +1,73 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=snort
-pkgver=2.9.5.6
+pkgver=2.9.6.1
 pkgrel=1
 pkgdesc="A lightweight network intrusion detection system."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.snort.org'
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-scanners' 'archassault-autonomous')
-depends=('libdaq-static' 'libdnet' 'libpcap' 'openssl' 'pcre' 'zlib')
-makedepends=('ca-certificates')
+depends=('libpcap' 'libdaq-static' 'pcre' 'libdnet' 'libutil-linux' 'openssl')
+makedepends=('ca-certificates' 'tcpdump' 'bison' 'flex')
 backup=('etc/conf.d/snort'
-        'etc/snort/snort.conf'
-        'etc/snort/threshold.conf'
-        'etc/snort/reference.config'
-        'etc/snort/classification.config')
-options=('!makeflags' '!libtool')
+		'etc/snort/snort.conf'
+		'etc/snort/threshold.conf'
+		'etc/snort/reference.config'
+		'etc/snort/classification.config'
+		'etc/snort/rules/local.rules'
+		'etc/snort/rules/white_list.rules'
+		'etc/snort/rules/black_list.rules')
+options=('!makeflags' '!libtool' '!strip' 'staticlibs')
 install='snort.install'
 source=("http://www.snort.org/dl/snort-current/snort-${pkgver}.tar.gz"
-        "http://rules.emergingthreats.net/open/snort-2.9.0/emerging.rules.tar.gz"
-        'snort'
-        'snort.conf.d'
-        'snort.service')
-md5sums=('e993c97c1710d68a7b67813fe98c09a4'
-         'd86b5f99f6dab0522765cba15de3ca7f'
-         '361b8b9e40b9af0164f6b3e3da2e8277'
-         'b4fb8a68490589cd34df93de7609bfac'
-         '0d898dfe906fe45ad8562c500c36facb')
+		"http://rules.emergingthreats.net/open/snort-2.9.0/emerging.rules.tar.gz"
+		'snort'
+		'snort.conf.d'
+		'snort.service'
+		'snort.desktop'
+		'local.rules'
+		'white_list.rules'
+		'black_list.rules')
+sha512sums=('455b92900efa098ca85f81290f2b4bfff756d6db1b7f85352f3d17e24e4139c69bde27b4d250aa1291146773f54b891dc8ed877d1bb82fa354bd3e5b8db572a7'
+            '6f882da312fe5138b32192d7f3d7f56a614e1782688e5e8a132950e25f40ce844a67dfcae766365459d4244fc151a87310a4a109b730313b460e664e29cd59ab'
+            '96d3a27752c60cec9b188cdc358f3a38c0f6f0a179e16f3778abaf6385cc82169cdf0b41ea9bf39cfa64455e6ca5e484c2d952c72ced0901512b4750343ec5d9'
+            '08341de9f302622b40917914e5e67c0f79c1800c463be7675bb019a3c033c3302a1be522ffd7a5b4759211f962ce4557557ea2653c4c89843dbd33b95a2e2e35'
+            '8cd77b2046e5efd069aa4e236caa701391b2e3a91eac2e4ba21a60157c6f7b618d6552b831d5a4f7a2ba77612cf203ba7da1b672dade19c3396594e29aa7706f'
+            '35cf16f21fc9553ba36493190395ae0786d9e7380f37e9cae4265483041166dc9c78ebe04c87db43c86deb9fb1c812139dbc6fc62f290a7cae492100022d135d'
+            'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'
+            'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'
+            'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e')
 
 build() {
-  cd "${srcdir}/snort-${pkgver}"
-
-  ./configure --prefix=/usr --sysconfdir=/etc/snort --with-libpcap-includes=/usr/include/pcap \
-              --with-daq-includes=/usr/include --with-daq-libraries=/usr/lib \
-              --enable-zlib
-  make
+	cd "${srcdir}/snort-${pkgver}"
+		./configure --prefix=/usr --sysconfdir=/etc/snort --with-libpcap-includes=/usr/include/pcap \
+		--with-daq-includes=/usr/include --with-daq-libraries=/usr/lib --enable-zlib --enable-sourcefire --enable-large-pcap
+		make
 }
 
 package() {
-  cd "${srcdir}/snort-${pkgver}"
-
-  make DESTDIR="${pkgdir}" install
-
-  # Base directories.
-  install -dm755 "${pkgdir}/etc/rc.d"
-  install -dm755 "${pkgdir}/etc/snort/rules"
-
-  install -dm755 "${pkgdir}/var/log/snort"
-  install -Dm644 etc/{*.conf*,*.map} "${pkgdir}/etc/snort/"
-  install -Dm644 "${srcdir}/snort.conf.d" "${pkgdir}/etc/conf.d/snort"
-  install -Dm755 "${srcdir}/snort" "${pkgdir}/etc/rc.d/snort"
-
-  # Service file.
-  install -Dm644 ../snort.service $pkgdir/usr/lib/systemd/system/snort.service
-
-  sed -i 's#/usr/local/lib/#/usr/lib/#' "${pkgdir}/etc/snort/snort.conf"
-
-  # Emerging threats rules.
-  echo 'include $RULE_PATH/emerging.conf' >> "${pkgdir}/etc/snort/snort.conf"
-  cp ${srcdir}/rules/* "${pkgdir}/etc/snort/rules"
+	cd "${srcdir}/snort-${pkgver}"
+		make DESTDIR="${pkgdir}" install
+# Base directories.
+		install -dm755 "${pkgdir}/etc/rc.d"
+		install -dm755 "${pkgdir}/etc/snort/rules"
+		install -dm755 "${pkgdir}/var/log/snort"
+		install -dm755 "${pkgdir}/usr/lib/snort/snort_dynamicrules"
+		install -dm755 "${pkgdir}/etc/snort/rules/so_rules"
+		install -Dm644 "${srcdir}/local.rules" "${pkgdir}/etc/snort/rules"
+		install -Dm644 "${srcdir}/white_list.rules" "${pkgdir}/etc/snort/rules"
+		install -Dm644 "${srcdir}/black_list.rules" "${pkgdir}/etc/snort/rules"
+		install -Dm644 etc/* "${pkgdir}/etc/snort/"
+		install -Dm644 "${srcdir}/snort.conf.d" "${pkgdir}/etc/conf.d/snort"
+		install -Dm755 "${srcdir}/snort" "${pkgdir}/etc/rc.d/snort"
+		install -dm755 "${pkgdir}/usr/share/applications/"
+		install -Dm644 "${srcdir}/snort.desktop" "${pkgdir}/usr/share/applications/snort.desktop"
+# Service file.
+		install -Dm644 ../snort.service $pkgdir/usr/lib/systemd/system/snort.service
+		sed -i 's#/usr/local/lib/#/usr/lib/#' "${pkgdir}/etc/snort/snort.conf"
+# Emerging threats rules.
+		echo 'include $RULE_PATH/emerging.conf' >> "${pkgdir}/etc/snort/snort.conf"
+		cp ${srcdir}/rules/* "${pkgdir}/etc/snort/rules"
+		find "${pkgdir}/etc/snort" -type f -name "Makefile*" -exec rm {} \;
+		mv "$pkgdir"/usr/src "$pkgdir"/usr/include/snort
 }

@@ -1,28 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ropgadget
-pkgver=4.0.2
+pkgver=5.1
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Lets you search your gadgets on your binaries (ELF format) to facilitate your ROP exploit."
 url='https://github.com/JonathanSalwan/ROPgadget'
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('GPL')
-depends=('gcc' 'python3')
+depends=('python2' 'capstone')
+makedepends=('git')
 source=("https://github.com/JonathanSalwan/ROPgadget/archive/v$pkgver.tar.gz")
-md5sums=('09435c892a2e0eac99ca803b0bda7fc1')
-
-build(){
-  cd "$srcdir/ROPgadget-$pkgver"
-  make
-}
+sha512sums=('a0a33fdf873ab000c341c0bdd794c0c28594ca12a4f8d11a778cee5828fbabdef5cace6776cae5a574dc65859bebe84efb25fbc0a66abf2348ad288cfd81ddba')
 
 package(){
   cd "$srcdir/ROPgadget-$pkgver"
   
   install -dm755 "$pkgdir/usr/bin/"
-  install -dm755 "$pkgdir/usr/share/ropgadget"
   install -dm755 "$pkgdir/usr/share/doc/ropgadget"
 
-  cp -r --no-preserve=ownership ROPgadget "$pkgdir/usr/bin/ropgadget"
-  cp -r --no-preserve=ownership AUTHORS COPYING CHANGELOG README.md \
+  install -Dm755 ROPgadget.py "$pkgdir/usr/bin/ropgadget"
+  cp -r --no-preserve=ownership AUTHORS COPYING README.md \
     "$pkgdir/usr/share/doc/ropgadget"
 }

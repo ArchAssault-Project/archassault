@@ -1,19 +1,21 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby1.9-nokogiri
 _gemname=nokogiri
 pkgver=1.6.0
-pkgrel=1
+pkgrel=4
 pkgdesc="Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser"
-arch=('any')
-license=('')
-makedepends=('ruby1.9')
-depends=('ruby1.9-mini_portile>=0.5.0')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('MIT')
+depends=('ruby1.9' 'ruby1.9-mini_portile' 'python' 'libxml2' 'libxslt')
+options=('!emptydirs' '!distcc')
 url='http://nokogiri.org'
 source=("http://rubygems.org/downloads/nokogiri-$pkgver.gem")
-md5sums=('3f60f47e19e5e7ebff3f9480305de1ed')
+sha512sums=('d779e69c5cfc8ea2faab98bfb2424a687d43c708e28bd49d846b5a050ffc6bc4437103f7d8005210e5c9b55cef4e615f47e26b4f0fc34b80fca5c7708bdccc36')
 noextract=("nokogiri-$pkgver.gem")
 
 package() {
   cd "$srcdir"
+  export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
   local _gemdir="$(ruby-1.9 -rubygems -e'puts Gem.default_dir')"
   gem-1.9 install --ignore-dependencies --no-user-install --no-rdoc --no-ri -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
 }

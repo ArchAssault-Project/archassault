@@ -1,17 +1,18 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=hackrf
-pkgver=2013.07.1
-pkgrel=1
+pkgver=2014.04.1
+pkgrel=3
 pkgdesc="Driver for HackRF, allowing general purpose software defined radio (SDR)."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/mossmann/hackrf"
-license=('GPLv2')
+license=('GPL2')
 depends=('libusbx')
 groups=('archassault')
 makedepends=('cmake')
 source=("http://downloads.sourceforge.net/hackrf/hackrf-$pkgver.tar.xz"
         '52-hackrf.rules')
-md5sums=('f66ec1273f573e0728366c3ecd3e52f3'
-         '8fed871905d2765e1c4fb0e656dd4900')
+sha512sums=('1929c7af1de0c9ad1afcf56d53c5db13ef362f3ef896f3549841eeea87aec5e1133c63da740688739278b13e772b70d510a4a1035440b5b6aad2e9438a694892'
+            'ee2b16f8f66e2d0e12eeec792bc6c7f2cf2068fc18b565dde58a4550d920c5f6ccb9ab27559347806a579920428aad97da573506e71cc5451a7af7a919718568')
 
 build() {
   cd "$srcdir/hackrf-$pkgver/host"
@@ -30,6 +31,6 @@ package() {
   cd "$srcdir"
   install -Dm644 52-hackrf.rules "$pkgdir/usr/lib/udev/rules.d/52-hackrf.rules"
 
-  cd "$srcdir/hackrf-$pkgver/firmware-bin"
+  cd "$srcdir/hackrf-$pkgver/firmware-bin/hackrf-one"
   install -Dm644 hackrf_usb_rom_to_ram.bin "$pkgdir/usr/share/hackrf/hackrf_usb_rom_to_ram.bin"
 }

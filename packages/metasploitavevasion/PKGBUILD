@@ -1,0 +1,34 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Prurigro
+
+pkgname=metasploitavevasion
+pkgver=1.5aa
+pkgrel=2
+pkgdesc="Metasploit payload generator that avoids most Anti-Virus products."
+url="https://github.com/nccgroup/${pkgname}"
+license=('AGPL3')
+arch=('any')
+groups=('archassault' 'archassault-exploit')
+depends=('metasploit' 'mingw-w64-gcc')
+source=("https://github.com/nccgroup/${pkgname}/archive/master.zip"
+        "${pkgname}.sh"
+        "${pkgname}.desktop"
+        "${pkgname}.png"
+        "${pkgname}-archassault.patch")
+sha512sums=('1e9bf9bb327f70b6c3ae18d139c9056b079458814111fdae108527a38fbbd1fbea17dd023bf0eef31438019ccce734e26ff9dc9a714d1dcc8016a39c596030bc'
+            '634ee44780aa8a9b67fd1c424cf1395c0493e72fe87cb5f5c2e89378a12d12cef425808a8d70aefdf4d5ae1d205df4bf1dbea95d1f0207c28c4d629f09cb599e'
+            'beca80298d01595d06a7fe0c3507d0417cb66d2e1c2a92a0dae1097423ca6d4e2cee988e563063b1f4c30a7769c63bfeb53ecacfbc1626a43ea5d414f6e0115e'
+            'dce7096d395b791cfc1b44d6256ea6a138c0a2db87ed17fedbbd86c815bd8eb31d8a6631e55e9d81afc339090ae4c45696b0b7ccead74478ebcd2c263c436d84'
+            '3ec039e6671a7059d2de518f327b47a30ab6f1b66955fee3ce79282796a3b3f5764666ed8bee9c8ee5cab6142a4643099a733994dd961f3705cd1e72db772977')
+
+prepare() {
+    cd ${pkgname}-master
+    patch -p1 < ../${pkgname}-archassault.patch
+}
+
+package() {
+    install -Dm644 ${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    install -Dm644 ${pkgname}.png "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
+    install -Dm755 ${pkgname}.sh "${pkgdir}/usr/bin/${pkgname}"
+    install -Dm755 ${pkgname}-master/avoid.sh "${pkgdir}/usr/bin/avoid.sh"
+}

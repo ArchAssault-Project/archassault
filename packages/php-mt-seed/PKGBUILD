@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=php-mt-seed
 pkgver=3.2
 pkgrel=1

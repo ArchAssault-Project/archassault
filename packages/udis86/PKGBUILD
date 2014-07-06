@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=udis86
 pkgver=1.7.2
 pkgrel=2
@@ -6,6 +7,9 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://udis86.sourceforge.net/"
 license=('BSD')
 groups=('archassault' 'archassault-reversing')
+depends=('glibc')
+makedepends=('python')
+options=('!staticlibs')
 source=("http://downloads.sourceforge.net/project/udis86/udis86/1.7/udis86-$pkgver.tar.gz")
 md5sums=('b7def25257afb612e8da052ee6759dac')
 

@@ -1,0 +1,20 @@
+--- Makefile.orig	2014-04-03 10:13:08.802544193 -0400
++++ Makefile	2014-04-03 10:13:28.525576951 -0400
+@@ -31,17 +31,6 @@
+ INCDIR = $(DESTDIR)$(PREFIX)/include
+ 
+ LIBDIR = $(DESTDIR)$(PREFIX)/lib
+-# on x86_64, we might have /usr/lib64 directory instead of /usr/lib
+-UNAME_M := $(shell uname -m)
+-UNAME_S := $(shell uname -s)
+-ifeq ($(UNAME_M), x86_64)
+-ifeq (,$(wildcard $(LIBDIR)))
+-ifneq ($(UNAME_S), Darwin)
+-LIBDIR = $(DESTDIR)$(PREFIX)/lib64
+-endif
+-endif
+-endif
+-
+ ifneq ($(UNAME_S),Darwin)
+ LDFLAGS += -shared
+ endif

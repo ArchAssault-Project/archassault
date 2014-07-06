@@ -1,0 +1,125 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=metasploit
+pkgver=r25008.a0aca25
+pkgrel=1
+epoch=1
+groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
+pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
+depends=('ruby1.9' 'ruby1.9-sqlite3' 'libpcap' 'libxslt' 'postgresql' 'postgresql-libs' 'ruby1.9-rkelly-remix' 'ruby1.9-robots' 'ruby1.9-json' 'ruby1.9-activesupport' 'ruby1.9-bundler' 'ruby1.9-bcrypt' 'ruby1.9-msgpack' 'ruby1.9-nokogiri' 'ruby1.9-packetfu' 'ruby1.9-activerecord' 'ruby1.9-metasploit_data_models' 'ruby1.9-pg' 'ruby1.9-network_interface' 'ruby1.9-pcaprub' 'ruby1.9-redcarpet' 'ruby1.9-yard' 'ruby1.9-factory_girl' 'ruby1.9-fivemat' 'ruby1.9-rake' 'ruby1.9-database_cleaner' 'ruby1.9-rspec' 'ruby1.9-shoulda-matchers' 'ruby1.9-simplecov' 'ruby1.9-timecop')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+optdepends=('java-environment: msfgui'
+            'dradis: dradisis database system')
+makedepends=('git')
+url='http://www.metasploit.com'
+license=('BSD')
+options=('!strip')
+source=('git+https://github.com/rapid7/metasploit-framework')
+md5sums=('SKIP')
+
+pkgver() {
+  cd metasploit-framework
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir/metasploit-framework"
+
+  # Base directories.
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/etc"
+  install -dm755 "$pkgdir/usr/share/metasploit"
+  install -dm755 "$pkgdir/usr/share/doc/metasploit"
+
+  # Shareable.
+  cp --no-preserve=ownership -R documentation/* "$pkgdir/usr/share/doc/metasploit"
+  cp --no-preserve=ownership README.md "$pkgdir/usr/share/doc/metasploit"
+
+  # Source + Bin.
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/metasploit"
+  # Commenting out to put back in for now
+  #rm -rf "$pkgdir/usr/share/metasploit"/{README.md,documentation}
+
+  # Conform to the FHS.
+  mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
+  ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
+
+  # Prevent updates with msfupdate
+  #rm $pkgdir/usr/share/$pkgname/msfupdate
+
+  cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfbinscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfcli" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfcli "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfconsole" <<EOF
+#!/bin/sh
+if ! [[ -f /usr/share/metasploit/database.yml ]]; then
+    ruby-1.9 /usr/share/metasploit/msfconsole -y /usr/share/metasploit/msfconsole/database.yml "\$@"
+else
+    ruby-1.9 /usr/share/metasploit/msfconsole "\$@"
+fi
+EOF
+
+  cat > "$pkgdir/usr/bin/msfd" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfd "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfelfscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfelfscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfencode" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfencode "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfmachscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfmachscan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfpayload" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfpayload "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfpescan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfpescan "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrop" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrop "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrpc" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrpc "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfrpcd" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfrpcd "\$@"
+EOF
+
+# Commenting out since we are locking out msfupdate
+  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
+EOF
+
+  cat > "$pkgdir/usr/bin/msfvenom" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/metasploit/msfvenom "\$@"
+EOF
+
+  chmod +x "$pkgdir"/usr/bin/*
+}

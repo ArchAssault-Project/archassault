@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=bully
-pkgver=1.0.20
-pkgrel=1
-groups=('archassault' 'archassault-cracker' 'archassault-wireless')
+pkgver=1.0.22
+pkgrel=2
+groups=('archassault' 'archassault-crackers' 'archassault-wifi')
 pkgdesc="A wifi-protected-setup (WPS) brute force attack tool."
 url="http://code.google.com/p/bully/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL3')
-depends=('libpcap>=1.4.0')
+depends=('libpcap' 'openssl')
+makedepends=('git' 'python2-setuptools')
 source=("git+https://github.com/bdpurcell/bully.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 build(){
   cd "$srcdir/bully/src"

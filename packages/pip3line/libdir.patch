@@ -1,0 +1,72 @@
+diff -aur pip3line-2.4.orig/defaultplugins/baseplugins/CMakeLists.txt pip3line-2.4/defaultplugins/baseplugins/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/baseplugins/CMakeLists.txt	2014-03-30 02:37:16.805635980 -0400
++++ pip3line-2.4/defaultplugins/baseplugins/CMakeLists.txt	2014-03-30 02:39:16.282298936 -0400
+@@ -266,7 +266,7 @@
+ target_link_libraries ( baseplugins ${EXTERN_LIB} )
+ 
+ IF(UNIX)
+-	install (TARGETS baseplugins DESTINATION share/pip3line/
++	install (TARGETS baseplugins DESTINATION lib/pip3line/
+ 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 		GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ ENDIF(UNIX)
+diff -aur pip3line-2.4.orig/defaultplugins/distormplugin/CMakeLists.txt pip3line-2.4/defaultplugins/distormplugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/distormplugin/CMakeLists.txt	2014-03-30 02:37:16.845635979 -0400
++++ pip3line-2.4/defaultplugins/distormplugin/CMakeLists.txt	2014-03-30 02:37:49.628968294 -0400
+@@ -87,7 +87,7 @@
+ target_link_libraries ( distormplugin  ${EXTERN_LIBS} )
+ 
+ IF(UNIX)
+-	install (TARGETS distormplugin DESTINATION share/pip3line/
++	install (TARGETS distormplugin DESTINATION lib/pip3line/
+ 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 		GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE )
+ ENDIF(UNIX)
+diff -aur pip3line-2.4.orig/defaultplugins/exampleplugin/CMakeLists.txt pip3line-2.4/defaultplugins/exampleplugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/exampleplugin/CMakeLists.txt	2014-03-30 02:37:16.832302646 -0400
++++ pip3line-2.4/defaultplugins/exampleplugin/CMakeLists.txt	2014-03-30 02:38:03.888967851 -0400
+@@ -60,7 +60,7 @@
+ target_link_libraries ( exampleplugin ${EXTERN_LIB} )
+ 
+ IF(UNIX)
+-	install (TARGETS exampleplugin DESTINATION share/pip3line/
++	install (TARGETS exampleplugin DESTINATION lib/pip3line/
+ 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 		GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ ENDIF(UNIX)
+diff -aur pip3line-2.4.orig/defaultplugins/opensslplugin/CMakeLists.txt pip3line-2.4/defaultplugins/opensslplugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/opensslplugin/CMakeLists.txt	2014-03-30 02:37:16.805635980 -0400
++++ pip3line-2.4/defaultplugins/opensslplugin/CMakeLists.txt	2014-03-30 02:38:19.778967360 -0400
+@@ -82,7 +82,7 @@
+ 	target_link_libraries ( opensslplugin  ${EXTERN_LIBS} )
+ 
+ 	IF(UNIX)
+-		install (TARGETS opensslplugin DESTINATION share/pip3line/
++		install (TARGETS opensslplugin DESTINATION lib/pip3line/
+ 			PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 			GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE )
+ 	ENDIF(UNIX)
+diff -aur pip3line-2.4.orig/defaultplugins/python27plugin/CMakeLists.txt pip3line-2.4/defaultplugins/python27plugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/python27plugin/CMakeLists.txt	2014-03-30 02:37:16.828969313 -0400
++++ pip3line-2.4/defaultplugins/python27plugin/CMakeLists.txt	2014-03-30 02:38:38.308966783 -0400
+@@ -72,7 +72,7 @@
+ 
+ 
+ IF(UNIX)
+-	install (TARGETS python27plugin DESTINATION share/pip3line/
++	install (TARGETS python27plugin DESTINATION lib/pip3line/
+ 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 		GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ ENDIF(UNIX)
+diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 02:37:16.832302646 -0400
++++ pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 02:38:57.415632856 -0400
+@@ -71,7 +71,7 @@
+ target_link_libraries ( python3plugin ${EXTERN_LIB} )
+ 
+ IF(UNIX)
+-	install (TARGETS python3plugin DESTINATION share/pip3line/
++	install (TARGETS python3plugin DESTINATION lib/pip3line/
+ 		PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+ 		GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ ENDIF(UNIX)

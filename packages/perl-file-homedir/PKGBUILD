@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-file-homedir
 _cpanname=File-HomeDir
 pkgver=1.00

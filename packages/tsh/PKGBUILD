@@ -1,9 +1,10 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='tsh'
 pkgver='0.6'
-pkgrel=1
+pkgrel=2
 pkgdesc='An open-source UNIX backdoor that compiles on all variants, has full pty support, and uses strong cryptography for communication.'
 url='http://packetstormsecurity.com/search/?q=tsh'
-groups=('archassault' 'archassault-backdoor')
+groups=('archassault' 'archassault-backdoors')
 license=('custom')
 arch=('any')
 source=("http://packetstorm.igor.onlinedirect.bg/UNIX/penetration/tsh-$pkgver.tgz")

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=meshdeck
 pkgver=2.04
 groups=('archassault-drone' 'archassault-meta-thedeck' 'archassault-plug')

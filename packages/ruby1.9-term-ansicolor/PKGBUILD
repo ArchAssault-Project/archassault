@@ -1,7 +1,8 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _gemname=term-ansicolor
 pkgname=ruby1.9-$_gemname
 pkgver=1.2.2
-pkgrel=2
+pkgrel=3
 pkgdesc='Ruby library that colors strings using ANSI escape sequences'
 arch=(any)
 url='http://flori.github.com/term-ansicolor'
@@ -20,6 +21,7 @@ package() {
 
   mv "$pkgdir"/usr/bin/colortab "$pkgdir"/usr/bin/colortab-1.9
   mv "$pkgdir"/usr/bin/decolor "$pkgdir"/usr/bin/decolor-1.9
-  mv "$pkgdir"//usr/bin/term_display "$pkgdir"/usr/bin/term_display-1.9
+  mv "$pkgdir"/usr/bin/term_display "$pkgdir"/usr/bin/term_display-1.9
   mv "$pkgdir"/usr/bin/term_mandel "$pkgdir"/usr/bin/term_mandel-1.9
+  rm "$pkgdir"/usr/bin/cdiff
 }

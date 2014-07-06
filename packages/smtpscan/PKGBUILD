@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=smtpscan
 pkgver=0.5
 pkgrel=1
@@ -22,7 +23,7 @@ package() {
   install -m755 "$srcdir/smtpscan/src/smtpscan" "$pkgdir/usr/bin"
 
   # Share.
-  install -m644 "$srcdir/smtpscan/src/fingerprintings" "$pkgdir/usr/share/smtpscan"
+  install -m644 "$srcdir/smtpscan/src/fingerprints" "$pkgdir/usr/share/smtpscan"
   install -m644 "$srcdir/smtpscan/src/tests" "$pkgdir/usr/share/smtpscan"
 
   # Man.

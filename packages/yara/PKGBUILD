@@ -1,16 +1,22 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Théophile Studer
 pkgname=yara
-pkgver=1.7
-pkgrel=1
+pkgver=2.1.0
+pkgrel=2
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://code.google.com/p/yara-project/'
+url='https://github.com/plusvic/yara'
+depends=('glibc')
 license=('APACHE')
-source=("http://yara-project.googlecode.com/files/yara-$pkgver.tar.gz")
-md5sums=('fa54b3fd80c0c2e7ed4d62481ad225f0')
+source=("https://github.com/plusvic/yara/archive/$pkgver.tar.gz"
+				'yara.desktop')
+sha512sums=('082a603ea648e4d83d45d6e30937c60eb0bf2092fb1c6845103380be12f9b72a05e439403cd08cbccdc598ba1d5cd51d394db3d989d154e95a91317d6d4ff8e5'
+            'a6669687015e84de6d45d901688b8e75346b3ba8352c7fe60e1fd24ccb3eedf2f11359896a3b0d7e7d0a6553310c2cfbd979c9dc5bf1afe24b0937b8192f6881')
 
 build() {
   cd "$srcdir/yara-$pkgver"
+  ./bootstrap.sh
   ./configure --prefix=/usr
   make
 }
@@ -18,4 +24,5 @@ build() {
 package() {
   cd "$srcdir/yara-$pkgver"
   make DESTDIR="$pkgdir/" install
+  install -Dm644 "$srcdir/yara.desktop" "$pkgdir/usr/share/applications/yara.desktop"
 }

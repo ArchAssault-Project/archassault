@@ -1,13 +1,14 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pylibpcap
 pkgver=0.6.4
-pkgrel=2
+pkgrel=3
 pkgdesc="Python module for the libpcap packet capture library, based on the original python libpcap module by Aaron Rhodes."
 url="http://pylibpcap.sourceforge.net/"
 license=('BSD')
-arch=('any')
+arch=('armv7h' 'armv6h' 'x86_64' 'i686')
 depends=('python2' 'libpcap')
 source=("http://ncu.dl.sourceforge.net/project/pylibpcap/pylibpcap/$pkgver/pylibpcap-$pkgver.tar.gz")
-md5sums=('7ebcaa72f998f85744be226b91d88aa3')
+sha512sums=('5db891bc044065ea72fb24f800adcdc1c80280a95a169f241a926b65ecff9b2cddc8cca1f2210bdd3fa01f4bc358a696eab93438d49b2eea10a22b6afc4ca468')
 
 build() {
   cd "$srcdir/pylibpcap-$pkgver"
@@ -17,5 +18,5 @@ build() {
 
 package() {
   cd "$srcdir/pylibpcap-$pkgver"
-  python2 setup.py install "--root=$pkgdir"
+  python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
 }

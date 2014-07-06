@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-jsonrpclib
 _realname=jsonrpclib
 pkgver=0.5.1

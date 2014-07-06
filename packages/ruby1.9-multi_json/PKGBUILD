@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-multi_json
 pkgver=1.0.4
 pkgrel=1

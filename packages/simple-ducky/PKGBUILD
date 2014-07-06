@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=simple-ducky
 pkgver=1.1.1
 pkgrel=1
@@ -5,6 +6,7 @@ groups=('archassault' 'archassault-autonomous' 'archassault-exploit')
 pkgdesc="A payload generator"
 url="https://code.google.com/p/simple-ducky-payload-generator"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+makedepends=('git')
 license=('GPL3')
 source=("git+https://github.com/skysploit/simple-ducky.git")
 md5sums=('SKIP')

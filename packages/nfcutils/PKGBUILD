@@ -1,4 +1,5 @@
-pkgname=nearfieldutils
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=nfcutils
 pkgver=0.3.2
 pkgrel=1
 groups=('archassault' 'archassault-nearfield')
@@ -6,19 +7,19 @@ pkgdesc="Provides a simple 'lsnearfield' command that list tags which are in you
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://code.google.com/p/nearfield-tools"
 license=('LGPL3')
-depends=('libnearfield>=1.4.0')
-source=(http://nearfield-tools.googlecode.com/files/nearfieldutils-$pkgver.tar.gz)
+depends=('libnfc')
+source=(http://nfc-tools.googlecode.com/files/nfcutils-$pkgver.tar.gz)
 md5sums=('cd3825a44696a788ff01bf1c5b0cbd02')
 
 build() {
-  cd "$srcdir/nearfieldutils-$pkgver"
+  cd "$srcdir/nfcutils-$pkgver"
 
   ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd "$srcdir/nearfieldutils-$pkgver"
+  cd "$srcdir/nfcutils-$pkgver"
 
   make DESTDIR="$pkgdir/" install
 }

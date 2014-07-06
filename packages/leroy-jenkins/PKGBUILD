@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=leroy-jenkins
-pkgver=0.r1.c5f57d6
+pkgver=0.r3.bdc3965
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A python tool that will allow remote execution of commands on a Jenkins server and its nodes."
@@ -7,6 +8,7 @@ url="https://github.com/captainhooligan/Leroy-Jenkins"
 arch=('any')
 license=('GPL3')
 depends=('python2' 'python2-pycurl')
+makedepends=('git')
 source=("git+https://github.com/captainhooligan/Leroy-Jenkins.git")
 md5sums=('SKIP')
 

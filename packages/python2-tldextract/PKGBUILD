@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-tldextract
-pkgver=1.2.2
-pkgrel=2
+pkgver=1.3.1
+pkgrel=1
 pkgdesc="Accurately separates the gTLD or ccTLD (generic or country code top-level domain) from the registered domain and subdomains of a URL"
 arch=('any')
 url='https://github.com/john-kurkowski/tldextract'
@@ -8,9 +9,9 @@ license=('custom:BSD')
 depends=('python2')
 makedepends=('python2-distribute')
 source=("https://pypi.python.org/packages/source/t/tldextract/tldextract-$pkgver.tar.gz")
-md5sums=('49694490edfa0ba9dbab5690be7a0f39')
+sha512sums=('911f8e7821baace0e83b326146e8bd39e1cef5ee78b6c2d17fd5d177e135e477bf3525736d47194a20270bb49e001a25ae98ffd7cfc23d00214764b693acb744')
 
 package() {
   cd "$srcdir/tldextract-$pkgver"
-  python2 setup.py install "--root=$pkgdir" --prefix=/usr
+  python2 setup.py install --root=$pkgdir --prefix=/usr --optimize=1
 }

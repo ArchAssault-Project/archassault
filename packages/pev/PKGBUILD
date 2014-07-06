@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=pev
 pkgver=0.60
 pkgrel=2
@@ -11,12 +12,12 @@ source=("http://sourceforge.net/projects/pev/files/pev-$pkgver/pev-$pkgver.tar.g
 md5sums=('9eb79416be853c697228975a12280507')
 
 build() {
-  cd "$srcdir"/pev
-  make
+  cd "${srcdir}/pev-$pkgver"
+  make 
 }
 
 package() {
-  cd "$srcdir"/pev
+  cd "${srcdir}/pev-$pkgver"
   install -dm0755 "$pkgdir"/usr/bin
   install -dm0755 "$pkgdir"/usr/lib
   install -dm0755 "$pkgdir"/usr/share/pev

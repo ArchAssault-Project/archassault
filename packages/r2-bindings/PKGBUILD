@@ -1,0 +1,33 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Levente Polyak <levente[at]leventepolyak[dot]net>
+
+pkgname=r2-bindings
+_pkgname=radare2-bindings
+pkgver=0.9.7
+pkgrel=1
+pkgdesc="Language bindings of the radare2 api for Valabind and friends"
+url="http://radare.org"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL3')
+depends=('radare2' 'python2')
+makedepends=('valabind')
+options=(!emptydirs)
+source=(http://www.radare.org/get/${_pkgname}-${pkgver}.tar.xz)
+sha256sums=('0645c677ecd39b21cb4378bb711e7d5877f51773a035d789ac70b06e0bdebe7a')
+
+prepare() {
+  cd ${_pkgname}-${pkgver}
+  ./configure --prefix=/usr --enable=ctypes --enable=python
+}
+ 
+build() {
+  cd ${_pkgname}-${pkgver}
+  make
+}
+ 
+package() {
+  cd ${_pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}
+ 
+# vim: ts=2 sw=2 et:

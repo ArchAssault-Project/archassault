@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=samdump2
 pkgver=3.0.0
 pkgrel=1
@@ -19,5 +20,5 @@ prepare() {
 
 package() {
   cd "$srcdir/samdump2-$pkgver"
-  make LIBS=-lcryptography install DESTDIR="$pkgdir"
+  make LIBS=-lcrypto install DESTDIR="$pkgdir"
 }

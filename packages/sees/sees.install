@@ -1,0 +1,3 @@
+post_install() {
+  echo "Please visit http://wiki.archassault.org/#!tools/sees.md for example configs"
+}

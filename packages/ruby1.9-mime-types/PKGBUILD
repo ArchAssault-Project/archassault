@@ -1,31 +1,20 @@
-pkgname=ruby1.9-mime-types
+# Maintainer: ArchAssault <team archassault org> 
+_gemname=mime-types
+pkgname=ruby1.9-$_gemname
 pkgver=1.18
-pkgrel=2
-pkgdesc="MIME Content-Type database"
-arch=('any')
-url="http://mime-types.rubyforge.org"
-license=('GPL2' 'MIT' 'PerlArtistic')
-depends=('ruby1.9')
-source=("http://rubygems.org/downloads/${pkgname#*-}-${pkgver}.gem")
-noextract=("${pkgname#*-}-${pkgver}.gem")
-sha256sums=('f880433aa2aae29df84a6ccb6e58cbf0bc65876571ea5a86906d96f654de4702')
-
-prepare() {
-  gem-1.9 install --no-{ri,rdoc,user-install} --ignore-dependencies -i . ${pkgname#*-}-${pkgver}.gem
-}
+pkgrel=3
+pkgdesc='The mime-types library provides a library and registry for information about MIME content type definitions'
+arch=(any)
+url='http://mime-types.rubyforge.org/'
+license=(MIT 'Artistic 2.0' GPL-2)
+depends=(ruby1.9)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha1sums=('a5fee1d398b6ae0563113fa1493315136aeaa8c5')
 
 package() {
-  cd gems/${pkgname#*-}-${pkgver}
-
-  local _rubyver="$(ruby-1.9 --version | sed 's/.* \(.*\..*\..*\)p.*/\1/')"
-
-  install -dm 755 "${pkgdir}"/usr/lib/ruby/{gems/${_rubyver},vendor_ruby}
-  mv lib "${pkgdir}"/usr/lib/ruby/vendor_ruby/${_rubyver}
-
-# Gem compatibility
-  mv ../../specifications "${pkgdir}"/usr/lib/ruby/gems/${_rubyver}/
-
-# License
-  install -dm 755 "${pkgdir}"/usr/share/licenses/${pkgname}
-  install -m 644 {,"${pkgdir}"/usr/share/licenses/${pkgname}/}Licence.rdoc
+  local _gemdir="$(ruby-1.9 -e'puts Gem.default_dir')"
+  gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
 }

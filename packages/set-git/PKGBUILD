@@ -1,16 +1,18 @@
-pkgname=set-git
-pkgver=5.3.4
-pkgrel=2
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname='set-git'
+pkgver=6.0.4.r45.g7a2dcf9
+pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
 pkgdesc="Social-engineer toolkit. Aimed at penetration testing around Social-Engineering"
 arch=('any')
 url='https://www.trustedsec.com/downloads/social-engineer-toolkit'
 license=('BSD')
 makedepends=('git')
-depends=('python2' 'python2-beautifulsoup3' 'python2-pexpect')
+depends=('python2' 'python2-beautifulsoup3' 'python2-pexpect' 
+	'java-environment')
 optdepends=('ettercap: DNS spoofing and ARP cache poisoning capabilities'
             'sendmail: email address spoofing'
-            'java-runtime: create self-signed JAVA applets and spoof publisher'
             'python2-pefile: advanced AV evasion via hijacking a legit digital certificate'
             'apache: increase speed of web attack vectors'
             'openssl: create self-signed SSL certificates'
@@ -21,23 +23,20 @@ optdepends=('ettercap: DNS spoofing and ARP cache poisoning capabilities'
             'python2-cryptography: Encrypted communications'
             'metasploit: metasploit exploit payloads')
 options=('!strip')
-conflicts=('set-git' 'set')
+conflicts=('set')
+provides=('set')
+replaces=('set')
 source=('git+https://github.com/trustedsec/social-engineer-toolkit/')
 md5sums=('SKIP')
 backup=('usr/share/set/config/set_config')
 
 pkgver() {
-  cd social-engineer-toolkit
-  git describe --tags | sed 's/-.*//'
+  cd "$srcdir/social-engineer-toolkit"
+  git describe --long --tags | sed -r 's/([^-]*-g)/r\1/;s/-/./g'
 }
 
 prepare() {
   cd "$srcdir/social-engineer-toolkit"
-
-  # Fix shebangs in all .py files
-  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
-      -i -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
-      $(find ${srcdir}/social-engineer-toolkit -name '*.py')
 
   # Fix shebands in all se*
   sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
@@ -50,8 +49,8 @@ prepare() {
   # Fix all Metasploit calls using 'ruby' and change-to 'ruby-1.9'
   grep -Rl python ./ | xargs sed -i 's|ruby|ruby-1.9|g'
 
-  # Fix all calls to 'python-pycryptography' change to 'python2-cryptography'
-  grep -Rl python-pycryptography ./ | xargs sed -i 's|python-pycryptography|python2-cryptography|g'
+  # Fix all calls to 'python-pycrypto' change to 'python2-crypto'
+  grep -Rl python-pycrypto ./ | xargs sed -i 's|python-pycrypto|python2-crypto|g'
 
   # ArchAssault Fixes
   cd "$srcdir/social-engineer-toolkit/config"
@@ -82,6 +81,11 @@ package() {
 
   # Remove `setup.py`.
   rm "$pkgdir/usr/share/set/setup.py"
+
+  # Fix shebangs in all .py files
+  sed -i -e "s|/usr/bin/python$|/usr/bin/python2|" \
+      -i -e "s|/usr/bin/env python$|/usr/bin/env python2|" \
+      $(find "${pkgdir}" -type f)
 
   # Joint script to handle default configuration.
   cat > "$pkgdir/usr/bin/setoolkit" << EOF

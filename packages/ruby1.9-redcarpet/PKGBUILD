@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby1.9-redcarpet
 _gemname=redcarpet
 pkgver=3.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Markdown that smells nice"
-arch=('any')
-license=('')
+arch=('armv7h' 'armv6h' 'i686' 'x86_64')
+license=('MIT')
 makedepends=('ruby1.9')
+options=('!emptydirs')
 url='http://github.com/vmg/redcarpet'
 source=("http://rubygems.org/downloads/redcarpet-$pkgver.gem")
-md5sums=('ee19285460412d90a9b980779c070ccd')
+sha512sums=('4da43f7e5fcf3cc0be23491878f5805378782d7ad08ce6a93777a8f8d87e9becbdf6f15a5df43b2654fea5eb10f04f31f43fc050609a10ecafbdc6589478ab7d')
 noextract=("redcarpet-$pkgver.gem")
 
 package() {

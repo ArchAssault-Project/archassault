@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashtag
 pkgver=0.41
 pkgrel=1
@@ -7,6 +8,7 @@ url="https://github.com/SmeegeSec/HashTag"
 arch=('any')
 license=('custom:unknown')
 depends=('python2')
+makedeps=('git')
 source=('git+https://github.com/SmeegeSec/HashTag.git')
 md5sums=('SKIP')
 

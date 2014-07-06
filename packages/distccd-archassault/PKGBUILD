@@ -1,9 +1,13 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Jason Plum <jplum@archlinuxarm.org>
+# Contributor: Kevin Mihelich <kevin@archlinuxarm.org>
+# Contributor: Josh Cartwright <joshc@eso.teric.us>
 _subarchs=(armv6h armv7h)
 pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")
 pkgver=4.8.2
 pkgrel=1
-pkgdesc="An x-tools & distcc services package for ArchAssault ARM only for x86_64"
+pkgdesc="An x-tools & distcc services package for ArchAssault ARM"
 arch=('x86_64')
 license=('GPL' )
 url="http://archlinuxarm.org/developers/distcc-cross-compiling"

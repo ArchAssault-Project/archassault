@@ -1,14 +1,25 @@
-pkgname=sslcaudit
-pkgver=1.1
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=sslcaudit-git
+pkgver=r516.18a9181
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="Utility to perform security audits of SSL/TLS clients"
 url='https://github.com/grwl/sslcaudit'
 arch=('any')
 license=('GPL3')
-depends=('python2' 'python2-m2cryptography')
-source=('git+https://github.com/grwl/sslcaudit.git')
-md5sums=('SKIP')
+depends=('python2' 'python2-m2crypto')
+makedepends=('git' 'python2-setuptools')
+source=('sslcaudit::git+https://github.com/grwl/sslcaudit.git')
+provides=('sslcaudit')
+replaces=('sslcaudit')
+conflicts=('sslcaudit')
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/sslcaudit"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
 
 build() {
   cd "$srcdir/sslcaudit"

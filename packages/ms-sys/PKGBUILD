@@ -1,15 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='ms-sys'
 pkgver='2.3.0'
-pkgrel=1
+pkgrel=2
 pkgdesc='A tool to write Win9x-.. master boot records (mbr) under linux - RTM!'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://ms-sys.sourceforge.net/'
 license=('GPL2')
-groups=('archassault' 'archassault-backdoor'
+groups=('archassault' 'archassault-backdoors'
         'archassault-forensics')
 source=("http://downloads.sourceforge.net/sourceforge/ms-sys/ms-sys-$pkgver.tar.gz")
 depends=('glibc')
-md5sums=('46d186707c7767db664afe681f8eaad6')
+sha512sums=('f7af08a24b223bb2b01f4906b6228df3bccfb290d67b346304f603bbb9dfddebeb87ca5b8ea8304a061c3266b753200cf25ce3fdf6bc1edf02b8b3d5564f2d8b')
 
 prepare() {
   cd "$srcdir/ms-sys-$pkgver"

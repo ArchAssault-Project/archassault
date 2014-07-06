@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=ghost.py
+_uc_pkg=Ghost.py
+pkgver=0.1b3
+pkgrel=3
+pkgdesc="Webkit based webclient (relies on PyQT)"
+arch=('any')
+url="http://jeanphix.github.com/$_uc_pkg/"
+license=('MIT')
+groups=('archassault')
+depends=('python2' 'python2-pyqt')
+makedepends=('python2-distribute')
+source=(http://pypi.python.org/packages/source/G/$_uc_pkg/$_uc_pkg-$pkgver.tar.gz)
+sha512sums=('3e7e547d799ff57c6ebb4c471dc3d61dd08a779459b1eeae0389de9bf48562ed922a23081df7ccebd1d7a497b47c4d5b48f7c8d096794020e2ff4958d49290e1')
+
+package() {
+   cd "$_uc_pkg-$pkgver"
+   python2 setup.py install --root="${pkgdir}" --optimize=1
+   find "$pkgdir" -type d -name tests -exec rm -rf {} +
+   mv "$pkgdir/usr/ghost" "$pkgdir/usr/share"
+}
+

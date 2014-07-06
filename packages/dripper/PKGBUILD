@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=dripper
 pkgver=20131225
 pkgrel=3
@@ -5,6 +6,7 @@ groups=('archassault' 'archassault-scanners')
 pkgdesc="A fast, asynchronous DNS scanner; it can be used for enumerating subdomains and enumerating boxes via reverse DNS."
 url="http://www.blackhatlibrary.net/Dripper"
 arch=('any')
+makedepends=('git')
 license=('custom')
 source=("git+https://github.com/ArchAssault-Project/dripper.git")
 md5sums=('SKIP')

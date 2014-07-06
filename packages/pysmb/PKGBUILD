@@ -1,0 +1,21 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=pysmb
+pkgver=1.1.8
+pkgrel=1
+pkgdesc="experimental SMB/CIFS library written in Python"
+arch=('any')
+url="http://pypi.python.org/pypi/pysmbc/"
+license=('GPL')
+depends=('python')
+source=("http://pypi.python.org/packages/source/p/${pkgname}/${pkgname}-${pkgver}.tar.gz")
+md5sums=('9242db8b8bbd11ff4fee8238135129a8')
+
+build(){
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py build
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  python setup.py install --root="$pkgdir" --optimize=1
+}

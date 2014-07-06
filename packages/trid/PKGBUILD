@@ -1,10 +1,13 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=trid
 pkgver=2.11
-pkgrel=2
+pkgrel=3
 pkgdesc="An utility designed to identify file types from their binary signatures"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://mark0.net/soft-trid-e.html"
+groups=('archassault')
 license=('CUSTOM')
+makedepends=('unzip')
 if [ "$CARCH" == "x86_64" ];then
   depends=('trid-defs' 'lib32-ncurses')
 else

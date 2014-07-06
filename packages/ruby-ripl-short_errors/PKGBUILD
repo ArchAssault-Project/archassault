@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-ripl-short_errors
 pkgver=0.1.0
 pkgrel=1

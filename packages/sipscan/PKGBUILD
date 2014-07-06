@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='sipscan'
 pkgver=20131221
 pkgrel=1

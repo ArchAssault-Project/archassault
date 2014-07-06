@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ssh-privkey-crack
 pkgver=0.3
 pkgrel=1
@@ -11,7 +12,7 @@ md5sums=('SKIP')
 
 build() {
   cd "$srcdir/svn/trunk/ssh-key-crack"
-  gcc -Wall $CFLAGS -lssl -lcryptography -o ssh-privkey-crack ssh-privkey-crack.c
+  gcc -Wall $CFLAGS -lssl -lcrypto -o ssh-privkey-crack ssh-privkey-crack.c
 }
 
 package() {

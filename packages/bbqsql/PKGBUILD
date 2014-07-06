@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=bbqsql
 pkgver=1.2
 pkgrel=1
@@ -7,6 +8,7 @@ arch=('any')
 url="https://github.com/neohapsis/bbqsql"
 license=('BSD')
 depends=('python2' 'python2-requests' 'python2-gevent')
+makedepends=('git' 'python2-setuptools')
 source=("git+https://github.com/Neohapsis/bbqsql.git")
 md5sums=('SKIP')
 

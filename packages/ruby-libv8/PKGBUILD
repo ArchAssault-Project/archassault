@@ -1,12 +1,13 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=ruby-libv8
 _gemname=${pkgname#ruby-}
 pkgver=3.16.14.3
 pkgrel=2
 pkgdesc="Ruby gem binary distribution of the V8 JavaScript engine"
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/cowboyd/libv8"
 license=('MIT')
-depends=('ruby' 'rubygems')
+depends=('ruby' 'rubygems' 'bash' 'python2')
 options=(!distcc)
 source=("http://rubygems.org/downloads/${_gemname}-${pkgver}.gem")
 noextract=("${_gemname}-${pkgver}.gem")

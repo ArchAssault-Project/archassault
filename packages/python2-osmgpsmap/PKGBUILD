@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-osmgpsmap
 _pkgname=python-osmgpsmap
 pkgver=0.7.3

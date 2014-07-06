@@ -1,20 +1,38 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=2.0
-pkgrel=1
+pkgver=2.1.2
+pkgrel=3
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.capstone-engine.org/index.html'
 license=('GPL')
-source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz")
-md5sums=('fb4c0e23351511dadff6a58d668f4c74')
+depends=('glibc')
+makedepends=('python2')
+source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "libdir.patch")
+sha512sums=('0367122a6f9c529b3beede0f3edb153f66a77eac8d782a43053dd89ec456c77104aebf9eb9277505137bef68aabb04f0bd9f6026407afcdb91f94f69600671e0'
+            'f8fe6cfbb04ac69a6a621ada9801045585744eebcfd859206eec59c09e907705d9346090481917dd8ca0470f3ddbf2243c136e7b9a0d5e36197435b5a8d94db1')
+
+prepare(){
+  cd "$srcdir/capstone-$pkgver"
+  patch -i $srcdir/libdir.patch
+  cd bindings/python
+  sed -i 's|python|python2|' Makefile
+}
+
 
 build() {
   cd "$srcdir/capstone-$pkgver"
   make
+  cd bindings/python
+  make  
 }
 
 package() {
   cd "$srcdir/capstone-$pkgver"
-  make "DESTDIR=$pkgdir" install
+  make DESTDIR="$pkgdir" install
+  cd bindings/python
+  #fix python2 bindings
+  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root=\"$pkgdir\"\ --optimize=1'|' Makefile
+  make DESTDIR="$pkgdir" install
 }

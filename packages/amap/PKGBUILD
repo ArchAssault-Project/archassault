@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=amap
 pkgver=5.4
 pkgrel=4
@@ -39,7 +40,7 @@ build() {
       Makefile
   sed -i \
        -e '/^XDEFINES=/s:=:=-DOPENSSL:' \
-       -e '/^XLIBS=/s:=:=-lcryptography -lssl:' \
+       -e '/^XLIBS=/s:=:=-lcrypto -lssl:' \
        Makefile
   export CFLAGS=$CFLAGS
   make

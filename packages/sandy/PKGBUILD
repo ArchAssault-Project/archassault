@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=sandy
 pkgver=20131227
 pkgrel=1
@@ -6,7 +7,8 @@ pkgdesc="An open-source Samsung phone encryption assessment framework."
 url="https://github.com/donctl/sandy"
 arch=('any')
 license=('GPL2')
-depends=('python2' 'python2-pexpect' 'python2-pbkdf2' 'python2-cryptography')
+makedepends=('git')
+depends=('python2' 'python2-pexpect' 'python2-pbkdf2' 'python2-crypto')
 source=("git+https://github.com/donctl/sandy.git")
 options=('!strip')
 md5sums=('SKIP')

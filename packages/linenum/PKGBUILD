@@ -1,12 +1,14 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=linenum
-pkgver=20131227
-pkgrel=2
+pkgver=20140430
+pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="Scripted Local Linux Enumeration & Privilege Escalation Checks"
 url="https://github.com/rebootuser/LinEnum"
 arch=('any')
 license=('GPL3')
 depends=('bash')
+makedepends=('git')
 source=("git+https://github.com/rebootuser/LinEnum.git")
 md5sums=('SKIP')
 
@@ -25,6 +27,5 @@ package() {
 
   #Bin
   ln -s /usr/share/$pkgname/LinEnum.sh $pkgdir/usr/bin/linenum
-  ln -s /usr/share/$pkgname/LinEnum_sh.sh $pkgdir/usr/bin/linenum_sh
-
+  ln -s /usr/share/$pkgname/LinEnumv0.2_legacy.sh $pkgdir/usr/bin/linenumv0.2_legacy.sh
 }

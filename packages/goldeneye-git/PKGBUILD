@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=goldeneye-git
-pkgver=r7.3741d17
+pkgver=r16.7a38fe9
 pkgrel=1
 groups=('archassault' 'archassault-networking' 'archassault-dos')
 pkgdesc="Modular framework that takes advantage of poor upgrade implementations by injecting fake updates"
@@ -23,11 +24,7 @@ prepare(){
 
 package() {
   cd "$srcdir/GoldenEye"
-
-  # Make base directories.
   install -dm755 "$pkgdir/usr/share/doc/goldeneye"
-
-
   install -m644 README.md "$pkgdir/usr/share/doc/goldeneye"
   install -Dm755 goldeneye.py "$pkgdir/usr/bin/goldeneye"
 }

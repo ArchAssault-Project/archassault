@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=smbbf
 pkgver=0.9.1
 pkgrel=1
@@ -15,7 +16,7 @@ prepare() {
   cd "$srcdir/smbbf"
 
   sed -i '/SMBBF_INCLUDE =/cSMBBF_INCLUDE = -Iinclude -I\/usr\/include\/openssl -DCLK_TCK=CLOCKS_PER_SEC' Makefile
-  sed -i '/LIBDES=/cLIBDES = -lcryptography' Makefile
+  sed -i '/LIBDES=/cLIBDES = -lcrypto' Makefile
   sed -i "/^CC =/cCC = gcc $CFLAGS" Makefile
 }
 

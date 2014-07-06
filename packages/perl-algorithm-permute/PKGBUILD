@@ -1,6 +1,7 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-algorithm-permute
 pkgver=0.12
-pkgrel=1
+pkgrel=2
 pkgdesc="Perl module for handy and fast permutations with object oriented interface"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=("GPL")
@@ -8,7 +9,7 @@ url="http://search.cpan.org/dist/Algorithm-Permute/"
 depends=("perl")
 options=(!emptydirs)
 source=(http://search.cpan.org/CPAN/authors/id/E/ED/EDPRATOMO/Algorithm-Permute-$pkgver.tar.gz)
-md5sums=('93c9e11af9511390379720fe046fb960')
+sha512sums=('95d4ef417bd7f781368e15ce35480c0c626c71e48c77912116f627986328cf5b4d15ebccdaf0e4bca2917c028f758374be35fe32f8c588206144cf134d53fb00')
 
 build() {
   cd "$srcdir/Algorithm-Permute-$pkgver"

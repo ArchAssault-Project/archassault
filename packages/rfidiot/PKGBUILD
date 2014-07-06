@@ -1,12 +1,14 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=rfidiot
 _gitname=RFIDIOt
-pkgver=0026925
+pkgver=e302bb7
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-wireless')
 pkgdesc="An open source python library for exploring RFID devices."
 url='http://rfidiot.org'
 license=('GPL')
-makedepends=('git' 'python2-distribute' 'python2-cryptography')
+makedepends=('git' 'python2-distribute' 'python2-crypto')
 depends=('python2' 'openssl')
 arch=('any')
 source=('git+https://github.com/AdamLaurie/RFIDIOt')

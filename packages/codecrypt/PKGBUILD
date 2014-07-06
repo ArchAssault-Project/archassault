@@ -1,0 +1,34 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Prurigro
+
+pkgname=codecrypt
+pkgver=1.6.1
+pkgrel=1
+pkgdesc="A GnuPG-like program for encryption and signing that uses only quantum-computer-resistant algorithms"
+url="http://packetstormsecurity.com/files/125647/CodeCrypt-1.5.html"
+license=('GPL3')
+groups=('archassault-crypto')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('crypto++' 'gmp')
+source=("https://github.com/exaexa/codecrypt/archive/v$pkgver.zip"
+        "crypto++-to-cryptopp.patch")
+sha512sums=('bbe945e599bdba32864e16d7f537cf91eb7fce531fa334baa2a448a3c516ecc4c2a084142c1cb55e7dad982defaae7ec4dcf05669f5603d31591dfffa3b45698'
+            '673afe80c8424b76e83c48b0b4ccedd274dc77329471457a676ad161ac48d0145938b32bcdc6ff9b98e24725127b2b545a7b2ec762fe33d211cf33c63d289dcc')
+
+prepare() {
+    cd "${pkgname}-${pkgver}"
+    patch -p1 < ../crypto++-to-cryptopp.patch
+}
+
+build() {
+    LDFLAGS="$LDFLAGS -pthread"
+
+    cd "${pkgname}-${pkgver}"
+    ./configure --prefix=/usr
+    make
+}
+
+package() {
+    cd "${pkgname}-${pkgver}"
+    make DESTDIR="${pkgdir}" install
+}

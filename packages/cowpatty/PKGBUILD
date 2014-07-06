@@ -1,15 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=cowpatty
 pkgver=4.6
-pkgrel=1
-groups=('archassault' 'archassault-wireless' 'archassault-cracker')
+pkgrel=2
+groups=('archassault' 'archassault-wifi' 'archassault-crackers')
 pkgdesc="Wireless WPA/WPA2 PSK handshake cracking utility"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://www.wirelessdefence.org/Contents/Files/'
+url='http://www.willhackforsushi.com/?page_id=50'
 license=('GPL')
 depends=('openssl' 'libpcap')
 options=(docs !makeflags)
-source=("http://www.wirelessdefence.org/Contents/Files/cowpatty-$pkgver.tgz")
-md5sums=('b90fd36ad987c99e7cc1d2a05a565cbd')
+source=("http://www.willhackforsushi.com/code/cowpatty/4.6/cowpatty-$pkgver.tgz")
+sha512sums=('87c55f3f43c0342cbcc46227a1e4cfe3f23e215adc68e376991b85344b00b56e7b57e3cf0f1e3d18378cd830a247b2e36644b41b5c0f00a2a382b410f4ab35af')
 
 build() {
   cd "$srcdir/cowpatty-$pkgver"

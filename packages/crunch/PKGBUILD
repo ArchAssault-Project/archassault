@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=crunch
-pkgver=3.4
+pkgver=3.6
 pkgrel=1
 groups=('archassault' 'archassault-autonomous' 'archassault-cracker')
 pkgdesc="A wordlist generator for all combinations/permutations of a given character set"
@@ -8,7 +9,7 @@ url='http://sourceforge.net/projects/crunch-wordlist/'
 license=('GPL')
 depends=('glibc')
 source=("http://downloads.sourceforge.net/crunch-wordlist/crunch-$pkgver.tgz")
-md5sums=('3f658a60d8227025df12cfb4ff4b9e15')
+sha512sums=('85a2a12bb481988ab27a19602122abc29bb307de0af279132dcc0565dfc4ba44ab9f7ca15d876001f2e6dcf7be77ed50168cb066fc6a65bf06ec5cf9d798e81f')
 
 build() {
   cd "$srcdir/crunch-$pkgver"
@@ -17,18 +18,10 @@ build() {
 
 package() {
   cd "$srcdir/crunch-$pkgver"
-
-  # Base directories.
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/crunch"
   install -dm755 "$pkgdir/usr/share/man/man1"
-
-  # Bin.
   install -m755 crunch "$pkgdir/usr/bin/crunch"
-
-  # Data.
   install -m644 charset.lst "$pkgdir/usr/share/crunch/charset.lst"
-
-  # Man.
   install -m644 crunch.1 "$pkgdir/usr/share/man/man1/crunch.1"
 }

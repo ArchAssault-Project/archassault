@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=nimbostratus
-pkgver=20131227
+pkgver=20140418
 pkgrel=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="Tools for fingerprintinging and exploiting Amazon cloud infrastructures"
@@ -7,6 +8,7 @@ url="https://github.com/andresriancho/nimbostratus"
 arch=('any')
 license=('GPL3')
 depends=('python2' 'python2-boto')
+makedepends=('git')
 source=("git+https://github.com/andresriancho/nimbostratus.git")
 md5sums=('SKIP')
 

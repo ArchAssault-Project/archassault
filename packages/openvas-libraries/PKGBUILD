@@ -1,35 +1,41 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-libraries
-pkgver=7.0
+pkgver=7.0.2
 pkgrel=1
 pkgdesc="The OpenVAS libraries"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
-depends=('gnutls' 'libpcap' 'gpgme' 'libssh')
+depends=('gnutls' 'libpcap' 'gpgme' 'libssh' 'libksba' 'glib2' 'libgcrypt' 'libldap')
 makedepends=('pkg-config' 'cmake' 'bison')
 options=('!makeflags')
 # The file downloaded is determined by the `/1417/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
 # Here's a list of downloads for future reference: http://wald.intevation.org/frs/?group_id=29
-source=("http://wald.intevation.org/frs/download.php/1450/openvas-libraries-7.0+beta3.tar.gz")
-md5sums=('6f784eb9b3ba4eef53843635946626d4')
+source=("http://wald.intevation.org/frs/download.php/1671/openvas-libraries-$pkgver.tar.gz")
+sha512sums=('64a228e85488614ac1e34804536eef28277ca3e48e9c42bc9fafe11fb44a635f4cd754ed8c7a27af169bc52c4305917d2f6cc3bd3df3c4c3d4c2131d975fd561')
 
 prepare() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver"
 
   find . -name 'CMakeLists.txt' -exec sed -i 's/-Werror//' {} \;
+
 }
 
 build() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver"
+  mkdir -p build && cd build
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DLIBDIR=/usr/lib -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DLIBDIR=/usr/lib -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var ..
   make CFLAGS=-Wno-error CC=--disable-werror
 }
 
 package() {
-  cd "$srcdir/openvas-libraries-$pkgver+beta3"
+  cd "$srcdir/openvas-libraries-$pkgver/build"
 
   make "DESTDIR=$pkgdir/" install
+
+  chmod 755 $pkgdir/etc/openvas/gnupg
+  chmod 755 $pkgdir/var/lib/openvas/gnupg
 }

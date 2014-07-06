@@ -1,12 +1,15 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-ffi
 pkgver=1.9.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Ruby FFI"
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('ruby1.9')
 makedepends=('ruby1.9')
+license=('BSD')
 url='http://wiki.github.com/ffi/ffi'
 source=("http://rubygems.org/downloads/ffi-$pkgver.gem")
-md5sums=('1b5ab133fb1b861eeb7c7a8dbaa0acf4')
+sha512sums=('4619d12325503843410921abd461efd7da7febe8b015522581f8ea6f986af285812c94216e053bd737d8f7b6201cbc793d16d59208f46968b252ba6590fefbb2')
 noextract=("ffi-$pkgver.gem")
 
 package() {

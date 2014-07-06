@@ -1,0 +1,41 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=pip3line
+pkgver=2.4
+pkgrel=2
+groups=('archassault' 'archassault-fuzzer')
+pkgdesc="Swiss army knife of byte manipulation"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='https://github.com/nccgroup/pip3line'
+license=('GPL3')
+if [[ "$CARCH" == 'i686' ]]; then
+     depends=('qt4' 'python2' 'python' 'gcc-libs' 'openssl' 'distorm' 'xdg-utils')
+elif [[ "$CARCH" == 'x86_64' ]]; then
+     depends=('qt4' 'python2' 'python' 'gcc-libs-multilib' 'openssl' 'distorm' 'xdg-utils')
+fi
+makedepends=('cmake')
+source=("https://github.com/nccgroup/pip3line/archive/$pkgver.tar.gz" "py3-pip3line.patch" "pip3line.install" "libdir.patch") 
+sha512sums=('0d3122630c8362c21264ea561fedb3f2dd0ad830fb423a4ab16821e1ff6f063e772aabfba5793ac23e920deabd8752b5f4c97c38b2a52c70636129c9bfa71e41'
+            '4173d38f1996c0de52b5a13845a3a3b2888703e252de0f1db1980840288b68ce31c18a1bd6490224e1ae2ecbcac1463a776435f71f0a62c5328343602256db24'
+            'ca869745675aceabe2b130ffe69db508ecd7558b47dc909eded0115b8250ffe2e1898ef013c57c33c7dbd6ec7fb31404c5e120be0e59a5cda7bdecb0612c01c8'
+            '4308c59a5c150d203345960a35c5b43eee6c8919008cb898fd29eecdf73cbc7f0810527ae85a8c4666a2986f7d13bcb9586f895719eaac4d16f4d940dca0876b')
+install='pip3line.install'
+
+prepare(){
+  cd "$srcdir/pip3line-$pkgver"
+  patch -p1 -i $srcdir/py3-pip3line.patch
+  patch -p1 -i $srcdir/libdir.patch
+}
+
+build(){
+  cd "$srcdir/pip3line-$pkgver"
+  mkdir build
+  cd build
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_SKIP_RPATH=ON -DALL=ON -DWITH_DISTORM=ON -DWITH_OPENSSL=ON -DWITH_PYTHON27=ON  -DWITH_PYTHON3=ON ../
+  make
+}
+
+package(){
+  cd "$srcdir/pip3line-$pkgver/build"
+  make DESTDIR=$pkgdir install
+}
+

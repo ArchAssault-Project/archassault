@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname='nkiller2'
 pkgver='2.0'
 pkgrel=1
@@ -13,7 +14,7 @@ md5sums=('5b6a8591675ddbc134656203ac862e69')
 prepare() {
   cd "$srcdir"
 
-  gcc nkiller2.c -o nkiller2 -lssl -lcryptography -lpcap -O2
+  gcc nkiller2.c -o nkiller2 -lssl -lcrypto -lpcap -O2
 }
 
 package() {

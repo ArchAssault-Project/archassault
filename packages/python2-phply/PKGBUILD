@@ -1,13 +1,20 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-phply
-pkgver=0.3.1
-pkgrel=3
+pkgver=0.9.1
+pkgrel=1
 pkgdesc="PHP parser written in Python using PLY"
 arch=('any')
 url="https://github.com/ramen/phply"
 license=('BSD')
 depends=('python2')
+makedepends=('git' 'python2-setuptools')
 source=("git+http://github.com/ramen/phply")
 md5sums=('SKIP')
+
+prepare() {
+  cd "$srcdir/phply"
+    git checkout 435f523918145437e22d
+}
 
 package() {
   cd "$srcdir/phply"

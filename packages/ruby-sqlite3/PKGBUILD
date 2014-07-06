@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-sqlite3
 _gemname=sqlite3
 pkgver=1.3.7
@@ -6,7 +7,7 @@ pkgdesc="This module allows Ruby programs to interface with the SQLite3 database
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://github.com/luislavena/sqlite3-ruby"
 license=('BSD')
-depends=('ruby' 'rubygems')
+depends=('ruby' 'rubygems' 'sqlite3')
 source=(http://rubygems.org/downloads/${_gemname}-${pkgver}.gem)
 noextract=(${_gemname}-${pkgver}.gem)
 md5sums=('b8b48dc154afe949f0a44dd49565391d')

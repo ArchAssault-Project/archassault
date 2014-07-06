@@ -1,0 +1,43 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=wpscan-git
+pkgver=1544.f42ea74
+pkgrel=1
+groups=('archassault' 'archassault-webapp' 'archassault-scanners')
+pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
+arch=('any')
+url="http://wpscan.org"
+license=('GPL3')
+depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
+	'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
+	'ruby1.9-rspec' 'ruby1.9-mime-types' 'ruby1.9-bundler')
+makedepends=('git' 'libxslt')
+options=(!strip)
+replaces=('wpscan')
+conflicts=('wpscan')
+provides=('wpscan')
+source=('git+http://github.com/wpscanteam/wpscan')
+md5sums=('SKIP')
+
+pkgver() {
+  cd wpscan
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+
+package() {
+  cd "$srcdir/wpscan"
+
+  install -dm755 "$pkgdir/usr/share/wpscan-git"
+  install -dm755 "$pkgdir/usr/bin"
+
+  cp -a --no-preserve=owner * "$pkgdir/usr/share/wpscan-git"
+
+  cat > "$pkgdir/usr/bin/wpscan" <<EOF
+#!/bin/sh
+ruby-1.9 /usr/share/wpscan-git/wpscan.rb "\$@"
+EOF
+  sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "$pkgdir/usr/share/wpscan-git/lib/common/common_helper.rb"
+  sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "$pkgdir/usr/share/wpscan-git/lib/common/common_helper.rb"
+
+
+  chmod +x "$pkgdir/usr/bin/wpscan"
+}

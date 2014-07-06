@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=backports-drivers-frag+ack
 _patch=mac80211.compat08082009.wl_frag+ack_v1.patch
 pkgver=1

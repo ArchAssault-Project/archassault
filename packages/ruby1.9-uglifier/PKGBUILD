@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _gemname=uglifier
 pkgname=ruby1.9-$_gemname
 pkgver=2.4.0
@@ -6,7 +7,7 @@ pkgdesc='Ruby wrapper for UglifyJS JavaScript compressor'
 arch=(any)
 url='http://github.com/lautis/uglifier'
 license=(MIT)
-depends=(ruby1.9 ruby1.9-execjs ruby1.9-json)
+depends=(ruby1.9 ruby1.9-execjs)
 options=(!emptydirs)
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)

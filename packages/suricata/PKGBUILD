@@ -1,34 +1,37 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
-pkgver=1.4.7
-pkgrel=2
+pkgver=2.0.1
+pkgrel=1
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
 license=('GPL2')
-depends=('libcap-ng' 'libnet' 'libpcap' 'libyaml' 'pcre')
+groups=('archassault')
+depends=('zlib' 'libcap-ng' 'libnetfilter_queue' 'libnfnetlink' 'libnet' 'libpcap' 'libyaml' 'pcre' 'python2-magic' 'file')
 optdepends=('snort: suricata can use rulesets provided by snort')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
-sha256sums=('ae4a117d23a8a304f6fba9bd5b7442422b64e4d6bf5ac1e17312b8ee443a6bc9')
+sha512sums=('8591ddf86cd6043eea3abbe5a2533ea7f84bfe9d743106f260397333f37a9c8b8af031ea386012ea98dcb065ab36b39dba3c33f59e6a250bc312551864dc2774')
+
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+}
 
 build() {
   cd ${srcdir}/$pkgname-$pkgver
-
-  ./configure --prefix=/usr --sysconfdir=/etc/$pkgname
+  ./configure --prefix=/usr --sysconfdir=/etc HAVE_PYTHON_CONFIG=/usr/bin/python2
   make
 }
 
 package() {
   cd ${srcdir}/$pkgname-$pkgver
-
   make DESTDIR=${pkgdir} install
-
   install -d ${pkgdir}/var/log/$pkgname
-
-  install -D -m644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
-  install -D -m644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
-  install -D -m644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
- 
+  install -Dm644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
+  install -Dm644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
+  install -Dm644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
   install -d "${pkgdir}/etc/$pkgname/rules"
-  install -D -m644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
+  install -Dm644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
 }

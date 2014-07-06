@@ -1,46 +1,47 @@
+# Maintainer: ArchAssault <team archassault org> 
 pkgname=armitage
-pkgver=1135
+pkgver=140515
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A graphical cyber attack management tool for Metasploit"
 url='http://www.fastandeasyhacking.com/'
 arch=('any')
 license=('GPL')
-depends=('metasploit' 'java-runtime' 'postgresql' 'nmap')
-makedepends=('apache-ant' 'zip' 'unzip' 'subversion')
+depends=('metasploit' 'java-environment' 'postgresql' 'nmap')
 install=armitage.install
-source=('svn+http://armitage.googlecode.com/svn/trunk/'
+source=("http://www.fastandeasyhacking.com/download/armitage$pkgver.tgz"
         'armitage.install'
         'armitage.desktop')
-md5sums=('SKIP'
-         '5234326f9ff41ff8694cb35a557af895'
-         'ea00bc187f090bf67116aaee6c201ae9')
+sha512sums=('539396035dde3944b9b7d396c85b823c146de2f9f99b74d565d323227a9d5b541f1b5167f9ef43dca9eead00b63b47df352056f03d1eab1a2a19288ddac7e585'
+            '21a65936fa4e957116e787d77e9d3173405377254f1d63be82092a45a3165a4c3e96f1b3770ebba07c76efda58cb80e25b1c90f45d7f92528c134b1e208c641d'
+            '514baf2b71846878fdbf230eb87ff47f73dbc43bc1d3b61ee76bb3fb6aa25895139bb291c8bb99bd010527a8e991080236f2031221b7e360d9a8d81614ccff97')
 
-pkgver() {
-  cd trunk
-  svnversion | tr -d [A-z]
-}
 
-prepare() {
-  cd "$srcdir/trunk"
-  sed -i 's|/usr/share/java/apache-ant/bin/||g' package.sh
-}
-
-build() {
-  cd "$srcdir/trunk"
-  bash package.sh
-}
 
 package() {
-  cd "$srcdir/trunk"
-  install -dm755 "$pkgdir/usr/share"
+  cd "$srcdir/$pkgname"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
   install -dm755 "$pkgdir/usr/bin"
-  cat > "$pkgdir/usr/bin/armitage" <<\EOF
-#!/bin/sh
-java -jar /usr/share/armitage/armitage.jar "$@"
-EOF
-  chmod +x "$pkgdir/usr/bin/armitage"
-  tar -xzf "$srcdir/trunk/armitage.tgz" -C "$pkgdir/usr/share"
+  install -Dm755 armitage "$pkgdir/usr/share/armitage/armitage"
+  install -Dm755 teamserver "$pkgdir/usr/share/armitage/teamserver"
+  install -Dm755 armitage.jar "$pkgdir/usr/share/armitage/armitage.jar"
+  install -Dm755 cortana.jar "$pkgdir/usr/share/armitage/cortana.jar"
+  install -Dm644 readme.txt whatsnew.txt "$pkgdir/usr/share/armitage/" 
   install -Dm644 "$srcdir/armitage.desktop" "$pkgdir/usr/share/applications/armitage.desktop"
-  chown -R root:root "$pkgdir"/*
+
+cat > "$pkgdir/usr/bin/armitage" <<EOF
+#!/bin/sh
+cd /usr/share/armitage
+./armitage "\$@"
+EOF
+
+cat > "$pkgdir/usr/bin/teamserver" <<EOF
+#!/bin/sh
+./teamserver "\$@"
+EOF
+
+chmod +x $pkgdir/usr/bin/armitage
+chmod +x $pkgdir/usr/bin/teamserver
+
 }
+

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=mdbtools
 pkgver=0.7.1
 pkgrel=1
@@ -16,7 +17,7 @@ md5sums=('477c7af98e75f8e6c987b020d6a822d8'
 
 build() {
   cd "$srcdir/mdbtools-$pkgver"
-  autoreconnaissancef -i -f
+  autoreconf -i -f
   ./configure --prefix=/usr --sysconfdir=/etc --mandir=/usr/share/man --with-unixodbc=/usr
   make
 }

@@ -1,14 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=enumiax
-pkgver=1.0
+pkgver=0.4a
 pkgrel=1
-groups=('archassault' 'archassault-scanners')
+epoch=1
+groups=('archassault' 'archassault-scanner')
 pkgdesc="IAX enumerator"
 url='http://sourceforge.net/projects/enumiax/'
 license=('GPL')
 depends=('glibc')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=(http://downloads.sourceforge.net/enumiax/enumiax-$pkgver.tar.gz)
-md5sums=('3e3826559574b637c9ca8830f956154b')
+sha512sums=('671af2e274fa94b950d42db57880ec6d494510df8970edeeebe2e06a98aba4b6f3f10686624238f7cb19c590751a29d80993ffeee3c7091a30b4f2c337f8ce18')
 
 build() {
   cd "$srcdir/enumiax-$pkgver"

@@ -1,8 +1,9 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _author=PJACKLAM
 _perlmod=Math-BigInt-GMP
 pkgname=perl-math-bigint-gmp
-pkgver=1.37
-pkgrel=4
+pkgver=1.38
+pkgrel=1
 pkgdesc="Big integer calculations using the GNU Multiple Precision Arithmetic Library."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://search.cpan.org/~PJACKLAM/Math-BigInt-GMP-1.37/'
@@ -10,7 +11,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl>=5.16.2' 'gmp')
 options=(!emptydirs)
 source=(http://cpan.perl.org/modules/by-authors/id/P/PJ/$_author/$_perlmod-$pkgver.tar.gz)
-md5sums=('d11bf69c0471e38191f33144079d0373')
+sha512sums=('e33abe8c3b939e559be4e3ec61ce77a6fb3da6451ea88cb22fd4785cfebc816024e957ad02e81b43ee982346e0e444630ee5d93a87a02182a765374d1a694222')
 
 build() {
   cd "$srcdir/$_perlmod-$pkgver"

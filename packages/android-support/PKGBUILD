@@ -1,0 +1,21 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Prurigro
+
+pkgname=android-support
+pkgver=r19.1
+pkgrel=1
+pkgdesc="A set of code libraries that provide backward-compatible versions of Android framework APIs as well as features that are only available through the library APIs"
+arch=('any')
+url="http://developer.android.com/tools/support-library/index.html"
+license=('Apache')
+depends=('android-sdk' 'java-environment')
+options=('!strip')
+
+source=("http://dl-ssl.google.com/android/repository/support_${pkgver}.zip")
+sha512sums=('0d5cf9a664f1662691bd3ef56e82c249ecb415c5a83a93a3b244ff3da96c24855fa634a1fa5cd4238428602e7cc41c0c2a001553205b920247c251114a0bb25e')
+
+package() {
+    install -d "${pkgdir}/opt/android-sdk/extras/android/"
+    cp -R support "${pkgdir}/opt/android-sdk/extras/android/"
+    chmod -R a+rX "${pkgdir}/opt"
+}

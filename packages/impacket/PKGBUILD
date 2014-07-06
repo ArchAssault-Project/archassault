@@ -1,17 +1,31 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=impacket
-pkgver=0.9.10
-pkgrel=4
+pkgver=0.9.11
+pkgrel=1
 pkgdesc="Collection of Python2 classes focused on providing access to network packets"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='http://oss.coresecurity.com/projects/impacket.html'
 license=('Apache')
-depends=('python2' 'python2-cryptography')
+depends=('python2' 'python2-crypto')
+groups=('archassault')
 optdepends=('python2-pcapy: traffic sniffing example programs')
 makedepends=('sed')
-source=("https://impacket.googlecode.com/files/impacket-$pkgver.tar.gz")
-md5sums=('345a29e6f12b738567b206b139b20cb0')
+source=("http://corelabs.coresecurity.com/index.php?module=Wiki&action=attachment&type=tool&page=Impacket&file=impacket-$pkgver.tar.gz")
+sha512sums=('b825437fab65cbf799a62d30ff0749f139f0f16a9a01d9d2ff0fc86be92333b72a7f94ed5fce24dda87212b0c23fa2bcd872e1b6c6143e8528eaa11c920c7a6d')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/impacket-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
 
 package() {
   cd "${srcdir}/impacket-${pkgver}"
   python2 setup.py install --root="${pkgdir}/" --optimize=1
+  chmod 644 $pkgdir/usr/share/doc/impacket/LICENSE
+  chmod 644 $pkgdir/usr/share/doc/impacket/README
+  find  $pkgdir/usr/share/doc/impacket/testcases -type f  |xargs chmod 755 
+  chmod 755 $pkgdir/usr/share/doc/impacket/testcases
+  chmod 755 $pkgdir/usr/share/doc/impacket/testcases/ImpactPacket
+  chmod 755 $pkgdir/usr/share/doc/impacket/testcases/dot11
+  chmod 755 $pkgdir/usr/share/doc/impacket/testcases/SMB-RPC
 }

@@ -1,0 +1,36 @@
+diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt
+--- pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 00:08:46.525912536 -0400
++++ pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 00:09:15.189244980 -0400
+@@ -57,7 +57,7 @@
+ if(WIN32)
+ 	set ( EXTERN_LIB transform python33 )
+ else()
+-	set ( EXTERN_LIB transform python3.3 )
++	set ( EXTERN_LIB transform python3.4m )
+ endif()
+ 
+ add_library ( python3plugin MODULE ${pythonplugin_SRCS} )
+diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/pythonplugin.h pip3line-2.4/defaultplugins/pythonplugin/pythonplugin.h
+--- pip3line-2.4.orig/defaultplugins/pythonplugin/pythonplugin.h	2014-03-30 00:08:46.525912536 -0400
++++ pip3line-2.4/defaultplugins/pythonplugin/pythonplugin.h	2014-03-30 00:09:48.522577279 -0400
+@@ -15,7 +15,7 @@
+ 
+ #ifdef Q_OS_LINUX
+ #ifdef BUILD_PYTHON_3
+-#include <python3.3/Python.h>
++#include <python3.4m/Python.h>
+ #else
+ #include <python2.7/Python.h>
+ #endif // BUILD_PYTHON_X
+diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/pythontransform.h pip3line-2.4/defaultplugins/pythonplugin/pythontransform.h
+--- pip3line-2.4.orig/defaultplugins/pythonplugin/pythontransform.h	2014-03-30 00:08:46.525912536 -0400
++++ pip3line-2.4/defaultplugins/pythonplugin/pythontransform.h	2014-03-30 00:10:04.862576775 -0400
+@@ -15,7 +15,7 @@
+ 
+ #ifdef Q_OS_LINUX
+ #ifdef BUILD_PYTHON_3
+-#include <python3.3/Python.h>
++#include <python3.4m/Python.h>
+ #else
+ #include <python2.7/Python.h>
+ #endif // BUILD_PYTHON_X

@@ -1,33 +1,25 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=driftnet
-pkgver=0.1.6
+pkgver=1.1.3
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-sniffers')
 pkgdesc="Listens to network traffic and picks out images from TCP streams it observes"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://www.ex-parrot.com/~chris/driftnet/'
+url='https://github.com/wertarbyte/driftnet'
 license=('GPL')
-depends=('libjpeg' 'libpcap' 'gtk' 'giflib')
+depends=('libpcap' 'gtk2' 'giflib')
 makedepends=('imake')
-source=("http://www.ex-parrot.com/~chris/driftnet/driftnet-$pkgver.tar.gz"
-        'gif.patch')
-md5sums=('8e11d77770452f97bb3c23f510489815'
-         '000ee0aa95be57c3fc46840b0cf4b2e2')
+source=("https://github.com/deiv/driftnet/archive/upstream/$pkgver.tar.gz")
+sha512sums=('0dcc5a3095b25298db18d8651ccb17ee8151bf4ac4713fce2b83c98df3e933a371420675592266a71f3c722e927cfd28f61efc5e91cea78a3cb15d09addd374b')
 
-prepare() {
-  cd "$srcdir/driftnet-$pkgver"
-
-  # This library has been combined with giflib.
-  sed -i 's/-lungif//' Makefile
-
-  patch < "$srcdir/gif.patch"
-}
 
 build() {
-  cd "$srcdir/driftnet-$pkgver"
-  make LDFLAGS="/usr/lib/libgif.so"
+  cd "$srcdir/driftnet-upstream-$pkgver"
+  ./configure --prefix=/usr
+  make 
 }
 
 package() {
-  cd "$srcdir/driftnet-$pkgver"
-  install -Dm755 driftnet "$pkgdir/usr/bin/driftnet"
+  cd "$srcdir/driftnet-upstream-$pkgver"
+  make DESTDIR=$pkgdir install
 }

@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-net-cidr
 _cpanname="Net-CIDR"
 pkgver=0.17

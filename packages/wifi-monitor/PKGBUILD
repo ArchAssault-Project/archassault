@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=wifi-monitor
-pkgver=0.r18.4068742
+pkgver=0.r22.71340a3
 pkgrel=1
 groups=('archassault' 'archassault-sniffers')
 pkgdesc="Prints the IPs on your local network that're sending the most packets"
@@ -7,6 +8,7 @@ url="https://github.com/DanMcInerney/wifi-monitor"
 arch=(any)
 license=('custom')
 depends=('python2' 'scapy')
+makedepends=('git')
 source=("git+https://github.com/DanMcInerney/wifi-monitor.git")
 md5sums=('SKIP')
 

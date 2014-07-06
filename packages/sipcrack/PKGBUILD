@@ -1,8 +1,10 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=sipcrack
 pkgver=0.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cracker' 'archassault-voip')
 pkgdesc="A SIP protocol login cracker."
+depends=('libpcap' 'openssl')
 license=('custom')
 url='http://www.remote-exploit.org/codes_sipcrack.html'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

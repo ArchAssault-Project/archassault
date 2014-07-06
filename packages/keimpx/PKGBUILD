@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=keimpx
 pkgver=0.2
 pkgrel=1
@@ -5,7 +6,7 @@ groups=('archassault' 'archassault-cracker')
 pkgdesc="Tool to verify the usefulness of credentials across a network over SMB"
 url='http://code.google.com/p/keimpx/'
 license=("Apache")
-depends=('impacket' 'python2-cryptography')
+depends=('impacket' 'python2-crypto')
 makedepends=('unzip')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=("http://keimpx.googlecode.com/files/keimpx-${pkgver}.zip"

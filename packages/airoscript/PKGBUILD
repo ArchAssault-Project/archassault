@@ -1,12 +1,14 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=airoscript
 pkgver=20140105
 pkgrel=1
+epoch=1
 pkgdesc="Script to simplify the use of aircrack-ng tools"
 arch=('any')
 url="http://midnightresearch.com/projects/wicrawl/"
 groups=('archassault' 'archassault-wireless')
 license=('GPL')
-depends=('mdk3' 'aircrack-ng' 'dhclient')
+depends=('mdk3' 'aircrack-ng' 'dhclient' 'perl-yaml-syck')
 options=(!makeflags)
 makedepends=('git')
 source=('git+http://github.com/patrickhno/Airoscript'

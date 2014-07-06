@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _gemname=http_parser
 pkgname=ruby1.9-$_gemname
 pkgver=0.1.3

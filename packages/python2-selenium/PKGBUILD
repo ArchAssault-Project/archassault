@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-selenium
 pkgver=2.38.4
 pkgrel=2

@@ -1,18 +1,18 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=parsero
-pkgver=0.6
+pkgver=0.75
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A Robots.txt audit tool"
 url='https://github.com/behindthefirewalls/Parsero'
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('GPL2')
 depends=('python' 'python-urllib3' 'python-beautifulsoup4')
+makedepends=('git')
 source=("git+https://github.com/behindthefirewalls/Parsero.git")
 md5sums=('SKIP')
 
 package() {
   cd $srcdir/Parsero
-
   install -Dm755 parsero.py $pkgdir/usr/bin/parsero
-
 }

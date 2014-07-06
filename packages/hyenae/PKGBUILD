@@ -1,22 +1,23 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=hyenae
-pkgver=0.36_1
-pkgrel=1
+pkgver=0.36.1
+pkgrel=2
 pkgdesc="flexible platform independent packet generator"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://sourceforge.net/projects/hyenae/"
 license=('GPL')
-depends=("libpcap")
+depends=('libpcap' 'libdnet')
 groups=("archassault" "archassault-networking")
-source=(http://downloads.sourceforge.net/hyenae/hyenae-${pkgver/_/-}.tar.gz)
-md5sums=('dde7446ad98a9ab80933fe0746197ee1')
+source=(http://downloads.sourceforge.net/hyenae/hyenae-0.36-1.tar.gz)
+sha512sums=('5626ea29a753c9e5187e02fb302f339cc59a8d837f5b1f66dade642fc83ea3ad8ce0bba22610fb7596d58ba5db730cc3eea5fb9d4d035ef893e33b2bc3359fb1')
 
 build() {
-  cd "$srcdir/hyenae-${pkgver/_/-}"
+  cd "$srcdir/hyenae-0.36-1"
   ./configure --prefix=/usr
   make
 }
 
 package(){
-  cd "$srcdir/hyenae-${pkgver/_/-}"
+  cd "$srcdir/hyenae-0.36-1"
   make DESTDIR="$pkgdir" install
 }

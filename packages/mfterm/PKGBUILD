@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=mfterm
+pkgver=1.0.3
+pkgrel=2
+pkgdesc="Terminal for working with Mifare Classic 1-4k tags"
+url="https://github.com/4ZM/mfterm"
+arch=('x86_64' 'i686' 'armv6h' 'amv7h')
+license=('GPL')
+groups=('archassault')
+depends=('libnfc')
+makedepends=('automake' 'readline' 'openssl')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/4ZM/mfterm/archive/v1.0.3.tar.gz")
+sha512sums=('6a63068a38fcd35b58c1efadd0111638e0f9b61ba63d9949fec63b7107cfbf1d9b71c0c900cad7932fa1311e07e9ac2b4c47724566a1062fdc15c162536a80b0')
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+}
+
+# vim:set ts=2 sw=2 et:

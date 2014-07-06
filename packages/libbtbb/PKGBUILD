@@ -1,25 +1,29 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
+
 pkgname=libbtbb
-pkgver=2012.10.R3
-pkgrel=2
+pkgver=2014.02.R2
+pkgrel=3
 pkgdesc="A library to decode Bluetooth baseband packets, as produced by the Ubertooth and GR-Bluetooth projects."
-url="http://sourceforge.net/projects/libbtbb/"
+url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
-depends=('glibc')
-source=("http://downloads.sourceforge.net/project/libbtbb/libbtbb-2012-10-R3.tar.xz")
-md5sums=('9e865be366a336d3b295663e691d274e')
+depends=('glibc' 'python')
+makedepends=('cmake' 'libpcap')
+source=("https://github.com/greatscottgadgets/libbtbb/archive/2014-02-R2.tar.gz")
+sha512sums=('4696f043061b15455be6c6aab8b4b1ee3823cb736014237eadbf60fca0ae54457aab160b23a1a067192b8c811d363586ac7f4b45cfa55e54f6fac24967dccfd2')
+
+prepare() {
+  mkdir "$srcdir/libbtbb-${pkgver//./-}/build"
+}
 
 build() {
-  cd "$srcdir/libbtbb-${pkgver//./-}"
+  cd "$srcdir/libbtbb-${pkgver//./-}/build"
+  cmake -DCMAKE_INSTALL_PREFIX="$pkgdir/usr" ..
   make
 }
 
 package() {
-  cd "$srcdir/libbtbb-${pkgver//./-}"
-
-  # Base directories.
-  install -dm755 "$pkgdir/usr/lib"
-  install -dm755 "$pkgdir/usr/include"
-
-  make LDCONFIG= "INSTALL_DIR=$pkgdir/usr/lib/" "INCLUDE_DIR=$pkgdir/usr/include/" install
+  cd "$srcdir/libbtbb-${pkgver//./-}/build"
+  make install
 }

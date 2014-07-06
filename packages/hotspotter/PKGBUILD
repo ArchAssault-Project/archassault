@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=hotspotter
 pkgver=0.4
 pkgrel=1
@@ -5,6 +6,7 @@ pkgdesc="Hotspotter passively monitors the network for probe request frames to i
 url="http://www.remote-exploit.org/?page_id=418"
 groups=('archassault' 'archassault-wireless')
 license=('GPL')
+depends=('libpcap')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=(http://www.wirelessdefence.org/Contents/Files/hotspotter-$pkgver.tar.gz)
 md5sums=('1fa7f4822732c8798832f8ce2f4fb703')

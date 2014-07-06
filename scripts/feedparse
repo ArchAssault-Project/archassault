@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+[[ -z "$DATADIR" ]] && DATADIR="${HOME}" # Directory to work out of (database + pkgwatch.txt go here)
+[[ -z "$PKGFEED" ]] && PKGFEED="https://www.archlinux.org/feeds/packages/" # Arch Packages RSS Feed
+ONLY_PKGWATCH=0 # 0: notify for all packages | 1: if pkgwatch.txt exists, notify only listed packages (one per line)
+
+# notifications handler function
+notification_func() {
+    echo "$1" # Notification can be accessed here as: "$1"
+}
+
+# This function pulls apart and reads the individual elements of a PKGBUILD file, for generating the initial DB file from the repo
+readpkgbuild() {
+    source "$1"
+    title="$pkgname"
+    version="${pkgver}-${pkgrel}"
+    description=`echo "$pkgdesc" | sed "s/'/''/g"`
+    pubDate=""
+    archlist=${arch[@]}
+    for each in ${archlist[@]}; do
+        arch="$each"
+        categories="${2},${arch}"
+
+        # (DEBUGGING): Uncomment this line to view the values of the variables getting inserted into the database
+        #echo "title: $title"; echo "version: $version"; echo "arch: $arch"; echo "description: $description"; echo "pubDate: $pubDate"; echo "categories: $categories"
+
+        sqlite3 "$DB" "insert into packages(title, version, arch, description, pubDate, categories) values ('$title', '$version', '$arch', '$description', '$pubDate', '$categories');"
+    done
+}
+
+# Expected filenames
+DB="${DATADIR}/archpackages.db"
+PKGWATCH="${DATADIR}/pkgwatch.txt"
+
+# Disable watching for specific packages, even if set, if the PKGWATCH file doesn't exist
+[[ -e "$PKGWATCH" ]] || ONLY_PKGWATCH=0
+
+# Create the database if one doesn't already exist
+if [ ! -e "$DB" ]; then
+    [[ -d /var/abs ]] || (echo "The Archlinux ABS directory does not exist in /var/abs" && exit 1)
+    echo "Database does not exist yet; creating and populating with the packagelist in /var/abs/"
+    install -d "$DATADIR"
+    sqlite3 "$DB" "create table if not exists packages(id integer primary key not null, title text not null, version text not null, arch text not null, description text not null, pubDate text not null, categories text not null);"
+    pushd /var/abs > /dev/null 2>&1
+        for dir in *; do
+            if [ -d "${dir}" ]; then
+                category=$(echo `echo ${dir} | grep -o -e "^." | tr '[:lower:]' '[:upper:]'``echo "${dir}" | sed 's/^.//g'`)
+                pushd "${dir}" > /dev/null 2>&1
+                    find . -type f -name "PKGBUILD" | while read file; do
+                        readpkgbuild "${file}" "${category}"
+                    done
+                popd > /dev/null 2>&1
+            fi
+        done
+    popd > /dev/null 2>&1
+fi
+
+wget -q -O- ${PKGFEED} | sed 's/<\/item>/\n/g' | grep item | grep -v -e "<channel><title>[^<]*<\/title>" | while read -r line; do
+    # Unset any variables that don't always have values to make sure they aren't getting their value from elsewhere
+    unset dbid dbver
+
+    # Do any post processing needed on $line to have string containing a single package that works with the script (second single quote is to escape for sqlite3)
+    package=`echo "$line" | sed "s/'/''/g"`
+
+    # Parse the $package variable into separate variables for each field (categories creates a comma separated list of the value in each category tag)
+    title=`echo "$package" | grep -o -e "<title[^>]*>[^<]*" | sed 's/<[^>]*>//g' | grep -o -e "^[^\ ]*"`
+    version=`echo "$package" | grep -o -e "<title[^>]*>[^<]*" | sed 's/<[^>]*>//g' | grep -o -e "\ [^\ ]*\ " | sed 's/\ //g'`
+    arch=`echo "$package" | grep -o -e "<title[^>]*>[^<]*" | sed 's/<[^>]*>//g' | grep -o -e "[^\ ]*$"`
+    description=`echo "$package" | grep -o -e "<description[^>]*>[^<]*" | sed 's/<[^>]*>//g'`
+    pubDate=`echo "$package" | grep -o -e "<pubDate[^>]*>[^<]*" | sed 's/<[^>]*>//g'`
+    categories=`echo "$package" | grep -o -e "<category[^>]*>[^<]*" | sed 's/<[^>]*>//g' | while read -r cat; do echo -n "${cat},"; done | sed 's/,$//g'`
+
+    # (DEBUGGING): Uncomment this line to view the values of the variables getting inserted into the database
+    #echo "title: $title"; echo "version: $version"; echo "arch: $arch"; echo "description: $description"; echo "pubDate: $pubDate"; echo "categories: $categories"
+
+    # Set $dbid to the id number of a record matching the title, arch and category list of the currentpackage, if one exists, and if it does, set $dbver to the version for that package in the DB
+    dbid=`sqlite3 "$DB" "select id from packages where title='$title' and arch='$arch' and categories='$categories'"`
+    [[ -n "$dbid" ]] && dbver=`sqlite3 "$DB" "select version from packages where id='$dbid'"`
+
+    if [[ -n "$dbver" ]]; then
+        if [[ ! "$dbver" = "$version" ]]; then
+            # (FUNCTIONALITY): Add any scripts or commands that should be run when the version of a package has changed
+            if [[ ! "$ONLY_PKGWATCH" = "1" ]] || [[ `grep -e "^${title}$" "${PKGWATCH}"` ]]; then
+                NOTIFY=`echo "PACKAGE UPDATE: \"${title}\" VERSION: \"${dbver}\" to \"${version}\""`
+                notification_func "$NOTIFY"
+            fi
+            sqlite3 "$DB" "update packages set version='$version',description='$description',pubDate='$pubDate' where id='$dbid';"
+        fi
+    else
+        # (FUNCTIONALITY): Add any functionality you would like to have run when a package is added
+        if [[ ! "$ONLY_PKGWATCH" = "1" ]]; then
+            NOTIFY=`echo "NEW PACKAGE: \"${title}\" VERSION: \"${version}\""`
+            notification_func "$NOTIFY"
+        fi
+        sqlite3 "$DB" "insert into packages(title, version, arch, description, pubDate, categories) values ('$title', '$version', '$arch', '$description', '$pubDate', '$categories');"
+    fi
+done

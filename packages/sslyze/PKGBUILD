@@ -1,28 +1,37 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=sslyze
-pkgver=0.6
+pkgver=0.9
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Python tool for analyzing the configuration of SSL servers and for identifying misconfigurations"
-
 arch=('any')
 url='https://github.com/iSECPartners/sslyze'
 license=('GPL2')
-
 depends=('python2')
-source=(https://dl.dropbox.com/s/h4cc7q68jdmxay3/sslyze-${pkgver}_src.zip)
-md5sums=('d86b75faacb069a02c829fab2f45193c')
+makedepends=('nassl')
+source=("https://github.com/iSECPartners/sslyze/archive/release-$pkgver.zip")
+sha512sums=('3bbb223dbae2704e042731a0409ea423b0262450804954f3190614c893740404c4e24d423ffa507f9dc0e92792fb050ee628edc93dd4114478ff9eb25329a1d7')
+
+prepare() {
+  cd "$srcdir/$pkgname-release-$pkgver"
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/ usr/bin/python2|'
+  # ArchAssualt fix to make this easy to compile
+  mkdir nassl
+  cp /usr/lib/python2.7/site-packages/nassl/_nassl.so .
+}
+
+build(){
+  cd "$srcdir/$pkgname-release-$pkgver"
+  python2 setup.py build
+}
+
 
 package() {
-  # Install files.
-  install -dm755 "$pkgdir/usr/share"
-  cp --no-preserve=ownership -r $srcdir/sslyze-${pkgver}_src $pkgdir/usr/share/sslyze
-
-  # Create an indirect launcher.
-  install -dm755 $pkgdir/usr/bin
-  cat > "$pkgdir/usr/bin/sslyze" <<\EOF
-#!/bin/sh
-cd /usr/share/sslyze
-python2 sslyze.py $@
-EOF
-  chmod 755 "$pkgdir/usr/bin/sslyze"
+  cd "$srcdir/$pkgname-release-$pkgver"
+  install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
+  python2 setup.py install --root=$pkgdir --optimize=1
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/sslyze/LICENSE.txt"
+  install -Dm644 AUTHORS.txt "$pkgdir/usr/share/sslyze/AUTHORS.txt"
+  mv $pkgdir/usr/bin/sslyze.py $pkgdir/usr/bin/sslyze   
 }

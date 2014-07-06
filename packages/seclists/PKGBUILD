@@ -1,10 +1,13 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=seclists
-pkgver=r50.9dc0d15
+pkgver=r79.9691029
 pkgrel=1
 pkgdesc="A collection of multiple types of lists used during security assessments. List types include usernames, passwords, URLs, sensitive data grep strings, fuzzing payloads, and many more."
-arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+arch=('any')
 license=('GPL2' 'custom')
-depends=()
+groups=('archassault')
+depends=('bash')
+makedepends=('git')
 url="https://github.com/danielmiessler/SecLists"
 source=("git+https://github.com/danielmiessler/SecLists")
 md5sums=('SKIP')
@@ -17,10 +20,7 @@ pkgver() {
 
 package() {
   cd "$srcdir/SecLists"
-
-  #Base directories
   install -dm755 "$pkgdir/usr/share/$pkgname"
-
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
   
 }

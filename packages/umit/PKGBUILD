@@ -1,10 +1,12 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=umit
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A powerful nmap frontend."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://www.umitproject.org/"
 license=('GPL')
+groups=('archassault')
 depends=('python2' 'pygtk' 'nmap' 'python2-pysqlite')
 source=("http://downloads.sourceforge.net/$pkgname/$pkgname-$pkgver.tar.bz2"
         'setup.patch')

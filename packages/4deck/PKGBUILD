@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=4deck
 pkgver=0.1
 groups=('archassault' 'archassault-drone' 'archassault-meta-thedeck')

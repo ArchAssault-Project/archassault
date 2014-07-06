@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 _gitname="GDSSecurity"
 pkgname=wifitap
 pkgver=2b16088
@@ -8,7 +9,8 @@ arch=('any')
 url='https://github.com/GDSSecurity/wifitap'
 license=('GPL2')
 depends=('python2' 'scapy')
-optdepends=('pysco2: JIT optimization')
+makedepends=('git')
+optdepends=('pysco2')
 source=("git+https://github.com/GDSSecurity/wifitap.git")
 md5sums=('SKIP')
 

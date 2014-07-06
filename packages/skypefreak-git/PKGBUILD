@@ -1,0 +1,36 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=skypefreak-git
+pkgver=r27.5833699
+pkgrel=1
+pkgdesc="A Forensic Framework for Skype"
+url="https://github.com/OsandaMalith/SkypeFreak"
+arch=('any')
+license=('CUSTOM')
+groups=('archassault')
+depends=('python2')
+makedepends=('git')
+provides=('skypefreak')
+conflicts=('skypefreak')
+replaces=('skypefreak')
+source=(skypefreak-git::git+https://github.com/OsandaMalith/SkypeFreak.git)
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/skypefreak-git"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "$srcdir"/skypefreak-git
+  install -dm755 "$pkgdir"/usr/bin/
+  install -dm755 "$pkgdir"/usr/share/skypefreak-git
+  install -m755 source/SkypeFreak.py "$pkgdir"/usr/share/skypefreak-git/SkypeFreak.py 
+  cat > "$pkgdir"/usr/bin/skypefreak.py <<EOF
+#!/bin/sh
+cd /usr/share/skypefreak-git
+python2 skypefreak.py "\$@"
+EOF
+  chmod +x "$pkgdir"/usr/bin/skypefreak.py
+}
+
+

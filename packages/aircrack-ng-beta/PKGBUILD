@@ -1,26 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
 pkgname=aircrack-ng-beta
 pkgver=1.2
-pkgrel=3
+pkgrel=5
 pkgdesc="A key cracker for the 802.11 WEP and WPA-PSK protocols"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.aircrack-ng.org"
 license=('GPL2')
-depends=('openssl' 'sqlite' 'iw' 'net-tools' 'wireless_tools')
+depends=('openssl' 'sqlite' 'iw' 'net-tools' 'wireless_tools' 'libnl' 'pcre')
 conflicts=('aircrack-ng-scripts')
 replaces=('aircrack-ng-scripts')
 provides=('aircrack-ng-scripts')
-source=("http://download.aircrack-ng.org/aircrack-ng-$pkgver-beta2.tar.gz" "aircrack-ng-beta.desktop")
-md5sums=('f1c0f1d5e7eb063e40e109283599356b'
-         '005640e089a27e0fb6befdb7761d6f76')
+source=("http://download.aircrack-ng.org/aircrack-ng-$pkgver-beta3.tar.gz" "aircrack-ng-beta.desktop")
+sha512sums=('f6d17be10b8277f08d8867b4ced5a89f9de13cc59767958a6c617e583724d0baaafdda6c14ef3c1671cada2a5abdf885b49728910fb64d70a41ace9043b3e372'
+            'a8c4d5ff441ecd42101995d8f4881c49034b54ac5111dad47a35ce8620910f89b4ebceaee74f9026de9a432c0769c67392d12245d62f8b2b6dc0953e41a4b695')
 
 build() {
-  cd "$srcdir/aircrack-ng-$pkgver-beta2"
-  make SQLITE=true UNSTABLE=true
+  cd "$srcdir/aircrack-ng-$pkgver-beta3"
+  make sqlite=true unstable=true libnl=true pcre=true
 }
 
 package() {
-  cd "$srcdir/aircrack-ng-$pkgver-beta2"
+  cd "$srcdir/aircrack-ng-$pkgver-beta3"
   install -Dm644 "$srcdir/aircrack-ng-beta.desktop" "$pkgdir/usr/share/applications/aircrack-ng-beta.desktop"
-  make DESTDIR="$pkgdir" SQLITE=true UNSTABLE=true \
-    bindir=/usr/bin sbindir=/usr/bin mandir=/usr/share/man/man1 install
+  make DESTDIR="$pkgdir" bindir=/usr/bin sbindir=/usr/bin mandir=/usr/share/man/ smandir=/usr/share/man sqlite=true unstable=true libnl=true pcre=true install
 }

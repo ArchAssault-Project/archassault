@@ -1,3 +1,4 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-packetfu
 _gemname=packetfu
 pkgver=1.1.9

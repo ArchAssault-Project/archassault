@@ -1,5 +1,6 @@
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=dex2jar
-pkgver=0.0.9.13
+pkgver=0.0.9.15
 _dlsuffix=
 pkgrel=1
 groups=('archassault' 'archassault-hardware' 'archassault-reversing')
@@ -7,9 +8,9 @@ pkgdesc="A tool for converting Android's .dex format to Java's .class format"
 arch=('any')
 url='http://code.google.com/p/dex2jar'
 license=('Apache')
-depends=('java-runtime')
+depends=('java-environment' 'bash')
 source=("http://dex2jar.googlecode.com/files/dex2jar-$pkgver${_dlsuffix}.zip")
-md5sums=('d7eaf257d877e574b4d4e23e7b63751d')
+sha512sums=('250da1bc2aeda0b632b6bc4e925fdc1b283e3ff99f0d69d5c836cc3746f05b83d11a83209b203d14956112ab662b52641855a7cb0a718ac684929aad771a67a5')
 
 package() {
   cd "$srcdir/dex2jar-$pkgver"
