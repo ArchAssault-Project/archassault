@@ -2,16 +2,13 @@
 pkgbase=viper-git
 pkgname=(viper-git viper-git-docs)
 pkgver=r255.c6768f0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-malware')
 pkgdesc="A Binary analysis framework"
 arch=('any')
 url='https://github.com/botherder/viper'
 license=('custom')
 makedepends=('git' 'python2-sphinx')
-provides=('viper' 'viper-docs')
-conflicts=('viper' 'viper-docs')
-replaces=('viper' 'viper-docs')
 source=("git+https://github.com/botherder/viper.git")
 sha512sums=('SKIP')
 
@@ -28,6 +25,9 @@ pkgver() {
 
 package_viper-git() {
   depends=('python2' 'python2-magic' 'python2-pefile' 'python2-pydeep' 'python2-requests' 'python2-sqlalchemy' 'python2-crypto' 'python2-beautifulsoup4' 'python2-olefileio_pl')
+  provides=('viper')
+  conflicts=('viper')
+  replaces=('viper')
   cd "$srcdir/viper"
   install -dm755 "$pkgdir/usr/share/viper"
   install -dm755 "$pkgdir/usr/share/viper/data"
@@ -68,6 +68,9 @@ chmod +x "$pkgdir/usr/bin/viper"
 }
 
 package_viper-git-docs(){
+  provides=('viper-docs')
+  conflicts=('viper-docs')
+  replaces=('viper-docs')
   makedepends=('python2-sphinx')
   pkgdesc="Viper documentation"
   cd "$srcdir/viper/docs"
