@@ -1,15 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=p0f
 pkgver=3.07b
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-sniffers' 'archassault-fingerprinting')
 pkgdesc="Purely passive TCP/IP traffic fingerprintinging tool "
 url='http://lcamtuf.coredump.cx/p0f3/'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL3')
 depends=('libpcap')
-source=("http://lcamtuf.coredump.cx/p0f3/releases/p0f-$pkgver.tgz")
-sha512sums=('79dd0637015055a5bf1f017ea3ae9d5b916c4299df0b364450ffb4a9d736c95a27a2874ac537cfcaec5e588fd507891ee7012d6d41459c6dd68638efc1a708da')
+source=("http://lcamtuf.coredump.cx/p0f3/releases/p0f-$pkgver.tgz" "cflags.patch")
+sha512sums=('79dd0637015055a5bf1f017ea3ae9d5b916c4299df0b364450ffb4a9d736c95a27a2874ac537cfcaec5e588fd507891ee7012d6d41459c6dd68638efc1a708da'
+            'a654849033b9d5982a047ad663c59af5e02278b2f847c2bc50cef2dcd7fa768dca109782679f15a54e8040cd6b3c65a769a98b98b7ee00f12f497ff2ee708e4c')
 
 # Additional tools: p0f-client & p0f-sendsyn
 _p0ftools=true
@@ -18,7 +19,9 @@ _p0ftools6=true
 
 prepare() {
   cd "${srcdir}/p0f-${pkgver}"
-
+  cd tools
+  patch  -i $srcdir/cflags.patch
+  cd ../
   sed -e 's/\/usr\/local\/include\//\/usr\/include\//g' -i build.sh
   sed -e 's/\/usr\/local\/lib\//\/usr\/lib\//g' -i build.sh
   sed -e 's/"p0f.fp"/"\/etc\/p0f\/p0f.fp"/g' -i config.h
@@ -26,8 +29,8 @@ prepare() {
 
 build() {
   cd "${srcdir}/p0f-${pkgver}"
+  export CFLAGS="$CFLAGS -Wcpp -O -fPIC"
 
-  export CFLAGS="$CFLAGS -fPIC"
   make
 
   # Additional tools.
