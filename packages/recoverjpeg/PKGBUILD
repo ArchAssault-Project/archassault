@@ -1,17 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=recoverjpeg
-pkgver=2.2.2
+pkgver=2.3
 pkgrel=1
 groups=('archassault' 'archassault-forensic')
 pkgdesc="Recover jpegs from damaged devices"
 url='http://www.rfc1149.net/devel/recoverjpeg'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
-depends=('glibc')
+depends=('bash' 'python')
 optdepends=('libexif: needed for sort-pictures'
 'imagemagick: needed for sort-pictures')
 source=(http://www.rfc1149.net/download/recoverjpeg/recoverjpeg-$pkgver.tar.gz)
-md5sums=('05557b419e805e53e9e369c76d2e679e')
+sha512sums=('063c2bab1a5d1fa31f15c1a3b8d631564c5deecb6505d2154915997a6d111b8a056e3a76ff50dc0548d4d2ce1ccee9b10bd51d856e4d12a0807c59044c9f8fa0')
 
 build() {
   cd $srcdir/recoverjpeg-$pkgver

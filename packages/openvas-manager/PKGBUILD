@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: B00ker
 pkgname=openvas-manager
-pkgver=5.0
+pkgver=5.0.2
 pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The OpenVAS Manager is a layer between the OpenVAS Scanner and various client applications"
@@ -11,21 +11,21 @@ license=('GPL')
 provides=(openvas-administrator)
 conflicts=(openvas-administrator)
 replaces=(openvas-administratory)
-depends=('glib2' 'openvas-libraries')
-makedepends=('cmake' 'doxygen' 'sqlite3' 'xmltoman' 'gnutls')
+depends=('glib2' 'openvas-libraries' 'sqlite' 'libassuan')
+makedepends=('cmake' 'doxygen' 'graphviz' 'sqlite3' 'xmltoman' 'gnutls' 'libxslt')
 options=('!makeflags !buildflags')
 # Needs to be full path to file 
-source=('http://wald.intevation.org/frs/download.php/1576/openvas-manager-5.0+beta10.tar.gz')
-sha512sums=('cf85f2aec73d6bd4deb778280a9cbf969a24eabd6614300350bf2ba1a8cc5dfc1f833e2ca969506f1116877760f483cfec25146490017193350b9a79c2470f92')
+source=("http://wald.intevation.org/frs/download.php/1667/openvas-manager-$pkgver.tar.gz")
+sha512sums=('a066ad51507527a0cfa3af6637e5f65e2e2073ff273b452321fd1373304c2509c9d76c5354c3d33e14dd086773d20fc2b0c0f2c41dd0d366d8872314ab8cb059')
 
 prepare() {
-  cd "$srcdir/openvas-manager-$pkgver+beta10"
+  cd "$srcdir/openvas-manager-$pkgver"
 
   find . -name 'CMakeLists.txt' -exec sed -i 's/-Werror//' {} \;
 }
 
 build() {
-  cd "$srcdir/openvas-manager-$pkgver+beta10"
+  cd "$srcdir/openvas-manager-$pkgver"
 
   cmake -DSBINDIR=/usr/bin -DCMAKE_INSTALL_PREFIX=/usr -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make
@@ -33,7 +33,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir/openvas-manager-$pkgver+beta10"
+  cd "$srcdir/openvas-manager-$pkgver"
 
   make DESTDIR="$pkgdir/" install
 }

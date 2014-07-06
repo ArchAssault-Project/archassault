@@ -8,7 +8,7 @@ url=http://www.microchip.com/mplabx
 license=(custom)
 depends=(gtk2 alsa-lib libxslt libxtst desktop-file-utils)
 makedepends=(fakechroot)
-[ $CARCH = x86_64 ] && depends+=(lib32-glibc lib32-fakeroot)
+[[ $CARCH = x86_64 ]] && depends+=(lib32-glibc lib32-fakeroot)
 optdepends=('microchip-mplabxc8-bin: C compiler for PIC10 PIC12 PIC16 PIC18 MCUs'
             'microchip-mplabxc16-bin: C compiler for PIC24 MCUs and dsPIC DSCs'
             'microchip-mplabxc32-bin: C Compiler for PIC32 MCUs'
@@ -22,11 +22,11 @@ instdir=/opt/microchip/mplabx
 installer=MPLABX-v$pkgver-linux-installer.run
 source=(http://ww1.microchip.com/downloads/en/DeviceDoc/$installer
         LICENSE)
-[ $CARCH = x86_64 ] && source+=(fakechroot-i686.pkg.tar.xz::http://www.archlinux.org/packages/extra/i686/fakechroot/download/)
+[[ $CARCH = x86_64 ]] && source+=(fakechroot-i686.pkg.tar.xz::http://www.archlinux.org/packages/extra/i686/fakechroot/download/)
 
 md5sums=(59ec70cd4cc810fb8c873593c29ef51c
          a34a85b2600a26f1c558bcd14c2444bd)
-[ $CARCH = x86_64 ] && md5sums+=(92b9a1dc8fa0534048790731a7bf2fc5)
+[[ $CARCH = x86_64 ]] && md5sums+=(92b9a1dc8fa0534048790731a7bf2fc5)
 
 package() {
   cd $srcdir

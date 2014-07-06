@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=aiengine
 pkgver=0.7
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking')
 pkgdesc="A packet inspection engine with capabilities of learning without any human intervention."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://bitbucket.org/camp0/aiengine"
 license=('GPL3')
-if [ $CARCH == 'x86_64' ]; then
+if [[ $CARCH == 'x86_64' ]]; then
      makedepends=('boost' 'python2' 'gcc-libs-multilib')
 else 
      makedepends=('boost' 'python2' 'gcc-libs')

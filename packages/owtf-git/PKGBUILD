@@ -19,7 +19,7 @@ options=('!strip')
 provides=('owtf')
 replaces=('owtf')
 conflicts=('owtf')
-source=("git+https://github.com/7a/owtf" "LICENSE")
+source=("git+https://github.com/owtf/owtf" "LICENSE")
 sha512sums=('SKIP'
             '9a46df3e73cb5bfd87b266d591010497368e9d1e2980c3f7c0fbbe7832a37db62fba3f6b72015b9e577f0080073536f5b6a1dfa05316bcc9c4697f34a9f5dc7c')
 

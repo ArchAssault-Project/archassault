@@ -1,32 +1,32 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-scanner
-pkgver=4.0
+pkgver=4.0.1
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The OpenVAS scanning Daemon"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
-depends=('glib2' 'openvas-libraries')
+depends=('glib2' 'openvas-libraries' 'libassuan')
 makedepends=('cmake')
 options=('!makeflags !buildflags')
 # The file downloaded is determined by the `/1307/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
-source=('http://wald.intevation.org/frs/download.php/1584/openvas-scanner-4.0+beta8.tar.gz'
+source=("http://wald.intevation.org/frs/download.php/1640/openvas-scanner-$pkgver.tar.gz"
         'openvas-scanner.service')
-sha512sums=('17bf0dd7240bb1a7e28c106462851729e407210d1067fb5581246966fafe1cc83d46b3e066518a365216208206c8bca0e012984c54834de54489dbc7f8b92ea1'
+sha512sums=('97b476e27e8fcce7060f8b9b0606ac232705e3dd1c4f380f679eeed31f7465d1031593ea08103d897f334efc7f8f3edc3da8142d9762b62a6d09d8c5f2033433'
             '9e419a8807682fb48a4621448b941a0b597b4d86d26cacecde69c2fe084c7aedccb775d656cf4cd1693f8fbbf812c08c00fe89d2dfd83ed37ce361eb467405f0')
 
 build() {
-  cd "$srcdir/openvas-scanner-$pkgver+beta8"
+  cd "$srcdir/openvas-scanner-$pkgver"
 
   cmake -DSBINDIR=/usr/bin -DCMAKE_INSTALL_PREFIX=/usr -DSYSCONFDIR=/etc -DLOCALSTATEDIR=/var .
   make
 }
 
 package() {
-  cd "$srcdir/openvas-scanner-$pkgver+beta8"
+  cd "$srcdir/openvas-scanner-$pkgver"
 
   make DESTDIR="$pkgdir/" install
   install -Dm644 "$srcdir/openvas-scanner.service" "$pkgdir/usr/lib/systemd/system/openvas-scanner.service"

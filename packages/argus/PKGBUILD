@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=argus
 pkgver=3.0.6.1
-pkgrel=3
+pkgrel=4
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
 pkgdesc="Network monitoring tool with flow control"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -13,7 +13,7 @@ sha512sums=('449bcad07bcc7afe7b2397a84ac604b75beb08b1efa14a4b431d660d9f12299d182
 
 build() {
   cd $srcdir/argus-$pkgver
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --mandir=/usr/share/man --docdir=/usr/share/doc/argus --pdfdir=/usr/share/argus/pdf --with-sasl
+  ./configure --prefix=/usr --sbindir=/usr/bin --sysconfdir=/etc --localstatedir=/var --mandir=/usr/share/man --docdir=/usr/share/doc/argus --pdfdir=/usr/share/argus/pdf --with-sasl
   make
 }
 

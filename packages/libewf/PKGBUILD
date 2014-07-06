@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=libewf
-pkgver=20140427
+pkgver=20140608
 pkgrel=1
 groups=('archassault' 'archassault-forensic')
 pkgdesc="A library for support of the Expert Witness Compression Format (EWF)"
@@ -10,7 +10,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('util-linux' 'openssl' 'bzip2')
 options=(!libtool)
 source=("https://github.com/ArchAssault-Project/libewf/archive/v.$pkgver.zip")
-sha512sums=('21b1136b0cc40125629362461eb39d0f62e6a0186f30650cb3715c0b0cf01d0896211726cc8119f17b2f7b6f035680fa2fb614b7c2d60fbf4104e540a0c70125')
+sha512sums=('d16d6fb2b73a5950ff951aa0fefca8b30f77fb35c5cc25f2f73d4cd796dd293477f84049ea79856bff7104a931ff4c32fe05119ba519edf3dd338b949f0b1385')
 
 build() {
   cd "$srcdir/libewf-v.$pkgver"

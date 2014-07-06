@@ -1,17 +1,24 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Prurigro
+
 pkgname=nishang
 pkgver=0.3.5
-pkgrel=1
-groups=('archassault' 'archassault-windows')
-pkgdesc="Using PowerShell for Penetration Testing"
-url="https://code.google.com/p/nishang/"
-arch=('any')
+pkgrel=2
+pkgdesc="A PowerShell framework and collection of scripts and payloads for offensive security and pentesting"
+url="https://github.com/samratashok/${pkgname}"
 license=('GPL3')
-source=("https://github.com/samratashok/nishang/archive/v$pkgver.zip")
-sha512sums=('8b2b433c9e3ae1c02ec6bf5a69f495e59649fd476089a5bf96e82a66757575317b50dcaf8a73b3e833840ac37a02e1fe2514921fed5434686dec14a9df53666c')
+arch=('any')
+groups=('archassault' 'archassault-windows')
+source=("https://github.com/samratashok/${pkgname}/archive/v${pkgver}.zip"
+        "${pkgname}.7")
+sha512sums=('8b2b433c9e3ae1c02ec6bf5a69f495e59649fd476089a5bf96e82a66757575317b50dcaf8a73b3e833840ac37a02e1fe2514921fed5434686dec14a9df53666c'
+            'd36d8227a0885c588212fc8457baca7b8ae99bae0a8a3ce7b847dd8ccbc663ac74fd1dff226e5492fa50504b5e61ca9bd3523a1b6e31719223a1f674f938eb7c')
 
 package() {
-  cd "$srcdir/nishang-$pkgver"
-  install -dm755 "$pkgdir/usr/share/nishang"
-  cp -ar --no-preserve=ownership * "$pkgdir/usr/share/nishang"
+    install -Dm644 ${pkgname}.7 "${pkgdir}/usr/share/man/man7/${pkgname}.7"
+    cd ${pkgname}-${pkgver}
+    install -dm755 "${pkgdir}/usr/share/${pkgname}"
+    cp -ar --no-preserve=ownership * "${pkgdir}/usr/share/${pkgname}"
+    rm "${pkgdir}/usr/share/${pkgname}/README.md"
+    rm "${pkgdir}/usr/share/${pkgname}/CHANGELOG.txt"
 }
