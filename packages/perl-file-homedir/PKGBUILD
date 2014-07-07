@@ -1,4 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=perl-file-homedir
 _cpanname=File-HomeDir
 pkgver=1.00
@@ -9,9 +10,9 @@ license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl-file-which')
 makedepends=()
-url="https://metacpan.org/release/$_cpanname"
-source=("http://cpan.metacpan.org/authors/id/A/AD/ADAMK/$_cpanname-$pkgver.tar.gz")
-md5sums=('aa290cab9db52e2f76280fd1febf794e')
+url="http://search.cpan.org/dist/File-HomeDir/"
+source=("http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/$_cpanname-$pkgver.tar.gz")
+sha512sums=('e033b9a60583a76e7b270b99bc113b5dfd616853e7a9e05c34e03bff3cabfa15f8e50a84a932dfb6ed7c2df0aceba3d0c16cd99e08d82a02c9fbe3747af7e994')
 
 build() {
   cd "$srcdir/$_cpanname-$pkgver"
