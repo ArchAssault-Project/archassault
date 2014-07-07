@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=peda-git
-pkgver=r45.d0bd978
+pkgver=r47.f231d75
 pkgrel=1
 groups=('archassault' 'archassault-exploits')
 pkgdesc="A Python Exploit Development Assistant for GDB"
