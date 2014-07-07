@@ -1,14 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=libnacl
-arch=(i686 x86_64)
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 pkgver=20110221
-pkgrel=2
+pkgrel=3
 pkgdesc="NaCl (pronounced 'salt') Networking and Cryptography library (works with pynacl)"
 url="http://nacl.cace-project.eu/"
 license=('Public Domain')
-options=('staticlibs')
 source=(http://hyperelliptic.org/nacl/nacl-${pkgver}.tar.bz2)
-md5sums=('7efb5715561c3d10dafd3fa97b4f2d20')
+sha512sums=('4c031ceffe6a28dc74b46ac003d485531f78de467c802df73c8b22ca53644dabb7d2e3080b7bdd6583f0d07ad76b6d95bc0ffdce319ca2f80ee041e6fe618656')
+options=('staticlibs')
 
 build() {
   cd "$srcdir/nacl-${pkgver}"
@@ -28,17 +29,22 @@ EOF
   # Remove the tests and some problematic directories
   # The assembly implementations are nice, but aren't position independent so we can't use them
   rm -rf tests
-  rm -rf cryptography_onetimeauth/poly1305/amd64
-  rm -rf cryptography_onetimeauth/poly1305/x86
-  rm -rf cryptography_stream/salsa20*/*xmm*
+  rm -rf crypto_onetimeauth/poly1305/amd64
+  rm -rf crypto_onetimeauth/poly1305/x86
+  rm -rf crypto_stream/salsa20*/*xmm*
 
   msg "This will take some time. Go get a coffee or something ;-)"
   ./do
 
-  shost=`hostname | sed 's/\..*//' | tr -cd '[a-z][A-Z][0-9]'`
+}
 
-  install -Dm 644 build/$shost/lib/*/libnacl.a "${pkgdir}/usr/lib/libnacl.a"
-  install -Dm 644 build/$shost/lib/*/randombytes.o "${pkgdir}/usr/lib/randombytes.o"
+package() {
+  cd "$srcdir/nacl-${pkgver}"
+
+  shost=`hostname | sed 's/\..*//' | tr -cd '[a-z][A-Z][0-9]'`
+  
+  install -D -m 644 build/$shost/lib/*/libnacl.a "${pkgdir}/usr/lib/libnacl.a"
+  install -D -m 644 build/$shost/lib/*/randombytes.o "${pkgdir}/usr/lib/randombytes.o"
 
   install -d "${pkgdir}/usr/include/nacl"
   install -t "${pkgdir}/usr/include/nacl" build/$shost/include/*/*
