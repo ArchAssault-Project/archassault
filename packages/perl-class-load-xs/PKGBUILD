@@ -1,9 +1,10 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=perl-class-load-xs
-_lastauthor=D/DR/DROLSKY
+_lastauthor=E/ET/ETHER
 _pkgname=Class-Load-XS
-pkgver=0.06
-pkgrel=4
+pkgver=0.08
+pkgrel=2
 pkgdesc="XS implementation of parts of Class::Load"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('PerlArtistic2')
@@ -12,26 +13,23 @@ depends=('perl-class-load')
 checkdepends=('perl-test-requires' 'perl-test-without-module')
 url="http://search.cpan.org/dist/${_pkgname}/"
 source=(http://search.cpan.org/CPAN/authors/id/${_lastauthor}/${_pkgname}-${pkgver}.tar.gz)
-sha256sums=('338232719c6646e4d411954feb30b3db5bb5b024a277fc644e5270676d1a87b6')
+sha512sums=('ee0a8a9ee031906f1b388bc564e1ac00703e2cfecb745d83f640d46b7bfd708ad38f199029a8292767169521ab130be5c6db8888382758025b94429ac5d3db5d')
 
 build() {
-  cd "${srcdir}/${_pkgname}-${pkgver}"
-
   export PERL_MM_USE_DEFAULT=1 PERL_AUTOINSTALL="--skipdeps" \
     PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'" \
     PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
     MODULEBUILDRC=/dev/null
 
-  perl Build.PL
-  perl Build
+  cd "${srcdir}/${_pkgname}-${pkgver}"
+  perl Makefile.PL
+  make
 }
 check() {
   cd "${srcdir}/${_pkgname}-${pkgver}"
-
-  perl Build test
+  make test
 }
 package() {
   cd "${srcdir}/${_pkgname}-${pkgver}"
-
-  perl Build install
+  make install
 }
