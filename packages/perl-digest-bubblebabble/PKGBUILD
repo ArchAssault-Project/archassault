@@ -1,16 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=perl-digest-bubblebabble
+_pkgname=Digest-BubbleBabble
 pkgver=0.02
 pkgrel=5
-pkgdesc="Create bubble-babble fingerprintings"
+pkgdesc="Create bubble-babble fingerprints"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl>=5.8.1')
 url='http://search.cpan.org/dist/Digest-BubbleBabble'
-source=('http://search.cpan.org/CPAN/authors/id/B/BT/BTROTT/Digest-BubbleBabble-0.02.tar.gz')
+source=("http://search.cpan.org/CPAN/authors/id/B/BT/BTROTT/${_pkgname}-${pkgver}.tar.gz")
 md5sums=('4d7edd5b0a904db8194aa660d502fbe0')
-_distdir="Digest-BubbleBabble-0.02"
+sha512sums=('7f5d7519184eed07e3b3ce302b7dd10980acf34af91f7ec8a317c2b7faf4a8a35dd4dadecf643c611456554ae7bfa82699afd80af195e801502047b243653ed5')
+_distdir="${_pkgname}-${pkgver}"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
