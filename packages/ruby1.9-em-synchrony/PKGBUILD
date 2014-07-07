@@ -4,7 +4,7 @@
 _gemname=em-synchrony
 pkgname=ruby1.9-$_gemname
 pkgver=1.0.3
-pkgrel=1
+pkgrel=3
 pkgdesc='Fiber aware EventMachine libraries'
 arch=(any)
 url='http://github.com/igrigorik/em-synchrony'
