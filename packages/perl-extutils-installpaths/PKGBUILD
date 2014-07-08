@@ -1,18 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname='perl-extutils-installpaths'
 _pkgname='ExtUtils-InstallPaths'
-pkgver=0.009
-pkgrel=3
+pkgver=0.010
+pkgrel=1
 pkgdesc="ExtUtils::InstallPaths - Build.PL install path logic made easy"
 arch=(any)
-license=('perl')
+license=('PerlArtistic' 'GPL')
 url="http://search.cpan.org/dist/ExtUtils-InstallPaths/"
 options=(!emptydirs)
 depends=('perl>=5.10.1' 'perl-extutils-config>=0.002')
 makedepends=('perl')
 provides=("extutils-installpaths=${pkgver}" "ExtUtils::InstallPaths=${pkgver}" "perl-extutils-installpaths=${pkgver}")
 source=("http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/${_pkgname}-${pkgver}.tar.gz")
-md5sums=('6136200e7569dc6d225a074f04530f16')
+sha512sums=('3639e8e05b2d59d1a5c4548d74e51158ce6e6b2260d2958f5500b7bb2f64470b72b8b9690e3ec917ff6db8baf0a81038178336bccbc272116e16b520cac73f0f')
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

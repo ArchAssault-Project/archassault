@@ -1,24 +1,35 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname=md5deep
-pkgver=4.3
+pkgver=4.4
 pkgrel=1
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64')
 groups=('archassault' 'archassault-forensic')
 pkgdesc="Advanced checksum hashing tool"
-url='http://md5deep.sourceforge.net'
-license=('custom')
-source=("http://downloads.sourceforge.net/md5deep/md5deep-$pkgver.tar.gz")
-md5sums=('f172e686ca1df83a53308ad90f7f706d')
+url="https://github.com/jessek/hashdeep"
+license=('Public Domain' 'GPL')
+if [ $CARCH == 'x86_64' ]; then
+     depends=('gcc-libs-multilib' 'glibc')
+else
+     depends=('gcc-libs' 'glibc')
+fi
+source=("https://github.com/jessek/hashdeep/archive/release-$pkgver.tar.gz")
+sha512sums=('c37ec85ed04d4452f9038f43434c02e064cf9e17c4eaa233867dba0236443922a14ccb8ec76c68820087751c2ca3db014d3f17dd8fcd2c2bde84d620aae50de1')
+
 
 build() {
-  cd "$srcdir/md5deep-$pkgver"
+  cd "$srcdir/hashdeep-release-$pkgver"
+  
+  sh ./bootstrap.sh
 
   ./configure --prefix=/usr
+
   make
 }
 
 package() {
-  cd "$srcdir/md5deep-$pkgver"
+  cd "$srcdir/hashdeep-release-$pkgver"
 
-  make "DESTDIR=$pkgdir" install
+  make DESTDIR=$pkgdir install
+  install -D -m644 "$srcdir/hashdeep-release-$pkgver/COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
