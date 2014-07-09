@@ -3,7 +3,7 @@
 # Contributor: Tyler Bennett <arch3y archassault org>
 # Contributor: Pierre Schmitz <pierre@archlinux.de>
 pkgname=archassault-keyring
-pkgver=20140316
+pkgver=20140708
 pkgrel=1
 pkgdesc='The ArchAssault Projects PGP keyring'
 arch=('any')
