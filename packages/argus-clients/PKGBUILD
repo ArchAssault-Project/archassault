@@ -1,4 +1,4 @@
-# Maintainer: ArchAssault <team archassault org>
+# Maintainer: ArchAssault <team@archassault.org>
 pkgname=argus-clients
 pkgver=3.0.6.2
 pkgrel=2
