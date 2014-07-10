@@ -3,7 +3,7 @@
 pkgname='perl-test-checkdeps'
 _pkgname='Test-CheckDeps'
 pkgver='0.010'
-pkgrel=1
+pkgrel=2
 pkgdesc="Check for presence of dependencies"
 arch=('any')
 license=('PerlArtistic' 'GPL')
