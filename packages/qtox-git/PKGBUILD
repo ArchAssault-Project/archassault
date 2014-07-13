@@ -15,7 +15,7 @@ conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
 
-source=("${pkgname%-git}::git+https://github.com/tux3/qTox.git"
+source=("${_pkgname}::git+https://github.com/tux3/qTox.git"
         "${_pkgname}.desktop")
 sha512sums=('SKIP'
             '844aeb51d3af84bb0a484cf3a6e63ff7cc5698d9ebceff53c485feea70f5b06ec89e0590d364b5e5431ec29539453c8e4e9b06fc7bf1ca41bbb2325a2c1274dc')
