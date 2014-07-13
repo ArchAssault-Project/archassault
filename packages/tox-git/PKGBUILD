@@ -13,9 +13,11 @@ license=('GPL3')
 depends=('libsodium' 'opus' 'libvpx')
 makedepends=('git')
 optdepends=('qtox-git: qt-based frontend'
-            'venom-git: gtk/vala-based frontend')
-conflicts=("${_pkgname}")
-provides=("${_pkgname}")
+            'venom-git: gtk/vala-based frontend'
+            'toxic-git: ncurses-based frontend')
+conflicts=("$_pkgname")
+provides=("$_pkgname")
+replaces=("$_pkgname")
 
 source=("${pkgname}::git://github.com/irungentoo/${_pkgname}core.git")
 sha512sums=('SKIP')
