@@ -7,7 +7,7 @@
 
 pkgname=knockd-git
 _pkgname=knock
-pkgver=r27.7ce33cd
+pkgver=r31.8eaef23
 pkgrel=1
 pkgdesc="A simple port-knocking daemon and client"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
