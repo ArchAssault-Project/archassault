@@ -3,12 +3,12 @@
 
 pkgname=gqrx
 pkgver=2.2.1
-pkgrel=3
+pkgrel=4
 pkgdesc="SDR receiver for Funcube Dongle, RTL-SDR, USRP and OsmoSDR devices"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://gqrx.dk/"
 license=('GPL')
-depends=('qt5-svg' 'libpulse' 'gr-osmosdr')
+depends=('qt5-svg' 'libpulse' 'gnuradio-osmosdr')
 makedepends=('boost' 'git')
 install='gqrx.install'
 #source=("$pkgname-$pkgver.tar.gz::https://codeload.github.com/csete/gqrx/tar.gz/v$pkgver" "${pkgname}.png" "${pkgname}.desktop")
