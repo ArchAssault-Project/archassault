@@ -1,0 +1,59 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=mitmf-git
+pkgver=r79.0f78e0c
+pkgrel=1
+groups=('archassault' 'archassault-proxy' 'archassault-spoof')
+pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
+arch=('any')
+url='https://github.com/byt3bl33d3r/MITMf'
+license=('GPL3')
+depends=('python2' 'python2-twisted' 'python2-msgpack' 'python2-requests' 'scapy' 'capstone' 'python2-pefile')
+makedepends=('git')
+provides=('mitmf')
+replaces=('mitmf')
+conflicts=('mitmf')
+source=("mitmf::git+https://github.com/byt3bl33d3r/MITMf.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/mitmf"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+
+prepare(){
+  grep -iRl 'python' "$srcdir/mitmf" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  cd "$srcdir/mitmf"
+  git submodule init
+  git submodule update
+}
+
+package() {
+  cd "$srcdir/mitmf"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/mitmf/app_cache_poison"
+  install -dm755 "$pkgdir/usr/share/mitmf/app_cache_poison/templates"
+  install -dm755 "$pkgdir/usr/share/mitmf/plugins"
+  install -dm755 "$pkgdir/usr/share/mitmf/sslstrip"
+  install -dm755 "$pkgdir/usr/share/mitmf/bdfactory"
+  grep -iRl 'python' "$srcdir/mitmf/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  cp -a --no-preserve=ownership bdfactory/* "$pkgdir/usr/share/mitmf/bdfactory/"
+  for i in `find app_cache_poison -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/app_cache_poison/$i" ;done
+  install -Dm644 plugins/* "$pkgdir/usr/share/mitmf/plugins/"
+  install -Dm644 sslstrip/* "$pkgdir/usr/share/mitmf/sslstrip/"
+  install -Dm644 README.md "$pkgdir/usr/share/mitmf/"
+  install -Dm644 app_cache_poison/templates/* "$pkgdir/usr/share/mitmf/app_cache_poison/templates/"
+  install -Dm755 *.py "$pkgdir/usr/share/mitmf/"
+  install -Dm644 *.ico "$pkgdir/usr/share/mitmf/"
+  install -Dm644 *.cfg "$pkgdir/usr/share/mitmf/"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+cat > "$pkgdir/usr/bin/mitmf" <<EOF
+#!/bin/sh
+cd /usr/share/mitmf
+python2 mitmf.py "\$@"
+EOF
+
+chmod +x "$pkgdir/usr/bin/mitmf"
+
+}
