@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=dnsbrute-git
-pkgver=0.r2.c00ec0a
+pkgver=0.r2.b1dc84a
 pkgrel=1
 groups=('archassault' 'archassault-dns')
 pkgdesc="Multi theaded DNS bruteforcing"
