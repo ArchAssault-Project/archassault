@@ -1,6 +1,6 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=automator-git
-pkgver=r25.9a02df6
+pkgver=r36.922b6a0
 pkgrel=1
 groups=('archassault' 'archassault-forensics')
 pkgdesc=" IP URL and MD5 OSINT Analysis"
