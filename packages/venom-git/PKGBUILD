@@ -4,7 +4,7 @@
 
 _pkgname=venom
 pkgname=${_pkgname}-git
-pkgver=r598.9b5c916
+pkgver=r601.92ae06d
 pkgrel=1
 epoch=1
 pkgdesc="A Vala/Gtk+ graphical user interface for Tox"
