@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=umap-git
-pkgver=r20.34230e6
+pkgver=r22.b83bf8d
 pkgrel=1
 pkgdesc="The USB host security assessment tool"
 url="https://github.com/nccgroup/umap"
