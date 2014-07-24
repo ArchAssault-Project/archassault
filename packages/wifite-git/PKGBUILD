@@ -9,6 +9,7 @@ arch=('any')
 url="https://github.com/derv82/${_pkgname}"
 license=('GPL')
 depends=('python2' 'aircrack-ng' 'net-tools' 'wireless_tools' 'which' 'iw')
+makedepends=('git')
 optdepends=('reaver: scan and attack WPS-enabled routers'
             'wireshark-cli: packet sniffing support'
             'cowpatty: handshake detection support')
