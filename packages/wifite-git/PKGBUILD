@@ -1,25 +1,33 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=wifite
-pkgver=2
+_pkgname=wifite
+pkgname=${_pkgname}-git
+pkgver=20130817.r122.a6535c5
 pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="A tool to attack multiple WEP and WPA encrypted networks at the same time"
 arch=('any')
-url='http://code.google.com/p/wifite/'
+url="https://github.com/derv82/${_pkgname}"
 license=('GPL')
-depends=(python2 aircrack-ng reaver)
-optdepends=('wireshark-cli: Handshake observation'
-            'pyrit: WPA/WPA2-PSK attacking with gpu and cluster'
-            'cowpatty: Handshake cracking')
-source=("http://wifite.googlecode.com/svn/trunk/wifite.py")
-md5sums=('732a9bc37d7eb95844dedd895efdc5e1')
+depends=('python2' 'aircrack-ng' 'net-tools' 'wireless_tools' 'which' 'iw')
+optdepends=('reaver: scan and attack WPS-enabled routers'
+            'wireshark-cli: packet sniffing support'
+            'cowpatty: handshake detection support')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+replaces=("$_pkgname")
+
+source=("git+https://github.com/derv82/${_pkgname}.git")
+sha512sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 
 prepare() {
-  cd "$srcdir"
-  sed -i "s#/usr/bin/python#/usr/bin/python2#g" "wifite.py"
+    sed -i 's|/usr/bin/python|/usr/bin/python2|g' ${_pkgname}/${_pkgname}.py
 }
 
 package() {
-  cd "$srcdir"
-  install -Dm755 "wifite.py" "$pkgdir/usr/bin/wifite"
+    install -Dm755 ${_pkgname}/${_pkgname}.py "${pkgdir}/usr/bin/${_pkgname}"
 }
