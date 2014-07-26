@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=r90.c026047
+pkgver=r99.acdbb03
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
@@ -31,21 +31,22 @@ prepare(){
 package() {
   cd "$srcdir/mitmf"
   install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/mitmf/app_cache_poison"
-  install -dm755 "$pkgdir/usr/share/mitmf/app_cache_poison/templates"
+  install -dm755 "$pkgdir/usr/share/mitmf/libs"
+  install -dm755 "$pkgdir/usr/share/mitmf/config_files"
+  install -dm755 "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
   install -dm755 "$pkgdir/usr/share/mitmf/plugins"
   install -dm755 "$pkgdir/usr/share/mitmf/sslstrip"
   install -dm755 "$pkgdir/usr/share/mitmf/bdfactory"
   grep -iRl 'python' "$srcdir/mitmf/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
   cp -a --no-preserve=ownership bdfactory/* "$pkgdir/usr/share/mitmf/bdfactory/"
-  for i in `find app_cache_poison -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/app_cache_poison/$i" ;done
+  for i in `find config_files/ -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/config_files/$i" ;done
   install -Dm644 plugins/* "$pkgdir/usr/share/mitmf/plugins/"
   install -Dm644 sslstrip/* "$pkgdir/usr/share/mitmf/sslstrip/"
+  install -Dm644 libs/* "$pkgdir/usr/share/mitmf/libs/"
   install -Dm644 README.md "$pkgdir/usr/share/mitmf/"
-  install -Dm644 app_cache_poison/templates/* "$pkgdir/usr/share/mitmf/app_cache_poison/templates/"
+  install -Dm644 config_files/app_cache_poison_templates/* "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
   install -Dm755 *.py "$pkgdir/usr/share/mitmf/"
   install -Dm644 *.ico "$pkgdir/usr/share/mitmf/"
-  install -Dm644 *.cfg "$pkgdir/usr/share/mitmf/"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
 cat > "$pkgdir/usr/bin/mitmf" <<EOF
