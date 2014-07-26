@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=sslsplit-git
-pkgver=r168.3226d9b
+pkgver=r169.47c409c
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A tool for man-in-the-middle attacks against SSL/TLS encrypted network connections."
@@ -30,4 +30,5 @@ build(){
 package() {
   cd "$srcdir/sslsplit"
   make install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
