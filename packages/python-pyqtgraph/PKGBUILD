@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor:  Windel Bouwman <windel at windel dot nl>
+# Contributor: Jakub Klinkovský <kuba.klinkovsky@gmail.com>
+
+pkgname=python-pyqtgraph
+_pkgname=pyqtgraph
+pkgver=0.9.8
+pkgrel=1
+pkgdesc="Scientific Graphics and GUI Library for Python"
+arch=('any')
+license='MIT'
+url="http://www.pyqtgraph.org/"
+depends=('python' 'python-pyqt4' 'python-numpy' 'python-scipy')
+optdepends=('python-opengl')
+makedepends=('python-setuptools')
+source=("http://www.pyqtgraph.org/downloads/pyqtgraph-${pkgver}.tar.gz")
+sha512sums=('66c578fec00bb3fef791bcdaedfc420b7049d1346a5132b7a016d0d016e886381f4e38fe1c39ab4499df50d1cf4f19ef8bfc52ddf20bba8a928a7bf3b5f21e10')
+
+package() {
+  cd "$srcdir/$_pkgname-$pkgver"
+  python setup.py install --prefix=/usr --root="$pkgdir" --optimize 1
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
+}
