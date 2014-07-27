@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=eh
-pkgver=1.1.0
+pkgver=1.3.1
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="Extracts hosts (IP/Hostnames) from files"
@@ -11,7 +11,7 @@ depends=('python2')
 makedepends=('python2-setuptools')
 provides=('extracthosts')
 source=("https://github.com/bwall/ExtractHosts/archive/v$pkgver.tar.gz")
-md5sums=('5a137dd0ff91fdd7ed005ae13eb21a4a')
+sha512sums=('a462892edf93cd97b3bc207f72cb5af6411e9c27054744008139ee40d56d05816e552ec113eec97d02eee6fb97735debe1311fe92b5cfc37530eced27e6e9adc')
 
 
 package() {
