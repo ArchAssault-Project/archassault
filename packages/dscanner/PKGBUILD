@@ -1,17 +1,15 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dscanner
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 epoch=1
 pkgdesc="Swiss-army knife for D source code"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Hackerpilot/Dscanner"
 license=('custom')
-groups=('archassault')
 depends=('glibc')
 makedepends=('libphobos-devel' 'dmd')
 provides=('dscanner-git')
-replaces=('dscanner-git')
 conflicts=('dscanner-git')
 options=('!strip')
 source=("https://github.com/Hackerpilot/Dscanner/archive/$pkgver.tar.gz")
