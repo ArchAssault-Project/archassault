@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=binwalk
 pkgver=2.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A tool for searching a given binary image for embedded files"
 arch=('armv6h' 'i686' 'armv7h' 'x86_64')
 url="http://binwalk.org"
@@ -21,7 +21,7 @@ build() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	python setup.py build
 	./configure --prefix=/usr
-        patch -i $srcdir/Makefile.patch
+        patch -i $srcdir/binwalk.patch
 	make
 }
 
