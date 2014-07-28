@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pydeep
 pkgver=0.2
-pkgrel=3
+pkgrel=4
 pkgdesc="This is the Python interface to ssdeep."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://pypi.python.org/pypi/python-pydeep/'
