@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=binwalk
 pkgver=2.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A tool for searching a given binary image for embedded files"
 arch=('armv6h' 'i686' 'armv7h' 'x86_64')
 url="http://binwalk.org"
@@ -12,7 +12,7 @@ makedepends=('python-setuptools')
 optdepends=('firmware-mod-kit: Firmware extract rules helper'
 		'git' 'mtd-utils' 'zlib' 'python2-lzma' 'ncompress' 'gzip' 'bzip2' 'tar'
 		'arj' 'p7zip' 'jdk7-openjdk')
-source=(https://github.com/devttys0/${pkgname}/archive/v${pkgver}.tar.gz Makefile.patch)
+source=(https://github.com/devttys0/${pkgname}/archive/v${pkgver}.tar.gz binwalk.patch)
 sha512sums=('1ac30c16f54872112f3c2338e3008535c936bff92ed5d623d6dee51255107633c20efff2e99baac2ec50aefdd429a09b1071fb43d34006e25294358d7732d875'
             'ac0c5b6291a64fda48f2964d29c466eee3af5bdc041992956c1248073cbf217b7fb89717f7f0c6571804dae20548e146f3db64f47ac20473ad1ada6c45453268')
 
