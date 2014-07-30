@@ -5,7 +5,7 @@
 #pkgbase=linux-archassault   # Build stock -ARCH kernel
 pkgbase=linux-archassault       # Build kernel with a different name
 _srcname=linux-3.15
-pkgver=3.15.5
+pkgver=3.15.7
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -37,9 +37,10 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         'x86-memtest-WARN-if-bad-RAM-found.patch'
         'yama-disable-by-default.patch'
         'misc-bmp085-Enable-building-as-a-module.patch'
+        'sctp_peer_authcapable.patch'
         )
 sha512sums=('d5dc477cad4584e56e2e2ef9e0950c2b22e76e5cf5090a896ba099cb7c5e5db1853a4aeb96b199189653dc66d461557e95198e37516a619f7ddc01ba6b308e02'
-            '6831200503334e839c3cccdad29058aecc0205171cc5b75205d0a2aada8636633889ebff35d9677d4567bbaeea249efc83571e016104cd67554fe72b3b405755'
+            '2142d3e0f1360bb229a581030d44603de4e7096735a89963d044f01e889b6fb5e17b7dd97c8f5b63d09739d09df24e688f1b84325fd6481ec4f42bc8600d0719'
             '87998a1f8c02d66d32bc43851518ec7b5b96f6c5d0e6f26b50c5cde03b52c2ee267cb2204576465a941dfc75ead8cc6e264f0dc31d8b7d1b3ac47301e28fd2e1'
             '9ffcf751b265e5abd926e6fdc55c38062d40540ebeb4b4f987ce5c3e990aff7c41ad4414165f470d0e1d2e1929d30edf4aa9f1dfaec0716845356f4325642f69'
             '5fe243dea17fdb71edc7098e0e1938beb7f2d851bd2be3981c4ef3d617aaad81ff1cb4c84689082472ebd13b721e849ad2214aefb9ffe40ec3d76abfd40b87ad'
@@ -61,7 +62,8 @@ sha512sums=('d5dc477cad4584e56e2e2ef9e0950c2b22e76e5cf5090a896ba099cb7c5e5db1853
             '733559ef25da85640784694d18d461a7177301a567713ac1f727fc87285675877ee328ac410f046fa446c7b36d457b3efded09cfc2ff9f79417d449f2a353c4c'
             '8a51c8d66481f2ec5bd61a2e37c2f5a27d75b323dad012f6f1e8319b2c53269c1b364bd9ce82d85a3d1cc3930129653c9773474ab1285650c2b7d1b24332b087'
             '6c58fea1f11b23a074a26ea62c92b645b2c829292574a55fb6f5cb7ed4227ba7f6d1b369fc4360fcf396dbf48f8f964c168f119be5263e62ed081606a34b0e6a'
-            '940368779b28c325585257a4775938d08e6923acad7ffe38bd56b2534f6f905adab6c3cd5b8749ff4f6bd5969493509a043e3e1a998b0d00c208fbd5f545a3fe')
+            '940368779b28c325585257a4775938d08e6923acad7ffe38bd56b2534f6f905adab6c3cd5b8749ff4f6bd5969493509a043e3e1a998b0d00c208fbd5f545a3fe'
+            '66912eb075de81f2ac693d0beaa90a5d85294fe1ce031e43fe1f5e351cf1c94107d7178946a7ddf594abb3b3a1e4d7055d0507134467eb034de939c89a6cfe19')
 
 
 _kernelname=${pkgbase#linux}
@@ -98,7 +100,7 @@ prepare() {
   patch -p1 -i "${srcdir}/x86-memtest-WARN-if-bad-RAM-found.patch"
   patch -p1 -i "${srcdir}/yama-disable-by-default.patch"
   patch -p1 -i "${srcdir}/misc-bmp085-Enable-building-as-a-module.patch"
-
+  patch -p1 -i "${srcdir}/sctp_peer_authcapable.patch"
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64" > ./.config
