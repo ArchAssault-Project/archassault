@@ -2,7 +2,7 @@
 pkgname='pwntools'
 pkgver='2.1.1'
 pkgrel='1'
-pkgdesc='Python framework for Android application analysis.'
+pkgdesc='The CTF framework used by #Gallopsled in every CTF'
 arch=('i668' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/Gallopsled/pwntools'
 license=('MIT')
