@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=python2-owasp-pysec-git
-pkgver=r202.d0708bd
+pkgver=r205.ed37e4f
 pkgrel=1
 groups=('archassault')
 pkgdesc="OWASP Python Security Project"
@@ -29,4 +29,6 @@ pkgver() {
 package() {
   cd "$srcdir/owasp-pysec"
   python2 setup.py install --root="$pkgdir/" --optimize=1
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  sed -i 's|/usr/bin/python|/usr/bin/python2|' $pkgdir/usr/lib/python2.7/site-packages/pysec/binary.py
 }

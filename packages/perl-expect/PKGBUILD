@@ -1,18 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor drathir <drathir87@gmail.com>
 pkgname='perl-expect'
+_pkgname=Expect
 pkgver='1.21'
-pkgrel='1'
-pkgdesc=""
+pkgrel='2'
+pkgdesc="This module is a successor of Comm.pl and a descendent of Chat.pl. It more closely ressembles the Tcl Expect language than its predecessors."
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl-io-tty>=1.03')
 makedepends=()
 url='http://search.cpan.org/dist/Expect'
-source=('http://search.cpan.org/CPAN/authors/id/R/RG/RGIERSIG/Expect-1.21.tar.gz')
-md5sums=('a151b0dc4d1a35c73941c65b7c26da5b')
+source=("http://search.cpan.org/CPAN/authors/id/R/RG/RGIERSIG/$_pkgname-$pkgver.tar.gz")
 sha512sums=('496716b9e6544e9d6809b7f704df8199291d18ec9ec9ebb4fd2b7b341aa10d9b03989335c1f22d1faddbff0974ceba5b2823685fa08ce6a75e2f3ccaeb944e74')
-_distdir="Expect-1.21"
+_distdir="$_pkgname-$pkgver"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

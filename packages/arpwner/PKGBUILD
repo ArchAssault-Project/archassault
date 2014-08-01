@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arpwner
-pkgver=20131226
+pkgver=20140716
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="A tool for arp posioning and dns poisoning attacks, written in python."

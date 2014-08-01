@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=batman-adv
-pkgver=2013.4.0
-pkgrel=2
+pkgver=2014.2.0
+pkgrel=1
 groups=('archassault' 'archassault-wireless')
 pkgdesc="batman kernel module, (included upstream since .38)"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -10,7 +10,7 @@ license=('GPL')
 makedepends=("linux-headers")
 install='batman-adv.install'
 source=("http://downloads.open-mesh.org/batman/releases/batman-adv-$pkgver/batman-adv-$pkgver.tar.gz")
-md5sums=('6590caa324709289e3cb142273a5ff57')
+sha512sums=('35650aa3eb8b4ddd70284d42a41ac81ea5b9184ee22cb0cbf322312b45cb0761e5344c4c20543480b58d37c9616299355694560bd38677144a9f258b5b027daa')
 
 build() {
   cd "$srcdir/batman-adv-$pkgver"

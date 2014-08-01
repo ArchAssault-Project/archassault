@@ -1,25 +1,25 @@
-# Maintainer: ArchAssault <team@archassault.org>
+# Maintainer: ArchAssault <team archassault.org>
 pkgname=spipscan-git
-pkgver=r61.00c87ce
+pkgver=r62.8cdf67f
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="SPIP (CMS) Scanner for penetration testing purpose written in Python"
 arch=('any')
 url='https://github.com/PaulSec/SPIPScan'
 license=('MIT')
-depends=('python2') 
-makedepends=('git' 'python2-requests' 'python2-beautifulsoup4')
+depends=('python2' 'python2-requests' 'python2-beautifulsoup4')
+makedepends=('git')
 provides=('spipscan')
-source=("git+https://github.com/PaulSec/SPIPScan.git")
-md5sums=('SKIP')
+source=("spipscan::git+https://github.com/PaulSec/SPIPScan.git")
+sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/SPIPScan"
+  cd "$srcdir/spipscan"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  cd "$srcdir/SPIPScan"
+  cd "$srcdir/spipscan"
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/spipscan"

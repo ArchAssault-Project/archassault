@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=valabind
-pkgver=285.e58839e
+pkgver=287.0cb9c1d
 pkgrel=1
 epoch=1
 pkgdesc="Tool to parse vala or vapi files to transform them into swig interface files, C++ source files, GIR or GEAR"
@@ -13,7 +13,7 @@ groups=('archassault')
 conflicts=('valabind' 'valabind-hg')
 provides=('valabind')
 source=('git://github.com/radare/valabind.git')
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver () {
   cd valabind

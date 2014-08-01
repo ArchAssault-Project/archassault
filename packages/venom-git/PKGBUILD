@@ -1,0 +1,49 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
+# Contributor: naxuroqa <naxuroqa@gmail.com>
+
+_pkgname=venom
+pkgname=${_pkgname}-git
+pkgver=r601.92ae06d
+pkgrel=1
+epoch=1
+pkgdesc="A Vala/Gtk+ graphical user interface for Tox"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://github.com/naxuroqa/Venom"
+license=('GPL')
+depends=('gtk3'
+         'json-glib'
+         'qrencode'
+         'tox-git'
+         'desktop-file-utils'
+         'libnotify')
+makedepends=('git' 'cmake' 'vala')
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+replaces=("$_pkgname")
+install="${pkgname}.install"
+
+source=("$_pkgname"::'git+https://github.com/naxuroqa/Venom.git')
+sha512sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd $_pkgname
+
+    install -d build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/ \
+          -DENABLE_LIBNOTIFY=ON \
+          -DENABLE_QR_ENCODE=ON \
+          ..
+    make
+}
+
+package() {
+    cd ${_pkgname}/build
+    make DESTDIR="$pkgdir" install
+}

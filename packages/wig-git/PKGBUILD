@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=wig-git
-pkgver=r215.7ed068a
+pkgver=r150.91a5ff1
 pkgrel=1
 groups=('archassault' 'archassault-webapps' 'archassault-scanners')
 pkgdesc="WebApp Information Gatherer"
@@ -8,7 +8,7 @@ arch=('any')
 url='https://github.com/jekyc/wig'
 license=('custom')
 provides=('wig')
-depends=('python')
+depends=('python' 'python-requests')
 makedepends=('git')
 source=("wig::git+https://github.com/jekyc/wig.git")
 sha512sums=('SKIP')

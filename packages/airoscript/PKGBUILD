@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=airoscript
-pkgver=20140105
+pkgver=45.0a122ee
 pkgrel=1
 epoch=1
 pkgdesc="Script to simplify the use of aircrack-ng tools"
@@ -14,9 +14,9 @@ makedepends=('git')
 source=('git+http://github.com/patrickhno/Airoscript'
         'Makefile.patch'
         'airoscript.desktop')
-md5sums=('SKIP'
-         '441dd3a5f804f3c65c4da93b367199c1'
-         '60954cc909417e196a3baeefd6a4c5db')
+sha512sums=('SKIP'
+            'c7b9eb321243ff436c3bd0887cf11400bedc206c097d6abfc102f4fba4920aa6223b39f978cb64a4c032adb70940c815a4241b7ec4eb017f6b51e0e34fd13bca'
+            '0576a704fb93584a12ade376b2b2777c95b96415e510c9233b766ca277b10dcb7a371f7a823ddae93dee45d09a1ec72a32d263e440e0849a23f9a5159b763d31')
 
 pkgver() {
   cd Airoscript

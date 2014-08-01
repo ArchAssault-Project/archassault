@@ -1,31 +1,39 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dscanner-git
-pkgver=r603.b832aac
+pkgver=r631.6843a3d
 pkgrel=1
 pkgdesc="Swiss-army knife for D source code"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Hackerpilot/Dscanner"
-license=('Custom')
-groups=('archassault')
+license=('custom')
 depends=('glibc')
-makedepends=('libphobos-devel' 'dmd' 'git')
+groups=('archassault')
+makedepends=('git' 'libphobos-devel' 'dmd')
 provides=('dscanner')
+conflicts=('dscanner')
 options=('!strip')
-source=("$pkgname"::'git+https://github.com/Hackerpilot/Dscanner')
-md5sums=('SKIP')
+source=("git+https://github.com/Hackerpilot/Dscanner.git")
+sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/$pkgname"
+  cd "$srcdir/Dscanner"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-build() {
-  cd "$srcdir/$pkgname"
+
+prepare() {
+    cd "$srcdir/Dscanner"
+    git submodule init
+    git submodule update
+}
+
+build(){
+  cd "$srcdir/Dscanner"
   make
 }
 
 package() {
-  cd "$srcdir/$pkgname"
+  cd "$srcdir/Dscanner"
   install -Dm755 dscanner "$pkgdir/usr/bin/dscanner"
   install -Dm644 LICENSE_1_0.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
   install -Dm644 README.md "$pkgdir"/usr/share/dscanner-git

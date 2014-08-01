@@ -1,6 +1,5 @@
-# Maintainer: ArchAssault <team@archassault.org>
 pkgname=doona-git
-pkgver=r110.b89b7e2
+pkgver=r118.ff1e17b
 pkgrel=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."

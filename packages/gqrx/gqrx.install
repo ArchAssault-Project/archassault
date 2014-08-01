@@ -1,3 +1,0 @@
-post_install() {
-    echo "> gqrx won't start without pulseaudio running"
-}

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=fuzzap-git
-pkgver=r12.e765105
+pkgver=r14.f13932c
 pkgrel=1
 groups=('archassault' 'archassault-wireless')
 pkgdesc="A python script for obfuscating wireless networks"
