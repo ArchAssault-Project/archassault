@@ -3,7 +3,7 @@
 
 pkgname=tomb
 pkgver=1.5.2
-pkgrel=1
+pkgrel=2
 pkgdesc="A system for easy encryption and backup of personal files"
 url="http://www.dyne.org/software/${pkgname}"
 license=('GPL3')

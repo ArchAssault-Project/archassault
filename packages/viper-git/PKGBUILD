@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgbase=viper-git
 pkgname=(viper-git viper-git-docs)
-pkgver=r255.c6768f0
-pkgrel=2
+pkgver=r341.4d4b8e5
+pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A Binary analysis framework"
 arch=('any')
@@ -24,7 +24,7 @@ pkgver() {
 
 
 package_viper-git() {
-  depends=('python2' 'python2-magic' 'python2-pefile' 'python2-pydeep' 'python2-requests' 'python2-sqlalchemy' 'python2-crypto' 'python2-beautifulsoup4' 'python2-olefileio_pl')
+  depends=('python2' 'python2-magic' 'python2-pefile' 'python2-pydeep' 'python2-requests' 'python2-sqlalchemy' 'python2-crypto' 'python2-beautifulsoup4' 'python2-olefileio_pl' 'python2-prettytable')
   provides=('viper')
   conflicts=('viper')
   replaces=('viper')

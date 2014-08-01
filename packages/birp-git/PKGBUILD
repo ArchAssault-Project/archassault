@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=birp-git
-pkgver=r55.a85c8d6
-pkgrel=1
+pkgver=r58.4bd757d
+pkgrel=2
 pkgdesc="A tool that will assist in the security assessment of mainframe applications served over TN3270."
 arch=('any')
 url="https://github.com/sensepost/birp"
@@ -9,8 +9,9 @@ license=('custom')
 provides=('birp')
 replaces=('birp')
 conflicts=('birp')
-depends=('python2' 'python2-colorama' 'python2-py3270' 'ipython2' 'x3270')
+depends=('fontconfig' 'xorg-xset' 'xorg-mkfontscale' 'xorg-mkfontdir' 'python2' 'python2-colorama' 'python2-py3270' 'ipython2' 'x3270')
 source=(git+https://github.com/sensepost/birp.git LICENSE)
+makedepends=('git')
 sha512sums=('SKIP'
             '5c0ff9ce5529f5c2d01cf25c296ccde75f056794c263765f0f652b809433c695d9836b58c5761a74494bcbb96747119bc914163dc706a9aad700d3351d688c71')
 

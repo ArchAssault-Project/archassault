@@ -1,0 +1,41 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
+# Contributor: Boohbah <boohbah at gmail.com>
+# Contributor: naxuroqa <naxuroqa at gmail.com>
+
+_pkgname=tox
+pkgname=${_pkgname}-git
+pkgver=r2593.9a74e5d
+pkgrel=1
+pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://${_pkgname}.im/"
+license=('GPL3')
+depends=('libsodium' 'opus' 'libvpx')
+makedepends=('git')
+optdepends=('qtox-git: qt-based frontend'
+            'venom-git: gtk/vala-based frontend'
+            'toxic-git: ncurses-based frontend')
+conflicts=("$_pkgname")
+provides=("$_pkgname")
+replaces=("$_pkgname")
+
+source=("${pkgname}::git://github.com/irungentoo/${_pkgname}core.git")
+sha512sums=('SKIP')
+
+pkgver() {
+    cd $pkgname
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd $pkgname
+    autoreconf -i
+    ./configure --prefix=/usr
+    make
+}
+
+package() {
+    cd $pkgname
+    make DESTDIR="$pkgdir" install
+}

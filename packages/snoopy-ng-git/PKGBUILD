@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=snoopy-ng-git
 _pkgname=snoopy-ng
-pkgver=r90.64f854c
+pkgver=r93.e305420
 pkgrel=1
 groups=('archassault' 'archassault-drone' 'archassault-exploit')
 pkgdesc="A distributed, sensor, data collection, interception, analysis, and visualization framework."

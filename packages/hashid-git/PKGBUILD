@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashid-git
-pkgver=r215.7ed068a
+pkgver=r217.653ff0a
 pkgrel=1
 pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
 url="https://github.com/psypanda/hashID"

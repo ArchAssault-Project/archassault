@@ -1,11 +1,6 @@
 post_upgrade() {
 	if usr/bin/pacman-key -l >/dev/null 2>&1; then
 		usr/bin/pacman-key --populate archassault
-	else
-		echo " >>> Setup and populate your Arch Linux keyring if needed with the following command."
-		echo " >>> \`pacman-key --init && pacman-key --populate archlinux\` to set up your pacman keyring."
-		echo " >>> Then run \`pacman-key --populate archassault\` to install the ArchAssault keyring."
-		echo " >>> Recomended min SigLevel for repo. \'SigLevel = Required DatabaseOptional TrustedOnly\'"
 	fi
 }
 

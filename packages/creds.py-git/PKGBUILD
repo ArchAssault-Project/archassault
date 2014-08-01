@@ -1,6 +1,6 @@
 #Maintainer: ArchAssault <team at archassault dot org>
 pkgname=creds.py-git
-pkgver=r13.67ffe01
+pkgver=r16.5e14601
 pkgrel=1
 groups=('archassault' 'archassault-bruteforce')
 pkgdesc="Harvest FTP/POP/IMAP/HTTP/IRC credentials along with interesting data from each of the protocols."
