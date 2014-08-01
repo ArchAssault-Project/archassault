@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+ARCHASSAULT_DOMAIN="http://repo.archassault.org"
+
+function errorexit(){
+    echo "Error: $1"
+    exit 1
+}
+
+function oldpkg(){
+    echo "${1} is out of date"
+    # rm "$1"
+}
+
+[[ -n "$1" ]] || errorexit "run this script with one or more package directories as an argument"
+
+for pkgdir in $@; do
+    # Remove trailing slash from the directory if one exists
+    pkgdir=$(sed 's|\/$||' <<< "$pkgdir")
+
+    # Exit if the pkgdir isn't a valid directory
+    [[ -d "$pkgdir" ]] || errorexit "${pkgdir} is not a directory"
+
+    # Detect the arch from the pkgdir and fail if it can't be found
+    arch=$(sed -re 's|.*-([^-\.]*)\.[a-z\.]*$|\1|' < <(ls -1 "$pkgdir" | head -n 1 ))
+    [[ $(grep -E "(x86_64|i686|armv6h|armv7h)" <<< "$arch") ]] || errorexit "could not determine architecture, is ${pkgdir} a package directory?"
+
+    # Load the latest DB for the pkgdir's arch into CURR_PACKAGES and fail if it's empty or the fails don't contain $arch
+    CURR_PACKAGES=$(curl -s -0 ${ARCHASSAULT_DOMAIN}/archassault/archassault/os/${arch}/archassault.db \
+        | unxz \
+        | tar t \
+        | sed 's|/.*$||' \
+        | sort -u)
+    [[ -n "$CURR_PACKAGES" ]] || errorexit "package database could not be downloaded"
+    [[ $(grep -E "^[a-z].*-[^-]*-[0-9]*$" <<< "$CURR_PACKAGES") ]] || errorexit "invalid package data"
+
+    # For each package in the folder, run `oldpkg` on packages in the repo with versions that don't match
+    for package in "$pkgdir"/*; do
+        PKG=$(sed 's|-[^-]*$||' < <(basename "$package"))
+        pkgext=$(sed -re 's|.*\.(pkg\.[a-z]*\.[a-z]*)$|\1|' <<< "$package")
+        pkgrev=$(sed -re 's|^.*-([^-]*)$|\1|' <<< "$PKG")
+        pkgver=$(sed -re 's|-[0-9]*$||;s|^.*-([^-]*)|\1|g' <<< "$PKG")
+        pkgname=$(sed -re 's|^(.*)-[^-]*-[0-9]*$|\1|' <<< "$PKG")
+
+        # Failsafe: only run if the pieces match, and the package itself is in the repo
+        [[ -f "${pkgdir}/${pkgname}-${pkgver}-${pkgrev}-${arch}.${pkgext}" ]] && \
+            [[ $(grep -E "^${pkgname}-[^-]*-[0-9]*$" <<< "$CURR_PACKAGES") ]] && \
+                [[ ! $(grep "^${pkgname}-${pkgver}-${pkgrev}$" <<< "$CURR_PACKAGES") ]] && \
+                    oldpkg "$package"
+    done
+done

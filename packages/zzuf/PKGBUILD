@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=zzuf
 pkgver=0.13
-pkgrel=1
+pkgrel=2
 pkgdesc='Transparent application input fuzzer.'
 url='http://sam.zoy.org/zzuf/'
 groups=('archassault' 'archassault-fuzzer')
@@ -20,4 +20,5 @@ build() {
 package() {
   cd "$srcdir/zzuf-$pkgver"
   make DESTDIR=$pkgdir install
+  mv "$pkgdir"/usr/bin/zzcat "$pkgdir"/usr/bin/zzuf-zzcat
 }
