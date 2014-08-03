@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sees-git
-pkgver=r11.bcc243d
+pkgver=r16.4396873
 pkgrel=1
 pkgdesc="Increase the success rate of phishing attacks by sending emails to company users as if they are coming from the very same company’s domain"
 url="https://github.com/galkan/sees/"
