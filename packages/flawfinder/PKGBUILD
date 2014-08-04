@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=flawfinder
-pkgver=1.29
+pkgver=1.31
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-src-auditing')
 pkgdesc="Searches through source code for potential security flaws"
@@ -9,7 +9,7 @@ depends=('python2')
 license=('GPL')
 arch=('any')
 source=("http://www.dwheeler.com/flawfinder/flawfinder-$pkgver.tar.gz")
-sha512sums=('f04e6cbdf6c74180a552d10a73de393bd072ee286817827085d3f3347fbdf6faeb76f4843401e7d5ad5947c5cc1bcabadd8999afaac54641d1763044d36272d8')
+sha512sums=('880919a05dbf0e29055f052b88c8bbfd403105504749bc65fb17675e6ebe0d84f9cd367e7a6efc68dc0d9209e0938185da4718b70f484007c507fe96b83e0355')
 
 prepare(){
   cd "$srcdir/flawfinder-$pkgver"
