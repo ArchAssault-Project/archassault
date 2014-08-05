@@ -1,5 +1,6 @@
-Newest Tools Added
+# Newest Tools Added #
 
+* [buildhosts-git](https://github.com/prurigro/buildhosts) - Build and maintain /etc/hosts while including lists imported from local and remote hosts list sources.
 * [hellcat-git](https://github.com/matildah/hellcat) - netcat that takes unfair advantage of traffic shaping systems that don't initially ratelimit
 * [salsapipe-git](https://github.com/0xcaca0/salsapipe) - Encrypted network tunneling using salsa20 from libnettle and GPG from libgpgme
 * [domainanalyzer](http://sourceforge.net/projects/domainanalyzer/) - A security analysis tool which automatically discovers and reports information about the given domain.
