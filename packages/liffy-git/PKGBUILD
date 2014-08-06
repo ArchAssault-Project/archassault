@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=liffy-git
-pkgver=r52.d6c29dc
+pkgver=r56.f3ebf4c
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Local File Inclusion Exploitation tool."
