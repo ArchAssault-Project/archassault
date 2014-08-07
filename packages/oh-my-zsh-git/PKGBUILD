@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=oh-my-zsh-git
-pkgver=2183.a38af27
+pkgver=2184.9819349
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="A community-driven framework for managing your zsh configuration."
