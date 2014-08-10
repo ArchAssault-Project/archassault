@@ -13,10 +13,10 @@
  
  install: all
 -	install afl-gcc afl-g++ afl-fuzz afl-showmap $(BIN_PATH)
--	mkdir -m 755 /usr/local/lib/afl/ 2>/dev/null || continue
+-	mkdir -m 755 $(HELPER_PATH) 2>/dev/null || continue
 -	install afl-as as $(HELPER_PATH)
 +	install afl-gcc afl-g++ afl-fuzz afl-showmap $(DESTDIR)$(BIN_PATH)
-+	mkdir -m 755 $(DESTDIR)/usr/local/lib/afl/ 2>/dev/null || continue
++	mkdir -m 755 $(DESTDIR)$(HELPER_PATH) 2>/dev/null || continue
 +	install afl-as as $(DESTDIR)$(HELPER_PATH)
  
  publish: clean
