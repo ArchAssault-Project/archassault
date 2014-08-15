@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor:  Shaw <puxx@mail.ustc.edu.cn>
 pkgname=create_ap-git
-pkgver=r54.e37caff
+pkgver=r55.609949d
 pkgrel=1
 pkgdesc="A shell script to create a NATed/Bridged Software Access Point(aka WiFi)"
 arch=('any')
