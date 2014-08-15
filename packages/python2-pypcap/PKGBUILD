@@ -5,7 +5,7 @@ pkgrel=5
 pkgdesc="Python extension module for libpcap."
 url="http://code.google.com/p/pypcap/"
 license=('custom')
-arch=('i686' 'x86_64' 'arm6h' 'armv7h')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('python2' 'libpcap')
 source=("http://pypcap.googlecode.com/files/pypcap-$pkgver.tar.gz"
         'python2-pypcap.patch')
