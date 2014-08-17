@@ -3,30 +3,27 @@ _author='GOMOR'
 _perlmod='Net-Frame-Device'
 pkgname='perl-net-frame-device'
 pkgver='1.10'
-pkgrel=1
+pkgrel=2
 pkgdesc='Get network device information and gateway.'
 arch=('any')
 url='http://search.cpan.org/~gomor/Net-Frame-Device-1.10/lib/Net/Frame/Device.pm'
 license=('GPL' 'PerlArtistic')
-depends=('perl>=5.10.0')
+depends=(perl perl-net-frame perl-net-frame-dump perl-net-frame-layer-icmp6 perl-net-frame-simple perl-net-frame-layer-ipv6 perl-net-ipv4addr perl-net-ipv6addr perl-net-libdnet perl-net-libdnet6 perl-net-pcap perl-net-write)
 options=(!emptydirs)
-source=("http://search.cpan.org/CPAN/authors/id/G/GO/$_author/$_perlmod-$pkgver.tar.gz")
-md5sums=('80a9eb470fb7a82d1e755e877abac04b')
+source=("http://search.cpan.org/CPAN/authors/id/G/GO/${_author}/${_perlmod}-${pkgver}.tar.gz")
+sha512sums=('57061740c7f89034d66532d1bc58013822b066bcc27b3385f1a088a6a6401a8b2953d52eb91a94511c9d46e78de5197ad07ed0cb7a2fe37f4eba732a07806f4b')
 
 prepare() {
-  cd "$srcdir/$_perlmod-$pkgver"
-  
+  cd "${srcdir}/${_perlmod}-${pkgver}" 
   PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor
 }
 
 build() {
-  cd "$srcdir/$_perlmod-$pkgver"
-
+  cd "${srcdir}/${_perlmod}-${pkgver}"
   make
 }
 
 package() {
-  cd "$srcdir/$_perlmod-$pkgver"
-  
-  make install DESTDIR="$pkgdir/"
+  cd "${srcdir}/${_perlmod}-${pkgver}" 
+  make install DESTDIR="${pkgdir}"
 }
