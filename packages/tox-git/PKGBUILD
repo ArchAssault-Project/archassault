@@ -5,7 +5,8 @@
 
 _pkgname=tox
 pkgname=${_pkgname}-git
-pkgver=r2647.f0b2cd7
+_pkgver=6ca7d86
+pkgver=r2660.6ca7d86
 pkgrel=1
 epoch=1
 pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
@@ -13,7 +14,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://${_pkgname}.im/"
 license=('GPL3')
 depends=('libsodium' 'opus' 'libvpx')
-makedepends=('git')
+makedepends=('git' 'autoconf' 'automake' 'check' 'libtool')
 optdepends=('qtox-git: qt-based frontend'
             'venom-git: gtk/vala-based frontend'
             'toxic-git: ncurses-based frontend')
@@ -21,18 +22,18 @@ conflicts=("$_pkgname")
 provides=("$_pkgname")
 replaces=("$_pkgname")
 
-source=("${pkgname}::git://github.com/irungentoo/${_pkgname}core.git")
+source=("${pkgname}::git://github.com/irungentoo/${_pkgname}core.git#commit=${_pkgver}")
 sha512sums=('SKIP')
 
 pkgver() {
     cd $pkgname
-    git checkout f0b2cd7
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
     cd $pkgname
-    autoreconf -i
+    libtoolize --force
+    ./autogen.sh
     ./configure --prefix=/usr
     make
 }
