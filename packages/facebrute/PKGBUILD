@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team archassault org>
+
+pkgname=facebrute
+pkgver=0.3
+pkgrel=1
+pkgdesc="Facebook brute forcer script"
+url="https://github.com/emerinohdz/FaceBrute"
+license=('Artistic2.0')
+arch=('any')
+depends=('python2')
+makedepends=('git')
+source=("${pkgname}::git+https://github.com/emerinohdz/FaceBrute.git")
+sha512sums=('SKIP')
+
+prepare() {
+    cd $pkgname
+    git checkout tags/v${pkgver}
+}
+
+package() {
+    cd $pkgname
+    install -Dm755 ${pkgname}.py "${pkgdir}/usr/bin/${pkgname}"
+}
