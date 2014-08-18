@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='set-git'
-pkgver=6.0.4.r313.g18ee2e4
+pkgver=6.0.4.r348.g466da0f
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-social-engineering' 'archassault-exploit')
