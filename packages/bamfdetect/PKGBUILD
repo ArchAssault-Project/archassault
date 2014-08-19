@@ -1,0 +1,29 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=bamfdetect
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="Identifies and extracts information from bots and other malware"
+url="https://github.com/bwall/bamfdetect"
+arch=('any')
+license=('MIT')
+groups=('archassault' 'archassault-malware')
+depends=('python2')
+makedepends=('python2-setuptools')
+conflicts=('bamf-git')
+replaces=('bamf-git')
+source=("https://github.com/bwall/bamfdetect/archive/v$pkgver.tar.gz")
+sha512sums=('33c6e85ec124c0bc74252f9da4c974cd23d1ddad726e999921fb39038b2c84209d170df64c72d65a72acf5ebf06ef5b0342d3f181bce0fcaca15a1d7b07f43a7')
+
+prepare() {
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+}
+
+package() {
+  cd "$srcdir/bamfdetect-$pkgver"
+  python2 setup.py install --root=$pkgdir --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  
+}
+
+
