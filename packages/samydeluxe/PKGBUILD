@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='samydeluxe'
-pkgver=20140415
+pkgver=20090216.r2.2ed1bac
 pkgrel=1
 pkgdesc='Automatic samdump creation script.'
 arch=('any')
@@ -14,8 +14,8 @@ source=('git+https://github.com/jensp/samydeluxe.git')
 _gitname='samydeluxe'
 
 pkgver() {
-  cd "$srcdir"
-  date +%Y%m%d
+  cd $pkgname
+  printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//  g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
