@@ -1,15 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=volatility
-pkgver=2.3
-pkgrel=3
+pkgver=2.4
+pkgrel=1
 groups=('archassault' 'archassault-forensic')
 pkgdesc="A memory forensics toolkit"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='https://www.volatilesystems.com/default/volatility'
 license=('GPL')
 depends=('python2')
-source=("http://volatility.googlecode.com/files/volatility-$pkgver.tar.gz")
-md5sums=('2628ac9ba0cb15e08381d3761e21ca3e')
+source=("http://downloads.volatilityfoundation.org/releases/2.4/volatility-${pkgver}.tar.gz")
+sha512sums=('19a10b735c0ec0d8ccbd246f2eac6968762f67f41da253e38d5026a4ee12ad9eef5a111039585afa6d6d3d67923f6e080ddc94ed98c9759c4f5486f506e0c295')
+
+prepare() {
+  find "${srcdir}" -type f -name *.py | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
 
 package() {
   cd "$srcdir/volatility-${pkgver}"
