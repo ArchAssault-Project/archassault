@@ -8,6 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://la-samhna.de/${pkgname}"
 license=('GPL')
 depends=('audit' 'acl')
+makedepends=('procps-ng')
 backup=("etc/${pkgname}rc")
 install="${pkgname}.install"
 options=('!emptydirs')
