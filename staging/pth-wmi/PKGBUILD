@@ -1,0 +1,51 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+_pkgname=wmi
+pkgname=pth-${_pkgname}
+pkgver=1.3.16
+pkgrel=1
+pkgdesc="Linux WMI client patched for passthehash"
+arch=('any')
+url="https://bitbucket.org/instarch/${_pkgname}-client"
+license=("GPL")
+depends=('gnutls' 'python2')
+makedepends=('google-breakpad-svn')
+sha512sums=('cd5ccf23dff59dd599ae23b4cd8d0d68f42775b2afad8e05add04d0d4054cbb8e33655323b1d87795f23a71b6c0c0e260e38f53349c77618d2421862d172a508'
+            '47396c90d2c4b16454e58d69a3832daf3bd295f31fc59f5bc71d09023bca5fcb28d70ad32aa17ad67ff9353a6c054a002347a925443572314566d12c54029248'
+            '6cea41e4a662ff0aa0fdeca1ea4ae9f27c0c2c1e238bb6f9ff443694fa15459ee2542f948d7258f998150da42f600de709319c5aa8c13110f23845b128750936'
+            'd4998ea5d36f90d1542a2c07aea6413f88580d6221904c3b4a42249436f5b7b8ab54e40f09e16528fddb602166b34d381cb4176e370ee8f1ae0c393ba29c28b5'
+            'd174c4ecb529414884ea4b61775e8e90422835f706949776bf8fa2b3fe1dc5b28655f625c43f10bceb467b266a8e55d68edda1ff37f3c52a42f95fa2427d4edc'
+            'af0cbd36bc499e903f6a549cf208105ff66a9a86abb878fd1846ac86b8a9d3ed6074282c7a4332d4633f30d3e7ae9d184ce9d4a3b9325bb93a8bdb408aa4d85c')
+source=("http://dev.zenoss.org/trac/export/26435/trunk/inst/externallibs/${_pkgname}-${pkgver}.tar.bz2"
+        "https://passing-the-hash.googlecode.com/svn/trunk/build/patches/${_pkgname}-${pkgver}-${_pkgname}s.patch"
+        "https://passing-the-hash.googlecode.com/svn/trunk/build/patches/${_pkgname}-${pkgver}-smbencrypt-lm-nt.patch"
+        "samba-pidl.patch"
+        "dcerpc.c.breakpad-fix.patch"
+        "tls.c.patch")
+
+prepare(){
+    cd ${_pkgname}-${pkgver}
+    patch -p1 < ../samba-pidl.patch
+    patch -p1 < ../tls.c.patch
+    patch -p1 < ../${_pkgname}-${pkgver}-${_pkgname}s.patch
+    patch -p1 < ../${_pkgname}-${pkgver}-smbencrypt-lm-nt.patch
+    patch -p1 < ../dcerpc.c.breakpad-fix.patch
+    sed -i '/^pywmi-installed:/s/pywmi-build//' GNUmakefile
+    find . -type f -iname "*.py" -exec sed -i 's|/usr/bin/env python|/usr/bin/env python2|' '{}' \;
+}
+
+build() {
+    # cd ${_pkgname}-${pkgver}/Samba/source
+    # ./autogen.sh
+    # ./configure --prefix=/usr
+    # cd ../..
+    cd ${_pkgname}-${pkgver}
+    PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make build
+}
+
+package() {
+    cd ${_pkgname}-${pkgver}/Samba/source
+    install -Dm644 librpc/idl/IDL_LICENSE.txt "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE"
+    install -Dm755 bin/${_pkgname}c "${pkgdir}/usr/bin/pth-${_pkgname}c"
+    install -Dm755 bin/${_pkgname}s "${pkgdir}/usr/bin/pth-${_pkgname}s"
+}

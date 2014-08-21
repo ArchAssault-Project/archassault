@@ -1,0 +1,24 @@
+diff --git a/Samba/source/librpc/rpc/dcerpc.c b/Samba/source/librpc/rpc/dcerpc.c
+index 3885829..1af13d2 100644
+--- a/Samba/source/librpc/rpc/dcerpc.c
++++ b/Samba/source/librpc/rpc/dcerpc.c
+@@ -30,19 +30,9 @@
+ #include "libcli/composite/composite.h"
+ #include "auth/gensec/gensec.h"
+ 
+-#ifdef BREAKPAD
+-void* getExceptionHandler(char* dump_path);
+-void releaseExceptionHandler(void* eh);
+-
+-static void* globalDcerpcExceptionHandler;
+-#endif
+-
+ NTSTATUS dcerpc_init(void)
+ {
+ 	gensec_init();
+-#ifdef BREAKPAD
+-        globalDcerpcExceptionHandler = getExceptionHandler("/tmp");
+-#endif
+ 	return NT_STATUS_OK;
+ }
+ 
