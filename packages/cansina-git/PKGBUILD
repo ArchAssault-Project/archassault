@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=cansina-git
-pkgver=r97.7ba0181
+pkgver=r98.eeacbdc
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanner')
