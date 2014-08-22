@@ -1,0 +1,20 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Bence Balint <balintbence1337@gmail.com>
+
+pkgname=python2-w3lib
+pkgver=1.10.0
+pkgrel=1
+pkgdesc="Library of web-related functions."
+arch=(any)
+url="http://pypi.python.org/pypi/w3lib"
+license=('BSD')
+depends=('python2')
+makedepends=('python2-setuptools')
+options=(!emptydirs)
+source=("http://pypi.python.org/packages/source/w/w3lib/w3lib-$pkgver.tar.gz")
+sha512sums=('9f17083b57b3363c4eb656d46b87a122c3dcac0a58bf4f9fd9aab7d28776931d16eb9b5c7f267cfeb8e7f52d695e9b22f5f83b724fd671a70073325972088b2f')
+
+package() {
+  cd "$srcdir/w3lib-$pkgver"
+  python2 setup.py install --root="$pkgdir/" --optimize=1
+}
