@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
-pkgver=r123.578cd04
+pkgver=r127.b177b25
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
 arch=('any')
 url='https://github.com/technoskald/maltrieve'
 license=('GPL3')
-depends=('python2' 'python2-beautifulsoup4' 'python2-lxml' 'python2-feedparser')
+depends=('python2' 'python2-beautifulsoup4' 'python2-lxml' 'python2-feedparser' 'python2-gevent' 'python2-greenlet' 'python2-grequests' 'python2-requests' 'python2-wsgiref')
 makedepends=('git')
 provides=('maltrieve')
 source=("git+https://github.com/technoskald/maltrieve.git")
