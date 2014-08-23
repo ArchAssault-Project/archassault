@@ -1,0 +1,36 @@
+# Maintainer: ArchAssault <team at archassault org>
+
+_pkgname=fb-adb
+pkgname=${_pkgname}-git
+pkgver=20140815.r70.8367d9b
+pkgrel=1
+pkgdesc="A better shell for Android devices"
+url="https://github.com/facebook/${_pkgname}"
+license=('GPL3')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('android-tools' 'glibc')
+makedepends=('git' 'android-ndk')
+options=('!strip' '!buildflags')
+
+source=("git+${url}.git#branch=master")
+sha512sums=('SKIP')
+
+pkgver() {
+    cd $_pkgname
+    printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    export ANDROID_NDK=/opt/android-ndk
+    cd $_pkgname
+    ./autogen.sh
+    mkdir build
+    cd build
+    ../configure
+    make
+}
+
+package() {
+    install -Dm755 ${_pkgname}/build/${_pkgname} "${pkgdir}/usr/bin/${_pkgname}"
+    install -Dm755 ${_pkgname}/build/stub-arm/${_pkgname} "${pkgdir}/usr/share/${_pkgname}/arm-bin/${_pkgname}"
+}
