@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgbase=viper-git
 pkgname=(viper-git viper-git-docs)
-pkgver=r376.7138061
+pkgver=r378.38bc421
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A Binary analysis framework"
