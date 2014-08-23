@@ -1,9 +1,9 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
 pkgver=r127.b177b25
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-malware')
-pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
+pkgdesc="A tool to retrieve malware directly from the source for security researchers."
 arch=('any')
 url='https://github.com/technoskald/maltrieve'
 license=('GPL3')
