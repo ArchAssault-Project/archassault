@@ -1,0 +1,34 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Andrzej Giniewicz <gginiu@gmail.com>
+
+pkgname=python2-configparser
+pkgver=3.3.0r2
+pkgrel=1
+pkgdesc="Brings the updated configparser from Python 3.2+ to Python 2.6-2.7"
+arch=('any')
+url="https://bitbucket.org/ambv/configparser"
+depends=('python2')
+makedepends=('python2-setuptools')
+license=('MIT')
+options=(!libtool)
+source=(https://pypi.python.org/packages/source/c/configparser/configparser-${pkgver}.tar.gz license)
+sha512sums=('86c095bb64766e87ba59462a99d0287ec52073f27a1c9be7d37568516bc0cc4af6f362ca90a1b90f52aaa4342dc275d769c77f18d80c0efb114ba6fce37fff5f'
+            'dbed4ec826c5772ef2d9acc3222f35a76bcbd9046a1bf759ab5cd2aa5ab9fa86dc563bdea27f9e6bdef444f6796bdcca8b8f61ccd124a514d891a0848824d865')
+
+build() {
+  cd "${srcdir}"/configparser-${pkgver}
+
+  python2 setup.py build
+}
+
+package() {
+  cd "${srcdir}"/configparser-${pkgver}
+
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+
+  sed -i -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
+    $(find "${pkgdir}" -name '*.py')
+
+  install -D "${srcdir}"/license "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
