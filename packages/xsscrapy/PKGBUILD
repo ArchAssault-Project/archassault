@@ -15,11 +15,14 @@ source=("${pkgname}::git+https://github.com/DanMcInerney/${pkgname}.git"
 sha512sums=('SKIP'
             'e1a31da9906b07891085900f3e4b17b1b8a5274b5f12068f8dd7ff80fe8682dc9011c3c26b0e2716092ebf938bbc3d6dc6891036009a8122d34dfb1536ea1093')
 
+prepare() {
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+}
+
 pkgver() {
     cd "${pkgname}"
     printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
-
 
 package() {
     cd "${pkgname}"
