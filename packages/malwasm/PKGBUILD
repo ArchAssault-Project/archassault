@@ -9,7 +9,7 @@ arch=('any')
 groups=('archassault' 'archassault-reverseing' 'archassault-debugging')
 depends=('python2' 'python2-psycopg2' 'python2-flask' 'python2-progressbar' 'cuckoo' 'postgresql')
 install='malwasm.install'
-optdepens=('pintool')
+optdepends=('pintool')
 source=("https://malwasm.googlecode.com/files/malwasm-v$pkgver.tar.gz"
         "malwasm.install")
 sha512sums=('f994cf198f4663366fb8933457da18af37b7c946dff575accf9e1ba2b9d2fbae721ded1bd0776c068d0af23bbecc0bc7c26411c2b9ba0c8753cc80f3b5f632f3'
