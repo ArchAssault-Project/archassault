@@ -33,4 +33,7 @@ package() {
   chown root:root "${pkgdir}/usr/bin/zuluMount-cli"
   chmod 0755 "${pkgdir}/usr/bin/zuluMount-cli"
   chmod 0755 "${pkgdir}/usr/bin/zuluCrypt-cli"
+  if [[ -d "${pkgdir}"/usr/lib64 ]] ; then
+    mv "${pkgdir}"/usr/lib64 "${pkgdir}"/usr/lib
+  fi
 }
