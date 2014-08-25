@@ -2,11 +2,11 @@
 ace
 admsnmp
 afflib
-aimage
+aimage rebuilt with propersums
 air
 airflood
 allthevhosts
-amap
+amap rebuilt with propersums
 android-apktool
 android-udev-rules
 arachni
@@ -88,11 +88,11 @@ depant
 dff-scanner
 dirb
 dirbuster
-dislocker
+dislocker rebuilt with proper sums
 distccd-archassault
-dmitry
-dnmap
-dns2tcp
+dmitry rebuilt with proper sums
+dnmap rebuilt with proper sums
+dns2tcp rebuilt with proper sums
 dnsa
 dnsbf
 dnschef
@@ -136,7 +136,7 @@ flamerobin
 flasm
 flite-full
 flunym0us
-foremost
+foremost rebuilt with proper sums
 fpdns
 fport
 fragroute
@@ -206,7 +206,7 @@ inundator
 ipba2
 ipedcap
 ipscan
-ipv6toolkit
+ipv6toolkit rebuilt with propersums
 irpas
 isr-form
 itpp
@@ -247,20 +247,20 @@ logkeys
 loki
 lsrtunnel
 luksipc
-mac-robber
-magicrescue
-magictree
-malheur
-maltego
-malwaredetect
-malwasm
-maskprocessor
+mac-robber rebuilt to use proper sums
+magicrescue rebuilt to use proper sums
+magictree rebuilt to use proper sums
+malheur rebuilt to use proper sums
+maltego 
+malwaredetect 
+malwasm rebuilt to use proper sums
+maskprocessor 
 matahari
 mavlink-git
 mbenum
 mdbtools
 mdcrack
-mdk3
+mdk3 
 medusa
 memdump
 memfetch
@@ -278,7 +278,7 @@ minimysqlator
 miranda-upnp
 missidentify
 missionplanner
-mitmap
+mitmap 
 mkassaultiso
 moloch
 morxbrute
