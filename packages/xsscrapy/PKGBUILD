@@ -2,7 +2,7 @@
 
 pkgname=xsscrapy
 pkgver=20140811.r1363
-pkgrel=1
+pkgrel=2
 pkgdesc="xss spider"
 arch=('any')
 url="https://github.com/DanMcInerney/xsscrapy"
@@ -33,4 +33,14 @@ package() {
     install -Dm755 loginform.py "${pkgdir}"/usr/share/${pkgname}/loginform.py
     install -Dm644 scrapy.cfg "${pkgdir}"/usr/share/${pkgname}/scrapy.cfg
     install -Dm644 "${srcdir}"/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    ##easy xsscrapy script
+    echo '
+    #!/bin/bash
+    cd /usr/share/'"${pkgname}"';
+    if [ $# -le 0 ]; then
+        /usr/bin/scrapy crawl '"${pkname}"' --help;
+    else
+        /usr/bin/scrapy crawl '"${pkgname}"' "$@";
+    fi' > "${pkgdir}"/"${pkgname}".sh
+    install -Dm755 "${pkgdir}"/"${pkgname}".sh /usr/bin/"${pkgname}" && rm -f "${pkgdir}"/"${pkgname}".sh
 }
