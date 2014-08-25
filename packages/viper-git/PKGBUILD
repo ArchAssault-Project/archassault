@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgbase=viper-git
 pkgname=(viper-git viper-git-docs)
-pkgver=r391.dedee01
+pkgver=r396.09fb81f
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A Binary analysis framework"
@@ -28,6 +28,12 @@ package_viper-git() {
   provides=('viper')
   conflicts=('viper')
   replaces=('viper')
+  optdepends=('androguard: APK support'
+              'cuckoo: Cuckoo support'
+              'python2-beautifulsoup4: html parsing'
+              'peepdf: PDF Parsing'
+              'yara: Malware parsing'
+              'python2-pyclamd: Clamav parsing')
   cd "$srcdir/viper"
   install -dm755 "$pkgdir/usr/share/viper"
   install -dm755 "$pkgdir/usr/share/viper/data"
