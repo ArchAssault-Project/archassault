@@ -32,15 +32,16 @@ package() {
     install -Dm644 README.md "${pkgdir}"/usr/share/${pkgname}/README.md
     install -Dm755 loginform.py "${pkgdir}"/usr/share/${pkgname}/loginform.py
     install -Dm644 scrapy.cfg "${pkgdir}"/usr/share/${pkgname}/scrapy.cfg
-    install -Dm644 "${srcdir}"/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     ##easy xsscrapy script
-    echo '
-    #!/bin/bash
-    cd /usr/share/'"${pkgname}"';
-    if [ $# -le 0 ]; then
-        /usr/bin/scrapy crawl '"${pkname}"' --help;
-    else
-        /usr/bin/scrapy crawl '"${pkgname}"' "$@";
-    fi' > "${pkgdir}"/"${pkgname}".sh
-    install -Dm755 "${pkgdir}"/"${pkgname}".sh /usr/bin/"${pkgname}" && rm -f "${pkgdir}"/"${pkgname}".sh
+    install -dm755 "${pkgdir}"/usr/bin/
+    cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
+#!/bin/bash
+cd /usr/share/${pkgname};
+if [ \$# -le 0 ]; then
+    /usr/bin/scrapy crawl ${pkgname} --help;
+else
+    /usr/bin/scrapy crawl ${pkgname} "\$@";
+fi
+EOF
+    chmod +x "${pkgdir}"/usr/bin/"${pkgname}"
 }
