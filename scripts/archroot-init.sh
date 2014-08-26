@@ -1,7 +1,23 @@
 #!/usr/bin/env bash
 
 # Show usage output
-[[ -n "$1" ]] && ([[ "$1" = "-h" ]] || [[ "$1" = "--help" ]]) && echo -e "Usage:\n    ${0##*/}: create (if !exists) and enter chroot\n    ${0##*/} [pkgname.src.tar.gz]: create (if !exists) and enter chroot after building package\n\n    *note: chroot is in $ARCHROOT, set "'$ARCHROOT'" to override" && exit 0
+[[ -n "$1" ]] && ([[ "$1" = "-h" ]] || [[ "$1" = "--help" ]]) && echo -e "Usage:\n    ${0##*/}: create (if !exists) and enter chroot\n    ${0##*/} [pkgname.src.tar.gz]: same as above + build source package\n    ${0##*/} -d | --delete: delete the chroot (if exists)\n    ${0##*/} -h | --help: show this help dialog\n\n    *note: chroot is in $ARCHROOT, set "'$ARCHROOT'" to override" && exit 0
+
+# Use $ARCHROOT as the chroot path if set, otherwise use /dev/shm/archroot
+[[ -z "$ARCHROOT" ]] && ARCHROOT=/dev/shm/archroot
+
+# If the -d | --delete option is set, remove $ARCHROOT if it exists
+[[ -n "$1" ]] && \
+    if [ "$1" = "-d" ] || [ "$1" = "--delete" ]; then
+        if [ -d "$ARCHROOT" ]; then
+            echo -e "Deleting: ${ARCHROOT}"
+            rm -rf "$ARCHROOT"
+            exit 0
+        else
+            echo "Error: ${ARCHROOT} does not exist"
+            exit 1
+        fi
+    fi
 
 # Check for root and that the required files exist
 [[ ! "$UID" = 0 ]] && echo "Error: this script must be run as root" && exit 1
@@ -10,8 +26,7 @@
 [[ -n "$1" ]] && [[ ! $(grep "\.src\.tar\.gz" <<< "$1") ]] && echo "Error: ${1} does not appear to be a package source archive" && exit 1
 [[ -n "$1" ]] && [[ ! -f "$1" ]] && echo "Error: package source archive ${1} does not exist" && exit 1
 
-# Use $ARCHROOT as the chroot path if set, otherwise use /dev/shm/archroot
-[[ -z "$ARCHROOT" ]] && ARCHROOT=/dev/shm/archroot
+# Create $ARCHROOT if it doesn't exist
 [[ -d "$ARCHROOT" ]] || install -d "$ARCHROOT"
 
 # Build the chroot if it doesn't exist
