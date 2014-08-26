@@ -1,0 +1,47 @@
+# Maintainer: ArchAssault <team at archassault org>
+
+_pkgname=utox
+pkgname=${_pkgname}-git
+pkgver=r521.ee4b4ac
+pkgrel=1
+pkgdesc="Lightweight Tox client"
+arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
+url="https://github.com/notsecure/uTox"
+license=('GPL3')
+depends=('tox-git>=r2681.12cada5'
+         'openal'
+         'v4l-utils'
+         'libdbus'
+         'fontconfig'
+         'libxrender'
+         'desktop-file-utils'
+         'hicolor-icon-theme'
+         'libxext'
+)
+makedepends=('git' 'libxft')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+replaces=("$_pkgname")
+install=${pkgname}.install
+
+source=("${_pkgname}::git+${url}.git"
+        "${_pkgname}.desktop")
+sha512sums=('SKIP'
+            'fc2f6da83678f7836134b6934a572900e8faae43f711adeb9327875be8419b92fdfaebd4a35af8048f768f705f822d9abbc10113809261b17a149fc0d7bc1000')
+
+pkgver() {
+    cd $_pkgname
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    cd $_pkgname
+    make PREFIX=/usr
+}
+
+package() {
+    install -Dm644 ${_pkgname}.desktop "${pkgdir}/usr/share/applications/${_pkgname}.desktop"
+    cd $_pkgname
+    install -Dm644 icons/utox-512x512.png "${pkgdir}/usr/share/pixmaps/${_pkgname}.png"
+    make PREFIX=/usr DESTDIR="$pkgdir" install
+}
