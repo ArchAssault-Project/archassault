@@ -5,7 +5,7 @@
 # Contributor: Tom Newsom <Jeepster@gmx.co.uk>
 pkgname=stegdetect
 pkgver=0.6
-pkgrel=4
+pkgrel=5
 pkgdesc="An automated tool for detecting steganographic content in images"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.outguess.org/"
