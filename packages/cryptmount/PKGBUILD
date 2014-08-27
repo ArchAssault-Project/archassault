@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Mike Sampson <mike at sambodata dot com>
+# Contributor: Andrea Benazzo <andy@qitty.net>
+pkgname=cryptmount
+pkgver=5.0
+pkgrel=1
+pkgdesc="utility which allows an ordinary user to mount an encrypted file system"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('cryptmount')
+url="http://cryptmount.sourceforge.net/"
+license=('GPL')
+depends=(cryptsetup)
+source=(http://downloads.sourceforge.net/project/cryptmount/cryptmount/cryptmount-${pkgver}/cryptmount-${pkgver}.tar.gz)
+backup=('etc/cryptmount/cmtab')
+sha512sums=('2f4686f8e0d3331aa45891582250dfd02aa8a55a8204b686ca3ea5b476640bd61373552dd2f050fdf3f4040ea984623cf1c4ef50ae464a37ebea313440a7a8bc')
+
+build() {
+  cd "${pkgname}-${pkgver}"
+  ./configure --prefix=/usr --sbindir=/usr/bin --sysconfdir=/etc
+  make
+}
+
+package() {
+  cd "${pkgname}-${pkgver}"
+  make DESTDIR="$pkgdir" install
+}
+
