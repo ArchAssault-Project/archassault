@@ -34,7 +34,7 @@ build() {
     CONFIGFLAG='--host=x86_64-unknown-linux-gnu --target=x86_64-unknown-linux-gnu'
   elif [[ $CARCH == "armv6h" ]]; then
     CONFIGFLAG='--host=armv6l-unknown-linux-gnueabihf --target=armv6l-unknown-linux-gnueabihf'
-  else [[ $CARCH == "armv7h" ]]; then
+  else [[ $CARCH == "armv7h" ]]
     CONFIGFLAG='--host=armv7l-unknown-linux-gnueabihf --target=armv7l-unknown-linux-gnueabihf'
   fi
 
