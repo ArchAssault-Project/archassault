@@ -4,7 +4,7 @@
 pkgname=cryptmount
 pkgver=5.0
 pkgrel=1
-pkgdesc="utility which allows an ordinary user to mount an encrypted file system"
+pkgdesc="Utility which allows an ordinary user to mount an encrypted file system"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('cryptmount')
 url="http://cryptmount.sourceforge.net/"
