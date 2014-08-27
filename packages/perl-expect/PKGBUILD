@@ -2,43 +2,27 @@
 # Contributor drathir <drathir87@gmail.com>
 pkgname='perl-expect'
 _pkgname=Expect
-pkgver='1.21'
-pkgrel='2'
-pkgdesc="This module is a successor of Comm.pl and a descendent of Chat.pl. It more closely ressembles the Tcl Expect language than its predecessors."
+pkgver='1.30'
+pkgrel='1'
+pkgdesc="Automate interactions with command line programs that expose a text terminal interface."
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl-io-tty>=1.03')
-makedepends=()
+depends=('perl-io-tty')
 url='http://search.cpan.org/dist/Expect'
-source=("http://search.cpan.org/CPAN/authors/id/R/RG/RGIERSIG/$_pkgname-$pkgver.tar.gz")
-sha512sums=('496716b9e6544e9d6809b7f704df8199291d18ec9ec9ebb4fd2b7b341aa10d9b03989335c1f22d1faddbff0974ceba5b2823685fa08ce6a75e2f3ccaeb944e74')
-_distdir="$_pkgname-$pkgver"
+source=("https://cpan.metacpan.org/authors/id/S/SZ/SZABGAB/$_pkgname-$pkgver.tar.gz")
+sha512sums=('8e1fd9b91ab0f60e42d01819b05465e24373419332939a0de555f52e3a7bb452eb2abd00048281d03a31b144096fe6a3d7ada1c25c1ad6335929d705f1f4d9f3')
+_distdir="${_pkgname}-${pkgver}"
 
 build() {
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
-      PERL_AUTOINSTALL=--skipdeps                            \
-      PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
-      PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
-      MODULEBUILDRC=/dev/null
-
-    cd "$srcdir/$_distdir"
-    /usr/bin/perl Makefile.PL
+  cd "${srcdir}/${_distdir}"
+    PERL_MM_USE_DEFAULT=1 /usr/bin/perl Makefile.PL INSTALLDIRS=vendor
     make
-  )
-}
-
-check() {
-  cd "$srcdir/$_distdir"
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
-    make test
-  )
 }
 
 package() {
-  cd "$srcdir/$_distdir"
-  make install
-
-  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+  cd "${srcdir}/${_distdir}"
+    make install DESTDIR="${pkgdir}"
+    find "${pkgdir}" -name .packlist -o -name perllocal.pod -delete
 }
 
