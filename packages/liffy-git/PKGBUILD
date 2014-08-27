@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=liffy-git
-pkgver=r52.d6c29dc
+pkgver=r63.238ce6d
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Local File Inclusion Exploitation tool."
 arch=('any')
 url='https://github.com/rotlogix/liffy'
 license=('GPL2')
-depends=('python2' 'python2-blessings' 'python2-requests')
+depends=('python2' 'python2-blessings' 'python2-requests' 'python2-daemon')
 makedepends=('git')
 provides=('liffy')
 replaces=('liffy')
@@ -22,6 +22,8 @@ pkgver() {
 
 prepare(){
   grep -iRl 'python' "$srcdir/liffy" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  sed -i 's|/usr/local/share/metasploit-framework/msfpayload|/usr/bin/msfpayload|' $srcdir/liffy/core.py
+  sed -i 's|python http_server.py|python2 http_server.py|' $srcdir/liffy/core.py
 }
 
 

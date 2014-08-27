@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=praeda-git
-pkgver=r37.093d1c0
+pkgver=r39.85d4b14
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An automated data/information harvesting tool designed to gather critical information from various embedded devices. "

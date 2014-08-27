@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sploitego
-pkgver=20140220
+pkgver=r153.d9568dc
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanners' 'archassault-fuzzer')

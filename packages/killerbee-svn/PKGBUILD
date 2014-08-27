@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=killerbee-svn
 pkgrel=1
-pkgver=89
+pkgver=92
 groups=('archassault' 'archassault-wireless' 'archassault-exploit')
 pkgdesc="Framework and tools for exploiting ZigBee and IEEE 802.15.4 networks."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

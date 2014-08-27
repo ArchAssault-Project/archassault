@@ -11,7 +11,7 @@ license=('Public Domain' 'GPL')
 provides=('md5deep')
 replaces=('md5deep')
 conflicts=('md5deep')
-if [ $CARCH == 'x86_64' ]; then
+if [[ $CARCH == 'x86_64' ]]; then
      depends=('gcc-libs-multilib')
 else
      depends=('gcc-libs')

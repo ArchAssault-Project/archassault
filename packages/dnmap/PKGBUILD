@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=dnmap
 pkgver=0.6
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="The distributed nmap framwork"
 url="http://sourceforge.net/projects/dnmap/"
@@ -10,7 +10,7 @@ arch=('any')
 depends=('twisted' 'python2-pyopenssl')
 install=dnmap.install
 source=("http://downloads.sourceforge.net/project/dnmap/dnmap_v$pkgver.tgz")
-md5sums=('5d45a7307406dc039b7e06a3c5c46995')
+sha512sums=('f1d7569f9e1d04a7915f1229302c7e48108f1120fa4984d4f7dbd78a3b3e167840b8ae71aed2b0d906b6ad7e1ca6e1daeadb24cec78c502bac0323a3f84534b6')
 
 prepare() {
   cd "$srcdir/dnmap_v$pkgver"

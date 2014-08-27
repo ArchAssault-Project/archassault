@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Prurigro
 pkgname=fern-wifi-cracker
-pkgver=219
-pkgrel=2
+pkgver=220
+pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="WEP, WPA wifi cracker for wireless penetration testing"
 arch=('any')

@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=amap
 pkgver=5.4
-pkgrel=4
+pkgrel=5
 pkgdesc="Next-generation tool for assisting network penetration testing."
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL2' 'custom')
@@ -12,9 +12,9 @@ makedepends=('git')
 source=("git+https://github.com/ArchAssault-Project/amap.git"
         "pcre.patch"
         'amap.desktop')
-md5sums=('SKIP'
-         '1578a2075797fdeaba29918349905449'
-         '3b94522522e8162ad831108bc2a55284')
+sha512sums=('SKIP'
+            'd54886d9e612673e23edb5d9a82b264f68c3a77ff728ca3c1faff8a7f6ff1d17a1c9afb4e5b178783858896398987a9a8ab57b2fded6bc975bc51db0d6d59ee0'
+            '23ba3d73a36c7c0b932a9a6e3b1394a825c9618e3636eb4b6de859044d6105224d21a6272c355884dc83417b4e8a02bfe81ff298eed674e66710fecf4975d964')
 
 prepare(){
   cd "$srcdir/amap"

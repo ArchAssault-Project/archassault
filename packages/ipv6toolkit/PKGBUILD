@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ipv6toolkit
-pkgver=1.5.3
-pkgrel=1
+pkgver=2.0beta
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="A security assessment and troubleshooting tool for the IPv6 protocols"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.si6networks.com/tools/ipv6toolkit/'
 license=('GPL3')
 provides=('ipv6toolkit')
-depends=('libpcap')
+depends=('libpcap' 'perl')
 source=("http://www.si6networks.com/tools/ipv6toolkit/ipv6toolkit-v$pkgver.tar.gz")
-md5sums=('61d91579ecb2df1431b73b587ebd4e13')
+sha512sums=('673ce11df9d2acfeb94fc20bc1dda6a70eb9384189ab1676e3fa65c079ca52531730ba4e01e71a6a7d72ed25ea455c4c6080d3c04d0c5a2e09e659b83bc21f7a')
 
 build(){
  cd "$srcdir/ipv6toolkit-v$pkgver"

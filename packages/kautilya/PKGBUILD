@@ -1,36 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=kautilya
-pkgver=0.4.5
+pkgver=0.5.0
 pkgrel=1
 groups=('archassault' 'archassault-hardware')
 pkgdesc="Pwnage with Human Interface Devices using Teensy++2.0 and Teensy 3.0 devices"
 arch=('any')
-url='http://code.google.com/p/kautilya'
+url='https://github.com/samratashok/Kautilya'
 license=('GPL3')
-makedepends=('subversion')
-depends=('libpcap' 'ruby-colored' 'ruby-highline')
-source=('svn+http://kautilya.googlecode.com/svn/trunk/')
-md5sums=('SKIP')
+depends=('libpcap' 'ruby-bundler' 'ruby-colored' 'ruby-highline' 'ruby-artii')
+source=("https://github.com/samratashok/Kautilya/archive/v$pkgver.tar.gz")
+sha512sums=('9716f8610d4f1df186c6fa83b2f2f8139bf090187d2216374f34776cb3c7766bdcd10af06c024f573ea1658d9fefbd36e90f77e2739a47c19dc636eba94600e7')
 
 package() {
-  cd "$srcdir/trunk"
+  cd "$srcdir/Kautilya-$pkgver"
 
   # Base directories.
   install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/opt/kautilya"
+  install -dm755 "$pkgdir/usr/share/kautilya"
 
-  cp --no-preserve=ownership -R * "$pkgdir/opt/kautilya"
-
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/kautilya"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   cat > "$pkgdir/usr/bin/kautilya" <<\EOF
 #!/bin/bash
-
-dir=$HOME/.kautilya
-echo >&2 "Creating '$dir'..."
-mkdir -p "$dir"
-cp -aru /opt/kautilya/* "$dir"
-
-cd "$dir"
-exec ruby "$dir"/kautilya.rb "$@"
+cd /usr/share/kautilya
+exec ruby kautilya.rb "$@"
 EOF
   chmod +x "$pkgdir/usr/bin/kautilya"
 }
