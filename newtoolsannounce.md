@@ -8,4 +8,6 @@ Newest Tools Added:
 [filibuster-git](https://github.com/subinacls/Filibuster) - An Egress filter mapping application. 
 [snow](http://darkside.com.au/snow/index.html) - Snow is used to conceal messages in ASCII text by appending whitespace to the end of lines.
 [b2sum](https://blake2.net/) - BLAKE2 file hash sum check. Computes the BLAKE2 (BLAKE2b or -s, -bp, - sp) cryptographic hash of a given file. Authors: @veorq @sevenps @zooko @codesinchaos
+[beecrypt](http://beecrypt.sourceforge.net/) - A strong and fast cryptography toolkit - [API Documentation](http://beecrypt.sourceforge.net/doxygen/c/index.html) [C++ API Documentation](http://beecrypt.sourceforge.net/doxygen/c++/index.html) 
+
 **Thanks for the most recent requests!**
