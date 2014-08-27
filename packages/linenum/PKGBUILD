@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=linenum
-pkgver=20140430
+pkgver=20140127.r18.b4c2541
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="Scripted Local Linux Enumeration & Privilege Escalation Checks"
 url="https://github.com/rebootuser/LinEnum"
@@ -10,10 +11,11 @@ license=('GPL3')
 depends=('bash')
 makedepends=('git')
 source=("git+https://github.com/rebootuser/LinEnum.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  date +%Y%m%d
+  cd LinEnum
+  printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//  g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {

@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
-pkgver=r102.df4073d
-pkgrel=1
+pkgver=r127.b177b25
+pkgrel=2
 groups=('archassault' 'archassault-malware')
-pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."
+pkgdesc="A tool to retrieve malware directly from the source for security researchers."
 arch=('any')
 url='https://github.com/technoskald/maltrieve'
 license=('GPL3')
-depends=('python2' 'python2-beautifulsoup4' 'python2-lxml' 'python2-feedparser')
+depends=('python2' 'python2-beautifulsoup4' 'python2-lxml' 'python2-feedparser' 'python2-gevent' 'python2-greenlet' 'python2-grequests' 'python2-requests' 'python2-wsgiref')
 makedepends=('git')
 provides=('maltrieve')
 source=("git+https://github.com/technoskald/maltrieve.git")
@@ -30,7 +30,7 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
 
   #Bins
-  install -Dm644 MultiPartForm.py "$pkgdir/usr/share/maltrieve/"
+  install -Dm644 grequests.py "$pkgdir/usr/share/maltrieve/"
   install -Dm755 maltrieve.py "$pkgdir/usr/share/maltrieve/"
   install -Dm755 maltrievecategorizer.sh "$pkgdir/usr/share/maltrieve/"
   install -Dm644 maltrieve.cfg "$pkgdir/usr/share/maltrieve/" 

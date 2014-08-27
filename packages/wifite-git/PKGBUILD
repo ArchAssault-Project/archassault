@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=wifite
 pkgname=${_pkgname}-git
-pkgver=20130817.r122.a6535c5
+pkgver=20140805.r131.fd486ba
 pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="A tool to attack multiple WEP and WPA encrypted networks at the same time"

@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=topera
-pkgver=20140415
+pkgver=20140105.r19.3e230fd
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="A new security tools for IPv6, with the particularity that their attacks can't be detected by Snort."
 url="https://github.com/toperaproject/topera"
@@ -10,10 +11,11 @@ license=('GPL2')
 depends=('python2' 'scapy')
 makedepends=('git')
 source=("git+https://github.com/toperaproject/topera.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  date +%Y%m%d
+    cd $pkgname
+    printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare(){
@@ -23,17 +25,13 @@ prepare(){
 
 package() {
   cd "$srcdir/topera"
-
-  # Base directories.
   install -dm755 "$pkgdir/usr/bin/"
   install -dm755 "$pkgdir/usr/share/$pkgname"
-
   cp -a --no-preserve=ownership * "$pkgdir/usr/share/$pkgname"
 
 cat > "$pkgdir/usr/bin/topera" << EOF
 #!/bin/sh
-cd /usr/share/topera
-python2 topera.py "\$@"
+python2 /usr/share/topera/./topera.py "\$@"
 EOF
 chmod +x "$pkgdir/usr/bin/topera"
 }

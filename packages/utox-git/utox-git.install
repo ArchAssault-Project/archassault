@@ -1,0 +1,12 @@
+post_upgrade() {
+    update-desktop-database -q
+    gtk-update-icon-cache
+}
+
+post_install() {
+    post_upgrade
+}
+
+post_remove() {
+    post_upgrade
+}

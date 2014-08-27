@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashid-git
-pkgver=r217.653ff0a
+pkgver=r225.8de2a43
 pkgrel=1
 pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
 url="https://github.com/psypanda/hashID"
@@ -30,7 +30,6 @@ package() {
   install -m644 hashinfo.xlsx "$pkgdir"/usr/share/hashid-git/hashinfo.xslx
   install -Dm755 hashid.py "$pkgdir"/usr/share/hashid-git/hashid.py
   install -Dm644 man/hashid.7 "$pkgdir"/usr/share/man/man7/hashid/hashid.7
-  cp -a --no-preserve=ownership js "$pkgdir"/usr/share/hashid-git/
   cat > "$pkgdir"/usr/bin/hashid.py <<EOF
 #!/bin/sh
 cd /usr/share/hashid-git

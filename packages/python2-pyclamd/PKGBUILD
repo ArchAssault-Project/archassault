@@ -1,0 +1,31 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Tasos Latsas <tlatsas2000 at gmail dot com>
+
+pkgname=python2-pyclamd
+pkgver=0.3.4
+pkgrel=1
+pkgdesc="A python interface to Clamd (Clamav daemon)"
+arch=('any')
+url="http://code.google.com/p/pyclamd/"
+license=('LGPL3')
+depends=('clamav' 'python2')
+makedepends=('python2-setuptools')
+source=("https://pyclamd.googlecode.com/files/pyClamd-$pkgver.tar.gz")
+sha512sums=('e83834e63ede2099f9a6928c99bbaf9e177095d97c7ca757618d4769bd68d4c1a7fb4bd7382b4a1c2bb434eb9a75e36bfa87ea8f9557671733fdf3d220102925')
+
+prepare(){
+  cd "$srcdir/pyClamd-$pkgver"
+  sed -i 's,#!/usr/bin/env python,&2,' "${srcdir}/pyClamd-${pkgver}/__init__.py"
+  sed -i 's,#!/usr/bin/env python,&2,' "${srcdir}/pyClamd-${pkgver}/example.py"
+  sed -i 's,#!/usr/bin/env python,&2,' "${srcdir}/pyClamd-${pkgver}/pyclamd.py"
+}
+
+build() {
+  cd "$srcdir/pyClamd-$pkgver"
+  python2 setup.py build
+}
+
+package() {
+  cd "$srcdir/pyClamd-$pkgver"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+}

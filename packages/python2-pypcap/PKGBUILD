@@ -1,11 +1,11 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pypcap
 pkgver=1.1
-pkgrel=4
+pkgrel=5
 pkgdesc="Python extension module for libpcap."
 url="http://code.google.com/p/pypcap/"
 license=('custom')
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('python2' 'libpcap')
 source=("http://pypcap.googlecode.com/files/pypcap-$pkgver.tar.gz"
         'python2-pypcap.patch')
@@ -26,6 +26,6 @@ build() {
 
 package() {
   cd "$srcdir/pypcap-$pkgver"
-  python2 setup.py install "--root=$pkgdir"
-  install -Dm644 "$srcdir/pypcap-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/pypcap/LICENSE"
+  python2 setup.py install "--root=$pkgdir" --optimize=1
+  install -Dm644 "$srcdir/pypcap-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

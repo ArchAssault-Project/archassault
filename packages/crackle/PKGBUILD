@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=crackle
-pkgver=37.d9f9714
+pkgver=39.3e93196
 pkgrel=1
 groups=('archassault' 'archassault-cracker' 'archassault-bluetooth')
 pkgdesc="Crack and decrypt BLE encryption"

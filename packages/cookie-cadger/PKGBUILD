@@ -8,22 +8,22 @@ url="https://cookiecadger.com/"
 arch=('any')
 license=('custom:FreeBSD')
 depends=('java-environment' 'wireshark-cli')
-noextract=("CookieCadger-$pkgver.jar")
-source=("https://www.cookiecadger.com/files/CookieCadger-$pkgver.jar"
+noextract=("CookieCadger-${pkgver}.jar")
+source=("https://www.cookiecadger.com/files/CookieCadger-${pkgver}.jar"
 				'LICENSE')
 sha512sums=('bc6ab9178952e4f1ae87f34b61195c94ec1fd470799a717779920208b8171454d8480a15b4d27722ffb37aff43af38f439f0389111b3183577879b511e4a6f2d'
             '4ee06b8111e93910df1a36c3adac8dd5f81fefd6ba6178c7bc09cb0db1f91bf19aa136ab97cd96be971feba4f2e2ab0df0c0e57aae837c8d89de92906b8dc1b2')
 
 package() {
-  cd "$srcdir"
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/cookie-cadger"
-	install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/cookie-cadger/LICENSE"
-  cp -L CookieCadger-$pkgver.jar "$pkgdir/usr/share/cookie-cadger"
-  cat > "$pkgdir/usr/bin/cookie-cadger" <<EOF
+  cd "${srcdir}"
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir}/usr/share/cookie-cadger"
+  install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/cookie-cadger/LICENSE"
+  cp -L CookieCadger-${pkgver}.jar "${pkgdir}/usr/share/cookie-cadger"
+  cat > "${pkgdir}/usr/bin/cookie-cadger" <<EOF
 #!/bin/sh
 cd /usr/share/cookie-cadger
-java -jar CookieCadger-$pkgver.jar "\$@"
+java -jar CookieCadger-${pkgver}.jar "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/cookie-cadger"
+  chmod +x "${pkgdir}/usr/bin/cookie-cadger"
 }

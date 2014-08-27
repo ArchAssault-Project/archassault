@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=backfuzz
-pkgver=20140430
+pkgver=20130611.r36.8e54ed6
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A protocol fuzzing toolkit."
 url="https://github.com/localh0t/backfuzz"
@@ -10,10 +11,11 @@ license=('GPL3')
 depends=('python2')
 makedepends=('git')
 source=("git+https://github.com/localh0t/backfuzz.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  date +%Y%m%d
+  cd $pkgname
+  printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//  g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
