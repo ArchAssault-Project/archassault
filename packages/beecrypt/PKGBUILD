@@ -3,7 +3,7 @@
 
 pkgname=beecrypt
 pkgver=4.2.1
-pkgrel=5
+pkgrel=6
 pkgdesc="A strong and fast cryptography toolkit"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://beecrypt.sourceforge.net/"
@@ -16,7 +16,7 @@ sha512sums=('59995d53c024efe6344a21ac0d6d55fbe652488a4a22cc6719f9fc3851d56697fa8
 
 build() {
   cd ${srcdir}/$pkgname-$pkgver
-  CXXFLAGS=-fpermissive
+  CXXFLAGS="$CXXFLAGS -fpermissive"
   ./configure --prefix=/usr --sysconfdir=/etc --with-python=python2
   make
 }
