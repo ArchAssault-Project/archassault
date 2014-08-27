@@ -6,5 +6,6 @@ Newest Tools Added:
 [zuluCrypt](https://github.com/mhogomchungu/zuluCrypt/) - A cli and gui frontend to cryptsetup.
 [facebot-git](https://github.com/pun1sh3r/facebot) - A facebook profile and reconnaissance system.
 [filibuster-git](https://github.com/subinacls/Filibuster) - An Egress filter mapping application. 
+[snow](http://darkside.com.au/snow/index.html) - Snow is used to conceal messages in ASCII text by appending whitespace to the end of lines.
 
 **Thanks for the most recent requests!**
