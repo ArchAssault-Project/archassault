@@ -1,14 +1,4 @@
 Newest Tools Added:
 
-[utox-git](https://github.com/notsecure/uTox) - Lightweight Tox client.
-[fb-adb-git](https://github.com/facebook) - A better shell to use in place of adb when connecting to Android devices.
-[xsscrapy](https://github.com/DanMcInerney/xsscrapy) - XSS Spider by Dan McInerney. Check out his recent [post about the tool](http://danmcinerney.org/xsscrapy-fast-thorough-xss-vulnerability-spider/). @DanHMcInerney
-[zuluCrypt](https://github.com/mhogomchungu/zuluCrypt/) - A cli and gui frontend to cryptsetup.
-[facebot-git](https://github.com/pun1sh3r/facebot) - A facebook profile and reconnaissance system.
-[filibuster-git](https://github.com/subinacls/Filibuster) - An Egress filter mapping application. 
-[snow](http://darkside.com.au/snow/index.html) - Snow is used to conceal messages in ASCII text by appending whitespace to the end of lines.
-[b2sum](https://blake2.net/) - BLAKE2 file hash sum check. Computes the BLAKE2 (BLAKE2b or -s, -bp, - sp) cryptographic hash of a given file. Authors: @veorq @sevenps @zooko @codesinchaos
-[beecrypt](http://beecrypt.sourceforge.net/) - A strong and fast cryptography toolkit - [API Documentation](http://beecrypt.sourceforge.net/doxygen/c/index.html) [C++ API Documentation](http://beecrypt.sourceforge.net/doxygen/c++/index.html) 
-[cryptmount](http://cryptmount.sourceforge.net/) - utility which allows an ordinary user to mount an encrypted file system - Author RW Penney
 
 **Thanks for the most recent requests!**
