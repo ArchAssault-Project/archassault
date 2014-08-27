@@ -9,7 +9,7 @@ url="https://github.com/facebook/${_pkgname}"
 license=('GPL3')
 arch=('i686' 'x86_64')
 depends=('android-tools')
-makedepends=('git' 'android-ndk' 'prelink')
+makedepends=('git' 'android-ndk' 'prelink' 'unzip')
 options=('!strip' '!buildflags')
 install=${pkgname}.install
 
