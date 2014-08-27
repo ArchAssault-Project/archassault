@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=facebot-git
-pkgver=r22.216d891
+pkgver=r23.57f6025
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A facebook profile and reconnaissance system "
