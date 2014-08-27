@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dscanner-git
-pkgver=r657.03b956a
+pkgver=r661.d610dc2
 pkgrel=1
 pkgdesc="Swiss-army knife for D source code"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -34,7 +34,7 @@ build(){
 
 package() {
   cd "$srcdir/Dscanner"
-  install -Dm755 dscanner "$pkgdir/usr/bin/dscanner"
+  install -Dm755 bin/dscanner "$pkgdir/usr/bin/dscanner"
   install -Dm644 LICENSE_1_0.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
   install -Dm644 README.md "$pkgdir"/usr/share/dscanner-git
 }
