@@ -1,0 +1,83 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
+
+_pkgname=android-ndk
+pkgname=${_pkgname}32
+pkgver=r10
+pkgrel=1
+pkgdesc="Android C/C++ developer kit"
+arch=('i686' 'x86_64')
+groups=('archassault' 'archassault-mobile')
+url="http://developer.android.com/sdk/ndk/index.html"
+license=('Apache' 'GPL' 'GPL3' 'LGPL' 'BSD' 'MIT' 'PSF' 'custom')
+depends=('android-sdk')
+options=('!emptydirs' '!strip' 'staticlibs')
+install="${pkgname}.install"
+provides=("android-ndk")
+conflicts=("android-ndk")
+replaces=("android-ndk")
+
+source=("https://dl-ssl.google.com/android/ndk/${pkgname}-${pkgver}-linux-x86.tar.bz2"
+        "${pkgname}.sh"
+        "SGI.gles.license.txt")
+sha512sums=('c3acf611b360bea4d559341c4093d1194fa3131ad807ad9aa8f6c159c12bd4979cadc65388b9826baad89c0ba6a4a03f192ddd885c50f0066022ae3265d8e59c'
+            '51f111c8a6d894c563865827f3f2ab59095887f0aaf04d717816f9e57dcfefdb97461a73a0ddba74a1027537c8e57d63ac1696af03c2661ef8677a63a77fd891'
+            '6825a3d22170186938bcc629a5208687e81625f2897d7119b14bc3563735f3948998aad0d14e1b0815cf0b20d1b59681d795fb3623232655e18b2ecaa39ce3fb')
+
+[[ "$CARCH" = "x86_64" ]] \
+    && source[0]="http://dl.google.com/android/ndk/${pkgname}-${pkgver}-linux-${CARCH}.tar.bz2" \
+    && sha512sums[0]='004e223b741c8b63ab86bd37f2c83d89457d5144e18221e792676e070ffb9b23078568b52abee2067de7daa0dbe5e8152bcc82685273d60e1a243b3c5f159f84' \
+    && ARCH="$CARCH" \
+    || ARCH="x86"
+
+prepare() {
+    cd ${_pkgname}-${pkgver}/prebuilt
+
+    # SET PYTHON PATHS TO PACKAGE BINARIES
+    for file in $(grep -lr -e '^#!.*env python'); do
+        sed -i -e 's|^#! */usr/bin/env python|#!/opt/'$pkgname'/prebuilt/linux-'$ARCH'/bin/python|;s|#! */usr/bin/env python2\.3|#! */usr/bin/env python2;s|#! */usr/bin/python|#! */usr/bin/python2' "$file"
+    done
+    for file in $(grep -li -e '^#!/tmp/ndk-andrewhsieh/buildhost/install' linux-${ARCH}/bin/*); do
+        sed -i -e 's|^#! */tmp/ndk-andrewhsieh/buildhost/install|#!/opt/'$pkgname'|' "$file"
+    done
+    sed -i 's|\ /usr/local/bin/python|/opt/'$pkgname'/prebuilt/linux-'$ARCH'/bin/python2.7|' linux-${ARCH}/lib/python2.7/cgi.py
+    sed -i 's|/usr/bin/python|/opt/'$pkgname'/prebuilt/linux-'$ARCH'/bin/python2.7|' common/scan-build/set-xcode-analyzer
+}
+
+build() {
+    cd ${_pkgname}-${pkgver}/prebuilt
+
+    # RECOMPILE PYTHON BYTECODE
+    for directory in $(find . -iname "*.pyc" | sed 's|\/[^\/]*$||' | sort -u); do
+        pushd "$directory"
+        rm *.pyc
+        ${srcdir}/${_pkgname}-${pkgver}/prebuilt/linux-x86_64/bin/python -m compileall . || true
+        popd
+    done
+}
+
+package() {
+    # INSTALL PROFILE SCRIPT
+    install -Dm755 ${pkgname}.sh "${pkgdir}"/etc/profile.d/${pkgname}.sh
+
+    # INSTALL NDK
+    install -d "${pkgdir}"/opt
+    cp -a ${_pkgname}-${pkgver} "${pkgdir}"/opt/${pkgname}/
+    chmod 644 "${pkgdir}"/opt/${pkgname}/prebuilt/linux-${ARCH}/lib/libpython2.7.a
+    chmod -R a+r "${pkgdir}"/opt/${pkgname}
+
+    # INSTALL LICENSES
+    install -Dm644 SGI.gles.license.txt                                 "${pkgdir}"/usr/share/licenses/${pkgname}/SGI.gles
+    cd ${_pkgname}-${pkgver}
+    install -Dm644 sources/android/crazy_linker/LICENSE                 "${pkgdir}"/usr/share/licenses/${pkgname}/BSD.chromium
+    install -Dm644 sources/third_party/googletest/googletest/LICENSE    "${pkgdir}"/usr/share/licenses/${pkgname}/BSD.google
+    install -Dm644 sources/cxx-stl/stlport/LICENSE                      "${pkgdir}"/usr/share/licenses/${pkgname}/CUSTOM.stlport
+    install -Dm644 sources/cxx-stl/llvm-libc++/libcxx/LICENSE.TXT       "${pkgdir}"/usr/share/licenses/${pkgname}/BSD-MIT.llvm-libc++
+    install -Dm644 sources/cxx-stl/llvm-libc++abi/libcxxabi/LICENSE.TXT "${pkgdir}"/usr/share/licenses/${pkgname}/BSD-MIT.llvm-libc++abi
+    install -Dm644 build/tools/toolchain-licenses/COPYING               "${pkgdir}"/usr/share/licenses/${pkgname}/GPL.toolchain
+    install -Dm644 prebuilt/linux-${ARCH}/lib/python2.7/LICENSE.txt     "${pkgdir}"/usr/share/licenses/${pkgname}/PSF.python2
+    install -Dm644 prebuilt/common/scan-build/LICENSE.TXT               "${pkgdir}"/usr/share/licenses/${pkgname}/BSD.llvm
+    install -Dm644 samples/san-angeles/jni/license.txt                  "${pkgdir}"/usr/share/licenses/${pkgname}/LGPL-BSD.san_angeles_observation_opengl-es
+    install -Dm644 samples/san-angeles/jni/license-BSD.txt              "${pkgdir}"/usr/share/licenses/${pkgname}/BSD.san_angeles_observation_opengl-es
+    install -Dm644 tests/abcc/jni/mman-win32/LICENSE.TXT                "${pkgdir}"/usr/share/licenses/${pkgname}/GPL.mman-win32
+}
