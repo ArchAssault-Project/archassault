@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassautl org>
 # Contributor: Théophile Studer
 pkgname=python2-yara
-pkgver=3.0.0
+pkgver=3.1.0
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
@@ -11,7 +11,7 @@ license=('APACHE')
 replaces=('yara-python')
 depends=('python2' 'yara')
 source=("https://github.com/plusvic/yara/archive/v$pkgver.tar.gz")
-sha512sums=('b4342d1eba2df7866576ec578b7cf8dbbae8c54bfa7a7394f178faf786fb3b00f632191e1a815a6f9f9924c92ae4caacd2f526d4cb7a95a1d3d33fa4f2b3f9ea')
+sha512sums=('ebebe4971d07946b5a435f0aef0784fad02e0a844b6e0add3c613528c033042e3304cef2b972d9c02307f6a5d5124cf85cb355fd666d6c0f24ab60f8d037273d')
 
 build() {
   cd "$srcdir/yara-$pkgver/yara-python"
