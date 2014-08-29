@@ -13,9 +13,9 @@ license=('Apache' 'GPL' 'GPL3' 'LGPL' 'BSD' 'MIT' 'PSF' 'custom')
 depends=('android-sdk')
 options=('!emptydirs' '!strip' 'staticlibs')
 install="${pkgname}.install"
-provides=("android-ndk")
-conflicts=("android-ndk")
-replaces=("android-ndk")
+provides=("$pkgname")
+conflicts=("$pkgname")
+replaces=("$pkgname")
 
 source=("https://dl-ssl.google.com/android/ndk/${pkgname}-${pkgver}-linux-x86.tar.bz2"
         "${pkgname}.sh"
