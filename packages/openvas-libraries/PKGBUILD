@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=openvas-libraries
 pkgver=7.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="The OpenVAS libraries"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
 depends=('gnutls' 'libpcap' 'gpgme' 'libssh' 'libksba' 'glib2' 'libgcrypt' 'libldap')
 makedepends=('pkg-config' 'cmake' 'bison')
-options=('!makeflags')
+options=('!emptydirs' '!makeflags')
 # The file downloaded is determined by the `/1417/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
 #  avoid confusion.
