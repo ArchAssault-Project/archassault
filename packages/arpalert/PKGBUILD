@@ -1,16 +1,18 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname='arpalert'
-pkgver='2.0.12'
-pkgrel=3
+pkgver='2.0.11'
+pkgrel=1
+epoch=1
 pkgdesc='Monitor ARP changes in ethernet networks.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.arpalert.org/'
 license=('GPL')
 depends=('libpcap')
+options=('!emptydirs')
 groups=('archassault' 'archassault-defense')
 source=("http://www.arpalert.org/src/arpalert-$pkgver.tar.gz"
         'arpalert.desktop')
-sha512sums=('f6e4d0e6c4bbe7f8c3f9f51a7cde52f8363b3e3faf403cdac80ea3b63fa6cca1b8fdf576eaf5e181b6c5fc0fc59332d1d371b39106ebb10849dc71ad40b0bcc4'
+sha512sums=('8593b5f87c8435bc0dfb6b1d48b72705a109425410039341fddb49beddacb30c87e2b30a1f86cca17bb64aa407060ee5b9437ff2801b9869261ed91f6f5e141f'
             'bf9c937238dc9c331a99f79f4500838f0de3e3b856e5b0374a68e8133c7f7fad9887f663151c011c934bd2b9b918a9c233e43d514680901dd8d2f2de8fed9baa')
 
 build() {
