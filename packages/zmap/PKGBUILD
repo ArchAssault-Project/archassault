@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=zmap
-pkgver=1.2.1
+pkgver=1.2.1.RC1
 pkgrel=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc='Fast network scanner designed for Internet-wide network surveys'
@@ -10,18 +10,18 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('gmp' 'libpcap' 'json-c')
 makedepends=('byacc-noconflict' 'cmake' 'gengetopt')
 backup=('etc/zmap/blacklist.conf' 'etc/zmap/zmap.conf')
-source=("https://github.com/zmap/zmap/archive/v$pkgver.tar.gz")
-sha512sums=('1b3d7fa41bb75c859463f3ec8bcde31778f5d91a6f561aa9638ba93be97dacdba89493574581ce52aebcf093a86b042dcce41cffe6cb0849bb76a6005b714be2')
+source=("https://github.com/zmap/zmap/archive/v1.2.1-RC1.tar.gz")
+sha512sums=('da7f5b908dafc33017bbd1b0c02678255713b8d2fb4d19f09eed451f93cc8bf9208c96b6a3a5c2ad7b5bc2f936521d717174062f968674438269664383852068')
 
 build() {
-  cd "$srcdir/zmap-$pkgver"
+  cd "$srcdir/zmap-1.2.1-RC1"
 
   cmake -DWITH_JSON=ON
   make
 }
 
 package() {
-  cd "$srcdir/zmap-$pkgver/src"
+  cd "$srcdir/zmap-1.2.1-RC1/src"
 
   # Bin.
   install -Dm755 zmap "$pkgdir/usr/bin/zmap"
