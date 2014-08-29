@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Simon Perry <aur [at] sanxion [dot] net>
+# Contributor: Nicolas Pouillard http://nicolaspouillard.fr
+
+pkgname=spiped
+pkgver=1.4.0
+pkgrel=1
+pkgdesc="A  utility for creating symmetrically encrypted and authenticated pipes between socket addresses"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+source=(http://www.tarsnap.com/$pkgname/$pkgname-$pkgver.tgz)
+url="http://www.tarsnap.com/spiped.html"
+license=('BSD')
+depends=('openssl')
+sha512sums=('f22a13040f5d3ab756ca4db6768b8a00b42a1b4320d2b8743e18b5eedab3df1844d723f4fd7ab4d5fe3d73c2119436efbaf04c8e233a5f402d2aee1c0157f10c')
+
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  install -dm755 ${pkgdir}/usr/share/man/man1
+  MAN1DIR=${pkgdir}/usr/share/man/man1 BINDIR=${pkgdir}/usr/bin make install
+  install -Dm644 COPYRIGHT ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
+}
+
