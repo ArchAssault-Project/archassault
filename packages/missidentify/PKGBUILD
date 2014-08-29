@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=missidentify
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-windows' 'archassault-reconnaissance')
 pkgdesc="A program to find Win32 applications"
 url='http://missidentify.sourceforge.net/'
