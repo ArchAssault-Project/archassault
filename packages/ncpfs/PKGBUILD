@@ -1,13 +1,14 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=ncpfs
 pkgver=2.2.6
-pkgrel=3
-pkgdesc="ncpfs allows you to mount volumes of NetWare servers under Linux."
+pkgrel=4
+pkgdesc="Allows you to mount volumes of NetWare servers under Linux."
 url="http://www.novell.com/"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL')
 groups=('archassault')
-depends=('linux>=3.0.0' 'pam')
+depends=('pam')
+options=('!emptydirs')
 _url="http://ftp.de.debian.org/debian/pool/main/n/$pkgname"
 _with_php=1
 source=("${_url}/${pkgname}_${pkgver}.orig.tar.gz"
@@ -34,7 +35,7 @@ build() {
   export ncp_cv_pam_directory='/usr/lib/security'
   
   if [ $_with_php -eq 1 ]; then
-    ./configure --prefix=/usr --mandir=/usr/share --sbindir=/usr/bin
+    ./configure --prefix=/usr --mandir=/usr/share --sbindir=/usr/bin --bindir=/usr/bin
     sed 's/function_entry/zend_function_entry/' -i contrib/php/php_auth_nds.c
   else
     ./configure --prefix=/usr --mandir=/usr/share --disable-php --sbindir=/usr/bin
@@ -50,4 +51,7 @@ package() {
   rm "$pkgdir"/usr/lib/libncp.so
   ln -s libncp.so.2.3.0 "$pkgdir"/usr/lib/libncp.so
   ln -s libncp.so.2.3.0 "$pkgdir"/usr/lib/libncp.so.2.3
+  # fix the sbin issue where even when set in configure you still get sbin dir populated
+  mv "${pkgdir}"/sbin "${pkgdir}"/usr/bin
+  chmod 0755 "${pkgdir}"/usr/bin/*
 }
