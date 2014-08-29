@@ -7,7 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.openvas.org/"
 license=('GPL')
 depends=('gnutls' 'libpcap' 'gpgme' 'libssh' 'libksba' 'glib2' 'libgcrypt' 'libldap')
-makedepends=('pkg-config' 'cmake' 'bison')
+makedepends=('doxygen' 'pkg-config' 'cmake' 'bison')
 options=('!emptydirs' '!makeflags')
 # The file downloaded is determined by the `/1417/` part. Changing `pkgver`
 #  does not change the file downloaded so we hard code the version number to
