@@ -51,7 +51,7 @@ build() {
     for directory in $(find . -iname "*.pyc" | sed 's|\/[^\/]*$||' | sort -u); do
         pushd "$directory"
         rm *.pyc
-        ${srcdir}/${_pkgname}-${pkgver}/prebuilt/linux-x86_64/bin/python -m compileall . || true
+        "${srcdir}"/${_pkgname}-${pkgver}/prebuilt/linux-${ARCH}/bin/python -m compileall . || true
         popd
     done
 }
