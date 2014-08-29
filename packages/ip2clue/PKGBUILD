@@ -26,5 +26,6 @@ package() {
     install -Dm644 "${pkgname}d.service" "${pkgdir}/usr/lib/systemd/system/${pkgname}d.service"
     cd "${pkgname}-${pkgver}"
     make DESTDIR="${pkgdir}" install
+    mv "${pkgdir}"/usr/sbin/* "${pkgdir}"/usr/bin
     rm -rf "${pkgdir}/etc/rc.d" # We're using systemd instead
 }
