@@ -3,7 +3,7 @@
 
 _pkgname=hellcat
 pkgname=${_pkgname}-git
-pkgver=r37.92d1def
+pkgver=r45.8873f05
 pkgrel=1
 pkgdesc="netcat that takes unfair advantage of traffic shaping systems that don't initially ratelimit"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
