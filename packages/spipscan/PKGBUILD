@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=spipscan-git
-pkgver=r63.f5681a8
+pkgver=r69.4ad3235
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="SPIP (CMS) Scanner for penetration testing purpose written in Python"
@@ -17,6 +17,11 @@ pkgver() {
   cd "$srcdir/spipscan"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
+
+prepare(){
+  grep -iRl 'python' "$srcdir/spipscan" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
 
 package() {
   cd "$srcdir/spipscan"
