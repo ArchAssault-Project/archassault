@@ -23,4 +23,6 @@ build() {
 package() {
     cd "${pkgname}-${pkgver}"
     make DESTDIR="${pkgdir}" install
+    install -dm755 "${pkgdir}"/usr/bin
+    mv "${pkgdir}"/usr/sbin/* "${pkgdir}"/usr/bin
 }
