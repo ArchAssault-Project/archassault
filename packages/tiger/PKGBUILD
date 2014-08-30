@@ -44,9 +44,9 @@ build() {
 }
 
 package() {
-    install -Dm644 ${pkgname}.tmpfiles.conf "${pkgdir}/usr/lib/tmpfiles.d/${pkgname}.conf"
-    install -Dm644 ${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
-    install -Dm644 ${pkgname}.png "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
+    install -Dm644 ${pkgname}.tmpfiles.conf "${pkgdir}"/usr/lib/tmpfiles.d/${pkgname}.conf
+    install -Dm644 ${pkgname}.desktop "${pkgdir}"/usr/share/applications/${pkgname}.desktop
+    install -Dm644 ${pkgname}.png "${pkgdir}"/usr/share/pixmaps/${pkgname}.png
     cd ${pkgname}-${pkgver}
-    make "DESTDIR=$pkgdir" install
+    make DESTDIR="$pkgdir" install
 }
