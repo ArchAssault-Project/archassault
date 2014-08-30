@@ -10,9 +10,19 @@
 [[ -n "$1" ]] && \
     if [ "$1" = "-d" ] || [ "$1" = "--delete" ]; then
         if [ -d "$ARCHROOT" ]; then
-            echo -e "Deleting: ${ARCHROOT}"
-            rm -rf "$ARCHROOT"
-            exit 0
+            # Unmount any directories still mounted
+            [[ $(mount | grep "$ARCHROOT") ]] && \
+                for mntpt in $(mount | grep "$ARCHROOT" | sed 's|^[^\ ]*\ on\ ||;s|\ .*$||' | sort -u); do
+                    umount "$mntpt"
+                done
+            if [[ $(mount | grep "$ARCHROOT") ]]; then
+                echo "Error: unable unmount some directories in ${ARCHROOT}"
+                exit 1
+            else
+                echo -e "Deleting: ${ARCHROOT}"
+                rm -rf "$ARCHROOT"
+                exit 0
+            fi
         else
             echo "Error: ${ARCHROOT} does not exist"
             exit 1
@@ -45,14 +55,16 @@ if [[ ! -d "${ARCHROOT}/root" ]]; then
 fi
 
 # If a pkg source archive is given as an argument, copy it into the chroot and attempt to build it
-if [[ -f "$1" ]]; then
-    PKGNAME=$(sed 's|-[^-]*-[^\.]*\.src\.tar\.gz||' <<< "$1")
-    cp "$1" "${ARCHROOT}/root/${PKGNAME}.tar.gz"
-    [[ -d "${ARCHROOT}/root/${PKGNAME}" ]] && rm -rf "${ARCHROOT}/root/${PKGNAME}"
-    arch-nspawn "${ARCHROOT}/root" tar zxf "/${PKGNAME}.tar.gz"
-    arch-nspawn "${ARCHROOT}/root" sh -c "cd /${PKGNAME} && makepkg -s --asroot"
-    [[ $(ls "${ARCHROOT}/root/${PKGNAME}/"*.pkg.*) ]] && [[ $(type -P namcap) ]] && namcap "${ARCHROOT}/root/${PKGNAME}/${PKGNAME}"*.pkg.*
-fi
+[[ -n "$1" ]] && \
+    if [[ -f "$1" ]]; then
+        PKGNAME=$(sed 's|-[^-]*-[^\.]*\.src\.tar\.gz||' <<< "$1")
+        cp "$1" "${ARCHROOT}/root/${PKGNAME}.tar.gz"
+        [[ -d "${ARCHROOT}/root/${PKGNAME}" ]] && rm -rf "${ARCHROOT}/root/${PKGNAME}"
+        arch-nspawn "${ARCHROOT}/root" tar zxf "/${PKGNAME}.tar.gz"
+        arch-nspawn "${ARCHROOT}/root" sh -c "cd /${PKGNAME} && makepkg -s --asroot"
+        ls "${ARCHROOT}/root/${PKGNAME}/"*.pkg.* >/dev/null 2>&1
+        [[ $? ]] && [[ $(type -P namcap) ]] && namcap "${ARCHROOT}/root/${PKGNAME}/"*.pkg.*
+    fi
 
 # Enter the chroot
-TERM=rxvt arch-chroot "${ARCHROOT}/root" /usr/bin/bash
+[[ $(mount | grep "$ARCHROOT") ]] && TERM=rxvt chroot "${ARCHROOT}/root" /usr/bin/bash || TERM=rxvt arch-chroot "${ARCHROOT}/root" /usr/bin/bash
