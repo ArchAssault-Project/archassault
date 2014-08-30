@@ -3,7 +3,7 @@
 
 pkgname=tiger
 pkgver=3.2.3
-pkgrel=4
+pkgrel=5
 groups=('archassault' 'archassault-scanners' 'archassault-autonomous')
 pkgdesc="A security scanner that checks computer for known problems"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -22,7 +22,7 @@ source=("http://download.savannah.gnu.org/releases/${pkgname}/${pkgname}-${pkgve
 sha512sums=('d0b8326ff0a0159aa99e794f114769c56d520c35a48c16d53d2ca90132ac32614fe84ae661f9ad61aa943ce8171b6051a0495e838e19447e1c34f26d5b730d73'
             '79d9d514ee6ce8a30e68fb6ea6c751d21454321cbb96134dc65e66e34edc6c535b40068bc9138140742be0134f2e1961f3425af352caeab34b3363b4b90accde'
             '787a0db0d4dd16897a4a0e1f7b5095c27d298a4f0b667a633bbdcd660232c46a3cc2f0c95177cdbb1debb6a2b83d77fbc3fbc2ea2757cdfd3360f2fc2dc1707b'
-            '712d57cea4281d9d19094056996b956b023480e2d86ab7dc6468a4bd150dc75e85d06f50ac3515c304f092879a7f859e444b6de38159e84b8e61923464084e6e'
+            '213c0bd9ff98ffbcefa1813f4b1a894cb19a81ce62030af67b815623cec96ad7884764ef99a8473244e8d11ff7d89b13c9765139c6c5e6745cd356e6a1eb3e55'
             '8207fa992a6e66df9e5f454e4375513e60acba5f4289ae641cc2c494cfe70e46293f865a1c25e9af173fb94489367ef6edc48cd294be73d66edf92c34efd1ea3')
 
 prepare() {

@@ -3,7 +3,7 @@ Type=Application
 Version=1.0
 Name=tiger
 Comment=A security scanner that checks computer for known problems
-Exec=env TERM=xterm-256color su -c '/usr/bin/tiger -h; ${SHELL:-bash}'
+Exec=su -c '/usr/bin/tiger -h; ${SHELL:-bash}'
 Icon=tiger
 Terminal=true
 Categories=Archassault;ArchassaultScanners;ArchassaultAutonomous;
