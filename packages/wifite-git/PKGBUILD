@@ -2,7 +2,7 @@
 _pkgname=wifite
 pkgname=${_pkgname}-git
 pkgver=20140805.r131.fd486ba
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="A tool to attack multiple WEP and WPA encrypted networks at the same time"
 arch=('any')
@@ -17,8 +17,12 @@ provides=("$_pkgname")
 conflicts=("$_pkgname")
 replaces=("$_pkgname")
 
-source=("git+https://github.com/derv82/${_pkgname}.git")
-sha512sums=('SKIP')
+source=("git+https://github.com/derv82/${_pkgname}.git"
+        "${_pkgname}.desktop"
+        "${_pkgname}.svg")
+sha512sums=('SKIP'
+            '4ca3ccf11f1dcd6dac2acb7e16714b59b120aafeafabaa9333815cdc3cf4c7c423a99f230a9da2bb26e0166cd29329056cbc05af3e5c267d489a55c31746988a'
+            '8697bcbb3f8e38916ce084aa7d9e0b72237712cd74baa745dcdb00e3a0988d3231aa80ebf095c53f81d16b28d51fe95dcf35877f57a663222c6996006f3bdf30')
 
 pkgver() {
     cd $_pkgname
@@ -30,5 +34,7 @@ prepare() {
 }
 
 package() {
+    install -Dm644 ${_pkgname}.desktop "${pkgdir}/usr/share/applications/${_pkgname}.desktop"
+    install -Dm644 ${_pkgname}.svg "${pkgdir}/usr/share/pixmaps/${_pkgname}.svg"
     install -Dm755 ${_pkgname}/${_pkgname}.py "${pkgdir}/usr/bin/${_pkgname}"
 }
