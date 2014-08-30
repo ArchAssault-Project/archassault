@@ -20,7 +20,7 @@ depends=('java-environment'
          'java-environment'
          'lib32-libegl'
          'lib32-libxrender'
-         'lib32-fontconfig')
+         'lib32-fontconfig') && makedepends=('gcc-multilib')
 optdepends=('android-udev: udev rules for Android devices'
             'android-ndk32: develop for Android in native-code languages'
             'android-tools: adb, aapt, aidl, dexdump and dx')
