@@ -1,9 +1,9 @@
 [Desktop Entry]
-Version=1.0
 Type=Application
-Name=Some App
-Comment=Some app does this
-Exec=env TERM=xterm-256color /usr/bin/someapp
-Icon=someapp
-Categories=Category1;Category2;
+Version=1.0
+Name=appname
+Comment=Description of the application
+Exec=env TERM=xterm-256color sh -c '/usr/bin/appname -h; ${SHELL:-bash}'
+Icon=appname
 Terminal=true
+Categories=Archassault;ArchassaultCategory;
