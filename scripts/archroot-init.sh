@@ -51,7 +51,7 @@ if [[ -f "$1" ]]; then
     [[ -d "${ARCHROOT}/root/${PKGNAME}" ]] && rm -rf "${ARCHROOT}/root/${PKGNAME}"
     arch-nspawn "${ARCHROOT}/root" tar zxf "/${PKGNAME}.tar.gz"
     arch-nspawn "${ARCHROOT}/root" sh -c "cd /${PKGNAME} && makepkg -s --asroot"
-    [[ $(type -P namcap) ]] && namcap "${ARCHROOT}/root/${PKGNAME}/${PKGNAME}"*.pkg.*
+    [[ $(ls "${ARCHROOT}/root/${PKGNAME}/"*.pkg.*) ]] && [[ $(type -P namcap) ]] && namcap "${ARCHROOT}/root/${PKGNAME}/${PKGNAME}"*.pkg.*
 fi
 
 # Enter the chroot
