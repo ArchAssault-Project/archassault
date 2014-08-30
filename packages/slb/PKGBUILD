@@ -3,7 +3,7 @@
 
 pkgname=slb
 pkgver=0.1.24
-pkgrel=3
+pkgrel=4
 pkgdesc="A set of tools that can help you to control a load-balancing system"
 url="http://kernel.embedromix.ro/us/"
 license=('GPL3')
@@ -38,11 +38,8 @@ package() {
     popd > /dev/null 2>&1
 
     # Clean up install
-    rm -rf "${pkgdir}/var" # Empty after installing
     install -Dm644 "${pkgname}cd.conf.sample" "${pkgdir}/etc/${pkgname}/${pkgname}cd.conf.sample" # Create config sample with valid options included
     rm -rf "${pkgdir}/etc/rc.d" # Remove sysvinit scripts and replace with systemd services
     install -Dm644 "${pkgname}m.service" "${pkgdir}/usr/lib/systemd/system/${pkgname}m.service"
     install -Dm644 "${pkgname}c.service" "${pkgdir}/usr/lib/systemd/system/${pkgname}c.service"
-    install -dm755 "${pkgdir}"/usr/bin
-#    mv "${pkgdir}/usr/sbin/*" "${pkgdir}"/usr/bin
 }
