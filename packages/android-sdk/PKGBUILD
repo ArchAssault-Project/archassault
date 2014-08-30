@@ -1,55 +1,63 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
+# Contributor: Daniel Micay <danielmicay@gmail.com>
+# Contributor: Gordin <9ordin @t gmail dot com>
+
 pkgname=android-sdk
-pkgver=r22.3
-pkgrel=4
-pkgdesc='Google Android SDK'
+pkgver=r23.0.2
+pkgrel=1
+pkgdesc="The API libraries and developer tools necessary to build, test, and debug apps for Android"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 groups=('archassault-mobile')
 url="http://developer.android.com/sdk/index.html"
 license=('custom')
-depends=('java-runtime' 'alsa-lib' 'openal' 'libstdc++5' 'libxv'
-         'ncurses' 'sdl' 'swt' 'zlib')
-if [[ $CARCH = x86_64 ]]; then
-  depends=('java-runtime' 'lib32-alsa-lib' 'lib32-openal' 'lib32-libstdc++5'
-           'lib32-libxv' 'lib32-ncurses' 'lib32-sdl' 'lib32-zlib' 'swt')
-fi
-install=$pkgname.install
+options=('!emptydirs' '!strip' 'staticlibs')
+depends=('java-environment'
+         'libegl'
+         'libxrender'
+         'fontconfig')
+[[ "$CARCH" = "x86_64" ]] && depends=(
+         'java-environment'
+         'lib32-libegl'
+         'lib32-libxrender'
+         'lib32-fontconfig')
 optdepends=('android-udev: udev rules for Android devices'
-            'android-sdk-platform-tools: adb, aapt, aidl, dexdump and dx')
-source=(https://dl.google.com/android/${pkgname}_$pkgver-linux.tgz
-        $pkgname.png
-        $pkgname.desktop
-        $pkgname.sh
-        $pkgname.csh
-        $pkgname.conf
-        license.html)
-sha1sums=('9b7fc38f27e411297f4a183019ea2c10b1148252'
-          'c249134310ae91dccce1ad839b3985211674ab71'
-          '566cb182fb4babb2a9d449bdef5c401ab49554d3'
-          '78f8574e651c9bf8b7515ecb30c7ef93edbc4a96'
-          '08c85aab7523e22b298891c7047bc0e7adbf3437'
-          '145bdf3eb41a56574b289c1577a24bc47097ec83'
-          'bfb91be7e0b602d765b7a1fcaf0ce1b7e1a93faa')
+            'android-ndk32: develop for Android in native-code languages'
+            'android-tools: adb, aapt, aidl, dexdump and dx')
+source=("https://dl.google.com/android/${pkgname}_${pkgver}-linux.tgz"
+        "http://tools.android.com/recent/miscellaneousimprovements-1/android_icon_128.png"
+        "${pkgname}.desktop"
+        "${pkgname}.sh"
+        "${pkgname}.csh"
+        "${pkgname}.conf"
+        "LICENSE")
+sha512sums=('b55e6368c935aa6f4d2ac19c5c9f0060b61db8d62327e24ebf3a1b8f48ca6b7c89d63251974522611bd1f70bdb79d8b788a999ad9d4f64344c569b18fb05c56f'
+            '16c8aa6c9b27d3727f70d6326c736eccefe630bc3bf7a95ba11ea60acd5078d20fc9fe0991db50a4c4c97225d05cbc1c63267a1ba552aebe66b6f04f9ec70012'
+            'cc3daeea6aa87899c8f7c690b08e8be3a95677cfeb09eaf3bfc89eead4e5e4536e0ab40b8d7106f0d7353743aed03f9902838e20ca45b51b72e04ec096c70444'
+            '163644f6f5b21888b00d2143f4e016e3069e70284a11fc799a1aecca50c6db4b285e53d71f57cc6e831ee9f240f13dc2cce5012a966a195bcf10c4e5aff3ac37'
+            '8e60e3126811103a5a1056b33d1c88fccccaa6f61b4d8fd5210c73e0f91a4addd02a502a0f06a7f63bd750d1016c6faafd1aedb2b2c3353f510a281cfbfbf89e'
+            'e23fa38549f801a79323b47a5f7406e6961060710c526f859e1b0f6454c1b09687a1f9bf4850b1a127dbeac7a052946daf009a255804e3fed420d993912ccd7c'
+            '0d486ec15583c462c3c3d9877a0c81263a6d8c9c7aae239ab962d0fc0593695c07e4239f52fd1ad6c5ec3d2bffbdbc549a0f8ada8df24453bef3dcdf0dab4ebe')
+install=${pkgname}.install
 
 package() {
-  cd "$pkgdir"
-  install -Dm755 "$srcdir/$pkgname.sh" etc/profile.d/$pkgname.sh
-  install -Dm755 "$srcdir/$pkgname.csh" etc/profile.d/$pkgname.csh
-  install -Dm644 "$srcdir/$pkgname.conf" etc/ld.so.conf.d/$pkgname.conf
-  mkdir -p opt
-  cp -a "$srcdir/$pkgname-linux" opt/$pkgname
-  install -Dm644 "$srcdir/$pkgname.png" usr/share/pixmaps/$pkgname.png
-  install -Dm644 "$srcdir/$pkgname.desktop" \
-    usr/share/applications/$pkgname.desktop
-  install -Dm644 "$srcdir/license.html" \
-    usr/share/licenses/$pkgname/license.html
+    # Install
+    install -Dm644 android_icon_128.png "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
+    install -Dm644 ${pkgname}.desktop "${pkgdir}/usr/share/applications/${pkgname}.desktop"
+    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -Dm755 ${pkgname}.sh "${pkgdir}/etc/profile.d/${pkgname}.sh"
+    install -Dm755 ${pkgname}.csh "${pkgdir}/etc/profile.d/${pkgname}.csh"
+    install -Dm644 ${pkgname}.conf "${pkgdir}/etc/ld.so.conf.d/${pkgname}.conf"
+    install -d "${pkgdir}/opt"
+    cp -a ${pkgname}-linux "${pkgdir}/opt/${pkgname}"
 
-  if [[ $CARCH = i686 ]]; then
-    rm -rf ${pkgdir}/opt/android-sdk/tools/lib/{monitor-,}x86_64 \
-      ${pkgdir}/opt/android-sdk/tools/lib/lib64* \
-      ${pkgdir}/opt/android-sdk/tools/emulator64-*
-  fi
-  # Fix permissions
-  chmod -R ugo+rX "${pkgdir}/opt"
-  chmod g+rwX opt/android-sdk
+    # Cleanup
+    cd "$pkgdir"
+    if [[ "$CARCH" = i686 ]]; then
+        rm -rf opt/${pkgname}/tools/lib/{monitor-,}x86_64
+        rm -rf opt/${pkgname}/tools/lib/lib64*
+        rm -rf opt/${pkgname}/tools/emulator64-*
+    fi
+    chmod -R ugo+rX opt
+    chmod g+rwX opt/${pkgname}
 }
