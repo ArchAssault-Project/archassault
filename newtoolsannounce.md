@@ -4,5 +4,6 @@ Newest Tools Added:
 * [spiped](https://www.tarsnap.com/spiped.html) - A utility for creating symmetrically encrypted and authenticated pipes between socket addresses. Author: @Tarsnap
 * [sasm](https://github.com/Dman95/SASM) - A simple crossplatform IDE for NASM, MASM, GAS and FASM assembly languages Author: @Dman95 
 * [wphardening](https://github.com/elcodigok/wphardening) - A security tool for WordPress. Author: [@elcodigok](https://twitter.com/elcodigok)
+* [webspa](https://www.owasp.org/index.php/OWASP_WebSpa_Project) -  A web knocking tool, sending a single HTTP/S to run O/S commands.
 
 **Thanks for the most recent requests!**
