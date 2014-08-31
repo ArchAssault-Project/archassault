@@ -73,11 +73,11 @@ package() {
   install -m644 include/tests_accounting "${pkgdir}"/usr/share/lynis/include
   install -m644 include/report "${pkgdir}"/usr/share/lynis/include
   install -m644 include/profiles "${pkgdir}"/usr/share/lynis/include
-  install -m644 include/parameters "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/parameters "${pkgdir}"/usr/share/lynis/include
   install -m644 include/osdetection "${pkgdir}"/usr/share/lynis/include
-  install -m644 include/functions "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/functions "${pkgdir}"/usr/share/lynis/include
   install -m644 include/data_upload "${pkgdir}"/usr/share/lynis/include
-  install -m644 include/consts "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/consts "${pkgdir}"/usr/share/lynis/include
   install -m644 include/binaries "${pkgdir}"/usr/share/lynis/include
   install -dm755 plugins "${pkgdir}"/usr/share/lynis/plugins
   install -m644 plugins/README "${pkgdir}"/usr/share/lynis/plugins
