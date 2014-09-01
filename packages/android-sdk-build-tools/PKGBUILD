@@ -2,7 +2,7 @@
 pkgname=android-sdk-build-tools
 pkgver=r19.0.1
 _ver=19.0.1
-pkgrel=2
+pkgrel=3
 pkgdesc='Build-Tools for Google Android SDK (aapt, aidl, dexdump, dx, llvm-rs-cc)'
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://developer.android.com/sdk/index.html"
