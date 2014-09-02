@@ -2,7 +2,7 @@
 # Contributor: Prurigro
 
 pkgname=cjdscript
-pkgver=20140902.r16
+pkgver=20140902.r17
 pkgrel=1
 pkgdesc="Script to maintain and execute the collection of (working) contrib features included with cjdns"
 url="https://github.com/prurigro/${pkgname}"
