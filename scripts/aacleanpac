@@ -2,19 +2,43 @@
 
 ARCHASSAULT_DOMAIN="http://repo.archassault.org"
 
+function oldpkg(){
+    echo "${1} is out of date (edit oldpkg() in ${0} to perform an operation on it)"
+    # rm "$1"
+}
+
 function errorexit(){
     echo "Error: $1"
     exit 1
 }
 
-function oldpkg(){
-    echo "${1} is out of date"
-    # rm "$1"
-}
+# Handle arguments passed at runtime
+while [ $(grep -E "^-" <<< "$1") ]; do
+    case "$1" in
+        -v|--verbose)
+            AACP_VERBOSE=1
+            ;;
+        -h|--help)
+            APPNAME="${0##*/}"
+            echo -e "USAGE:\n\t${APPNAME} [OPTIONS] [PKGDIR] [PKGDIR...]"
+            echo -e "\nOPTIONS:"
+            echo -e "\t-v|--verbose: output information about each package"
+            echo -e "\t-h|--help: display this help text"
+            echo -e "\nPKGDIR:"
+            echo -e "\tThe path to a pacman package directory"
+            echo -e "\t  eg: /var/cache/pacman/pkg"
+            exit 0
+            ;;
+        *)
+            errorexit "'${1}' is not a valid argument"
+            ;;
+    esac
+    shift
+done
 
 [[ -n "$1" ]] || errorexit "run this script with one or more package directories as an argument"
 
-for pkgdir in $@; do
+for pkgdir in "$@"; do
     # Remove trailing slash from the directory if one exists
     pkgdir=$(sed 's|\/$||' <<< "$pkgdir")
 
@@ -22,8 +46,25 @@ for pkgdir in $@; do
     [[ -d "$pkgdir" ]] || errorexit "${pkgdir} is not a directory"
 
     # Detect the arch from the pkgdir and fail if it can't be found
-    arch=$(sed -re 's|.*-([^-\.]*)\.[a-z\.]*$|\1|' < <(ls -1 "$pkgdir" | head -n 1 ))
-    [[ $(grep -E "(x86_64|i686|armv6h|armv7h)" <<< "$arch") ]] || errorexit "could not determine architecture, is ${pkgdir} a package directory?"
+    arch=$(sed -re 's|.*-([^-\.]*)\.[a-z\.]*$|\1|' < <(ls -1 "$pkgdir" | grep -v "any.pkg." | head -n 1 ))
+    if [[ ! $(grep -E "^(x86_64|i686|armv6h|armv7h)$" <<< "$arch") ]]; then
+        if [[ $(ls -1 "$pkgdir" | grep "any.pkg.") ]]; then
+            if [[ $(ls -1 "$pkgdir" | grep "any.pkg.") ]]; then
+                ARCH=$(uname -m)
+                if [[ $(grep armv7 <<< $ARCH) ]]; then
+                    arch=armv7h
+                elif [[ $(grep armv6 <<< $ARCH) ]]; then
+                    arch=armv6h
+                else
+                    arch=$(uname -m)
+                fi
+                unset ARCH
+            fi
+        else
+            errorexit "could not determine architecture, is ${pkgdir} a package directory?"
+        fi
+    fi
+    [[ "$AACP_VERBOSE" = 1 ]] && echo "==> arch set to: ${arch}"
 
     # Load the latest DB for the pkgdir's arch into CURR_PACKAGES and fail if it's empty or the fails don't contain $arch
     CURR_PACKAGES=$(curl -s -0 ${ARCHASSAULT_DOMAIN}/archassault/archassault/os/${arch}/archassault.db \
@@ -35,17 +76,33 @@ for pkgdir in $@; do
     [[ $(grep -E "^[a-z].*-[^-]*-[0-9]*$" <<< "$CURR_PACKAGES") ]] || errorexit "invalid package data"
 
     # For each package in the folder, run `oldpkg` on packages in the repo with versions that don't match
-    for package in "$pkgdir"/*; do
-        PKG=$(sed 's|-[^-]*$||' < <(basename "$package"))
-        pkgext=$(sed -re 's|.*\.(pkg\.[a-z]*\.[a-z]*)$|\1|' <<< "$package")
-        pkgrev=$(sed -re 's|^.*-([^-]*)$|\1|' <<< "$PKG")
-        pkgver=$(sed -re 's|-[0-9]*$||;s|^.*-([^-]*)|\1|g' <<< "$PKG")
-        pkgname=$(sed -re 's|^(.*)-[^-]*-[0-9]*$|\1|' <<< "$PKG")
+    for pkgfile in "$pkgdir"/*; do
+        pkgext=$(sed -re 's|.*\.(pkg\.[a-z]*\.[a-z]*)$|\1|' <<< "$pkgfile")
+        package=$(sed 's|-[^-]*$||' < <(basename "$pkgfile"))
+        pkgname=$(sed -re 's|^(.*)-[^-]*-[0-9]*$|\1|' <<< "$package")
+        pkgver=$(sed -re 's|-[0-9]*$||;s|^.*-([^-]*)|\1|g' <<< "$package")
+        pkgrev=$(sed -re 's|^.*-([^-]*)$|\1|' <<< "$package")
 
         # Failsafe: only run if the pieces match, and the package itself is in the repo
-        [[ -f "${pkgdir}/${pkgname}-${pkgver}-${pkgrev}-${arch}.${pkgext}" ]] && \
-            [[ $(grep -E "^${pkgname}-[^-]*-[0-9]*$" <<< "$CURR_PACKAGES") ]] && \
-                [[ ! $(grep "^${pkgname}-${pkgver}-${pkgrev}$" <<< "$CURR_PACKAGES") ]] && \
-                    oldpkg "$package"
+        if [[ $(ls -1 "$pkgdir" | grep "${pkgname}-${pkgver}-${pkgrev}" | grep "$pkgext") ]]; then
+            if [[ $(grep -E "($arch|any)\.${pkgext}" <<< "$pkgfile") ]]; then
+                if [[ $(grep -E "^${pkgname}-[^-]*-[0-9]*$" <<< "$CURR_PACKAGES") ]]; then
+                    if [[ ! $(grep "^${pkgname}-${pkgver}-${pkgrev}$" <<< "$CURR_PACKAGES") ]]; then
+                        [[ "$AACP_VERBOSE" = 1 ]] && echo "==> ${pkgfile} is out of date"
+                        oldpkg "$pkgfile"
+                    else
+                        [[ "$AACP_VERBOSE" = 1 ]] && echo "==> ${pkgfile} is up to date"
+                    fi
+                else
+                    [[ "$AACP_VERBOSE" = 1 ]] && echo "==> ${pkgfile} isn't in the repo"
+                fi
+            else
+                [[ "$AACP_VERBOSE" = 1 ]] && echo "==> ${pkgfile} isn't the correct arch"
+            fi
+        else
+            [[ "$AACP_VERBOSE" = 1 ]] && echo "==> ${pkgfile} isn't recognized as a package"
+        fi
     done
 done
+
+exit 0
