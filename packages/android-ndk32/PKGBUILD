@@ -4,7 +4,7 @@
 _pkgname=android-ndk
 pkgname=${_pkgname}32
 pkgver=r10
-pkgrel=2
+pkgrel=3
 pkgdesc="Android C/C++ developer kit"
 arch=('i686' 'x86_64')
 groups=('archassault-mobile')
@@ -12,9 +12,9 @@ url="http://developer.android.com/sdk/ndk/index.html"
 license=('Apache' 'GPL' 'GPL3' 'LGPL' 'BSD' 'MIT' 'PSF' 'custom')
 depends=('android-sdk')
 options=('!emptydirs' '!strip' 'staticlibs')
-provides=("$pkgname")
-conflicts=("$pkgname")
-replaces=("$pkgname")
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+replaces=("$_pkgname")
 install=${pkgname}.install
 
 source=("https://dl-ssl.google.com/android/ndk/${pkgname}-${pkgver}-linux-x86.tar.bz2"
