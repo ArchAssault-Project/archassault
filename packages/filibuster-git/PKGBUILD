@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=filibuster-git
-pkgver=r146.f0663e2
-pkgrel=2
+pkgver=r160.8d17aba
+pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A Egress filter mapping application with additional functionality"
 arch=('any')
