@@ -38,6 +38,7 @@ webrute/webrute.pl
 wiffy/wiffy.sh
 ripdc/ripdc.sh.txt
 snmpscan/snmpscan-0.1.pl
+nsia/NSIA.Definitions
 
 # General
 *.c
