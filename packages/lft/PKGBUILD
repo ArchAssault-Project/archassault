@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=lft
-pkgver=3.36
+pkgver=3.72
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A layer four traceroute implementing numerous other features"
@@ -9,7 +9,7 @@ license=('custom')
 url="http://pwhois.org/lft/"
 depends=('libpcap')
 source=("http://pwhois.org/dl/index.who?file=lft-$pkgver.tar.gz")
-sha512sums=('1d430036c0bbc8c81173c8fd8c878d222f1df431455d06b15c0eb797584a5df3f909a4374b4dccba77ccb83dd6bf903be89032d5c9df6bc72ba2c6c1877413f9')
+sha512sums=('8c62aca5a986d5e1690f4a6a9afe665dc2e53305bbb8b5b89a2bfe9cd3ed2a29d717810af3543d55faace02a4534d53103844542eff70008eaac78f99d93a0f4')
 
 build() {
   cd "$srcdir/lft-$pkgver"
@@ -22,4 +22,7 @@ package() {
   make "prefix=$pkgdir/usr" install
   install -Dm644 "$srcdir/lft-$pkgver"/COPYING \
     "$pkgdir"/usr/share/licenses/lft/LICENSE
+
+  # Removing setuid on bin
+  chmod 755 $pkgdir/usr/bin/lft
 }
