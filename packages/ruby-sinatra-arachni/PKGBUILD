@@ -13,7 +13,7 @@ depends=(ruby ruby-rack ruby-tilt ruby-rack-protection)
 options=(!emptydirs)
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)
-sha1sums=('d0dbbdd8d750857f935738fbb75edd0244b169ed')
+sha512sums=('d3ec42c2c19d28f7ff2de1a6d587339bbe2465f18d04f6b4e87e78e4ecdd0b2fccdbad0a44faba0a0440c5c4a715a40712f160f3d78f6e5d37acaa14867a908a')
 
 package() {
   local _gemdir="$(ruby -e'puts Gem.default_dir')"
