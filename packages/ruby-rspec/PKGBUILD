@@ -7,6 +7,7 @@ pkgdesc="Meta gem"
 arch=('any')
 license=('')
 makedepends=('ruby')
+options=('!emptydirs')
 depends=('ruby-rspec-core' 'ruby-rspec-expectations' 'ruby-rspec-mocks')
 url='http://github.com/rspec'
 source=("http://rubygems.org/downloads/rspec-$pkgver.gem")
