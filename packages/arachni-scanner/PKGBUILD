@@ -16,17 +16,17 @@ source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
 sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38')
 
 package() {
-  cd "$srcdir/arachni-$pkgver"
+  cd "$srcdir/${pkgname}-${pkgver}"
   install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/arachni"
-  install -dm755 "$pkgdir/usr/share/doc/arachni"
-  install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/arachni"
-  install -m644 *.md "$pkgdir/usr/share/doc/arachni"
-  cp --no-preserve=ownership -R * "$pkgdir/usr/share/arachni"
+  install -dm755 "$pkgdir/usr/share/${pkgname}"
+  install -dm755 "$pkgdir/usr/share/doc/${pkgname}"
+  install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/${pkgname}"
+  install -m644 *.md "$pkgdir/usr/share/doc/${pkgname}"
+  cp --no-preserve=ownership -R * "$pkgdir/usr/share/${pkgname}"
 
   cat > "$pkgdir/usr/bin/arachni" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby /bin/./arachni "\$@"
 EOF
 
