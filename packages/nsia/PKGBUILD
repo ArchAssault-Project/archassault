@@ -2,12 +2,12 @@
 
 pkgname=nsia
 pkgver=1.0.6
-pkgrel=4
+pkgrel=5
 pkgdesc="A website scanner that monitors websites in realtime in order to detect defacements, compliance violations, exploits, sensitive information disclosure and other issues."
 url="http://threatfactor.com/Products/"
 arch=('any')
 license=("custom:${pkgname}")
-depends=('java-environment' 'swt')
+depends=('java-environment' 'swt' 'systemd')
 makedepends=('hd2u')
 source=("http://threatfactor.com/Support/Files/ThreatFactor%20NSIA.zip"
         "http://threatfactor.com/Support/Files/NSIA.Definitions"
