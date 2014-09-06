@@ -1,18 +1,18 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arachni
-pkgver=0.4.7
-pkgrel=4
+pkgver=1.0
+pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
 arch=('any')
 license=('apache')
 url="https://github.com/Arachni/arachni"
 license=('GPL')
-depends=('ruby1.9' 'ruby1.9-yard' 'ruby1.9-bundler' 'ruby1.9-sinatra-contrib' 'ruby1.9-rspec' 'ruby1.9-redcarpet' 'ruby1.9-thin' 'ruby1.9-nokogiri' 'ruby1.9-rb-readline' 'ruby1.9-awesome_print' 'ruby1.9-highline' 'ruby1.9-addressable' 'ruby1.9-arachni-rpc' 'ruby1.9-sys-proctable' 'ruby1.9-typhoeus-arachni' 'ruby1.9-terminal-table' 'ruby1.9-pony' 'ruby1.9-arachni-rpc-em')
+depends=('ruby' 'ruby-mini_portile-arachni' 'ruby-karmdown' 'ruby-arachni-reactor' 'ruby-stackprof' 'ruby-tilt-arachni' 'ruby-rake-arachni' 'ruby-watir-webdriver' 'ruby-rubyzip-arachni' 'ruby-childprocess' 'ruby-loofah' 'ruby-puma' 'ruby-faker' 'ruby-simplecov' 'ruby-yard' 'ruby-bundler' 'ruby-sinatra-contrib' 'ruby-rspec' 'ruby-redcarpet' 'ruby-thin' 'ruby-nokogiri-arachni' 'ruby-rb-readline' 'ruby-awesome_print' 'ruby-highline' 'ruby-addressable' 'ruby-arachni-rpc' 'ruby-sys-proctable' 'ruby-typhoeus-arachni' 'ruby-terminal-table' 'ruby-pony' 'ruby-arachni-rpc-em')
 makedepends=('git')
 url='https://www.arachni-scanner.com'
 source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
-md5sums=('4bba21b60a32fe356ece6d0f03d53eb3')
+sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38')
 
 package() {
   cd "$srcdir/arachni-$pkgver"
@@ -26,42 +26,42 @@ package() {
   cat > "$pkgdir/usr/bin/arachni" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni "\$@"
+ruby ./bin/arachni "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_console" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_console "\$@"
+ruby ./bin/arachni_console "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_multi" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_multi "\$@"
+ruby ./bin/arachni_multi "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_rpc" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_rpc "\$@"
+ruby ./bin/arachni_rpc "\$@"
 EOF
   cat > "$pkgdir/usr/bin/arachni_rpcd" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_rpcd "\$@"
+ruby ./bin/arachni_rpcd "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_rpcd_monitor" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_rpcd_monitor "\$@"
+ruby ./bin/arachni_rpcd_monitor "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_script" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby-1.9 ./bin/arachni_script "\$@"
+ruby ./bin/arachni_script "\$@"
 EOF
 
   chmod +x "$pkgdir"/usr/bin/*

@@ -2,7 +2,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 _gemname=rubyzip
-pkgname=ruby-$_gemname
+pkgname=ruby-$_gemname-arachni
 pkgver=1.1.6
 pkgrel=1
 pkgdesc='rubyzip is a ruby module for reading and writing zip files'
