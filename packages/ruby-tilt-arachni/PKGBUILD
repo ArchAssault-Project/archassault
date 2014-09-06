@@ -11,6 +11,7 @@ url='http://github.com/rtomayko/tilt/'
 license=(MIT)
 depends=(ruby)
 options=(!emptydirs)
+conflicts=('ruby-tilt')
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)
 sha512sums=('edae19b2dd8be79753c10f2dd041e321e8c314b3f9c6202ce4b3101b1fa95f1d343f43fee09d9884864445fa4a269e033d5fe1d55a00ad7a324f1e648d0b69bd')
