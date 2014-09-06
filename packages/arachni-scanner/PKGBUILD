@@ -1,15 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=arachni
+pkgname=arachni-scanner
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
 arch=('any')
 license=('apache')
 url="https://github.com/Arachni/arachni"
 license=('GPL')
-depends=('ruby' 'ruby-mini_portile-arachni' 'ruby-karmdown' 'ruby-arachni-reactor' 'ruby-stackprof' 'ruby-tilt-arachni' 'ruby-rake-arachni' 'ruby-watir-webdriver' 'ruby-rubyzip-arachni' 'ruby-childprocess' 'ruby-loofah' 'ruby-puma' 'ruby-faker' 'ruby-simplecov' 'ruby-yard' 'ruby-bundler' 'ruby-sinatra-contrib' 'ruby-rspec' 'ruby-redcarpet' 'ruby-thin' 'ruby-nokogiri-arachni' 'ruby-rb-readline' 'ruby-awesome_print' 'ruby-highline' 'ruby-addressable' 'ruby-arachni-rpc' 'ruby-sys-proctable' 'ruby-typhoeus-arachni' 'ruby-terminal-table' 'ruby-pony' 'ruby-arachni-rpc-em')
+depends=('ruby' 'ruby-mini_portile-arachni' 'ruby-kramdown' 'ruby-arachni-reactor' 'ruby-stackprof' 'ruby-tilt-arachni' 'ruby-rake-arachni' 'ruby-watir-webdriver' 'ruby-rubyzip-arachni' 'ruby-childprocess' 'ruby-loofah' 'ruby-puma' 'ruby-faker' 'ruby-simplecov' 'ruby-yard' 'ruby-bundler' 'ruby-sinatra-contrib' 'ruby-rspec' 'ruby-redcarpet' 'ruby-thin' 'ruby-nokogiri-arachni' 'ruby-rb-readline' 'ruby-awesome_print' 'ruby-highline' 'ruby-addressable' 'ruby-arachni-rpc' 'ruby-sys-proctable' 'ruby-typhoeus-arachni' 'ruby-terminal-table' 'ruby-pony' 'ruby-arachni-rpc-em')
 makedepends=('git')
+replaces=('arachni')
 url='https://www.arachni-scanner.com'
 source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
 sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38')
@@ -26,7 +27,7 @@ package() {
   cat > "$pkgdir/usr/bin/arachni" << EOF
 #!/bin/sh
 cd /usr/share/arachni
-ruby ./bin/arachni "\$@"
+ruby /bin/./arachni "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_console" << EOF
