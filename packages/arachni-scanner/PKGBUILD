@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arachni-scanner
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
-arch=('any')
+arch=(armv6h armv7h i686 x86_64)
 license=('apache')
 url="https://github.com/Arachni/arachni"
 license=('GPL')
-depends=('ruby' 'ruby-mini_portile-arachni' 'ruby-kramdown' 'ruby-arachni-reactor' 'ruby-stackprof' 'ruby-rake-arachni' 'ruby-watir-webdriver' 'ruby-childprocess' 'ruby-loofah' 'ruby-puma' 'ruby-faker' 'ruby-simplecov' 'ruby-yard' 'ruby-bundler' 'ruby-sinatra-contrib' 'ruby-rspec' 'ruby-redcarpet' 'ruby-thin' 'ruby-nokogiri-arachni' 'ruby-rb-readline' 'ruby-awesome_print' 'ruby-highline' 'ruby-addressable' 'ruby-arachni-rpc' 'ruby-sys-proctable' 'ruby-typhoeus-arachni' 'ruby-terminal-table' 'ruby-pony' 'ruby-arachni-rpc-em')
+depends=('ruby' 'ruby-bundler' 'libxslt' 'libxml2')
 makedepends=('git')
 replaces=('arachni')
 url='https://www.arachni-scanner.com'
@@ -23,6 +23,9 @@ package() {
   install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/${pkgname}"
   install -m644 *.md "$pkgdir/usr/share/doc/${pkgname}"
   cp --no-preserve=ownership -R * "$pkgdir/usr/share/${pkgname}"
+  cd ${pkgdir}/usr/share/arachni-scanner
+  bundle config build.nokogiri --use-system-libraries
+  bundle install --path vendor/bundle
 
   cat > "$pkgdir/usr/bin/arachni" << EOF
 #!/bin/sh
@@ -32,36 +35,36 @@ EOF
 
   cat > "$pkgdir/usr/bin/arachni_console" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_console "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_multi" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_multi "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_rpc" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_rpc "\$@"
 EOF
   cat > "$pkgdir/usr/bin/arachni_rpcd" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_rpcd "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_rpcd_monitor" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_rpcd_monitor "\$@"
 EOF
 
   cat > "$pkgdir/usr/bin/arachni_script" << EOF
 #!/bin/sh
-cd /usr/share/arachni
+cd /usr/share/arachni-scanner
 ruby ./bin/arachni_script "\$@"
 EOF
 
