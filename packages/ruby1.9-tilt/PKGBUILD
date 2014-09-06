@@ -19,5 +19,5 @@ package() {
   else
     gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" tilt-$pkgver.gem
   fi
-  mv "${pkgdir}"/usr/bin/rackup "${pkgdir}"/usr/bin/rackup-1.9
+  mv "${pkgdir}"/usr/bin/tilt "${pkgdir}"/usr/bin/tilt-1.9
 }
