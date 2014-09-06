@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PACMANCONF="/etc/pacman.conf"
+
 # Show usage output
 [[ -n "$1" ]] && ([[ "$1" = "-h" ]] || [[ "$1" = "--help" ]]) && echo -e "Usage:\n    ${0##*/}: create (if !exists) and enter chroot\n    ${0##*/} [pkgname.src.tar.gz]: same as above + build source package\n    ${0##*/} -d | --delete: delete the chroot (if exists)\n    ${0##*/} -h | --help: show this help dialog\n\n    *note: chroot is in $ARCHROOT, set "'$ARCHROOT'" to override" && exit 0
 
@@ -42,13 +44,13 @@
 # Build the chroot if it doesn't exist
 if [[ ! -d "${ARCHROOT}/root" ]]; then
     # Check to make sure the files we need exist
-    [[ ! -f "/etc/pacman.conf" ]] && echo "Error: /etc/pacman.conf is required to build the chroot" && exit 1
+    [[ ! -f "$PACMANCONF" ]] && echo "Error: ${PACMANCONF} is required to build the chroot" && exit 1
     [[ ! -f "/etc/pacman.d/mirrorlist" ]] && echo "Error: /etc/pacman.d/mirrorlist is required to build the chroot" && exit 1
     [[ ! -f "/etc/pacman.d/archassault-mirrorlist" ]] && echo "Error: /etc/pacman.d/archassault-mirrorlist is required to build the chroot" && exit 1
 
     # Go ahead and build the chroot
-    mkarchroot "${ARCHROOT}/root" base base-devel
-    cp /etc/pacman.conf "${ARCHROOT}/root/etc/pacman.conf"
+    mkarchroot "${ARCHROOT}/root" base-devel
+    cp "$PACMANCONF" "${ARCHROOT}/root${PACMANCONF}"
     cp /etc/pacman.d/mirrorlist "${ARCHROOT}/root/etc/pacman.d/mirrorlist"
     cp /etc/pacman.d/archassault-mirrorlist "${ARCHROOT}/root/etc/pacman.d/archassault-mirrorlist"
     arch-nspawn "${ARCHROOT}/root" pacman -Syyu
