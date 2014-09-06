@@ -16,7 +16,7 @@ source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
 sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38')
 
 package() {
-  cd "$srcdir/${pkgname}-${pkgver}"
+  cd "$srcdir/arachni-${pkgver}"
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/${pkgname}"
   install -dm755 "$pkgdir/usr/share/doc/${pkgname}"
