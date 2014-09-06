@@ -11,7 +11,7 @@ depends=(ruby ruby-ffi)
 options=(!emptydirs)
 source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
 noextract=($_gemname-$pkgver.gem)
-sha512sums=('41141d1701493120309dfdd92138f0e0aa16a0d8')
+sha512sums=('484aa0df0e4375369c839d66f114940760ad6102a026ecc1886283c80d856ed347b8ab853a90c3ac514766a9afe7032030647b93bb030c739b308f303d483425')
 
 package() {
   local _gemdir="$(ruby -e'puts Gem.default_dir')"
