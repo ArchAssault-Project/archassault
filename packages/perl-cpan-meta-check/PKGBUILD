@@ -1,4 +1,5 @@
-# lMaintainer: Moritz Bunkus <moritz@bunkus.org>
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Moritz Bunkus <moritz@bunkus.org>
 
 pkgname='perl-cpan-meta-check'
 pkgver='0.009'
