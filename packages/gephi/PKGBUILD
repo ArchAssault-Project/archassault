@@ -10,7 +10,7 @@ license=('CDDL' 'GPL3')
 if [[ "${CARCH}" == x86_64 ]] ; then
   depends=('java-environment' 'bash' 'libxxf86vm' 'lib32-libx11')
 else
-  depends=('java-environment' 'bash' 'libxxf86vm' 'lib32-libx11')
+  depends=('java-environment' 'bash' 'libxxf86vm' 'libx11')
 fi
 makedepends=()
 options=('!emptydirs' '!strip')
