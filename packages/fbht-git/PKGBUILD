@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fbht-git
-pkgver=r40.33248f0
+pkgver=r41.741bc0e
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Facebook Hacking Tool"
 arch=('any')
 url='https://github.com/chinoogawa/fbht'
 license=('custom')
-depends=('python2' 'python2-mechanize' 'python2-networkx' 'python2-matplotlib' 'python2-numpy')
+depends=('python2' 'python2-mechanize' 'python2-networkx' 'python2-matplotlib' 'python2-numpy' 'python2-pygraphviz' 'python2-simplejson' 'gephi')
 makedepends=('git')
 provides=('fbht')
 source=("git+https://github.com/chinoogawa/fbht.git")
@@ -49,6 +49,5 @@ python2 main.py "\$@"
 EOF
 
 chmod +x "$pkgdir/usr/bin/fbht"
-
 }
 
