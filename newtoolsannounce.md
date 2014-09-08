@@ -19,4 +19,6 @@ Mosquito is extremely valuable when exploiting Google Chrome extensions, because
 
 With this tool attacker can exploit content-script XSS vulnerabilities in extensions based on manifest v1 and v2. Author: [Krzysztof Kotowicz](http://blog.kotowicz.net/) [@kkotowicz](https://twitter.com/kkotowicz)
 
+* [pixz](https://github.com/vasi/pixz) - Parallel, indexed xz compressor. You can also find the tool on [SourceForge](http://sourceforge.net/projects/pixz/files/). [@djvasi](https://twitter.com/djvasi)
+
 **Thanks for the most recent requests!**
