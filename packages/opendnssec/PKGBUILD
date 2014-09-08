@@ -10,7 +10,7 @@ license=('BSD')
 groups=('archassault')
 depends=('libxml2' 'ldns' 'sqlite3' 'softhsm')
 makedepends=('doxygen' 'dot2tex' 'automake' 'java-environment')
-options=('emptydirs')
+options=('!emptydirs')
 backup=("etc/opendnssec/conf.xml"
         "etc/opendnssec/kasp.xml"
         "etc/opendnssec/zonelist.xml")
