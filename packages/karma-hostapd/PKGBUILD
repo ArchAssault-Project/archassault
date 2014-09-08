@@ -15,16 +15,16 @@ sha512sums=('fdee10e76254a91f2a10273e48660622cda69c29f01fdd4c3cb2cbd1d62a833d67f
 backup=("etc/karma-hostapd/hostapd-karma.conf")
 
 build() {
-    cd "$srcdir"/hostapd-1.0-karma/hostapd
+    cd "${srcdir}"/hostapd-1.0-karma/hostapd
     make
 }
 
 package() {
-    cd "$srcdir"/hostapd-1.0-karma/hostapd
+    cd "${srcdir}"/hostapd-1.0-karma/hostapd
     make DESTDIR="${pkgdir}" install
-    install -dm755 "$pkgdir"/usr/bin
-    install -Dm644 "$srcdir"/hostapd-karma.conf "$pkgdir"/etc/karma-hostapd/hostapd-karma.conf
-    mv "$pkgdir"/usr/local/bin/hostapd "$pkgdir"/usr/bin/hostapd_karma
-    mv "$pkgdir"/usr/local/bin/hostapd_cli "$pkgdir"/usr/bin/hostapd_cli_karma
-    rm -rf "$pkgdir"/usr/local
+    install -dm755 "${pkgdir}"/usr/bin
+    install -Dm644 "${srcdir}"/hostapd-karma.conf "${pkgdir}"/etc/karma-hostapd/hostapd-karma.conf
+    mv "${pkgdir}"/usr/local/bin/hostapd "${pkgdir}"/usr/bin/hostapd_karma
+    mv "${pkgdir}"/usr/local/bin/hostapd_cli "${pkgdir}"/usr/bin/hostapd_cli_karma
+    rm -rf "${pkgdir}"/usr/local
 }
