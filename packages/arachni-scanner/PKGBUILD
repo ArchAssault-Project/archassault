@@ -1,24 +1,24 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arachni-scanner
 pkgver=1.0
-pkgrel=4
+pkgrel=5
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
-arch=(armv6h armv7h i686 x86_64)
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('Apache2')
-url="https://github.com/Arachni/arachni"
-if [[ "${CARCH}" == x86_64 ]] ; then
-  depends=('ruby' 'ruby-bundler' 'lib32-libxslt')
-else
-  depends=('ruby' 'ruby-bundler' 'libxslt')
-fi
+url="https://www.${pkgname}.com"
+depends=('ruby' 'ruby-bundler' 'libxslt' 'archassault-artwork')
+[[ "${CARCH}" = 'x86_64' ]] \
+    && depends=('ruby' 'ruby-bundler' 'lib32-libxslt' 'archassault-artwork')
 replaces=('arachni')
-url='https://www.arachni-scanner.com'
-source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip")
-sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38')
+source=("https://github.com/Arachni/arachni/archive/v$pkgver.zip"
+        "${pkgname}.desktop")
+sha512sums=('c09b1ea5a6a88ef3c42bcb205f71a600101e9901dc5027beff8f32ba27c54c6ce79023e0b4d925bb5ee199f315adf175d79ea19dd234bc927d9afe61fc476b38'
+            '49adbc81a6bce91c1b0199f43bce53125a7b4dbda89fe4fcbde4ec0f40fe3bb5a8e7cab8b01f067ac0b4e2b241c1247ca349eaad22ddabaf14c5d9211036a18f')
 
 package() {
-  cd "${srcdir}/arachni-${pkgver}"
+  install -Dm644 ${pkgname}.desktop "$pkgdir"/usr/share/applications/${pkgname}.desktop
+  cd arachni-${pkgver}
   install -dm755 "${pkgdir}/usr/bin"
   install -dm755 "${pkgdir}/usr/share/${pkgname}"
   install -dm755 "${pkgdir}/usr/share/doc/${pkgname}"
@@ -70,5 +70,5 @@ cd /usr/share/arachni-scanner
 ruby ./bin/arachni_script "\$@"
 EOF
 
-  chmod +x "${pkgdir}"/usr/bin/*
+  chmod +x "$pkgdir"/usr/bin/*
 }

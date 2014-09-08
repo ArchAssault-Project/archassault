@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
-Name=Arachni
-Comment=Arachni - Web Application Security Scanner Framework
-Exec=arachni
-Icon=archassault-menu.png
-Terminal=false
-StartupNotify=false
-Categories=ArchAssault;ArchAssaultWebapp;ArchAssaultScanner;ArchAssaultFuzzer;
+Version=1.0
+Name=Arachni Console
+Comment=Web Application Security Scanner Framework
+Exec=sh -c '/usr/bin/arachni_console'
+Icon=archassault
+Terminal=true
+Categories=Archassault;ArchassaultWebapp;ArchassaultScanners;ArchassaultFuzzer;
