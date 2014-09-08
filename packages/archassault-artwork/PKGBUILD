@@ -1,18 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=archassault-artwork
+
+_pkgname=archassault
+pkgname=${_pkgname}-artwork
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-misc')
-pkgdesc="The ArchAssault Project's collection of logos, backgrounds, icons, and other artwork."
-url='https://bitbucket.org/archassault/archassault-artwork'
+pkgdesc="The ArchAssault Project's collection of logos, backgrounds, icons, and other artwork"
+url="https://gitlab.com/archassault-project/${pkgname}"
 arch=('any')
 license=('GPL3')
-source=("git+https://bitbucket.org/archassault/archassault-artwork.git")
-md5sums=('SKIP')
+source=("git+${url}.git")
+sha512sums=('SKIP')
 
 package() {
-  cd "$srcdir/archassault-artwork"
-  install -d "$pkgdir/usr/share/archassault/"{backgrounds,logos}
-  install -m644 backgrounds/* "$pkgdir/usr/share/archassault/backgrounds/"
-  install -m644 logos/* "$pkgdir/usr/share/archassault/logos/"
+    cd $pkgname
+    install -d "$pkgdir"/usr/share/${_pkgname}/{backgrounds,logos}
+    install -m644 backgrounds/* "$pkgdir"/usr/share/${_pkgname}/backgrounds/
+    install -m644 logos/* "$pkgdir"/usr/share/${_pkgname}/logos/
+    install -d "$pkgdir"/usr/share/pixmaps
+    ln -s /usr/share/${_pkgname}/logos/favicon-110-blk-trans.png "$pkgdir"/usr/share/pixmaps/${_pkgname}.png
 }
