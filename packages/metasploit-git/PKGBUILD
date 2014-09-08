@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=27010.422d6bd
+pkgver=27015.28aa742
 pkgrel=1
-epoch=1
+epoch=2
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
 if [[ "${CARCH}" == x86_64 ]] ; then
@@ -18,11 +18,12 @@ url='http://www.metasploit.com'
 license=('BSD')
 options=('!emptydirs' '!strip')
 source=('git+https://github.com/rapid7/metasploit-framework')
+backup=('usr/share/metasploit/log/production.log')
 md5sums=('SKIP')
 
 pkgver() {
-  cd metasploit-framework
-  printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "${pkgname}"
+    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
