@@ -3,11 +3,10 @@
 # Contributor: Werecat
 # Contributor: Xyne
 
-_cjdnsrev=8efec53
 _pkgname=cjdns
 pkgname=${_pkgname}-git
-pkgver=0.3.2521
-pkgrel=2
+pkgver=0.3.2681
+pkgrel=1
 pkgdesc="A routing engine designed for security, scalability, speed and ease of use"
 url="https://github.com/cjdelisle/${_pkgname}"
 license=('GPL3')
@@ -19,7 +18,7 @@ makedepends=('git' 'nodejs' 'python2')
 optdepends=('cjdnsify: allows you to run some programs bound to your cjdns address'
             'cjdns-git-sysvinit: support for sysvinit (rc.d)')
 
-source=("git+${url}.git#commit=${_cjdnsrev}")
+source=("git+${url}.git")
 sha512sums=('SKIP')
 
 pkgver() {
