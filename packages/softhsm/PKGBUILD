@@ -10,7 +10,7 @@ url="http://www.opendnssec.org/softhsm/"
 license=('BSD')
 depends=('botan>=1.8.5' 'sqlite3>=3.3.9')
 backup=("etc/softhsm.conf")
-options=('emptydirs')
+options=('!emptydirs')
 source=("http://www.opendnssec.org/files/source/${pkgname}-${pkgver}.tar.gz")
 sha512sums=('287400b981b7b420a300593129696e4739afe085a8106047ef429bc741d205bed214386b422572327c3bda63f0fb1b7558bb4d30d184ca3ec2ba9900153f075d')
 
