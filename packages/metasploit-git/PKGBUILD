@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=27015.28aa742
+pkgver=20140907.r27038
 pkgrel=1
 epoch=2
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
@@ -17,7 +17,7 @@ makedepends=('git')
 url='http://www.metasploit.com'
 license=('BSD')
 options=('!emptydirs' '!strip')
-source=('git+https://github.com/rapid7/metasploit-framework')
+source=("${pkgname}::git+https://github.com/rapid7/metasploit-framework")
 backup=('usr/share/metasploit/log/production.log')
 md5sums=('SKIP')
 
@@ -27,7 +27,7 @@ pkgver() {
 }
 
 package() {
-  cd "$srcdir/metasploit-framework"
+  cd "${pkgname}"
 
   # Base directories.
   install -dm755 "$pkgdir/usr/bin"
