@@ -6,14 +6,15 @@ pkgver=0.1
 pkgrel=2
 groups=('archassault' 'archassault-misc')
 pkgdesc="The ArchAssault Project's collection of logos, backgrounds, icons, and other artwork"
-url="https://gitlab.com/archassault-project/${pkgname}"
+url="https://gitlab.com/archassault-project/archassault-artwork"
+makedepends=('git')
 arch=('any')
 license=('GPL3')
-source=("git+${url}.git")
+source=("git+https://gitlab.com/archassault-project/archassault-artwork.git")
 sha512sums=('SKIP')
 
 package() {
-    cd $pkgname
+    cd ${pkgname}
     install -d "$pkgdir"/usr/share/${_pkgname}/{backgrounds,logos}
     install -m644 backgrounds/* "$pkgdir"/usr/share/${_pkgname}/backgrounds/
     install -m644 logos/* "$pkgdir"/usr/share/${_pkgname}/logos/
