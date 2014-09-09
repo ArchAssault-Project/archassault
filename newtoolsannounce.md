@@ -21,4 +21,6 @@ With this tool attacker can exploit content-script XSS vulnerabilities in extens
 
 * [pixz](https://github.com/vasi/pixz) - Parallel, indexed xz compressor. You can also find the tool on [SourceForge](http://sourceforge.net/projects/pixz/files/). [@djvasi](https://twitter.com/djvasi)
 
+* [unicorn](https://github.com/trustedsec/unicorn) - A simple tool for using a PowerShell downgrade attack and inject shellcode straight into memory. [@HackingDave](https://twitter.com/HackingDave)
+
 **Thanks for the most recent requests!**
