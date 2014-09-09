@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pysmb
 pkgver=1.1.10
-pkgrel=1
+pkgrel=i2
 pkgdesc="an experimental SMB/CIFS library written in Python"
 arch=('any')
 url="http://pypi.python.org/pypi/pysmbc/"
 license=('GPL')
 depends=('python')
-makepends=('python-setuptools')
+makedepends=('python-setuptools')
 source=("https://pypi.python.org/packages/source/p/${pkgname}/${pkgname}-${pkgver}.tar.gz")
 sha512sums=('8d35cd35aa16215720053f432b71e86222ff820ecc4d7635695e763ef21d2f24a0df118fcca08f4220ad74f5a03d8ae3aadaef243dcb882ddf9cf65102103012')
 
