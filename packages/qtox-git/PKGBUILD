@@ -3,8 +3,8 @@
 
 _pkgname=qtox
 pkgname=${_pkgname}-git
-_pkgver=cfb3313
-pkgver=r532.cfb3313
+_pkgver=31af9dc
+pkgver=r545.31af9dc
 pkgrel=1
 pkgdesc="Powerful QT Tox client that tries to follow the Tox UI guidlines"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
