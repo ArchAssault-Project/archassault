@@ -1,36 +1,26 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=trid
 pkgver=2.11
-pkgrel=3
-pkgdesc="An utility designed to identify file types from their binary signatures"
+pkgrel=4
+pkgdesc="Utility to identify file types using their binary signatures"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://mark0.net/soft-trid-e.html"
 groups=('archassault')
 license=('CUSTOM')
 makedepends=('unzip')
-if [ "$CARCH" == "x86_64" ];then
-  depends=('trid-defs' 'lib32-ncurses')
-else
-  depends=('trid-defs' 'ncurses')
-fi
-source=(http://mark0.net/download/trid_linux.zip)
+_depends=('trid-defs' 'bash' 'lib32-ncurses')
+[[ "$CARCH" = "x86_64" ]] || _depends=(${_depends[@]/lib32-})
+depends=(${_depends[@]})
+
+source=("http://mark0.net/download/trid_linux.zip")
+sha512sums=('9220edb29765e3e45353ae27a7e44e664e9c78397eaab03d435a0775201e041fcf1a73948f658684ab714f115156d66760e07621b7ad22ef55995598e9df67c5')
 
 package() {
-  cd "$srcdir"
+    install -Dm755 $pkgname "$pkgdir/usr/share/${pkgname}/${pkgname}"
+    install -Dm644 readme_e.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 
-  install -Dm755 trid "$pkgdir/usr/share/trid/trid"
-  install -m 644 readme_e.txt "$pkgdir/usr/share/trid/README"
-  install -dm755 "$pkgdir/usr/share/licenses/trid"
-  ln -s /opt/trid/README "$pkgdir/usr/share/licenses/trid/README"
-
-  install -dm755  "$pkgdir/usr/bin"
-  cat > "$pkgdir/usr/bin/trid" <<EOF
-#!/bin/sh
-
-/usr/share/trid/trid -d:/usr/share/trid/triddefs.trd "\$@"
-
-EOF
-  chmod +x "$pkgdir/usr/bin/trid"
+    install -dm755  "${pkgdir}/usr/bin"
+    echo -e '#!/usr/bin/env bash\n\n/usr/share/trid/trid -d:/usr/share/trid/triddefs.trd "\$@"' > "${pkgdir}/usr/bin/${pkgname}"
+    chmod 755 "${pkgdir}/usr/bin/${pkgname}"
 }
 
-md5sums=('ee6327a79e1abf8ad36d1b0b96057f3f')
