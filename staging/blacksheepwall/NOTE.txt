@@ -1,0 +1,1 @@
+this is currently not working properly on ARM still. It run but does not give any output results like it does on i686 and x86_64. We should see if we can figure out what is actually the issue with arm. 
