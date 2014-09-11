@@ -1,25 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor: kfgz <kfgz at interia dot pl>
+# Contributor: Abakus <java5 at arcor dot de>
+
 pkgname=afflib
-pkgver=3.7.1
-pkgrel=3
+pkgver=3.7.4
+pkgrel=1
 groups=('archassault' 'archassault-forensic')
 pkgdesc="An extensible open format for the storage of disk images and related forensic information"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.afflib.org'
 license=('custom')
-depends=('zlib' 'openssl' 'fuse' 'expat')
-source=("https://github.com/downloads/simsong/AFFLIBv3/afflib-$pkgver.tar.gz" "afflib.desktop")
-md5sums=('c6751d461aaf6acf9d15303cde539e44'
-         '7c9e0e3268f1922bf5d0b3bdf1f4236b')
+depends=('openssl' 'expat')
+makedepends=('unzip')
+source=("https://github.com/simsong/AFFLIBv3/archive/v3.7.4.zip")
+sha512sums=('47f0530182f768e5e7d539f1a82d90d3ee014ee4bb9fdc3d71919e4df12bf7c0709c7056545ea5ded0513ad3fa8ac87a1086460af480acb51c5ce87947b541ad')
 
 build() {
-  cd "$srcdir/afflib-$pkgver"
+  cd "${srcdir}"/AFFLIBv3-"${pkgver}"
+  sh bootstrap.sh
   ./configure --prefix=/usr --sysconfdir=/etc
   make
 }
 
 package() {
-  cd "$srcdir/afflib-$pkgver"
-  make "DESTDIR=$pkgdir" install
-  install -Dm644 "$srcdir/afflib.desktop" "$pkgdir/usr/share/applications/afflib.desktop"
+  cd "${srcdir}"/AFFLIBv3-"${pkgver}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 COPYING "$pkgdir"/usr/share/licenses/afflib/LICENSE
 }
