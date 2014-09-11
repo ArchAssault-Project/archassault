@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
+Version=1.0
 Name=Trid
-Comment=An utility designed to identify file types from their binary signatures
-Exec=trid
-Icon=archassault-menu.png
-Terminal=false
-StartupNotify=false
-Categories=Application;
+Comment=Utility to identify file types using their binary signatures
+Exec=sh -c '/usr/bin/trid --help; ${SHELL:-bash}'
+Icon=archassault
+Terminal=true
+Categories=Archassault;
