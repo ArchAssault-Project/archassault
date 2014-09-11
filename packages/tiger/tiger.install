@@ -1,4 +1,5 @@
 post_upgrade() {
+    update-desktop-database -q
     systemd-tmpfiles --create tiger.conf
 }
 
