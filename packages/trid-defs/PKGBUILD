@@ -1,22 +1,20 @@
 # Maintainer: ArchAssault <team archassault org>
+
 pkgname=trid-defs
-pkgver=2013.09.29
+pkgver=23.08.14
 pkgrel=1
-pkgdesc="Filesignature database for trid"
+epoch=1
+pkgdesc="Definitions DB for trid that describes recurring patterns in supported file types"
 arch=('any')
 url="http://mark0.net/soft-trid-e.html"
 license=('CUSTOM')
 makedepends=('unzip')
-source=(triddefs-$pkgver.zip::http://mark0.net/download/triddefs.zip)
-sha512sums=('228cd9c7f8b6bf8c2021f86e6a58452a498b77b5aa82700d3ff6409cf256af0c423854aec1c625a85d2ccf3fc1492e9893d796c239dca8cf127cfb687fbb1475')
+source=("http://mark0.net/download/triddefs.zip"
+        "LICENSE")
+sha512sums=('762ad335ae55dd9a33092badf3097f2b76c5ca4b9d78e7140ef98d6394651b16da4022eb692fe4cdf0255983dfcc94409229a824206d71f956b24ade59a20c9e'
+            '201bc568f534e2f7ad3c4288f2a0aaf3392285eb9cbe65de0fdcdecc69ddf9e850dfab0830538dba0b76909862c8fee3281a4fb138fabe4b8222dd525e1916c9')
 
 package() {
-  cd "$srcdir"
-
-  install -D triddefs.trd "$pkgdir/usr/share/trid/triddefs.trd"
-
-  install -dm755 "$pkgdir/usr/share/licenses/trid"
-  ln -s "/usr/share/licenses/trid" "$pkgdir/usr/share/licenses/trid"
+    install -Dm644 triddefs.trd "$pkgdir"/usr/share/trid/triddefs.trd
+    install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE
 }
-
-
