@@ -1,21 +1,24 @@
 # Maintainer: ArchAssault <team at archassault org>
-# Contributor: Kevin MacMartin <prurigro at gmail dot com>
-
+_sdkname=android-sdk
 pkgname=android-support
+_repover=r06
 pkgver=r20
-pkgrel=1
+pkgrel=2
 pkgdesc="A set of code libraries that provide backward-compatible versions of Android framework APIs as well as features that are only available through the library APIs"
 arch=('any')
 url="http://developer.android.com/tools/support-library/index.html"
 license=('Apache')
-depends=('android-sdk' 'java-environment')
+depends=('android-sdk')
 options=('!strip')
-
-source=("http://dl-ssl.google.com/android/repository/support_${pkgver}.zip")
-sha512sums=('53a1f8aaa247f1d093f84dbf2202005f4587b791ab92526d826c1e2d9bef3b28a5eff6b82d57c564c0719ca8ef88ae00f34fa700b7a87dabe9135044a9741ecd')
+source=("http://dl-ssl.google.com/android/repository/support_${pkgver}.zip"
+        "https://dl-ssl.google.com/android/repository/android_m2repository_${_repover}.zip")
+sha512sums=('53a1f8aaa247f1d093f84dbf2202005f4587b791ab92526d826c1e2d9bef3b28a5eff6b82d57c564c0719ca8ef88ae00f34fa700b7a87dabe9135044a9741ecd'
+            'f53ffa192ebf396b6650cbb559a9f1e394889df9ca9d57fa4e9c628245f2035cc4c473567251836286317b08cf77f124dc6b14aa2c24ce452a388eca8e1e6920')
 
 package() {
-    install -d "${pkgdir}/opt/android-sdk/extras/android/"
-    cp -R support "${pkgdir}/opt/android-sdk/extras/android/"
-    chmod -R a+rX "${pkgdir}/opt"
+    install -d "$pkgdir"/opt/${_sdkname}/extras/android/
+    cp -R support "$pkgdir"/opt/${_sdkname}/extras/android/
+    cp -R m2repository "$pkgdir"/opt/${_sdkname}/extras/android/
+    chmod -R a+rX "$pkgdir"/opt
+    chmod ug+w "$pkgdir"/opt/${_sdkname} "$pkgdir"/opt/${_sdkname}/${_pkgname}
 }
