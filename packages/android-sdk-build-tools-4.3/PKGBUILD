@@ -5,7 +5,7 @@ _droidver=4.3
 pkgname=${_sdkname}-${_pkgname}-${_droidver/W/w}
 _pkgver=r18.1
 pkgver=${_pkgver}.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Build tools for the Google Android SDK (aapt, aidl, dexdump, dx, llvm-rs-cc)"
 arch=('i686' 'x86_64')
 url="http://developer.android.com/sdk/index.html"
@@ -13,15 +13,15 @@ license=('custom')
 options=('!strip')
 provides=("${_sdkname}-${_pkgname}")
 
-depends=('java-environment'
-         'gcc-libs'
-         'zlib'
-         'bash')
-[[ $CARCH = x86_64 ]] && \
-depends=('java-environment'
-         'lib32-gcc-libs'
-         'lib32-zlib'
-         'bash')
+_depends=('java-environment'
+          'lib32-gcc-libs'
+          'lib32-zlib'
+          'bash')
+[[ ! "$CARCH" = "x86_64" ]] \
+    && _depends=(${_depends[@]/lib32-}) \
+    || _makedepends+=('gcc-multilib')
+depends=(${_depends[@]})
+makedepends=(${_makedepends[@]})
 
 source=("http://dl-ssl.google.com/android/repository/${_pkgname}_${_pkgver}-linux.zip")
 sha512sums=('86cdc31856b71aed3c8a40271d1f527190e729a250d4558d14f69d62a329a5fbc507a8f314a0113f5121d98ed4d776463f1384546fb7760b9e187d438453fb0a')
@@ -29,11 +29,6 @@ sha512sums=('86cdc31856b71aed3c8a40271d1f527190e729a250d4558d14f69d62a329a5fbc50
 package() {
     install -Dm644 android-${_droidver}/NOTICE.txt "$pkgdir"/usr/share/licenses/${pkgname}/NOTICE
     echo -e $(grep -e "^Pkg.License=" android-${_droidver}/source.properties) > "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE
-
-    install -d "${pkgdir}/etc/profile.d"
-    echo "export PATH="'$PATH'":/opt/${_sdkname}/${_pkgname}" > "$pkgdir"/etc/profile.d/${pkgname}.sh
-    echo "setenv PATH "'${PATH}'":/opt/${_sdkname}/${_pkgname}" > "$pkgdir"/etc/profile.d/${pkgname}.csh
-    chmod 755 "$pkgdir"/etc/profile.d/${pkgname}.{csh,sh}
 
     install -dm775 "$pkgdir"/opt/${_sdkname}/${_pkgname}
     cp -a android-${_droidver} "$pkgdir"/opt/${_sdkname}/${_pkgname}/${pkgver}
