@@ -5,7 +5,7 @@
 
 pkgname=android-sdk
 pkgver=r23.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="The API libraries and developer tools necessary to build, test, and debug apps for Android"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 groups=('archassault-mobile')
@@ -61,15 +61,15 @@ package() {
     install -d "$pkgdir"/opt
     cp -a ${pkgname}-linux "$pkgdir"/opt/${pkgname}
 
-    # Cleanup
     cd "$pkgdir"
+    chmod -R ugo+rX opt
+    chmod g+rwX opt/${pkgname}
+
+    # Cleanup x86_64 binaries on i686
     if [[ $CARCH = i686 ]]; then
         rm opt/${pkgname}/tools/emulator64-*
         rm opt/${pkgname}/tools/lib/lib64*
         rm -rf opt/${pkgname}/tools/lib/x86_64
         rm -rf opt/${pkgname}/tools/lib/monitor-x86_64
     fi
-    rm opt/${pkgname}/tools/android
-    chmod -R ugo+rX opt
-    chmod g+rwX opt/${pkgname}
 }
