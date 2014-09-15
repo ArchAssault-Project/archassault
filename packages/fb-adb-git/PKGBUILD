@@ -3,7 +3,7 @@
 _pkgname=fb-adb
 pkgname=${_pkgname}-git
 pkgver=20140815.r70.8367d9b
-pkgrel=1
+pkgrel=2
 pkgdesc="A better shell to use in place of adb when connecting to Android devices"
 url="https://github.com/facebook/${_pkgname}"
 license=('GPL3')
@@ -22,7 +22,20 @@ pkgver() {
 }
 
 build() {
-    export ANDROID_NDK=/opt/android-ndk
+    # Detect android-ndk if not currenly in $(env)
+    if [[ -z "$ANDROID_NDK" ]]; then
+        if [[ -d "/opt/android-ndk" ]]; then
+            export ANDROID_NDK=/opt/android-ndk
+        elif [[ -d "/opt/android-ndk32" ]]; then
+            export ANDROID_NDK=/opt/android-ndk32
+        elif [[ -d "/opt/android-ndk64" ]]; then
+            export ANDROID_NDK=/opt/android-ndk64
+        else
+            echo 'Error: cannot find android-ndk'
+            return 1
+        fi
+    fi
+
     cd $_pkgname
     ./autogen.sh
     mkdir build
