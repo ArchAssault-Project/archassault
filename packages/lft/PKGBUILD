@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=lft
-pkgver=3.72
+pkgver=3.73
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A layer four traceroute implementing numerous other features"
@@ -9,7 +9,7 @@ license=('custom')
 url="http://pwhois.org/lft/"
 depends=('libpcap')
 source=("http://pwhois.org/dl/index.who?file=lft-$pkgver.tar.gz")
-sha512sums=('8c62aca5a986d5e1690f4a6a9afe665dc2e53305bbb8b5b89a2bfe9cd3ed2a29d717810af3543d55faace02a4534d53103844542eff70008eaac78f99d93a0f4')
+sha512sums=('ae0fac196aa4cee7a4f9832c1d4ee9e6bb012513b95e73f7818bd0d66c9347c8ee776532defdcd7425cc4866c95b37a93f8117c53cdbe22d229bbb4453dc552b')
 
 build() {
   cd "$srcdir/lft-$pkgver"
