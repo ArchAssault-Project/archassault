@@ -5,7 +5,7 @@ _droidver=4.4W
 pkgname=${_sdkname}-${_pkgname}-${_droidver/W/w}
 _pkgver=r20
 pkgver=${_pkgver}.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Build tools for the Google Android SDK (aapt, aidl, dexdump, dx, llvm-rs-cc)"
 arch=('i686' 'x86_64')
 url="http://developer.android.com/sdk/index.html"
@@ -32,7 +32,7 @@ package() {
     echo -e $(grep -e "^Pkg.License=" android-${_droidver}/source.properties) > "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE
 
     install -dm775 "$pkgdir"/opt/${_sdkname}/${_pkgname}
-    cp -a android-${_droidver} "$pkgdir"/opt/${_sdkname}/${_pkgname}/${pkgver}
+    cp -a android-${_droidver} "$pkgdir"/opt/${_sdkname}/${_pkgname}/${pkgver/r}
     chmod -R ugo+rX "$pkgdir"/opt/${_sdkname}/${_pkgname}
     chmod ug+w "$pkgdir"/opt/${_sdkname} "$pkgdir"/opt/${_sdkname}/${_pkgname}
 }
