@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 
 pkgname=trid-defs
-pkgver=23.08.14
+pkgver=11.09.14
 pkgrel=1
 epoch=1
 pkgdesc="Definitions DB for trid that describes recurring patterns in supported file types"
@@ -11,7 +11,7 @@ license=('CUSTOM')
 makedepends=('unzip')
 source=("http://mark0.net/download/triddefs.zip"
         "LICENSE")
-sha512sums=('762ad335ae55dd9a33092badf3097f2b76c5ca4b9d78e7140ef98d6394651b16da4022eb692fe4cdf0255983dfcc94409229a824206d71f956b24ade59a20c9e'
+sha512sums=('34475fcc0ce9c7fa541738d04e50a56cc59bdda4fae58eb2d747f44a204fc754ffb8aa532a30176515a59bd09130a303aecd63b393d0cfe9734aacc0457fb918'
             '201bc568f534e2f7ad3c4288f2a0aaf3392285eb9cbe65de0fdcdecc69ddf9e850dfab0830538dba0b76909862c8fee3281a4fb138fabe4b8222dd525e1916c9')
 
 package() {
