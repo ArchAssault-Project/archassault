@@ -2,42 +2,42 @@
 pkgname=wpscan-git
 pkgver=1715.bf5bde0
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
 pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
-arch=('any')
+arch=(armv6h armv7h i686 x86_64)
 url="http://wpscan.org"
 license=('GPL3')
-depends=('ruby1.9-typhoeus' 'ruby1.9-nokogiri' 'ruby1.9-terminal-table'
-	'ruby1.9-ruby-progressbar' 'ruby1.9-webmock' 'ruby1.9-simplecov'
-	'ruby1.9-rspec' 'ruby1.9-mime-types' 'ruby1.9-bundler')
-makedepends=('git' 'libxslt')
+depends=('ruby1.9' 'ruby1.9-bundler' 'libxslt')
+makedepends=('git')
 options=(!strip)
 replaces=('wpscan')
 conflicts=('wpscan')
 provides=('wpscan')
-source=('git+http://github.com/wpscanteam/wpscan')
+source=("${pkgname}::git+http://github.com/wpscanteam/wpscan")
 md5sums=('SKIP')
 
 pkgver() {
-  cd wpscan
-  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+    cd "${pkgname}"
+    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
-  cd "$srcdir/wpscan"
+  cd "${pkgname}"
 
-  install -dm755 "$pkgdir/usr/share/wpscan-git"
-  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "${pkgdir}/usr/share/wpscan-git"
+  install -dm755 "${pkgdir}/usr/bin"
+  cp -a --no-preserve=owner * "${pkgdir}/usr/share/wpscan-git"
+  cd ${pkgdir}/usr/share/wpscan-git
+  bundle-1.9 config build.nokogiri --use-system-libraries 
+  bundle-1.9 install --path vendor/bundle
 
-  cp -a --no-preserve=owner * "$pkgdir/usr/share/wpscan-git"
-
-  cat > "$pkgdir/usr/bin/wpscan" <<EOF
+  cat > "${pkgdir}/usr/bin/wpscan" <<EOF
 #!/bin/sh
-ruby-1.9 /usr/share/wpscan-git/wpscan.rb "\$@"
+cd /usr/share/wpscan-git
+ruby-1.9 ./wpscan.rb "\$@"
 EOF
-  sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "$pkgdir/usr/share/wpscan-git/lib/common/common_helper.rb"
-  sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "$pkgdir/usr/share/wpscan-git/lib/common/common_helper.rb"
-
-
-  chmod +x "$pkgdir/usr/bin/wpscan"
+  sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
+  sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
+  chmod +x "${pkgdir}/usr/bin/wpscan"
 }
