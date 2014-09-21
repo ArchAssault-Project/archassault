@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=20140918.r27301
+pkgver=20140920.r27347
 pkgrel=1
 epoch=2
 groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
@@ -51,7 +51,9 @@ package() {
   install -m644 .gitignore "${pkgdir}/usr/share/metasploit"
   install -m644 .gitmodules "$pkgdir/usr/share/metasploit"
   install -m644 .mailmap "$pkgdir"/usr/share/metasploit
-  cp -a --no-preserve=ownership .git "$pkgdir/usr/share/metasploit"
+  # Commenting out the .git dir to shrink size. This will cause
+  # a warning when starting about not being a git dir. 
+  #cp -a --no-preserve=ownership .git "$pkgdir/usr/share/metasploit"
   # Conform to the FHS.
   mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
   ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
