@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=wpscan-git
-pkgver=1715.bf5bde0
+pkgver=20140920.r1753
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners')
