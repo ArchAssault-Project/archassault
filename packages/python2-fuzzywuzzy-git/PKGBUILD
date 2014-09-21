@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=python2-fuzzywuzzy-git
-pkgver=r138.46ed7cf
+pkgver=r149.fc75b1e
 pkgrel=1
 pkgdesc="Fuzzy string matching in python"
 arch=('any')
@@ -33,6 +33,6 @@ build() {
 package() {
   cd "$srcdir/fuzzywuzzy"
   python2 setup.py install --root=$pkgdir --optimize=1
-  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
