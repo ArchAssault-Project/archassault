@@ -1,0 +1,31 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=googlesub
+pkgver=1.2
+pkgrel=1
+pkgdesc="A python script to find domains by using google dorks"
+url="https://github.com/zombiesam/googlesub"
+arch=('any')
+license=('custom')
+groups=('archassault')
+depends=('python2' 'python2-requests' 'python2-beautifulsoup4')
+source=(https://github.com/zombiesam/googlesub/archive/v$pkgver.tar.gz)
+sha512sums=('a117a1b943f4b11cbd635b6b4f99a6e05e9da78847d6bd226802cfc43a11ca5aa9addabc94f189595e5fde2a289032da536e707d69f586aede199be413c01d87')
+
+package() {
+  cd "$srcdir"/$pkgname-$pkgver
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+  install -dm755 "$pkgdir/usr/bin" 
+  install -Dm755 googlesub.py "$pkgdir/usr/share/googlesub"
+  install -Dm644 README.md "$pkgdir/usr/share/googlesub"
+  install -Dm644 useragent_list.txt "$pkgdir/usr/share/googlesub"
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+cat >"$pkgdir/usr/bin/googlesub"<<EOF
+#!/bin/sh
+cd /usr/share/googlesub
+python2 googlesub.py "\$@"
+EOF
+chmod +x "$pkgdir/usr/bin/googlesub"
+}
+
+
