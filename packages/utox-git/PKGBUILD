@@ -2,8 +2,8 @@
 
 _pkgname=utox
 pkgname=${_pkgname}-git
-_pkgver=acf0379
-pkgver=r656.acf0379
+_pkgver=69cc39a
+pkgver=r704.69cc39a
 pkgrel=1
 pkgdesc="Lightweight Tox client"
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
