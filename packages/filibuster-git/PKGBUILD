@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=filibuster-git
-pkgver=r146.f0663e2
+pkgver=r161.37b7f9c
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A Egress filter mapping application with additional functionality"
 arch=('any')
 url='https://github.com/subinacls/Filibuster'
 license=('GPL3')
-depends=('python2' 'python2-numpy' 'python2-configparser' 'python2-dnspython' 'python2-pyliblzma' 'python2-crypto')
+depends=('python2' 'python2-matplotlib' 'python2-numpy' 'python2-configparser' 'python2-dnspython' 'python2-pyliblzma' 'python2-crypto')
 makedepends=('git')
 provides=('filibuster')
 replaces=('filibuster')

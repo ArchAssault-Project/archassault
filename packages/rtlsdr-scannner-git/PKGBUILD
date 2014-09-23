@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rtlsdr-scanner-git
-pkgver=0.r830.e601ff4
+pkgver=0.r835.27d0a25
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A cross platform Python frequency scanning GUI for the OsmoSDR rtl-sdr library"

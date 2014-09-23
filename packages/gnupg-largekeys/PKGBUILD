@@ -6,7 +6,7 @@
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 pkgname=gnupg-largekeys
 pkgver=2.0.26
-pkgrel=1
+pkgrel=2
 pkgdesc='Complete and free implementation of the OpenPGP standard'
 url='http://www.gnupg.org/'
 license=('GPL')
@@ -20,7 +20,7 @@ source=("ftp://ftp.gnupg.org/gcrypt/${pkgname%%-largekeys}/${pkgname%%-largekeys
         'gnupg2-large-keys.patch'
         'install')
 sha512sums=('5dd23baaac764fd48abd235ed52a85a2c7fd68b98fcde45c0f294ddb3b5629e8b1bd894585fbed4e6a6cb2bc4a5552c098c3cf1a849fffa469424fd0a4fee726'
-            'a03c91fb20f2ec900bc5d91d0fb0f2be4dc36df8f9550cc41894736979a07e8321895a9eca872d2820a44cebb2bd2c12aa27de470c10b7f75010f528b1130769'
+            '55c74a248b60ad5781c13ac3c7cdbe6f8587e4031febdc9a99838f231aae5b87bbe20dd8b9d88ee91bf5825f787ddf890a294d0df54ac9d5835214a9dd911bc5'
             'b3a125ee70b2042d158fc68e9e15660a87c5c30e5810570ea40376f2df3701973cf1c9e6481953b0415d9368ed7e93d6540274814207eee7e9a6852c51883ba3')
 
 install=install
@@ -50,12 +50,12 @@ build() {
 }
 
 check() {
-	cd "${srcdir}/gnupg-${pkgver}"
+	cd "${srcdir}/${pkgname%%-largekeys}-${pkgver}"
 	make check
 }
 
 package() {
-	cd "${srcdir}/gnupg-${pkgver}"
+	cd "${srcdir}/${pkgname%%-largekeys}-${pkgver}"
 	make DESTDIR="${pkgdir}" install
 	ln -s gpg2 "${pkgdir}"/usr/bin/gpg
 	ln -s gpgv2 "${pkgdir}"/usr/bin/gpgv

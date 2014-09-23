@@ -1,6 +1,6 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-05-27
+## Generated on 2014-09-21
 ##
 
 ## Australia
@@ -39,8 +39,7 @@
 ## United States
 #Server = http://repo.archassault.org/archassault/$repo/os/$arch
 #Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
-#Server = http://ftp-mirror.internap.com/pub/archassault/$repo/os/$arch
-#Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
+Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.keystealth.org/archassault/$repo/os/$arch
 Server = http://mirror.nyi.net/pub/archassault/$repo/os/$arch
 #Server = http://mirror.team-cymru.org/archassault/$repo/os/$arch

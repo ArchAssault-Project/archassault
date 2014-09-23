@@ -1,0 +1,33 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=webspa
+pkgver=0.7
+pkgrel=1
+pkgdesc="A web knocking tool, sending a single HTTP/S to run O/S commands"
+arch=('any')
+url="http://sourceforge.net/projects/webspa/"
+license=('GPL3')
+depends=('java-environment' 'bash')
+source=("http://downloads.sourceforge.net/project/webspa/webspa-${pkgver/./}.zip")
+sha512sums=('75fabd3bc993b2a3f929a2ce3db92bb03f7e8a4c38a84cc22414150daea6cbcc2b4a94a8fff004d69678bc4003de9c767f72e562ec9b3fa2273aaad305f07def')
+
+package() {
+  cd "$srcdir/$pkgname-${pkgver/./}"
+  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+  install -dm755 "$pkgdir/usr/share/docs/$pkgname"
+  install -Dm644 INSTALL "$pkgdir/usr/share/$pkgname/"
+  install -Dm644 README "$pkgdir/usr/share/$pkgname/"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 webspa-${pkgver/./}.jar "$pkgdir/usr/share/$pkgname/"
+  install -Dm644 docs/* "$pkgdir/usr/share/docs/$pkgname/"
+  install -Dm755 webspa.sh "$pkgdir/usr/share/$pkgname"
+
+cat > "$pkgdir/usr/bin/$pkgname" <<EOF
+#!/bin/sh
+cd /usr/share/webspa
+./webspa.sh "\$@"
+EOF
+
+chmod +x "$pkgdir/usr/bin/$pkgname"
+}

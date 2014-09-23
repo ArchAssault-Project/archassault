@@ -1,15 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby-rspec-core
 _gemname=rspec-core
-pkgver=2.14.7
-pkgrel=2
+pkgver=2.99.0
+pkgrel=1
 pkgdesc="rspec-core-2.14.7"
 arch=('any')
-license=('')
-makedepends=('ruby')
+license=('Runner and formatters')
+depends=('ruby')
+options=('!emptydirs')
 url='http://github.com/rspec/rspec-core'
 source=("http://rubygems.org/downloads/rspec-core-$pkgver.gem")
-md5sums=('09196e82632b75173790bcde164e6900')
+sha512sums=('89fd59f1d01d276d25e6a7bddfd1796d40c12022c18fe2727dbb1e393c13e603e8bcd56925159ca5f7bcd592f14668182f65a8f628efa911448551033928b575')
 noextract=("rspec-core-$pkgver.gem")
 
 package() {

@@ -1,22 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=ruby-yard
-pkgver=0.8.7.3
-pkgrel=0
-pkgdesc="Documentation tool for consistent and usable documentation in Ruby."
-arch=('any')
-license=('MIT')
-depends=('ruby')
+
+_gemname=yard
+pkgname=ruby-$_gemname
+pkgver=0.8.7
+pkgrel=1
+pkgdesc='Documentation tool for consistent and usable documentation in Ruby.'
+arch=(any)
 url='http://yardoc.org'
-source=("http://rubygems.org/downloads/yard-$pkgver.gem")
-md5sums=('c5dd1832dc737cc17cfad25dcdb4e65f')
-noextract=("yard-$pkgver.gem")
+license=(MIT)
+depends=(ruby)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha512sums=('bb3f4074e12b2c3067841223fc99bd420f81de4de9287b904b46c6ca9d56b209aec2e1d61c87ac6b0d1768b69bb14032f44d90da1abe34ec704fc46ce08f70f7')
 
 package() {
-  cd "$srcdir"
-  local _gemdir=$(ruby -e 'puts Gem.default_dir')
-  if [[ $CARCH == arm* ]] ; then
-    gem install --no-user-install --ignore-dependencies --no-rdoc --no-ri -i "$pkgdir$_gemdir" yard-$pkgver.gem
-  else
-    gem install --no-user-install --ignore-dependencies -i "$pkgdir$_gemdir" yard-$pkgver.gem
-  fi
+  local _gemdir="$(ruby -e'puts Gem.default_dir')"
+  gem install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+  install -D -m644 "$pkgdir/$_gemdir/gems/$_gemname-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

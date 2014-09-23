@@ -1,8 +1,8 @@
 # Maintainer: Arch3y <arch3y archassault org>
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
-pkgver=0.1
-pkgrel=5
+pkgver=0.2
+pkgrel=1
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -10,8 +10,7 @@ groups=('archassault' 'archassault-meta')
 
 package_archassault-meta-iso-all() {
 	pkgdesc=('Meta package for ArchAssault')
-		depends=(aircrack-ng
-				gnu-netcat
+		depends=(gnu-netcat
 				fcrackzip
 				nmap
 				wireshark-cli

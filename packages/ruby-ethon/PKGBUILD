@@ -1,23 +1,21 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=ruby-ethon
-pkgver=0.6.2
+_gemname=ethon
+pkgname=ruby-$_gemname
+pkgver=0.7.1
 pkgrel=1
-pkgdesc="Libcurl wrapper."
-arch=('any')
-license=('')
-makedepends=('ruby')
-depends=('ruby-ffi>=1.3.0' 'ruby-mime-types>=1.18')
+pkgdesc='Libcurl wrapper.'
+arch=(any)
 url='https://github.com/typhoeus/ethon'
-source=("http://rubygems.org/downloads/ethon-$pkgver.gem")
-md5sums=('7b8f9b3e3ac3cb7ce4d3010657830e9c')
-noextract=("ethon-$pkgver.gem")
+license=(MIT)
+depends=(ruby ruby-ffi)
+options=(!emptydirs)
+source=(https://rubygems.org/downloads/$_gemname-$pkgver.gem)
+noextract=($_gemname-$pkgver.gem)
+sha512sums=('484aa0df0e4375369c839d66f114940760ad6102a026ecc1886283c80d856ed347b8ab853a90c3ac514766a9afe7032030647b93bb030c739b308f303d483425')
 
 package() {
-  cd "$srcdir"
-  local _gemdir=$(ruby -e 'puts Gem.default_dir')
-  if [[ $CARCH == arm* ]] ; then
-    gem install --no-rdoc --no-ri --no-user-install --ignore-dependencies -i "${pkgdir}${_gemdir}" -n "$pkgdir/usr/bin" ethon-$pkgver.gem
-  else
-    gem install --ignore-dependencies --no-user-install -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" ethon-$pkgver.gem
-  fi
+  local _gemdir="$(ruby -e'puts Gem.default_dir')"
+  gem install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+  install -D -m644 "$pkgdir/$_gemdir/gems/$_gemname-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=clusterd-git
-pkgver=r109.a748bff
+pkgver=r129.0f04a49
 pkgrel=1
 pkgdesc="automates the fingerprinting, reconnaissance, and exploitation phases of an application server attack"
 url="https://github.com/hatRiot/clusterd"

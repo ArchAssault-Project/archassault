@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bletchley
 pkgver=0.0.1
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="A collection of practical application cryptanalyze tools."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -10,7 +10,7 @@ license=('GPL')
 depends=('python')
 makedepends=('scons')
 source=("https://googledrive.com/host/0B6HCWPzk_jKoVHI5WV9EMURfbms/bletchley-src-$pkgver.tar.gz")
-md5sums=('2a1071f7a20a9cf18e143c989a686cfb')
+sha512sums=('4e87e485d40cbde828a51f1142d361a47b12f33e2d3f20a77b00cf1e81386235fb7fafdc0e6e7d90cb71e39dced10c629abdfe671b4cf33a6815740800fba2ec')
 
 build() {
   cd "$srcdir/bletchley-src-$pkgver"

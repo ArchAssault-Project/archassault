@@ -1,28 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rifiuti2
 pkgver=0.5.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-reconnaissance' 'archassault-forensic')
 pkgdesc="A rewrite of rifiuti, a great tool from Foundstone folks for analyzing Windows Recycle Bin INFO2 file."
 url="https://code.google.com/p/rifiuti2/"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('custom:BSD')
 conflicts=('rifiuti')
+options=('!emptydirs')
 source=("https://rifiuti2.googlecode.com/files/rifiuti2-$pkgver.tar.gz")
-md5sums=('d3583fec70c2d682939ce16369572e2f')
+sha512sums=('453052a4f5b6141b16259517226ce314d6b0096605d553e4fe935031e8e211455c8bfef2404a5b02b68005f6b7b6394cba642bd2ff94dcaa4c5ac2f8a8709f9d')
 
 build() {
   cd "$srcdir/rifiuti2-$pkgver"
-
-  ./configure
+  ./configure --bindir=/usr/bin --mandir=/usr/share/man
   make
 }
 
 package() {
   cd "$srcdir/rifiuti2-$pkgver"
-
   make DESTDIR="$pkgdir" install
-
-  # License.
   install -Dm644 COPYING "$pkgdir/usr/share/licenses/rifiuti2/COPYING"
 }

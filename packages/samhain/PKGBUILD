@@ -2,12 +2,12 @@
 
 pkgname=samhain
 pkgver=3.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="File integrity / intrusion detection system"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://la-samhna.de/${pkgname}"
 license=('GPL')
-depends=('audit' 'acl')
+depends=('audit' 'systemd')
 makedepends=('procps-ng')
 backup=("etc/${pkgname}rc")
 install="${pkgname}.install"

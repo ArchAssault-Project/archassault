@@ -1,25 +1,3 @@
---- a/drivers/net/wireless/rtl818x/rtl8187/dev.c
-+++ b/drivers/net/wireless/rtl818x/rtl8187/dev.c
-@@ -251,8 +251,18 @@ static void rtl8187_tx(struct ieee80211_
- 	flags |= RTL818X_TX_DESC_FLAG_NO_ENC;
- 
- 	flags |= ieee80211_get_tx_rate(dev, info)->hw_value << 24;
-+	
-+	// When this flag is set the firmware waits untill ALL fragments have
-+	// reached the USB device. Then it sends the first fragment and waits
-+	// for ACKS's. Of course in monitor mode it won't detect these ACK's.
- 	if (ieee80211_has_morefrags(tx_hdr->frame_control))
--		flags |= RTL818X_TX_DESC_FLAG_MOREFRAG;
-+	{
-+		// If info->control.vif is NULL it's most likely in monitor mode
-+		if (likely(info->control.vif != NULL && info->control.vif->type != NL80211_IFTYPE_MONITOR)) {
-+			flags |= RTL818X_TX_DESC_FLAG_MOREFRAG;
-+		}
-+	}
-+
- 	if (info->control.rates[0].flags & IEEE80211_TX_RC_USE_RTS_CTS) {
- 		flags |= RTL818X_TX_DESC_FLAG_RTS;
- 		flags |= ieee80211_get_rts_cts_rate(dev, info)->hw_value << 19;
 --- a/net/mac80211/cfg.c
 +++ b/net/mac80211/cfg.c
 @@ -839,7 +839,8 @@ static int ieee80211_set_monitor_channel
