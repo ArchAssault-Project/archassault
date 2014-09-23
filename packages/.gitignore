@@ -1,4 +1,5 @@
 # Package-specific items
+android-sdk/android_icon_128.png
 /magictree/magictree.log
 /deblaze/download
 /tnscmd10g/tnscmd10g.pl.txt
@@ -37,6 +38,7 @@ webrute/webrute.pl
 wiffy/wiffy.sh
 ripdc/ripdc.sh.txt
 snmpscan/snmpscan-0.1.pl
+nsia/NSIA.Definitions
 
 # General
 *.c

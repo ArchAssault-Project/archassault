@@ -1,28 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Théophile Studer
 pkgname=yara
-pkgver=3.0.0
-pkgrel=1
+pkgver=3.1.0
+pkgrel=2
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='https://github.com/plusvic/yara'
-depends=('glibc')
+url="http://plusvic.github.io/${pkgname}"
+depends=('jansson' 'file')
 license=('APACHE')
-source=("https://github.com/plusvic/yara/archive/v$pkgver.tar.gz"
-				'yara.desktop')
-sha512sums=('b4342d1eba2df7866576ec578b7cf8dbbae8c54bfa7a7394f178faf786fb3b00f632191e1a815a6f9f9924c92ae4caacd2f526d4cb7a95a1d3d33fa4f2b3f9ea'
-            'a6669687015e84de6d45d901688b8e75346b3ba8352c7fe60e1fd24ccb3eedf2f11359896a3b0d7e7d0a6553310c2cfbd979c9dc5bf1afe24b0937b8192f6881')
+source=("https://github.com/plusvic/${pkgname}/archive/v${pkgver}.tar.gz")
+sha512sums=('ebebe4971d07946b5a435f0aef0784fad02e0a844b6e0add3c613528c033042e3304cef2b972d9c02307f6a5d5124cf85cb355fd666d6c0f24ab60f8d037273d')
 
 build() {
-  cd "$srcdir/yara-$pkgver"
-  ./bootstrap.sh
-  ./configure --prefix=/usr
-  make
+    cd ${pkgname}-${pkgver}
+    ./bootstrap.sh
+    ./configure --prefix=/usr --enable-magic --enable-cuckoo
+    make
 }
 
 package() {
-  cd "$srcdir/yara-$pkgver"
-  make DESTDIR="$pkgdir/" install
-  install -Dm644 "$srcdir/yara.desktop" "$pkgdir/usr/share/applications/yara.desktop"
+    cd ${pkgname}-${pkgver}
+    make DESTDIR="$pkgdir" install
 }

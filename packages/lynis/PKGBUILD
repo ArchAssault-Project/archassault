@@ -2,8 +2,8 @@
 # Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
 
 pkgname=lynis
-pkgver=1.5.9
-pkgrel=1
+pkgver=1.6.0
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="An auditing and system hardning tool for Unix/Linux"
 url='http://www.rootkit.nl/projects/lynis.html'
@@ -13,82 +13,78 @@ backup=('etc/lynis/default.prf')
 depends=('bash')
 optdepends=('net-tools: networking tests')
 source=("http://cisofy.com/files/lynis-$pkgver.tar.gz")
-sha512sums=('8f5b421ebd3fb5e0527eba563988bd856199dc380b64a907f5b43e0fb1c65101e683697a349408da18d422368524c9d1cca546fea21f5b99d2e1c88588be80d8')
+sha512sums=('2358e77fec567c68bb238ce9fe3e30fed581014f349dd27b22e08d9d9ff330a3910bcb71b0c74b5052eaea4da2a25bad7099071017d59dabac37e03dbb798dfb')
 
 package() {
-  cd "$srcdir/lynis-$pkgver"
-
+  cd "${srcdir}"/lynis
   # Profile.
-  install -Dm644 default.prf "$pkgdir/etc/lynis/default.prf"
-
-  # Bin.
-  install -Dm755 lynis "$pkgdir/usr/bin/lynis"
-
+  install -Dm644 default.prf "${pkgdir}/etc/lynis/default.prf"
+  install -Dm755 lynis "${pkgdir}/usr/bin/lynis"
   # Install plugins, include, db.
-  install -dm755 "$pkgdir/usr/share/lynis"
-  install -dm755 db "$pkgdir"/usr/share/lynis/db
-  install -m644 db/sbl.db "$pkgdir"/usr/share/lynis/db/sbl.db
-  install -m644 db/malware-susp.db "$pkgdir"/usr/share/lynis/db/malware-susp.db
-  install -m644 db/malware.db "$pkgdir"/usr/share/lynis/db/malware.db
-  install -m644 db/integrity.db "$pkgdir"/usr/share/lynis/db/integrity.db
-  install -m644 db/hints.db "$pkgdir"/usr/share/lynis/db/hints.db
-  install -m644 db/fileperms.db "$pkgdir"/usr/share/lynis/db/fileperms.db
-  install -dm755 include "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_webservers "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_virtualization "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_tooling "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_time "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_tcpwrappers "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_storage_nfs "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_storage "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_ssh "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_squid "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_solaris "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_snmp "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_shells "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_scheduling "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_printers_spools "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_ports_packages "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_php "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_networking "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_nameservices "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_memory_processes "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_malware "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_mail_messaging "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_mac_frameworks "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_logging "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_ldap "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_kernel_hardening "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_kernel "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_insecure_services "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_homedirs "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_hardening_tools "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_hardening "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_firewalls "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_filesystems "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_file_permissions "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_file_integrity "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_databases "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_custom.template "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_crypto "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_boot_services "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_banners "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_authentication "$pkgdir"/usr/share/lynis/include
-  install -m644 include/tests_accounting "$pkgdir"/usr/share/lynis/include
-  install -m644 include/report "$pkgdir"/usr/share/lynis/include
-  install -m644 include/profiles "$pkgdir"/usr/share/lynis/include
-  install -m644 include/parameters "$pkgdir"/usr/share/lynis/include
-  install -m644 include/osdetection "$pkgdir"/usr/share/lynis/include
-  install -m644 include/functions "$pkgdir"/usr/share/lynis/include
-  install -m644 include/data_upload "$pkgdir"/usr/share/lynis/include
-  install -m644 include/consts "$pkgdir"/usr/share/lynis/include
-  install -m644 include/binaries "$pkgdir"/usr/share/lynis/include
-  install -dm755 plugins "$pkgdir"/usr/share/lynis/plugins
-  install -m644 plugins/README "$pkgdir"/usr/share/lynis/plugins
-  install -m644 plugins/custom_plugin.template "$pkgdir"/usr/share/lynis/plugins
+  install -dm755 "${pkgdir}/usr/share/lynis"
+  install -dm755 db "${pkgdir}"/usr/share/lynis/db
+  install -m644 db/sbl.db "${pkgdir}"/usr/share/lynis/db/sbl.db
+  install -m644 db/malware-susp.db "${pkgdir}"/usr/share/lynis/db/malware-susp.db
+  install -m644 db/malware.db "${pkgdir}"/usr/share/lynis/db/malware.db
+  install -m644 db/integrity.db "${pkgdir}"/usr/share/lynis/db/integrity.db
+  install -m644 db/hints.db "${pkgdir}"/usr/share/lynis/db/hints.db
+  install -m644 db/fileperms.db "${pkgdir}"/usr/share/lynis/db/fileperms.db
+  install -dm755 include "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_webservers "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_virtualization "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_tooling "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_time "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_tcpwrappers "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_storage_nfs "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_storage "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_ssh "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_squid "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_solaris "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_snmp "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_shells "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_scheduling "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_printers_spools "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_ports_packages "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_php "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_networking "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_nameservices "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_memory_processes "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_malware "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_mail_messaging "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_mac_frameworks "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_logging "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_ldap "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_kernel_hardening "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_kernel "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_insecure_services "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_homedirs "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_hardening_tools "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_hardening "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_firewalls "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_filesystems "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_file_permissions "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_file_integrity "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_databases "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_custom.template "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_crypto "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_boot_services "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_banners "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_authentication "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/tests_accounting "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/report "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/profiles "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/parameters "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/osdetection "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/data_upload "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/binaries "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/functions "${pkgdir}"/usr/share/lynis/include
+  install -m600 include/consts "${pkgdir}"/usr/share/lynis/include
+  install -dm755 plugins "${pkgdir}"/usr/share/lynis/plugins
+  install -m644 plugins/README "${pkgdir}"/usr/share/lynis/plugins
+  install -m644 plugins/custom_plugin.template "${pkgdir}"/usr/share/lynis/plugins
   # Install misc files.
-  install -m644 -t "$pkgdir/usr/share/lynis" README INSTALL CHANGELOG FAQ
+  install -m644 -t "${pkgdir}/usr/share/lynis" README INSTALL CHANGELOG FAQ
 
   # Install manpage.
-  install -Dm644 lynis.8 "$pkgdir/usr/share/man/man8/lynis.8"
+  install -Dm644 lynis.8 "${pkgdir}/usr/share/man/man8/lynis.8"
 }

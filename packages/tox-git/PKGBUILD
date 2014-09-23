@@ -5,8 +5,8 @@
 
 _pkgname=tox
 pkgname=${_pkgname}-git
-_pkgver=12cada5
-pkgver=r2681.12cada5
+_pkgver=e0725ac
+pkgver=r2759.e0725ac
 pkgrel=1
 epoch=1
 pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
@@ -16,6 +16,7 @@ license=('GPL3')
 depends=('libsodium' 'opus' 'libvpx')
 makedepends=('git' 'autoconf' 'automake' 'check' 'libtool')
 optdepends=('qtox-git: qt-based frontend'
+            'utox-git: lightweight tox client'
             'venom-git: gtk/vala-based frontend'
             'toxic-git: ncurses-based frontend')
 conflicts=("$_pkgname")

@@ -3,20 +3,21 @@
 
 _pkgname=qtox
 pkgname=${_pkgname}-git
-pkgver=r428.ba9353e
+_pkgver=255606c
+pkgver=r656.255606c
 pkgrel=1
 pkgdesc="Powerful QT Tox client that tries to follow the Tox UI guidlines"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/tux3/qTox"
 license=('GPL3')
-depends=('tox-git' 'qt5-multimedia' 'desktop-file-utils' 'libgl')
+depends=('tox-git' 'qt5-base' 'desktop-file-utils' 'opencv' 'openal')
 makedepends=('git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
 
-source=("${_pkgname}::git+https://github.com/tux3/qTox.git"
+source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
         "${_pkgname}.desktop")
 sha512sums=('SKIP'
             '844aeb51d3af84bb0a484cf3a6e63ff7cc5698d9ebceff53c485feea70f5b06ec89e0590d364b5e5431ec29539453c8e4e9b06fc7bf1ca41bbb2325a2c1274dc')

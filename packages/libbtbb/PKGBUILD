@@ -3,7 +3,7 @@
 
 pkgname=libbtbb
 pkgver=2014.02.R2
-pkgrel=3
+pkgrel=4
 pkgdesc="A library to decode Bluetooth baseband packets, as produced by the Ubertooth and GR-Bluetooth projects."
 url="https://greatscottgadgets.com/ubertoothone"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

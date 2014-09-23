@@ -4,7 +4,8 @@
 
 _pkgname=toxic
 pkgname=${_pkgname}-git
-pkgver=r1248.f2aa57c
+_pkgver=bf54cb3
+pkgver=r1312.bf54cb3
 pkgrel=1
 pkgdesc="An ncurses-based commandline client for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -17,7 +18,7 @@ conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
 
-source=("${_pkgname}::git+https://github.com/Tox/${_pkgname}.git"
+source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
         "${_pkgname}.desktop"
         "${_pkgname}.png")
 sha512sums=('SKIP'

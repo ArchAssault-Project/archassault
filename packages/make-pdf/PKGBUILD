@@ -1,15 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=make-pdf
-pkgver=0.1.4
+pkgver=0.1.5
 pkgrel=1
 pkgdesc="This tool will embed javascript inside a PDF document"
 arch=('any')
 url="http://blog.didierstevens.com/programs/pdf-tools/"
 groups=('archassault' 'archassault-forensic')
-depends=('python2' 'dos2unix')
+depends=('python2')
+makedepends=('hd2u')
 license=('GPL')
 source=(http://www.didierstevens.com/files/software/make-pdf\_V${pkgver//./_}.zip)
-sha512sums=('a7d1dc1669aca98b081089ef7f0a2fb24a23a281b63f50ccd2721390c4a69b31f03ddfdca57df2842e059a948916dd7b8a2777b497a9dc10701d83fa6f2d5a67')
+sha512sums=('2ceeeb2922ea0fccb65af8cd1d0fdc5e428c13b64caf56c871d1696a4c90ab838e9796fab45bc6685148590a9f60485ef1950dcda89ed1b9ac4006553825b837')
 
 prepare(){
   cd "$srcdir"

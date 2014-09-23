@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ruby1.9-rack
 pkgver=1.5.2
-pkgrel=2
+pkgrel=3
 pkgdesc="a modular Ruby webserver interface"
 arch=('any')
 license=('MIT')
@@ -19,4 +19,5 @@ package() {
   else
     gem-1.9 install --ignore-dependencies --no-user-install -i "$pkgdir$_gemdir" -n "$pkgdir/usr/bin" rack-$pkgver.gem
   fi
+  mv "${pkgdir}"/usr/bin/rackup "${pkgdir}"/usr/bin/rackup-1.9
 }
