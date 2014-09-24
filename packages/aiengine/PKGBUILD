@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=aiengine
-pkgver=0.8
+pkgver=0.9
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A packet inspection engine with capabilities of learning without any human intervention."
@@ -14,7 +14,7 @@ else
 fi
 depends=('pcre' 'libpcap' 'boost-libs' 'python2')
 source=("https://bitbucket.org/camp0/aiengine/downloads/aiengine-$pkgver.tar.gz")
-sha512sums=('23bf9a96f4d54fb026000a68d88bf1f6044d18f473e502e8b56f21b2092f0f6e93d983aa744473510f1be828d940566913a7dc81921ba0bb0a3beec71aa4c736')
+sha512sums=('600ea2d908728146bc7aa30130a6365cd29b24061a510bf07a3b4e0120c22e0eb88f4881f92abd3c064f0b18959b9001deed15b303ac46014085a2b032e85ecc')
 
 prepare(){
    grep -iRl 'python' "$srcdir/aiengine-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
