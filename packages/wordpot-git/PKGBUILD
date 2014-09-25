@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=wordpot-git
-pkgver=r34.bbaf582
+pkgver=r37.e42eeda
 pkgrel=1
 groups=('archassault' 'archassault-defense')
 pkgdesc="A Wordpress Honeypot"
 arch=('any')
 url='https://github.com/gbrindisi/wordpot'
 license=('GPL2')
-depends=('python2' 'python2-flask')
+depends=('python2-flask')
 makedepends=('git')
 provides=('wordpot')
 replaces=('wordpot')
