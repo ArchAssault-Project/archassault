@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pev
-pkgver=0.60
-pkgrel=2
+pkgver=0.70
+pkgrel=1
 groups=('archassault' 'archassault-forensic' 'archassault-reversing')
 pkgdesc="Command line based tool for PE32/PE32+ file analyze"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,7 +9,7 @@ url='http://pev.sourceforge.net/'
 license=('GPL')
 depends=('glibc' 'openssl' 'pcre')
 source=("http://sourceforge.net/projects/pev/files/pev-$pkgver/pev-$pkgver.tar.gz")
-md5sums=('9eb79416be853c697228975a12280507')
+sha512sums=('c98ea778b05b514ef26d87627484b5942247fb4190ad6a166ee2a01fc185dd4663848ca9b5ba3a26be5c8a40eaf42f476bec58ddea0565ac4c6fe0710c9575aa')
 
 build() {
   cd "${srcdir}/pev-$pkgver"
