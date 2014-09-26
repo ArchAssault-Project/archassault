@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=vfeed
-pkgver=0.4.8
+pkgver=0.4.9
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Open Source Cross Linked and Aggregated Local Vulnerability Database main repository"
@@ -10,7 +10,7 @@ license=('BSD')
 depends=('python2')
 makedepends=('git')
 source=("git+https://github.com/toolswatch/vFeed.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 
 prepare(){
