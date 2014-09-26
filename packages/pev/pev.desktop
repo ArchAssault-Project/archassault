@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
+Version=1.0
 Name=Pev
 Comment=Command line based tool for PE32/PE32+ file analysis
-Exec=pev
-Icon=archassault-menu.png
-Terminal=false
-StartupNotify=false
-Categories=ArchAssault;ArchAssaultForensic;ArchAssaultReversing;
+Exec=sh -c '/usr/bin/pacman -Ql pev | grep -v '/usr/lib' | grep -v '/usr/share/applications' | grep -v -e '/$'; ${SHELL:-bash}'
+Icon=archassault
+Terminal=true
+Categories=Archassault;ArchassaultForensic;ArchassaultReversing;
