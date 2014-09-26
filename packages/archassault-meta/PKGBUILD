@@ -2,7 +2,7 @@
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
 pkgver=0.3
-pkgrel=1
+pkgrel=2
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -57,5 +57,11 @@ package_archassault-meta-iso-all() {
 				perl-image-exiftool
                                 recoll
                                 nemesis
-                                chntpw)
+                                chntpw
+                                greenbone-security-assistant
+                                openvas-cli
+                                openvas-libraries
+                                openvas-manager
+                                openvas-scanner
+                                nethogs)
 }
