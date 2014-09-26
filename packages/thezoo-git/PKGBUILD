@@ -1,0 +1,39 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=thezoo-git
+pkgver=0.1.5
+pkgrel=1
+pkgdesc="A project created to make the possibility of malware analysis open and available to the public."
+url="https://github.com/ytisf/theZoo"
+arch=('any')
+license=('GPL3')
+groups=('archassault' 'archassault-malware')
+depends=('python2')
+makedepends=('git')
+source=("${pkgname}::git+https://github.com/ytisf/theZoo.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+}
+
+prepare() {
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+}
+
+package() {
+  cd "${pkgname}"
+  install -dm0755 "${pkgdir}"/usr/share/"${pkgname}"
+  install -dm0755 "${pkgdir}"/usr/bin/
+  cp -a --no-preserve=ownership * "${pkgdir}"/usr/share/"${pkgname}"
+
+  cat > "${pkgdir}/usr/bin/thezoo" << EOF
+#!/bin/sh
+cd /usr/share/thezoo-git
+python2 ./theZoo.py "\$@"
+EOF
+  chmod +x "${pkgdir}"/usr/bin/thezoo
+}
+
+
