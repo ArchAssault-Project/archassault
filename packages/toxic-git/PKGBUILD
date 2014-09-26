@@ -4,8 +4,8 @@
 
 _pkgname=toxic
 pkgname=${_pkgname}-git
-_pkgver=bf54cb3
-pkgver=r1312.bf54cb3
+_pkgver=940af2c
+pkgver=r1324.940af2c
 pkgrel=1
 pkgdesc="An ncurses-based commandline client for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
