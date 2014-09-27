@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=xsscrapy
-pkgver=20140907.r67.85907da
+pkgver=20140918.r78.ef9831c
 pkgrel=1
 pkgdesc="xss spider"
 arch=('any')
