@@ -1,8 +1,8 @@
 # Maintainer: ArchAssualt <team@archassault.org>
 pkgname=iosforensic
 pkgver=1.0
-pkgrel=1
-pkgdesc="iOS forensic tool https://www.owasp.org/index.php/Projects/OWASP_iOSForensic"
+pkgrel=2
+pkgdesc="iOS forensic tool. OWASP iOS Forensic"
 arch=('any')
 url="https://github.com/Flo354/iOSForensic"
 license=('custom')
