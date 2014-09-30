@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=r108.ff235e3
-pkgrel=2
+pkgver=r110.c3e4a90
+pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
 arch=('any')
