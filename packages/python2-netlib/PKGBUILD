@@ -6,7 +6,7 @@ pkgdesc="A collection of network utilities used by pathod and mitmproxy"
 url="http://cortesi.github.com/netlib"
 license=('MIT')
 arch=('any')
-depends=("python2")
+depends=('python2' 'java-environment')
 source=("http://pypi.python.org/packages/source/n/netlib/netlib-${pkgver}.tar.gz")
 sha512sums=('56df59b94b6dcd61809f7319dcfd6807294d0dd1011d64d6b26beb50e3217052a96b267f1facacf46cbd0379a29df7ad5f68ee025b64b7e8fbfd31a9b4d06469')
 
