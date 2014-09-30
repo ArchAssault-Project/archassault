@@ -1,18 +1,18 @@
-# $Id: PKGBUILD 221930 2014-09-18 12:52:42Z tpowa $
-# Maintainer : Thomas Baechler <thomas@archlinux.org>
+# $Id: PKGBUILD 222102 2014-09-19 15:37:09Z bpiotrowski $
+# Maintainer: Eric Bélanger <eric@archlinux.org>
 
 pkgname=nvidia-archassault
 pkgver=340.32
 _extramodules=extramodules-3.16-archassault
-pkgrel=2
-pkgdesc="NVIDIA drivers for linux"
+pkgrel=3
+pkgdesc="NVIDIA drivers for linux-archassault"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
-depends=('linux-archassault>=3.16.3' 'linux-archassault<3.17' "nvidia-libgl" "nvidia-utils=${pkgver}")
+depends=('linux-archassault>=3.16.3' 'linux-archassault<3.17' "nvidia-utils=$pkgver" 'nvidia-libgl')
 makedepends=('linux-archassault-headers>=3.16.3' 'linux-archassault-headers<3.17')
-conflicts=('nvidia-96xx' 'nvidia-173xx')
+provides=('nvidia')
 license=('custom')
-install=nvidia.install
+install=nvidia-archassault.install
 options=(!strip)
 source=("ftp://download.nvidia.com/XFree86/Linux-x86/${pkgver}/NVIDIA-Linux-x86-${pkgver}.run"
         "ftp://download.nvidia.com/XFree86/Linux-x86_64/${pkgver}/NVIDIA-Linux-x86_64-${pkgver}-no-compat32.run")
@@ -23,27 +23,26 @@ md5sums=('423ea1a6938dbf226bb84504746fc646'
 [[ "$CARCH" = "x86_64" ]] && _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
 
 prepare() {
-    sh "${_pkg}.run" --extract-only
-    cd "${_pkg}"
-    # patches here
+    sh ${_pkg}.run --extract-only
 }
 
 build() {
-    _kernver="$(cat /usr/lib/modules/${_extramodules}/version)"
-    cd "${_pkg}"/kernel
-    make SYSSRC=/usr/lib/modules/"${_kernver}/build" module
+  _kernver="$(cat /usr/lib/modules/${_extramodules}/version)"
+  cd "${_pkg}/kernel"
+  make SYSSRC=/usr/lib/modules/${_kernver}/build module
 
-    cd uvm
-    make SYSSRC=/usr/lib/modules/"${_kernver}/build" module
+  cd uvm
+  make SYSSRC=/usr/lib/modules/${_kernver}/build module
 }
 
 package() {
-    install -D -m644 "${srcdir}/${_pkg}/kernel/nvidia.ko" \
-        "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia.ko"
-    install -D -m644 "${srcdir}/${_pkg}/kernel/uvm/nvidia-uvm.ko" \
-        "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-uvm.ko"
-    gzip "${pkgdir}/usr/lib/modules/${_extramodules}/"*.ko
-    install -d -m755 "${pkgdir}/usr/lib/modprobe.d"
-    echo "blacklist nouveau" >> "${pkgdir}/usr/lib/modprobe.d/nvidia-archassault.conf"
-    sed -i -e "s/EXTRAMODULES='.*'/EXTRAMODULES='${_extramodules}'/" "${startdir}/nvidia.install"
+  install -D -m644 "${srcdir}/${_pkg}/kernel/nvidia.ko" \
+    "${pkgdir}/usr/lib/modules/${_extramodules}/kernel/drivers/video/nvidia.ko"
+  install -D -m644 "${srcdir}/${_pkg}/kernel/uvm/nvidia-uvm.ko" \
+    "${pkgdir}/usr/lib/modules/${_extramodules}/kernel/drivers/video/nvidia-uvm.ko"
+  gzip "${pkgdir}/usr/lib/modules/${_extramodules}/kernel/drivers/video/"*.ko
+  install -d -m755 "${pkgdir}/usr/lib/modprobe.d"
+  echo "blacklist nouveau" >> "${pkgdir}/usr/lib/modprobe.d/nvidia-archassault.conf"
+  echo "blacklist nvidiafb" >> "${pkgdir}/usr/lib/modprobe.d/nvidia-archassault.conf"
+  install -D -m644 "${srcdir}/${_pkg}/LICENSE" "${pkgdir}/usr/share/licenses/nvidia-archassault/LICENSE"
 }
