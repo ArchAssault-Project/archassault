@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hasher-git
-pkgver=r29.0441700
+pkgver=r30.f3a0ac0
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A tool that allows you to quickly hash plaintext strings, or compare hashed values with a plaintext locally."
