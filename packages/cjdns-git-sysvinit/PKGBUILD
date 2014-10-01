@@ -2,7 +2,7 @@
 # Contributor: Prurigro
 pkgname=cjdns-git-sysvinit
 pkgver=20140626.r12.dda687c
-pkgrel=1
+pkgrel=3
 pkgdesc="Legacy sysvinit (rc.d/init.d) service for the cjdns-git package"
 url="https://github.com/prurigro/${pkgname}"
 license=('GPL2')
