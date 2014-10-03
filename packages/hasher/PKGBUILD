@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hasher-git
-pkgver=r30.f3a0ac0
+pkgver=r32.e9d1394
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A tool that allows you to quickly hash plaintext strings, or compare hashed values with a plaintext locally."
 arch=('any')
 url='https://github.com/ChrisTruncer/Hasher'
 license=('GPL2')
-depends=('python2' 'python2-passlib' 'python2-py-bcrypt' 'python2-wsgiref')
+depends=('python2-passlib' 'python2-py-bcrypt' 'python2-wsgiref')
 makedepends=('git')
 provides=('hasher')
 source=("git+https://github.com/ChrisTruncer/Hasher.git")
