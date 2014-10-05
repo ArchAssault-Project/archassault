@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=faraday
-pkgver=1.0
+pkgname=faraday-git
+pkgver=20141003.r638
 pkgrel=1
 pkgdesc="A new concept (IPE) Integrated Penetration-Test Environment a multiuser Penetration test IDE. Designed for distribution, indexation and analyze of the generated data during the process of a security audit."
 groups=('archassault' 'archassault-misc')
@@ -12,17 +12,27 @@ else
       depends=('python2' 'couchdb' 'pyqt3' 'python2-pysvn' 'ipython2' 'libpqxx' 'python2-couchdbkit' 'python2-requests' 'python2-whoosh' 'python2-psycopg2'
                 'python2-restkit' 'python2-mockito' 'ruby1.9' 'python2-ipy')
 fi
+makedepends=('git')
+options=('!strip')
 license=('GPL')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-source=("https://github.com/infobyte/faraday/tarball/master")
-md5sums=('7b0a1249d3496713c27d7adec9ec217f')
+source=("${pkgname}::git+https://github.com/infobyte/faraday.git")
+replaces=('faraday')
+conflicts=('faraday')
+provides=('faraday')
+sha512sums=('SKIP')
+
+pkgver() {
+    cd "${pkgname}"
+    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+}
 
 prepare(){
-  grep -iRl 'python' "$srcdir/infobyte-faraday-2542496/" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  grep -iRl 'python' "$srcdir/${pkgname}" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
 }
 
 package() {
-  cd "$srcdir/infobyte-faraday-2542496"
+  cd "${pkgname}"
 
   #Base directories
   install -dm755 "$pkgdir/usr/share/$pkgname"
@@ -32,8 +42,8 @@ package() {
   
 cat > "$pkgdir/usr/bin/faraday" << EOF
 #!/bin/sh
-cd /usr/share/faraday/
-./faraday "\$@"
+cd /usr/share/faraday-git/
+python2 ./faraday "\$@"
 EOF
 
 chmod +x "$pkgdir/usr/bin/faraday"
