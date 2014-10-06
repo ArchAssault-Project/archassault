@@ -14,6 +14,7 @@ license=('GPL2')
 depends=('dbus' 'bluez-utils' 'python2')
 conflicts=('bluez' 'bluez-cups')
 replaces=("bluez<=$pkgver")
+provides=('bluez')
 makedepends=('gstreamer0.10-base' 'libusb-compat' 'libsndfile' 'libusbx')
 optdepends=("gstreamer0.10-base: bluetooth GStreamer support"
             "alsa-lib: Audio bluetooth devices support"
