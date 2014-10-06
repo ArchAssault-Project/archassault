@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beef
-pkgver=20140929.r2179
+pkgver=20141006.r2181
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-exploit')
@@ -8,7 +8,7 @@ pkgdesc="BeEF, the Browser Exploitation Framework - it is a penetration testing 
 arch=(armv6h armv7h i686 x86_64)
 url='http://beefproject.com/'
 license=('Apache')
-makedepends=('git')
+makedepends=('git' 'python2')
 options=('!emptydirs')
 depends=('ruby1.9' 'java-environment' 'python2' 'sqlite' 'ruby1.9-bundler')
 source=('git+http://github.com/beefproject/beef.git')
