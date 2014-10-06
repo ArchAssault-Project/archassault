@@ -11,7 +11,7 @@ pkgdesc="Deprecated daemon and tools for the Bluetooth protocol stack"
 url="http://www.bluez.org/"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL2')
-depends=('dbus' 'bluez-utils')
+depends=('dbus' 'bluez-utils' 'python2')
 conflicts=('bluez' 'bluez-cups')
 replaces=("bluez<=$pkgver")
 makedepends=('gstreamer0.10-base' 'libusb-compat' 'libsndfile' 'libusbx')
@@ -22,6 +22,7 @@ optdepends=("gstreamer0.10-base: bluetooth GStreamer support"
             "python2-gobject2: to run bluez-simple-agent"
             "libusb-compat: USB adapters support"
             "cups: CUPS backend")
+options=('!emptydirs')
 backup=(etc/bluetooth/{main,rfcomm,audio,network,input,serial}.conf
         etc/dbus-1/system.d/bluetooth.conf)
 source=("http://www.kernel.org/pub/linux/bluetooth/bluez-${pkgver}.tar.bz2")
