@@ -8,7 +8,7 @@ arch=('any')
 url='http://blog.didierstevens.com/programs/pdf-tools/'
 license=('custom')
 source=("http://didierstevens.com/files/software/pdfid_v0_1_2.zip" "LICENSE")
-depends=('python2')
+depends=('python')
 sha256sums=('1cf36c50427a2206275c322a8c098cd96a844caf6077b105ade9b1974789856f'
             '04f6ad0e913c5674ff466e858d251333dc4f104fa0c5da46ff7f5f821233fa00')
 sha512sums=('1b7c861db1979bac503f6b7a9be4035c43f156997a0e351beb508219124d348510ef6fb32e7d7e3273aee48d640d4dded643b15c7cc2ff1cbe6e6404baebb596'
