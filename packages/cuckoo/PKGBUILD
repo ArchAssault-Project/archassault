@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=cuckoo
-pkgver=1.1
+pkgver=1.1.1
 pkgrel=1
-pkgdesc="A malware analyze system"
+pkgdesc="A malware analysis system"
 url="http://cuckoosandbox.org/"
 arch=('any')
 license=('GPL3')
@@ -16,7 +16,7 @@ depends=('python2' 'python2-sqlalchemy' 'python2-bson' 'python2-dpkt'
 	 'python2-chardet')
 source=("http://downloads.cuckoosandbox.org/$pkgver/cuckoo_$pkgver.tar.gz"
 				'cuckoo.desktop')
-sha512sums=('daaccb1b662058bdab26d73e7fc0d5cd11292e49f513befb52208c021094680d3c2c9967adfe5b535ca05ac76a4203b2eb1f5ec39ff5a357813e47626e17d27d'
+sha512sums=('796e8b10f8fbd4f5a01ce7c77993e9273b6f9a5e1921ba8af5a546636072250e9b7615f0b4b19fa987996f017750a153ed6947aaaa7674d05800e6fe1e41408d'
             'fde1e6d9c4bea273d848b9dbee09027f6eb7e8b48116ee4bcaddef314c7c22f8bca5a3e7e9dabe06d007fe603fe7c1cd518b2c707b41866945b0adf83dcc42a4')
 
 prepare() {
