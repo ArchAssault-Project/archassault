@@ -1,18 +1,18 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=lbd
-pkgver=20130719
+pkgver=0.4
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="Load Balancing detector"
 url='http://ge.mine.nu/code/lbd'
 arch=('any')
-license=('GPL')
+license=('GPL2')
 depends=('bash')
-source=(http://ge.mine.nu/code/lbd)
-# If the hash is wrong, audit the script.
-md5sums=('de0378c208909945c685cef29c85dc9e')
+source=(https://raw.githubusercontent.com/craig/ge.mine.nu/master/lbd/lbd.sh)
+md5sums=('41e1f86a71b75f9cea7a98e38be3844a')
 
 package() {
-  cd "$srcdir"
-  install -Dm755 lbd $pkgdir/usr/bin/lbd
+  cd "${pkgname}"
+  install -Dm755 lbd.sh $pkgdir/usr/bin/lbd
 }
