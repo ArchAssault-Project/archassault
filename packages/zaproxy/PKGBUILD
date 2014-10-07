@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=zaproxy
 pkgver=2.3.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
 pkgdesc="An integrated penetration testing tool for finding vulnerabilities in web applications"
 arch=('any')
 url='http://code.google.com/p/zaproxy/'
 license=('Apache')
 depends=('bash' 'java-environment')
-source=("http://downloads.sourceforge.net/sourceforge/zaproxy/2.3.0/ZAP_2.3.1_Linux.tar.gz"
+source=("http://downloads.sourceforge.net/sourceforge/zaproxy/2.3.1/ZAP_2.3.1_Linux.tar.gz"
         zap.sh)
 sha512sums=('fb2e6877d7670db221328f7cbef93b39d68babbbceed6cb385caf90f774f2380485d7fd45898fe7b2f60f66c1f988411033157760d92553815bbdf1b71b29ce2'
             '673b6484b4cc228af0b30f7ce6bc7a2fb5f2e4ed1e9fe2aab6c784ff4b8114a346a6d1001499e122ed9dd833139cf689063a44dbbe64c395cba39f8017954c6e')
