@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=xsscrapy
-pkgver=20140918.r78.ef9831c
+pkgver=20141006.r83.46f4955
 pkgrel=1
 pkgdesc="xss spider"
 arch=('any')
 url="https://github.com/DanMcInerney/xsscrapy"
 license=('BSD')
-depends=('python2' 'python2-requests' 'scrapy')
+depends=('python2-requests' 'scrapy')
 makedepends=('git')
 options=('staticlibs' '!strip')
 source=("${pkgname}::git+https://github.com/DanMcInerney/${pkgname}.git"
@@ -17,6 +17,9 @@ sha512sums=('SKIP'
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  cd ${pkgname}
+  git submodule init
+  git submodule update
 }
 
 pkgver() {
@@ -30,19 +33,15 @@ package() {
     cp -a --no-preserve=ownership tests "${pkgdir}"/usr/share/${pkgname}/
     cp -a --no-preserve=ownership xsscrapy "${pkgdir}"/usr/share/${pkgname}/
     install -Dm644 README.md "${pkgdir}"/usr/share/${pkgname}/README.md
-    install -Dm755 loginform.py "${pkgdir}"/usr/share/${pkgname}/loginform.py
     install -Dm644 scrapy.cfg "${pkgdir}"/usr/share/${pkgname}/scrapy.cfg
+    install -Dm755 xsscrapy.py "${pkgdir}"/usr/share/${pkgname}/xsscrapy.py
     install -Dm644 "${srcdir}"/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     ##easy xsscrapy script
     install -dm755 "${pkgdir}"/usr/bin/
     cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
 #!/bin/bash
 cd /usr/share/${pkgname};
-if [ \$# -le 0 ]; then
-    /usr/bin/scrapy crawl ${pkgname} --help;
-else
-    /usr/bin/scrapy crawl ${pkgname} "\$@";
-fi
+python2 xsscrapy.py "\$@"
 EOF
     chmod +x "${pkgdir}"/usr/bin/"${pkgname}"
 }
