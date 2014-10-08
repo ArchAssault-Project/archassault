@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
+Version=1.0
 Name=Rawr
-Comment=Rapid Assessment of Web Resources. A web enumerator.
-Exec=rawr
-Icon=archassault-menu.png
+Comment=Web enumerator for the rapid Assessment of web resources
+Exec=sh -c '/usr/bin/rawr; ${SHELL:-bash}'
+Icon=archassault
 Terminal=true
-StartupNotify=false
-Categories=ArchAssault;ArchAssaultWebapp;ArchAssaultScanner;
+Categories=Archassault;ArchassaultWebapp;ArchassaultScanner;
