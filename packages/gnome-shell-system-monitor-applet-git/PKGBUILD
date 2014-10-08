@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=gnome-shell-system-monitor-applet-git
-pkgver=677.a232cb0
+pkgver=679.fb12449
 _gitname=gnome-shell-system-monitor-applet
 pkgrel=1
 pkgdesc="System monitor extension for Gnome-Shell (display mem swap cpu usage)"
