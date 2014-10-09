@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-mysql-python
+pkgver=1.2.5
+pkgrel=1
+pkgdesc="Python interface to MySQL"
+url="https://github.com/farcepest/MySQLdb1"
+depends=('python2' 'libmariadbclient')
+makedepends=('python2-distribute')
+license=('GPL2')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+source=('https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-1.2.5.zip')
+sha512sums=('37521c6fd855c4cde495cc8ec085aca79c2d441a6e3710759385bf2e2c17f43d3311cf1166663892829d2e3999c419443c358c7031cdda225ac44611ced188d0')
+
+build() {
+  cd MySQL-python-"${pkgver}"
+  python2 setup.py build
+}
+
+package() {
+  cd MySQL-python-"${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --optimize=1 
+}
