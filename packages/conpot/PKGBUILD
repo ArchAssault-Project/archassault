@@ -2,11 +2,11 @@
 
 pkgname=conpot
 pkgver=0.3.1
-pkgrel=2
+pkgrel=3
 pkgdesc="ICS honeypot with the goal to collect intelligence about the motives
     and methods of adversaries targeting industrial control systems"
 url="http://conpot.org"
-depends=('python2-gevent' 'python2-pysnmp' 'python2-lxml' 'python2-bottle' 'python2-jinja' 'python2-beautifulsoup4' 'python2-requests' 'python2-sphinx' 'python2-libtaxii>=1.1.0' 'python2-mysql-python' 'python2-xlrd' 'python2-stix' 'python2-cybox' 'python2-crc16' 'python2-enum' 'hpfeeds' 'python2-modbus-tk-git')
+depends=('python2-gevent' 'python2-pysnmp' 'python2-lxml' 'python2-bottle' 'python2-jinja' 'python2-beautifulsoup4' 'python2-requests' 'python2-sphinx' 'python2-libtaxii>=1.1.0' 'mysql-python' 'python2-xlrd' 'python2-stix' 'python2-cybox' 'python2-crc16' 'python2-enum' 'hpfeeds' 'python2-modbus-tk-git')
 makedepends=('python2-distribute')
 license=('GPL2')
 arch=('any')
