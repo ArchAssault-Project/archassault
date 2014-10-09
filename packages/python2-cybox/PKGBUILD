@@ -19,6 +19,6 @@ build() {
 package() {
   cd cybox-"${pkgver}"
   python2 setup.py install --root="${pkgdir}" --optimize=1
-  install -Dm0644 LICENSE.txt "${pkgver}"/usr/share/licenses/"${pkgname}"/LICENSE.txt
+  install -Dm0644 LICENSE.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE.txt
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
 }
