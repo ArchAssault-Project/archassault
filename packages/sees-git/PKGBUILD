@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sees-git
-pkgver=r38.523387d
+pkgver=r41.cde9082
 pkgrel=1
 pkgdesc="Increase the success rate of phishing attacks by sending emails to company users as if they are coming from the very same company’s domain"
 url="https://github.com/galkan/sees/"
@@ -19,8 +19,9 @@ pkgver() {
 }
 
 prepare() {
-   cd "$srcdir"/sees
-   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  cd "$srcdir"/sees
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
 }
 
 package() {
