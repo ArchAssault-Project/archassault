@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-stix
+pkgver=1.1.1.1
+pkgrel=1
+pkgdesc="An API for parsing and generating STIX content."
+url="http://stix.mitre.org"
+depends=('python2')
+makedepends=('python2-distribute')
+license=('custom')
+arch=('any')
+source=("https://pypi.python.org/packages/source/s/stix/stix-${pkgver}.zip")
+sha512sums=('adf22ba2e5f53ef5127b6866092fa44aa21e6c1f1e377ea60fbd125d191e0b9f7149a8d5ecc19441e71008e1af9c7a2aee98f172b1b23cde3399efa71635535f')
+
+build() {
+  cd stix-"${pkgver}"
+  python2 setup.py build
+}
+
+package() {
+  cd stix-"${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE.txt
+}
