@@ -8,6 +8,7 @@ depends=('python2')
 makedepends=('git' 'python2-distribute')
 license=('LGPL')
 arch=('any')
+provies=('modbus-tk' 'python2-modbus-tk')
 source=("${pkgname}::git+https://github.com/glastopf/modbus-tk.git")
 sha512sums=('SKIP')
 
