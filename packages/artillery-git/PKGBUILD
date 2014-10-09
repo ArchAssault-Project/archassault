@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=artillery-git
 pkgver=20141007.r104
-pkgrel=2
+pkgrel=3
 epoch=1
 groups=('archassault' 'archassault-defense')
 pkgdesc="A combination of a honeypot, file-system monitoring, system hardening, and overall health of a server to create a comprehensive way to secure a system"
@@ -40,7 +40,7 @@ package() {
   install -dm0755 "${pkgdir}"/usr/share/"${pkgname}"
   install -Dm0644 readme/LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
   mv "${pkgdir}"/var/artillery/* "${pkgdir}"/usr/share/"${pkgname}"
-  install -dm0644 artillery.service "${pkgdir}"/usr/lib/systemd/system/
+  install -dm0644 artillery.service "${pkgdir}"/usr/lib/systemd/system/artillery.service
   install -dm755 "$pkgdir/usr/bin"
   cat > "$pkgdir/usr/bin/artillery" <<EOF
 #!/bin/sh
