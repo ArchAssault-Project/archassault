@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-modbus_tk
+pkgver=0.4.2
+pkgrel=1
+pkgdesc="Implementation of modbus protocol in python"
+url="http://code.google.com/p/modbus-tk/"
+depends=('python2')
+makedepends=('python2-distribute')
+license=('LGPL')
+arch=('any')
+source=("https://pypi.python.org/packages/source/m/modbus_tk/modbus_tk-${pkgver}.tar.gz")
+sha512sums=('d73dd1a3337b640ff4ab22e450f9d35602548d04754cb77152d97214e2184b342f05d7862a7cdb38df2478859069bd601b5156b1b715a85d1786e518d131cff6')
+
+build() {
+    cd modbus_tk-"${pkgver}"
+    python2 setup.py build
+}
+
+package() {
+    cd modbus_tk-"${pkgver}"
+    python2 setup.py install --root="${pkgdir}" --optimize=1
+    find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+}
