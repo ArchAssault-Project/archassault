@@ -15,6 +15,9 @@ package_archassault-meta-iso-all() {
 				nmap
 				wireshark-cli
 				wireshark-gtk
+			        xl2tp
+				openvpn
+				sslh
 				tcpreplay
 				stunnel
 				socat
