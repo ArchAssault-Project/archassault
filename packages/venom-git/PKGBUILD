@@ -4,7 +4,7 @@
 
 _pkgname=venom
 pkgname=${_pkgname}-git
-pkgver=r618.c260230
+pkgver=r621.bcce5f9
 pkgrel=1
 epoch=1
 pkgdesc="A Vala/Gtk+ graphical user interface for Tox"
@@ -17,7 +17,7 @@ depends=('gtk3'
          'tox-git'
          'desktop-file-utils'
          'libnotify')
-makedepends=('git' 'cmake' 'vala')
+makedepends=('git' 'cmake' 'vala=0.24.0')
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
 replaces=("$_pkgname")
