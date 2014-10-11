@@ -3,7 +3,7 @@
 # Contributor: Nicolas Pouillard http://nicolaspouillard.fr
 
 pkgname=spiped
-pkgver=1.4.1
+pkgver=1.4.2
 pkgrel=1
 pkgdesc="A  utility for creating symmetrically encrypted and authenticated pipes between socket addresses"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -11,7 +11,7 @@ source=(http://www.tarsnap.com/$pkgname/$pkgname-$pkgver.tgz)
 url="http://www.tarsnap.com/spiped.html"
 license=('BSD')
 depends=('openssl')
-sha512sums=('0123218a735e3fa18e79f3a6d25caaffb328ac34f3e75377c4818e52c219aea3c8ceaff6ad2f4a235aa66fcb218e11e06e9b3076f56b2700317908d096955904')
+sha512sums=('475b6efab7ec9a5f95c3b42c0388a9376a65e33fcab4897a7376211f70d9492cdc8856ce200bc2c507bdc923a6dca1c4c6ced4c2fe217b9f7cbbe32ceabd5d2e')
 
 build() {
   cd ${srcdir}/${pkgname}-${pkgver}
