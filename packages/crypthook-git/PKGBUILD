@@ -1,12 +1,12 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=crypthook-git
-pkgver=r16.bceeb0b
+pkgver=r17.0728cd1
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="A TCP/UDP symmetric encryption tunnel wrapper"
 arch=('any')
 url='https://github.com/chokepoint/CryptHook'
-license=('MIT')
+license=('GPL2')
 depends=('openssl')
 makedepends=('git')
 install=${pkgname}.install
@@ -27,5 +27,4 @@ package() {
   install -Dm644 Makefile "$pkgdir/usr/share/crypthook/Makefile"
   install -Dm644 README.md "$pkgdir/usr/share/crypthook/README.md"
   install -Dm644 crypthook.c "$pkgdir/usr/share/crypthoo/crypthook.c" 
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/crypthook-git/LICENSE
 }
