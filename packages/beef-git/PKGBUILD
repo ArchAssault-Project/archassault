@@ -30,7 +30,7 @@ package() {
   bundle-1.9 install --path vendor/bundle
   install -dm755 "${pkgdir}"/usr/bin
   install -Dm644 "${srcdir}"/beef.desktop "${pkgdir}"/usr/share/applications/beef.desktop
-  cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
+  cat > "${pkgdir}"/usr/bin/beef <<EOF
 #!/usr/bin/env bash
 cd /usr/share/beef-git
 ruby-1.9 ./beef "\$@"
