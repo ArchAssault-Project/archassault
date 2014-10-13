@@ -5,13 +5,13 @@
 
 _pkgname=tox
 pkgname=${_pkgname}-git
-_pkgver=3f855b2
-pkgver=r2839.3f855b2
+_pkgver=cfa142f
+pkgver=r2846.cfa142f
 pkgrel=1
 epoch=1
 pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="https://${_pkgname}.im/"
+url="https://tox.im/"
 license=('GPL3')
 depends=('libsodium' 'opus' 'libvpx')
 makedepends=('git' 'autoconf' 'automake' 'check' 'libtool')
