@@ -32,8 +32,8 @@ package() {
   install -Dm644 beef.desktop "${pkgdir}"/usr/share/applications/beef.desktop
   cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
 #!/usr/bin/env bash
-    cd /usr/share/beef-git
-    ruby-1.9 ./beef "\$@"
-    EOF
-    chmod 755 "${pkgdir}"/usr/bin/beef
+cd /usr/share/beef-git
+ruby-1.9 ./beef "\$@"
+EOF
+  chmod 755 "${pkgdir}"/usr/bin/beef
 }
