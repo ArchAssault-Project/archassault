@@ -2,7 +2,7 @@
 
 _pkgname=archassault
 pkgname=${_pkgname}-artwork
-pkgver=0.2
+pkgver=0.3
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="The ArchAssault Project's collection of logos, backgrounds, icons, and other artwork"
