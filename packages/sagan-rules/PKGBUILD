@@ -1,0 +1,16 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Sebastien Duquette <ekse.0x@gmail.com>
+pkgname=sagan-rules
+pkgver=10212010
+pkgrel=1
+pkgdesc="Rules package for Sagan"
+arch=('any')
+url="http://sagan.softwink.com/"
+license=('GPL')
+source=("http://sagan.quadrantsec.com/rules/sagan-rules-${pkgver}-r1.tar.gz")
+sha512sums=('a95e19469932ddcbc4303387165126129d238d7893a1b8282f0363845a588a21ca11009fbb645cddae2a04457d186da3cf10dce80dbd43bb13cb7aadf6c7459d')
+
+package() {
+  install -dm0755 "${pkgdir}"/usr/share/sagan-git/rules
+  install -Dm0644 "${srcdir}"/rules/* ${pkgdir}/usr/share/sagan-git/rules
+}
