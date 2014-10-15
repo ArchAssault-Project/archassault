@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=regeorg-git
-pkgver=r23.7a38dd6
+pkgver=r25.43e54f3
 pkgrel=1
 groups=('archassault' 'archassault-tunnel')
 pkgdesc="The successor to reDuh, pwn a bastion webserver and create SOCKS proxies through the DMZ. Pivot and pwn."
