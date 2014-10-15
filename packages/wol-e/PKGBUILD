@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wol-e
 pkgver=2.0
-pkgrel=1
+pkgrel=4
 groups=('archassault' 'archassault-networking' 'archassault-misc')
 pkgdesc="A suite of tools for the Wake on LAN feature of network attached computers"
 arch=('any')
@@ -9,7 +9,7 @@ url='http://code.google.com/p/wol-e/'
 license=('GPL3')
 depends=('python2' 'bash')
 source=("http://wol-e.googlecode.com/files/wol-e-$pkgver.tar")
-md5sums=('4a67aed6965cafe56ed8762fb72af647')
+sha512sums=('fae1f4c59145d746548673a69468cc5b950332ee66b60647db9e57807a57b0bdc020f02f1a9cc46a145f447c5bfeddee3c3fa6e00082de6c4d30930e255ce9ee')
 
 prepare() {
   cd "$srcdir/wol-e"
@@ -22,8 +22,8 @@ package() {
   # Base directories.
   install -dm755 "$pkgdir/usr/share/wol-e"
   install -dm755 "$pkgdir/usr/bin"
-
-  cp --no-preserve=ownership * "$pkgdir/usr/share/wol-e"
+ 
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/wol-e"
 
   cat > "$pkgdir/usr/bin/wol-e" <<\EOF
 #!/bin/sh
