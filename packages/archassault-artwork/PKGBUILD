@@ -16,7 +16,7 @@ sha512sums=('SKIP')
 package() {
     cd ${pkgname}
     install -d "$pkgdir"/usr/share/${_pkgname}/{backgrounds,logos}
-    install -m644 backgrounds/* "$pkgdir"/usr/share/${_pkgname}/backgrounds/
+    cp -a --no-preserve=ownership backgrounds/* "$pkgdir"/usr/share/${_pkgname}/backgrounds/
     install -m644 logos/* "$pkgdir"/usr/share/${_pkgname}/logos/
     install -d "$pkgdir"/usr/share/pixmaps
     ln -s /usr/share/${_pkgname}/logos/favicon-110-blk-trans.png "$pkgdir"/usr/share/pixmaps/${_pkgname}.png
