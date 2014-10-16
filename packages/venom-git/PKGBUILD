@@ -18,7 +18,7 @@ depends=('tox-git=1:r2846.cfa142f-1'
          'libnotify'
          'gstreamer0.10-base'
          'desktop-file-utils')
-makedepends=('git' 'cmake')
+makedepends=('git' 'cmake' 'vala')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 replaces=("$_pkgname")
