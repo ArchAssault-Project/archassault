@@ -10,4 +10,6 @@ Newest Tools Added:
 
 * [burst-git](https://github.com/tweksteen/burst) - An HTTP framework. Author: [tweksteen](https://github.com/tweksteen)
 
+* [onionshare](https://onionshare.org/) - An open source tool that lets you securely and anonymously share a file of any size. Author: [@micahlee](https://twitter.com/micahflee)
+
 **Thanks for the most recent requests!**
