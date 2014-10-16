@@ -3,14 +3,14 @@
 
 _pkgname=qtox
 pkgname=${_pkgname}-git
-_pkgver=e33a37c
-pkgver=r890.e33a37c
+_pkgver=ff12166
+pkgver=r943.ff12166
 pkgrel=1
 pkgdesc="Powerful QT Tox client that tries to follow the Tox UI guidlines"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/tux3/qTox"
 license=('GPL3')
-depends=('tox-git=1:r2846.cfa142f-1' 'qt5-base' 'desktop-file-utils' 'opencv' 'openal')
+depends=('tox-git=1:r2846.cfa142f-1' 'qt5-base' 'libxkbcommon-x11' 'desktop-file-utils' 'opencv' 'openal')
 makedepends=('git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
