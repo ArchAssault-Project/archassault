@@ -4,8 +4,8 @@
 
 _pkgname=toxic
 pkgname=${_pkgname}-git
-_pkgver=d2008aa
-pkgver=r1385.d2008aa
+_pkgver=b66874b
+pkgver=r1388.b66874b
 pkgrel=1
 pkgdesc="An ncurses-based commandline client for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -20,13 +20,20 @@ install="${pkgname}.install"
 
 source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
         "${_pkgname}.desktop"
-        "${_pkgname}.png")
+        "${_pkgname}.png"
+        "manpage-fix.patch")
 sha512sums=('SKIP'
             'b75913ecf0cd43f7dccf4c34fdb291f44d9b916909ac93145f2ccf63aa80d15597657c6c0919e90c6d5cf34ed22ad61abfeb9d5f60ee3afc40ac090bf428d51e'
-            '13034bbb3b02beb4ac2bdbf27ab2d42a12e00d526367a4bfeec14f1bd561e8148493d562dd91ec03db963e104bb3ea640187840ba6aa856053a7bc3796b41eb6')
+            '13034bbb3b02beb4ac2bdbf27ab2d42a12e00d526367a4bfeec14f1bd561e8148493d562dd91ec03db963e104bb3ea640187840ba6aa856053a7bc3796b41eb6'
+            '4c14f78efbb4d30cbaee3700a0af7769ca1ead68d461a015c1cf6c7e18d71e239200bf4a8d7c6f79fc349d6f003b4a2e09018659e27f0486c0658a7ea192257e')
+
+prepare() {
+    cd $_pkgname
+    patch -p1 < ../manpage-fix.patch
+}
 
 pkgver() {
-    cd ${_pkgname}
+    cd $_pkgname
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
