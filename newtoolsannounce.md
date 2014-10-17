@@ -6,8 +6,6 @@ Newest Tools Added:
 
 * [callerpy-git](https://github.com/Logic-gate/callerpy) - A Truecaller Name Retriever Author: [@Logic-gate](https://github.com/Logic-gate)
 
-* [python2-pattern](http://www.clips.ua.ac.be/pages/pattern) - A web mining module for the Python programming language.
-
 * [burst-git](https://github.com/tweksteen/burst) - An HTTP framework. Author: [tweksteen](https://github.com/tweksteen)
 
 * [onionshare](https://onionshare.org/) - An open source tool that lets you securely and anonymously share a file of any size. Author: [@micahlee](https://twitter.com/micahflee)
