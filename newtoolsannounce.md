@@ -10,4 +10,6 @@ Newest Tools Added:
 
 * [onionshare](https://onionshare.org/) - An open source tool that lets you securely and anonymously share a file of any size. Author: [@micahlee](https://twitter.com/micahflee)
 
+* [dump1090-git](https://github.com/MalcolmRobb/dump1090) - A simple Mode S decoder for RTLSDR devices. Author: [MalcomRobb](https://github.com/MalcolmRobb/)
+
 **Thanks for the most recent requests!**
