@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=crackhor-git
-pkgver=r2.ae7d83f
+pkgver=r9.5cfc8f8
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A Password cracking utility"
