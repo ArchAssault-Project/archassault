@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=argus-clients
 pkgver=3.0.8
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
 pkgdesc="Network monitoring client for Argus"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -13,7 +13,7 @@ sha512sums=('79022b3c3e472ebc526b27c20c25ae97abdb9a363a91ebbe3baf405f2aba9bdd80f
 
 build() {
   cd $srcdir/argus-clients-$pkgver
-  ./configure --prefix=/usr --with-sasl
+  ./configure --sbindir=/usr/bin --prefix=/usr --with-sasl
   make
 }
 
