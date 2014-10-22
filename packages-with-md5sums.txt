@@ -1,38 +1,26 @@
-4deck
 ace
 admsnmp
-afflib
-aimage rebuilt with propersums
 air
 airflood
 allthevhosts
-amap rebuilt with propersums
-android-apktool
-android-udev-rules
-arachni
-archassault-artwork
 archassault-firefox-search
 archassault-keyring
 arduino
 arpon
 arpwner
-artillery
 asp-audit
 automake-1.11
 auto-xor-decryptor
 batctl
 bbqsql
 bed
-beef
 beleth
 bfbtester
 bing-ip2hosts
 binwally
 blackhash
-bletchley
 blindelephant
 blindsql
-bluebox-ng
 bluebugger
 bluepot
 blueprint
@@ -48,15 +36,15 @@ btcrack
 btscanner
 bulk-extractor
 bunny
+burst-git
 byacc-noconflict
 carwhisperer
 cdpsnarf
-cecster
+cecster-git
 cewl
 chaosmap
 chaosreader
 checkpwd
-checksec
 chownat
 chromedriver
 ciphertest
@@ -88,18 +76,14 @@ depant
 dff-scanner
 dirb
 dirbuster
-dislocker rebuilt with proper sums
 distccd-archassault
-dmitry rebuilt with proper sums
-dnmap rebuilt with proper sums
-dns2tcp rebuilt with proper sums
 dnsa
 dnsbf
 dnschef
 dnsmap
 dnspredict
 dnsrecon
-dns-spoof
+dns-spoof-git
 dnswalk
 doona-git
 dotdotpwn
@@ -118,13 +102,10 @@ ent
 enum4linux
 erase-registrations
 evilmaid
-exploit-db
 fakeap
-fakedns
 fakemail
 fakenetbios-git
 fang
-faraday
 fierce
 fiked
 fimap
@@ -136,7 +117,6 @@ flamerobin
 flasm
 flite-full
 flunym0us
-foremost rebuilt with proper sums
 fpdns
 fport
 fragroute
@@ -163,15 +143,13 @@ goog-mail
 gooscan
 grabber
 grepforrfi
-gsd
-guymager
 gwtenum
 hackersh
 halcyon
 hamster
 handle
 hashcat
-hasher
+hasher-git
 hash-identifier
 hashtag
 haskell-iconv
@@ -206,7 +184,6 @@ inundator
 ipba2
 ipedcap
 ipscan
-ipv6toolkit rebuilt with propersums
 irpas
 isr-form
 itpp
@@ -228,7 +205,6 @@ kolkata
 lanmap2-git
 lans
 laudanum
-lbd
 leo
 leroy-jenkins
 lfi-autopwn
@@ -247,20 +223,15 @@ logkeys
 loki
 lsrtunnel
 luksipc
-mac-robber rebuilt to use proper sums
-magicrescue rebuilt to use proper sums
-magictree rebuilt to use proper sums
-malheur rebuilt to use proper sums
-maltego 
-malwaredetect 
-malwasm rebuilt to use proper sums
-maskprocessor 
+maltego
+malwaredetect
+maskprocessor
 matahari
 mavlink-git
 mbenum
 mdbtools
 mdcrack
-mdk3 
+mdk3
 medusa
 memdump
 memfetch
@@ -278,8 +249,7 @@ minimysqlator
 miranda-upnp
 missidentify
 missionplanner
-mitmap 
-mkassaultiso
+mitmap
 moloch
 morxbrute
 mssqlscan
@@ -298,7 +268,6 @@ netsed
 nfcutils
 nfex
 nfspy
-nield
 nikto
 nimbostratus
 nipper
@@ -308,15 +277,13 @@ node-ar-drone
 nomorexor
 notspikefile
 nsec3walker
+nvidia-304xx-archassault
 oat
 obexstress
 obkey
-obmenu-generator
 oh-my-zsh-git
 ohrwurm
 ollydbg
-openvas-administrator
-openvas-client
 orakelcrackert
 orbited
 origami
@@ -339,12 +306,10 @@ parsero
 pasco
 passivedns
 pastenum
-pathod
 pblind
 pcapsipdump
 pdfbook-analyzer
 pdfcrack
-pdfid
 pdgmail
 peach
 perl-algorithm-c3
@@ -355,8 +320,6 @@ perl-class-gomor
 perl-class-loader
 perl-convert-ascii-armour
 perl-convert-pem
-perl-cpan-meta
-perl-cpan-meta-check
 perl-crypt-des_ede3
 perl-crypt-dh
 perl-crypt-dsa
@@ -365,15 +328,10 @@ perl-crypt-random
 perl-crypt-rsa
 perl-data-buffer
 perl-data-dumper
-perl-devel-stacktrace
-perl-digest-bubblebabble
 perl-digest-perl-md5
 perl-exception-class
-perl-extutils-config
-perl-extutils-helpers
 perl-html-linkextractor
 perl-http-dav
-perl-io-socket-ip
 perl-io-socket-socks
 perl-iptables-parse
 perl-linux-desktopfiles
@@ -401,24 +359,19 @@ perl-net-whois-ip
 perl-net-write
 perl-nmap-parser
 perl-number-bytes-human
-perl-number-range
 perl-parallel-forkmanager
-perl-rpc-xml
 perl-sort-key
 perl-sort-versions
-perl-string-random
 perl-sub-name
 perl-task-weaken
 perl-term-ansicolor
 perl-test-without-module
-perl-text-csv-xs
 perl-tftp
 perl-tie-encryptedhash
 perl-time-interval
 perl-uniq
 perl-xml-dom
 perl-yaml-libyaml
-pev
 php-mt-seed
 piklab
 pipal
@@ -436,9 +389,7 @@ pwnat
 pyinstaller
 pyminifakedns
 pymssql
-pyqt3
 pyrit
-pysmb
 pytacle
 python2-clamd
 python2-cluster
@@ -451,7 +402,6 @@ python2-esmre
 python2-flickrapi
 python2-futures
 python2-gitpython
-python2-gnuplot
 python2-guess-language
 python2-httpretty
 python2-instagram
@@ -463,7 +413,6 @@ python2-netaddr
 python2-networkx
 python2-nfqueue
 python2-osmgpsmap
-python2-pbkdf2
 python2-pcapy
 python2-pdfminer
 python2-phply
@@ -477,6 +426,7 @@ python2-pypcap
 python2-pyside
 python2-pysvn
 python2-pyxml
+python2-queuelib
 python2-restkit
 python2-selenium
 python2-slowaes
@@ -489,9 +439,6 @@ pythonect
 python-http-parser
 python-ipcalc
 python-magic
-python-pyside
-python-pyside-common
-python-pyusb
 python-utidylib
 python-xbee
 qscintilla-qt3
@@ -510,7 +457,6 @@ replayproxy
 rfcat
 rfdump
 rfidtool
-rifiuti2
 rootbrute
 ropeme
 rsakeyfind
@@ -570,7 +516,6 @@ ruby-activemodel
 ruby-activerecord
 ruby-activerecord-deprecated_finders
 ruby-activesupport
-ruby-addressable
 ruby-ansi
 ruby-arel
 ruby-atomic
@@ -581,7 +526,6 @@ ruby-builder
 ruby-bump
 ruby-bundler
 ruby-chars
-ruby-coderay
 ruby-colored
 ruby-combinatorics
 ruby-crack
@@ -607,7 +551,6 @@ ruby-domain_name
 ruby-do_sqlite3
 ruby-em-websocket
 ruby-erubis
-ruby-ethon
 ruby-eventmachine
 ruby-execjs
 ruby-factory_girl
@@ -632,7 +575,6 @@ ruby-mini_portile
 ruby-minitest
 ruby-mocha
 ruby-mocha-on-bacon
-ruby-msgpack
 ruby-multipart-post
 ruby-net-http-digest_auth
 ruby-net-http-persistent
@@ -672,9 +614,6 @@ ruby-ronin-support
 ruby-ronin-web
 ruby-rprogram
 ruby-rspec
-ruby-rspec-core
-ruby-rspec-expectations
-ruby-rspec-mocks
 ruby-ruby_indentation
 ruby-rubyzip
 ruby-safe_yaml
@@ -703,7 +642,6 @@ ruby-uuidtools
 ruby-webmock
 ruby-webrobots
 ruby-wirb
-ruby-yard
 ruby-yasm
 ruby-zip
 rww-attack
@@ -725,7 +663,6 @@ set-git
 sfuzz
 shellcodecs
 shellnoob
-shiboken
 sidguesser
 simple-ducky
 sinfp
@@ -738,7 +675,6 @@ skyjack
 slowloris
 slowloris6
 smali
-smartphone-pentest-framework-git
 smbbf
 smbrelay
 smtp-fuzz
@@ -796,13 +732,11 @@ thc-ipv6
 thc-pptp-bruter
 thc-ssl-dos
 theharvester
-tiger
 tlssled
 tnscmd
 tnscmd10g
 tor-autocircuit
 tpcat
-trid
 trinity-git
 tsh
 tsh-sctp
@@ -822,17 +756,13 @@ urlcrazy
 username-anarchy
 vega
 veil
-vfeed
 videosnarf
-vinetto
-viproy-voipkit
 vivisect
 vnc-bypauth
 vncrack
 voiper
 voiphopper
 voipong
-volatility
 vulscan
 webacoo
 webenum
@@ -853,7 +783,6 @@ winfo
 wlan2eth
 wmat
 wmi-client
-wol-e
 wpscan-git
 wsfuzzer
 wyd
