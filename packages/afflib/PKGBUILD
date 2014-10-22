@@ -1,29 +1,31 @@
 # Maintainer: ArchAssault <team@archassault.org>
-# Contributor: kfgz <kfgz at interia dot pl>
-# Contributor: Abakus <java5 at arcor dot de>
-
 pkgname=afflib
 pkgver=3.7.4
 pkgrel=1
 groups=('archassault' 'archassault-forensic')
 pkgdesc="An extensible open format for the storage of disk images and related forensic information"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://www.afflib.org'
+url='https://github.com/simsong/AFFLIBv3'
 license=('custom')
-depends=('openssl' 'expat')
-makedepends=('unzip')
-source=("https://github.com/simsong/AFFLIBv3/archive/v3.7.4.zip")
-sha512sums=('47f0530182f768e5e7d539f1a82d90d3ee014ee4bb9fdc3d71919e4df12bf7c0709c7056545ea5ded0513ad3fa8ac87a1086460af480acb51c5ce87947b541ad')
+if [[ $CARCH == 'x86_64' ]]; then
+      depends=('fuse' 'lib32-expat' 'lib32-readline' 'lib32-gcc-libs' 'lib32-openssl' 'zlib' 'openssl' 'expat')
+else
+      depends=('fuse' 'zlib' 'openssl' 'expat')
+fi
+source=("https://github.com/simsong/AFFLIBv3/archive/v$pkgver.tar.gz" "afflib.desktop")
+sha512sums=('58791388a05d614dd5f219a74173de2ff0938a1f93b21e2dd0731aca52ea544ba60cc4325f0d284937467ce600a4302b7a2f724d84710ecc7f12db1a22a8e41c'
+            '829891d27b94187afe3b6b0a5f923acdabaca0597759d2230e6bfcb114d8fcf8ce8e95229c1790c95ad7ca44f8cb5f9241a167ee04fcd0cc83bab7226c369876')
 
 build() {
-  cd "${srcdir}"/AFFLIBv3-"${pkgver}"
-  sh bootstrap.sh
+  cd "$srcdir/AFFLIBv3-$pkgver"
+  ./bootstrap.sh
   ./configure --prefix=/usr --sysconfdir=/etc
   make
 }
 
 package() {
-  cd "${srcdir}"/AFFLIBv3-"${pkgver}"
-  make DESTDIR="${pkgdir}" install
-  install -Dm644 COPYING "$pkgdir"/usr/share/licenses/afflib/LICENSE
+  cd "$srcdir/AFFLIBv3-$pkgver"
+  make "DESTDIR=$pkgdir" install
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+  install -Dm644 "$srcdir/afflib.desktop" "$pkgdir/usr/share/applications/afflib.desktop"
 }
