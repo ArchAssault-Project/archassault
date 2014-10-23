@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bluebox-ng
-pkgver=20141021.r45
+pkgver=20141022.r51
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanners')
@@ -8,7 +8,7 @@ pkgdesc="A GPL VoIP/UC vulnerability scanner."
 url="https://github.com/jesusprubio/bluebox-ng"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL3')
-depends=('nodejs' 'python2' 'cofee-script')
+depends=('nodejs' 'python2' 'coffee-script')
 makedepends=('git')
 source=("git+https://github.com/jesusprubio/bluebox-ng.git")
 sha512sums=('SKIP')
