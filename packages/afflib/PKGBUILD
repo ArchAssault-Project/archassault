@@ -8,7 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/simsong/AFFLIBv3'
 license=('custom')
 if [[ $CARCH == 'x86_64' ]]; then
-      depends=('fuse' 'lib32-expat' 'lib32-readline' 'lib32-gcc-libs' 'lib32-openssl' 'zlib' 'openssl' 'expat')
+      depends=('fuse' 'lib32-gcc-libs' 'zlib' 'openssl' 'expat')
 else
       depends=('fuse' 'zlib' 'openssl' 'expat')
 fi
