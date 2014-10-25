@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=sslsplit-git
-pkgver=r178.f575ada
+pkgver=r186.d6f2fa0
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A tool for man-in-the-middle attacks against SSL/TLS encrypted network connections."
