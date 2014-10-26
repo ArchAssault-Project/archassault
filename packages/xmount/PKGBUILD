@@ -5,7 +5,6 @@ pkgname=xmount
 pkgver=0.7.2
 pkgrel=2
 pkgdesc="Tool to crossmount between multiple input and output harddisk image files"
-groups=('archassault' 'archassault-forensics')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL')
 url="https://www.pinguin.lu"
