@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=/usr/bin/w3af_gui
+Exec=/usr/bin/w3af-gui
 Icon=archassault-menu.png
 Type=Application
 Terminal=false
