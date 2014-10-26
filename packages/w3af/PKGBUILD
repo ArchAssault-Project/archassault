@@ -64,7 +64,7 @@ package() {
   # Joint script for w3af_console.
   cat > "$pkgdir/usr/bin/w3af" <<EOF
 #!/bin/sh
-exec python2 /usr/share/w3af/w3af_console "\$@"
+python2 /usr/share/w3af/w3af_console "\$@"
 EOF
 
   # Joint script for w3af_gui.
