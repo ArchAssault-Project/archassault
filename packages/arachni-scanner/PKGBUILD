@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=arachni-scanner
-pkgver=1.0.3
+pkgver=1.0.4
 pkgrel=1
 groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
 pkgdesc='A feature-full, modular, high-performance Ruby framework aimed towards helping penetration testers and administrators evaluate the security of web applications.'
@@ -16,7 +16,7 @@ replaces=('arachni')
 conflicts=('arachni')
 source=("https://github.com/Arachni/arachni/archive/v${pkgver}.zip"
         "${pkgname}.desktop")
-sha512sums=('5bbc51289b91b6b4a618c6bc2d6e0461cedff983dddbcb22e75db848048ff3f4971ed337e9f9aa691f88788783dcc7b35ade40b03051d1d80102f0c661a15414'
+sha512sums=('cc6525874872acedc1764db00d5a1c69221fb24313274e36fd3bd48fc48f6315976e7c4819a525dff946205795425159137d4a47a0293b8bcd6eda30ae27ff53'
             '49adbc81a6bce91c1b0199f43bce53125a7b4dbda89fe4fcbde4ec0f40fe3bb5a8e7cab8b01f067ac0b4e2b241c1247ca349eaad22ddabaf14c5d9211036a18f')
 
 package() {
