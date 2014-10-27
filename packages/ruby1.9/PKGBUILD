@@ -6,8 +6,8 @@
 # Contributor: Jeramy Rutley <jrutley@gmail.com>
 pkgname=ruby1.9
 pkgdesc='An object-oriented language for quick and easy programming'
-pkgver=1.9.3_p547
-pkgrel=3
+pkgver=1.9.3_p550
+pkgrel=1
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.ruby-lang.org/en/'
 license=('BSD' 'custom')
@@ -15,9 +15,9 @@ depends=('openssl' 'libffi' 'libyaml')
 optdepends=('tk: for Ruby/TK')
 makedepends=('openssl' 'tk' 'doxygen' 'graphviz' 'libyaml' 'ttf-liberation')
 options=('!emptydirs' '!makeflags')
-provides=('ruby1.9-gems')
+provides=('rubygems1.9' 'rake1.9')
 source=("ftp://ftp.ruby-lang.org/pub/ruby/${pkgver%.*}/ruby-${pkgver//_/-}.tar.bz2")
-sha512sums=('d6e166f7a12ffa57d0287f7eaa7cd7717f09a745beb58f2755331874086df1a69c71144cfce5ba00d46cc44da46317fbc0d18f44a7bd65f2b2aaf149331e0d26')
+sha512sums=('38767e98df25484f7292437f3cb0f798b3a43e9a7414a5401677e96ad1cc367cb3fa23ac3abe568d5bf2b2ca553713469a8770d41b79bc63daf3fa59cb4e15c6')
 
 build() {
   cd "ruby-${pkgver//_/-}"
