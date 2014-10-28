@@ -3,7 +3,7 @@
 # Contributor: David Manouchehri <d@32t.ca>
 
 pkgname=dump1090-git
-pkgver=20141002.r346
+pkgver=20141028.r352
 pkgrel=1
 pkgdesc="Dump1090 is a simple Mode S decoder for RTLSDR devices. MalcolmRobb fork. Git version."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
