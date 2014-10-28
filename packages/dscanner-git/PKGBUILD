@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dscanner-git
 pkgver=r694.c25ddfe
-pkgrel=1
+pkgrel=2
 pkgdesc="Swiss-army knife for D source code"
 arch=('i686' 'x86_64')
 url="https://github.com/Hackerpilot/Dscanner"
