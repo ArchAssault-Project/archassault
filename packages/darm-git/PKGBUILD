@@ -2,7 +2,7 @@
 # Contributor: Nicolas Hureau <archlinux@kalenz.fr>
 
 pkgname=darm-git
-pkgver=409.2d698bc
+pkgver=412.71a027e
 pkgrel=1
 pkgdesc="An ARMv7 disassembling library written in C."
 arch=("i686" "x86_64" "armv6h" "armv7h")
