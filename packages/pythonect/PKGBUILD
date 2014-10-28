@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pythonect
-pkgver=0.5.0
-pkgrel=2
+pkgver=0.6.0
+pkgrel=1
 pkgdesc="A general-purpose dataflow programming language written in Python"
 arch=('any')
 url="http://www.pythonect.org/"
@@ -10,7 +10,7 @@ depends=('python2' 'python2-ply')
 makedepends=('git')
 options=('!emptydirs')
 source=("https://pypi.python.org/packages/source/P/Pythonect/Pythonect-$pkgver.tar.gz")
-md5sums=('66d79428a5dd98411c9cfbe533b827b5')
+sha512sums=('ebfac2d200b196c2be8e931f2a078fb2afdb8fb9ce7d8639e56c32da01ec36a49fd1f29e0280fa57977823450b9e4f4649ced43ce7b6cc878543d00fc8392e42')
 
 package() {
   cd "$srcdir/Pythonect-$pkgver"
