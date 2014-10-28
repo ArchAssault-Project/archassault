@@ -1,17 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-tldextract
-pkgver=1.3.1
+pkgver=1.5.1
 pkgrel=1
 pkgdesc="Accurately separates the gTLD or ccTLD (generic or country code top-level domain) from the registered domain and subdomains of a URL"
 arch=('any')
 url='https://github.com/john-kurkowski/tldextract'
-license=('custom:BSD')
+license=('BSD')
 depends=('python2')
 makedepends=('python2-distribute')
-source=("https://pypi.python.org/packages/source/t/tldextract/tldextract-$pkgver.tar.gz")
-sha512sums=('911f8e7821baace0e83b326146e8bd39e1cef5ee78b6c2d17fd5d177e135e477bf3525736d47194a20270bb49e001a25ae98ffd7cfc23d00214764b693acb744')
+source=("https://pypi.python.org/packages/source/t/tldextract/tldextract-$pkgver.tar.gz" "LICENSE")
+sha512sums=('3301b204d2ea5d2996099b93eb43633ae23f40417039af1eed99db785e5b434bf4319d50ae7bc8d3222e8af93b88338b98554b88547fc74ac259c0045adb4e96'
+            'ccf77efa127b315ad6006ba8d59b1b8f395a14e4a04cd7e72e3ec81982bf788d164f67ebb50ac0fbc32056b8a1590597cb9874697317d6ad63542031968a2b1c')
 
 package() {
   cd "$srcdir/tldextract-$pkgver"
   python2 setup.py install --root=$pkgdir --prefix=/usr --optimize=1
+  install -Dm0644 "${srcdir}"/LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
 }
