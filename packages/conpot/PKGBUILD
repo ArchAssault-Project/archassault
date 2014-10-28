@@ -2,7 +2,7 @@
 
 pkgname=conpot
 pkgver=0.3.1
-pkgrel=3
+pkgrel=4
 pkgdesc="ICS honeypot with the goal to collect intelligence about the motives
     and methods of adversaries targeting industrial control systems"
 url="http://conpot.org"
@@ -22,4 +22,5 @@ package() {
   cd "${srcdir}"/Conpot-"${pkgver}"
   python2 setup.py install --root="${pkgdir}" --optimize=1
   find "${pkgdir}" -type f -name 'log_worker.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  mv "$pkgdir/usr/lib/python2.7/site-packages/bin" "$pkgdir/usr/lib/python2.7/site-packages/$pkgname/"
 }
