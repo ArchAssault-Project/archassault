@@ -1,18 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=demjson
 pkgname=python2-demjson
-pkgver=1.6
-pkgrel=3
+pkgver=2.2.2
+pkgrel=1
 pkgdesc="Encoder, decoder, and lint/validator for JSON (JavaScript Object Notation) compliant with RFC 4627"
 arch=('any')
 url='http://deron.meranda.us/python/demjson/'
 license=('LGPL')
 depends=(python2)
 makedepends=(python2-distribute)
-md5sums=('ac14383b0d3de1aa270f5c32bfc7cbf3')
-source=(http://pypi.python.org/packages/source/d/$_pkgname/$_pkgname-$pkgver.tar.gz)
+sha512sums=('c5df57fdc286b33fbceada0ff8531d559fb183b29ca114fbfef7dfd0615ad5bae3882da91b6818ad58be5e20d3c2091db7cb75b1c31285b8ed5f466984b5fc15')
+source=(http://pypi.python.org/packages/source/d/${_pkgname}/${_pkgname}-${pkgver}.tar.gz)
 
 package() {
-  cd $srcdir/$_pkgname-$pkgver
-  python2 setup.py install --root=$pkgdir --prefix=/usr --optimize=1
+  cd "${srcdir}/${_pkgname}-${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --prefix=/usr --optimize=1
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
+   -e "s|#![ ]*/bin/python$|#!/usr/bin/python2|" \
+   $(find $pkgdir -name '*.py')
 }
