@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor : Sebastien Duquette <ekse.0x@gmail.com>
 pkgname=sagan-git
-pkgver=20141007.r480
-pkgrel=2
+pkgver=20141027.r483
+pkgrel=1
 pkgdesc="a snort-like log analysis engine"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-analysis')
