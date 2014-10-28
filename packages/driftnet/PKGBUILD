@@ -1,17 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=driftnet
-pkgver=1.1.3
+pkgver=1.1.5
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-sniffers')
 pkgdesc="Listens to network traffic and picks out images from TCP streams it observes"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='https://github.com/wertarbyte/driftnet'
+url='https://github.com/deiv/driftnet'
 license=('GPL')
 depends=('libpcap' 'gtk2' 'giflib')
 makedepends=('imake')
-source=("https://github.com/deiv/driftnet/archive/upstream/$pkgver.tar.gz")
-sha512sums=('0dcc5a3095b25298db18d8651ccb17ee8151bf4ac4713fce2b83c98df3e933a371420675592266a71f3c722e927cfd28f61efc5e91cea78a3cb15d09addd374b')
+source=("https://github.com/deiv/driftnet/archive/upstream/$pkgver.tar.gz" "gif.patch")
+sha512sums=('82b21d8f4192c06f8076e90fc63833fcc874de124e8d58cccb0d729ed48d40e5c916966ff74d213ccf22fbf6f5798827d18fae172d6353208eb2f5383d2a6385'
+            '8162706c80b63296888b8bfebf2357793191a568d151a535f799b0e97ce577b4d7d90da11e6a0446928fb95a9710d55704f39898c84641bfbddadb839c49dfe4')
 
+prepare(){
+  cd "$srcdir/driftnet-upstream-$pkgver/src/display"
+  patch -i $srcdir/gif.patch
+}
 
 build() {
   cd "$srcdir/driftnet-upstream-$pkgver"
