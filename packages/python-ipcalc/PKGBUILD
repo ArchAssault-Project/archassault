@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='python-ipcalc'
-pkgver='1.0.0'
+pkgver='1.1.3'
 pkgrel=1
 pkgdesc='IP subnet calculator for Python.'
 arch=('any')
@@ -8,7 +8,7 @@ url='https://github.com/tehmaze/ipcalc/issues'
 license=('unknown')
 depends=('python2')
 source=("http://pypi.python.org/packages/source/i/ipcalc/ipcalc-$pkgver.tar.gz")
-md5sums=('df44cdb86412e97f18e5d3780744af20')
+md5sums=('14aa5f92d316631df6c4557a0e87c61b')
 
 package() {
   cd "$srcdir/${pkgname/python-/}-$pkgver"
