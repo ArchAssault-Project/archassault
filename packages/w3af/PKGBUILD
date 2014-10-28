@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=w3af
 pkgver=1.6.0.5
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp' 'archassault-fuzzer' 'archassault-scanners')
 pkgdesc="Web Application Attack and Audit Framework"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -14,7 +14,7 @@ if [[ $CARCH == x86_64 ]]; then
          'scapy' 'python2-guess-language' 'python2-cluster' 'python2-msgpack'
          'python2-ntlm' 'python2-pygithub' 'python2-gitpython'
          'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3'
-         'python2-xdot' 'libxml2' 'libxslt' 'lib32-glibc' 'halberd')
+         'python2-xdot' 'libxml2' 'libxslt' 'lib32-glibc' 'halberd' 'python2-dartspylru-git')
 else
      depends=('python2-clamd' 'python2-pybloomfiltermmap' 'python2-esmre'
          'python2-phply' 'python2-pysqlite' 'python2-nltk' 'python2-chardet'
@@ -22,7 +22,7 @@ else
          'scapy' 'python2-guess-language' 'python2-cluster' 'python2-msgpack'
          'python2-ntlm' 'python2-pygithub' 'python2-gitpython'
          'graphviz' 'pygtksourceview2' 'pygtk' 'gtk2' 'python2-beautifulsoup3'
-         'python2-xdot' 'libxml2' 'libxslt' 'halberd')
+         'python2-xdot' 'libxml2' 'libxslt' 'halberd' 'python2-dartspylru-git')
 fi
 options=('!strip')
 source=("git+https://github.com/andresriancho/w3af.git#tag=${pkgver}"
