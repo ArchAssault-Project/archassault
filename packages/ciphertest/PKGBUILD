@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ciphertest
-pkgver=4.5780d36
+pkgver=14.7f49ea7
 pkgrel=1
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="A better SSL cipher checker using gnutls"
