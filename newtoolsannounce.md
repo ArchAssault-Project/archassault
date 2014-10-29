@@ -14,4 +14,6 @@ Newest Tools Added:
 
 * [mwebfp-git](https://github.com/falcon-lnhg/mwebfp) - A  Mass Web Fingerprinter
 
+* [sstat-git](https://bitbucket.org/R4v3N/sstat.sh/) - Check the status of a server while fuzzing or DDoSing. Author: [R4v3n](http://twitter.com/tophatsec)
+
 **Thanks for the most recent requests!**
