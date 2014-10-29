@@ -10,18 +10,18 @@ license=('GPL')
 depends=('dnsutils' 'mpv')
 makedepends=('git')
 provides=('sstat')
-source=(${pkgname}::"git+https://R4v3N@bitbucket.org/R4v3N/sstat.sh.git")
+source=("${pkgname}::git+https://R4v3N@bitbucket.org/R4v3N/sstat.sh.git")
 sha512sums=('SKIP')
 
 pkgver() {
-    	cd ${pkgname}
+  cd "${pkgname}"
 	printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
 	cd ${pkgname}
-	install -dm755 "$pkgdir/usr/bin/"
-	install -Dm755 sstat.sh "$pkgdir/usr/bin/"
-	install -Dm755 sstat-parser.sh "$pkgdir/usr/bin/"
+	install -dm755 "${pkgdir}"/usr/bin/
+	install -Dm755 sstat.sh "${pkgdir}"/usr/bin/
+	install -Dm755 sstat-parser.sh "${pkgdir}"/usr/bin/
 }
 
