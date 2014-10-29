@@ -10,7 +10,8 @@ license=('BSD')
 arch=('any')
 source=('https://pypi.python.org/packages/source/P/PTP/PTP-0.2.0.tar.gz'
         'LICENSE')
-sha512sums=('7590460b2e834a045dcc404513b1e6e9432db318509e473efb6a8718dd0177d21aaa5dd74f6e0b692f388e7818bda57eb585ef1a9e895b932c9b55b34e1d7600')
+sha512sums=('7590460b2e834a045dcc404513b1e6e9432db318509e473efb6a8718dd0177d21aaa5dd74f6e0b692f388e7818bda57eb585ef1a9e895b932c9b55b34e1d7600'
+            '42e5bbd8115b16d6153cea57898870729f5a6fa0a177544b873f15333311c8ea5de950a076a2031233a292da0e08861b8678784ba6f055021f3d2ae6ae5305bd')
 
 build() {
   cd $srcdir/PTP-${pkgver}
