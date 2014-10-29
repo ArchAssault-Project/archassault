@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=libdaq-static
-pkgver=2.0.2
+pkgver=2.0.4
 pkgrel=1
 pkgdesc='Data Acquisition library for packet I/O.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -11,8 +11,8 @@ makedepends=('ca-certificates')
 options=('staticlibs' '!makeflags')
 provides=('libdaq')
 conflicts=('libdaq')
-source=("http://www.snort.org/dl/snort-current/daq-${pkgver}.tar.gz")
-sha512sums=('b2a47e174155f21cb1c6f1e1c431ea7cca6aa9f7371228e77def3c526a67fd42d0e26e4c94263195e041b203cdf0c2aaef14f9035afb23dde0bd5df3bf422cbd')
+source=("http://www.snort.org/downloads/snort/daq-${pkgver}.tar.gz")
+sha512sums=('b284ece7dec9e246f14d162d3a7e87582d490c0f6ff895279f66dfad406b7892f5b286ac86633f30aa090b6a89f1fc77ff637323a3add16c67f695bd8486a0a0')
 
 build() {
   cd "${srcdir}/daq-${pkgver}"
