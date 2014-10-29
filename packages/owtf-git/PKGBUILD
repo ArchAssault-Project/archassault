@@ -1,15 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=owtf-git
 pkgver=r1013.7763196
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-webapp')
 pkgdesc="The Offensive (Web) Testing Framework"
 url="https://www.owasp.org/index.php/OWASP_OWTF"
 license=('custom')
 arch=('armv7h' 'armv6h' 'i686' 'x86_64')
-depends=('python2-jinja' 'python2-tornado' 'python2-pycurl'
-         'python2-pexpect' 'python2-lxml' 'java-environment'
-	 'python2-pyopenssl' 'python2-beautifulsoup4')
+depends=('python2-jinja' 'python2-markdown' 'python2-pyvirtualdisplay' 
+         'python2-tornado' 'python2-pycurl' 'python2-rdflib' 'python2-selenium'
+         'python2-pexpect' 'python2-lxml' 'java-environment' 'python2-ptp'
+	       'python2-pyopenssl' 'python2-beautifulsoup4' 'python2-owasp-zap-v2'
+         'python2-pyvirtualdisplay')
 optdepends=('skipfish' 'metagoofil' 'set' 'wpscan' 'theharvester'
 	    'metasploit' 'whatweb' 'cms-explorer' 'whapiti' 'arachini'
 	    'dnsrecon' 'dirbuster' 'w3af' 'lbd' 'nikto' 'tlssled'
