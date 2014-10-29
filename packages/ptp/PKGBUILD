@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ptp
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="PTP ranks the discoveries listed in security tool reports."
 url="http://owtf.github.io/ptp"
 depends=('python2')
@@ -12,11 +12,12 @@ source=('https://pypi.python.org/packages/source/P/PTP/PTP-0.2.0.tar.gz')
 sha512sums=('7590460b2e834a045dcc404513b1e6e9432db318509e473efb6a8718dd0177d21aaa5dd74f6e0b692f388e7818bda57eb585ef1a9e895b932c9b55b34e1d7600')
 
 build() {
-    cd $srcdir/PTP-${pkgver}
-    python2 setup.py build
+  cd $srcdir/PTP-${pkgver}
+  python2 setup.py build
 }
 
 package() {
-    cd $srcdir/PTP-${pkgver}
-    python2 setup.py install --root="$pkgdir" --optimize=1 
+  cd $srcdir/PTP-${pkgver}
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  rm -rf "${pkgdir}"/usr/lib/python2.7/tests
 }
