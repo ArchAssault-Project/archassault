@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bluebox-ng
-pkgver=20141028.r64
+pkgver=20141029.r65
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanners')
