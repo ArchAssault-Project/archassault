@@ -2,7 +2,7 @@
 # Contributor: Andrzej Giniewicz <gginiu@gmail.com>
 
 pkgname=python2-configparser
-pkgver=3.3.0r2
+pkgver=3.5.0b2
 pkgrel=1
 pkgdesc="Brings the updated configparser from Python 3.2+ to Python 2.6-2.7"
 arch=('any')
@@ -12,7 +12,7 @@ makedepends=('python2-setuptools')
 license=('MIT')
 options=(!libtool)
 source=(https://pypi.python.org/packages/source/c/configparser/configparser-${pkgver}.tar.gz license)
-sha512sums=('86c095bb64766e87ba59462a99d0287ec52073f27a1c9be7d37568516bc0cc4af6f362ca90a1b90f52aaa4342dc275d769c77f18d80c0efb114ba6fce37fff5f'
+sha512sums=('b88d8f7df568bed764770f73c7ca4840a3f42c5cccf5eff743b40c45118b70daf5d552a5370cf029dd834819727650d51e6e8cf58ac8940d6749c948b5190b02'
             'dbed4ec826c5772ef2d9acc3222f35a76bcbd9046a1bf759ab5cd2aa5ab9fa86dc563bdea27f9e6bdef444f6796bdcca8b8f61ccd124a514d891a0848824d865')
 
 build() {
