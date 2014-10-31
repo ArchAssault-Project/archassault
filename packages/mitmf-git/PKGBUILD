@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=r130.8dde6f8
+pkgver=r134.fb45e40
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
 arch=('any')
 url='https://github.com/byt3bl33d3r/MITMf'
 license=('GPL3')
-depends=('python2-configobj' 'python2-twisted' 'python2-msgpack' 'python2-requests' 'scapy' 'capstone' 'python2-pefile')
+depends=('python2-twisted' 'python2-configobj' 'python2-twisted' 'python2-msgpack' 'python2-requests' 'scapy' 'capstone' 'python2-pefile' 'python2-dnspython')
 makedepends=('git')
 provides=('mitmf')
 replaces=('mitmf')
@@ -33,6 +33,7 @@ package() {
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/mitmf/libs"
   install -dm755 "$pkgdir/usr/share/mitmf/config_files"
+  install -dm755 "$pkgdir/usr/share/mitmf/config_files/airpwn_templates/"
   install -dm755 "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
   install -dm755 "$pkgdir/usr/share/mitmf/plugins"
   install -dm755 "$pkgdir/usr/share/mitmf/sslstrip"
@@ -44,6 +45,7 @@ package() {
   install -Dm644 sslstrip/* "$pkgdir/usr/share/mitmf/sslstrip/"
   install -Dm644 libs/* "$pkgdir/usr/share/mitmf/libs/"
   install -Dm644 README.md "$pkgdir/usr/share/mitmf/"
+  install -Dm644 config_files/airpwn_templates/* "$pkgdir/usr/share/mitmf/config_files/airpwn_templates/"
   install -Dm644 config_files/app_cache_poison_templates/* "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
   install -Dm755 *.py "$pkgdir/usr/share/mitmf/"
   install -Dm644 *.ico "$pkgdir/usr/share/mitmf/"
