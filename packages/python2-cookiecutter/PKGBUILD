@@ -3,16 +3,16 @@
 
 pkgname=python2-cookiecutter
 _pkgname=cookiecutter
-pkgver=0.7.2
+pkgver=0.8.0
 pkgrel=1
 pkgdesc="A command-line utility that creates projects from project templates"
 arch=('any')
 url="https://github.com/audreyr/cookiecutter"
 license=('BSD')
-depends=('python2' 'python2-jinja' 'python2-yaml' 'python2-binaryornot')
+depends=('python2-jinja' 'python2-yaml' 'python2-binaryornot')
 makedepends=('python2-setuptools')
 source=("https://github.com/audreyr/${_pkgname}/archive/${pkgver}.tar.gz")
-sha512sums=('a6a625b0ea089527f469c02f06d1ebd42bd3d81b26f08f7e481c441b8f51eb0a27f6338b6e5f6a79d8cb238b80d879273558278b91661184bcbad12957e263f2')
+sha512sums=('4d5091abb1201b4d6cd227c865f263c0f8d7946e1c0fedba71aafa982e9217732bf9f791e71fb3d68a52dd1c4562d300c3215be35f33d3c65c0332da84fdca60')
 
 prepare(){
   grep -iRl 'python' "$srcdir/$_pkgname-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
