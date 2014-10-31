@@ -4,7 +4,7 @@
 
 pkgname=python2-hgapi
 _pkgname=hgapi
-pkgver=1.7.1
+pkgver=1.7.2
 pkgrel=1
 pkgdesc="hgapi is a pure-Python API to Mercurial, that uses the command-line interface instead of the internal Mercurial API."
 arch=('any')
@@ -13,7 +13,7 @@ license=('MIT')
 depends=('python2')
 makedepends=('python2-setuptools' 'mercurial')
 source=("${_pkgname}-${pkgver}::https://pypi.python.org/packages/source/h/hgapi/${_pkgname}-${pkgver}.tar.gz")
-sha512sums=('f52b9a4b9d80a7097d0ea2d62fe14b1147bd651fb214065d4ae588726370b7a21da3caf34a83f18b1deaafe75f7ae3362402ff78f2733cc870f271160fd2761d')
+sha512sums=('ff6685386878ac0c71072601f91acf9a077822491680edc11841bcea85bab38b3c41867e72e8c1adf8f85765fa763d168cf7bb76ce1832605c7b24f8cad3be65')
 
 package() {
     cd "$srcdir/${_pkgname}-${pkgver}"
