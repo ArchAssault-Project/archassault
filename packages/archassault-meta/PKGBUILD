@@ -2,7 +2,7 @@
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
 pkgver=0.4
-pkgrel=2
+pkgrel=3
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -46,7 +46,6 @@ package_archassault-meta-iso-all() {
 				fping
 				extundelete
 				exiv2
-				ettercap
         ettercap-gtk
 				etherape
         ebizzy
