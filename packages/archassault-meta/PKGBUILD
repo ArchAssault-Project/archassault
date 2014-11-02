@@ -1,8 +1,8 @@
 # Maintainer: Arch3y <arch3y archassault org>
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
-pkgver=0.3
-pkgrel=2
+pkgver=0.4
+pkgrel=1
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -11,11 +11,15 @@ groups=('archassault' 'archassault-meta')
 package_archassault-meta-iso-all() {
 	pkgdesc=('Meta package for ArchAssault')
 		depends=(gnu-netcat
+        audit
 				fcrackzip
 				nmap
 				wireshark-cli
 				wireshark-gtk
-			        xl2tp
+			  xl2tp
+        perf
+        arm
+        checksec
 				openvpn
 				sslh
 				tcpreplay
@@ -43,7 +47,10 @@ package_archassault-meta-iso-all() {
 				extundelete
 				exiv2
 				ettercap
+        ettercap-gtk
 				etherape
+        ebizzy
+        envoy
 				dsniff
 				dnstracer
 				ddrescue
@@ -56,15 +63,23 @@ package_archassault-meta-iso-all() {
 				httptunnel
 				hexedit
 				dhex
+        ncrack
+        pdnsd
+        playpen
+        privoxy
+        rust
+        scrypt
+        tinyproxy
+        torsocks
 				testdisk
 				perl-image-exiftool
-                                recoll
-                                nemesis
-                                chntpw
-                                greenbone-security-assistant
-                                openvas-cli
-                                openvas-libraries
-                                openvas-manager
-                                openvas-scanner
-                                nethogs)
+        recoll
+        nemesis
+        chntpw
+        greenbone-security-assistant
+        openvas-cli
+        openvas-libraries
+        openvas-manager
+        openvas-scanner
+        nethogs)
 }
