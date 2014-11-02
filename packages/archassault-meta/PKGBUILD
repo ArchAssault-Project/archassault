@@ -2,7 +2,7 @@
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
 pkgver=0.4
-pkgrel=1
+pkgrel=2
 arch=('any')
 url='https://www.archassault.org/'
 license=('GPL')
@@ -16,7 +16,7 @@ package_archassault-meta-iso-all() {
 				nmap
 				wireshark-cli
 				wireshark-gtk
-			  xl2tp
+			  xl2tpd
         perf
         arm
         checksec
