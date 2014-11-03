@@ -9,6 +9,7 @@ pkgdesc="A  utility for creating symmetrically encrypted and authenticated pipes
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=(http://www.tarsnap.com/$pkgname/$pkgname-$pkgver.tgz)
 url="http://www.tarsnap.com/spiped.html"
+groups=('archassault')
 license=('BSD')
 depends=('openssl')
 sha512sums=('475b6efab7ec9a5f95c3b42c0388a9376a65e33fcab4897a7376211f70d9492cdc8856ce200bc2c507bdc923a6dca1c4c6ced4c2fe217b9f7cbbe32ceabd5d2e')
