@@ -5,6 +5,7 @@ pkgrel=1
 pkgdesc="A security tool for WordPress"
 arch=('any')
 url="https://github.com/elcodigok/wphardening"
+groups=('archassault')
 license=('GPL3')
 depends=('python2')
 source=(https://github.com/elcodigok/wphardening/archive/v$pkgver.tar.gz)
