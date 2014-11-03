@@ -6,6 +6,7 @@ pkgver=1.5.2
 pkgrel=2
 pkgdesc="A system for easy encryption and backup of personal files"
 url="http://www.dyne.org/software/${pkgname}"
+groups=('archassault')
 license=('GPL3')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('cryptsetup' 'pinentry' 'sudo' 'gnupg' 'zsh' 'gtk3' 'libnotify')
