@@ -8,6 +8,7 @@ pkgdesc="Simplified C++ implementation of I2P client"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="https://github.com/PrivacySolutions/i2pd"
 license=('GPL2')
+groups=('archassault')
 depends=('crypto++' 'boost-libs')
 makedepends=('git' 'boost')
 source=('i2pd::git+https://github.com/PrivacySolutions/i2pd.git'
