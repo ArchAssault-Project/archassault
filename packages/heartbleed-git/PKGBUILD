@@ -3,7 +3,7 @@
 _pkgname=Heartbleed
 pkgname=heartbleed-git
 pkgver=110.v0.2.0.r39.g80e5760
-pkgrel=1
+pkgrel=2
 pkgdesc="Test whether a host is vulnerable to the Heartbleed attack"
 arch=('armv6h' 'armv7h' 'x86_64' 'i686')
 _url="github.com/FiloSottile/Heartbleed"
