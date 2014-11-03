@@ -10,6 +10,7 @@ pkgver=20140526.r274.a131424
 pkgrel=1
 pkgdesc="A lightweight sandbox tool for non-root users"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
 url="http://pdos.csail.mit.edu/${_pkgname}"
 license=('MIT')
 depends=('openssl')
