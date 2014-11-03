@@ -6,6 +6,7 @@ pkgrel=1
 pkgdesc="Cookiecutter templates discovery and management."
 arch=('any')
 url="https://github.com/fcurella/cookiejar"
+groups=('archassault')
 license=('BSD')
 depends=('python2')
 makedepends=('python2-setuptools')
