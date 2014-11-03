@@ -8,6 +8,7 @@ pkgdesc="Test whether a host is vulnerable to the Heartbleed attack"
 arch=('armv6h' 'armv7h' 'x86_64' 'i686')
 _url="github.com/FiloSottile/Heartbleed"
 url="https://$_url"
+groups=('archassault')
 license=("MIT")
 depends=('glibc')
 makedepends=('go' 'git')
