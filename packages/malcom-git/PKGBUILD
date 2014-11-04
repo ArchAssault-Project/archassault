@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=malcom-git
-pkgver=20140929.r30
-pkgrel=2
+pkgver=20141104.r386
+pkgrel=1
 pkgdesc="Analyze a system's network communication using graphical representations of network traffic"
 url="https://github.com/tomchop/malcom"
 arch=('any')
