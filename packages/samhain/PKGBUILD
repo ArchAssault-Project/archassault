@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team at archassault org>
 
 pkgname=samhain
-pkgver=3.1.2
-pkgrel=2
+pkgver=3.1.3
+pkgrel=1
 pkgdesc="File integrity / intrusion detection system"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://la-samhna.de/${pkgname}"
@@ -16,7 +16,7 @@ source=("http://la-samhna.de/${pkgname}/${pkgname}-current.tar.gz"
         "${pkgname}rc.linux.patch"
         "${pkgname}.tmpfiles.conf"
         "${pkgname}.service")
-sha512sums=('23a4a4205612a5f1ac720a908a8098c2039a834a644e849bdba4543173aca9a08494e5470e6467cd5539477415f9e3bee80b867bc38219ed4fa79f188a17e844'
+sha512sums=('4fb16d2e056ff69597188595d55e2763beabda4d51a5f6fc0fb5d8606f8316b5020a646c54702398199e9770475065eccbec96e57bce45d8499d43fad40f3181'
             '60711b05211aebe4a12368ca54e4a5516a0a04bbae838b95811bb5823ad6d307d2b8bc9e5b36f23b0a3cae8919712dfac2ba7acf5b27238a23b9f8f5dce6e8fd'
             '7b173400586412f08d5f55a1eeaf2454d19fbb9df5b5958e22e336d6e9daec09a694af6242d5f84a506d7f143180aa30cca7c53af3021638778e64851e6ac428'
             'ddc65ab92cc9acc5be43603bfbfaf5ad58aedf345164c2cb86be61d2d75ae0c6e231d56be88f1ce195d30ce01fb6f3d8094d7adb46deb4f2ed45890e89a9b0c0')
