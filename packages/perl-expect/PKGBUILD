@@ -2,7 +2,7 @@
 # Contributor drathir <drathir87@gmail.com>
 pkgname='perl-expect'
 _pkgname=Expect
-pkgver='1.30'
+pkgver='1.32'
 pkgrel='1'
 pkgdesc="Automate interactions with command line programs that expose a text terminal interface."
 arch=('any')
@@ -11,7 +11,7 @@ options=('!emptydirs')
 depends=('perl-io-tty')
 url='http://search.cpan.org/dist/Expect'
 source=("https://cpan.metacpan.org/authors/id/S/SZ/SZABGAB/$_pkgname-$pkgver.tar.gz")
-sha512sums=('8e1fd9b91ab0f60e42d01819b05465e24373419332939a0de555f52e3a7bb452eb2abd00048281d03a31b144096fe6a3d7ada1c25c1ad6335929d705f1f4d9f3')
+sha512sums=('0281d1662a902b99b5131c017b50b0456c3461c176bf4485b4bb383cab009973605514256540c5ddc2e274b5dd92ece5555719f5527d3fb8c35e83f8dc038147')
 _distdir="${_pkgname}-${pkgver}"
 
 build() {
