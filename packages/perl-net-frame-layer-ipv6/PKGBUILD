@@ -2,7 +2,7 @@
 _author='GOMOR'
 _perlmod='Net-Frame-Layer-IPv6'
 pkgname='perl-net-frame-layer-ipv6'
-pkgver='1.05'
+pkgver='1.06'
 pkgrel=1
 pkgdesc='Internet Protocol v6 layer object.'
 arch=('any')
@@ -11,7 +11,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl>=5.10.0')
 options=(!emptydirs)
 source=("http://search.cpan.org/CPAN/authors/id/G/GO/$_author/$_perlmod-$pkgver.tar.gz")
-md5sums=('1da809b540a289639551aafac386c6ea')
+sha512sums=('0d39f3d679923a04a91b9229de9a583ef8fa5c329bc691db64245e89c13d3178cc3122967c96f38c9157d571a76cc963db648863b575e934bf6ea50f11a6fce3')
 
 prepare() {
   cd "$srcdir/$_perlmod-$pkgver"
