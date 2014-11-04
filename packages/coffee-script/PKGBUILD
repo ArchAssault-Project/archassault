@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=coffeescript
 pkgname=coffee-script
-pkgver=1.7.1
+pkgver=1.8.0
 pkgrel=1
 pkgdesc='A little language that compiles into javascript'
 arch=('any')
@@ -11,7 +11,7 @@ depends=('nodejs')
 optdepends=("nodejs-profile: to load ${pkgname} in node")
 source=("https://github.com/jashkenas/${pkgname}/archive/${pkgver}.tar.gz"
         "${pkgname}.1")
-sha512sums=('3edae729cf08eefa28baf8afcdbd584858eb50a62537ee420b9adecfa504211d1b7827612d8e595bce32ec116254e9e2984fa785c142b22a55444f870eb1f717'
+sha512sums=('7868c65f4379e4bc905c0edfaf93c106da47c9f50d6f9a7097a7f0cec94b65835120cbe3bb85e08d3cf74d7bf238ce5d64ef182f338a4abd1f381ab1faf905f7'
             'c6a86759df5695cd26f57ff98bea74f17f0f2e8d06b53dbd035841f0bff82524b8b018d5527fb78efa6d1463dd4a68779ee634fddd016b8cc7a4babade593a2e')
 
 prepare() {
