@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-devel-stacktrace
-pkgver=1.30
+pkgver=2.00
 pkgrel=1
 pkgdesc="Stacktrace object w/ info form caller()"
 arch=('any')
@@ -8,8 +8,8 @@ url="http://search.cpan.org/~DROLSKY/Devel-StackTrace"
 license=('PerlArtistic')
 options=('!emptydirs')
 source=(http://www.cpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-$pkgver.tar.gz)
-md5sums=('e318d2cb00c5bcba41c93f1e7280ab05')
-sha512sums=('9ba394d9cf44587987abbca82d86c393f795a828bb4c8b370c617609bcaea53286891e418934eb75966664d31b4da56150b2080e732fc701a51306628ed57e67')
+md5sums=('826ed2bc7cdd8d852d7d2d8b69aa313c')
+sha512sums=('3a91249dd6c6da34ceeb66d947c269e360503f193b57acbed76671b030de4d2f7e9bf2c0cc4104777fbfd1dc610c06cf3c1e21b914334bb068b66875cc4e2af7')
 
 prepare_environment() {
   export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
