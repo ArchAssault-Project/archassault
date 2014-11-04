@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-class-errorhandler
-pkgver=0.03
-pkgrel=1
+pkgver=0.02
+pkgrel=4
 pkgdesc="Base class for error handling"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
 url='http://search.cpan.org/dist/Class-ErrorHandler'
-source=('http://search.cpan.org/CPAN/authors/id/T/TO/TOKUHIROM/Class-ErrorHandler-0.03.tar.gz')
-sha512sums=('aefc6497b8ebdd3efe1643a84051b2739879f5472753a484b8eb14a29ba1826806bdc17ddb46efb50e969ceedae309fe7cfa965d9c45054b40fe2fbaed7b60a7')
-_distdir="Class-ErrorHandler-0.03"
+source=('http://search.cpan.org/CPAN/authors/id/T/TO/TOKUHIROM/Class-ErrorHandler-0.02.tar.gz')
+md5sums=('b516490ce7cf919d690f40f68c59a37c')
+_distdir="Class-ErrorHandler-0.02"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
