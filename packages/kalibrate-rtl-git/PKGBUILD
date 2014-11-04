@@ -3,7 +3,7 @@
 
 pkgname=kalibrate-rtl-git
 pkgver=20131214.r11
-pkgrel=1
+pkgrel=2
 pkgdesc='Fork of http://thre.at/kalibrate/ for use with rtl-sdr devices'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h') 
 groups=('archassault')
