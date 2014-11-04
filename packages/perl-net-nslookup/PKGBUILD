@@ -2,7 +2,7 @@
 _author=DARREN
 _perlmod=Net-Nslookup
 pkgname=perl-net-nslookup
-pkgver=2.01
+pkgver=2.04
 pkgrel=1
 pkgdesc='Provide nslookup(1)-like capabilties.'
 arch=('any')
@@ -11,7 +11,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl>=5.10.0')
 options=(!emptydirs)
 source=("http://search.cpan.org/CPAN/authors/id/D/DA/$_author/$_perlmod-$pkgver.tar.gz")
-md5sums=('b348bde8659b2a9904dbc8bd916ca663')
+sha512sums=('401ad5a9e445175ef535e8ec6dc884a8d0ed8234ac017d79216fcb51dce59eb131aff15b2fe4aa426f772f7d59053e8580f5aa0f69f38700339b61fdb6fad27f')
 
 build() {
   cd "$srcdir/$_perlmod-$pkgver"
