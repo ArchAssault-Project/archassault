@@ -2,7 +2,7 @@
 _author='GOMOR'
 _perlmod='Net-Frame-Layer-ICMPv6'
 pkgname='perl-net-frame-layer-icmp6'
-pkgver='1.08'
+pkgver='1.09'
 pkgrel=1
 pkgdesc='Internet Control Message Protocol v6 layer object.'
 arch=('any')
@@ -11,7 +11,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl>=5.10.0')
 options=(!emptydirs)
 source=("http://search.cpan.org/CPAN/authors/id/G/GO/$_author/$_perlmod-$pkgver.tar.gz")
-md5sums=('f84039177ca9efdb405798aa25a544ae')
+sha512sums=('2b02aacb23703260ce720a346638363d62524c2b10b6054c9fad7397c5b3f8c5c66e901238a1f56fbed12d127bf5006d2d068c1c55beb019849badb3e5b28dac')
 
 prepare() {
   cd "$srcdir/$_perlmod-$pkgver"
