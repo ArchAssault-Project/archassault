@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-stix
-pkgver=1.1.1.1
+pkgver=1.1.1.2
 pkgrel=1
 pkgdesc="An API for parsing and generating STIX content."
 url="http://stix.mitre.org"
@@ -9,7 +9,7 @@ makedepends=('python2-distribute')
 license=('custom')
 arch=('any')
 source=("https://pypi.python.org/packages/source/s/stix/stix-${pkgver}.zip")
-sha512sums=('adf22ba2e5f53ef5127b6866092fa44aa21e6c1f1e377ea60fbd125d191e0b9f7149a8d5ecc19441e71008e1af9c7a2aee98f172b1b23cde3399efa71635535f')
+sha512sums=('911a00f9d6e3d5b99baa36553695c2bbdefeaf872fc5a838e9cbc6fde4757e87b9e11ef79d26e6e52c739647ac7e2b93b48168754029009b5fd7da176227600f')
 
 build() {
   cd stix-"${pkgver}"
