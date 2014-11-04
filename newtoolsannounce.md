@@ -4,7 +4,7 @@ Newest Tools Added:
 
 * [xmount](https://www.pinguin.lu/xmount) -  Allows you to convert on-the-fly between multiple input and output harddisk image types. xmount creates a virtual file system using FUSE (Filesystem in Userspace) that contains a virtual representation of the input image. 
 
-* [callerpy-git](https://github.com/Logic-gate/callerpy) - A Truecaller Name Retriever Author: [@Logic-gate](https://github.com/Logic-gate)
+* [callerpy-git](https://github.com/Logic-gate/callerpy) - A Truecaller Name Retriever Author: [@PenbangProject](https://twitter.com/PenbangProject)
 
 * [burst-git](https://github.com/tweksteen/burst) - An HTTP framework. Author: [tweksteen](https://github.com/tweksteen)
 
