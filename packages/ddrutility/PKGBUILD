@@ -2,9 +2,10 @@
 # Contributor: Jonathan Liu <net147@gmail.com>
 pkgname=ddrutility
 pkgver=2.6
-pkgrel=1
+pkgrel=2
 pkgdesc="Set of utilities for use with GNU ddrescue to aid with data recovery"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
 url="http://sourceforge.net/projects/ddrutility/"
 license=('GPL3')
 install="$pkgname.install"
