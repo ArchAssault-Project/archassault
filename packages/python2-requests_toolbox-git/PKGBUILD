@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-requests_toolbox-git
-pkgver=20140812.r166
+pkgver=20141106.r167
 pkgrel=1
 pkgdesc="A collection of utilities for python-requests, but don't really belong in requests proper."
 arch=('any')
