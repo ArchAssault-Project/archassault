@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Jipuf <jipuf@gmx.fr>
+
+pkgname="libfixbuf"
+pkgver="1.6.0"
+pkgrel=1
+pkgdesc="IPFIX Message Format Implementation"
+arch=("i686" "x86_64" "armv6h" "armv7h")
+url='http://tools.netsa.cert.org/fixbuf/'
+license=('GPL')
+source=("http://tools.netsa.cert.org/releases/$pkgname-$pkgver.tar.gz")
+sha512sums=('c6583c5f363ba0a113953e8fc622be768a5d9d30868becd6281f81de8db888819aaf600cd3c6136aadec08b5e9d3ce22272890ef40bcd136d26b6f2f5cfbd1de')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}
