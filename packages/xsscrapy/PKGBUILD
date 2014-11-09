@@ -1,10 +1,11 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=xsscrapy
-pkgver=20141024.r96.ebe204b
+pkgver=20141108.r102.94cf440
 pkgrel=1
 pkgdesc="xss spider"
 arch=('any')
+groups=('archassault')
 url="https://github.com/DanMcInerney/xsscrapy"
 license=('BSD')
 depends=('python2-requests' 'scrapy')
