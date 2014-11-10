@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=elite-proxy-finder-git
-pkgver=r41.ce57afa
+pkgver=r42.b92f75a
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Finds public elite anonymity proxies and concurrently tests them"
