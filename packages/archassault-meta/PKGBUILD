@@ -80,5 +80,6 @@ package_archassault-meta-iso-all() {
         openvas-libraries
         openvas-manager
         openvas-scanner
-        nethogs)
+        nethogs
+        net-snmp)
 }
