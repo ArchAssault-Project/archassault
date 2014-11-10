@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team at archassault dot org>
 pkgname=maltrieve-git
-pkgver=r144.b4709cf
+pkgver=r148.4ad4045
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A tool to retrieve malware directly from the source for security researchers."
