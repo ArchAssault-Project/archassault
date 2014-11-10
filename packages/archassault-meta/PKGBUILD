@@ -11,6 +11,10 @@ groups=('archassault' 'archassault-meta')
 package_archassault-meta-iso-all() {
 	pkgdesc=('Meta package for ArchAssault')
 		depends=(gnu-netcat
+        ltrace
+        strace
+        valgrind
+        jhead 
         audit
 				fcrackzip
 				nmap
