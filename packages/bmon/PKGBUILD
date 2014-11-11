@@ -8,6 +8,7 @@ url="https://github.com/tgraf/bmon"
 license=('BSD' 'MIT')
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 depends=('confuse' 'libnl' 'ncurses')
+makedepends=('git')
 groups=('archassault')
 source=("git+${url}.git#tag=tags/v${pkgver}")
 sha512sums=('SKIP')
