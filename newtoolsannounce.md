@@ -1,5 +1,7 @@
 Newest Tools Added:
 
+* [bmon](https://github.com/tgraf/bmon) - Bandwidth monitor and rate estimator. Author: tgraf@suug.ch
+
 * [wikigen](https://github.com/zombiesam/wikigen) - A script to generate wordlists out of wikipedia pages. Author: [@_tmp0](https://twitter.com/_tmp0)
 
 * [httrack](http://www.httrack.com/) - An easy-to-use offline browser utility. [Read the Documentation](http://www.httrack.com/html/index.html)| [Forums](http://forum.httrack.com/)
@@ -13,7 +15,7 @@ Newest Tools Added:
 * [plaso-git](https://github.com/log2timeline/plaso) - Home of the super timeline. [Documentation](http://plaso.kiddaland.net/) 
 
 * [silk](https://tools.netsa.cert.org/silk/) - A collection of traffic analysis tools developed by the CERT Network Situational Awareness Team (CERT NetSA) to facilitate security analysis of large networks.
-  [Documentation](https://tools.netsa.cert.org/silk/docs.html)
+ *  [Documentation](https://tools.netsa.cert.org/silk/docs.html)
 
 * [YAF](https://tools.netsa.cert.org/yaf/index.html) - is Yet Another Flowmeter. [Documentation](https://tools.netsa.cert.org/yaf/docs.html) 
 
