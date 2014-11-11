@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=artillery-git
-pkgver=20141007.r104
-pkgrel=4
+pkgver=20141110.r105
+pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-defense')
 pkgdesc="A combination of a honeypot, file-system monitoring, system hardening, and overall health of a server to create a comprehensive way to secure a system"
