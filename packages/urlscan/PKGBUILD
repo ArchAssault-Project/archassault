@@ -4,13 +4,13 @@
 
 pkgname=urlscan
 _pkgname=${pkgname}-git
-pkgver=20140618.r15
+pkgver=20141110.r18
 pkgrel=1
 pkgdesc="Interactively browse and open URLs contained in HTML passed from stdin"
 url="https://github.com/firecat53/${_pkgname}"
 license=('GPL')
 arch=('any')
-groups=()
+groups=('archassault')
 depends=('python-urwid')
 makedepends=('git')
 conflicts=("${_pkgname}")
