@@ -2,14 +2,14 @@
 
 _pkgname=utox
 pkgname=${_pkgname}-git
-_pkgver=207e534
-pkgver=r916.207e534
+_pkgver=bca6b02
+pkgver=r920.bca6b02
 pkgrel=1
 pkgdesc="Lightweight Tox client"
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="https://github.com/notsecure/uTox"
 license=('GPL3')
-depends=('tox-git=1:r2908.1f4b061-1'
+depends=('tox-git=1:r2932.26a6bde-1'
          'openal'
          'v4l-utils'
          'libdbus'
