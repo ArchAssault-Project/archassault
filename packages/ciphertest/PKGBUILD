@@ -1,30 +1,29 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ciphertest
-pkgver=4.5780d36
+pkgver=14.7f49ea7
 pkgrel=1
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="A better SSL cipher checker using gnutls"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="https://github.com/OpenSecurityResearch/ciphertest"
 license=('custom:unknown')
+depends=('bash')
 makedepends=('git')
 source=("git+https://github.com/OpenSecurityResearch/ciphertest")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  cd ciphertest
+  cd "${pkgname}"
   echo $(git rev-list HEAD --count).$(git describe --always | sed 's|-|.|g')
 }
 
 package() {
-  cd "$srcdir/ciphertest"
-
-  install -dm755 "$pkgdir/usr/bin/"
-  install -dm755 "$pkgdir/usr/share/ciphertest"
-  install -dm755 "$pkgdir/usr/share/doc/ciphertest"
-
-  cp -P --no-preserve=ownership cipherTest.sh "$pkgdir/usr/share/ciphertest"
-  cp -P --no-preserve=ownership README "$pkgdir/usr/share/doc/ciphertest"
-
-  ln -s "/usr/share/ciphertest/cipherTest.sh" "$pkgdir/usr/bin/ciphertest"
+  cd "${pkgname}"
+  install -dm755 "${pkgdir}/usr/bin/"
+  install -dm755 "${pkgdir}/usr/share/ciphertest"
+  install -dm755 "${pkgdir}/usr/share/doc/ciphertest"
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
+  cp -P --no-preserve=ownership cipherTest.sh "${pkgdir}/usr/share/ciphertest"
+  cp -P --no-preserve=ownership README "${pkgdir}/usr/share/doc/ciphertest"
+  ln -s "/usr/share/ciphertest/cipherTest.sh" "${pkgdir}/usr/bin/ciphertest"
 }

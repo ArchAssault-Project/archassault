@@ -1,15 +1,16 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=argus
-pkgver=3.0.6.1
-pkgrel=4
+pkgver=3.0.8
+pkgrel=1
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
 pkgdesc="Network monitoring tool with flow control"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://qosient.com/argus/"
 depends=('zlib' 'bash' 'perl' 'libpcap' 'libsasl')
 license=('GPL3')
+options=('!emptydirs')
 source=("http://qosient.com/argus/src/argus-$pkgver.tar.gz")
-sha512sums=('449bcad07bcc7afe7b2397a84ac604b75beb08b1efa14a4b431d660d9f12299d182b33e0a96c7da9e4a384c5deb70eabfcb5e7caf93a42b3e1c33e99b356bf88')
+sha512sums=('e4211bb09f442f4dc5c210b878d0f5a9527ff9c95030570e20520f2ca5c3053cc603aa3f0c4aad33363fee6ce02c3d5262bbfdecd2e2157dc00a34f333f14232')
 
 build() {
   cd $srcdir/argus-$pkgver

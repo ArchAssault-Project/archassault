@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=conpot
+pkgver=0.3.1
+pkgrel=4
+pkgdesc="ICS honeypot with the goal to collect intelligence about the motives
+    and methods of adversaries targeting industrial control systems"
+url="http://conpot.org"
+depends=('python2-gevent' 'python2-pysnmp' 'python2-lxml' 'python2-bottle' 'python2-jinja' 'python2-beautifulsoup4' 'python2-requests' 'python2-sphinx' 'python2-libtaxii>=1.1.0' 'mysql-python' 'python2-xlrd' 'python2-stix' 'python2-cybox' 'python2-crc16' 'python2-enum' 'hpfeeds' 'python2-modbus-tk-git')
+makedepends=('python2-distribute')
+license=('GPL2')
+arch=('any')
+source=("https://pypi.python.org/packages/source/C/Conpot/Conpot-${pkgver}.tar.gz")
+sha512sums=('1da2e94fe9fe19ac819504f604127d53a823110bb48f4bc6fad9428538c59fc01c43c7a31a7322a1f9394591d7a8b55b90932d857caa696cf85ce8f3e2795398')
+
+build() {
+  cd "${srcdir}"/Conpot-"${pkgver}"
+  python2 setup.py build
+}
+
+package() {
+  cd "${srcdir}"/Conpot-"${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  find "${pkgdir}" -type f -name 'log_worker.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  mv "$pkgdir/usr/lib/python2.7/site-packages/bin" "$pkgdir/usr/lib/python2.7/site-packages/$pkgname/"
+}

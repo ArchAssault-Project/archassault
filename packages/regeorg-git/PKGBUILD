@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=regeorg-git
-pkgver=r21.2159b1f
+pkgver=r25.43e54f3
 pkgrel=1
 groups=('archassault' 'archassault-tunnel')
 pkgdesc="The successor to reDuh, pwn a bastion webserver and create SOCKS proxies through the DMZ. Pivot and pwn."
 arch=('any')
 url='https://github.com/sensepost/reGeorg'
 license=('MIT')
-depends=('python2' 'python2-urllib3')
+depends=('python2-urllib3')
 makedepends=('git')
 provides=('regeorg')
 conflicts=('regeorg')

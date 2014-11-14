@@ -1,0 +1,33 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: William Robertson <nullptr@gmail.com>
+pkgname=silk
+pkgver=3.9.0
+pkgrel=1
+pkgdesc='CERT netflow tools.'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://tools.netsa.cert.org/silk'
+license=('GPL')
+groups=('archassault')
+depends=('libfixbuf' 'lzo2' 'libpcap' 'python2' 'gnutls' 'c-ares')
+makedepends=('perl' 'flex' 'bison')
+optdepends=('adns: asynchronous dns support')
+source=("http://tools.netsa.cert.org/releases/$pkgname-$pkgver.tar.gz")
+sha512sums=('c3535977eb2babe4d12488e5716914cdec75570e85eb5d18ad5e3dd3ab227bbf9a4a7f03309808710ae156ed2f08c94e6a2b35fab8a11ce8fdeb739059af2301')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/$pkgname-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+
+build() {
+	cd "$srcdir/$pkgname-$pkgver"
+	./configure --prefix=/usr --enable-ipv6 --with-python2 --enable-output-compression
+	make
+}
+
+package() {
+	cd "$srcdir/$pkgname-$pkgver"
+	make DESTDIR="$pkgdir/" install
+        # Fixing python 
+        sed -i 's|python$|python2|' $pkgdir/usr/bin/rwidsquery $pkgdir/usr/bin/rwpcut 
+}

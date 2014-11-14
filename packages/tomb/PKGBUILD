@@ -2,10 +2,11 @@
 # Contributor: Prurigro
 
 pkgname=tomb
-pkgver=1.5.2
-pkgrel=2
+pkgver=1.5.3
+pkgrel=1
 pkgdesc="A system for easy encryption and backup of personal files"
 url="http://www.dyne.org/software/${pkgname}"
+groups=('archassault')
 license=('GPL3')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('cryptsetup' 'pinentry' 'sudo' 'gnupg' 'zsh' 'gtk3' 'libnotify')
@@ -18,7 +19,7 @@ optdepends=('dcfldd: Replacement for dd with hashing support'
             'qrencode: Create paper backups of keys as QR codes')
 
 source=("https://releases.dyne.org/tomb/Tomb-${pkgver}.tar.gz")
-sha512sums=('2f0b4170ae1785d97556a9e6a7673b9f7d2b37dde735697612ff796128738bba9bd230382b2e1bee8b8e071498192c872dbc55d9476680dac768ff421854d5ea')
+sha512sums=('57d4d108fea4f9d7cf4bdbf04c0bf94374647cff09dee029daacf0fdf6cca2b7a9bef7eace05b22989ec6e5278a519f6349ac80fe393511c9534e59a946a54a5')
 
 prepare() {
     sed -i 's/^#!\/bin\/zsh/#!\/usr\/bin\/env\ zsh/g' Tomb-${pkgver}/${pkgname}

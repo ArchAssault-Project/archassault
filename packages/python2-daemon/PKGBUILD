@@ -3,8 +3,8 @@
 
 pkgname=python2-daemon
 _libname=${pkgname/python2-/python-}
-pkgver=1.6
-pkgrel=4
+pkgver=1.6.1
+pkgrel=1
 pkgdesc="Library to implement a well-behaved Unix daemon process"
 license=("custom")
 url="http://pypi.python.org/pypi/python-daemon"
@@ -12,7 +12,7 @@ depends=('python2-lockfile')
 makedepends=('python2-setuptools')
 source=(http://pypi.python.org/packages/source/p/python-daemon/python-daemon-$pkgver.tar.gz)
 arch=('any')
-sha512sums=('ff9480844d8f57a09f27067aaa78669c167f66b2cc05f9b3baa660bc0aa21228d4894eeaeb3440611c1e0f0d5633b1c60eac60893da4a86d1db4b94d99961299')
+sha512sums=('c7717f41092c189d0abf7a9f4350f490fc12266615a18f36226119c0c113e7ee555dd0e2c44ba130a65c7c783267f0969f87d2dac3eb8b596894dc610c9753e7')
 
 
 build() {
@@ -23,8 +23,8 @@ build() {
 package() {
 	cd "$srcdir/$_libname-$pkgver"
 	python2 setup.py install --root="$pkgdir" --optimize=1
-        install -Dm644 LICENSE.GPL-2 "$pkgdir/usr/share/licenses/$pkgname/LICENSE.GPL-2"
-        install -Dm644 LICENSE.PSF-2 "$pkgdir/usr/share/licenses/$pkgname/LICENSE.PSF-2"
+        install -Dm644 LICENSE.GPL-3 "$pkgdir/usr/share/licenses/$pkgname/LICENSE.GPL-2"
+        install -Dm644 LICENSE.ASF-2 "$pkgdir/usr/share/licenses/$pkgname/LICENSE.PSF-2"
         sed -i 's|python$|python2|' "$pkgdir/usr/lib/python2.7/site-packages/daemon/version/version_info.py"
 }
 

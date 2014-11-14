@@ -4,26 +4,27 @@
 
 _pkgname=venom
 pkgname=${_pkgname}-git
-pkgver=r615.7fa007d
+pkgver=r832.537a59b
 pkgrel=1
 epoch=1
 pkgdesc="A Vala/Gtk+ graphical user interface for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/naxuroqa/Venom"
 license=('GPL')
-depends=('gtk3'
+depends=('tox-git=1:r2932.26a6bde-1'
+         'gtk3'
          'json-glib'
          'qrencode'
-         'tox-git'
-         'desktop-file-utils'
-         'libnotify')
+         'libnotify'
+         'gstreamer0.10-base'
+         'desktop-file-utils')
 makedepends=('git' 'cmake' 'vala')
-provides=("${_pkgname}")
-conflicts=("${_pkgname}")
+provides=("$_pkgname")
+conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
 
-source=("$_pkgname"::'git+https://github.com/naxuroqa/Venom.git')
+source=("$_pkgname"::'git+https://github.com/naxuroqa/Venom.git#branch=av')
 sha512sums=('SKIP')
 
 pkgver() {

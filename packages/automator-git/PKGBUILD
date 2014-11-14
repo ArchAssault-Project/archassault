@@ -1,9 +1,9 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=automator-git
-pkgver=r51.20f6f9f
+pkgver=r52.6d0bd5a
 pkgrel=1
 groups=('archassault' 'archassault-forensics')
-pkgdesc=" IP URL and MD5 OSINT Analysis"
+pkgdesc="IP URL and MD5 OSINT Analysis"
 arch=('any')
 url='https://github.com/1aN0rmus/TekDefense-Automater'
 license=('MIT')

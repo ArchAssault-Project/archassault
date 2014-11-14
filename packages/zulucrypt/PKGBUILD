@@ -2,7 +2,7 @@
 # Contributor: Salan54 <salan at fremenil dot com>
 
 pkgname=zulucrypt
-pkgver=4.7.2
+pkgver=4.7.4
 pkgrel=1
 pkgdesc="a cli and gui frontend to cryptsetup."
 arch=('x86_64' 'i686' 'armv6h' 'armv7h')
@@ -12,16 +12,17 @@ depends=('cryptsetup' 'qt4' 'libpwquality' 'libsecret' 'tcplay' 'gtk-update-icon
 makedepends=('cmake' 'git' 'automoc4')
 optdepends=('kdeutils-kwallet: retrieve volume keys from kde kwallet')
 options=('!strip' '!buildflags' '!distcc')
-source=("https://github.com/mhogomchungu/zuluCrypt/archive/${pkgver}.zip")
-md5sums=('eabfaa68abb754088ec7e788fc055dd8')
+source=("https://github.com/mhogomchungu/zuluCrypt/releases/download/$pkgver/zuluCrypt-$pkgver.tar.xz")
+sha512sums=('4b945caddfafed970350a7618972125a1f2b4edc5bd2be2832f7c3684c8482f1d1b9c4b3717a2080136e163f9ef82b119755cb63a18a06875f5c6508fe350e0c')
 install=${pkgname}.install
 
 build() {
-    mkdir "${srcdir}"/zuluCrypt-"${pkgver}"/build
-    cd "zuluCrypt-${pkgver}/build"
+    cd $srcdir/zuluCrypt-"${pkgver}"
+    mkdir -p "${srcdir}"/zuluCrypt-"${pkgver}"/build && cd build
     cmake -DCMAKE_INSTALL_PREFIX=/usr/ \
     -DNOKDE=true -DUDEVSUPPORT=true \
     -DCMAKE_BUILD_TYPE=release \
+    -DCMAKE_SKIP_RPATH=ON \
     -DCMAKE_LIB_SUFFIX=/usr/lib . ..
     make
 }

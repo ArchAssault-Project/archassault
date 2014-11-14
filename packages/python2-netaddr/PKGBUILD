@@ -1,16 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-netaddr
-pkgver=0.7.10
-pkgrel=2
+pkgver=0.7.12
+pkgrel=1
 pkgdesc="A pure Python network address representation and manipulation library"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('BSD')
 url="http://github.com/drkjam/netaddr/"
 depends=('python2')
-source=("http://github.com/downloads/drkjam/netaddr/netaddr-$pkgver.tar.gz")
-md5sums=('605cfd09ff51eaeff0ffacdb485e270b')
+source=("https://github.com/drkjam/netaddr/archive/release-${pkgver}.zip")
+sha512sums=('bb0bd6076ec1313bbdfa2f41805cb43cd603ce6a9d59f2f2cae3777aad013f99de87f2e18c73b63c1631a667e4b4b7d660f94aab674fb84d2d431ab4c8976c6d')
 
 package() {
-  cd "$srcdir/netaddr-$pkgver/"
-  python2 setup.py install --root="$pkgdir/" --optimize=1
+  cd "${srcdir}/netaddr-release-${pkgver}/"
+  python2 setup.py install --root="${pkgdir}/" --optimize=1
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
+   -e "s|#![ ]*/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/local/bin/python$|#!/usr/bin/python2|" \
+   $(find $pkgdir -name '*.py')
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
 }

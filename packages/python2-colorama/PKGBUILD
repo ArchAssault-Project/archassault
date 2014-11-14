@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team archassault.org>
 # Contributor: Alexander Duscheleit <jinks@archlinux.us>
 pkgname=python2-colorama
-pkgver=0.3.1
-pkgrel=2
+pkgver=0.3.2
+pkgrel=1
 pkgdesc="Python API for cross-platform colored terminal text."
 arch=('any')
 url="http://pypi.python.org/pypi/colorama"
@@ -10,7 +10,7 @@ license=('BSD')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=(http://pypi.python.org/packages/source/c/colorama/colorama-$pkgver.tar.gz)
-sha512sums=('4fdffac10099ba47948145e3c37a1345b71ef5a5b728ec4b5d23ed8f3e0eb8a19be2814be0421b144eba1a5b99a0f4b80d9cb2f34653c87fd33adc5dae45436e')
+sha512sums=('1fe6d72a4f56ef1adb96f70b1721223937647a2f22648bececf7ad05710d82bede767ebd00e9267db0f874ddbe3ec852b82408794b80ea803c888dcfcd9b9532')
 
 build() {
   cd "$srcdir/colorama-$pkgver"

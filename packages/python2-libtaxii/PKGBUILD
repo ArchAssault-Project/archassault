@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-libtaxii
+pkgver=1.1.104
+pkgrel=1
+pkgdesc="TAXII Library."
+url="http://taxii.mitre.org/"
+depends=('python2-lxml')
+makedepends=('python2-distribute')
+license=('custom')
+arch=('any')
+source=("https://pypi.python.org/packages/source/l/libtaxii/libtaxii-${pkgver}.zip")
+sha512sums=('83b58741078e9ce518d17bca7fc808eca6a891537bd60c6b90511e82b05c511d394ab3fb0bba0506bb3b6c93371123e0a0f2b597ad479e1384776b24e6f01941')
+
+build() {
+  cd libtaxii-"${pkgver}"
+  python2 setup.py build
+}
+
+package() {
+  cd libtaxii-"${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE.txt
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+}

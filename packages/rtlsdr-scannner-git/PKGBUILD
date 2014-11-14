@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rtlsdr-scanner-git
-pkgver=0.r835.27d0a25
+pkgver=0.r849.f50214b
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A cross platform Python frequency scanning GUI for the OsmoSDR rtl-sdr library"
 url='https://github.com/EarToEarOak/RTLSDR-Scanner'
 arch=('any')
 license=('GPL3')
-depends=('python2' 'python2-pyrtlsdr-git' 'wxpython2.8' 'python2-pyserial' 'python2-pillow' 'python2-numpy' 'rtl-sdr' 'python2-matplotlib')
+depends=('python2-pyrtlsdr-git' 'wxpython2.8' 'python2-pyserial' 'python2-pillow' 'python2-numpy' 'rtl-sdr' 'python2-matplotlib')
 makedepends=('git')
 provides=('rtlsdr-scanner')
 replaces=('rtlsdr-scanner')

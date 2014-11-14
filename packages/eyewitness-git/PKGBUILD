@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=eyewitness-git
-pkgver=r240.6649dab
-pkgrel=1
+pkgver=r272.0c2e896
+pkgrel=2
 pkgdesc="designed to take screenshots of websites, provide some server header info, and identify default credentials is possible"
 arch=('any')
 url="https://github.com/ChrisTruncer/EyeWitness"
@@ -34,7 +34,7 @@ package() {
   find "$pkgdir" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
   cat > "$pkgdir"/usr/bin/EyeWitness.py <<EOF
 #!/bin/sh
-cd /usr/share/eyewitness/
+cd /usr/share/eyewitness-git/
 python2 ./EyeWitness.py "\$@"
 EOF
   chmod +x "$pkgdir"/usr/bin/EyeWitness.py

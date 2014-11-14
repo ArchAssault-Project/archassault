@@ -1,6 +1,6 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-09-21
+## Generated on 2014-10-21
 ##
 
 ## Australia
@@ -21,6 +21,9 @@
 ## Netherlands
 #Server = http://mirror.i3d.net/pub/archassault/$repo/os/$arch
 
+## Norway
+#Server = http://archassault-mirror.greyhat.no/$repo/os/$arch
+
 ## Russian Federation
 #Server = http://mirror.mephi.ru/archassault/$repo/os/$arch
 #Server = http://mirror.yandex.ru/mirrors/archassault/$repo/os/$arch
@@ -30,6 +33,7 @@
 
 ## Sweden
 #Server = http://mirror.zetup.net/archassault/$repo/os/$arch
+#Server = http://ftp.acc.umu.se/mirror/archassault/$repo/os/$arch
 
 ## United Kingdom
 #Server = http://mirror.bytemark.co.uk/archassault/$repo/os/$arch
@@ -41,7 +45,7 @@
 #Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
 Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.keystealth.org/archassault/$repo/os/$arch
-Server = http://mirror.nyi.net/pub/archassault/$repo/os/$arch
+#Server = http://mirror.nyi.net/pub/archassault/$repo/os/$arch
 #Server = http://mirror.team-cymru.org/archassault/$repo/os/$arch
 Server = http://mirror.umd.edu/archassault/$repo/os/$arch
 #Server = http://mirrors.arsc.edu/archassault/$repo/os/$arch

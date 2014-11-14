@@ -1,0 +1,37 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor : Sebastien Duquette <ekse.0x@gmail.com>
+pkgname=sagan-git
+pkgver=20141107.r492
+pkgrel=1
+pkgdesc="a snort-like log analysis engine"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault' 'archassault-analysis')
+url="http://sagan.softwink.com"
+license=('GPL')
+depends=('sagan-rules' 'pcre' 'libdnet' 'libesmtp' 'mysql-clients' 'postgresql-libs' 'liblognorm' 'geoip')
+makedepends=('git')
+options=('!makeflags' '!emptydirs')
+provides=('sagan')
+conflicts=('sagan' 'sagan-svn')
+replaces=('sagan-svn')
+source=("${pkgname}::git+https://github.com/beave/sagan.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+}
+
+build() {
+  cd "${pkgname}"
+  ./configure --enable-esmtp --enable-geoip --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin
+  make
+  sed "s:^var RULE_PATH.*$:var RULE_PATH /usr/share/sagan-git/rules/:" etc/sagan.conf > etc/sagan.conf.new
+  mv etc/sagan.conf.new etc/sagan.conf 
+
+}
+
+package() {
+  cd "${pkgname}"
+  make DESTDIR="${pkgdir}" install
+}

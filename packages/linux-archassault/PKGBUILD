@@ -5,7 +5,7 @@
 #pkgbase=linux-archassault   # Build stock -ARCH kernel
 pkgbase=linux-archassault       # Build kernel with a different name
 _srcname=linux-3.16
-pkgver=3.16.3
+pkgver=3.16.4
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -40,7 +40,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         'misc-bmp085-Enable-building-as-a-module.patch'
         )
 sha512sums=('64033e741d3f42ed06010e63e69d66e1d3d9414ef20f76834508878d4218b72619541a18ef4fd377204af2859e52198310998109b20ed9b67722586b28c9a231'
-            '454fe2cb5613752b0840df7a62a0efb892427e7f8c876d8b7cc1f2d97814a869977e5192467a5e50a07c25887ddd6ed2d01aa881ced969d8da9efe434cbd5795'
+            '1014e8df1e3f9616a70a3319e8381dcaf4d8f2b98808127dca555f914fac852eca3f6661a6979e124806b3491a0586f39393313183edc88a26409a9c391ea994'
             '0d74cdea4f67dd5ecacdab186e9e339f9221b7b1e6c75d7787927ffb0ff4806eb098902b6c371249ef0edf3f816564997badf283a663df8efee7bbf9b5eda889'
             '2d2a5c38b3d98645c620378b994ac49e1321177ea51723f9f228bc937a8ac2235f96621b2e15dd9ebbd84254b3f39e4b2272e28303bed38ac8f3d4764d44c151'
             '5fe243dea17fdb71edc7098e0e1938beb7f2d851bd2be3981c4ef3d617aaad81ff1cb4c84689082472ebd13b721e849ad2214aefb9ffe40ec3d76abfd40b87ad'

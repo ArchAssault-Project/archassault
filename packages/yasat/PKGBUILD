@@ -4,12 +4,13 @@
 
 pkgname=yasat
 pkgver=755
-pkgrel=1
+pkgrel=2
 pkgdesc="A simple stupid audit tool"
 arch=('any')
 license=('GPL3')
 depends=('bash')
 backup=('etc/yasat/yasat.conf')
+groups=('archassault')
 url="http://yasat.sourceforge.net/"
 source=("http://downloads.sourceforge.net/$pkgname/$pkgname-$pkgver.tar.gz"
         'yasat.conf')

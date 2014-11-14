@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ropgadget
-pkgver=5.1
+pkgver=5.3
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Lets you search your gadgets on your binaries (ELF format) to facilitate your ROP exploit."
@@ -8,17 +8,16 @@ url='https://github.com/JonathanSalwan/ROPgadget'
 arch=('any')
 license=('GPL')
 depends=('python2' 'capstone')
-makedepends=('git')
+makedepends=('python2-setuptools')
 source=("https://github.com/JonathanSalwan/ROPgadget/archive/v$pkgver.tar.gz")
-sha512sums=('a0a33fdf873ab000c341c0bdd794c0c28594ca12a4f8d11a778cee5828fbabdef5cace6776cae5a574dc65859bebe84efb25fbc0a66abf2348ad288cfd81ddba')
+sha512sums=('a6eefbf90795192ffe67dbbfdde257e09471995f8fce719d4034576e7240cdbb261060d7be044e6169aedccc8049ec497f05d04e6ce773d92cb894057987fd91')
 
 package(){
   cd "$srcdir/ROPgadget-$pkgver"
-  
-  install -dm755 "$pkgdir/usr/bin/"
-  install -dm755 "$pkgdir/usr/share/doc/ropgadget"
+  install -dm755 "$pkgdir/usr/share/doc/$pkgname"
+  python2 setup.py install --root=$pkgdir --optimize=1  
 
-  install -Dm755 ROPgadget.py "$pkgdir/usr/bin/ropgadget"
   cp -r --no-preserve=ownership AUTHORS COPYING README.md \
     "$pkgdir/usr/share/doc/ropgadget"
+ 
 }

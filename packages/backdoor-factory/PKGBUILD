@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=backdoor-factory
-pkgver=0.r83.ea40a25
+pkgver=0.r98.89d87b2
 pkgrel=1
 groups=('archassault' 'archassault-backdoors')
 pkgdesc="Patch win32/64 binaries with shellcode"
 url="https://github.com/secretsquirrel/the-backdoor-factory"
 arch=('any')
 license=('GPL3')
-depends=('python2' 'capstone' 'python2-pefile')
+depends=('capstone' 'python2-pefile')
 makedepends=('git')
 source=("git+https://github.com/secretsquirrel/the-backdoor-factory.git")
 sha512sums=('SKIP')

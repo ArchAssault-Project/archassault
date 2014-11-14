@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=python2-cybox
+pkgver=2.1.0.7
+pkgrel=1
+pkgdesc="A Python library for parsing and generating CybOX 2.1.0 content."
+url="http://cybox.mitre.org"
+depends=('python2')
+makedepends=('python2-distribute')
+license=('custom')
+arch=('any')
+source=("https://pypi.python.org/packages/source/c/cybox/cybox-${pkgver}.zip")
+sha512sums=('3c9b8ed994d024c08a32136c3fdebdfd5674401bad3e43b7ada71279816ddae1cb010a5b334321d35792c8e03f4d9ed577b62feeafb25fbedeae6e0d32b481f9')
+
+build() {
+  cd cybox-"${pkgver}"
+  python2 setup.py build
+}
+
+package() {
+  cd cybox-"${pkgver}"
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE.txt "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE.txt
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+}

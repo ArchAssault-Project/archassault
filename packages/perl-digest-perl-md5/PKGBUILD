@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-digest-perl-md5
-pkgver=1.8
+pkgver=1.9
 pkgrel=1
 pkgdesc='Perl implementation of Ron Rivests MD5 Algorithm'
 arch=('any')
@@ -9,7 +9,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl')
 options=('!emptydirs')
 source=("http://search.cpan.org/CPAN/authors/id/D/DE/DELTA/Digest-Perl-MD5-$pkgver.tar.gz")
-md5sums=('8b54271ffe5f174456dd68b79bf3f8f3')
+sha512sums=('015a1f046b85b5b89c1b44073d60116d483332cd667cb7230222df9651b7da837a532991e91848ff0b65f171b8870c2c4bda651da4ca54ea75d062ba6a55b525')
 
 prepare() {
   cd  "$srcdir/Digest-Perl-MD5-$pkgver"

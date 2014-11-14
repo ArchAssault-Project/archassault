@@ -2,9 +2,10 @@
 # Contributor: Eugeni Dodonov <eugeni@dodonov.net>
 pkgname=fatback
 pkgver=1.3
-pkgrel=1
+pkgrel=2
 pkgdesc="A *nix tool for recovering files from FAT file systems. "
 url="http://fatback.sourceforge.net/"
+groups=('archassault')
 license=('GPL')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 depends=('flex')

@@ -1,19 +1,21 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bluebox-ng
-pkgver=20140103
+pkgver=20141029.r65
 pkgrel=1
+epoch=1
 groups=('archassault' 'archassault-scanners')
 pkgdesc="A GPL VoIP/UC vulnerability scanner."
 url="https://github.com/jesusprubio/bluebox-ng"
-arch=('any')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL3')
-depends=('nodejs' 'coffee-script')
+depends=('nodejs' 'python2' 'coffee-script')
 makedepends=('git')
 source=("git+https://github.com/jesusprubio/bluebox-ng.git")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  date +%Y%m%d
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
@@ -25,15 +27,11 @@ package() {
   msg "Deleting old node_modules folder ..."
   rm -rf node_modules
   msg "Installing a new version of them ..."
-  npm install -g "--prefix=$pkgdir/usr"
- 
-  msg "Running setup script"
-  cd "$pkgdir/usr/lib/node_modules/Bluebox-ng/"
-  coffee blueboxSetup.coffee
-
+  PYTHON="/usr/bin/python2" npm install -g "--prefix=$pkgdir/usr"
+  chown -R root:root "${pkgdir}"/usr/lib/node_modules/bluebox-ng/node_modules "${pkgdir}"/usr/lib/node_modules/bluebox-ng/artifacts "${pkgdir}"/usr/lib/node_modules/bluebox-ng
 cat > "$pkgdir/usr/bin/bluebox" << EOF
 #!/bin/sh
-cd /usr/lib/node_modules/Bluebox-ng/
+cd /usr/lib/node_modules/bluebox-ng/
 ./bluebox.sh "\$@"
 EOF
 chmod +x "$pkgdir/usr/bin/bluebox"

@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-selenium
-pkgver=2.38.4
-pkgrel=2
+pkgver=2.44.0
+pkgrel=1
 pkgdesc="Python binding for Selenium Remote Control [Python 2]"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://pypi.python.org/pypi/selenium"
@@ -10,7 +10,7 @@ depends=('python2')
 makedepends=('python2-setuptools')
 optdepends=('lib32-glibc: Firefox x86 webdriver support for x86_64')
 source=("http://pypi.python.org/packages/source/s/selenium/selenium-${pkgver}.tar.gz")
-md5sums=('21bbb47d8e6a50c6d329bd7b79a4354c')
+sha512sums=('ab9466fb529785294890347b51094d293942ea353ccb916485ead529b8d076f012ab2d44e6787b34680f4a1b84ff6c835a67c5af49e1edabc341def4471639b2')
 
 build() {
   cd "$srcdir/selenium-$pkgver"
@@ -19,7 +19,9 @@ build() {
 
 package() {
   cd "$srcdir/selenium-$pkgver"
-  python2 setup.py install --root="$pkgdir/" --optimize=1
-  find "$pkgdir" -name "*.py" -exec \
-    sed -i '1s/python[[:space:]]*$/python2/' {} \;
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
+   -e "s|#![ ]*/bin/python$|#!/usr/bin/python2|" \
+   $(find $pkgdir -name '*.py')
 }

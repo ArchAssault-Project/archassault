@@ -1,0 +1,37 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: M0Rf30
+
+pkgname=i2pd-git
+pkgver=20141109.r1052
+pkgrel=1
+pkgdesc="Simplified C++ implementation of I2P client"
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+url="https://github.com/PrivacySolutions/i2pd"
+license=('GPL2')
+groups=('archassault')
+depends=('crypto++' 'boost-libs')
+makedepends=('git' 'boost')
+source=('i2pd::git+https://github.com/PrivacySolutions/i2pd.git'
+	i2pd.{install,service})
+install=i2pd.install
+sha512sums=('SKIP'
+            '3ef1824fa22f201afdf31a7563fd6de357bb21556fc91db8b2703b4e86d5d810d36c81fb2b9eab63c067b701500616694cf644a1cb317756423a71ca5a488543'
+            '7b917632347b738dcb9de576a5bcae6753f5569720f7cc4b7afb1b1c602429d9ab02e284ceef137300e0dc5b9940b2ed5dfd84c2b7dc5199bccf1e4b25936a15')
+
+pkgver() {
+    cd i2pd
+    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+}
+
+build() {
+  cd i2pd
+  make
+}
+
+package(){
+  cd i2pd
+  install -Dm755 i2p $pkgdir/usr/bin/i2p
+  install -Dm0644 $srcdir/i2pd.service $pkgdir/usr/lib/systemd/system/i2pd.service
+  install -dm0700 $pkgdir/var/lib/i2p
+}
+

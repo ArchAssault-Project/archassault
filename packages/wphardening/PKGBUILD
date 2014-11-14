@@ -1,10 +1,11 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=wphardening
 pkgver=1.3
-pkgrel=1
+pkgrel=2
 pkgdesc="A security tool for WordPress"
 arch=('any')
 url="https://github.com/elcodigok/wphardening"
+groups=('archassault')
 license=('GPL3')
 depends=('python2')
 source=(https://github.com/elcodigok/wphardening/archive/v$pkgver.tar.gz)

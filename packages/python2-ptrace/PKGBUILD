@@ -1,19 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-ptrace  
-pkgver=0.6.3
-pkgrel=2
+pkgver=0.8.1
+pkgrel=1
 pkgdesc="python-ptrace is a debugging using ptrace (Linux, BSD and Darwin system call to trace processes) written in Python."
 url="http://bitbucket.org/haypo/python-ptrace/wiki/Home"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 license=('GPL2')
 depends=('python2')
-makedepends=()
-conflicts=()
-replaces=()
-backup=()
-install=
 source=(http://pypi.python.org/packages/source/p/python-ptrace/python-ptrace-$pkgver.tar.gz)
-md5sums=('55b710e5c2a86862a092b2d0de9f7c59')
+sha512sums=('1c3dadf381ad0fe30374fe030fc3a81b5ec0885c31ac9be4ae561cf14ff891fc2e465555133b2efce6be0154b06768121aa068161bb3de10aca6df0eb181e25c')
 
 build() {
   cd $srcdir/python-ptrace-$pkgver

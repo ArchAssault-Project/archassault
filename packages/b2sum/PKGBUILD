@@ -8,6 +8,7 @@ pkgdesc="BLAKE2 file hash sum check. Computes the BLAKE2 (BLAKE2b or -s, -bp, -s
 _zipprefix="blake2_code"
 arch=('i686' 'x86_64')
 url="https://blake2.net/"
+groups=('archassault')
 license=('custom')
 makedepends=('unzip' 'gnuplot')
 source=("https://blake2.net/blake2_code_${pkgver}.zip")

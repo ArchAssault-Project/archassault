@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pyew
-pkgver=2.3.0.0.7bb704fc6d5a
+pkgver=2.3.0.0.17bb704fc6d5a.
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="a (command line) python tool to analyse malware."

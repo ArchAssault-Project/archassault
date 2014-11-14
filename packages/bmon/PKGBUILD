@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=bmon
+pkgver=3.5
+pkgrel=1
+pkgdesc="Bandwidth monitor and rate estimator"
+url="https://github.com/tgraf/bmon"
+license=('BSD' 'MIT')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+depends=('confuse' 'libnl' 'ncurses')
+makedepends=('git')
+groups=('archassault')
+source=("git+${url}.git#tag=tags/v${pkgver}")
+sha512sums=('SKIP')
+
+build() {
+    cd $pkgname
+    ./autogen.sh
+    ./configure --prefix=/usr
+    make
+}
+
+package() {
+    cd $pkgname
+    make DESTDIR="$pkgdir" install
+    install -Dm644 LICENSE.MIT "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE.MIT
+}
+

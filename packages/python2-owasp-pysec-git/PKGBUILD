@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=python2-owasp-pysec-git
-pkgver=r205.ed37e4f
+pkgver=r260.ac5a531
 pkgrel=1
 groups=('archassault')
 pkgdesc="OWASP Python Security Project"
@@ -10,8 +10,8 @@ license=('APACHE')
 provides=('owasp-pysec')
 replaces=('owasp-pysec')
 conflicts=('owasp-pysec')
-depends=('python2' 'kyotocabinet' 'kyotocabinet-python2')
-makedepends=('git')
+depends=('kyotocabinet' 'kyotocabinet-python2')
+makedepends=('git' 'python2-setuptools')
 source=("owasp-pysec::git+https://github.com/ebranca/owasp-pysec.git")
 sha512sums=('SKIP')
 

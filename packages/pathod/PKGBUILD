@@ -1,26 +1,26 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pathod
-pkgver=0.9.2
+pkgver=0.10
 pkgrel=1
 groups=('archassault' 'archassault-proxy')
 pkgdesc="Crafted malice for tormenting HTTP clients and servers"
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://pathod.net/"
 license=('custom')
-depends=('python2' 'python2-flask' 'python2-netlib' 'python2-pyasn1')
-source=("http://mitmproxy.org/download/pathod-$pkgver.tar.gz")
-md5sums=('2280f543b923ebf65c5a951826e31593')
+depends=('python2-flask' 'python2-netlib' 'python2-pyasn1')
+source=("http://mitmproxy.org/download/pathod-${pkgver}.tar.gz")
+sha512sums=('68489d9077894f709af30100ff6d7f73686c33acf875761b5ce9f05f0f1a039b2c31a80e223bc09c07761e50c5e903da13da494bd7c013bf2219fa2ee0498d99')
 
 build() {
-  cd "$srcdir/pathod-$pkgver"
+  cd "${srcdir}/pathod-${pkgver}"
   python2 setup.py build
 }
 
 package() {
-  cd "$srcdir/pathod-$pkgver"
+  cd "${srcdir}/pathod-${pkgver}"
 
-  python2 setup.py install --root="$pkgdir/" --optimize=1
+  python2 setup.py install --root="${pkgdir}" --optimize=1
 
   # Docs
-  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/pathod"
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/pathod/LICENSE"
 }

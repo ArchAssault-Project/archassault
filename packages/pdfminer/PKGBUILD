@@ -1,0 +1,31 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=pdfminer
+pkgver=20140328
+pkgrel=1
+pkgdesc="A tool for extracting information from PDF documents"
+arch=('any')
+url='https://github.com/euske/pdfminer/'
+license=('MIT')
+depends=('python2')
+makedepends=('python2-setuptools')
+provides=('python2-pdfminer')
+replaces=('python2-pdfminer')
+conflicts=('python2-pdfminer')
+source=("https://pypi.python.org/packages/source/p/pdfminer/pdfminer-${pkgver}.tar.gz" "LICENSE")
+sha512sums=('8abb2328f7824ee980df0ce42d758c15534e97379ea9213b4aa1d29864d24d73c9e2d6020964e9ab734c0c6f7d1ae70bccbd6605168eaadf83923718a1f4849a'
+            '92b00b825662282d7b8f27755081b4b77632e08627adea8b379a27db8e70ffd8a20ec539f32833fde666f36191e2ae05852bb6c72bc861bf20b4a0f18ef8f5e8')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/pdfminer-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+build(){
+  cd "$srcdir"/pdfminer-$pkgver
+  make cmap
+}
+
+package() {
+  cd "$srcdir"/pdfminer-$pkgver
+  python2 setup.py install "--root=$pkgdir" --optimize=1
+  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

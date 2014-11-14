@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Jonathan Liu <net147@gmail.com>
+pkgname=ddrutility
+pkgver=2.6
+pkgrel=2
+pkgdesc="Set of utilities for use with GNU ddrescue to aid with data recovery"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
+url="http://sourceforge.net/projects/ddrutility/"
+license=('GPL3')
+install="$pkgname.install"
+source=("http://downloads.sourceforge.net/project/$pkgname/$pkgname-$pkgver.tar.gz")
+sha512sums=('7ccc6f51a819a6b9abe5eafea510249b7a38ff0a3e276d4a7d2b2ff41cbf8c20fcb5d5cb1e1784158652775f0f4109b127753ac9861147240db2e6b1d4a415e7')
+
+build() {
+	cd "$srcdir/$pkgname-$pkgver"
+	./configure --prefix=/usr
+	make
+}
+
+package() {
+	cd "$srcdir/$pkgname-$pkgver"
+	make DESTDIR="$pkgdir/" install
+    rmdir "$pkgdir/usr/share/aclocal"
+}

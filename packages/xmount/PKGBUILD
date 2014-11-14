@@ -1,0 +1,28 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: kfgz <kfgz at interia pl>
+
+pkgname=xmount
+pkgver=0.7.2
+pkgrel=3
+pkgdesc="Tool to crossmount between multiple input and output harddisk image files"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+groups=('archassault')
+license=('GPL')
+url="https://www.pinguin.lu"
+depends=('libewf' 'afflib')
+makedepends=('cmake')
+source=(http://files.pinguin.lu/${pkgname}-${pkgver}.tar.gz)
+sha512sums=('e2615a00ed88504f955e46d22cd85d1d87cc5291eac2a6d806d920726f921284edc6066aa49131e0696eda1f8b54c294b908b706a8d0c10d114f10cb9ec03827')
+
+build() {
+  cd "${srcdir}"/${pkgname}-${pkgver}
+  mkdir build && cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release .. #CFLAGS+="-lewf" 
+  make
+}
+
+package() {
+  cd "${srcdir}"/${pkgname}-${pkgver}/build
+  make DESTDIR="${pkgdir}" install
+}
+

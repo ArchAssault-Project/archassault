@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org> <https://archassault.org>
 pkgname=hashpump-git
-pkgver=r31.2819f23
+pkgver=r34.0b3c286
 pkgrel=1
 pkgdesc="A tool to exploit the hash length extension attack in various hashing algorithms"
 arch=('armv6h' 'i686' 'armv7h' 'x86_64')

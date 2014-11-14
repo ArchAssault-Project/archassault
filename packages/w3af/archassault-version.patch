@@ -1,0 +1,15 @@
+--- w3af/w3af/core/controllers/misc/get_w3af_version.py 2014-09-08 17:21:56.661961940 -0300
++++ w3af/w3af/core/controllers/misc/get_w3af_version.py  2014-09-08 17:22:03.000000000 -0300
+@@ -48,9 +48,5 @@
+     
+     return ('w3af - Web Application Attack and Audit Framework\n'
+             'Version: %s\n'
+-            'Revision: %s%s\n'
+-            'Branch: %s\n'
+-            'Local changes: %s\n'
+-            'Author: Andres Riancho and the w3af team.') % (vnumber, commit,
+-                                                            cdate, branch,
+-                                                            dirty)
++            'Distribution: ArchAssault https://archassault.org\n'
++            'Author: Andres Riancho and the w3af team.') % (vnumber)
+

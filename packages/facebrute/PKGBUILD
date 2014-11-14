@@ -2,20 +2,15 @@
 
 pkgname=facebrute
 pkgver=0.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Facebook brute forcer script"
 url="https://github.com/emerinohdz/FaceBrute"
 license=('Artistic2.0')
 arch=('any')
 depends=('python2')
 makedepends=('git')
-source=("${pkgname}::git+https://github.com/emerinohdz/FaceBrute.git")
-sha512sums=('SKIP')
-
-prepare() {
-    cd $pkgname
-    git checkout tags/v${pkgver}
-}
+source=("${pkgname}::git+https://github.com/emerinohdz/FaceBrute.git#tag=v${pkgver}")
+md5sums=('SKIP')
 
 package() {
     cd $pkgname

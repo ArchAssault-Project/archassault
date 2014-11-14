@@ -4,10 +4,11 @@
 _pkgname=hellcat
 pkgname=${_pkgname}-git
 pkgver=r45.8873f05
-pkgrel=2
+pkgrel=3
 pkgdesc="netcat that takes unfair advantage of traffic shaping systems that don't initially ratelimit"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/matildah/hellcat"
+groups=('archassault')
 license=('MIT')
 depends=('glibc')
 makedepends=('clang' 'git')
