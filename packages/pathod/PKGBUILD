@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pathod
-pkgver=0.10
+pkgver=0.11.1
 pkgrel=1
 groups=('archassault' 'archassault-proxy')
 pkgdesc="Crafted malice for tormenting HTTP clients and servers"
@@ -9,7 +9,7 @@ url="http://pathod.net/"
 license=('custom')
 depends=('python2-flask' 'python2-netlib' 'python2-pyasn1')
 source=("http://mitmproxy.org/download/pathod-${pkgver}.tar.gz")
-sha512sums=('68489d9077894f709af30100ff6d7f73686c33acf875761b5ce9f05f0f1a039b2c31a80e223bc09c07761e50c5e903da13da494bd7c013bf2219fa2ee0498d99')
+sha512sums=('e576ae9ef91f4b369af1d87e1cd7f2730296a8c116068beb6c4948cea9b71118bd028e9b3916c718a8196335d1e81467bc4161e7927b6eef0bb87bea4f029301')
 
 build() {
   cd "${srcdir}/pathod-${pkgver}"
@@ -20,7 +20,10 @@ package() {
   cd "${srcdir}/pathod-${pkgver}"
 
   python2 setup.py install --root="${pkgdir}" --optimize=1
-
-  # Docs
   install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/pathod/LICENSE"
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
+   -e "s|#![ ]*/bin/python$|#!/usr/bin/python2|" \
+   -e "s|#![ ]*/usr/local/bin/python$|#!/usr/bin/python2|" \
+   $(find $pkgdir -name '*.py')
 }
