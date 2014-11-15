@@ -2,14 +2,15 @@
 
 _pkgname=utox
 pkgname=${_pkgname}-git
-_pkgver=bca6b02
-pkgver=r920.bca6b02
+_pkgver=4bc314d
+pkgver=r924.4bc314d
 pkgrel=1
 pkgdesc="Lightweight Tox client"
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="https://github.com/notsecure/uTox"
 license=('GPL3')
-depends=('tox-git=1:r2932.26a6bde-1'
+group=('archassault')
+depends=('tox-git=1:r2941.2b3f107-1'
          'openal'
          'v4l-utils'
          'libdbus'
@@ -24,7 +25,7 @@ conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install=${pkgname}.install
 
-source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
+source=("$_pkgname"::"git+${url}.git#commit=${_pkgver}"
         "${_pkgname}.desktop")
 sha512sums=('SKIP'
             'fc2f6da83678f7836134b6934a572900e8faae43f711adeb9327875be8419b92fdfaebd4a35af8048f768f705f822d9abbc10113809261b17a149fc0d7bc1000')
