@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sulley
-pkgver=1.0.2edc1ca
+pkgver=1.0.cb5e62c
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-fuzzer')
