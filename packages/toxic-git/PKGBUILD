@@ -4,30 +4,34 @@
 
 _pkgname=toxic
 pkgname=${_pkgname}-git
-_pkgver=7a7e8a7
-pkgver=r1403.7a7e8a7
+_pkgver=1bd8807
+pkgver=r1406.1bd8807
 pkgrel=1
 pkgdesc="An ncurses-based commandline client for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Tox/toxic"
 license=('GPL3')
-depends=('tox-git=1:r2932.26a6bde-1' 'desktop-file-utils' 'freealut' 'libconfig' 'libnotify')
+group=('archassault')
+depends=('tox-git=1:r2941.2b3f107-1' 'desktop-file-utils' 'freealut' 'libconfig' 'libnotify')
 makedepends=('git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
 
-source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
-        "${_pkgname}.desktop"
+source=("$_pkgname"::"git+${url}.git#commit=${_pkgver}"
         "${_pkgname}.png")
 sha512sums=('SKIP'
-            'b75913ecf0cd43f7dccf4c34fdb291f44d9b916909ac93145f2ccf63aa80d15597657c6c0919e90c6d5cf34ed22ad61abfeb9d5f60ee3afc40ac090bf428d51e'
             '13034bbb3b02beb4ac2bdbf27ab2d42a12e00d526367a4bfeec14f1bd561e8148493d562dd91ec03db963e104bb3ea640187840ba6aa856053a7bc3796b41eb6')
 
 pkgver() {
     cd $_pkgname
     printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+    cd $_pkgname
+    sed -i 's|^Icon=.*$|Icon=toxic|' misc/${_pkgname}.desktop
 }
 
 build() {
@@ -36,7 +40,6 @@ build() {
 }
 
 package() {
-    install -Dm644 ${_pkgname}.desktop "${pkgdir}/usr/share/applications/${_pkgname}.desktop"
     install -Dm644 ${_pkgname}.png "${pkgdir}/usr/share/pixmaps/${_pkgname}.png"
     cd ${_pkgname}/build
     make PREFIX=/usr MANDIR=/usr/share/man DESTDIR="$pkgdir" install
