@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=p0f
-pkgver=3.07b
-pkgrel=3
+pkgver=3.08b
+pkgrel=1
 groups=('archassault' 'archassault-sniffers' 'archassault-fingerprinting')
 pkgdesc="Purely passive TCP/IP traffic fingerprintinging tool "
 url='http://lcamtuf.coredump.cx/p0f3/'
@@ -9,7 +9,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('GPL3')
 depends=('libpcap')
 source=("http://lcamtuf.coredump.cx/p0f3/releases/p0f-$pkgver.tgz" "cflags.patch")
-sha512sums=('79dd0637015055a5bf1f017ea3ae9d5b916c4299df0b364450ffb4a9d736c95a27a2874ac537cfcaec5e588fd507891ee7012d6d41459c6dd68638efc1a708da'
+sha512sums=('283dc76bd29350a46999fb5ef8bc6d3acc28975ca3ecf34e42348b0806b2a97aa1670f334b80ab086a6e09d1e2cdff82f387f9142f95fb42e270ebc55b04f68b'
             'a654849033b9d5982a047ad663c59af5e02278b2f847c2bc50cef2dcd7fa768dca109782679f15a54e8040cd6b3c65a769a98b98b7ee00f12f497ff2ee708e4c')
 
 # Additional tools: p0f-client & p0f-sendsyn
@@ -56,8 +56,6 @@ package() {
   install -m755 p0f.fp ${pkgdir}/etc/p0f
   install -Dm644 docs/COPYING ${pkgdir}/usr/share/licenses/p0f
   install -Dm644 docs/README ${pkgdir}/usr/share/doc/p0f
-
-  # Additional tools.
   if  $_p0ftools ; then
     install -m755 tools/p0f-client ${pkgdir}/usr/bin
     install -m755 tools/p0f-sendsyn ${pkgdir}/usr/bin
