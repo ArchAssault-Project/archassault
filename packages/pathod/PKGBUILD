@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pathod
 pkgver=0.11.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-proxy')
 pkgdesc="Crafted malice for tormenting HTTP clients and servers"
 arch=('any')
@@ -26,4 +26,5 @@ package() {
    -e "s|#![ ]*/bin/python$|#!/usr/bin/python2|" \
    -e "s|#![ ]*/usr/local/bin/python$|#!/usr/bin/python2|" \
    $(find $pkgdir -name '*.py')
+  rm -rf "${pkgdir}"/usr/lib/python2.7/site-packages/netlib
 }
