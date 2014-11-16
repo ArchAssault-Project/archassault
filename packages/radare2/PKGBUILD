@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=radare2
-pkgver=0.9.7
+pkgver=0.9.8
 pkgrel=1
 groups=('archassault' 'archassault-reversing' 'archassault-disassembler' 'archassault-debugging')
 pkgdesc="Open-source tools to disasm, debug, analyze and manipulate binary files"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://radare.org"
 license=('GPL3' 'LGPL3')
-depends=('bash' 'libewf')
+depends=('bash' 'libewf' 'python')
 source=("http://radare.org/get/radare2-$pkgver.tar.xz")
-sha512sums=('b3879bba89aa2f0892f7c45fd9b6e3a655f3dc7a1c01895cd4f56ca6f8e804a5ba63becbbec8edd7ebaec05aab794ad7985abb800ad6b7e6cce3ec4fbcc3b470')
+sha512sums=('8a3b1811c994a520eb5758a11eceffdaa999bb69b5252e45148813a7c36d11e0afd8c83d6f03bc2282c526b630979edc20bed050cb119300dc353ee039a99355')
 
 build() {
 	cd "$srcdir/radare2-$pkgver"
