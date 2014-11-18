@@ -9,7 +9,7 @@ url="http://logbook.pocoo.org/"
 depends=('python')
 makedepends=('python-setuptools')
 license=('BSD')
-arch=('any')
+arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 source=("https://pypi.python.org/packages/source/L/Logbook/Logbook-${pkgver}.tar.gz"
 	'LICENSE')
 sha512sums=('1e1bfae31fa15a7e9c86334049b0944a543a2c8c268433fd3e677bb1588616bdd471437a52dc85fd1219e310f133f1548a5ffe421b176af7c500d893175d5fde'
