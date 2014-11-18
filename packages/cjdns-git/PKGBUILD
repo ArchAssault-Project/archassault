@@ -26,10 +26,6 @@ pkgver() {
     git describe --always | sed 's|-|.|g;s|[^\.]*\.||;s|\.[^\.]*$||'
 }
 
-prepare() {
-    sed -i 's|Restart=on-failure|Restart=always|' ${_pkgname}/contrib/systemd/cjdns.service
-}
-
 build() {
     cd $_pkgname
     unset CFLAGS CPPFLAGS CXXFLAGS
