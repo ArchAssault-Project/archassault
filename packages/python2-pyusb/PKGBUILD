@@ -2,8 +2,8 @@
 # Contributor: Ari Mizrahi <codemunchies@debugsecurity.com>
 
 pkgname=python2-pyusb
-pkgver=1.0.0b1
-pkgrel=2
+pkgver=1.0.0b2
+pkgrel=1
 pkgdesc="A pure Python2 module which provides USB access."
 arch=('any')
 url="https://github.com/walac/pyusb"
@@ -11,7 +11,7 @@ license=('Custom')
 makedepends=('python2-distribute')
 depends=('python2' 'libusb-compat')
 source=("https://github.com/walac/pyusb/archive/${pkgver}.tar.gz")
-sha512sums=('9fe1d6a095e3e144374296e5793050475e4fd7c374afb88f1b33cc622aeb0df0bd1813918ce1307706ecd12daf3790d11a1a8e0e4b13f3ffe48f11109fc0afaf')
+sha512sums=('8a69f6cb3e2876a52c1caa0854e98586cf6d7e01225b132b4d37b92814727ae66398282aedbe5e521c509dc3ee6dfc5799b9f22890be7c7a387eb427921cd73b')
 
 build() {
   cd $srcdir/pyusb-$pkgver
