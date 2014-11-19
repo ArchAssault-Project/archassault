@@ -2,7 +2,7 @@
 # Contributor: M0Rf30
 
 pkgname=i2pd-git
-pkgver=20141117.r1059
+pkgver=20141118.r1063
 pkgrel=1
 pkgdesc="Simplified C++ implementation of I2P client"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
