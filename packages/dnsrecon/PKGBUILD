@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=dnsrecon
 pkgver=0.8.8
-pkgrel=4
+pkgrel=5
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="Python script for enumeration of hosts, subdomains and emails from a given domain using google."
 url="https://github.com/darkoperator/dnsrecon"
@@ -23,12 +23,12 @@ package() {
   cd "$srcdir"
 
   install -dm755 "$pkgdir/usr/share"
-  install -dm755 "$pkgdir/usr/share/license"
+  install -dm755 "$pkgdir/usr/share/licenses"
   install -dm755 "$pkgdir/usr/bin"
 
   cp -a * "$pkgdir/usr/share/dnsrecon"
 
-cat > "$pkgdir/usr/share/license/$pkgname" << EOF
+cat > "$pkgdir/usr/share/licenses/$pkgname" << EOF
 DNSRecon
 
 Copyright (C) 2014  Carlos Perez
