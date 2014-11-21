@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org> 
 pkgname=armitage
-pkgver=140818
+pkgver=141120
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A graphical cyber attack management tool for Metasploit"
@@ -12,7 +12,7 @@ install=armitage.install
 source=("http://www.fastandeasyhacking.com/download/armitage$pkgver.tgz"
         'armitage.install'
         'armitage.desktop')
-sha512sums=('bf4730c610f19697135c30bb78513603ee2330c798db205a5f1e4c421c298338a2d05ac56899cf57c4c39a506da9da93a998821265a58711f3da1e8770e8bd35'
+sha512sums=('06e4a95f02f354545ebeff3258a1fbd8bb4d787a90548cd35fcf85c312ada6460d364629495d46f91ee46d24644665e8b37462a36d99888b682efa3cd04e663b'
             'c986d01c29de2b8a2b4541433063cbce4ec82a55508bcf74877614ccc9809a8751462b2467aba296a679ff146ba1e6fe60c405cfa18cb6705bc2f6fd595dd998'
             '514baf2b71846878fdbf230eb87ff47f73dbc43bc1d3b61ee76bb3fb6aa25895139bb291c8bb99bd010527a8e991080236f2031221b7e360d9a8d81614ccff97')
 
