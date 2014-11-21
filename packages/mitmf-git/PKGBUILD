@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=r134.fb45e40
+pkgver=r139.1c3e055
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
 arch=('any')
 url='https://github.com/byt3bl33d3r/MITMf'
 license=('GPL3')
-depends=('python2-twisted' 'python2-configobj' 'python2-twisted' 'python2-msgpack' 'python2-requests' 'scapy' 'capstone' 'python2-pefile' 'python2-dnspython')
+depends=('python2-configobj' 'python2-twisted' 'python2-nfqueue' 'python2-msgpack' 'python2-requests' 'scapy' 'capstone' 'python2-pefile' 'python2-dnspython')
 makedepends=('git')
 provides=('mitmf')
 replaces=('mitmf')
