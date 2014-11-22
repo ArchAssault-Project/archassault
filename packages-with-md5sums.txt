@@ -42,7 +42,6 @@ cdpsnarf
 cecster-git
 cewl
 chaosmap
-chaosreader
 checkpwd
 chownat
 chromedriver
