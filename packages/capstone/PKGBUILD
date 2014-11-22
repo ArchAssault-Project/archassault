@@ -1,22 +1,28 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=2.1.2
-pkgrel=3
+pkgver=3.0
+pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://www.capstone-engine.org/index.html'
 license=('GPL')
 depends=('glibc')
-makedepends=('python2')
-source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "libdir.patch")
-sha512sums=('0367122a6f9c529b3beede0f3edb153f66a77eac8d782a43053dd89ec456c77104aebf9eb9277505137bef68aabb04f0bd9f6026407afcdb91f94f69600671e0'
-            'f8fe6cfbb04ac69a6a621ada9801045585744eebcfd859206eec59c09e907705d9346090481917dd8ca0470f3ddbf2243c136e7b9a0d5e36197435b5a8d94db1')
+makedepends=('python2-setuptools' 'python-setuptools')
+provides=('python2-capstone' 'python-capstone')
+source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "python.patch")
+sha512sums=('8369fd5b768886807928ea7afe0518435fc97cf7a6b148f148588f4dd031673c544f26d042f5914b3fff50c972c33ffc177a3d813de3afb2ace799a0e6f09720'
+            'debccae5eb6d38a2cbb54076feb52c6c348e50a10091d6579f669ba3c27317489a6bb47f9e54cb96f0803642bf62ae23947c2f9a1990935ded2301ad3be03514')
 
 prepare(){
   cd "$srcdir/capstone-$pkgver"
-  patch -i $srcdir/libdir.patch
-  cd bindings/python
+  #patch -i $srcdir/libdir.patch
+  cd $srcdir/$pkgname-$pkgver/bindings/python
+  sed -i 's|^python|python2|' Makefile
+  patch -i $srcdir/python.patch
+  cd $srcdir/$pkgname-$pkgver/bindings/java
+  sed -i 's|python|python2|' Makefile
+  cd $srcdir/$pkgname-$pkgver/bindings/ocaml
   sed -i 's|python|python2|' Makefile
 }
 
@@ -24,15 +30,23 @@ prepare(){
 build() {
   cd "$srcdir/capstone-$pkgver"
   make
-  cd bindings/python
-  make  
+  cd $srcdir/$pkgname-$pkgver/bindings/python
+  make
+  #cd $srcdir/$pkgname-$pkgver/bindings/java
+  #make
+  #cd $srcdir/$pkgname-$pkgver/bindings/ocaml
+  #make  
 }
 
 package() {
   cd "$srcdir/capstone-$pkgver"
   make DESTDIR="$pkgdir" install
   cd bindings/python
-  #fix python2 bindings
-  sed -i 's|'setup.py\ install'|'setup.py\ install\ --root=\"$pkgdir\"\ --optimize=1'|' Makefile
+  # install py2 bindings
+  sed -i 's|--root=|--root='"$pkgdir"'|' Makefile
+  msg "Building python2 bindings"
   make DESTDIR="$pkgdir" install
+  # install py3 bindings
+  msg "Building python bindings"
+  make DESTDIR="$pkgdir" install3
 }
