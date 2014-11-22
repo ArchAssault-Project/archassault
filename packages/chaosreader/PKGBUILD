@@ -14,7 +14,7 @@ source=("http://softlayer.dl.sourceforge.net/sourceforge/chaosreader/$filename")
 noextract=($filename)
 sha512sums=("0ddba8d176be2d26004070dfa1e521921cdc84ac4e1652b889e7962d5beacbf752232a83dd4b7575e770b4d7ec40ea2afca4f76cacf53dbb590a46a0aa66cdac")
 
-build() {
+package() {
   cd $srcdir
   install -m755 -D $filename $pkgdir/usr/bin/$pkgname
 }
