@@ -6,8 +6,6 @@ allthevhosts
 archassault-firefox-search
 archassault-keyring
 arduino
-arduino
-arduino
 arpwner
 asp-audit
 automake-1.11
@@ -47,7 +45,6 @@ chaosmap
 chaosreader
 checkpwd
 chownat
-chromedriver
 chromedriver
 cirt-fuzzer
 cisco-auditing-tool
@@ -192,11 +189,8 @@ jbrofuzz
 jbrute
 jd-gui
 jdk
-jdk
-jdk
 john
 joomscan
-jre
 jre
 js-beautify
 jsql
@@ -245,7 +239,6 @@ mfcuk
 mfoc
 mibble
 microchip-mplabx-bin
-microchip-mplabx-bin
 middler
 minimysqlator
 miranda-upnp
@@ -280,7 +273,6 @@ nomorexor
 notspikefile
 nsec3walker
 nvidia-304xx-archassault
-nvidia-304xx-archassault
 oat
 obexstress
 obkey
@@ -295,7 +287,6 @@ osintstalker
 osm-gps-map
 osueta-git
 owabf
-owasp-mantra-firefox
 owasp-mantra-firefox
 pack
 packerid
