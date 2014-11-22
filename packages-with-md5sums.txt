@@ -1,4 +1,3 @@
-admsnmp
 air
 airflood
 allthevhosts
