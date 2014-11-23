@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashid-git
-pkgver=r241.46e7731
+pkgver=r243.9d19905
 pkgrel=1
 pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
 url="https://github.com/psypanda/hashID"
@@ -10,6 +10,7 @@ groups=('archassault')
 depends=('python')
 makedepends=('git')
 provides=('hashid')
+changelog=$pkgname.changelog
 conflicts=('hashid')
 replaces=('hashid')
 source=(hashid-git::git+https://github.com/psypanda/hashID.git)
