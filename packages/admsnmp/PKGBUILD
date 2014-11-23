@@ -4,6 +4,7 @@ pkgver=0.1
 pkgrel=3
 groups=('archassault' 'archassault-scanners')
 pkgdesc='ADM SNMP audit scanner.'
+url=('http://packetstorm.wowhacker.com/groups/ADM/')
 license=('GPL')
 depends=('glibc')
 makedepends=('gcc')
