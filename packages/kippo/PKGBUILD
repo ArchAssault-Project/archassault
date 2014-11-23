@@ -7,7 +7,7 @@ arch=('any')
 url='http://code.google.com/p/kippo/'
 license=('GPL')
 groups=('archassault' 'archassault-defensive')
-depends=('python2' 'twisted' 'python2-crypto' 'python2-pyasn1')
+depends=('twisted' 'python2-crypto' 'python2-pyasn1')
 source=("https://github.com/desaster/kippo/archive/v$pkgver.tar.gz"
 				'kippo.desktop')
 sha512sums=('0e17c410ecb8e44ba3862f0bd6c2773d6fa768750d7917ba7f5fbfdec8ddfa63fbde0e0190bcd5361a6c5ea0bcb2017e24593c4181b5cb915a605723bce07a26'
