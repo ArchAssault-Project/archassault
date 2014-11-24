@@ -5,7 +5,6 @@ arduino
 arpwner
 asp-audit
 automake-1.11
-autopsy
 auto-xor-decryptor
 batctl
 bbqsql
@@ -248,7 +247,6 @@ multimac
 mutator
 nacker-git
 nbtenum
-nbtool
 neighbor-cache-fingerprinter-git
 netcommander
 netglub
