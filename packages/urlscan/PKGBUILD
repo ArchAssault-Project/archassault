@@ -2,30 +2,32 @@
 # Contributor: Prurigro
 # Contributor: Scott Hansen (firecat53) firecat4153 at gmail
 
-pkgname=urlscan
-_pkgname=${pkgname}-git
-pkgver=20141110.r18
+pkgname=urlscan-git
+pkgver=20141123.r20
 pkgrel=1
 pkgdesc="Interactively browse and open URLs contained in HTML passed from stdin"
-url="https://github.com/firecat53/${_pkgname}"
+url="https://github.com/firecat53/${pkgname}"
 license=('GPL')
 arch=('any')
 groups=('archassault')
 depends=('python-urwid')
 makedepends=('git')
-conflicts=("${_pkgname}")
+conflicts=("urlscan")
+replaces=("urlscan")
+provides=('urlscan')
 
-source=("git://github.com/firecat53/${_pkgname}.git"
+source=("git://github.com/firecat53/${pkgname}.git"
         "${pkgname}.1")
-sha512sums=('SKIP' '33f2732ab9a3fb51a4df2126ef24d59e0be3e7523dc56fc742cff5ef0a21480f0cc6c119d78a7f0ef7450ce0c75b41683f0316fd85094f801553b47563908b62')
+sha512sums=('SKIP'
+            '33f2732ab9a3fb51a4df2126ef24d59e0be3e7523dc56fc742cff5ef0a21480f0cc6c119d78a7f0ef7450ce0c75b41683f0316fd85094f801553b47563908b62')
 
 pkgver() {
-    cd $_pkgname
+    cd ${pkgname}
     printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
-    cd $_pkgname
-    ./setup.py install --root="$pkgdir" --optimize=1
+    cd ${pkgname}
+    ./setup.py install --root="${pkgdir}" --optimize=1
 }
 
