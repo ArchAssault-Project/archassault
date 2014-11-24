@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname='recon-ng'
-pkgver=883.5ea082c
+pkgver=884.717c7c6
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc='A full-featured Web Reconnaissance framework written in Python.'
 arch=('any')
 url='https://bitbucket.org/LaNMaSteR53/recon-ng'
 license=('GPL3')
-depends=('python2' 'python2-slowaes' 'python2-dnspython' 'python2-jsonrpclib')
+depends=('python2' 'python2-lxml' 'python2-slowaes' 'python2-dnspython' 'python2-jsonrpclib')
 makedepends=('git')
 source=("git+https://bitbucket.org/LaNMaSteR53/recon-ng.git"
         "recon-ng.sh"
