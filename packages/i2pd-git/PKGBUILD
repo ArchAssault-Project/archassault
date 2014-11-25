@@ -1,38 +1,42 @@
 # Maintainer: ArchAssault <team@archassault.org>
-# Contributor: M0Rf30
 
-pkgname=i2pd-git
-pkgver=20141124.r1088
+_pkgname=i2pd
+pkgname=${_pkgname}-git
+pkgver=20141124.r1091
 pkgrel=1
-pkgdesc="Simplified C++ implementation of I2P client"
+pkgdesc="I2P router written in C++"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="https://github.com/PrivacySolutions/i2pd"
 license=('GPL2')
 groups=('archassault')
 depends=('crypto++' 'boost-libs' 'systemd')
 makedepends=('git' 'boost')
-source=('i2pd::git+https://github.com/PrivacySolutions/i2pd.git'
-	'i2pd.install' 'i2pd.service' 'i2pd.tmpfiles.conf')
-install=i2pd.install
+backup=("etc/default/${_pkgname}.conf")
+install="${pkgname}.install"
+
+source=("git+${url}.git"
+        "${_pkgname}.service"
+        "${_pkgname}.tmpfiles.conf"
+        "${_pkgname}.conf")
 sha512sums=('SKIP'
-            '3ef1824fa22f201afdf31a7563fd6de357bb21556fc91db8b2703b4e86d5d810d36c81fb2b9eab63c067b701500616694cf644a1cb317756423a71ca5a488543'
-            '7b917632347b738dcb9de576a5bcae6753f5569720f7cc4b7afb1b1c602429d9ab02e284ceef137300e0dc5b9940b2ed5dfd84c2b7dc5199bccf1e4b25936a15'
-            'a83bb0290498dc7c096cf08553aa4dbe8d43133e98b554856df4eafd5cddeb274a61a6ab0fbbcab4b2aa5b16a4934ffe512d6f331135970933b17c69f3b5efdc')
+            'a4b63db55f949e9e687b59c4e559478bb4c70c99f278c498de85013cb64cc2dcdd8d03c6e95b612d55b11bef78156a62b1559deae84570ec6fcdac07b92c7355'
+            '3b8cec12b7a027f3933a5b5a57e046cfa702d861c514cb9bad9c583152beda70d48fc1f4b4f2954554b28342b1975de77a83e74600a274a6396ff641b5ae61e5'
+            '2e816538c766ae15ee405ac751c64e7512765e81f7e7b56dab1c96fe8efd2969c688e5545d2672c97d4f09612089762ca45dd27cb9676aca512cd7b22448e4af')
 
 pkgver() {
-    cd i2pd
+    cd $_pkgname
     printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 build() {
-  cd i2pd
-  make
+    cd $_pkgname
+    make
 }
 
 package(){
-  cd i2pd
-  install -Dm0755 i2p "${pkgdir}"/usr/bin/i2p
-  install -Dm0644 "${srcdir}"/i2pd.service "${pkgdir}"/usr/lib/systemd/system/i2pd.service
-  install -Dm0644 "${srcdir}"/i2pd.tmpfiles.conf "${pkgdir}/usr/lib/tmpfiles.d/i2pd.conf"
+    install -Dm755 ${_pkgname}/i2p "$pkgdir"/usr/bin/i2p
+    install -Dm644 ${_pkgname}.service "$pkgdir"/usr/lib/systemd/system/${_pkgname}.service
+    install -Dm644 ${_pkgname}.tmpfiles.conf "$pkgdir"/usr/lib/tmpfiles.d/${_pkgname}.conf
+    install -Dm644 ${_pkgname}.conf "$pkgdir"/etc/default/${_pkgname}.conf
 }
 
