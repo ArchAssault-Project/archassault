@@ -1,34 +1,29 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=aiengine
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking')
 pkgdesc="A packet inspection engine with capabilities of learning without any human intervention."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://bitbucket.org/camp0/aiengine"
 license=('GPL3')
-if [[ $CARCH == 'x86_64' ]]; then
-     makedepends=('boost' 'python2' 'gcc-libs-multilib')
-else 
-     makedepends=('boost' 'python2' 'gcc-libs')
-fi
+makedepends=('boost' 'gcc-libs')
 depends=('pcre' 'libpcap' 'boost-libs' 'python2')
 source=("https://bitbucket.org/camp0/aiengine/downloads/aiengine-$pkgver.tar.gz")
 sha512sums=('24c5cc2782229c6597fff07ffcb57945b362b7af20e762f23cb30bdcedebd80c4d9931ab63b5a47d30f61a813c2833b8955472fd97ab0689f6e7b195aaf150a5')
 
 prepare(){
-   grep -iRl 'python' "$srcdir/aiengine-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+   grep -iRl 'python' "${srcdir}/aiengine-${pkgver}" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
 }  
 
 build() {
-  cd $srcdir/aiengine-$pkgver
+  cd "aiengine-${pkgver}"
   ./autogen.sh
-  export PYTHON=/usr/bin/python2
-  ./configure --prefix=/usr
+  PYTHON=/usr/bin/python2 PYTHON_VERSION=2.7 ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd $srcdir/aiengine-$pkgver
-  make DESTDIR=$pkgdir install
+  cd "aiengine-${pkgver}"
+  make DESTDIR="${pkgdir}" install
 }
