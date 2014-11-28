@@ -1,0 +1,100 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Kevin MacMartin <prurigro@gmail.com>
+# Contributor: PyroPeter <googlemail.com@abi1789>
+# Contributor: darkapex <me@jailuthra.in>
+# Contributor: tty0 <vt.tty0[d0t]gmail.com>
+
+_pkgname=arduino
+pkgname=${_pkgname}-beta
+pkgver=1.5.8
+pkgrel=1
+_gcc_arm_ver='4.8.3-2014q1'
+_avr_toolchain_ver='4.8.1'
+groups=('archassault' 'archassault-hardware')
+pkgdesc="Open-source electronics prototyping platform"
+arch=('i686' 'x86_64')
+url="http://arduino.cc"
+options=('!strip' 'staticlibs')
+license=('GPL')
+depends=('avr-libc' 'libusb-compat' 'java-runtime' 'java-rxtx' 'desktop-file-utils' 'shared-mime-info')
+makedepends=('java-environment' 'avr-gcc' 'apache-ant' 'git' 'zip')
+install="${pkgname}.install"
+conflicts=("$_pkgname")
+replaces=("$_pkgname")
+provides=("${_pkgname}=${pkgver}")
+
+_source=("${_pkgname}::git+https://github.com/arduino/Arduino.git#tag=tags/${pkgver}"
+         "${_pkgname}.desktop"
+         "${_pkgname}.mime.xml")
+_sha512sums=('SKIP'
+             '1f4ce6c4dcd868a805f1270d91ae80e933a7aef576daa4ae14ab21c1249548f36c77ddf5f7fc2faa88517b0503511dbff0c738d2c02f312e2eb77eaa6c5c6109'
+             '910f1f5f9c9861a0b010d25e9c3579c78cb2f0b31c94fc79ed4e55b0bc65535d8ce4c54fb5cdf8a90ee589c7f1bb432bb62136ca48be1829fc001fe5acc0f0f3')
+if [ "$CARCH" = "x86_64" ]; then
+    _arch="64"
+    _sha512sums+=('da6075fe6727df81d2ded83499fa1dcd480f3a0636f683e0cfd1cb970fda1af58844e62c85536327f966d55b0745f4d017532fa8da511fb5f0de2011fa5917da'
+                  '9956459fbadf7c0021c0300ef6a7bd878081dc655de972b8e4557af9040d08be7a0c710c57b0b702d3899724752d74c45bad27a4292cf37ae3fb42a1bdaec2c5')
+elif [ "$CARCH" = "i686" ]; then
+    _arch="32"
+    _sha512sums+=('d461f4dbda2995d96ba1a271b9219000e382dd4aea1a5aa6b0eb468f34caa92bb7f09d94206e6b69552b096c848d8f465184950cad2433db7749f4945ce33fd9'
+                  '1e40d5f2de0bdc68cb2b526713e32a2250b71d6cb78e71ce88e2d39643111f32facdc0033bf16c25cb8399e4a4772d6f04087bd715cfff6efb9e3faf5dc8e94e')
+fi
+_source+=("http://downloads.arduino.cc/gcc-arm-none-eabi-${_gcc_arm_ver}-linux${_arch}.tar.gz"
+          "http://downloads.arduino.cc/avr-toolchain-linux${_arch}-gcc-${_avr_toolchain_ver}.zip")
+source=(${_source[@]})
+sha512sums=(${_sha512sums[@]})
+
+prepare(){
+    # remove the username/password check for updating reference documentation
+    sed -i '/^print "username: "/d;/^print "password: "/d;
+            s|--silent --show-error -u \$user:\$pass|--silent --show-error|' \
+        ${_pkgname}/build/create_reference.pl
+
+    # modify the launcher script to use absolute paths for referenced files
+    sed -i 's|#!/bin/sh|#!/usr/bin/env bash|;
+            s|processing.app.Base "$@"|processing.app.Base "${args[@]}"|;
+            s%cd "$APPDIR"%args=()\nfor arg in "$@"; do\n    [[ "$arg" = -* ]] \\\n        \&\& args+=("$arg") \\\n        || args+=("$(realpath "$arg")")\ndone\n\ncd "$APPDIR"%' \
+        ${_pkgname}/build/linux/dist/${_pkgname}
+
+    # link downloads to their correct locations
+    ln -s "$srcdir"/gcc-arm-none-eabi-${_gcc_arm_ver}-linux${_arch}.tar.gz ${_pkgname}/build/linux/dist/gcc-arm-none-eabi-${_gcc_arm_ver}-linux${_arch}.tar.gz
+    ln -s "$srcdir"/avr-toolchain-linux${_arch}-gcc-${_avr_toolchain_ver}.zip ${_pkgname}/build/linux/avr-toolchain-linux${_arch}-gcc-${_avr_toolchain_ver}.zip
+}
+
+build(){
+    cd ${_pkgname}/build
+
+    # pull updated reference documentation from the website
+    ./fetch.sh
+
+    # build and assemble the distribution package for linux using $pkgver as the version
+    unset _JAVA_OPTIONS
+    ant dist <<< $pkgver
+}
+
+package() {
+    # create any directories we might need
+    install -d "$pkgdir"/usr/bin "$pkgdir"/usr/share/doc/${_pkgname} "$pkgdir"/opt/${_pkgname}
+
+    # install the xdg-desktop related files
+    install -Dm644 ${_pkgname}.desktop "$pkgdir"/usr/share/applications/${_pkgname}.desktop
+    install -Dm644 ${_pkgname}.mime.xml "$pkgdir"/usr/share/mime/packages/${_pkgname}.xml
+    install -Dm644 ${_pkgname}/build/shared/lib/arduino_icon.ico "$pkgdir"/usr/share/pixmaps/${_pkgname}.ico
+
+    # extract our distribution package in /opt/arduino
+    tar zxf ${_pkgname}/build/linux/${_pkgname}-${pkgver}-linux*.tgz \
+        --no-same-owner \
+        --preserve-permissions \
+        --strip-components=1 \
+        -C "$pkgdir"/opt/${_pkgname}
+
+    # create a link to the launch script
+    ln -s /opt/${_pkgname}/${_pkgname} "$pkgdir"/usr/bin/${_pkgname}
+
+    # use system java-rxtx instead of the included one, which lacks permissions
+    ln -sf /usr/lib/librxtxSerial.so "$pkgdir"/opt/arduino/lib/librxtxSerial.so
+    ln -sf /usr/lib/librxtxSerial.so "$pkgdir"/opt/arduino/lib/librxtxSerial64.so
+    ln -sf /usr/share/java/rxtx/RXTXcomm.jar "$pkgdir"/opt/arduino/lib/RXTXcomm.jar
+
+    # create a link to the documentation in /usr/share/doc/arduino
+    ln -s /opt/${_pkgname}/reference "$pkgdir"/usr/share/doc/${_pkgname}/
+}
