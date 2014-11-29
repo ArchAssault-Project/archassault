@@ -1,13 +1,12 @@
 post_upgrade() {
-    # Create tmpfiles: "d /var/lib/i2pd 0700 i2p i2p -"
+    # Create /var/lib/i2pd if it doesn't exist
     systemd-tmpfiles --create i2pd.conf
 }
 
 post_install() {
     # Create i2p user/group if it doesn't already exist
-    if [[ ! $(getent passwd i2p) ]]; then
-        useradd -d /var/lib/i2pd -s /usr/bin/nologin i2p
-    fi
+    [[ ! $(getent passwd i2p) ]] \
+        && useradd -d /var/lib/i2pd -s /usr/bin/nologin i2p
 
     # Run the upgrade commands
     post_upgrade
@@ -15,12 +14,6 @@ post_install() {
 
 pre_remove() {
     # Remove the i2p user/group if it already exists
-    if [[ $(getent passwd i2p) ]]; then
-        userdel i2p
-    fi
-
-    # Remove the config directory if it's empty
-    if [[ $(ls -A /var/lib/i2pd) ]]; then
-        systemd-tmpfiles --remove i2pd.conf
-    fi
+    [[ $(getent passwd i2p) ]] \
+        && userdel i2p
 }
