@@ -2,7 +2,7 @@
 
 _pkgname=i2pd
 pkgname=${_pkgname}-git
-pkgver=20141124.r1091
+pkgver=20141128.r1116
 pkgrel=1
 pkgdesc="I2P router written in C++"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
@@ -20,7 +20,7 @@ source=("git+${url}.git"
         "${_pkgname}.conf")
 sha512sums=('SKIP'
             'a4b63db55f949e9e687b59c4e559478bb4c70c99f278c498de85013cb64cc2dcdd8d03c6e95b612d55b11bef78156a62b1559deae84570ec6fcdac07b92c7355'
-            '3b8cec12b7a027f3933a5b5a57e046cfa702d861c514cb9bad9c583152beda70d48fc1f4b4f2954554b28342b1975de77a83e74600a274a6396ff641b5ae61e5'
+            'e86ba75e5181b1e20637bbb19c827664a1746cbb387fa5d57e10d9648143a5b684eb88ec877c721033ccf5a6578ed9c5dbb9ef2a9ea79b5fbe4ddf32dfd6640d'
             '2e816538c766ae15ee405ac751c64e7512765e81f7e7b56dab1c96fe8efd2969c688e5545d2672c97d4f09612089762ca45dd27cb9676aca512cd7b22448e4af')
 
 pkgver() {
