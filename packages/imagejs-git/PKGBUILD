@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=imagejs-git
-pkgver=20141121.r44
+pkgver=20141130.r46
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="A Small tool to package javascript into a valid image file."
