@@ -2,7 +2,7 @@
 # Contributor: Prurigro
 
 pkgname=nishang
-pkgver=0.3.7
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="A PowerShell framework and collection of scripts and payloads for offensive security and pentesting"
 url="https://github.com/samratashok/${pkgname}"
@@ -11,7 +11,7 @@ arch=('any')
 groups=('archassault' 'archassault-windows')
 source=("https://github.com/samratashok/${pkgname}/archive/v${pkgver}.zip"
         "${pkgname}.7")
-sha512sums=('42f388b06bc6eac0e7591a69fde77e08f4d340744f0316604d0c92292faeadd7aceb656c73a29d140093947f6e7d614c33c8cb5c3daee33f49b1c330366da00f'
+sha512sums=('c3f282107945659c97aebf61a390d1d7df380cf209314ca34090b4599a44b4e307b436577db41fdaca989bce20f22832ba69aeeb5d6e4afafc65680dfb8b2771'
             'd36d8227a0885c588212fc8457baca7b8ae99bae0a8a3ce7b847dd8ccbc663ac74fd1dff226e5492fa50504b5e61ca9bd3523a1b6e31719223a1f674f938eb7c')
 
 package() {
