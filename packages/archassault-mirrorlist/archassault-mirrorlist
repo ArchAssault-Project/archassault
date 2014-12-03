@@ -46,9 +46,8 @@
 #Server = http://www.mirrorservice.org/sites/repo.archassault.org/archassault/$repo/os/$arch
 
 ## United States
-#Server = http://repo.archassault.org/archassault/$repo/os/$arch
 #Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
-#Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
+Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.keystealth.org/archassault/$repo/os/$arch
 #Server = http://mirror.nyi.net/pub/archassault/$repo/os/$arch
 #Server = http://mirror.pw/archassault/$repo/os/$arch
