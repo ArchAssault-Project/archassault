@@ -1,16 +1,20 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2014-10-21
+## Generated on 2014-12-03
 ##
 
 ## Australia
 #Server = http://archassault.mirror.uber.com.au/$repo/os/$arch
+
+## Brazil
+#Server = http://www.lasca.ic.unicamp.br/pub/archassault/$repo/os/$arch
 
 ## Denmark
 #Server = http://mirrors.dotsrc.org/archassault/$repo/os/$arch
 
 ## Germany
 #Server = http://mirror3.layerjet.com/archassault/$repo/os/$arch
+#Server = http://ftp.halifax.rwth-aachen.de/archassault/$repo/os/$arch
 
 ## Ireland
 #Server = http://ftp.heanet.ie/pub/archassault/$repo/os/$arch
@@ -20,6 +24,7 @@
 
 ## Netherlands
 #Server = http://mirror.i3d.net/pub/archassault/$repo/os/$arch
+#Server = http://ftp.nluug.nl/os/Linux/distr/archassault/$repo/os/$arch
 
 ## Norway
 #Server = http://archassault-mirror.greyhat.no/$repo/os/$arch
@@ -32,8 +37,8 @@
 #Server = http://mirror.debugsecurity.com/archassault/$repo/os/$arch
 
 ## Sweden
-#Server = http://mirror.zetup.net/archassault/$repo/os/$arch
 #Server = http://ftp.acc.umu.se/mirror/archassault/$repo/os/$arch
+#Server = http://mirror.zetup.net/archassault/$repo/os/$arch
 
 ## United Kingdom
 #Server = http://mirror.bytemark.co.uk/archassault/$repo/os/$arch
@@ -43,11 +48,12 @@
 ## United States
 #Server = http://repo.archassault.org/archassault/$repo/os/$arch
 #Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
-Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
+#Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.keystealth.org/archassault/$repo/os/$arch
 #Server = http://mirror.nyi.net/pub/archassault/$repo/os/$arch
+#Server = http://mirror.pw/archassault/$repo/os/$arch
 #Server = http://mirror.team-cymru.org/archassault/$repo/os/$arch
-Server = http://mirror.umd.edu/archassault/$repo/os/$arch
+#Server = http://mirror.umd.edu/archassault/$repo/os/$arch
 #Server = http://mirrors.arsc.edu/archassault/$repo/os/$arch
 #Server = http://noodle.portalus.net/ArchAssault/$repo/os/$arch
 #Server = http://mirrors.syringanetworks.net/archassault/$repo/os/$arch
