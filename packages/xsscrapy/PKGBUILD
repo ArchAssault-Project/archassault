@@ -22,9 +22,6 @@ sha512sums=('SKIP'
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
-  cd ${pkgname}
-  git submodule init
-  git submodule update
 }
 
 pkgver() {
