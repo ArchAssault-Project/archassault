@@ -1,9 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
-_pkgname=fimap
-pkgname=${_pkgname}-svn
+pkgname=fimap-svn
 pkgver=20121015.r332
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-fuzzer' 'archassault-exploit')
 pkgdesc="A little tool for local and remote file inclusion auditing and exploitation"
 arch=('any')
@@ -11,19 +10,22 @@ url='http://code.google.com/p/fimap/'
 license=('GPL2')
 depends=('bash' 'python2' 'python-urllib3' 'python2-httplib2')
 makedepends=('subversion')
-source=("${_pkgname}::svn+http://${_pkgname}.googlecode.com/svn/trunk/")
+replaces=('fimap')
+conflicts=('fimap')
+provides=('fimap')
+source=("${pkgname}::svn+http://fimap.googlecode.com/svn/trunk/")
 sha512sums=('SKIP')
 
 pkgver() {
-    cd $_pkgname
-    printf "%s.r%s" $(svn info | grep "Last Changed Date" | sed 's|Last Changed Date: ||;s|\ .*||;s|-||g') $(svn info | grep Revision: | cut -c11-)
+  cd "${pkgname}"
+  printf "%s.r%s" $(svn info | grep "Last Changed Date" | sed 's|Last Changed Date: ||;s|\ .*||;s|-||g') $(svn info | grep Revision: | cut -c11-)
 }
 
 package() {
-    cd ${_pkgname}/src
-    find . -type f -exec install -D '{}' "$pkgdir"/usr/share/${_pkgname}/'{}' \;
-    install -d "$pkgdir"/usr/bin
-    echo -e '#!/usr/bin/env bash\n\npython2 /usr/share/fimap/fimap.py "$@"' \
-        > "$pkgdir"/usr/bin/${_pkgname}
-    chmod a+x "$pkgdir"/usr/bin/${_pkgname}
+  cd "${pkgname}"
+  find . -type f -exec install -D '{}' "${pkgdir}"/usr/share/"${pkgname}"/'{}' \;
+  install -d "${pkgdir}"/usr/bin
+  echo -e '#!/usr/bin/env bash\n\npython2 /usr/share/fimap/fimap.py "$@"' \
+    > "${pkgdir}"/usr/bin/fimap
+  chmod a+x "$pkgdir"/usr/bin/fimap
 }
