@@ -15,7 +15,7 @@ options=('staticlibs' '!strip')
 provides=('xsscrapy')
 conflicts=('xsscrapy')
 replaces=('xsscrapy')
-source=("${pkgname}::git+https://github.com/DanMcInerney/${pkgname}.git" 'LICENSE')
+source=("${pkgname}::git+https://github.com/DanMcInerney/xsscrapy.git" 'LICENSE')
 sha512sums=('SKIP'
             'e1a31da9906b07891085900f3e4b17b1b8a5274b5f12068f8dd7ff80fe8682dc9011c3c26b0e2716092ebf938bbc3d6dc6891036009a8122d34dfb1536ea1093')
 
