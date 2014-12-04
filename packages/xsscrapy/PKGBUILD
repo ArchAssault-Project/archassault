@@ -1,4 +1,5 @@
 # Maintainer: ArchAssault <team@archassault.org>
+# Contributor: Alfredo Palhares <masterkorp@masterkorp.net>
 
 pkgname=xsscrapy
 pkgver=20141113.r109.0070a91
@@ -8,7 +9,11 @@ arch=('any')
 groups=('archassault')
 url="https://github.com/DanMcInerney/xsscrapy"
 license=('BSD')
-depends=('python2-requests' 'scrapy')
+depends=(
+  'python2-beautifulsoup3'
+  'python2-requests'
+  'scrapy'
+)
 makedepends=('git')
 options=('staticlibs' '!strip')
 source=("${pkgname}::git+https://github.com/DanMcInerney/${pkgname}.git"
@@ -18,31 +23,32 @@ sha512sums=('SKIP'
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
-  cd ${pkgname}
-  git submodule init
-  git submodule update
 }
 
 pkgver() {
-    cd "${pkgname}"
-    printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-    cd "${pkgname}"
-    install -dm755 "${pkgdir}"/usr/share/${pkgname}
-    cp -a --no-preserve=ownership tests "${pkgdir}"/usr/share/${pkgname}/
-    cp -a --no-preserve=ownership xsscrapy "${pkgdir}"/usr/share/${pkgname}/
-    install -Dm644 README.md "${pkgdir}"/usr/share/${pkgname}/README.md
-    install -Dm644 scrapy.cfg "${pkgdir}"/usr/share/${pkgname}/scrapy.cfg
-    install -Dm755 xsscrapy.py "${pkgdir}"/usr/share/${pkgname}/xsscrapy.py
-    install -Dm644 "${srcdir}"/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-    ##easy xsscrapy script
-    install -dm755 "${pkgdir}"/usr/bin/
-    cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
+  cd "${pkgname}"
+
+  install -dm755 "${pkgdir}"/usr/share/${pkgname}
+  cp -a --no-preserve=ownership tests "${pkgdir}"/usr/share/${pkgname}/
+  cp -a --no-preserve=ownership xsscrapy "${pkgdir}"/usr/share/${pkgname}/
+
+  install -Dm644 README.md "${pkgdir}"/usr/share/${pkgname}/README.md
+  install -Dm644 scrapy.cfg "${pkgdir}"/usr/share/${pkgname}/scrapy.cfg
+  install -Dm755 xsscrapy.py "${pkgdir}"/usr/share/${pkgname}/xsscrapy.py
+  install -Dm644 "${srcdir}"/LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
+  ##easy xsscrapy script
+  install -dm755 "${pkgdir}"/usr/bin/
+  cat > "${pkgdir}"/usr/bin/"${pkgname}" <<EOF
 #!/bin/bash
 cd /usr/share/${pkgname};
 python2 xsscrapy.py "\$@"
 EOF
-    chmod +x "${pkgdir}"/usr/bin/"${pkgname}"
+
+  chmod +x "${pkgdir}"/usr/bin/"${pkgname}"
 }
