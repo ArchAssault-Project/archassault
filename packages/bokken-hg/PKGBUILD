@@ -1,6 +1,6 @@
 #Maintainer: ArchAssault <team archassault org>
 pkgname=bokken-hg
-pkgver=r376.caaa65c431a8
+pkgver=r378.568fb7169b38
 pkgrel=1
 pkgdesc="GUI for radare2 and pyew"
 arch=('any')
