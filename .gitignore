@@ -12,6 +12,7 @@ tags
 
 .MTREE
 .PKGINFO 
+.SRCINFO
 
 *.part
 *.7z
