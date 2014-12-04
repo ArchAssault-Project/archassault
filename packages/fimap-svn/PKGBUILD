@@ -2,7 +2,7 @@
 
 pkgname=fimap-svn
 pkgver=20121015.r332
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-fuzzer' 'archassault-exploit')
 pkgdesc="A little tool for local and remote file inclusion auditing and exploitation"
 arch=('any')
@@ -25,7 +25,7 @@ package() {
   cd "${pkgname}"
   find . -type f -exec install -D '{}' "${pkgdir}"/usr/share/"${pkgname}"/'{}' \;
   install -d "${pkgdir}"/usr/bin
-  echo -e '#!/usr/bin/env bash\n\npython2 /usr/share/fimap/fimap.py "$@"' \
+  echo -e '#!/usr/bin/env bash\n\npython2 /usr/share/fimap-svn/src/fimap.py "$@"' \
     > "${pkgdir}"/usr/bin/fimap
   chmod a+x "$pkgdir"/usr/bin/fimap
 }
