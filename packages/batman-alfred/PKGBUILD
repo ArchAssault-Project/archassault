@@ -1,21 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=batman-alfred
-group=('archassault' 'archassault-wireless')
-pkgver=2013.4.0
-pkgrel=2
+_pkgname=alfred
+pkgname=batman-${_pkgname}
+groups=('archassault' 'archassault-wireless')
+pkgver=2014.3.0
+pkgrel=1
 pkgdesc="Almighty Lightweight Fact Remote Exchange Daemon"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="http://www.open-mesh.net/"
+url="http://www.open-mesh.org"
 license=('GPL')
 depends=('gpsd')
-source=("http://downloads.open-mesh.net/batman/releases/batman-adv-${pkgver}/alfred-${pkgver}.tar.gz")
-sha256sums=('370eb1de19b4f0ce24705fb3783fb681b4d04191b2381406be1310955af21a71')
+source=("http://downloads.open-mesh.org/batman/releases/batman-adv-${pkgver}/${_pkgname}-${pkgver}.tar.gz")
+sha512sums=('1c765f1fb5961248fbb377dbfdf3b16442ac998c65f90ebe3b933644f017047fc99036463fa3cc71320f5338b1cc1f906fc3e7e53114a9bf717d3bd6c1d34bf4')
 
 build(){
-  cd "${srcdir}/alfred-${pkgver}"
-  make
+    cd ${_pkgname}-${pkgver}
+    make
 }
 package() {
-  cd "${srcdir}/alfred-${pkgver}"
-  make DESTDIR="${pkgdir}"  PREFIX=/usr SBINDIR=/usr/bin install
+    cd ${_pkgname}-${pkgver}
+    make DESTDIR="${pkgdir}" PREFIX=/usr SBINDIR=/usr/bin install
 }
