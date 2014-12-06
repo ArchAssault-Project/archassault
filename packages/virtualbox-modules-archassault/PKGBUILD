@@ -5,18 +5,18 @@
 
 pkgbase=virtualbox-modules-archassault
 pkgname=('virtualbox-host-modules-archassault' 'virtualbox-guest-modules-archassault')
-pkgver=4.3.18
+pkgver=4.3.20
 pkgrel=1
 arch=('i686' 'x86_64')
 url='http://virtualbox.org'
 license=('GPL')
-makedepends=('linux-archassault>=3.16' 'linux-archassault<3.17'
-             'linux-archassault-headers>=3.16' 'linux-archassault-headers<3.17'
+makedepends=('linux-archassault>=3.17' 'linux-archassault<3.18'
+             'linux-archassault-headers>=3.17' 'linux-archassault-headers<3.18'
              "virtualbox-host-dkms>=$pkgver"
              "virtualbox-guest-dkms>=$pkgver")
 
 # remember to also adjust the .install files and the package deps below
-_extramodules=extramodules-3.16-archassault
+_extramodules=extramodules-3.17-archassault
 
 build() {
   _kernver=$(cat /usr/lib/modules/$_extramodules/version)
@@ -34,10 +34,9 @@ build() {
 package_virtualbox-host-modules-archassault(){
   _kernver=$(cat /usr/lib/modules/$_extramodules/version)
   pkgdesc='Host kernel modules for VirtualBox'
-  depends=('linux-archassault>=3.16' 'linux-archassault<3.17')
+  depends=('linux-archassault>=3.17' 'linux-archassault<3.18')
   replaces=('virtualbox-modules-archassault')
   conflicts=('virtualbox-modules-archassault')
-  provides=("virtualbox-host-modules=$pkgver")
   install=virtualbox-host-modules-archassault.install
 
   cd "dkms/vboxhost/$pkgver/$_kernver/$CARCH/module"
@@ -50,10 +49,9 @@ package_virtualbox-guest-modules-archassault(){
   _kernver=$(cat /usr/lib/modules/$_extramodules/version)
   pkgdesc='Guest kernel modules for VirtualBox'
   license=('GPL')
-  depends=('linux-archassault>=3.16' 'linux-archassault<3.17')
+  depends=('linux-archassault>=3.17' 'linux-archassault<3.18')
   replaces=('virtualbox-archlinux-modules-archassault')
   conflicts=('virtualbox-archlinux-modules-archassault')
-  provides=("virtualbox-guest-modules=$pkgver")
   install=virtualbox-guest-modules-archassault.install
 
   cd "dkms/vboxguest/$pkgver/$_kernver/$CARCH/module"
@@ -63,4 +61,4 @@ package_virtualbox-guest-modules-archassault(){
 }
 
 # vim:set ts=2 sw=2 et:
-sha512sums=()
+md5sums=()
