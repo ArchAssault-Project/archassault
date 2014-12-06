@@ -1,4 +1,4 @@
-extramodules=/usr/lib/modules/extramodules-3.16-archassault
+extramodules=/usr/lib/modules/extramodules-3.17-archassault
 
 post_install() {
   depmod -v $(< "$extramodules/version") &>/dev/null

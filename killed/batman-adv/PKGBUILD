@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team@archassault.org>
+pkgname=batman-adv
+pkgver=2014.3.0
+pkgrel=1
+groups=('archassault' 'archassault-wireless')
+pkgdesc="batman kernel module, (included upstream since .38)"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url='http://www.open-mesh.net'
+license=('GPL')
+makedepends=('linux-headers')
+install="${pkgname}.install"
+source=("http://downloads.open-mesh.org/batman/releases/batman-adv-${pkgver}/${pkgname}-${pkgver}.tar.gz")
+sha512sums=('763686c3f32a5cf20aa12887acf7f12ec1023f8c94ad745f0ddb6cabfddac8b6ca6ea6f0c8a8810789cb9c8aede549f2eb73a02fb0ec1be588d89ba60e17024b')
+
+build() {
+    cd ${pkgname}-${pkgver}
+    make KERNELPATH=/usr/lib/modules/$(uname -r)/build
+}
+
+package() {
+    cd ${pkgname}-${pkgver}
+    install -Dm644 ${pkgname}.ko "$pkgdir"/usr/lib/modules/$(uname -r)/updates/net/${pkgname}/${pkgname}.ko
+    install -Dm644 README "$pkgdir"/usr/share/doc/${pkgname}/README
+}
