@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=volatility
 pkgver=2.4
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-forensic')
 pkgdesc="A memory forensics toolkit"
 arch=('any')
 url='https://www.volatilesystems.com/default/volatility'
 license=('GPL')
-depends=('python2-pillow' 'python2-openpyxl1' 'yara' 'distorm' 'python2-crypto')
+depends=('python2-pillow' 'python2-openpyxl' 'yara' 'distorm' 'python2-crypto')
 optdepends=('libforensic1394: for live analysis over firewire')
 source=("http://downloads.volatilityfoundation.org/releases/2.4/volatility-${pkgver}.tar.gz")
 sha512sums=('19a10b735c0ec0d8ccbd246f2eac6968762f67f41da253e38d5026a4ee12ad9eef5a111039585afa6d6d3d67923f6e080ddc94ed98c9759c4f5486f506e0c295')
