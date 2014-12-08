@@ -1,9 +1,9 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=20141202.r29183
+pkgver=20141208.r29273
 pkgrel=1
 epoch=2
-groups=('archassault' 'archassault-exploit' 'archassault-fuzzer' 'archassault-scanners')
+groups=('archassault' 'archassault-exploits' 'archassault-fuzzers' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
 if [[ "${CARCH}" == x86_64 ]] ; then
   depends=('ruby1.9' 'ruby1.9-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
