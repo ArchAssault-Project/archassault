@@ -2,13 +2,13 @@
 
 _pkgname=i2pd
 pkgname=${_pkgname}-git
-pkgver=20141128.r1116
+pkgver=20141208.r1170
 pkgrel=1
 pkgdesc="I2P router written in C++"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="https://github.com/PrivacySolutions/i2pd"
 license=('GPL2')
-groups=('archassault')
+groups=('archassault' 'archassault-encryption')
 depends=('crypto++' 'boost-libs' 'systemd')
 makedepends=('git' 'boost')
 backup=("etc/default/${_pkgname}.conf")
