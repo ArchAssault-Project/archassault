@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=mitmproxy
-pkgver=0.10.1
-pkgrel=3
-groups=('archassault' 'archassault-proxy' 'archassault-exploit')
+pkgver=0.11.1
+pkgrel=1
+groups=('archassault' 'archassault-proxies' 'archassault-exploits')
 pkgdesc="SSL-capable man-in-the-middle HTTP proxy"
 arch=('any')
 license=('GPL')
 url='http://mitmproxy.org/'
-depends=('python2' 'python2-flask' 'python2-pyopenssl' 'python2-urwid' 'python2-pyasn1' 'python2-pyopenssl'
+depends=('python2-flask' 'python2-pyopenssl' 'python2-urwid' 'python2-pyasn1' 'python2-pyopenssl'
          'python2-pillow' 'python2-lxml' 'python2-netlib')
 source=(http://mitmproxy.org/download/mitmproxy-$pkgver.tar.gz)
-sha512sums=('2bef02f07942177044afa24749c4e8e2ba1aae5ee33e2cbffbecc557a09351865b70dc92b9acfd285716a82c84026a3eb93f889176fd288c1e8d67a415a5c79a')
+sha512sums=('f265441825b22e2a7ec3c8f2f3152d123fbd6ac463fd4de0e973e24b2ab9feaf28689d3c995bb361ff06a88a6d88536b642944463573117640b1c096b79f20b1')
 
 package() {
   cd $srcdir/mitmproxy-$pkgver/
