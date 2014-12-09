@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=python-shodan
-pkgver=1.1.2
+pkgver=1.2.1
 pkgrel=1
 pkgdesc="Python library for Shodan (https://developer.shodan.io)"
 url="http://github.com/achillean/shodan-python/tree/master"
@@ -9,7 +9,7 @@ depends=('python')
 license=('MIT')
 arch=('any')
 source=("https://pypi.python.org/packages/source/s/shodan/shodan-${pkgver}.tar.gz")
-sha512sums=('aa1a24d4b39f3ec965148f37a47b7f7ff35d11f78588d49d60c48fc1fe775c4b9421085493db7880ed48b2165d1e64be71780351136ed622e08afbf4d6ce97a3')
+sha512sums=('08715d47fc51de37655945aa47d3022c3350b87ef48708bb79a9fa15565b6f63dfc3bd4304cb3705d302d0fca675a9c5c99d272172f169f1490a980ad51c7583')
 
 build() {
     cd ${srcdir}/shodan-${pkgver}
