@@ -6,12 +6,12 @@
 pkgbase=virtualbox-modules-archassault
 pkgname=('virtualbox-host-modules-archassault' 'virtualbox-guest-modules-archassault')
 pkgver=4.3.20
-pkgrel=1
+pkgrel=2
 arch=('i686' 'x86_64')
 url='http://virtualbox.org'
 license=('GPL')
-makedepends=('linux-archassault>=3.17' 'linux-archassault<3.18'
-             'linux-archassault-headers>=3.17' 'linux-archassault-headers<3.18'
+makedepends=('linux-archassault' 'linux-archassault<3.18'
+             'linux-archassault-headers' 'linux-archassault-headers<3.18'
              "virtualbox-host-dkms>=$pkgver"
              "virtualbox-guest-dkms>=$pkgver")
 
@@ -34,7 +34,7 @@ build() {
 package_virtualbox-host-modules-archassault(){
   _kernver=$(cat /usr/lib/modules/$_extramodules/version)
   pkgdesc='Host kernel modules for VirtualBox'
-  depends=('linux-archassault>=3.17' 'linux-archassault<3.18')
+  depends=('linux-archassault' 'linux-archassault<3.18')
   replaces=('virtualbox-modules-archassault')
   conflicts=('virtualbox-modules-archassault')
   install=virtualbox-host-modules-archassault.install
@@ -49,7 +49,7 @@ package_virtualbox-guest-modules-archassault(){
   _kernver=$(cat /usr/lib/modules/$_extramodules/version)
   pkgdesc='Guest kernel modules for VirtualBox'
   license=('GPL')
-  depends=('linux-archassault>=3.17' 'linux-archassault<3.18')
+  depends=('linux-archassault' 'linux-archassault<3.18')
   replaces=('virtualbox-archlinux-modules-archassault')
   conflicts=('virtualbox-archlinux-modules-archassault')
   install=virtualbox-guest-modules-archassault.install
