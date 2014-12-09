@@ -12,11 +12,12 @@ source=("https://pypi.python.org/packages/source/s/shodan/shodan-${pkgver}.tar.g
 sha512sums=('08715d47fc51de37655945aa47d3022c3350b87ef48708bb79a9fa15565b6f63dfc3bd4304cb3705d302d0fca675a9c5c99d272172f169f1490a980ad51c7583')
 
 build() {
-    cd ${srcdir}/shodan-${pkgver}
-    python setup.py build
+  cd ${srcdir}/shodan-${pkgver}
+  python setup.py build
 }
 
 package() {
-    cd ${srcdir}/shodan-${pkgver}
-    python setup.py install --root="${pkgdir}" --optimize=1 
+  cd ${srcdir}/shodan-${pkgver}
+  python setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
 }
