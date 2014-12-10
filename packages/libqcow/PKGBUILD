@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: David McIlwraith <archaios at archaios dot net>
+pkgname=libqcow
+pkgver=20141021
+pkgrel=1
+pkgdesc="Library and tools to support QEMU copy-on-write image format (QCOW, QCOW2), including a FUSE-based mount utility"
+url="http://code.google.com/p/libqcow/"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('LGPL3')
+depends=('fuse' 'libcsystem' 'python2' 'libbfio')
+source=("https://github.com/libyal/libqcow/archive/$pkgver.tar.gz")
+sha512sums=('67185d353d47d560306890ca713c9b74e4d5bbcb46d18d252da26adb99917a964be66c8903d06f8c1c9e82668ee6b5887941e2c6ea5e4d8d6cd67b05bb98aee1')
+
+
+build(){
+  cd $srcdir/$pkgname-$pkgver
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --with-openssl --with-libfuse --enable-verbose-output --enable-debug-output --enable-python --with-pyprefix=2
+  make
+}
+
+package(){
+  cd $srcdir/$pkgname-$pkgver
+  make DESTDIR=$pkgdir install
+}
