@@ -7,7 +7,7 @@ url="https://github.com/libyal/libsmraw"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('LGPL3')
 depends=('fuse' 'libcsystem' 'python2' 'libbfio')
-makdepends=('git')
+makedepends=('git')
 source=("https://github.com/libyal/libsmraw/archive/$pkgver.tar.gz")
 sha512sums=('0a2c2f0428c09348301943ef96041f10a64efbe7c3bf7013b137b675863a735c34b3d2595a8d8f97430ed7974d0c3723f5685610a2449cb89fd818c685b2e8d3')
 
