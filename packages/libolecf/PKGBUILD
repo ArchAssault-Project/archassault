@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team at archassault dot org>
+pkgname=libolecf
+pkgver=20141026
+pkgrel=1
+pkgdesc="Library and tools to access the OLE 2 Compound File (OLECF) format"
+url="https://github.com/libyal/libolecf"
+license=('LGPL3')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('fuse' 'python2' 'libcsystem' 'libbfio')
+source=(https://github.com/libyal/libolecf/releases/download/$pkgver/libolecf-alpha-$pkgver.tar.gz)
+sha512sums=('f89879bfef8edbc47e3bd373291bbe6c444ba1ee641f3b4937b371845a98538304bd866b16765b2e8395c03996bbbf404a22d540a78406856794d03da8dfe3d2')
+
+build() {
+  cd "$srcdir"/${pkgname}-${pkgver}
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python
+  make
+}
+
+package() {
+  cd "$srcdir"/${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}
