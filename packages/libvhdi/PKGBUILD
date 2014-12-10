@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=libvhdi
+pkgver=20141021
+pkgrel=1
+pkgdesc="Library and tools to access the Virtual Hard Disk (VHD) image format"
+url="https://github.com/libyal/libvhdi"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('LGPL3')
+depends=('fuse' 'libcsystem' 'python2' 'libbfio')
+makedepends=('git')
+source=("https://github.com/libyal/libvhdi/archive/$pkgver.tar.gz")
+sha512sums=('2c6e9ab0cbe0027bd1032963f9c242e2e896612555134a421fb5f502e542d9995a34db797d91bb106e7785daf07d442346b9ab3e188b8b0bbe11ca9b786f5b1a')
+
+
+build(){
+  cd $srcdir/$pkgname-$pkgver
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python --with-pyprefix=2
+  make
+}
+
+package(){
+  cd $srcdir/$pkgname-$pkgver
+  make DESTDIR=$pkgdir install
+}
