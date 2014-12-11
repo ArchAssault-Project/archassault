@@ -5,7 +5,7 @@
 _subarchs=(armv6h armv7h)
 pkgbase='distccd-archassault'
 pkgname=("${_subarchs[@]/#/$pkgbase-}")
-pkgver=4.8.2
+pkgver=4.9.2
 pkgrel=1
 pkgdesc="An x-tools & distcc services package for ArchAssault ARM"
 arch=('x86_64')
@@ -21,12 +21,12 @@ source=(http://archlinuxarm.org/builder/xtools/x-tools6h.tar.xz
 	distccd-armv6h.conf
 	distccd-armv6h.service
         )
-md5sums=('9cbdc2c73f8065b189c12b8c0bb400bc'
-         '52a70194828fcc18e82da0d455c2f718'
-         '717a4bc07b1c7ad4461603a633e6a008'
-         'e760b78b6d8c4d94ba1540ee0a9e33b9'
-         'c15d726a8b9708eda6d274dbae11783e'
-         '0f2ed6569e6f9de9ce63c9550b68a7a7')
+sha512sums=('5eb52553e68769f453b79979082b89187413240c83dc57768c57eafc3d8054b046caa33fd3063d5cb852c024af455ee96609fec67a96eee9afd580c7aa324aeb'
+            '5bb56dcd5a96b663499ad0a8b315ee35779a907cc5a13a3b71a14d11c832ff02d598ac777da88e362af95ecd2ed235e6802d40fc6b9e4ec8382a71b140333693'
+            '708c370335ce75ecccdd2f52bd324cea3c75c09798007ddec5aa66147a2bbaa9f4280c3697abc5870362e38a50dcc358a3c1eb18d1740fc13313a6f3402e2e8c'
+            '74099c2bc620c7a7e191407957f070676e05f9fad5a9f6b3bbef76adf7da3ea32d4b611882eb635dd5d6f7785bc072ca50bf6efd8193ad4ed027b0168221224f'
+            '3570f157af8e0cd81d8aa72bf030334c2fa36132863c5ec4b32b6f2a926257b8be311d1459254fbd811c588df28ec3f4d931c35099d65513455779d3bacd9b0c'
+            '51b884dcce3a109707f7a9b93874ebeb18a84966189a6c180fb091cc4380305f52221c48d0b1b014904af5de17fd537cbc8ce303384856419a36ea4fcc56b3b8')
 
 _package_subarch() {
     # backup configs
