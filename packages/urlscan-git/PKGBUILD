@@ -3,7 +3,7 @@
 # Contributor: Scott Hansen (firecat53) firecat4153 at gmail
 
 pkgname=urlscan-git
-pkgver=20141123.r20
+pkgver=20141210.r40
 pkgrel=1
 pkgdesc="Interactively browse and open URLs contained in HTML passed from stdin"
 url="https://github.com/firecat53/${pkgname}"
