@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=owtf-git
-pkgver=r1013.7763196
-pkgrel=3
-groups=('archassault' 'archassault-webapp')
+pkgver=r1016.fef357e
+pkgrel=1
+groups=('archassault' 'archassault-webapps')
 pkgdesc="The Offensive (Web) Testing Framework"
 url="https://www.owasp.org/index.php/OWASP_OWTF"
 license=('custom')
