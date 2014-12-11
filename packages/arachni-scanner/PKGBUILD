@@ -14,7 +14,7 @@ else
 fi
 replaces=('arachni')
 conflicts=('arachni')
-provides=('arachni' 'arachni-scanner')
+provides=('arachni')
 source=("https://github.com/Arachni/arachni/archive/v${pkgver}.zip"
         "${pkgname}.desktop")
 sha512sums=('0dee72698460cd268f8a6d38aa666b2c6e398a8bf52581b3f0385567ff8fcb2ce6f47b59a08631a27b8a91a5d3c284b647d9d48181f5c4444473f6845c441495'
