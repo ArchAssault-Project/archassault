@@ -11,5 +11,7 @@ Newest Tools Added:
 * [thcsmartbrute](https://www.thc.org/thc-smartbrute/) - This tool finds undocumented and secret commands implemented in a smartcard.An instruction is divided into Class (CLA), Instruction-Number (INS) and the
 parameters or arguments P1, P2, P3. THC-SMARTBRUTE iterates through all the possible values of CLA and INS to find a valid combination. [Supported Devices](http://pcsclite.alioth.debian.org/ccid/supported.html)
 
+* [snapception-git](https://github.com/thebradbain/snapception) - A tool to intercept and decrypt all snapchats received over your network. Author: [@thebadbrain](https://twitter.com/thebradbain)
+
 
 **Thanks for the most recent requests!**
