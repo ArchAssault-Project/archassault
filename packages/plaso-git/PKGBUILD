@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=plaso-git
-pkgver=20141208.r806
-pkgrel=2
+pkgver=20141211.r811
+pkgrel=1
 groups=('archassault' 'archassault-forensics')
 pkgdesc="A Python-based backend engine for the tool log2timeline."
 arch=('any')
