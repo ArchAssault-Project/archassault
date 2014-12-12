@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Javier Torres <javitonino [at] gmail [dot] com>
 pkgname=opendnssec
-pkgver=1.4.6
-pkgrel=2
+pkgver=1.4.7
+pkgrel=1
 pkgdesc="Turn-key solution for DNSSEC (sqlite3)"
 arch=('i686' 'x86_64' 'armv7h' 'armv6h')
 url="http://www.opendnssec.org/"
@@ -19,7 +19,7 @@ source=("http://www.opendnssec.org/files/source/${pkgname}-${pkgver}.tar.gz"
 	"pid-path.patch"
         "ods-signer.service"
         "ods-enforcer.service")
-sha512sums=('c01e6e46e2007d0ae4035253484590d9a892be8284b179b6d3cdb0f8481789a67a79f9043d04de0aecc165fb44d88dac0eb02444f48e0ccd366f118a2bbb5c18'
+sha512sums=('def2a8e41331bd70f287ea3081a7368144ada92ad5cc9f62d28d3064e34f7c0c84998422d515f5ec9c7e668757e796df8c5446839e24e4a9e2af1357c342c0b2'
             '74f386ec8db1ff3a1dd4faf8e1d7eaa6e04f1ab0f89d5289f440ed1c2fe7040d8688ce27796d04d8152c235369297ce829f5dec0aa205c3e62263ae759e15d4a'
             '28d868feedbee8251b0000556705ee094707782dad2072f4e37ebff3ac1658d09c884488dd6852e9734fa859218048daff50b66fe25930f6445619e3c89ca877'
             'a3700c82e6577bdacbce9cfd749e71e3c749814884ad4e9a1359e97105f9c045dc1472ba231ecb52c23855cacf67874623c8eef715955bfd41239b199d03a0db')
