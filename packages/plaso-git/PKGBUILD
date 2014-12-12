@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=plaso-git
-pkgver=20141211.r810
-pkgrel=1
+pkgver=20141208.r806
+pkgrel=2
 groups=('archassault' 'archassault-forensics')
 pkgdesc="A Python-based backend engine for the tool log2timeline."
 arch=('any')
 url='https://github.com/log2timeline/plaso'
 license=('APACHE')
-depends=('python2-six' 'python2-psutil' 'python2-dpkt' 'python2-pyparsing' 'python2-pytz' 'python2-protobuf' 'python2-hachoir-core'
-         'dfvfs' 'sqlite3' 'python2-yaml' 'sleuthkit' 'ipython2' 'pytsk' 'libbde' 'libesedb' 'libevt' 'libevtx' 'libewf' 'libfwsi'
+depends=('python2-six' 'python2-psutil' 'python2-dpkt' 'python2-dateutil' 'binplist' 'python2-bencode' 'python2-pyparsing' 'python2-pytz' 'python2-protobuf' 'python2-hachoir-core'
+         'python2-hachoir-metadata' 'python2-hachoir-parser' 'dfvfs' 'sqlite3' 'python2-yaml' 'sleuthkit' 'ipython2' 'pytsk' 'libbde' 'libesedb' 'libevt' 'libevtx' 'libewf' 'libfwsi'
          'liblnk' 'libmsiecf' 'libolecf' 'libqcow' 'libregf' 'libsmdev' 'libsmraw' 'libvhdi' 'libvmdk' 'libvshadow')
 makedepends=('git' 'python2-setuptools')
 provides=('plaso' 'log2timeline')
