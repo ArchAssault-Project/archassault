@@ -2,11 +2,11 @@
 # Contributor: Alfredo Palhares <masterkorp@masterkorp.net>
 
 pkgname=xsscrapy-git
-pkgver=20141203.r112.60542c3
+pkgver=20141213.r114.80ee5c6
 pkgrel=1
 pkgdesc="xss spider"
 arch=('any')
-groups=('archassault')
+groups=('archassault' 'archassault-webapps' 'archassault-scanners')
 url="https://github.com/DanMcInerney/xsscrapy"
 license=('BSD')
 depends=('python2-beautifulsoup3' 'python2-pybloom' 'python2-requests' 'scrapy')
