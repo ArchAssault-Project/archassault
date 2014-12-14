@@ -2,7 +2,7 @@
 
 _pkgname=google-breakpad
 pkgname=${_pkgname}-svn
-pkgver=20141117.r1402
+pkgver=20141211.r1411
 pkgrel=1
 pkgdesc="An open-source multi-platform crash reporting system"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
