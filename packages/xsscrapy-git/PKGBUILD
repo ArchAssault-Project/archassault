@@ -2,7 +2,7 @@
 # Contributor: Alfredo Palhares <masterkorp@masterkorp.net>
 
 pkgname=xsscrapy-git
-pkgver=20141213.r114.80ee5c6
+pkgver=20141216.r117.9fe47ec
 pkgrel=1
 pkgdesc="xss spider"
 arch=('any')
