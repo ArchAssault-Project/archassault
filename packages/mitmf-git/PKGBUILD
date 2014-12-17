@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=r154.7e2a75c
+pkgver=20141216.r180
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
@@ -12,41 +12,39 @@ makedepends=('git')
 provides=('mitmf')
 replaces=('mitmf')
 conflicts=('mitmf')
-source=("mitmf::git+https://github.com/byt3bl33d3r/MITMf.git")
+options=('emptydirs')
+source=("${pkgname}::git+https://github.com/byt3bl33d3r/MITMf.git")
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/mitmf"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
-
 prepare(){
-  grep -iRl 'python' "$srcdir/mitmf" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
-  cd "$srcdir/mitmf"
+  grep -iRl 'python' "$srcdir/${pkgname}" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  cd "${pkgname}"
   git submodule init
   git submodule update
 }
 
 package() {
-  cd "$srcdir/mitmf"
+  cd "${pkgname}"
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/mitmf/libs"
-  install -dm755 "$pkgdir/usr/share/mitmf/config_files"
-  install -dm755 "$pkgdir/usr/share/mitmf/config_files/airpwn_templates/"
-  install -dm755 "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
+  install -dm755 "$pkgdir/usr/share/mitmf/config"
+  install -dm755 "$pkgdir/usr/share/mitmf/config/responder"
+  install -dm755 "$pkgdir/usr/share/mitmf/config/app_cache_poison_templates/"
   install -dm755 "$pkgdir/usr/share/mitmf/plugins"
-  install -dm755 "$pkgdir/usr/share/mitmf/sslstrip"
-  install -dm755 "$pkgdir/usr/share/mitmf/bdfactory"
-  grep -iRl 'python' "$srcdir/mitmf/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
-  cp -a $srcdir/mitmf/bdfactory/* "$pkgdir/usr/share/mitmf/bdfactory/"
-  for i in `find config_files/ -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/config_files/$i" ;done
+  install -dm755 "$pkgdir/usr/share/mitmf/logs"
+  cp -a libs/* "$pkgdir/usr/share/mitmf/libs/"
+  grep -iRl 'python' "$pkgdir/usr/share/mitmf/libs/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  cp -a  config/responder/* "$pkgdir/usr/share/mitmf/config/responder/"
+  for i in `find config/ -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/config/$i" ;done
+  #for i in `find libs/ -type f -iname "*.py"`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/libs/$i" ;done
   install -Dm644 plugins/* "$pkgdir/usr/share/mitmf/plugins/"
-  install -Dm644 sslstrip/* "$pkgdir/usr/share/mitmf/sslstrip/"
-  install -Dm644 libs/* "$pkgdir/usr/share/mitmf/libs/"
   install -Dm644 README.md "$pkgdir/usr/share/mitmf/"
-  install -Dm644 config_files/airpwn_templates/* "$pkgdir/usr/share/mitmf/config_files/airpwn_templates/"
-  install -Dm644 config_files/app_cache_poison_templates/* "$pkgdir/usr/share/mitmf/config_files/app_cache_poison_templates/"
+  install -Dm644 config/app_cache_poison_templates/* "$pkgdir/usr/share/mitmf/config/app_cache_poison_templates/"
   install -Dm755 *.py "$pkgdir/usr/share/mitmf/"
   install -Dm644 *.ico "$pkgdir/usr/share/mitmf/"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
