@@ -1,7 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pdfminer
-pkgver=20140328
-pkgrel=1
+pkgver=20110515
+pkgrel=2
+epoch=1
 pkgdesc="A tool for extracting information from PDF documents"
 arch=('any')
 url='https://github.com/euske/pdfminer/'
@@ -12,7 +13,7 @@ provides=('python2-pdfminer')
 replaces=('python2-pdfminer')
 conflicts=('python2-pdfminer')
 source=("https://pypi.python.org/packages/source/p/pdfminer/pdfminer-${pkgver}.tar.gz" "LICENSE")
-sha512sums=('8abb2328f7824ee980df0ce42d758c15534e97379ea9213b4aa1d29864d24d73c9e2d6020964e9ab734c0c6f7d1ae70bccbd6605168eaadf83923718a1f4849a'
+sha512sums=('87e66c4a864259e7b75581ec95c5e1e9bfb79a4a126e7ec6e23c55d6954b0766f0aa874291c770089c7fb2b72d6c8c6bbc2e54612a30c90150437d5ce850c0e3'
             '92b00b825662282d7b8f27755081b4b77632e08627adea8b379a27db8e70ffd8a20ec539f32833fde666f36191e2ae05852bb6c72bc861bf20b4a0f18ef8f5e8')
 
 prepare(){
