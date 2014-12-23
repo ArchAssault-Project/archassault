@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=shodan
+pkgver=1.2.2
+pkgrel=1
+groups=('archassault' 'archassault-reconnaissance')
+pkgdesc="A Python2 library for Shodan.io (https://developer.shodan.io)"
+url="http://github.com/achillean/shodan-python/tree/master"
+depends=('python2' 'python2-click' 'python2-colorama' 'python2-requests' 'python2-simplejson')
+replaces=('python-shodan')
+provides=('python-shodan')
+conflicts=('python-shodan')
+license=('MIT')
+arch=('any')
+source=("https://pypi.python.org/packages/source/s/shodan/shodan-${pkgver}.tar.gz")
+sha512sums=('924caff60baad6bc366d9ee8d0c333f37d1a0beb297c3f335dde008f5ed08454f4fa2b802f7a0ca96e05637ee218ead9828d3940ad6055486fbd9ba8db7892db')
+
+build() {
+  cd ${srcdir}/shodan-${pkgver}
+  python2 setup.py build
+}
+
+package() {
+  cd ${srcdir}/shodan-${pkgver}
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
+}
