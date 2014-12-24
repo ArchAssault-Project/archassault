@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=python2-stem-git
-pkgver=20141222.r1898
+pkgver=20141224.r1900
 pkgrel=1
 epoch=1
 pkgdesc='A controller library for Tor'
