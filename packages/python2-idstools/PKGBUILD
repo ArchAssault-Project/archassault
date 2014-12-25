@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-idstools
-pkgver=0.4.2
+pkgver=0.4.4
 pkgrel=1
 pkgdesc="A collection of Python libraries for working with IDS systems (typically Snort and Suricata)."
 arch=('any')
@@ -8,9 +8,10 @@ url='https://pypi.python.org/pypi/idstools'
 license=('BSD')
 depends=('python2')
 makedepends=('python2-setuptools')
-groups=('archassault')
-source=("https://pypi.python.org/packages/source/i/idstools/idstools-$pkgver.tar.gz")
-sha512sums=('7a5ec23b3ef092a5b5b17b7c72f05641ca76edaaa1b29af363b47f7017c0f6222f3de5c78b55ac6835be9e2f27de86c00c0db80f054b8482c190042ba92a5ba3')
+groups=('archassault' 'archassault-networking')
+source=("https://pypi.python.org/packages/source/i/idstools/idstools-$pkgver.tar.gz" "LICENSE")
+sha512sums=('0304b8304be6a9e0f2509ebfc0ac6d3585e2e2babbd524115f6b84242b9fbbf45b1ffe8f613230a28b5319d8608c6532df52f8eb6805f46d2f64234bf5ff7445'
+            'f5df92f91db41a289c34387ccc13c05eb0073a21763061464e303a6f25b10abe998bb7c9a6afb660414b30eb78c69abb6a32d5f46d53b0bcddc49309e565abbd')
 
 prepare(){
   grep -iRl 'python' "$srcdir/idstools-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|' 
@@ -20,4 +21,5 @@ prepare(){
 package() {
   cd "${srcdir}/idstools-${pkgver}" 
   python2 setup.py install --root=$pkgdir --optimize=1
+  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

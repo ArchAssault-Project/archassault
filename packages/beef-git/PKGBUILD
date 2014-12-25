@@ -1,9 +1,9 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beef-git
-pkgver=20141108.r2219
+pkgver=20141222.r2247
 pkgrel=1
 epoch=1
-groups=('archassault' 'archassault-exploit')
+groups=('archassault' 'archassault-exploits')
 pkgdesc="Pentesting framework that focuses on web-browser exploitation"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://beefproject.com'

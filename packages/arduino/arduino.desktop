@@ -1,9 +1,13 @@
 [Desktop Entry]
+Version=1.0
+Encoding=UTF-8
 Name=Arduino
 GenericName=Arduino IDE
-Comment=The open-source Arduino environment
-Exec=arduino
-Icon=archassault-menu.png
-Type=Application
+Comment=Open-source electronics prototyping platform
+Exec=arduino %U
+Icon=arduino
 Terminal=false
-Categories=Development;IDE;Qt;KDE;;Application;
+Type=Application
+StartupNotify=true
+MimeType=text/x-arduino;
+Categories=Java;Development;IDE;

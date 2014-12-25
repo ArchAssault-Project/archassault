@@ -2,8 +2,8 @@
 _author=C/CO/CORION
 _perlmod=Test-Without-Module
 pkgname=perl-test-without-module
-pkgver=0.17
-pkgrel=4
+pkgver=0.18
+pkgrel=1
 pkgdesc='Test::Without::Module - Test fallback behaviour in absence of modules'
 arch=('any')
 url="http://search.cpan.org/dist/Test-Without-Module/"
@@ -12,7 +12,7 @@ depends=('perl')
 makedepends=('perl')
 options=(!emptydirs)
 source=(http://search.cpan.org/CPAN/authors/id/$_author/$_perlmod-$pkgver.tar.gz)
-md5sums=('4480ece707cb6bbedaae8fbe41320927')
+sha512sums=('005ad54ac77283cf3155befe77fdb887dbc2ebc9c154472a23982636bbe7728154f56fdf1990b833639cd687b38e4d62250edd6dd93d37408e971bb4bd49c4c2')
 
 build(){
   cd "$srcdir/$_perlmod-$pkgver"

@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=pysnmp
 pkgname=python2-$_pkgname
-pkgver=4.2.3
-pkgrel=5
+pkgver=4.2.5
+pkgrel=1
 pkgdesc="SNMP library for Python"
 url='http://sourceforge.net/projects/pysnmp/'
 license=('BSD')
@@ -13,7 +13,7 @@ optdepends=("python2-pysnmp-mibs")
 conflicts=('pysnmp')
 provides=('pysnmp')
 source=(http://downloads.sourceforge.net/sourceforge/$_pkgname/$_pkgname-$pkgver.tar.gz)
-sha512sums=('a6de589d1677e8f48770372864cd74087c70b0db22bfbce363eec75bca34552969ccc473ea1c2d9cee3bbf2f4738d09acdfb07684a04f81a613ba908636aecd3')
+sha512sums=('bf93d7dd7ca95ff8b272c90d0c7d4e528075c83d8d6d630ab50e392227188bd0abdd05ad98521d9c4c0a1891a0b448fb9e4411f8a1d6bc7a9c2f7bb132c0dca0')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"

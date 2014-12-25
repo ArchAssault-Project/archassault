@@ -1,0 +1,21 @@
+# Maintainer: ArchAssault <team archassault org>
+
+pkgname=python2-sortedcontainers
+_realname=sortedcontainers
+pkgver=0.9.4
+pkgrel=1
+pkgdesc="A containers library, written in pure-Python, and fast as C-extensions"
+url="https://pypi.python.org/pypi/sortedcontainers/"
+arch=('any')
+license=('APACHE')
+depends=('python2')
+makedepends=('python2-setuptools')
+source=(https://pypi.python.org/packages/source/s/$_realname/$_realname-$pkgver.tar.gz)
+sha512sums=('0b51b3e7cd94dbdb4dc0f70e8ac547eff33ec44c000f42714056c2deae0c47bbc3e1e9f4af9aed78d20cfbabf6c24f8910e7b7b4d45b9f16635ecbb6e3b84106')
+
+
+
+package(){
+  cd "$srcdir/$_realname-$pkgver"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+}

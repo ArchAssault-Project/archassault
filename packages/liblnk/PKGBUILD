@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname="liblnk"
+pkgver="20141026"
+pkgrel=1
+pkgdesc="Library and tools to access the Windows Shortcut File (LNK) format"
+arch=("i686" "x86_64" "armv6h" "armv7h")
+url='https://github.com/libyal/liblnk'
+license=('GPL3')
+depends=('libfwsi')
+makedepends=('git')
+source=("https://github.com/libyal/liblnk/archive/$pkgver.tar.gz")
+sha512sums=('983a0c98c3e923c88c255ca4b95d419a71ca3c6cf94e754a6ab6a3f699904ade750a2cbe09f5d008687511c2c581e72f2e3764dba0aa7a309925eb666d9166c5')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}

@@ -1,0 +1,23 @@
+# Maintainer: ArchAssault <team at archassault dot org>
+pkgname=libmsiecf
+pkgver=20141025
+pkgrel=1
+pkgdesc="Library and tools to access the Microsoft Internet Explorer (MSIE) Cache File (index.dat) files"
+url="https://github.com/libyal/libmsicef"
+license=('LGPL3')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('libbfio' 'python2' 'libcsystem')
+source=(https://github.com/libyal/libmsiecf/releases/download/20141025/libmsiecf-alpha-$pkgver.tar.gz)
+sha512sums=('601cfa69a1ce2fb0517295e07b05487e2ac9ee57b3d79b843d2534ae4eb598f14e67e92f1d079048ae9cf514eb10ed0641cb7ec600b19f96f735f91a18d663b0')
+
+build() {
+  cd "$srcdir"/${pkgname}-${pkgver}
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python
+  export LIBFWNT_CPPFLAGS=$CPPFLAGS
+  make
+}
+
+package() {
+  cd "$srcdir"/${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}

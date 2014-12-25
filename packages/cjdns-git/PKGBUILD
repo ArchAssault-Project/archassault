@@ -5,8 +5,8 @@
 
 _pkgname=cjdns
 pkgname=${_pkgname}-git
-pkgver=0.3.2785
-pkgrel=2
+pkgver=0.3.2841
+pkgrel=1
 pkgdesc="A routing engine designed for security, scalability, speed and ease of use"
 url="https://github.com/cjdelisle/cjdns"
 license=('GPL3')
@@ -26,14 +26,10 @@ pkgver() {
     git describe --always | sed 's|-|.|g;s|[^\.]*\.||;s|\.[^\.]*$||'
 }
 
-prepare() {
-    sed -i 's|Restart=on-failure|Restart=always|' ${_pkgname}/contrib/systemd/cjdns.service
-}
-
 build() {
     cd $_pkgname
     unset CFLAGS CPPFLAGS CXXFLAGS
-    sh 'do'
+    bash 'do'
 }
 
 package() {

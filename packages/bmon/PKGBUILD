@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=bmon
-pkgver=3.5
+pkgver=3.6
 pkgrel=1
 pkgdesc="Bandwidth monitor and rate estimator"
 url="https://github.com/tgraf/bmon"
@@ -24,5 +24,6 @@ package() {
     cd $pkgname
     make DESTDIR="$pkgdir" install
     install -Dm644 LICENSE.MIT "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE.MIT
+    install -Dm644 LICENSE.BSD "$pkgdir"/usr/share/licenses/${pkgname}/LICENSE.BSD
 }
 

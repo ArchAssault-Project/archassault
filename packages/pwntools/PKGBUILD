@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname='pwntools'
-pkgver='2.1.1'
+pkgver='2.1.3'
 pkgrel='1'
 pkgdesc='The CTF framework used by #Gallopsled in every CTF'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -8,13 +8,14 @@ url='https://github.com/Gallopsled/pwntools'
 license=('MIT')
 groups=('archassault' 'archassault-misc')
 if [[ $CARCH == 'x86_64' ]]; then
-      depends=('python2' 'python2-paramiko' 'python2-mako' 'lib32-glibc')
+      depends=('python2-argparse' 'python2-pyelftools' 'python2-paramiko'  'python2-mako' 'lib32-glibc')
 else
-      depends=('python2' 'python2-paramiko' 'python2-mako')
+      depends=('python2-argparse' 'python2-pyelftools' 'python2-mako')
 fi
+
 makedepends=('python2-setuptools')
-source=("https://github.com/Gallopsled/pwntools/archive/2.1.1.tar.gz")
-sha512sums=('16934b0bec9f86890b9769300be52c2c86d719a34e2b25fe91b72ea7121d4f4f86cbcede9a3c8354a199e0661a5d75c2b9c4a02d913871c539dbf3e0d8e858b7')
+source=("https://github.com/Gallopsled/pwntools/archive/${pkgver}.tar.gz")
+sha512sums=('8720ca980320a6de912f1a3156ce85495f534c9707f9f9f65f82e71a83b700ce2c6681341d2fd3a1dfe8c62eeea5c1d29ef7bf0465fbfc03815413fef3d18161')
 
 prepare(){
     cd "$srcdir/$pkgname-$pkgver/bin"

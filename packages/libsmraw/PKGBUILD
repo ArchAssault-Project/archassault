@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=libsmraw
+pkgver=20141026
+pkgrel=1
+pkgdesc="Library and tools to access the (split) RAW image format"
+url="https://github.com/libyal/libsmraw"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('LGPL3')
+depends=('fuse' 'libcsystem' 'python2' 'libbfio')
+makedepends=('git')
+source=("https://github.com/libyal/libsmraw/archive/$pkgver.tar.gz")
+sha512sums=('0a2c2f0428c09348301943ef96041f10a64efbe7c3bf7013b137b675863a735c34b3d2595a8d8f97430ed7974d0c3723f5685610a2449cb89fd818c685b2e8d3')
+
+
+build(){
+  cd $srcdir/$pkgname-$pkgver
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python --with-pyprefix=2
+  make
+}
+
+package(){
+  cd $srcdir/$pkgname-$pkgver
+  make DESTDIR=$pkgdir install
+}

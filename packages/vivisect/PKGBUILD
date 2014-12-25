@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=vivisect
-pkgver=20130901
+pkgver=20140803
 pkgrel=1
 groups=('archassault' 'archassault-debugging' 'archassault-reversing' 'archassault-disassembler')
-pkgdesc="Vivisect is a Python based static analyze and reverse engineering framework, Vdb is a Python based research/reversing focused debugging and programatic debugging API by invisigoth of kenshoto"
-arch=('armv6h' 'armv7h' 'i686' 'x86_64')
+pkgdesc="Python based static analyze and reverse engineering framework, Vdb is a Python based research/reversing focused debugging and programatic debugging API by invisigoth of kenshoto"
+arch=('any')
 url="http://visi.kenshoto.com/"
 license=('BSD')
-depends=('python2' 'python2-pyqt4' 'pyqt4-common' 'python2-msgpack')
+depends=('java-environment' 'python2-pyqt4' 'pyqt4-common' 'python2-msgpack')
 source=("http://visi.kenshoto.com/static/releases/vivisect_$pkgver.zip")
 options=('!emptydirs')
-md5sums=('216a375f5828f1d304203c6c125321a0')
+sha512sums=('d8a4c9e60df7a54f7ac1053cafd07f09563db75d5207c6beec3c563ee7c6d5760b70aca6d41e0d3cdd0817aa152bc2ef1ab2ae879583a0cb06b09818a25932f8')
 
 prepare() {
   cd "$srcdir/vivisect_$pkgver"

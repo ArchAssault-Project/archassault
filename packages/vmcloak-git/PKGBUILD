@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=vmcloak-git
-pkgver=0.1.5
+pkgver=0.1.20
 pkgrel=1
 pkgdesc="Automated Virtual Machine Generation and Cloaking for Cuckoo Sandbox."
 url="https://github.com/jbremer/vmcloak"
@@ -12,7 +12,7 @@ makedepends=('python2-setuptools' 'unzip')
 conflicts=('vmcloak')
 replaces=('vmcloak')
 source=("https://github.com/jbremer/vmcloak/archive/${pkgver}.zip")
-sha512sums=('fde5dce266e58129d66fbbf60e7d862b9c198e32532bdf934f20477fcf9ec3260612dea31f9d80c8711a6abdc214b2eff3f2be974ddf803b12f588409da1b73e')
+sha512sums=('fc8c9f83fb1dd9c31562c47ae00517299325a428c90502bc21f2d205d1670689aba7c50277bc9e97cf04c88a91a30449e70402687ef1e08b66a1f9e90050c097')
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'

@@ -1,0 +1,20 @@
+# Maintainer: ArchAssault <team at archassault dot org>
+# Contributor: Erik Johnson <palehose at gmail dot com>
+pkgname=python-nmap
+pkgver=0.3.4
+pkgrel=1
+pkgdesc='Python3 library which helps in using the nmap port scanner.'
+arch=(any)
+url='http://xael.org/norman/python/python-nmap'
+license=('GPL3')
+depends=('python' 'nmap')
+makedepends=('python-setuptools')
+options=(!emptydirs)
+source=("http://xael.org/norman/python/python-nmap/python-nmap-${pkgver}.tar.gz")
+changelog=CHANGELOG
+sha512sums=('04eebc203ace23bffc3df6e30472e305d8d52558fb384162fdc912bfc90113866b3347166a1fc3e780a3953d1ee60b3d2295a2bf864769d8fa88551d2541ffdc')
+
+package(){
+  cd "$srcdir/${pkgname}-${pkgver}"  
+  python setup.py install --root=${pkgdir} --optimize=1
+}

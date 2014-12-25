@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=dfvfs
+pkgver=20141205
+pkgrel=1
+groups=('archassault' 'archassault-forensics')
+pkgdesc="A tool that provides read-only access to file-system objects from various storage media types and file formats."
+arch=('any')
+url='https://github.com/log2timeline/dfvfs'
+license=('APACHE')
+depends=('python2' 'python2-six' 'python2-construct' 'python2-protobuf' 'libewf' 'libqcow' 'libbde' 'libsmdev' 'libsmraw' 'libvhdi' 'libvmdk' 'libvshadow')
+makedepends=('python2-setuptools')
+source=("https://github.com/log2timeline/dfvfs/archive/${pkgver}.tar.gz")
+sha512sums=('a207b37e87e47408586d648d6093479af79c2d56114de7c7e0b11e011a8cff358fe0c5fb3cbff2ee80db17d61ff8c8574b21a3b48ca37e6645f208c6027f24e9')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/$pkgname-$pkgver/" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  python2 setup.py install --root=$pkgdir --optimize=1
+}

@@ -7,7 +7,7 @@
 #   henning mueller <henning@orgizm.net>
 #   Fabiano Furtado <fusca14 at gmail dot com>
 pkgname=fwknop
-pkgver=2.6.3
+pkgver=2.6.5
 pkgrel=1
 pkgdesc='FireWall KNock OPerator: Single Packet Authorization and Port Knocking'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -38,5 +38,5 @@ package() {
   install -D -m 755 "$srcdir/fwknopd.service" "$pkgdir/usr/lib/systemd/system/fwknopd.service"
 }
 
-sha512sums=('eb3f10ec756bd6ec04c0d38eb1f1381d418a0a9257c8e208181309445da757ccd44336b5e8d6ae25e5c1672c2bb96bf734791eabe56acc3a36a977a79e160f2d'
+sha512sums=('c72dffd50099a8c214036e7faa21213f301847ab80dc771c0dbbd9ecea8ab99d892670fe48e4e8cf0ae4031cf0dd23374a99ef1bd4e0d0760e0a99e700e0c7a6'
             '32ac720dd5dedd373a932a2cd2799fcfc7fcc97eba6e1dfba69a25b138c136fe9cbe54e50f98fc055333f97fe99b3d0c2377d940e3168ca5347e088c8536afb8')

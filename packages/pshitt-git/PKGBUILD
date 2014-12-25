@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pshitt-git
-pkgver=20141014.r17
+pkgver=20141115.r21
 pkgrel=1
 groups=('archassault')
 pkgdesc="A lightweight fake SSH server designed to collect authentication data sent by intruders. "

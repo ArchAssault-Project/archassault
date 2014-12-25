@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=panoptic
-pkgver=0.r177.c80dbb2
+pkgver=0.r178.73b2b4c
 pkgrel=1
 groups=('archassault' 'archassault-autonomous')
 pkgdesc="A tool that automates the process of search and retrieval of content for common log and config files through LFI vulnerability"

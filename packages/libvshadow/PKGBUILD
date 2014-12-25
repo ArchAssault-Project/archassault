@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=libvshadow
+pkgver=20141023
+pkgrel=1
+pkgdesc="Library and tools to access the Volume Shadow Snapshot (VSS) format"
+url="https://github.com/libyal/libvshadow"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL3')
+depends=('fuse' 'libcsystem' 'python2' 'libbfio')
+makedepends=('git')
+source=("https://github.com/libyal/libvshadow/archive/$pkgver.tar.gz")
+sha512sums=('510736cd19cc3ebce88a1ad7627721edc91df6b620a2ec61d544415c210af73bf25e5c337141f22a0949394cc834254227915c72eb4b5f3246c3e60d2b18df88')
+
+
+build(){
+  cd $srcdir/$pkgname-$pkgver
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python --with-pyprefix=2
+  make
+}
+
+package(){
+  cd $srcdir/$pkgname-$pkgver
+  make DESTDIR=$pkgdir install
+}

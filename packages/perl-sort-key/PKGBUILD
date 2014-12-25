@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-sort-key
-pkgver=1.32
+pkgver=1.33
 pkgrel=1
 pkgdesc="Perl module that sorts arrays by one or multiple calculated keys."
-arch=(any)
+arch=(armv6h armv7h i686 x86_64)
 url=http://search.cpan.org/~salva/Sort-Key/
 license=('GPL' 'PerlArtistic')
-depends=('perl>=5.10.0')
+depends=('perl')
 options=(!emptydirs)
 source=(http://search.cpan.org/CPAN/authors/id/S/SA/SALVA/Sort-Key-$pkgver.tar.gz)
-md5sums=('d19ae52e49af1ef0cc45a4c2eca4ecb0')
+sha512sums=('cf87cd2f5c0eea662dbdaf7faed5646ebd63925c71a093a79a9980d6de290b1128443954675893f263961e68d1db0e9e4ca1412a2734ce8dcdd271bcf4f1be17')
 
 build() {
 	cd "$srcdir/Sort-Key-$pkgver"

@@ -2,21 +2,22 @@
 
 _pkgname=utox
 pkgname=${_pkgname}-git
-_pkgver=bca6b02
-pkgver=r920.bca6b02
+_pkgver=bfcee57
+pkgver=r981.bfcee57
 pkgrel=1
 pkgdesc="Lightweight Tox client"
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="https://github.com/notsecure/uTox"
 license=('GPL3')
-depends=('tox-git=1:r2932.26a6bde-1'
+groups=('archassault')
+depends=('tox-git=1:r3040.dd59d99-1'
          'openal'
          'v4l-utils'
          'libdbus'
          'fontconfig'
          'libxrender'
+         'libxext'
          'desktop-file-utils'
-         'xdg-utils'
          'hicolor-icon-theme')
 makedepends=('git' 'libxft')
 provides=("$_pkgname")
@@ -24,10 +25,8 @@ conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install=${pkgname}.install
 
-source=("${_pkgname}::git+${url}.git#commit=${_pkgver}"
-        "${_pkgname}.desktop")
-sha512sums=('SKIP'
-            'fc2f6da83678f7836134b6934a572900e8faae43f711adeb9327875be8419b92fdfaebd4a35af8048f768f705f822d9abbc10113809261b17a149fc0d7bc1000')
+source=("$_pkgname"::"git+${url}.git#commit=${_pkgver}")
+sha512sums=('SKIP')
 
 pkgver() {
     cd $_pkgname
@@ -40,8 +39,12 @@ build() {
 }
 
 package() {
-    install -Dm644 ${_pkgname}.desktop "${pkgdir}/usr/share/applications/${_pkgname}.desktop"
     cd $_pkgname
-    install -Dm644 icons/${_pkgname}-512x512.png "${pkgdir}/usr/share/pixmaps/${_pkgname}.png"
     make PREFIX=/usr DESTDIR="$pkgdir" install
+    cd icons
+    for _icon in *.png; do
+        _size=$(sed 's|^[^-]*-||;s|\.png||' <<< $_icon)
+        install -Dm644 $_icon "$pkgdir"/usr/share/icons/hicolor/${_size}/apps/${_pkgname}.png
+    done
+    install -Dm644 ${_pkgname}.svg "$pkgdir"/usr/share/icons/hicolor/scalable/apps/${_pkgname}.png
 }

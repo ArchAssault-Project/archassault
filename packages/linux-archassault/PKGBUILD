@@ -4,8 +4,8 @@
 
 #pkgbase=linux-archassault   # Build stock -ARCH kernel
 pkgbase=linux-archassault       # Build kernel with a different name
-_srcname=linux-3.16
-pkgver=3.16.4
+_srcname=linux-3.17
+pkgver=3.17.4
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -19,13 +19,12 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         # standard config files for mkinitcpio ramdisk
         'linux.preset'
         'change-default-console-loglevel.patch'
-        'compal-laptop-hwmon-fix.patch'
+        'fix_CPU0_microcode_on_resume.patch'
         'kali-wifi-injection.patch'
         'add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by-default.patch'
         'af_802154-Disable-auto-loading-as-mitigation-against.patch'
         'cdc_ncm-cdc_mbim-use-ncm-by-default.patch'
         'cirrus-disable-modeset-by-default.patch'
-        'efi-autoload-efivars.patch'
         'fs-enable-link-security-restrictions-by-default.patch'
         'iwlwifi-do-not-request-unreleased-firmware.patch'
         'kali-wifi-injection.patch'
@@ -39,19 +38,18 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         'yama-disable-by-default.patch'
         'misc-bmp085-Enable-building-as-a-module.patch'
         )
-sha512sums=('64033e741d3f42ed06010e63e69d66e1d3d9414ef20f76834508878d4218b72619541a18ef4fd377204af2859e52198310998109b20ed9b67722586b28c9a231'
-            '1014e8df1e3f9616a70a3319e8381dcaf4d8f2b98808127dca555f914fac852eca3f6661a6979e124806b3491a0586f39393313183edc88a26409a9c391ea994'
-            '0d74cdea4f67dd5ecacdab186e9e339f9221b7b1e6c75d7787927ffb0ff4806eb098902b6c371249ef0edf3f816564997badf283a663df8efee7bbf9b5eda889'
-            '2d2a5c38b3d98645c620378b994ac49e1321177ea51723f9f228bc937a8ac2235f96621b2e15dd9ebbd84254b3f39e4b2272e28303bed38ac8f3d4764d44c151'
+sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
+            'aa722cf47374ab58c022ddc1dd8c2273eca4f3776139b8fb2ac61dc114ff13ac667b22427c0857ab9a2cf117b5c4d52352ae8fe9d26a30c9b48c860f93f75ce6'
+            '96426a2bb43f17b8db1add6e5fb249a55c411ada43efb1b33d6d1ca2e9d9fa35e08bc178a83033442c9dcc5438e0066386574d695140688be648e446b5fe93d2'
+            '8ea213c9bea7ab61fcc38b23d7168f4cd90cbd8e4f411313375fc2196e8ad4580bb3495cea9cdb53dc358580cc7c0ae63074587d852e9952907fcae541251e11'
             '5fe243dea17fdb71edc7098e0e1938beb7f2d851bd2be3981c4ef3d617aaad81ff1cb4c84689082472ebd13b721e849ad2214aefb9ffe40ec3d76abfd40b87ad'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            '2c2109ee863c51f1974a8d46e1b85484614769a66cbe0d6bdde6fd151ace2bd811db0a0ce93746642fd09b709487393371073d28b428d620d38a719ff39c183b'
+            '532df1bdcacfb5453dc8b4a0f44c33146cb3c01a28c073a3b8f9900f4e65cb23763c99eeb7128d3448ba1e6f54632c5867f5f3d82ee2ee1b7033ff921ef8e7ba'
             '71f99b5b904b7bc157df3a3db2d56bada800c4258c3358408069ef6646d5a238df22602e9edad48fbaa156847a7fdac521a16d5582313f9b4bb6045b9abe4de3'
             '2bc514925c434ee75e40ea12348bcd91d4527b8450e34187bb6e18d1ec734e01a3b3393a7d57aa37b263108f5f4aba798c01c196a4fae435e4bfd51a52007d21'
             '7d5547887d0390a1c0eea1ccd7b9f38a5ce8e34bf83114d8c865a55590b90604b8852955d3d937124f49a37409e8a43ff126a21359679f58c6b2f3a175bb89b7'
             '695cf1855f64b6b564600578155265efad8f2119d353c1539118ab21eb7032ed0f0d49c7b599698ae96c577f499a1bcf5306fc179a5c1a51a7667f0d419c6312'
             'b30010aee01ea7ba977bb607a5dca83db4c6897c6f645b565ed56861979c135922388aa2b1c8dcb6a8c665b5c65df2d4606626bd5f9ee9434f226bec5a89d79e'
-            '72de0c98d5467e2355c4169458e89fee9162a85c6631e506dcb808f1b7e559bb5553ea452f2e3e2bc5365169dc8a64c7e51a42a49b1544456614618be62ebbaf'
             '18f546b04efa25f4c81cbab316e0ad4e29ef433d28646479419f3176473a22df134c42fd3b043f2a41629a6cadf533d925003e179e39a87c242b7397bb020a1e'
             'c0f1d9eecee5f1adeba60d5dd493c4b47994e1abff26b2560f4cc1781dd52f4dd0e599479068d652e67844664657c9af49912fe5fcc0f0181c3b1196d4ead13c'
             '71f99b5b904b7bc157df3a3db2d56bada800c4258c3358408069ef6646d5a238df22602e9edad48fbaa156847a7fdac521a16d5582313f9b4bb6045b9abe4de3'
@@ -82,8 +80,9 @@ prepare() {
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
 
-  # #41458 fix hwmon for compal-laptop module
-  patch -p1 -i "${srcdir}/compal-laptop-hwmon-fix.patch"
+  # Fix FS#42689
+  # https://bugzilla.kernel.org/show_bug.cgi?id=88001
+  patch -p1 -i "${srcdir}/fix_CPU0_microcode_on_resume.patch"
 
   #kali specific patches
   patch -p1 -i "${srcdir}/kali-wifi-injection.patch"
@@ -91,7 +90,6 @@ prepare() {
   patch -p1 -i "${srcdir}/af_802154-Disable-auto-loading-as-mitigation-against.patch"
   patch -p1 -i "${srcdir}/cdc_ncm-cdc_mbim-use-ncm-by-default.patch"
   patch -p1 -i "${srcdir}/cirrus-disable-modeset-by-default.patch"
-  patch -p1 -i "${srcdir}/efi-autoload-efivars.patch"
   patch -p1 -i "${srcdir}/fs-enable-link-security-restrictions-by-default.patch"
   patch -p1 -i "${srcdir}/iwlwifi-do-not-request-unreleased-firmware.patch"
   patch -p1 -i "${srcdir}/mgag200-disable-autoload.patch"
@@ -298,7 +296,8 @@ _package-headers() {
   # add xfs and shmem for aufs building
   mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/fs/xfs"
   mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/mm"
-  cp fs/xfs/xfs_sb.h "${pkgdir}/usr/lib/modules/${_kernver}/build/fs/xfs/xfs_sb.h"
+  # removed in 3.17 series
+  # cp fs/xfs/xfs_sb.h "${pkgdir}/usr/lib/modules/${_kernver}/build/fs/xfs/xfs_sb.h"
 
   # copy in Kconfig files
   for i in $(find . -name "Kconfig*"); do
@@ -345,6 +344,7 @@ _package-docs() {
 pkgname=("${pkgbase}" "${pkgbase}-headers" "${pkgbase}-docs")
 for _p in ${pkgname[@]}; do
   eval "package_${_p}() {
+    $(declare -f "_package${_p#${pkgbase}}")
     _package${_p#${pkgbase}}
   }"
 done

@@ -1,0 +1,26 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=libbfio
+pkgver=20141015
+pkgrel=2
+pkgdesc="Library to provide basic file input/output abstraction"
+url="https://github.com/libyal/libbfio"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('GPL3')
+depends=('glibc')
+makedepends=('git')
+source=("https://github.com/libyal/libbfio/archive/$pkgver.tar.gz")
+sha512sums=('4bafa651ddf6e64e7221a0061d566acf8d59e9cd1db00a9ab04e51533735e7b1d7786738adbe426ecfaecc8a97f6fcd0245733663cfb5535d1142f6f8f2ffab0')
+
+
+build(){
+  cd $srcdir/$pkgname-$pkgver
+  ./synclibs.sh
+  ./autogen.sh
+  ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output
+  make
+}
+
+package(){
+  cd $srcdir/$pkgname-$pkgver
+  make DESTDIR=$pkgdir install
+}

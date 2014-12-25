@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='air'
 pkgver='2.0.0'
-pkgrel=4
+pkgrel=5
 pkgdesc='A GUI front-end to dd/dc3dd designed for easily creating forensic images.'
 url='http://air-imager.sourceforge.net/'
 groups=('archassault' 'archassault-forensic')
@@ -9,10 +9,11 @@ license=('GPL')
 arch=('any')
 depends=('perl-tk' 'sharutils')
 install='air.install'
+options=('!emptydirs')
 source=("http://downloads.sourceforge.net/air-imager/air-$pkgver.tar.gz" "air.install" "air.desktop")
-md5sums=('d4dff8fcaf94d555bd7f833097fe816d'
-         '65f3bcea8cd24db2ceca7251b8708f90'
-         '7c983501445d3d4be92379903bd629a4')
+sha512sums=('3b22b0b2f07fd5bf89b576bb1d96d9bc372534f2063e99c7a9c4931fd927b0cc5c3fe832f0c0d51ceb95fe242fd0d3e4fe6bf59339dd2971b6afcd00106ea92c'
+            '1bda2442efdd5bbfe2ac83618b3ef2a551809a0481afbb93c6d4e796bd42b3a6f70ddb169cdeb4cdea4bd114343a293bdf7466b106fb302aa131fc33ee969299'
+            '91ade8c4cef8385d808b55272dfba494acb8e08a08fda8eeea39e09cdc4776b95add23c987e24e85121a416f0875c649388e04fa028441d908f55168b0e92968')
 
 package() {
   cd "$srcdir/air-$pkgver"

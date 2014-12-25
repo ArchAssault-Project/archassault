@@ -1,0 +1,25 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname="libvmdk"
+pkgver="20141021"
+pkgrel=1
+pkgdesc="Library and tools to access the VMware Virtual Disk (VMDK) format"
+arch=("i686" "x86_64" "armv6h" "armv7h")
+url='https://github.com/libyal/libvmdk'
+license=('GPL3')
+depends=('libcsystem' 'python2')
+makedepends=('git')
+source=("https://github.com/libyal/libvmdk/archive/$pkgver.tar.gz")
+sha512sums=('1f1a1c385a75180f3dee357e2abafe5abf3b0ea79fa5c2d3db794b62937fe50c8e4abf85483d20748551eba506a922f726616b20f7ef3f2da91d9afff81d0515')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./synclibs.sh
+  ./autogen.sh
+  PYTHON_VERSION="2" ./configure --prefix=/usr --disable-rpath --enable-verbose-output --enable-debug-output --enable-python
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make DESTDIR="$pkgdir/" install
+}

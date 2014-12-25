@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=imagejs-git
-pkgver=20141110.r14
+pkgver=20141209.r48
 pkgrel=1
-groups=('archassault' 'archassault-misc')
+groups=('archassault' 'archassault-miscellaneous')
 pkgdesc="A Small tool to package javascript into a valid image file."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/jklmnn/imagejs'
 license=('GPL3')
-depends=()
+depends=('glibc')
 makedepends=('git')
 provides=('imagejs')
 source=("${pkgname}::git+https://github.com/jklmnn/imagejs.git")

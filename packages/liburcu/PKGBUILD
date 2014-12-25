@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=liburcu
-pkgver=0.8.1
+pkgver=0.8.6
 pkgrel=1
 pkgdesc="LGPLv2.1 userspace RCU (read-copy-update) library"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,7 +9,7 @@ license=('LGPL2.1')
 source=(http://lttng.org/files/urcu/userspace-rcu-${pkgver}.tar.bz2)
 depends=('glibc')
 options=('!libtool')
-sha1sums=('d927520727a103f86aa2f87c76b1ca0df90fbfed')
+sha512sums=('027c215570b1ff94d0b7dd66934aece525461ddc8b172000c72af5b2e76115da9d18a635bbfb81dbd749c52463c5f4dd27f5700a30f367a4fb5fe0db6c128a6d')
 
 build()
 {

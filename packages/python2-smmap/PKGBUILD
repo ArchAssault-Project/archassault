@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-smmap
-pkgver=0.8.2
-pkgrel=3
+pkgver=0.8.3
+pkgrel=1
 pkgdesc="A pure git implementation of a sliding window memory map manager"
 arch=('any')
 url='http://pypi.python.org/pypi/smmap'
@@ -9,7 +9,7 @@ license=('BSD')
 makedepends=('python2-distribute')
 depends=('python2')
 source=("http://pypi.python.org/packages/source/s/smmap/smmap-$pkgver.tar.gz")
-sha512sums=('b972cc4ec58db64d4d960480b4fa9ffd33997b16799789c392013e054841e1bae96465bf4debce5a8bd6714b1eb521994aa1e54d46c0191c02aed423c7d9be7c')
+sha512sums=('dff14f25487d83ac348d3f4c9556f6e972c4e1166ac70cc9ca0b70a7e210750a67f4ed85203bebdacc6e8f912cabf55135a0da26c7ae2b017caf2f1682b22608')
 
 package() {
   cd "$srcdir/smmap-$pkgver"

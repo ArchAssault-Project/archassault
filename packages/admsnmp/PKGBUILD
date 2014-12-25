@@ -1,17 +1,18 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=admsnmp
 pkgver=0.1
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-scanners')
 pkgdesc='ADM SNMP audit scanner.'
+url=('http://packetstorm.wowhacker.com/groups/ADM/')
 license=('GPL')
 depends=('glibc')
 makedepends=('gcc')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 source=("http://packetstorm.wowhacker.com/groups/ADM/ADMsnmp.0.1.tgz"
         "admsnmp.desktop")
-md5sums=('1b6909ab6ebaaaec49444f51d3162de2'
-         'a2e5e650a726a5ca4421582576f0b5f2')
+sha512sums=('e861174206b87934ad14f686a5f0abc0d1350b94b535075b9d75d9c79411be6dd298cb2f496140541603025217d275fb80a6429f653bd3735e098b7cb6c0282e'
+            '32bf8e34db3de055b88f27edf7d175a4ec558b7f22e2d60cc47eb9372f2fc00b9210d2074043d7db7d733d575c51c14b67dca62fc1a4fa6276b2642a79546a80')
 
 build() {
   cd "$srcdir/ADMsnmp"

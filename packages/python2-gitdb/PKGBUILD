@@ -1,17 +1,18 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-gitdb
-pkgver=0.5.4
-pkgrel=3
+pkgver=0.6.0
+pkgrel=1
 pkgdesc="IO of git-style object databases"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://pypi.python.org/pypi/gitdb'
 license=('BSD')
-makedepends=('python2-distribute')
-depends=('python2' 'python2-async' 'python2-smmap')
+makedepends=('python2-setuptools')
+depends=('python2-async' 'python2-smmap')
 source=("http://pypi.python.org/packages/source/g/gitdb/gitdb-$pkgver.tar.gz")
-sha512sums=('0ee1bb8c818ddb4c7801c62e4dcde4f4b39d0df9b344624c647f9b35cb7667e37bc6e0c61d163f4c4a6fb6e4c3da27ca088cba60d65ae0cf7e3473946bd2d353')
+sha512sums=('649dbc25181020ed34b699cbc3275248ed7f47110bc1bb331484c6faa5cacca92940d17881943fb7bae5127abba02721d79a105fdbd0b1da90c9155690b080c9')
 
 package() {
   cd "$srcdir/gitdb-$pkgver"
   python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

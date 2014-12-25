@@ -1,20 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname='asp-audit'
-pkgver='2BETA'
-_pkgver='v2'
+
+pkgname=asp-audit
+pkgver=2.2
 pkgrel=1
-pkgdesc="An ASP fingerprintinging tool and vulnerability scanner."
+pkgdesc="ASP fingerprintinging tool and vulnerability scanner"
 arch=('any')
 url="http://seclists.org/basics/2006/Sep/128"
-license=('unknown')
+license=('GPL')
 depends=('perl')
-groups=('archassault' 'archassault-webapp' 'archassault-fingerprinting'
-        'archassault-scanners')
-source=("http://packetstorm.igor.onlinedirect.bg/UNIX/scanners/asp-audit-$_pkgver.tar.gz")
-md5sums=('eb2e18829326115db3ebccf76b97a127')
+groups=('archassault' 'archassault-webapp' 'archassault-fingerprinting' 'archassault-scanners')
+source=("${pkgname}-v${pkgver}.pl")
+sha512sums=('3d15346fa478034c8a569ada8e6c8410fc7732a85d17a2ed81f3916c5e9705d2a371fec6cd39468184398cf2c399cae4656d1cceabb8707acbf85ee05c7dd160')
 
 package() {
-  cd "$srcdir"
-
-  install -D -m755 "$srcdir/asp-audit-latest.pl" "$pkgdir/usr/bin/asp-audit"
+    install -Dm755 ${pkgname}-v${pkgver}.pl "$pkgdir"/usr/bin/${pkgname}
 }

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=xorsearch
-pkgver=1.9.2
+pkgver=1.11.1
 pkgrel=1
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="Program to search for a given string in an XOR, ROL or ROT encoded binary file."
@@ -8,7 +8,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://blog.didierstevens.com/programs/xorsearch/"
 license=('custom:public domain')
 source=("http://www.didierstevens.com/files/software/XORSearch_V${pkgver//./_}.zip")
-md5sums=('bf1ac6caa325b6d1af339b45782b8623')
+md5sums=('d5ea1e30b2c2c7febe7ae7ad6e826bf5')
 
 build() {
   cd "$srcdir"

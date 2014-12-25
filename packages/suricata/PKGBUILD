@@ -1,17 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
-pkgver=2.0.3
+pkgver=2.0.5
 pkgrel=1
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
 license=('GPL2')
 groups=('archassault')
-depends=('zlib' 'nss' 'jansson' 'libcap-ng' 'libnetfilter_queue' 'libnfnetlink' 'libnet' 'libpcap' 'libyaml' 'pcre' 'python2-magic' 'file')
+depends=('nss' 'jansson' 'libcap-ng' 'libnetfilter_queue' 'libnet' 'libpcap' 'libyaml' 'python2-magic' 'file')
 optdepends=('snort: suricata can use rulesets provided by snort')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
-sha512sums=('9c38431c8a0776e0aa1bc0264e38a86c658304be2e1339acf3ea9609b5cb7db900530977011e47bafd32b275a5dbb0641593d3dd33b2d006911b4e04d394fc5d')
+sha512sums=('9e9a9b92aa966cad17c3a215ddb81ea512e3a5af45b884f2fae5a4c6c188868ccc2be1bac83e57e68be1f8000b3fb1bbd7a36d9c7a88c156ecdbfb3013107c56')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"

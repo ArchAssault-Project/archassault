@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=braa
 pkgver=0.82
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners')
 pkgdesc="A mass snmp scanner"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,17 +9,17 @@ url='http://s-tech.elsat.net.pl/braa/'
 license=('GPL')
 depends=('glibc')
 makedepends=('subversion' 'nasm')
-provides=('nbtool' 'dnscat')
-source=("http://s-tech.elsat.net.pl/braa/braa-$pkgver.tar.gz")
-md5sums=('e28f8b0591672de9aaa7dcf54332f6ce')
+provides=('dnscat')
+source=("http://s-tech.elsat.net.pl/braa/braa-${pkgver}.tar.gz")
+sha512sums=('8c88d288287a12c19c8d49606c8d2b70531b7f2be1aa3c4ccc6b01739aead751c03c56dc3f1a346b3dd20730a8bd0d30e33167a5f7c676f629348195762e23d4')
 
 build() {
-  cd "$srcdir/braa-$pkgver"
-  make CFLAGS="$CFLAGS"
+  cd braa-"${pkgver}"
+  make
 }
 
 package() {
-  cd "$srcdir/braa-$pkgver"
-  install -Dm755 braa $pkgdir/usr/bin/braa
-  install -Dm644 README $pkgdir/usr/share/doc/braa/README
+  cd braa-"${pkgver}"
+  install -Dm0755 braa ${pkgdir}/usr/bin/braa
+  install -Dm0644 README ${pkgdir}/usr/share/doc/braa/README
 }
