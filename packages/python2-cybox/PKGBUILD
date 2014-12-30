@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-cybox
-pkgver=2.1.0.7
+pkgver=2.1.0.9
 pkgrel=1
 pkgdesc="A Python library for parsing and generating CybOX 2.1.0 content."
 url="http://cybox.mitre.org"
@@ -9,7 +9,7 @@ makedepends=('python2-distribute')
 license=('custom')
 arch=('any')
 source=("https://pypi.python.org/packages/source/c/cybox/cybox-${pkgver}.zip")
-sha512sums=('3c9b8ed994d024c08a32136c3fdebdfd5674401bad3e43b7ada71279816ddae1cb010a5b334321d35792c8e03f4d9ed577b62feeafb25fbedeae6e0d32b481f9')
+sha512sums=('8d6a74054ab7a6d7e030bd4c3b2c443e23a083cc5fc914ead316cf6f08dea15bcca238a1f035226da3d79ca619c2c1ae5bbd61f147c407788c8e6f29c61bab92')
 
 build() {
   cd cybox-"${pkgver}"
