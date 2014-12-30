@@ -3,8 +3,8 @@
 pkgname=python2-configargparse
 _pkgname=ConfigArgParse
 pkgver=0.9.3
-pkgrel=1
-pkgdesc="A binary plist parser"
+pkgrel=2
+pkgdesc="A drop-in replacement for argparse that allows options to also be set via config files and/or environment variables."
 url="https://pypi.python.org/pypi/ConfigArgParse"
 arch=('any')
 license=('MIT')
