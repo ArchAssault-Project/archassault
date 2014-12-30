@@ -5,7 +5,7 @@
 #pkgbase=linux-archassault   # Build stock -ARCH kernel
 pkgbase=linux-archassault       # Build kernel with a different name
 _srcname=linux-3.17
-pkgver=3.17.4
+pkgver=3.17.6
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -19,7 +19,8 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         # standard config files for mkinitcpio ramdisk
         'linux.preset'
         'change-default-console-loglevel.patch'
-        'fix_CPU0_microcode_on_resume.patch'
+        '0001-x86-microcode-Update-BSPs-microcode-on-resume.patch'
+        '0002-x86-microcode-Limit-the-microcode-reloading-to-64-bi.patch'
         'kali-wifi-injection.patch'
         'add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by-default.patch'
         'af_802154-Disable-auto-loading-as-mitigation-against.patch'
@@ -39,12 +40,13 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         'misc-bmp085-Enable-building-as-a-module.patch'
         )
 sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
-            'aa722cf47374ab58c022ddc1dd8c2273eca4f3776139b8fb2ac61dc114ff13ac667b22427c0857ab9a2cf117b5c4d52352ae8fe9d26a30c9b48c860f93f75ce6'
-            '96426a2bb43f17b8db1add6e5fb249a55c411ada43efb1b33d6d1ca2e9d9fa35e08bc178a83033442c9dcc5438e0066386574d695140688be648e446b5fe93d2'
-            '8ea213c9bea7ab61fcc38b23d7168f4cd90cbd8e4f411313375fc2196e8ad4580bb3495cea9cdb53dc358580cc7c0ae63074587d852e9952907fcae541251e11'
+            'a6e6dd8224355c8f20843f6ee923e27a1c4794268cce212c9dc9a431d0376da9887161d2924a447007650bf98822a08da4c0f1b76ec8d2bf7c2a1f81b5908d9e'
+            '425ea09062e9cf20cefdd6b36a64b22baf80f08146ad701e5cc5c0e7be60827a684bfcc549994d98ecf91e264ec1b070e901b38369d393f1812515914669c533'
+            '87190531e9359d53d443209f4ef287c8592efbf5d4f1387d373d499ff2107f80ad7c641eef3da302df6cdf789e872bdd1c31cc47b59faca72b641ef321bd8539'
             '5fe243dea17fdb71edc7098e0e1938beb7f2d851bd2be3981c4ef3d617aaad81ff1cb4c84689082472ebd13b721e849ad2214aefb9ffe40ec3d76abfd40b87ad'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            '532df1bdcacfb5453dc8b4a0f44c33146cb3c01a28c073a3b8f9900f4e65cb23763c99eeb7128d3448ba1e6f54632c5867f5f3d82ee2ee1b7033ff921ef8e7ba'
+            'fc548351593137def408beebb23e3b0fe9de638c7f708ef3c0ef23d8880dd7d083d5d0be4772338bca2947d9bcf394749f17035679316256ffeab7d1cae89249'
+            '313f9155bad37f8c98f79c0c776e6a0457b56597c8cff5dcd6c1bfa0377118e90e5a79f36c53dd10fd59821f2465333ea2fcf3064ae0b2243c4c6685f9954cc5'
             '71f99b5b904b7bc157df3a3db2d56bada800c4258c3358408069ef6646d5a238df22602e9edad48fbaa156847a7fdac521a16d5582313f9b4bb6045b9abe4de3'
             '2bc514925c434ee75e40ea12348bcd91d4527b8450e34187bb6e18d1ec734e01a3b3393a7d57aa37b263108f5f4aba798c01c196a4fae435e4bfd51a52007d21'
             '7d5547887d0390a1c0eea1ccd7b9f38a5ce8e34bf83114d8c865a55590b90604b8852955d3d937124f49a37409e8a43ff126a21359679f58c6b2f3a175bb89b7'
@@ -82,7 +84,8 @@ prepare() {
 
   # Fix FS#42689
   # https://bugzilla.kernel.org/show_bug.cgi?id=88001
-  patch -p1 -i "${srcdir}/fix_CPU0_microcode_on_resume.patch"
+  patch -p1 -i "${srcdir}/0001-x86-microcode-Update-BSPs-microcode-on-resume.patch"
+  patch -p1 -i "${srcdir}/0002-x86-microcode-Limit-the-microcode-reloading-to-64-bi.patch"
 
   #kali specific patches
   patch -p1 -i "${srcdir}/kali-wifi-injection.patch"
