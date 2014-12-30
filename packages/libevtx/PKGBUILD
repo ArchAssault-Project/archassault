@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname="libevtx"
-pkgver="20141112"
+pkgver="20141229"
 pkgrel=1
 pkgdesc="Library and tooling to access the Windows XML Event Log (EVTX) format"
 arch=("i686" "x86_64" "armv6h" "armv7h")
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('libcsystem' 'libbfio' 'python2')
 makedepends=('git')
 source=("https://github.com/libyal/libevtx/archive/$pkgver.tar.gz")
-sha512sums=('e7385df6955b6df5565ac64e423707dc812e0dc7c9fc46b5bb8d6cc37d7b5a05370d4c2dd0eed46498d6e0f6d6df3f209133d3ec46fe15726cdadb116db77173')
+sha512sums=('e9f972cbed4493ce7cd6de2c220c1fa3f9836feeeb458f69e28d577fa56e02b2123b4b28f43bd090866b23a9316dc4bda98e9d4d2e2c45e3545e9fc3d00a5325')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
