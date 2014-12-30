@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname="libevt"
-pkgver="20141026"
+pkgver="20141229"
 pkgrel=1
 pkgdesc="Library and tooling to access the Windows Event Log (EVT) format"
 arch=("i686" "x86_64" "armv6h" "armv7h")
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('libcsystem' 'libbfio' 'python2')
 makedepends=('git')
 source=("https://github.com/libyal/libevt/archive/$pkgver.tar.gz")
-sha512sums=('126de99642e1cc528a9f10505369a0b3f2ae8b8b212152f51b1a3852a0f84e57bf5375c4aca281a2e8cb2477c8e5f36b20a60abe24ca860edb06f1f0c4b607c4')
+sha512sums=('e6a696bc5a8a765e67d9210d4ca9d81396c0e179d7594e9d9829ac8c954ab32ebffaba73d55fd1d4f057ae364d8e4013a831e5f05ecdd928f9dcdaeacfd30fea')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
