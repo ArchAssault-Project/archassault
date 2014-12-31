@@ -1,14 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=batctl
-pkgver=2013.4.0
+pkgver=2014.3.0
 pkgrel=1
-groups=('archassault' 'archassault-wireless')
+groups=('archassault' 'archassault-wifi')
 pkgdesc="B.A.T.M.A.N. advanced control and management tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://www.open-mesh.net/"
+depends=('libnl')
 license=('GPL')
 source=("http://downloads.open-mesh.net/batman/releases/batman-adv-$pkgver/batctl-$pkgver.tar.gz")
-md5sums=('42e269cc710bbc9a8fd17628201d4258')
+sha512sums=('e5493140b043a4cb57aca37ebb7d16ad7bd2c6c794232f2da046825ac607903cfdf8d64985bd7c2355b4435523f3a2d7358e445e6d9b0fa700df8d3cecdc8d79')
 
 build(){
   cd "$srcdir/batctl-$pkgver"
