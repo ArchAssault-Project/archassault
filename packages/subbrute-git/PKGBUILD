@@ -1,0 +1,41 @@
+# Maintainer: ArchAssault <team@archassault.org>
+# Contributor: James An <james@jamesan.ca>
+
+pkgname=subbrute-git
+_gitname=subbrute
+pkgver=20141230.r53
+pkgrel=1
+pkgdesc="A (fast) multi-threaded python tool for enumerating subdomains"
+arch=('any')
+url="https://github.com/TheRook/subbrute"
+license=('GPL3')
+depends=('python-dnspython')
+makedepends=('git')
+provides=($_gitname)
+conflicts=($_gitname)
+options=(!emptydirs)
+source=("git+https://github.com/TheRook/${_gitname}.git" 'subbrute.patch')
+
+sha512sums=('SKIP'
+            '3cb936cfc246c38a8398b2b95f84aec5628f21145b805a6c8d2792608f0755ec187881f2bd392069847fb458989eb524cafba880debb3736e48b43e839188c9c')
+
+pkgver() {
+  cd "${_gitname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+}
+
+prepare() {
+  cd $_gitname
+  patch -Np1 -i ../subbrute.patch
+}
+
+package() {
+  cd $_gitname
+  # install upstream files
+  install -dm755 "${pkgdir}/usr/lib/${_gitname}"
+  install -m755 -t "${pkgdir}/usr/lib/${_gitname}" resolvers.txt subbrute.py names.txt names_small.txt
+  install -Dm755 README.md "${pkgdir}/usr/share/doc/${_gitname}/README.md"
+  # create symlink from /usr/bin
+  install -dm755 "${pkgdir}/usr/bin"
+  ln -s "/usr/lib/${_gitname}/${_gitname}.py" "${pkgdir}/usr/bin/${_gitname}"
+}

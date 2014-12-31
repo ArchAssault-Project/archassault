@@ -1,0 +1,15 @@
+diff -aur subbrute/subbrute.py subbrute-new/subbrute.py
+--- subbrute/subbrute.py	2014-12-30 16:53:30.451047286 -0800
++++ subbrute-new/subbrute.py	2014-12-30 16:57:42.144920134 -0800
+@@ -418,9 +418,9 @@
+     parser.add_option("-c", "--process_count", dest = "process_count",
+               default = 32, type = "int",
+               help = "(optional) Number of lookup theads to run. default = 32")
+-    parser.add_option("-s", "--subs", dest = "subs", default = os.path.join(base_path, "names.txt"),
++    parser.add_option("-s", "--subs", dest = "subs", default = os.path.join(base_path, "/usr/share/subbrute-git/names.txt"),
+               type = "string", help = "(optional) list of subdomains,  default = 'names.txt'")
+-    parser.add_option("-r", "--resolvers", dest = "resolvers", default = os.path.join(base_path, "resolvers.txt"),
++    parser.add_option("-r", "--resolvers", dest = "resolvers", default = os.path.join(base_path, "/usr/share/subbrute-git/resolvers.txt"),
+               type = "string", help = "(optional) A list of DNS resolvers, if this list is empty it will OS's internal resolver default = 'resolvers.txt'")
+     parser.add_option("-f", "--filter_subs", dest = "filter", default = "",
+               type = "string", help = "(optional) A file containing unorganized domain names which will be filtered into a list of subdomains sorted by frequency.  This was used to build names.txt.")
