@@ -11,7 +11,7 @@ optdepends=('chromium' 'google-chrome')
 source_i686+=("http://chromedriver.storage.googleapis.com/${pkgver}/${pkgname}_linux32.zip")
 source_x86_64+=("http://chromedriver.storage.googleapis.com/${pkgver}/${pkgname}_linux64.zip")
 sha512sums_i686=('3feb1e77f4b03fe980bf63bf5a86de2fa215fe9564891d2d3bbff37ba4ec3aceea3fc50d59c92d0f49761685eef43af5cab4a0951839611219efdab15dee929e')
-sha512sums_x86_64=('a7ade7c1070c2fc639070886a78f1b82aa08bc7bf2793d6bb1df91661528d09b66302c854202e8c48533a7134c21c7e8a1495c3d22d8ff2ee9839d5364b520df')
+sha512sums_x86_64=('4657f60f234fe78c725db3325690479510c5e20e9cfeb7b79b8bfd464873c44d2088606415e0947235e5bd02cb2b41e9a94e2123d63796e4fcd88468af568513')
 
 package() {
   mkdir -p "$pkgdir/usr/bin/"
