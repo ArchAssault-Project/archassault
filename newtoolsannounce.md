@@ -4,4 +4,6 @@ Newest Tools Added:
 
 * [bdfproxy-git](https://github.com/secretsquirrel/BDFProxy) - Patch Binaries via MITM: BackdoorFactory + mitmProxy. 
 
+* [crowbar](https://github.com/galkan/crowbar) - A brute forcing tool that can be used during penetration tests. It is developed to support protocols that are not currently supported by thc-hydra and other popular brute forcing tools. 
+
 **Thanks for the most recent requests!**
