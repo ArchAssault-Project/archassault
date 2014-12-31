@@ -1,18 +1,18 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=chromedriver
 pkgver=2.13
-pkgrel=1
+pkgrel=2
 pkgdesc="Standalone server which implements WebDriver's wire protocol"
-arch=('i686' 'x86_64' 'arm6vh' 'arm7vh')
+arch=('i686' 'x86_64')
 url="https://sites.google.com/a/chromium.org/chromedriver/"
 license=('Apache')
 depends=('libxi' 'gconf' 'nss')
 optdepends=('chromium' 'google-chrome')
 
-if [ "$CARCH" = "i686" ]; then
+if [[ "$CARCH" = "i686" ]]; then
     _arch='linux32'
     sha512sums=('3feb1e77f4b03fe980bf63bf5a86de2fa215fe9564891d2d3bbff37ba4ec3aceea3fc50d59c92d0f49761685eef43af5cab4a0951839611219efdab15dee929e')
-elif [ "$CARCH" = "x86_64" ]; then
+elif [[ "$CARCH" = "x86_64" ]]; then
     _arch='linux64'
     sha512sums=('a7ade7c1070c2fc639070886a78f1b82aa08bc7bf2793d6bb1df91661528d09b66302c854202e8c48533a7134c21c7e8a1495c3d22d8ff2ee9839d5364b520df')
 fi
