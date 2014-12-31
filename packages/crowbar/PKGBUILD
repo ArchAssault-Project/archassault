@@ -1,0 +1,39 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=crowbar
+pkgver=v.3.2
+pkgrel=1
+pkgdesc="A security analysis tool which automatically discovers and reports information about the given domain"
+arch=('any')
+url="http://sourceforge.net/projects/domainanalyzer/"
+license=('custom')
+depends=('python2' 'openvpn' 'freerdp' 'tigervnc')
+source=("https://github.com/galkan/crowbar/archive/${pkgver}.tar.gz")
+sha512sums=('a8313ac818ad85f4f88e31dbf494c8f941bcec1ee9e4d0b20e385e3f501765ed199528a669abd693fb6e6983d9e2deb8e63b798249edb566d062dab7a279c71c')
+
+prepare(){
+  grep -iRl 'python' "$srcdir/$pkgname-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  install -dm755 "$pkgdir/usr/bin/"
+  install -dm755 "$pkgdir/usr/share/$pkgname"
+  install -dm755 "$pkgdir/usr/share/$pkgname/lib"
+  install -dm755 "$pkgdir/usr/share/$pkgname/lib/core"
+  install -dm755 "$pkgdir/usr/share/$pkgname/images"
+  install -Dm644 images/* "$pkgdir/usr/share/$pkgname/images/"
+  install -Dm644 lib/*.py "$pkgdir/usr/share/$pkgname/lib/"
+  install -Dm644 lib/core/*.py "$pkgdir/usr/share/$pkgname/lib/core/"
+  install -Dm644 README.md "$pkgdir/usr/share/$pkgname/README.md"
+  install -Dm755 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
+  install -Dm755 crowbar.py  "$pkgdir/usr/share/$pkgname/crowbar.py" 
+
+cat >"$pkgdir/usr/bin/crowbar" <<EOF
+#!/bin/sh
+cd /usr/share/crowbar
+python2 crowbar.py "\$@"
+EOF
+
+chmod +x "$pkgdir/usr/bin/crowbar"
+}
