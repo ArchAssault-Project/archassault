@@ -3,9 +3,9 @@
 pkgname=crowbar
 pkgver=v.3.2
 pkgrel=1
-pkgdesc="A security analysis tool which automatically discovers and reports information about the given domain"
+pkgdesc="A brute forcing tool that can be used during penetration tests. It is developed to support protocols that are not currently supported by thc-hydra and other popular brute forcing tools."
 arch=('any')
-url="http://sourceforge.net/projects/domainanalyzer/"
+url="https://github.com/galkan/crowbar"
 license=('custom')
 depends=('python2' 'openvpn' 'freerdp' 'tigervnc')
 source=("https://github.com/galkan/crowbar/archive/${pkgver}.tar.gz")
