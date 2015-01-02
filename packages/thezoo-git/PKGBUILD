@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=thezoo-git
-pkgver=20141220.r61
+pkgver=20150101.r63
 pkgrel=1
 pkgdesc="A project created to make the possibility of malware analysis open and available to the public."
 url="https://github.com/ytisf/theZoo"
