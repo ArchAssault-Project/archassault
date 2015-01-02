@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=20141216.r180
-pkgrel=1
+pkgver=20141227.r184
+pkgrel=3
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
 arch=('any')
@@ -40,7 +40,7 @@ package() {
   cp -a libs/* "$pkgdir/usr/share/mitmf/libs/"
   grep -iRl 'python' "$pkgdir/usr/share/mitmf/libs/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
   cp -a  config/responder/* "$pkgdir/usr/share/mitmf/config/responder/"
-  for i in `find config/ -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/config/$i" ;done
+  for i in `find config/ -type f`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/$i" ;done
   #for i in `find libs/ -type f -iname "*.py"`; do install -Dm644 $i "$pkgdir/usr/share/mitmf/libs/$i" ;done
   install -Dm644 plugins/* "$pkgdir/usr/share/mitmf/plugins/"
   install -Dm644 README.md "$pkgdir/usr/share/mitmf/"
