@@ -1,11 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
 pkgver=20141227.r184
-<<<<<<< HEAD
 pkgrel=3
-=======
-pkgrel=3
->>>>>>> a9e053e... Corrected redundant copying (e.g. mitmf/config/config/mitmf.conf -> mitmf/config/mitmf.conf).  Changed pkgrel to 3, python2-user-agents and python2-pillow left out of dep. array to avoid conflicts upstream
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
 arch=('any')
