@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wifijammer-git
-pkgver=r43.4a0fe56
+pkgver=20150105.r45
 pkgrel=1
 groups=('archassault' 'archassault-wireless')
 pkgdesc="A python script to continuosly jam all wifi clients within range"
@@ -10,12 +10,13 @@ license=('GPL2')
 depends=('python2' 'scapy')
 makedepends=('git')
 provides=('wifijammer')
-source=("git+https://github.com/DanMcInerney/wifijammer.git")
+source=("${pkgname}::git+https://github.com/DanMcInerney/wifijammer.git")
 md5sums=('SKIP')
 
+
 pkgver() {
-  cd "$srcdir/wifijammer"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 prepare(){
@@ -23,14 +24,18 @@ prepare(){
 }
 
 package() {
-  cd "$srcdir/wifijammer"
+  cd "${pkgname}"
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/bin"
   install -dm755 "$pkgdir/usr/share/wifijammer"
 
   #Docs
-  install -m644 README.md "$pkgdir/usr/share/wifijammer"
+  install -Dm644 README.md "$pkgdir/usr/share/wifijammer"
+
+  #License
+  install -Dm644 README.md "$pkgdir/usr/share/licenses/$pkgname/README.md"
+  
 
   #Bin
   install -Dm755 wifijammer.py "$pkgdir/usr/bin/wifijammer"
