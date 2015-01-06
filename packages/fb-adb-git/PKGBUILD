@@ -9,7 +9,7 @@ url="https://github.com/facebook/fb-adb"
 license=('GPL3')
 arch=('i686' 'x86_64')
 depends=('android-tools')
-makedepends=('git' 'prelink' 'zip')
+makedepends=('vim-minimal' 'git' 'prelink' 'zip')
 options=('!strip' '!buildflags')
 install=${pkgname}.install
 
@@ -26,12 +26,11 @@ pkgver() {
     printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-prepare() {
-    chmod 755 ./android-ndk-r${_ndkver}-linux-${CARCH}.bin
-    if [ ! -d "android-ndk-r${_ndkver}" ]; then
-        ./android-ndk-r${_ndkver}-linux-${CARCH}.bin
-    fi
-}
+#prepare() {
+#    if [ ! -d "android-ndk-r${_ndkver}" ]; then
+#        ./android-ndk-r${_ndkver}-linux-${CARCH}.bin
+#    fi
+#}
 
 build() {
     export ANDROID_NDK="$srcdir"/android-ndk-r${_ndkver}
