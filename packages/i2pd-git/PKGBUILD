@@ -30,7 +30,7 @@ pkgver() {
 
 build() {
     cd $_pkgname
-    make
+    make -j1
 }
 
 package(){
