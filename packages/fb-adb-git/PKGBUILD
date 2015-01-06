@@ -33,7 +33,9 @@ pkgver() {
 
 prepare() {
     chmod 755 android-ndk.bin
-    ./android-ndk.bin
+    if [ ! -d "android-ndk-r${_ndkver}" ]; then
+        ./android-ndk.bin
+    fi
 }
 
 build() {
