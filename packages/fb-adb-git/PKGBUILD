@@ -14,7 +14,7 @@ options=('!strip' '!buildflags')
 install=${pkgname}.install
 
 _ndkver=10d
-source=("git+${url}.git#branch=master")
+source=("git+${url}.git")
 source_i686+=("android-ndk-r${_ndkver}-linux-i686.bin::http://dl.google.com/android/ndk/android-ndk-r${_ndkver}-linux-x86.bin")
 source_x86_64+=("http://dl.google.com/android/ndk/android-ndk-r${_ndkver}-linux-${CARCH}.bin")
 sha512sums=('SKIP')
@@ -25,12 +25,6 @@ pkgver() {
     cd $_pkgname
     printf "%s.r%s.%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
-
-#prepare() {
-#    if [ ! -d "android-ndk-r${_ndkver}" ]; then
-#        ./android-ndk-r${_ndkver}-linux-${CARCH}.bin
-#    fi
-#}
 
 build() {
     export ANDROID_NDK="$srcdir"/android-ndk-r${_ndkver}
