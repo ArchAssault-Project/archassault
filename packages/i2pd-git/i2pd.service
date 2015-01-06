@@ -1,6 +1,5 @@
 [Unit]
 Description=I2P Router written in C++
-Wants=network.target
 After=network.target
 
 [Service]
