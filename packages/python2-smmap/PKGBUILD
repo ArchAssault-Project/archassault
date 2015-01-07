@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-smmap
-pkgver=0.8.3
+pkgver=0.8.5
 pkgrel=1
 pkgdesc="A pure git implementation of a sliding window memory map manager"
 arch=('any')
@@ -8,10 +8,12 @@ url='http://pypi.python.org/pypi/smmap'
 license=('BSD')
 makedepends=('python2-distribute')
 depends=('python2')
-source=("http://pypi.python.org/packages/source/s/smmap/smmap-$pkgver.tar.gz")
-sha512sums=('dff14f25487d83ac348d3f4c9556f6e972c4e1166ac70cc9ca0b70a7e210750a67f4ed85203bebdacc6e8f912cabf55135a0da26c7ae2b017caf2f1682b22608')
+source=("http://pypi.python.org/packages/source/s/smmap/smmap-$pkgver.tar.gz" "https://raw.githubusercontent.com/gitpython-developers/smmap/master/LICENSE")
+sha512sums=('b6a3188771fc60cae0d84e854496efeda0ff08b4bed73af064c0b2305875b24eb6d94d6a7deb45b992734b081df7d5ffa1a64308b5c9dbcc9bef2f9b7bed588a'
+            '840a892dcc1ae83b4d3eda1aa005d08ce158c28911621f43afa0c214c269a72bedd909d60b2cdbfa2a545259451abde798713a25d1b1d9f9c06cceb56bc214dd')
 
 package() {
   cd "$srcdir/smmap-$pkgver"
   python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
+  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
