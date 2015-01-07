@@ -4,15 +4,15 @@
 
 _pkgname=toxic
 pkgname=${_pkgname}-git
-_pkgver=9240f62
-pkgver=r1440.9240f62
+_pkgver=ff0fbbc
+pkgver=r1445.ff0fbbc
 pkgrel=1
 pkgdesc="An ncurses-based commandline client for Tox"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Tox/toxic"
 license=('GPL3')
 groups=('archassault')
-depends=('tox-git=1:r3040.dd59d99-1' 'desktop-file-utils' 'freealut' 'libconfig' 'libnotify')
+depends=('tox-git=1:r3071.979b4bf-1' 'desktop-file-utils' 'freealut' 'libconfig' 'libnotify')
 makedepends=('git')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
