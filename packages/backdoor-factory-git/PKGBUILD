@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
-pkgname=backdoor-factory
-pkgver=0.r113.8ec4d19
+pkgname=backdoor-factory-git
+pkgver=0.r115.a52a7c0
 pkgrel=1
 groups=('archassault' 'archassault-backdoors')
 pkgdesc="Patch win32/64 binaries with shellcode"
@@ -9,19 +9,22 @@ arch=('any')
 license=('GPL3')
 depends=('capstone' 'python2-pefile')
 makedepends=('git')
-source=("git+https://github.com/secretsquirrel/the-backdoor-factory.git")
+replaces=('backdoor-factory')
+conflicts=('backdoor-factory')
+provides=('backdoor-factory' 'bdf')
+source=("${pkgname}::git+https://github.com/secretsquirrel/the-backdoor-factory.git")
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/the-backdoor-factory"
+  cd "${pkgname}"
   printf "0.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  cd "$srcdir/the-backdoor-factory"
+  cd "${pkgname}"
   install -dm755 "$pkgdir/usr/share/backdoor-factory"
   install -dm755 "$pkgdir/usr/bin/"
-  cp -ar --no-preserve=ownership * "$pkgdir/usr/share/backdoor-factory"
+  cp -a --no-preserve=ownership * "$pkgdir/usr/share/backdoor-factory"
   cat > "$pkgdir/usr/bin/backdoor-factory" <<EOF
 #!/bin/sh
 python2 /usr/share/backdoor-factory/backdoor.py "\$@"
