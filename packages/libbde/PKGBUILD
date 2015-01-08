@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname="libbde"
-pkgver="20141023"
+pkgver="20150106"
 pkgrel=1
 pkgdesc="Library and tools to access the BitLocker Drive Encryption (BDE) encrypted volumes"
 arch=("i686" "x86_64" "armv6h" "armv7h")
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('fuse' 'libcsystem' 'libbfio' 'python2')
 makedepends=('git')
 source=("https://github.com/libyal/libbde/archive/$pkgver.tar.gz")
-sha512sums=('1ddd3ac855812af96097baccfb91c31da0bd52656379564e280b166f3a735355076557e4571f0b0939bf6bcd630fce57cdaff2ad7acf73ec533a300ac8f98962')
+sha512sums=('7bbc55acb80bcf61d33437b1f914406a855eef6eb5d91470f82d6804cac73d7df238aa23fb55d4e2c5f379be1fe2d4ac3539a3def1d998f5db877a2f187d6058')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
