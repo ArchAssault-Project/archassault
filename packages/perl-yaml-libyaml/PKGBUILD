@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-yaml-libyaml'
-pkgver='0.41'
-pkgrel=4
+pkgver='0.55'
+pkgrel=1
 pkgdesc="YAML module wrapping libyaml"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('PerlArtistic' 'GPL')
@@ -10,8 +10,8 @@ depends=('perl>=5.8.1')
 makedepends=()
 url='http://search.cpan.org/dist/YAML-LibYAML'
 source=("http://search.cpan.org/CPAN/authors/id/I/IN/INGY/YAML-LibYAML-$pkgver.tar.gz")
-md5sums=('951ea0542ed7228ba285196e437c8d89')
-_distdir="YAML-LibYAML-0.41"
+sha512sums=('a4da7ef00f497200efbb4f7b503d0ae593978e099844fbc50c9b425879fc0cbf140234fac20cfb822406cd7e0df1c827e7c575cb63556e5c75d5d7e219cf3b52')
+_distdir="YAML-LibYAML-0.55"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
