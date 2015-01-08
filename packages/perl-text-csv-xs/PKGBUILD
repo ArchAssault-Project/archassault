@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-text-csv-xs'
-pkgver='1.04'
+pkgver='1.13'
 pkgrel='1'
 pkgdesc="comma-separated values manipulation routines"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
@@ -9,8 +9,7 @@ options=('!emptydirs')
 depends=('perl')
 url='http://search.cpan.org/dist/Text-CSV_XS'
 source=("http://search.cpan.org/CPAN/authors/id/H/HM/HMBRAND/Text-CSV_XS-$pkgver.tgz")
-md5sums=('f70d7860374155b8e6693e0858758937')
-sha512sums=('cbf579eb8876ef182bb21c23592443e2740af326a47b59ac6c75087c488c1b3871120e09a781b19d87bf2bd018f284c113e40a3f537adea0a4db8e936a3f555a')
+sha512sums=('3b987f6a483bd5546096f7bb752b09748bc7feb18477c692e83effcf14e664e7ebbe15c43be760a01cbd1b3ff2f36c4b1f945144e53d920781cedca1a95d4a60')
 _distdir="Text-CSV_XS-$pkgver"
 
 build() {
