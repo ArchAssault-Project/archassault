@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname="libfwsi"
-pkgver="20141116"
+pkgver="20150105"
 pkgrel=1
 pkgdesc="Library to access the Windows Shell Item format"
 arch=("i686" "x86_64" "armv6h" "armv7h")
@@ -9,7 +9,7 @@ license=('GPL3')
 depends=('libcsystem' 'libbfio' 'python2')
 makedepends=('git')
 source=("https://github.com/libyal/libfwsi/archive/$pkgver.tar.gz")
-sha512sums=('5d4587ddf4258598c2c34ce2efd026c0f80273eee5e0eeb097406e000fdb87f3898d039dd6a6fb6d595c2632ee9090178a0f944f44d0720d82ecd08e3fff4e89')
+sha512sums=('1d5cbfddad6f4390359c65519d5f3d03e1c5bc1530ecb3ed403dba9e8ade1d17c0112a20b193f7905a9f61a1c46af751a3a2831feb4a166922dbb6cea7ff2ea5')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
