@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-msgpack
-pkgver=0.4.0
-pkgrel=2
+pkgver=0.4.3
+pkgrel=1
 pkgdesc="MessagePack (de)serializer"
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://pypi.python.org/pypi/msgpack-python/'
 license=('Apache')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=("https://pypi.python.org/packages/source/m/msgpack-python/msgpack-python-$pkgver.tar.gz")
-md5sums=('8b9ce43619fd1428bf7baddf57e38d1a')
+sha512sums=('b44f41c80382da9ae714489c434f4b63b914ef0d79ff41bf1bf2a4fc8e037a84189e70dc26ab5314b1f8fdab86641684bdd22db5b650368d1394e315277475c3')
 
 package() {
   cd "$srcdir/msgpack-python-$pkgver"
