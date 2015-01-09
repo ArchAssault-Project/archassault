@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=scout2-git
-pkgver=r196.7cc58b4
+pkgver=r197.a72c93f
 pkgrel=1
 pkgdesc="Security auditing tool for AWS environments"
 url="http://isecpartners.github.io/Scout2/"
 arch=('any')
 license=('GPL2')
 groups=('archassault')
-depends=('python2' 'python2-boto' 'python2-dateutil')
+depends=('python2' 'python2-boto>=2.31.1' 'python2-dateutil>=2.2' 'python2-netaddr>=0.7.11' 'python2-requests>=2.4.0')
 makedepends=('git')
 provides=('scout2')
 conflicts=('scout2')
