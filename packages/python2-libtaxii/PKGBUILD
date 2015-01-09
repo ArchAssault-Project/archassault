@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-libtaxii
-pkgver=1.1.104
+pkgver=1.1.105
 pkgrel=1
 pkgdesc="TAXII Library."
 url="http://taxii.mitre.org/"
@@ -9,7 +9,7 @@ makedepends=('python2-distribute')
 license=('custom')
 arch=('any')
 source=("https://pypi.python.org/packages/source/l/libtaxii/libtaxii-${pkgver}.zip")
-sha512sums=('83b58741078e9ce518d17bca7fc808eca6a891537bd60c6b90511e82b05c511d394ab3fb0bba0506bb3b6c93371123e0a0f2b597ad479e1384776b24e6f01941')
+sha512sums=('c33b232034af80dc63da7979ecb7691768bbab143465edc383fae5690b951c985cd1c0f10ab154df6a32c2a36d56fa790b4192f6d4d81b0e3ea9eb5ab563b564')
 
 build() {
   cd libtaxii-"${pkgver}"
