@@ -1,24 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-maec
-pkgver=4.1.0.5
+pkgver=4.1.0.10
 pkgrel=1
 pkgdesc="An API for parsing and creating MAEC content."
 url="http://maec.mitre.org"
-depends=('python2' )
+depends=('python2' 'python2-cybox' 'python2-lxml')
 makedepends=('python2-setuptools')
-license=('UNKNOWN')
+license=('BSD')
 arch=('any')
-source=('https://pypi.python.org/packages/source/m/maec/maec-4.1.0.5.zip')
-sha512sums=('f370acd7f2f0c04893e41410aa3f79a86e70035a7a60588795b9c33a030efaea69d0a36f34831da09186f00ac2f48bead4541f8be8e66801d0e557883be55aa7')
+source=("https://pypi.python.org/packages/source/m/maec/maec-$pkgver.tar.gz")
+sha512sums=('0628b871eb6bd2358c07be3966110329be3c86bf9951777a537e5d0b30d23e988188c9934aa7d52b69c17dbc7b928a384ab23502adaa7f7914229c82ac391dfa')
 
 build() {
-  cd $srcdir/maec-4.1.0.5
+  cd $srcdir/maec-$pkgver
   python2 setup.py build
 }
 
 package() {
-  cd $srcdir/maec-4.1.0.5
+  cd $srcdir/maec-$pkgver
   python2 setup.py install --root="$pkgdir" --optimize=1
   find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
-  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|' 
+  find "${pkgdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|'
+  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
 }
