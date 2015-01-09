@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-requests_ntlm
-pkgver=0.0.3
+pkgver=0.1.0
 pkgrel=1
 pkgdesc="Allows for HTTP NTLM authentication using the requests library"
 arch=('any')
@@ -9,7 +9,7 @@ license=('MIT')
 depends=('python2')
 makedepends=('python2-distribute')
 source=("https://pypi.python.org/packages/source/r/requests_ntlm/requests_ntlm-$pkgver.tar.gz")
-sha512sums=('d58f076367ac05c772c81c941dcc6eb3433cf9013afc18f8a641678b17beec2f9cf232e9b79f0deabe15996110c5b7b52f4b6a72f2cf6a46a56f266f42fd8842')
+sha512sums=('f14e7e66dfbd42177abfdb10f06e3304114ba838e041495e920bfc010acdeb7bcc4ee7ed8f5b4666ada998c7a30b50288d6a864e4bf2fdb24d693499620f495c')
 
 package() {
   cd "$srcdir/requests_ntlm-$pkgver"
