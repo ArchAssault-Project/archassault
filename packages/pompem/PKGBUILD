@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=pompem
-pkgver=r69.b2569c4
+pkgver=r70.2737860
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A python exploit tool finder"
