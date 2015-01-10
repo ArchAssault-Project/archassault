@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=python2-olefileio_pl
-pkgver=0.30
+pkgver=0.41
 pkgrel=1
 pkgdesc="A Python module to parse and read Microsoft OLE2 files (Structured Storage or Compound Document, Microsoft Office) - Improved version of the OleFileIO module from PIL, the Python Image Library."
 arch=('any')
@@ -9,7 +9,7 @@ license=('custom')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=(https://pypi.python.org/packages/source/O/OleFileIO_PL/OleFileIO_PL-$pkgver.zip)
-sha512sums=('6cd59bc506786bede208b4ce9ad2337e392384983c7f1d126c7a8f2468daac9aea648424533dec3569e9db883ef35e95cf204879377b4d9469cbb34b956b15c4')
+sha512sums=('961468ff25d38feb9781a613d2a6d3b960877f486831631f6738e05a5a5cd4d1fced2b5ac5fab86e594be26d24576331bf23ccd394d4a2e589b05bad9f63a7f6')
 
 
 package() {
