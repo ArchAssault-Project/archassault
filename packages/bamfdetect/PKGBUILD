@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bamfdetect
-pkgver=1.2.0
+pkgver=1.5.1
 pkgrel=1
 pkgdesc="Identifies and extracts information from bots and other malware"
 url="https://github.com/bwall/bamfdetect"
@@ -12,7 +12,7 @@ makedepends=('python2-setuptools')
 conflicts=('bamf-git')
 replaces=('bamf-git')
 source=("https://github.com/bwall/bamfdetect/archive/v$pkgver.tar.gz")
-sha512sums=('33c6e85ec124c0bc74252f9da4c974cd23d1ddad726e999921fb39038b2c84209d170df64c72d65a72acf5ebf06ef5b0342d3f181bce0fcaca15a1d7b07f43a7')
+sha512sums=('afb479b3a8caf899674429396aef1df0534976c8563ba15a635c269076acdb11c161fee53efe62439002cb100e60a326074e0679e60a9bd3f1f493737600a41d')
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
