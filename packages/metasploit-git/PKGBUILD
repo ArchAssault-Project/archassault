@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=metasploit
-pkgver=20150107.r30090
+pkgver=20150112.r30254
 pkgrel=1
 epoch=2
 groups=('archassault' 'archassault-exploits' 'archassault-fuzzers' 'archassault-scanners')
