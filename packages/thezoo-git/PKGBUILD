@@ -2,7 +2,7 @@
 
 _pkgname=thezoo
 pkgname=${_pkgname}-git
-pkgver=20150107.r64
+pkgver=20150110.r70
 pkgrel=1
 pkgdesc="A project created to make the possibility of malware analysis open and available to the public"
 url="https://github.com/ytisf/theZoo"
