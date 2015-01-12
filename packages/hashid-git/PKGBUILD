@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashid-git
-pkgver=r264.945a8c1
+pkgver=r275.1492e21
 pkgrel=1
 pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
 url="https://github.com/psypanda/hashID"
@@ -25,7 +25,7 @@ package() {
   cd "$srcdir"/hashid-git
   install -dm755 "$pkgdir"/usr/bin/
   install -dm755 "$pkgdir"/usr/share/hashid-git
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
+  install -Dm644 doc/LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
   install -m644 README.md "$pkgdir"/usr/share/hashid-git/README.md
   install -m644 doc/CHANGELOG "$pkgdir"/usr/share/hashid-git/CHANGELOG
   install -m644 doc/hashinfo.xlsx "$pkgdir"/usr/share/hashid-git/hashinfo.xslx
