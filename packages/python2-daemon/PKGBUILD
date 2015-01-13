@@ -3,7 +3,7 @@
 
 pkgname=python2-daemon
 _libname=${pkgname/python2-/python-}
-pkgver=2.0.1
+pkgver=2.0.2
 pkgrel=1
 pkgdesc="Library to implement a well-behaved Unix daemon process"
 license=("custom")
@@ -12,7 +12,7 @@ depends=('python2-lockfile')
 makedepends=('python2-setuptools' 'python2-docutils')
 source=(http://pypi.python.org/packages/source/p/python-daemon/python-daemon-$pkgver.tar.gz)
 arch=('any')
-sha512sums=('abf6e4ea8102f413430e6bc85a8a980cd086b8b3b3948e9f71b5b020819caedc2cce444df944a39197bc0bfbed5fd2e893b807fd60de2250ac7c3987d4f6dddd')
+sha512sums=('d423d1266530115a5ab7833453a9f5423e9ed3a6e62ae07b4773cf9ec46bc9fa2191bb04e897771ce4bbc0e46e03a2fe818e873072036340bfcd6c6399b8d6bd')
 
 
 build() {
