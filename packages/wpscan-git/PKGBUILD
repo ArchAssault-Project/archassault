@@ -9,7 +9,7 @@ arch=(armv6h armv7h i686 x86_64)
 url="http://wpscan.org"
 license=('GPL3')
 depends=('ruby1.9' 'ruby1.9-bundler' 'java-environment' 'libxslt')
-makedepends=('git')
+makedepends=('git' 'unzip')
 options=(!strip)
 replaces=('wpscan')
 conflicts=('wpscan')
@@ -31,7 +31,8 @@ package() {
   cd ${pkgdir}/usr/share/wpscan-git
   bundle-1.9 config build.nokogiri --use-system-libraries 
   bundle-1.9 install --path vendor/bundle
-
+  unzip data.zip
+  rm "${pkgdir}"/usr/share/"${pkgname}"/data.zip
   cat > "${pkgdir}/usr/bin/wpscan" <<EOF
 #!/bin/sh
 cd /usr/share/wpscan-git
