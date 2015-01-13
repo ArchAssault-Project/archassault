@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=wpscan-git
 pkgver=20150111.r1840
-pkgrel=1
+pkgrel=2
 epoch=1
 groups=('archassault' 'archassault-webapps' 'archassault-scanners')
 pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
