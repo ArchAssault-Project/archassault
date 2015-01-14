@@ -7,7 +7,7 @@ pkgdesc="ROPME is a set of python scripts to generate ROP gadgets and payload."
 arch=('any')
 url="http://www.vnsecurity.net/2010/08/ropeme-rop-exploit-made-easy/"
 license=('GPL')
-depends=('python2' 'distorm')
+depends=('distorm')
 source=(https://github.com/packz/ropeme/archive/master.zip)
 sha512sums=('604ef536a906ab0fd14fb1d5cfd07e8de97bbb8d6bf18e8ebccab7f3f7d73e8c7446f945aca5e8e2c86217ec4b2afcecba947f83986bc67a9be87b03552165a7')
 
