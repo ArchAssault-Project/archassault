@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=callerpy-git
 pkgver=20140518.r40
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-scanners')
 pkgdesc="Truecaller Name Retriever"
 arch=('any')
@@ -11,6 +11,7 @@ depends=('python2-beautifulsoup4' 'python2-mechanize')
 makedepends=('git')
 provides=('callerpy')
 replaces=('callerypy-git')
+conflicts=('callerypy-git')
 source=("${pkgname}::git+https://github.com/Logic-gate/callerpy.git")
 sha512sums=('SKIP')
 
