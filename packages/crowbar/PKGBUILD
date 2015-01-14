@@ -2,9 +2,10 @@
 
 pkgname=crowbar
 pkgver=v.3.2
-pkgrel=1
+pkgrel=2
 pkgdesc="A brute forcing tool that can be used during penetration tests. It is developed to support protocols that are not currently supported by thc-hydra and other popular brute forcing tools."
 arch=('any')
+groups=('archassault' 'archassault-bruteforce')
 url="https://github.com/galkan/crowbar"
 license=('custom')
 depends=('python2' 'openvpn' 'freerdp' 'tigervnc')
