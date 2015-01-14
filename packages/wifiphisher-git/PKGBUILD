@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wifiphisher-git
-pkgver=20150107.r43
+pkgver=20150114.r53
 pkgrel=1
 groups=('archassault' 'archassault-wifi')
 pkgdesc="A tool for Fast automated phishing attacks against WPA networks"
