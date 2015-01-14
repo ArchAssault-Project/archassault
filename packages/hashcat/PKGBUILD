@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashcat
-pkgver=0.48
+pkgver=0.49
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A multithreaded cross platform hash cracker."
@@ -8,9 +8,9 @@ arch=('i686' 'x86_64')
 url='http://hashcat.net/hashcat/'
 license=('custom')
 makedepends=('p7zip')
-depends=('glibc')
+depends=('gmp')
 source=("https://hashcat.net/files/hashcat-${pkgver}.7z")
-sha512sums=('c49ddd130015e6c1e14d90965e26d56d7a2da51d91bb43b056faca830fdb666759d62eca35eb99c5af35397c971620814fce1182a96c3640ac1e24e167b30bbb')
+sha512sums=('3e51a803c87de4f659ad3f72337234392140cd714a40eb221cb7697aa6f8df4da92ed7a7852deae5fdf36439c46fe4eaa312ed45a72dedbf13eaa6d9767e95bb')
 
 prepare() {
   cd "${srcdir}/hashcat-${pkgver}"
@@ -32,7 +32,7 @@ package() {
 
   install -Dm755 hashcat "${pkgdir}/usr/bin/hashcat"
 
-  cp -dpr --no-preserve=ownership "${srcdir}/hashcat-${pkgver}"/{rules,salts,tables} "${pkgdir}"/etc/"hashcat"/
+  cp -dpr --no-preserve=ownership "${srcdir}/hashcat-${pkgver}"/{charsets,rules,salts,tables} "${pkgdir}"/etc/"hashcat"/
   cp -dpr --no-preserve=ownership "${srcdir}/hashcat-${pkgver}"/examples "${pkgdir}"/usr/share/doc/"hashcat"/
 
   # Fix permissions.
