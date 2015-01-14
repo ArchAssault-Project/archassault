@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=rtlamr
 pkgname=rtlamr-git
-pkgver=201.3c66161
+pkgver=203.0c47867
 pkgrel=1
 groups=('archassault' 'archassault-hardware')
 pkgdesc="An rtl-sdr receiver for smart meters operating in the 900MHz ISM band."
