@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-gitpython
-pkgver=0.3.4
+pkgver=0.3.5
 pkgrel=1
 pkgdesc="A python library used to interact with Git repositories"
 arch=('any')
 url="http://gitorious.org/git-python"
 license=('BSD')
-depends=('python2' 'git' 'python2-gitdb>=0.6.2')
+depends=('python2' 'git' 'python2-gitdb>=0.6.4')
 makedepends=('python2' 'python2-distribute')
 conflicts=('gitpython-git' 'gitpython')
 source=("http://pypi.python.org/packages/source/G/GitPython/GitPython-$pkgver.tar.gz")
-sha512sums=('e0120f5f52484f97d3666170e9d054661cbfabbdc10285f3a4b02282afed96b75e98ca890f5b484399408a035896ab5f5e8466ed2e63a9a77de3fdb5829d76ab')
+sha512sums=('09eb1d3057623aa4a97e5aff56722d8f877e43529868b4f1ad736fa4bc1d46e5dcacc6ff58326a0f18056e4aab070dff704723c93ab29b1af0db12011276316f')
 
 package() {
   cd "$srcdir/GitPython-$pkgver"
