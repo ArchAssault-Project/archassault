@@ -1,20 +1,25 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashcat-utils
-pkgver=1.0
+pkgver=1.1
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Utilites for Hashcat"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://hashcat.net/wiki/doku.php?id=hashcat_utils'
 license=('custom')
-depends=('glibc')
+if [[ ${CARCH} == "x86_64" ]]; then
+      depends=('lib32-glibc')
+else
+      depends=('glibc')
+fi
 makedepends=('p7zip')
-source=('http://hashcat.net/tools/hashcat-utils/hashcat-utils-1.0.7z')
-sha512sums=('7094b3411f350437e589d4a3ccd8a715a57a50b72d578d1675080de9f959dfc8366310e3e955170d2fdfa1977abb3f22b88b01bac28f684191cce80421005608')
+source=("http://hashcat.net/tools/hashcat-utils/hashcat-utils-$pkgver.7z")
+sha512sums=('ed4208b673857496fde6b0ae725bdb04dfb8ecaf7d4097ca4e922848b537d0590fb439b35410170f0e12094d11c6699c14a0df734a7850703c99e8cb3fedc6de')
 
 prepare() {
   cd "$srcdir/hashcat-utils-$pkgver"
-
+  sed -i 's|/opt/hashcat-toolchain/linux32/bin/i686-hashcat-linux-gnu-gcc|gcc|' Makefile
+  sed -i 's|/opt/hashcat-toolchain/linux32/bin/i686-hashcat-linux-gnu-strip|strip|' Makefile  
   sed -i 's/release: posix windows/release: posix/' Makefile
   sed -i '/WINDOWS/d' Makefile
   sed -i '/*.exe/d' Makefile
