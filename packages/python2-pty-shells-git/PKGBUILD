@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-pty-shells-git
-pkgver=r17.2ce56df
+pkgver=20140728.r17
 pkgrel=1
 pkgdesc="Python PTY backdoors - full PTY or nothing! http://insecurety.net"
 arch=('any')
