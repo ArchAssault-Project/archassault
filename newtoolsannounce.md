@@ -10,5 +10,8 @@ Newest Tools Added:
 
 * [squashfuse-git](https://github.com/vasi/squashfuse) - A FUSE filesystem to mount squashfs archives.
 
+* [jadx](https://github.com/skylot/jadx) - A Dex to Java command line and GUI decompiler tool that produces Java source code from Android Dex and APK files. Author: [skylot](https://twitter.com/skylot)
+
+* [linset-git](https://github.com/vk496/linset) - An Evil Twin Attack Bash script. Author: [vk496](https://twitter.com/vk496)
 
 **Thanks for the most recent requests!**
