@@ -6,22 +6,23 @@ pkgdesc="Python PTY backdoors - full PTY or nothing! http://insecurety.net"
 arch=('any')
 url="https://github.com/infodox/python-pty-shells"
 license=('custom')
-depends=('python2' 'python2-pysctp')
-provides=('python2-pty-shells')
-replaces=('python2-pty-shellls')
-conflicts=('python2-pty-shells')
-source=("git+https://github.com/infodox/python-pty-shells.git")
+depends=('python2-pysctp')
+makedepends=('git')
+provides=('python2-pty-shells' 'pty-shells-git')
+replaces=('python2-pty-shellls' 'pty-shells-git')
+conflicts=('python2-pty-shells' 'pty-shells-git')
+source=("${pkgname}::git+https://github.com/infodox/python-pty-shells.git")
 sha512sums=('SKIP')
 
 
 pkgver() {
-  cd "$srcdir/python-pty-shells"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 
 package() {
-  cd "$srcdir/python-pty-shells"
+  cd "${pkgname}"
   install -dm755 "$pkgdir/usr/bin"
   install -Dm755 *.py "$pkgdir/usr/bin/"
   install -Dm644 README.md "$pkgdir/usr/share/python2-pty-shells/README.md"
