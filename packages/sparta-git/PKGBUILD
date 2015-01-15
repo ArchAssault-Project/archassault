@@ -2,14 +2,14 @@
 # Contributor: Cthulu201 <cthulu201@archassault.org>
 
 pkgname=sparta-git
-pkgver=20141218.r10
+pkgver=1.0
 pkgrel=1
 pkgdesc="A GUI application which simplifies network infrastructure penetration testing by aiding the penetration tester in the scanning and enumeration phase"
 arch=('any')
 url="https://github.com/SECFORCE/sparta"
 groups=('archassault' 'archassault-scanners')
 license=('GPL3')
-depends=('python2') 
+depends=('python2' 'nmap' 'hydra' 'cutycapt') 
 makedepends=('git')
 provides=('sparta')
 replaces=('sparta')
