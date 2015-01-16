@@ -15,20 +15,20 @@ replaces=('wpscan')
 conflicts=('wpscan')
 provides=('wpscan')
 source=("${pkgname}::git+http://github.com/wpscanteam/wpscan")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-    cd "${pkgname}"
-    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
   cd "${pkgname}"
 
-  install -dm755 "${pkgdir}/usr/share/wpscan-git"
+  install -dm755 "${pkgdir}/usr/share/${pkgname}"
   install -dm755 "${pkgdir}/usr/bin"
-  cp -a --no-preserve=owner * "${pkgdir}/usr/share/wpscan-git"
-  cd ${pkgdir}/usr/share/wpscan-git
+  cp -a --no-preserve=owner * "${pkgdir}/usr/share/${pkgname}"
+  cd ${pkgdir}/usr/share/"${pkgname}"
   bundle-1.9 config build.nokogiri --use-system-libraries 
   bundle-1.9 install --path vendor/bundle
   unzip data.zip
@@ -40,5 +40,5 @@ ruby-1.9 ./wpscan.rb "\$@"
 EOF
   sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
   sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
-  chmod +x "${pkgdir}/usr/bin/wpscan"
+  chmod 0755 "${pkgdir}/usr/bin/wpscan"
 }
