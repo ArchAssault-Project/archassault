@@ -6,14 +6,17 @@ epoch=2
 groups=('archassault' 'archassault-exploits' 'archassault-fuzzers' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-source_x86_64+=('ruby1.9' 'ruby1.9-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
-source_i686+=('ruby1.9' 'ruby1.9-bundler' 'git' 'libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
+depends_x86_64+=('ruby1.9' 'ruby1.9-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
+depends+=('ruby1.9' 'ruby1.9-bundler' 'git' 'libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
 optdepends=('java-environment: msfgui'
             'dradis: dradisis database system')
 url='http://www.metasploit.com'
 license=('BSD')
 options=('!emptydirs' '!strip')
 source=("${pkgname}::git+https://github.com/rapid7/metasploit-framework")
+replaces=('metasploit')
+conflicts=('metasploit')
+provides=('metasploit')
 backup=('usr/share/metasploit/log/production.log')
 md5sums=('SKIP')
 
