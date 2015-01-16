@@ -1,19 +1,15 @@
 # Maintainer: ArchAssault <team archassault org>
-pkgname=metasploit
-pkgver=20150112.r30254
+pkgname=metasploit-git
+pkgver=20150115.r30309
 pkgrel=1
 epoch=2
 groups=('archassault' 'archassault-exploits' 'archassault-fuzzers' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
-if [[ "${CARCH}" == x86_64 ]] ; then
-  depends=('ruby1.9' 'ruby1.9-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
-else
-  depends=('ruby1.9' 'ruby1.9-bundler' 'git' 'libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
-fi
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+source_x86_64+=('ruby1.9' 'ruby1.9-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
+source_i686+=('ruby1.9' 'ruby1.9-bundler' 'git' 'libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
 optdepends=('java-environment: msfgui'
             'dradis: dradisis database system')
-makedepends=('git')
 url='http://www.metasploit.com'
 license=('BSD')
 options=('!emptydirs' '!strip')
@@ -30,36 +26,33 @@ package() {
   cd "${pkgname}"
 
   # Base directories.
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/etc"
-  install -dm755 "$pkgdir/usr/share/metasploit"
-  install -dm755 "$pkgdir/usr/share/doc/metasploit"
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir}/etc"
+  install -dm755 "${pkgdir}/usr/share/metasploit"
+  install -dm755 "${pkgdir}/usr/share/doc/metasploit"
 
   # Shareable.
-  cp --no-preserve=ownership -R documentation/* "$pkgdir/usr/share/doc/metasploit"
-  cp --no-preserve=ownership README.md "$pkgdir/usr/share/doc/metasploit"
+  cp --no-preserve=ownership -a documentation/* "${pkgdir}/usr/share/doc/metasploit"
+  cp --no-preserve=ownership README.md "${pkgdir}/usr/share/doc/metasploit"
 
   # Source + Bin.
-  cp -a --no-preserve=ownership * "$pkgdir/usr/share/metasploit"
-  install -m644 .rspec "$pkgdir/usr/share/metasploit"
-  install -m644 .rubocop.yml "$pkgdir/usr/share/metasploit"
-  install -m644 .ruby-gemset "$pkgdir/usr/share/metasploit"
-  install -m644 .ruby-version "$pkgdir/usr/share/metasploit"
-  install -m644 .simplecov "$pkgdir/usr/share/metasploit"
-  install -m644 .travis.yml "$pkgdir/usr/share/metasploit"
-  install -m644 .yardopts "$pkgdir/usr/share/metasploit"
+  cp -a --no-preserve=ownership * "${pkgdir}/usr/share/metasploit"
+  install -m644 .rspec "${pkgdir}/usr/share/metasploit"
+  install -m644 .rubocop.yml "${pkgdir}/usr/share/metasploit"
+  install -m644 .ruby-gemset "${pkgdir}/usr/share/metasploit"
+  install -m644 .ruby-version "${pkgdir}/usr/share/metasploit"
+  install -m644 .simplecov "${pkgdir}/usr/share/metasploit"
+  install -m644 .travis.yml "${pkgdir}/usr/share/metasploit"
+  install -m644 .yardopts "${pkgdir}/usr/share/metasploit"
   install -m644 .gitignore "${pkgdir}/usr/share/metasploit"
-  install -m644 .gitmodules "$pkgdir/usr/share/metasploit"
-  install -m644 .mailmap "$pkgdir"/usr/share/metasploit
+  install -m644 .gitmodules "${pkgdir}/usr/share/metasploit"
+  install -m644 .mailmap "${pkgdir}"/usr/share/metasploit
   # Commenting out the .git dir to shrink size. This will cause
   # a warning when starting about not being a git dir. 
-  #cp -a --no-preserve=ownership .git "$pkgdir/usr/share/metasploit"
+  #cp -a --no-preserve=ownership .git "${pkgdir}/usr/share/metasploit"
   # Conform to the FHS.
-  mv "$pkgdir/usr/share/metasploit/config" "$pkgdir/etc/metasploit"
-  ln -s /etc/metasploit "$pkgdir/usr/share/metasploit/config"
-
-  # Prevent updates with msfupdate
-  #rm $pkgdir/usr/share/$pkgname/msfupdate
+  mv "${pkgdir}/usr/share/metasploit/config" "${pkgdir}/etc/metasploit"
+  ln -s /etc/metasploit "${pkgdir}/usr/share/metasploit/config"
 
   cd ${pkgdir}/usr/share/metasploit
   bundle-1.9 config build.nokogiri --use-system-libraries
@@ -68,19 +61,19 @@ package() {
   chmod 0644 vendor/bundle/ruby/1.9.1/gems/robots-0.10.1/lib/robots.rb
   install -Dm0666 /dev/null "${pkgdir}"/usr/share/metasploit/log/production.log
 
-  cat > "$pkgdir/usr/bin/msfbinscan" <<EOF
+  cat > "${pkgdir}/usr/bin/msfbinscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfbinscan "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfcli" <<EOF
+  cat > "${pkgdir}/usr/bin/msfcli" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfcli "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfconsole" <<EOF
+  cat > "${pkgdir}/usr/bin/msfconsole" <<EOF
 #!/bin/sh
 if ! [[ -f /usr/share/metasploit/database.yml ]]; then
     cd /usr/share/metasploit
@@ -91,71 +84,71 @@ else
 fi
 EOF
 
-  cat > "$pkgdir/usr/bin/msfd" <<EOF
+  cat > "${pkgdir}/usr/bin/msfd" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfd "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfelfscan" <<EOF
+  cat > "${pkgdir}/usr/bin/msfelfscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfelfscan "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfencode" <<EOF
+  cat > "${pkgdir}/usr/bin/msfencode" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfencode "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfmachscan" <<EOF
+  cat > "${pkgdir}/usr/bin/msfmachscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfmachscan "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfpayload" <<EOF
+  cat > "${pkgdir}/usr/bin/msfpayload" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfpayload "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfpescan" <<EOF
+  cat > "${pkgdir}/usr/bin/msfpescan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfpescan "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfrop" <<EOF
+  cat > "${pkgdir}/usr/bin/msfrop" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfrop "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfrpc" <<EOF
+  cat > "${pkgdir}/usr/bin/msfrpc" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfrpc "\$@"
 EOF
 
-  cat > "$pkgdir/usr/bin/msfrpcd" <<EOF
+  cat > "${pkgdir}/usr/bin/msfrpcd" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfrpcd "\$@"
 EOF
 
 # Commenting out since we are locking out msfupdate
-#  cat > "$pkgdir/usr/bin/msfupdate" <<EOF
+#  cat > "${pkgdir}/usr/bin/msfupdate" <<EOF
 ##!/bin/sh
 #ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
 #EOF
 
-  cat > "$pkgdir/usr/bin/msfvenom" <<EOF
+  cat > "${pkgdir}/usr/bin/msfvenom" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
 ruby-1.9 ./msfvenom "\$@"
 EOF
 
-  chmod +x "$pkgdir"/usr/bin/*
+  chmod +x "${pkgdir}"/usr/bin/*
 }
