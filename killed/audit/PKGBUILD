@@ -4,7 +4,6 @@
 # Contributor: Connor Behan <connor.behan@gmail.com>
 # Contributor: henning mueller <henning@orgizm.net>
 
-
 pkgname=audit
 pkgver=2.3.7
 pkgrel=1
