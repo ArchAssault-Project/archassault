@@ -3,7 +3,7 @@
 # Contributor: Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
 # Contributor: Connor Behan <connor.behan@gmail.com>
 # Contributor: henning mueller <henning@orgizm.net>
-# THIS LINE CAN BE DELETED USED FOR A TEST
+
 pkgname=audit
 pkgver=2.3.7
 pkgrel=1
