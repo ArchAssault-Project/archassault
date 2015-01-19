@@ -1,29 +1,41 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wsfuzzer
 pkgver=1.9.5
-pkgrel=3
-groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
+pkgrel=4
+groups=('archassault' 'archassault-webapps' 'archassault-fuzzers')
 pkgdesc="A Python tool written to automate SOAP pentesting of web services"
 url="https://www.owasp.org/index.php/Category:OWASP_WSFuzzer_Project"
 arch=('any')
 license=('LGPL')
-depends=('python2' 'python2-pyxml' 'java-runtime')
+depends=('python2-pyxml' 'java-environment')
 source=("http://downloads.sourceforge.net/project/wsfuzzer/wsfuzzer/version1.9.5/wsfuzzer-$pkgver.tar.gz")
-md5sums=('43d96bf35eb1d61d6e99ffd228d8114b')
+sha512sums=('1e7551293a0421ff982473f1940e6b4c6c73aeb427336509ed3fb06200fdacafc90c452ee00d3e30c9c21e484dcaf7c849a045c9162765b604440f576daa0075')
 
 prepare() {
-  cd "$srcdir"
+  cd "${srcdir}"
 
-  sed -i '1i\#!/usr/bin/env python2' *.py
+  # replace placeholders and python env strings
+  sed -i 's|/your/java/home_path|/usr|g' parseWsdl.sh
+  grep '#!/usr/pkg/bin/python' * -Rl | xargs -I{} sed -i 's|#!/usr/pkg/bin/python|#!/usr/bin/python2|g' {} 
+  grep '#!/bin/env python' * -Rl | xargs -I{} sed -i 's|#!/bin/env python|#!/usr/bin/python2|g' {} 
+  grep '#!/usr/bin/env python' * -Rl | xargs -I{} sed -i 's|#!/usr/bin/env python|#!/usr/bin/python2|g' {} 
+  grep '#! /usr/bin/env python' * -Rl | xargs -I{} sed -i 's|#! /usr/bin/env python|#!/usr/bin/python2|g' {} 
 }
 
 package() {
-  cd "$srcdir"
+  cd "${srcdir}"
 
   # Base directories.
-  install -dm755 "$pkgdir/usr/bin/"
-  install -dm755 "$pkgdir/usr/share/wsfuzzer"
-  cp -La --no-preserve=ownership * "$pkgdir/usr/share/wsfuzzer"
-  find "$pkgdir" -name .svn -exec rm -rf {} +
-  ln -s /usr/share/wsfuzzer/WSFuzzer.py "$pkgdir/usr/bin/wsfuzzer"
+  rm ${pkgname}-${pkgver}.tar.gz # ditch symlink
+  install -dm755 "${pkgdir}/usr/bin/"
+  install -dm755 "${pkgdir}/usr/share/${pkgname}"
+  cp -La --no-preserve=ownership * "${pkgdir}/usr/share/${pkgname}"
+  find "${pkgdir}" -name .svn -exec rm -rf {} +
+
+  cat > "${pkgdir}/usr/bin/${pkgname}" <<EOF
+#!/bin/bash
+cd /usr/share/${pkgname} # get into dir for needed libs
+/usr/bin/python2 WSFuzzer.py "\$@"
+EOF
+  chmod 755 "${pkgdir}/usr/bin/${pkgname}"
 }
