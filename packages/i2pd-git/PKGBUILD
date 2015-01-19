@@ -2,7 +2,7 @@
 
 _pkgname=i2pd
 pkgname=${_pkgname}-git
-pkgver=20150107.r1395
+pkgver=20150118.r1441
 pkgrel=1
 pkgdesc="I2P router written in C++"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
@@ -12,15 +12,15 @@ groups=('archassault' 'archassault-encryption')
 depends=('crypto++' 'boost-libs' 'systemd')
 makedepends=('git' 'boost')
 backup=("etc/default/${_pkgname}.conf")
-install="${pkgname}.install"
+install=${pkgname}.install
 
 source=("git+${url}.git"
         "${_pkgname}.service"
         "${_pkgname}.tmpfiles.conf"
         "${_pkgname}.conf")
 sha512sums=('SKIP'
-            'ecb028675a422c159d1d91ba430e74dbc785bf445865e7af2bf1e3178d10c2db0a7e6bcc32b8db4224f8788aff521907862a5c9cbed78251b3083ee3c11f7d7e'
-            'e86ba75e5181b1e20637bbb19c827664a1746cbb387fa5d57e10d9648143a5b684eb88ec877c721033ccf5a6578ed9c5dbb9ef2a9ea79b5fbe4ddf32dfd6640d'
+            '268f9405491c521b1385dd103d242c96f4a78c5c33414d350b0e4cb6099bb5ef6b86485799fb3ad5701a6e7ad52f08d1fa08257d757b709afe0433cb07827817'
+            '3a8948fedf2862209b02914bfa26f06f1fe56f0b83591ebefd2de63c2dc4a210af6933f2ad8cd02c21ae8d2f377f1bd9eba821a45459b130775f523faa808586'
             '2e816538c766ae15ee405ac751c64e7512765e81f7e7b56dab1c96fe8efd2969c688e5545d2672c97d4f09612089762ca45dd27cb9676aca512cd7b22448e4af')
 
 pkgver() {
