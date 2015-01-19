@@ -2,7 +2,7 @@
 pkgname=xorsearch
 pkgver=1.11.1
 pkgrel=2
-groups=('archassault' 'archassault-cryptography')
+groups=('archassault' 'archassault-cryptography' 'archassault-reverse')
 pkgdesc="Program to search for a given string in an XOR, ROL or ROT encoded binary file."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://blog.didierstevens.com/programs/xorsearch/"
