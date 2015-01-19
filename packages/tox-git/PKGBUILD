@@ -5,7 +5,7 @@
 
 _pkgname=tox
 pkgname=${_pkgname}-git
-_pkgver=979b4bf
+_pkgver=bf12a4d
 pkgver=r3071.979b4bf
 pkgrel=1
 epoch=1
