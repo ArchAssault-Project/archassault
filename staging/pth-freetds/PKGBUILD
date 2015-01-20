@@ -1,0 +1,34 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=pth-freetds
+_pkgname=freetds
+pkgver=0.91
+pkgrel=1
+pkgdesc='Library for accessing Sybase and MS SQL Server databases'
+url='http://www.freetds.org'
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+license=('LGPL')
+depends=('openssl' 'unixodbc')
+source=("ftp://ftp.freetds.org/pub/freetds/stable/${_pkgname}-${pkgver}.tar.bz2"
+        "https://passing-the-hash.googlecode.com/svn/trunk/kali-build/patches/freetds-$pkgver-pth.patch")
+sha512sums=('6e80995981b7f8f5e9c44c1f4a4a8b306dafb167f5ab3a78430908a3ca6fee8d76fb3c0c519b105777971a52d655e7395f038b203b1aa80f9e0ab247e9efa0e3'
+            '3c4db33d4cf5d518c26975fc844f35f28dfbafcc59b4f8783d80c127f8c1805aeaaa3b5ce6b37bb9379168f8f2d4ac08fb03e43240ca289be27467fbf8662699')
+
+prepare(){
+  cd "$_pkgname-$pkgver"
+  patch -p1 -i "$srcdir/freetds-$pkgver-pth.patch"
+}
+
+build() {
+  cd ${_pkgname}-${pkgver}
+  ./configure
+  make
+}
+
+package() {
+  cd ${_pkgname}-${pkgver}/src/ctlib
+  make DESTDIR="${pkgdir}" install libdir=/usr/lib/passing-the-hash
+  rm -f $pkgdir/usr/lib/passing-the-hash/libct.a
+  rm -f $pkgdir/usr/lib/passing-the-hash/libct.la
+
+}
