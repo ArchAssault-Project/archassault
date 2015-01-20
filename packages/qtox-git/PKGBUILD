@@ -3,7 +3,7 @@
 
 _pkgname=qtox
 pkgname=${_pkgname}-git
-_pkgver=57ba0e1
+_pkgver=2805737
 pkgver=r1797.57ba0e1
 pkgrel=1
 pkgdesc="Powerful QT Tox client that tries to follow the Tox UI guidlines"
@@ -18,7 +18,7 @@ depends=('desktop-file-utils'
          'opencv'
          'openal'
          'qt5-base'
-         'tox-git=1:r3071.979b4bf-1')
+         'tox-git=1:r3094.bf12a4d-1')
 makedepends=('git' 'qt5-tools')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
