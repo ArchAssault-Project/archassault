@@ -2,19 +2,22 @@
 # Contributor: Prurigro
 
 pkgname=cjdscript
-pkgver=6.3
+pkgver=9.0
 pkgrel=1
 epoch=1
 pkgdesc='Script to deploy and run the collection of working tools included with cjdns'
 url='https://github.com/prurigro/cjdscript'
 license=('GPL3')
 arch=('any')
-depends=('git' 'python2' 'nodejs')
-source=("${url}/archive/v${pkgver}.tar.gz")
-sha512sums=('a474bf1d9060bdaa46c8d8e8e701a0bd198194a4a201d2f1e1d108a15e112414e5b40651419e8d7de4085e34c1a2b43de2ced0bc0e13e1061b6ce02036833202')
+depends=('git' 'python2' 'nodejs' 'wget')
+optdepends=(
+  'cmake: Required for the PySide python2 library'
+  'qt4: Required for the PySide python2 library'
+  'pygtk: Required for the matplotlib python2 library')
+source=("$url/archive/v$pkgver.tar.gz")
+sha512sums=('6fa3f61a3ca0626ddb23ac1b244a96b88d04bb52b94fe0bc9fcb61a18b84ff8303095063beaf2f4eba93e038cc68719a6eea38508586416fb939bc9e07005b56')
 
 package() {
-    cd ${pkgname}-${pkgver}
-    install -Dm755 $pkgname "$pkgdir"/usr/bin/$pkgname
-    install -Dm644 README.md "$pkgdir"/usr/share/$pkgname/README.md
+  cd $pkgname-$pkgver
+  make DESTDIR="$pkgdir" install
 }
