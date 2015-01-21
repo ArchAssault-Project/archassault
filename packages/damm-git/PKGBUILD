@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=damm-git
-pkgver=20141118.r27
+pkgver=20150120.r28
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="Differential Analysis of Malware in Memory"
