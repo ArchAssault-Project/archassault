@@ -29,7 +29,6 @@ build() {
   export ZENHOME="${pkgdir}/usr"
   cd "${srcdir}/wmi-${pkgver}"
 
-  msg "Applying patches..."
   patch -Np0 -i ../gnutls.patch
   patch -Np0 -i ../python3.patch
   patch -p1 -i ../pyinclude.patch
