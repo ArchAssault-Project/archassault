@@ -5,10 +5,10 @@ pkgname=pth-${_pkgname}
 pkgver=1.3.16
 pkgrel=1
 pkgdesc="Linux WMI client patched for passthehash"
-arch=('any')
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://bitbucket.org/instarch/${_pkgname}-client"
 license=("GPL")
-depends=('gnutls' 'python2')
+depends=('gnutls' 'python2' 'pam')
 makedepends=('google-breakpad-svn')
 sha512sums=('cd5ccf23dff59dd599ae23b4cd8d0d68f42775b2afad8e05add04d0d4054cbb8e33655323b1d87795f23a71b6c0c0e260e38f53349c77618d2421862d172a508'
             '47396c90d2c4b16454e58d69a3832daf3bd295f31fc59f5bc71d09023bca5fcb28d70ad32aa17ad67ff9353a6c054a002347a925443572314566d12c54029248'
@@ -24,28 +24,33 @@ source=("http://dev.zenoss.org/trac/export/26435/trunk/inst/externallibs/${_pkgn
         "tls.c.patch")
 
 prepare(){
-    cd ${_pkgname}-${pkgver}
+    cd ${srcdir}/${_pkgname}-${pkgver}
     patch -p1 < ../samba-pidl.patch
     patch -p1 < ../tls.c.patch
     patch -p1 < ../${_pkgname}-${pkgver}-${_pkgname}s.patch
     patch -p1 < ../${_pkgname}-${pkgver}-smbencrypt-lm-nt.patch
-    patch -p1 < ../dcerpc.c.breakpad-fix.patch
+    cp Samba/source/librpc/config.mk.nobreakpad Samba/source/librpc/config.mk
     sed -i '/^pywmi-installed:/s/pywmi-build//' GNUmakefile
     find . -type f -iname "*.py" -exec sed -i 's|/usr/bin/env python|/usr/bin/env python2|' '{}' \;
 }
 
 build() {
-    # cd ${_pkgname}-${pkgver}/Samba/source
-    # ./autogen.sh
-    # ./configure --prefix=/usr
-    # cd ../..
-    cd ${_pkgname}-${pkgver}
+    cd ${srcdir}/${_pkgname}-${pkgver}/Samba/source
+    ./autogen.sh
+    ./configure --prefix=/usr/
+
+    cd ${srcdir}/${_pkgname}-${pkgver}
+    PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make build-prereqs
     PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make build
+    
+    cd ${srcdir}/${_pkgname}-${pkgver}/Samba/source
+    PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make bin/wmic
+    PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make bin/wmis
 }
 
 package() {
-    cd ${_pkgname}-${pkgver}/Samba/source
-    install -Dm644 librpc/idl/IDL_LICENSE.txt "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE"
-    install -Dm755 bin/${_pkgname}c "${pkgdir}/usr/bin/pth-${_pkgname}c"
-    install -Dm755 bin/${_pkgname}s "${pkgdir}/usr/bin/pth-${_pkgname}s"
+    cd ${srcdir}/${_pkgname}-${pkgver}
+    install -Dm644 Samba/source/librpc/idl/IDL_LICENSE.txt "${pkgdir}/usr/share/licenses/${_pkgname}/LICENSE"
+    install -Dm755 Samba/source/bin/${_pkgname}c "${pkgdir}/usr/bin/pth-${_pkgname}c"
+    install -Dm755 Samba/source/bin/${_pkgname}s "${pkgdir}/usr/bin/pth-${_pkgname}s"
 }
