@@ -3,6 +3,7 @@ pkgname=pth-curl
 pkgver=7.37.0
 pkgrel=1
 pkgdesc="An URL retrieval utility and library: patched for passing the hash toolkit"
+groups=('archassault' 'archassault-passthehash')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://curl.haxx.se"
 license=('MIT')
@@ -22,5 +23,6 @@ build() {
 
 package() {
   cd "curl-${pkgver}"
+  install -Dm644 COPYING ${pkgdir}/usr/share/licenses/${pkgname}/COPYING
   install -Dm755 src/curl ${pkgdir}/usr/bin/pth-curl
 }
