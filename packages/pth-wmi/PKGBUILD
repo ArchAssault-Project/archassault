@@ -5,10 +5,11 @@ pkgname=pth-${_pkgname}
 pkgver=1.3.16
 pkgrel=1
 pkgdesc="Linux WMI client patched for passthehash"
+groups=('archassault' 'archassault-passthehash')
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://bitbucket.org/instarch/${_pkgname}-client"
 license=("GPL")
-depends=('gnutls' 'python2' 'pam')
+depends=('gnutls' 'python2' 'pam' 'popt')
 makedepends=('google-breakpad-svn')
 sha512sums=('cd5ccf23dff59dd599ae23b4cd8d0d68f42775b2afad8e05add04d0d4054cbb8e33655323b1d87795f23a71b6c0c0e260e38f53349c77618d2421862d172a508'
             '47396c90d2c4b16454e58d69a3832daf3bd295f31fc59f5bc71d09023bca5fcb28d70ad32aa17ad67ff9353a6c054a002347a925443572314566d12c54029248'
