@@ -1,0 +1,143 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgbase=passthehash
+pkgname=('pth-freetds' 'pth-wmi' 'pth-curl' 'pth-samba')
+pkgver=1.0
+pkgrel=1
+groups=('archassault' 'archassault-passthehash')
+pkgdesc="Passing the hash toolkit"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+depends=('libidn' 'rtmpdump' 'libssh2' 'krb5' 'openssl' 'unixodbc' 'gnutls' 'python2' 'pam' 'popt' 'sqsh' 'openchange' 'winexe' 'samba' 'smbclient')
+makedepends=('google-breakpad-svn')
+url='http://passing-the-hash.blogspot.fr'
+source=("http://curl.haxx.se/download/curl-7.37.0.tar.gz" # Curl Binaries
+        "https://passing-the-hash.googlecode.com/svn/trunk/kali-build/patches/curl-pth-ntlm.patch" #passthehash patch for curl 
+        "ftp://ftp.freetds.org/pub/freetds/stable/freetds-0.91.tar.bz2" # Freetds binaries
+        "https://passing-the-hash.googlecode.com/svn/trunk/kali-build/patches/freetds-0.91-pth.patch" #passthehash patch for freetds
+        "http://dev.zenoss.org/trac/export/26435/trunk/inst/externallibs/wmi-1.3.16.tar.bz2" # Wmi Binaries
+        "https://passing-the-hash.googlecode.com/svn/trunk/build/patches/wmi-1.3.16-wmis.patch" # passthehash patch for wmi
+        "https://passing-the-hash.googlecode.com/svn/trunk/build/patches/wmi-1.3.16-smbencrypt-lm-nt.patch" # passthehash patch for wmi
+        "samba-pidl.patch" # patch to fix samba pidl
+        "dcerpc.c.breakpad-fix.patch" # patch to fix breakpad issue
+        "tls.c.patch" # tls patch for wmi
+        #"samba4-hash-any-link.patch" # passthehash patch for wmi
+        "Makefile"
+        "pth-net"
+        "pth-openchangeclient"
+        "pth-rpcclient"
+        "pth-samba.c"
+        "pth-smbclient"
+        "pth-smbget"
+        "pth-sqsh"
+        "pth-winexe"
+        )
+sha512sums=('738c643487f27dc89d362f40c6d7414b1708398f6cc382696594630f5ad2ddb13ede4c9b90c1e60d4aab83667b7acdb736bdb824b088d6ebfafa0f9f8f964216'
+            'af04987fba82832d652286f391837e6a30d24906f30c28d6d0a61bf4c54d068aa8017e4c90eb7dc21a41e44cfa96c0ba303bacb60e006a90152a32d39a4076dd'
+            '6e80995981b7f8f5e9c44c1f4a4a8b306dafb167f5ab3a78430908a3ca6fee8d76fb3c0c519b105777971a52d655e7395f038b203b1aa80f9e0ab247e9efa0e3'
+            '3c4db33d4cf5d518c26975fc844f35f28dfbafcc59b4f8783d80c127f8c1805aeaaa3b5ce6b37bb9379168f8f2d4ac08fb03e43240ca289be27467fbf8662699'
+            'cd5ccf23dff59dd599ae23b4cd8d0d68f42775b2afad8e05add04d0d4054cbb8e33655323b1d87795f23a71b6c0c0e260e38f53349c77618d2421862d172a508'
+            '47396c90d2c4b16454e58d69a3832daf3bd295f31fc59f5bc71d09023bca5fcb28d70ad32aa17ad67ff9353a6c054a002347a925443572314566d12c54029248'
+            '6cea41e4a662ff0aa0fdeca1ea4ae9f27c0c2c1e238bb6f9ff443694fa15459ee2542f948d7258f998150da42f600de709319c5aa8c13110f23845b128750936'
+            'd4998ea5d36f90d1542a2c07aea6413f88580d6221904c3b4a42249436f5b7b8ab54e40f09e16528fddb602166b34d381cb4176e370ee8f1ae0c393ba29c28b5'
+            'd174c4ecb529414884ea4b61775e8e90422835f706949776bf8fa2b3fe1dc5b28655f625c43f10bceb467b266a8e55d68edda1ff37f3c52a42f95fa2427d4edc'
+            'af0cbd36bc499e903f6a549cf208105ff66a9a86abb878fd1846ac86b8a9d3ed6074282c7a4332d4633f30d3e7ae9d184ce9d4a3b9325bb93a8bdb408aa4d85c'
+            '2594101e0fce5bea3481534be3a7b71c7be5e77870772a4b43bb4056815960f7f2b6bb946863c94b15bd26c8e1d89b9617fec2a2715a29779f58502ebe53ddc2'
+            '0b62d0773c49cfa1a89c1aedf9047bb810d15f666d0a2fb26e86b903583a4a2c049015cf0f6fb0b126e85f5a61f749a171e9c6530c664fc105a65d7a6e1bb576'
+            'c75d6444ac192306459fb9167e9d80c8e54663dbcf99dd2c52fee5456f81c9061b4173bef709865ab2b876a0f67598708661ff9e5fef7b0956a78b1ae527faa4'
+            'cc4cc39fc5670c332a5c10319a0cd3e605ca22e2e81dc8a4d49a028280f99419f68bb83dec153354cd78755c548072f50a429b0d063b9e3a3d833aef9af11130'
+            'f8b960bcc8b8eeb68657e0ae49b2cda300280e4c22bd1f257f4ea75afab7fabc0af07b8b2781cc035cac50f1f086daa0c7dc82f130e556a7da29a279df79c697'
+            '8151d06d922b2afa081b16f5d2c0f2db1695b8a8fe64a2610edc3c586e76fd8ba77d7f61ff61be8c3b8f06e2e93e95b96a51ea65a575dfde6cf527c0af1e413a'
+            '2c8d86ec3eec9951a38e838425753e4b3a707301a7cfff235ddbd8378ebe662a187986897761d3ac1f8f8b7f803a9e5e74bab1fc08729106993e87e2d8e173e2'
+            'c4feb7296d771b6c9918c2cc5b8d34f327f59d51ba75c550089bbdbd999e91c96be5953e96aaa7cce7b7fa9f9bbff3b410b64488f7c84994f7a47ffbe4e38a3e'
+            'ffca0997da3f02dd2753a6d2a38232eea65452f5b03c5135232832b638699de875edff82704497572e116f5b8461067680806fe7feb009706b66862a3f2b7dee')
+
+prepare(){
+  cd "$srcdir/freetds-0.91"
+  patch -p1 -i "$srcdir/freetds-0.91-pth.patch"
+
+  cd "$srcdir/curl-7.37.0"
+  patch -p1 -i "${srcdir}/curl-pth-ntlm.patch"
+
+  cd "$srcdir/wmi-1.3.16"
+  patch -p1 < ../samba-pidl.patch
+  patch -p1 < ../tls.c.patch
+  patch -p1 < ../wmi-1.3.16-wmis.patch
+  patch -p1 < ../wmi-1.3.16-smbencrypt-lm-nt.patch
+  #patch -p1 < ../samba4-hash-any-link.patch
+  cp Samba/source/librpc/config.mk.nobreakpad Samba/source/librpc/config.mk
+  sed -i '/^pywmi-installed:/s/pywmi-build//' GNUmakefile
+  find . -type f -iname "*.py" -exec sed -i 's|/usr/bin/env python|/usr/bin/env python2|' '{}' \;
+}
+
+
+build() {
+  cd "$srcdir/curl-7.37.0"
+  ./configure --with-gssapi --enable-static --disable-shared
+  make
+
+  cd "$srcdir/freetds-0.91"
+  ./configure
+  make
+
+  cd "$srcdir/wmi-1.3.16/Samba/source"
+  ./autogen.sh
+  ./configure --prefix=/usr/
+
+  cd "$srcdir/wmi-1.3.16"
+  PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make build
+  cd "$srcdir/wmi-1.3.16/Samba/source"
+  PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make bin/wmic
+  PYTHON=/usr/bin/python2 PY_INCDIR=/usr/include/python2.7 ZENHOME=/usr make bin/wmis
+ 
+  cd "$srcdir"
+  make
+}
+
+
+package_pth-curl() {
+  pkgdesc="An URL retrieval utility and library: patched for passing the hash toolkit"
+  license=('MIT')
+  #depends=('libidn' 'rtmpdump' 'libssh2' 'krb5')
+  options=('staticlibs')
+
+  cd "$srcdir/curl-7.37.0"
+  install -Dm644 COPYING ${pkgdir}/usr/share/licensese/$pkgname/COPYING
+  install -Dm755 src/curl ${pkgdir}/usr/bin/pth-curl
+}
+
+package_pth-freetds() {
+  pkgdesc='Library for accessing Sybase and MS SQL Server databases patched for passing the hashtoolkit'
+  arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+  license=('LGPL')
+  #depends=('openssl' 'unixodbc')
+
+  cd "$srcdir/freetds-0.91/src/ctlib"
+  make DESTDIR="${pkgdir}" install libdir=/usr/lib/passing-the-hash
+  rm -f $pkgdir/usr/lib/passing-the-hash/libct.a
+  rm -f $pkgdir/usr/lib/passing-the-hash/libct.la
+}
+
+package_pth-wmi(){
+  pkgdesc="Linux WMI client patched for passthehash"
+  url="https://bitbucket.org/instarch/wmi-client"
+  license=("GPL")
+  #depends=('gnutls' 'python2' 'pam' 'popt')
+  #makedepends=('google-breakpad-svn')
+
+  cd "$srcdir/wmi-1.3.16"
+  install -Dm644 Samba/source/librpc/idl/IDL_LICENSE.txt "${pkgdir}/usr/share/licenses/pth-wmi/LICENSE"
+  install -Dm755 Samba/source/bin/wmic "${pkgdir}/usr/bin/pth-wmic"
+  install -Dm755 Samba/source/bin/wmis "${pkgdir}/usr/bin/pth-wmis"
+}
+
+package_pth-samba(){
+   license=("GPL3")
+   pkgdesc="Linux Samba client patched for passthehash"
+   #depends=('sqsh' 'openchange' 'winexe' 'samba' 'smbclient')
+
+   cd "$srcdir"
+   install -dm755 "$pkgdir/usr/lib/passing-the-hash"
+   install -dm755 "$pkgdir/usr/bin/"
+   install -Dm644 pth-samba.so "$pkgdir/usr/lib/passing-the-hash/"
+   for i in pth-smbclient pth-rpcclient pth-net pth-smbget pth-openchangeclient pth-winexe pth-sqsh; do install -Dm755 $i $pkgdir/usr/bin/$i;done  
+}
+ 

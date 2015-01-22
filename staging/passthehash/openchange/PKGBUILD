@@ -1,0 +1,73 @@
+# Maintainer: Michael Hansen <zrax0111 gmail com>
+# Contributor: DJ Lucas <dj@linuxfromscratch.org>
+# Contributor: ngoonee <ngoonee.talk@gmail.com>
+# Contributor: Adam Russell <adamlr6+arch@gmail.com>
+pkgname=openchange
+_codename=NANOPROBE
+_dlid=246
+pkgver=2.2
+pkgrel=2
+pkgdesc="A portable, open source implementation of Microsoft Exchange server \
+and Exchange protocols.  This package was originally created to support \
+evolution-mapi and may not work for any other purpose."
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="http://www.openchange.org"
+license=('GPL3')
+depends=('samba>=4.1.11' 'libical' 'sqlite3' 'file' 'boost' 'python2' 'libmariadbclient')
+makedepends=('ccache' 'python2' 'docbook-xsl' 'libxslt')
+options=(!makeflags)
+# Releases are mirrored at http://tracker.openchange.org/projects/openchange/files
+source=("http://tracker.openchange.org/attachments/download/${_dlid}/${pkgname}-${pkgver}-${_codename}.tar.gz")
+
+sha512sums=('4e7e78283f9744f405d9bfc0d57d01a4725657630f6ba55d0c417cce84d4c5f549b68ae3b6db70d91c7de199cfa7f4fc73ccb6e17a19bc136c55f69552c84d66')
+
+build() {
+    cd ${srcdir}/${pkgname}-${pkgver}-${_codename}
+
+    PYTHON_CALLERS="$(find ${srcdir}/${pkgname}-${pkgver}-${_codename} -name '*.py')
+                    $(find ${srcdir}/${pkgname}-${pkgver}-${_codename} -name 'configure.ac')
+                    setup/openchange_newuser setup/openchange_provision
+                    mapiproxy/services/web/rpcproxy/rpcproxy.wsgi"
+    sed -i -e "s|/usr/bin/env python$|/usr/bin/env python2|" \
+           -e "s|python-config|python2-config|" \
+           -e "s|bin/python|bin/python2|" \
+        ${PYTHON_CALLERS}
+
+    # Fix linking of boost_thread in autoconf test
+    sed -i -e "s|-lboost_thread\$BOOST_LIB_SUFFIX|-lboost_thread\$BOOST_LIB_SUFFIX -lboost_system\$BOOST_LIB_SUFFIX|" \
+        configure.ac
+
+     # Fix type error in openchang-provision
+    sed 's@  self.server_id)@  (self.server_id,))@' \
+        -i python/openchange/mailbox.py
+
+    export PYTHON=/usr/bin/python2
+
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr \
+        --sbindir=/usr/bin \
+        --datadir=/usr/share/samba \
+        --enable-pyopenchange \
+        --with-modulesdir=/usr/lib/samba/modules
+
+    # Fix build on ARCH!=x86_64
+    rm mapiproxy/libmapi{proxy,store}/backends/*.po
+    rm mapiproxy/util/*.po
+
+    make FLEX=/usr/bin/flex BISON=/usr/bin/bison
+}
+
+package() {
+    _pyver=`python2 -c 'import sys; print(sys.version[:3])'`
+
+    cd ${srcdir}/${pkgname}-${pkgver}-${_codename}
+    make DESTDIR="$pkgdir/" install
+
+    cd ${pkgdir}/usr/lib/
+    ln -s libmapi.so libmapi.so.0
+    ln -s libocpf.so libocpf.so.0
+
+    find ${pkgdir}/usr/lib/python${_pyver}/site-packages/ -name '*.py' | \
+         xargs sed -i "s|#!/usr/bin/env python$|#!/usr/bin/env python2|"
+}

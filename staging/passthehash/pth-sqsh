@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Make it use the PTH-patched libct library
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/lib/passing-the-hash/"
+
+exec /usr/bin/sqsh "$@"
+
+echo "ERROR: couldn't exec /usr/bin/sqsh" >&2
+exit 1

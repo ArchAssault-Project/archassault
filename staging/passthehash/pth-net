@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export LD_PRELOAD="${LD_PRELOAD:+$LD_PRELOAD }/usr/lib/passing-the-hash/pth-samba.so"
+exec /usr/bin/net "$@"
+
+echo "ERROR: couldn't exec /usr/bin/net" >&2
+exit 1
