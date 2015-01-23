@@ -3,28 +3,21 @@
 
 _pkgname=qtox
 pkgname=${_pkgname}-git
-_pkgver=2805737
-pkgver=r1797.57ba0e1
+_pkgver=aa9d0e0
+pkgver=r1852.aa9d0e0
 pkgrel=1
 pkgdesc="Powerful QT Tox client that tries to follow the Tox UI guidlines"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/tux3/qTox"
 license=('GPL3')
 groups=('archassault')
-depends=('desktop-file-utils'
-         'filter_audio-git'
-         'libxkbcommon-x11'
-         'libxss'
-         'opencv'
-         'openal'
-         'qt5-base'
-         'tox-git=1:r3094.bf12a4d-1')
+depends=('tox-git=1:r3094.bf12a4d-1' 'desktop-file-utils' 'filter_audio-git' 'libxkbcommon-x11' 'libxss' 'opencv' 'openal' 'qt5-base')
 makedepends=('git' 'qt5-tools')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 replaces=("$_pkgname")
 install="${pkgname}.install"
-source=("${_pkgname}::git+${url}.git")
+source=("$_pkgname::git+${url}.git")
 sha512sums=('SKIP')
 
 pkgver() {
@@ -33,34 +26,34 @@ pkgver() {
 }
 
 prepare() {
-    cd $_pkgname
-    install -d libs
-    ln -s /usr/lib libs/
-    ln -s /usr/include libs/
+  cd $_pkgname
+  install -d libs
+  ln -s /usr/lib libs/
+  ln -s /usr/include libs/
 }
 
 build() {
-    cd $_pkgname
-    install -d build
-    cd build
-    qmake-qt5 ..
-    make
+  cd $_pkgname
+  install -d build
+  cd build
+  qmake-qt5 ..
+  make
 }
 
 package() {
-    cd $_pkgname
+  cd $_pkgname
 
-    # executable
-    install -Dm755 build/${_pkgname} "${pkgdir}/usr/bin/${_pkgname}"
+  # executable
+  install -Dm755 build/$_pkgname "$pkgdir/usr/bin/$_pkgname"
 
-    # xdg desktop file
-    install -Dm644 qTox.desktop "${pkgdir}/usr/share/applications/qTox.desktop"
+  # xdg desktop file
+  install -Dm644 qTox.desktop "$pkgdir/usr/share/applications/qTox.desktop"
 
-    # icons
-    cd img/icons
-    for _icon in *.png; do
-        _size=$(sed 's|^[^-]*-||;s|\.png||' <<< $_icon)
-        install -Dm644 $_icon "$pkgdir"/usr/share/icons/hicolor/${_size}/apps/${_pkgname}.png
-    done
-    install -Dm644 ${_pkgname}.svg "$pkgdir"/usr/share/icons/hicolor/scalable/apps/${_pkgname}.png
+  # icons
+  cd img/icons
+  for _icon in *.png; do
+    _size=$(sed 's|^[^-]*-||;s|\.png||' <<< $_icon)
+    install -Dm644 $_icon "$pkgdir"/usr/share/icons/hicolor/$_size/apps/${_pkgname}.png
+  done
+  install -Dm644 ${_pkgname}.svg "$pkgdir"/usr/share/icons/hicolor/scalable/apps/${_pkgname}.png
 }
