@@ -1,0 +1,48 @@
+# Maintainer: ArchAssault <team archassault org>
+pkgname=oclhashcat
+_pkgname=oclHashcat
+pkgver=1.32
+pkgrel=2
+pkgdesc="Worlds fastest WPA cracker with dictionary mutation engine (AMD Catalyst)"
+url=('http://hashcat.net/oclhashcat/')
+arch=('i686' 'x86_64')
+license=('custom')
+depends=('bash' 'libcl' 'catalyst-utils>=4.9' 'opencl-catalyst>=4.9')
+source=("http://hashcat.net/files/$_pkgname-$pkgver.7z")
+sha512sums=('4002d475b63c89b3bc303d10b02cf98cc670cda90d51e9a38b9b9bb5acb96c503a200566b620b8b0c1f29913e47744cbfc75245e0eabf7839a75cd4f02c3053b')
+options=('!strip')
+
+prepare() {
+  cd $_pkgname-$pkgver
+  sed -i '1,2d;s|${OCLHASHCAT_ROOT}/oclHashcat64.bin "${OCLHASHCAT_ROOT}"/oclHashcat32.bin "${OCLHASHCAT_ROOT}"/cudaHashcat64.bin "${OCLHASHCAT_ROOT}"/cudaHashcat32.bin|'"$_pkgname"'|' extra/tab_completion/oclHashcat64.sh
+}
+
+package() {
+  install -dm755 "$pkgdir/opt/$pkgname"
+  cp -a --no-preserve=ownership  $_pkgname-$pkgver/* "$pkgdir/opt/$pkgname/"
+  cd "$pkgdir/opt/$pkgname"
+
+  # Install bash completion
+  install -Dm644 extra/tab_completion/oclHashcat64.sh "$pkgdir/usr/share/bash-completion/completions/$_pkgname"
+  rm -rf extra/tab_completion
+
+  # Install the executable script
+  install -dm755 "$pkgdir/usr/bin"
+  [[ "$CARCH" = "x86_64" ]] && {
+    rm ${_pkgname}32.bin
+    echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}64.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
+  } || {
+    rm ${_pkgname}64.bin
+    echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}32.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
+  }
+  chmod 755 "$pkgdir/usr/bin/$_pkgname"
+
+  # Cleanup win-executables
+  find . -regextype posix-extended -regex '.*\.(cmd|exe)$' -exec rm '{}' \;
+
+  # Fix permissions
+  cd "$pkgdir"
+  find . -regextype posix-extended -regex '.*\.(txt|llvmir|hash|rule|hcmask|hcstat|dict)$' -exec chmod 644 '{}' \;
+  find . -regextype posix-extended -regex '.*\.(sh|bin)$' -exec chmod 755 '{}' \;
+}
+
