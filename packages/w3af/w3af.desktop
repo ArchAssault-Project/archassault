@@ -1,11 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=/usr/bin/w3af-gui
-Icon=archassault-menu.png
 Type=Application
-Terminal=false
-MultipleArgs=false
 Name=w3af
-GenericName=w3af
+Comment=Web application attack and audit framework
+Exec=w3af-gui
+Icon=/usr/share/w3af/doc/sphinx/images/w3af-logo.png
+Terminal=false
 StartupNotify=false
-Categories=Application;Network;
+Categories=ArchAssault;ArchAssaultWebApp;ArchAssaultFuzzer;ArchAssaultScanners;Network;Security;
