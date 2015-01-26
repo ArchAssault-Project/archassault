@@ -34,7 +34,7 @@ prepare() {
 
   # Patchto remove the update and set the version
   patch -Np1 -i ../$pkgname-no-update.patch
-  patch -Np1 -i ../$pkgname-no-pip-dependency-check.patch
+  patch -Np1 -i ../$pkgname-no-pip-dependency.patch
   patch -Np1 -i ../archassault-version.patch
 
   # Remove dependency checks.
