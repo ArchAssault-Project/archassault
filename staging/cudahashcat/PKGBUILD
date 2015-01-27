@@ -27,14 +27,16 @@ package() {
   rm -rf extra/tab_completion
 
   # Install the executable script
-  install -dm755 "$pkgdir/usr/bin"
-  [[ "$CARCH" = "x86_64" ]] && {
+  install -dm755 "$pkgdir"/usr/{bin,share/licenses/$pkgname}/
+  if [[ "$CARCH" = "x86_64" ]]; then
     rm ${_pkgname}32.bin
     echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}64.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
-  } || {
+    ./${_pkgname}64.bin --eula > "$pkgdir/usr/share/licenses/$pkgname/EULA.txt"
+  else
     rm ${_pkgname}64.bin
     echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}32.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
-  }
+    ./${_pkgname}32.bin --eula > "$pkgdir/usr/share/licenses/$pkgname/EULA.txt"
+  fi
   chmod 755 "$pkgdir/usr/bin/$_pkgname"
 
   # Cleanup win-executables

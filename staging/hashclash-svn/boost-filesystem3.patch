@@ -1,0 +1,15 @@
+diff --git a/CPCGui/nearcollision_page.cpp b/CPCGui/nearcollision_page.cpp
+index 71a07d1..c1a2eda 100644
+--- a/CPCGui/nearcollision_page.cpp
++++ b/CPCGui/nearcollision_page.cpp
+@@ -348,8 +348,8 @@ bool NearCollisionPage::update()
+ 		started_collfind = false;
+ 		boost::filesystem::path ncdir = current_project_data->workdir / ("work_nc" + boost::lexical_cast<std::string>(index));
+ 		for (boost::filesystem::directory_iterator dit(ncdir); dit != boost::filesystem::directory_iterator(); ++dit) {
+-			if (dit->path().filename().substr(0,6) == "coll1_") {
+-				std::string fn1 = dit->path().filename(), fn2 = fn1;
++			if (boost::filesystem::canonical(dit->path().filename()).string().substr(0,6) == "coll1_") {
++				std::string fn1 = boost::filesystem::canonical(dit->path().filename()).string(), fn2 = fn1;
+ 				fn2.replace(4, 1, "2");
+ 				if (boost::filesystem::is_regular_file(ncdir / fn2)) {
+ 					if (startnearcollision(index+1, ncdir / fn1, ncdir / fn2)) {

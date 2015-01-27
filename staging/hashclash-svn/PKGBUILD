@@ -1,0 +1,60 @@
+# Maintainer: ArchAssault <team archassault org>
+_pkgname=hashclash
+pkgname=$_pkgname-svn
+pkgver=r48
+pkgrel=1
+pkgdesc='Framework for MD5 & SHA-1 Differential Path Construction and Chosen-Prefix Collisions for MD5'
+url=('https://code.google.com/p/hashclash')
+arch=('i686' 'x86_64')
+license=('GPL3')
+depends=('boost-libs' 'gtkmm' 'glibmm' 'libsigc++' 'gtk2' 'cairo' 'cairomm' 'pango' 'pangomm' 'gdk-pixbuf2' 'freetype2' 'atk' 'atkmm')
+makedepends=('subversion')
+source=("$_pkgname::svn+http://hashclash.googlecode.com/svn/trunk" 'Makefile.local' 'boost-filesystem3.patch')
+sha512sums=('SKIP'
+            '7377a932c099ee8c7d7fe87a3c7a9bc155536010d10b8d503f0448d3c5a44fdb5caa2fdc1ef919e9e89ba4689e727020a943a42f78a5b9e7180a7db821bfc452'
+            'f3cebc7b9739a20d55fbd68bc0c6d3c27f37fa72abd03d13a9e61072fb9fd4e3aa62696c392dedfd384aa4b08907f868bf02909e3d6f938d3b2597cfd541c8bf')
+
+pkgver() {
+  cd $_pkgname
+  local ver="$(svnversion)"
+  printf "r%s" "${ver//[[:alpha:]]}"
+}
+
+prepare() {
+  # Patch boost functionality for filesystem3
+  cd $_pkgname/src
+  patch -p1 < ../../boost-filesystem3.patch
+
+  # Install Makefile.local
+  cp ../../Makefile.local Makefile.local
+
+  # Strip boost and test from Makefile (Makefile.local configures the system's boost)
+  sed -i '/^boost[^:]*:/q' Makefile
+  sed -i '$d' Makefile
+  sed -i -re 's|\s*boost[^ ]*\s*| |g' Makefile
+  sed -i -re 's/(all|:.*) test/\1/' Makefile
+}
+
+build() {
+  # Build binaries
+  cd $_pkgname/src
+  make
+}
+
+package() {
+  # Install documentation
+  cd $_pkgname
+  for pdf in papers/*.pdf; do
+    install -Dm644 "$pdf" "$pkgdir/usr/share/doc/$_pkgname/${pdf#*/}"
+  done
+
+  # Install shared files
+  cd src
+  install -dm755 "$pkgdir/usr/share/$_pkgname"
+  cp -r --no-preserve=ownership sha1data "$pkgdir/usr/share/$_pkgname/sha1data"
+  cp -r --no-preserve=ownership scripts "$pkgdir/usr/share/$_pkgname/scripts"
+
+  # Install compiled binaries
+  find . -mindepth 1 -maxdepth 1 -type f ! -name 'Makefile*' -exec install -Dm755 '{}' "$pkgdir/usr/bin/"'{}' \;
+}
+
