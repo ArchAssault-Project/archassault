@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=indxparse-git
-pkgver=r153.ecb8248
+pkgver=r162.83dae16
 pkgrel=1
 groups=('archassault' 'archassault-forensics')
 pkgdesc="A Tool suite for inspecting NTFS artifacts."
