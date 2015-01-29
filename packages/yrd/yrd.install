@@ -1,0 +1,9 @@
+post_install() {
+    # Create /var/lib/yrd and /var/lib/yrd/peers.d if they don't exist
+    systemd-tmpfiles --create yrd.conf
+}
+
+post_upgrade() {
+    # Run the install commands
+    post_install
+}
