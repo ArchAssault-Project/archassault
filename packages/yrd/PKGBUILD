@@ -1,7 +1,8 @@
-# Maintainer: Kevin MacMartin <prurigro@gmail.com>
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Kevin MacMartin <prurigro@gmail.com>
 
 pkgname=yrd
-pkgver=0.1
+pkgver=0.2
 pkgrel=1
 pkgdesc='A cjdns config tool for humans and cyborgs'
 url='https://github.com/kpcyrd/yrd'
@@ -11,34 +12,26 @@ depends=('python2-argh' 'python2-requests' 'systemd')
 install=$pkgname.install
 source=("$url/archive/v$pkgver.tar.gz"
         "$pkgname.tmpfiles.conf")
-sha512sums=('3582ddf7c2513f62a3747dee621a23d3418a924119bf40178cecce2e424f5f2ff7fa1021d6dd14820d7932928084cdb5d97680a62a2f3a0ee5a50e5e64f06bab'
-            '685c3d6964bb5ca8df2cd1e6e3ad4776b939bd041d94776ac6ed57e8d153671cab5d225e71127eb0ed56299a81ce7466512618c80edf337194c84be563471067')
+sha512sums=('45821f04170dcb24c9b4bf0659f77b1ea9bd4302288e68fe5d44f5179f792efedce8532fd92423cf5303cd36615d6e65743a80da59a27eab3cd4408eaf0c0a84'
+            '45d48ed3306d60daca9583ed657521ca5ffef039d167b68aa8c595474a4c3e0f910afe8abd3e7b86f3b16588e8f25161fd4b6c55802c68944c4a31de084d85ef')
 
 prepare() {
-  cd $pkgname-$pkgver
-  # Fix the python2 hash-bang
-  sed -i -re 's|#!\s*(/usr)?(/local)?/bin/.*python.*$|#!/usr/bin/env python2|g' $(egrep -rl '^\s*#!\s*(/usr)?(/local)?/bin/.*python')
   # Configure cjdroute.conf to be located @ /etc/cjdroute.conf
-  sed -i 's|/var/lib/yrd/cjdroute.conf|/etc/cjdroute.conf|' $pkgname
-  # Remove self-install/update portions of the script
-  sed -i '/^def install():$/,/\[+\] installation complete/d' $pkgname
-  sed -i 's|install, ||' $pkgname
-  sed -i -re '/(YRD|CJDNS)_(GIT_REPO|CLONE_DIR)/d' $pkgname
-  # Cleanup multiple consecutive blank lines (caused by the above statements)
-  sed -i '/^$/N;/^\n$/D' $pkgname
+  cd $pkgname-$pkgver
+  sed -i 's|/var/lib/yrd/cjdroute.conf|/etc/cjdroute.conf|' $pkgname.py
 }
 
 package() {
   # Install the tmpfiles.d config
   install -Dm644 $pkgname.tmpfiles.conf "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
-  cd $pkgname-$pkgver
   # Install the main executable
-  install -Dm755 $pkgname "$pkgdir/usr/lib/python2.7/site-packages/$pkgname/$pkgname"
-  # Install a symlink to the main executable in /usr/bin
-  install -dm755 "$pkgdir/usr/bin"
-  ln -sf /usr/lib/python2.7/site-packages/$pkgname/$pkgname "$pkgdir/usr/bin/$pkgname"
+  cd $pkgname-$pkgver
+  install -Dm755 $pkgname.py "$pkgdir/usr/lib/python2.7/site-packages/$pkgname/$pkgname"
   # Install the rest of the python files
   install -m644 *.py "$pkgdir/usr/lib/python2.7/site-packages/$pkgname/"
+  # Install a symlink to the main executable in /usr/bin
+  install -dm755 "$pkgdir/usr/bin"
+  ln -sf /usr/lib/python2.7/site-packages/$pkgname/$pkgname.py "$pkgdir/usr/bin/$pkgname"
   # Install the README.md to the shared docs folder
   install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
