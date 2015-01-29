@@ -7,10 +7,11 @@ pkgdesc="Worlds fastest WPA cracker with dictionary mutation engine (NV ForceWar
 url=('http://hashcat.net/oclhashcat/')
 arch=('i686' 'x86_64')
 license=('custom')
-depends=('bash' 'libcl' 'nvidia>=346' 'nvidia-utils>=346')
-source=("http://hashcat.net/files/$_pkgname-$pkgver.7z")
-sha512sums=('fe370337e5cd2bbf0c53d3df440c8efdfcb48524f2f2d99f5caa598c40768b54ce44771e836ccb361d991365c526982e0938b3b295881ae6b1fc063d3985d29a')
+depends=('bash')
 options=('!strip')
+source=("http://hashcat.net/files/$_pkgname-$pkgver.7z" 'LICENSE')
+sha512sums=('fe370337e5cd2bbf0c53d3df440c8efdfcb48524f2f2d99f5caa598c40768b54ce44771e836ccb361d991365c526982e0938b3b295881ae6b1fc063d3985d29a'
+            '4b4c420f2462092a3ec46ce81b44b658da8b02d5fa6738cb818831566e6e808cb6ec4de8f0e6a7715d8c073fd8313d83af4fd820a501f52835160d71b2581054')
 
 prepare() {
   cd $_pkgname-$pkgver
@@ -18,33 +19,34 @@ prepare() {
 }
 
 package() {
+  # Install the license
+  install -Dm644 LICENSE usr/share/licenses/$pkgname/LICENSE
+
+  # Install the self-contained package directory to /opt
   install -dm755 "$pkgdir/opt/$pkgname"
   cp -a --no-preserve=ownership  $_pkgname-$pkgver/* "$pkgdir/opt/$pkgname/"
   cd "$pkgdir/opt/$pkgname"
 
-  # Install bash completion
+  # Install bash completion script and remove the folder in the package directory
   install -Dm644 extra/tab_completion/oclHashcat64.sh "$pkgdir/usr/share/bash-completion/completions/$_pkgname"
   rm -rf extra/tab_completion
 
-  # Install the executable script
-  install -dm755 "$pkgdir"/usr/{bin,share/licenses/$pkgname}/
-  if [[ "$CARCH" = "x86_64" ]]; then
-    rm ${_pkgname}32.bin
-    echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}64.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
-    ./${_pkgname}64.bin --eula > "$pkgdir/usr/share/licenses/$pkgname/EULA.txt"
-  else
-    rm ${_pkgname}64.bin
-    echo -e "#!/bin/bash\n/opt/$pkgname/${_pkgname}32.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
-    ./${_pkgname}32.bin --eula > "$pkgdir/usr/share/licenses/$pkgname/EULA.txt"
-  fi
-  chmod 755 "$pkgdir/usr/bin/$_pkgname"
-
-  # Cleanup win-executables
+  # Remove Windows executables
   find . -regextype posix-extended -regex '.*\.(cmd|exe)$' -exec rm '{}' \;
 
-  # Fix permissions
-  cd "$pkgdir"
-  find . -regextype posix-extended -regex '.*\.(txt|llvmir|hash|rule|hcmask|hcstat|dict)$' -exec chmod 644 '{}' \;
-  find . -regextype posix-extended -regex '.*\.(sh|bin)$' -exec chmod 755 '{}' \;
+  # Set correct permissions for the various file types
+  find "$pkgdir" -regextype posix-extended -regex '.*\.(txt|llvmir|hash|rule|hcmask|hcstat|dict)$' -exec chmod 644 '{}' \;
+  find "$pkgdir" -regextype posix-extended -regex '.*\.(sh|bin)$' -exec chmod 755 '{}' \;
+
+  # Delete the .bin for the non-applicable arch and move the other one to a more generic name
+  [[ "$CARCH" = "x86_64" ]] \
+      && rm ${_pkgname}32.bin \
+      || rm ${_pkgname}64.bin
+  mv $_pkgname*.bin $_pkgname.bin
+
+  # Create a launch script in /usr/bin
+  install -dm755 "$pkgdir"/usr/bin
+  echo -e "#!/bin/bash\n/opt/$pkgname/$_pkgname.bin \$@" > "$pkgdir/usr/bin/$_pkgname"
+  chmod 755 "$pkgdir/usr/bin/$_pkgname"
 }
 
