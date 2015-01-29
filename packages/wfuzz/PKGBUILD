@@ -1,20 +1,24 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wfuzz
-pkgver=2.0
-pkgrel=1
-groups=('archassault' 'archassault-webapp' 'archassault-fuzzer')
+pkgver=2.1.1
+pkgrel=2
+groups=('archassault' 'archassault-webapps' 'archassault-fuzzers')
 pkgdesc="Utility to bruteforce web applications to find their not linked resources"
-url='http://code.google.com/p/wfuzz'
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-license=('GPL' 'other')
+url='https://github.com/xmendez/${pkgname}'
+arch=('any')
+license=('GPL')
 depends=('python2-pycurl')
-source=("http://wfuzz.googlecode.com/files/${pkgname}-${pkgver}.tgz")
-md5sums=('ff45b5171a3039c03fee8031a1dd2c83')
+source=("https://github.com/xmendez/${pkgname}/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
+sha512sums=('093aea7896e6dd9b8d43580fe6d03eec9fbfc74c851afe660336f00a87d8f9d3e3d201bfb61c023de41b5515c00746660cec28755357b0ab225885708919f63c')
 
 package() {
-  mkdir -p $pkgdir/opt/wfuzz
-  mkdir -p $pkgdir/usr/bin
-  cp -r $srcdir/wfuzz-read-only/* $pkgdir/opt/wfuzz/
-  echo -e "#!/bin/bash\npython2.7 /opt/wfuzz/wfuzz.py \$@" > $pkgdir/usr/bin/wfuzz
-  chmod a+x $pkgdir/usr/bin/wfuzz
+  install -dm755 ${pkgdir}/usr/share/${pkgname}/
+  install -dm755 ${pkgdir}/usr/bin
+  cp -r ${srcdir}/${pkgname}-${pkgver}/* ${pkgdir}/usr/share/${pkgname}/
+  cat > "${pkgdir}/usr/bin/${pkgname}" << EOF
+#!/bin/bash
+cd /usr/share/${pkgname}
+python2 ${pkgname}.py "\$@"
+EOF
+  chmod +x ${pkgdir}/usr/bin/${pkgname}
 }
