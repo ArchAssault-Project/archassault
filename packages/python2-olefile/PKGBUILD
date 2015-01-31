@@ -1,21 +1,23 @@
 # Maintainer: ArchAssault <team archassault.org>
-pkgname=python2-olefileio_pl
-pkgver=0.41
+pkgname=python2-olefile
+pkgver=0.42.1
 pkgrel=1
 pkgdesc="A Python module to parse and read Microsoft OLE2 files (Structured Storage or Compound Document, Microsoft Office) - Improved version of the OleFileIO module from PIL, the Python Image Library."
 arch=('any')
-url="https://pypi.python.org/pypi/OleFileIO_PL/0.30"
+url="http://www.decalage.info/olefile"
 license=('custom')
 depends=('python2')
+provides=('python2-olefileio_pl')
+replaces=('python2-olefileio_pl')
+conflicts=('python2-olefileio_pl')
 makedepends=('python2-setuptools')
-source=(https://pypi.python.org/packages/source/O/OleFileIO_PL/OleFileIO_PL-$pkgver.zip)
-sha512sums=('961468ff25d38feb9781a613d2a6d3b960877f486831631f6738e05a5a5cd4d1fced2b5ac5fab86e594be26d24576331bf23ccd394d4a2e589b05bad9f63a7f6')
+source=("https://bitbucket.org/decalage/olefileio_pl/downloads/olefile-$pkgver.zip")
+sha512sums=('85daac386783cec4d7d725193c9f29a8ed384b2725a755c25f13ff11a36720094faa1c77769fdf93789e73dc50a4a4fd7cdd123cd3ed39f66038a77d6069deb9')
 
 
 package() {
-  cd "$srcdir/OleFileIO_PL-$pkgver"
+  cd "$srcdir/olefile-$pkgver"
   python2 setup.py install --root=$pkgdir --optimize=1
-  install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
-  sed -i 's|#!.*/usr/local/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|' $pkgdir/usr/lib/python2.7/site-packages/OleFileIO_PL.py 
-  sed -i 's|#!.*/usr/local/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|' $pkgdir/usr/lib/python2.7/site-packages/OleFileIO_PL2.py
+  install -Dm644 README.md "$pkgdir/usr/share/licenses/$pkgname/README.md"
+  grep -iRl 'python' "$pkgdir" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python|#!/usr/bin/env python2|;s|#!.*/usr/local/bin/python|#!/usr/bin/env python2|'
 }
