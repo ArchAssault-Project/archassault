@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=whatweb
 pkgver=0.4.7
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-webapps' 'archassault-reconnaissance')
 pkgdesc="Next generation web scanner that identifies what websites are running."
 arch=('any')
@@ -13,7 +13,7 @@ sha512sums=('b5c80cb5f86524bc3f6a670efa2ce67653b426fb387b42f7906739d1e9481588da6
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  sed -i 's|/usr/bin/env ruby|/usr/bin/env ruby-1.8|' ${pkgname}
+  grep '#!/usr/bin/env ruby' * -lR | xargs -I{} sed -i 's|#!/usr/bin/env ruby|#!/usr/bin/env ruby-1.8|g' {}
 }
 
 package() {
