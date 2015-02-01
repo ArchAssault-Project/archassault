@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=peda-git
 pkgver=r51.327db44
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-exploits')
 pkgdesc="A Python Exploit Development Assistant for GDB"
 arch=('any')
@@ -35,5 +35,8 @@ package() {
   install -Dm644 peda.py "${pkgdir}/usr/share/${pkgname}/"
   install -Dm644 lib/* "${pkgdir}/usr/share/${pkgname}/lib/"
   install -Dm644 README "${pkgdir}/usr/share/${pkgname}/"
-  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"  
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  #Fixing import error on utils
+  mv $pkgdir/usr/share/${pkgname}/lib/utils.py $pkgdir/usr/share/${pkgname}/lib/peda_utils.py
+  sed -e 's/^from util/from peda_util/' -i $pkgdir/usr/share/${pkgname}/peda.py $pkgdir/usr/share/${pkgname}/lib/nasm.py $pkgdir/usr/share/${pkgname}/lib/shellcode.py 
 }

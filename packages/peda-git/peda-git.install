@@ -1,6 +1,6 @@
 post_install(){
-  echo "Add /usr/share/peda/peda.py to gdb:"
-  echo "source /usr/share/peda/peda.py >> ~/.gdbinit"
+  echo "Add /usr/share/peda-git/peda.py to gdb:"
+  echo "source /usr/share/peda-git/peda.py >> ~/.gdbinit"
   echo "DONE! debug your program with gdb and enjoy"
 }
 
