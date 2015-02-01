@@ -1,0 +1,31 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Cthulu201 <cthulu201@archassault.org>
+
+pkgname=python-beeswarm
+pkgver=0.7.14
+pkgrel=1
+groups=('archassault' 'archassault-honeypot')
+pkgdesc="A honeypot project which provides easy configuration, deployment and managment of honeypots."
+url="http://www.beeswarm-ids.org/"
+depends=('python2' 'python2-pyzmq' 'fs' 'python2-crypto' 'python2-ecdsa' 'python2-cssselect' 'python2-nose'
+         'python2-gevent' 'python2-requests' 'python2-telnetsrv' 'python2-paramiko' 'python2-ntplib'
+         'python2-pysendfile' 'python2-pyDes' 'python2-flask' 'python2-flask-login' 'python2-sqlalchemy'
+         'python2-pyOpenSSL' 'python2-lxml' 'python2-flask-wtf' 'python2-mock' 'python2-enum34' 'python2-netifaces')
+replaces=('python-beeswarm')
+provides=('python-beeswarm')
+conflicts=('python-beeswarm')
+license=('GPL3')
+arch=('any')
+source=("https://pypi.python.org/packages/source/B/Beeswarm/Beeswarm-${pkgver}.tar.gz")
+sha512sums=('cc7195f8517d842d1207e1cc07e1d49e59c434b7cb8963096ab942fae5eeb4655977be936930ed06332b7308f781be04273d46ece08506dc4718073ae1334832')
+
+build() {
+  cd ${srcdir}/beeswarm-${pkgver}
+  python2 setup.py build
+}
+
+package() {
+  cd ${srcdir}/beeswarm-${pkgver}
+  python2 setup.py install --root="${pkgdir}" --optimize=1
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
+}

@@ -1,0 +1,24 @@
+# Maintainer: ArchAssault <team archassault org>
+# Contributor: Cthulu201 <cthulu201@archassault.org>
+ 
+pkgname=princeprocessor
+pkgver=0.19
+pkgrel=1
+pkgdesc="Standalone password candidate generator using the PRINCE algorithm"
+arch=('any')
+url="https://github.com/jsteube/princeprocessor"
+groups=('archassault')
+license=('MIT')
+depends=('gcc-libs')
+provides=('princeprocessor')
+source=("https://github.com/jsteube/princeprocessor/archive/v$pkgver/$pkgname-$pkgver.tar.gz")
+sha512sums=('7c70b895085ec07c16ecd570a7eacf5c0adeea5d3df3bc70b2335cafe8ed57d70b67235f863665c028087d1b67f69f47958bc87be27bb4602a9657c29df1d6a7')
+
+package() {
+cd "$srcdir/$pkgname-$pkgver"
+install -dm755 "$pkgdir/usr/share/$pkgname"
+install -dm755 "$pkgdir/usr/share/$pkgname/rules"
+install -dm755 "$pkgdir/usr/share/$pkgname/src"
+# Bins
+install -Dm755 "$srcdir/$pkgname-$pkgver" "$pkgdir/usr/bin/$pkgname"
+}
