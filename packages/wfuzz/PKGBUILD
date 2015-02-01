@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wfuzz
 pkgver=2.1.1
-pkgrel=3
+pkgrel=1
 groups=('archassault' 'archassault-webapps' 'archassault-fuzzers')
 pkgdesc="Utility to bruteforce web applications to find their not linked resources"
 url='https://github.com/xmendez/${pkgname}'
@@ -12,11 +12,12 @@ source=("https://github.com/xmendez/${pkgname}/releases/download/v${pkgver}/${pk
 sha512sums=('093aea7896e6dd9b8d43580fe6d03eec9fbfc74c851afe660336f00a87d8f9d3e3d201bfb61c023de41b5515c00746660cec28755357b0ab225885708919f63c')
 
 package() {
+  grep '#!/usr/bin/python' * -Rl | xargs -I{} sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|g' {}
   install -dm755 ${pkgdir}/usr/share/${pkgname}/
   install -dm755 ${pkgdir}/usr/bin
   cp -r ${srcdir}/${pkgname}-${pkgver}/* ${pkgdir}/usr/share/${pkgname}/
   cat > "${pkgdir}/usr/bin/${pkgname}" << EOF
-#!/usr/bin/bash
+#!/usr/bin/sh
 cd /usr/share/${pkgname}
 python2 ${pkgname}.py "\$@"
 EOF
