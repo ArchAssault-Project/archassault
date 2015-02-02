@@ -1,0 +1,38 @@
+# Maintainer: ArchAssault <team at archassault org>
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
+
+_pkgname=toxbot
+pkgname=$_pkgname-git
+pkgver=r29.1d72a72
+pkgrel=1
+pkgdesc="Remotely controlled Tox bot whose purpose is to auto-invite friends to Tox groupchats"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://github.com/JFreegman/ToxBot"
+license=('GPL3')
+depends=('tox-git=1:r3112.fbe9fd0-1')
+makedepends=('git')
+conflicts=("$_pkgname")
+provides=("$_pkgname")
+
+source=("$pkgname"::"git+$url")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd $pkgname
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cd $pkgname
+  # Build the program
+  make
+}
+
+package() {
+  cd $pkgname
+  # Install the program
+  install -Dm755 $_pkgname "$pkgdir/usr/bin/$_pkgname"
+  # Install documentation
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$_pkgname/README.md"
+  install -Dm644 commands.txt "$pkgdir/usr/share/doc/$_pkgname/commands.txt"
+}
