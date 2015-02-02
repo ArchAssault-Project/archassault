@@ -5,8 +5,8 @@
 
 _pkgname=tox
 pkgname=${_pkgname}-git
-_pkgver=4c220e3
-pkgver=r3102.4c220e3
+_pkgver=fbe9fd0
+pkgver=r3112.fbe9fd0
 pkgrel=1
 epoch=1
 pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
