@@ -13,7 +13,7 @@ pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://tox.im'
 license=('GPL3')
-depends=('libconfig' 'libsodium' 'opus' 'libvpx')
+depends=('libsodium' 'opus' 'libvpx')
 makedepends=('git' 'check')
 optdepends=('qtox-git: qt-based frontend'
             'utox-git: lightweight tox client'
