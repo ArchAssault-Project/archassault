@@ -1,24 +1,35 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=node-ar-drone
-pkgver=v0.3.2.1.gf1b48cd
+
+_pkgname=ar-drone
+pkgname=node-$_pkgname
+pkgver=v0.3.3.2.g228bd45
 pkgrel=1
-pkgdesc="A node.js client for controlling Parrot AR Drone 2.0 quad-copters"
+pkgdesc='A node.js client for controlling Parrot AR Drone 2.0 quad-copters'
 arch=('any')
 url='https://github.com/felixge/node-ar-drone'
 license=('MIT')
 depends=('nodejs')
 makedepends=('git')
 source=('git+https://github.com/felixge/node-ar-drone')
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-  cd node-ar-drone
+  cd $pkgname
   git describe --always | sed 's|-|.|g'
 }
 
+prepare() {
+  # Install node dependencies
+  cd $pkgname
+  npm install
+}
+
 package() {
-  cd "$srcdir"
-  npm install node-ar-drone -g "--prefix=$pkgdir/usr"
-  chown -R root:root "$pkgdir"/*
-  install -Dm644 node-ar-drone/LICENSE "$pkgdir"/usr/share/licenses/node-ar-drone/LICENSE
+  cd $pkgname
+  install -dm755 "$pkgdir/usr/lib/node_modules/$_pkgname"
+  cp --no-preserve=ownership -r {lib,examples,node_modules,test,index.js,Makefile,package.json} "$pkgdir/usr/lib/node_modules/$_pkgname/"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$_pkgname/README.md"
+  install -Dm644 Changes.md "$pkgdir/usr/share/doc/$_pkgname/Changes.md"
+  install -Dm644 CONTRIBUTING.md "$pkgdir/usr/share/doc/$_pkgname/CONTRIBUTING.md"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
