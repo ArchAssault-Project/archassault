@@ -17,7 +17,7 @@ package() {
   install -dm755 ${pkgdir}/usr/bin
   cp -r ${srcdir}/${pkgname}-${pkgver}/* ${pkgdir}/usr/share/${pkgname}/
   cat > "${pkgdir}/usr/bin/${pkgname}" << EOF
-#!/usr/bin/sh
+#!/bin/bash
 cd /usr/share/${pkgname}
 python2 ${pkgname}.py "\$@"
 EOF
