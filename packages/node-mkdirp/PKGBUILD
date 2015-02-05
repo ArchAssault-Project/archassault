@@ -1,18 +1,29 @@
 # Maintainer: ArchAssault <team archassault org>
-pkgname=nodejs-mkdirp
-_npmname=mkdirp
-pkgver=0.3.5
+_pkgname=mkdirp
+pkgname=node-$_pkgname
+pkgver=0.5.0
 pkgrel=1
-pkgdesc="Recursively mkdir, like mkdir -p, but in node.js"
+pkgdesc='Recursively mkdir, like mkdir -p, but in node.js'
 arch=('any')
-depends=('nodejs')
-url="https://github.com/substack/node-mkdirp"
+url='https://github.com/substack/node-mkdirp'
 license=('MIT')
-provides=('nodejs-mkdirp')
+depends=('nodejs')
+source=("$url/archive/$pkgver.tar.gz")
+sha512sums=('1ddf96c96b60501d4b60a1ce0b943cc48942e04b8ba493cd06486328e51a4930e3e1323f1ba7d3e2ddf92e2b82acb2a34307c47e00da7bfbb5d516fa00dc57c7')
+
+prepare() {
+  # Install node dependencies
+  cd $pkgname-$pkgver
+  npm install 2>/dev/null
+}
 
 package() {
-  local _npmdir="$pkgdir/usr/lib/node_modules/"
-  mkdir -p $_npmdir
-  cd $_npmdir
-  npm install --user root -g --prefix "$pkgdir/usr" $_npmname@$pkgver
+  cd $pkgname-$pkgver
+  install -Dm644 readme.markdown "$pkgdir/usr/share/doc/$pkgname/readme.markdown"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 package.json "$pkgdir/usr/lib/node_modules/$_pkgname/package.json"
+  install -Dm755 index.js "$pkgdir/usr/lib/node_modules/$_pkgname/index.js"
+  cp -r --no-preserve=ownership {bin,examples,node_modules,test} "$pkgdir/usr/lib/node_modules/$_pkgname/"
+  install -dm755 "$pkgdir/usr/bin"
+  ln -s /usr/lib/node_modules/$_pkgname/bin/cmd.js "$pkgdir/usr/bin/$_pkgname"
 }
