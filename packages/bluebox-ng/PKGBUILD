@@ -1,39 +1,34 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=bluebox-ng
-pkgver=20150111.r77
+pkgver=0.1.8
 pkgrel=1
-epoch=1
+epoch=2
 groups=('archassault' 'archassault-scanners')
-pkgdesc="A GPL VoIP/UC vulnerability scanner."
-url="https://github.com/jesusprubio/bluebox-ng"
+pkgdesc='A GPL VoIP/UC vulnerability scanner written using Node.js powers'
+url='https://github.com/jesusprubio/bluebox-ng'
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 license=('GPL3')
-depends=('nodejs' 'python2' 'coffee-script')
+depends=('coffee-script' 'python2' 'nmap')
 makedepends=('git')
-source=("git+https://github.com/jesusprubio/bluebox-ng.git")
-sha512sums=('SKIP')
+source=("$url/archive/$pkgver.tar.gz")
+sha512sums=('c3fc0b41b92c70cbd0abe80de9d50fc6769a15e4997b7b3186a231d2644d634fc4948db4817925c44186b9246d79f8847bef8e93c041396dfcf80d8a0b967898')
 
-pkgver() {
-  cd "${pkgname}"
-  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+prepare() {
+  cd $pkgname-$pkgver
+  npm --python=/usr/bin/python2 install 2>/dev/null
+  sed -i -re 's|#!\s*(/usr)?(/local)?/bin/.*python.*$|#!/usr/bin/env python2|g' $(egrep -rl '^\s*#!\s*(/usr)?(/local)?/bin/.*python')
 }
 
 package() {
-  cd "$srcdir/bluebox-ng"
-
-  #Base dir
-  install -dm755 "$pkgdir/usr/bin/"
-
-  msg "Deleting old node_modules folder ..."
-  rm -rf node_modules
-  msg "Installing a new version of them ..."
-  PYTHON="/usr/bin/python2" npm install -g "--prefix=$pkgdir/usr"
-  chown -R root:root "${pkgdir}"/usr/lib/node_modules/bluebox-ng/node_modules "${pkgdir}"/usr/lib/node_modules/bluebox-ng/artifacts "${pkgdir}"/usr/lib/node_modules/bluebox-ng
-cat > "$pkgdir/usr/bin/bluebox" << EOF
-#!/bin/sh
-cd /usr/lib/node_modules/bluebox-ng/
-./bluebox.sh "\$@"
-EOF
-chmod +x "$pkgdir/usr/bin/bluebox"
-  
+  cd $pkgname-$pkgver
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 package.json "$pkgdir/usr/lib/node_modules/$pkgname/package.json"
+  install -m755 *.js "$pkgdir/usr/lib/node_modules/$pkgname/"
+  cp -r --no-preserve=ownership {artifacts,bin,examples,modules,node_modules,utils} "$pkgdir/usr/lib/node_modules/$pkgname/"
+  install -dm755 "$pkgdir/usr/bin"
+  printf '%s\n\n%s\n' \
+    '#!/usr/bin/env bash' \
+    "node /usr/lib/node_modules/$pkgname/bin/blueboxClient.js" \
+      > "$pkgdir/usr/bin/$pkgname"
+  chmod 755 "$pkgdir/usr/bin/$pkgname"
 }
