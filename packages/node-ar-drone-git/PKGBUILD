@@ -24,7 +24,7 @@ pkgver() {
 prepare() {
   # Install node dependencies
   cd $_pkgname
-  npm install
+  npm install 2>/dev/null
 }
 
 package() {
