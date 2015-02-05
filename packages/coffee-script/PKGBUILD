@@ -1,46 +1,41 @@
 # Maintainer: ArchAssault <team@archassault.org>
-_pkgname=coffeescript
 pkgname=coffee-script
-pkgver=1.8.0
+pkgver=1.9.0
 pkgrel=1
 pkgdesc='A little language that compiles into javascript'
 arch=('any')
 url='http://coffeescript.org'
 license=('MIT')
 depends=('nodejs')
-optdepends=("nodejs-profile: to load ${pkgname} in node")
-source=("https://github.com/jashkenas/${pkgname}/archive/${pkgver}.tar.gz"
-        "${pkgname}.1")
-sha512sums=('7868c65f4379e4bc905c0edfaf93c106da47c9f50d6f9a7097a7f0cec94b65835120cbe3bb85e08d3cf74d7bf238ce5d64ef182f338a4abd1f381ab1faf905f7'
+optdepends=('nodejs-profile: to load coffee-script in node')
+source=("https://github.com/jashkenas/$pkgname/archive/$pkgver.tar.gz"
+        "$pkgname.1")
+sha512sums=('5aa1508eb578cad348d40219d4bda6ccb15f601b5eba8df28b8c28e70ab03597b166682f67ac17501a846b9620fba4d1b090c9fc5e0d92a444641775162fad29'
             'c6a86759df5695cd26f57ff98bea74f17f0f2e8d06b53dbd035841f0bff82524b8b018d5527fb78efa6d1463dd4a68779ee634fddd016b8cc7a4babade593a2e')
 
 prepare() {
-    cd ${_pkgname}-${pkgver}
-    npm install
-}
-
-check() {
-    cd ${_pkgname}-${pkgver}
-    bin/cake test
-    bin/cake test:browser
+  cd ${pkgname/-/}-$pkgver
+  npm install 2>/dev/null
 }
 
 build() {
-    cd ${_pkgname}-${pkgver}
-    bin/cake build
-    bin/cake build:parser
-    bin/cake build:browser
+  cd ${pkgname/-/}-$pkgver
+  MINIFY=false bin/cake build
+  MINIFY=false bin/cake build:parser
+  MINIFY=false bin/cake build:browser
 }
 
 package() {
-    install -Dm644 ${pkgname}.1 "${pkgdir}/usr/share/man/man1/coffee.1"
-    cd ${_pkgname}-${pkgver}
-    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-    # cake writes bullshit to ~/.noode-libraries, so set HOME to local dir
-    HOME="$PWD" bin/cake --prefix "${pkgdir}/usr/" install
-    install -d "${pkgdir}/usr/lib/node_modules"
-    mv "${pkgdir}/usr/lib/${pkgname}" "${pkgdir}/usr/lib/node_modules/${pkgname}"
-    ln -sf /usr/lib/node_modules/${pkgname}/bin/{cake,coffee} "${pkgdir}/usr/bin/"
-    cd "${pkgdir}/usr/lib/node_modules/${pkgname}"
-    npm install
+  install -Dm644 $pkgname.1 "$pkgdir/usr/share/man/man1/coffee.1"
+  cd ${pkgname/-/}-$pkgver
+  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 CONTRIBUTING.md "$pkgdir/usr/share/doc/$pkgname/CONTRIBUTING.md"
+  cp -r --no-preserve=ownership {documentation,examples} "$pkgdir/usr/share/doc/$pkgname/"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 package.json "$pkgdir/usr/lib/node_modules/$pkgname/package.json"
+  cp -r --no-preserve=ownership {bin,extras,lib,node_modules,src,test} "$pkgdir/usr/lib/node_modules/$pkgname/"
+  install -m644 *.js "$pkgdir/usr/lib/node_modules/$pkgname/"
+  install -dm755 "$pkgdir/usr/bin"
+  ln -s /usr/lib/node_modules/$pkgname/bin/{cake,coffee} "$pkgdir/usr/bin/"
 }
