@@ -2,9 +2,9 @@
 
 _pkgname=i2pd
 pkgname=$_pkgname-git
-pkgver=20150128.r1483
+pkgver=20150204.r1521
 pkgrel=1
-pkgdesc="I2P router written in C++"
+pkgdesc='I2P router written in C++'
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="https://github.com/PrivacySolutions/i2pd"
 license=('GPL2')
@@ -13,7 +13,7 @@ depends=('crypto++' 'boost-libs' 'systemd')
 makedepends=('git' 'boost')
 backup=("etc/default/$_pkgname.conf")
 install=$pkgname.install
-source=("git+$url.git"
+source=("git+$url"
         "$_pkgname.service"
         "$_pkgname.tmpfiles.conf"
         "$_pkgname.conf")
