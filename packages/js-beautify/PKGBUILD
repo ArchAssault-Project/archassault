@@ -14,11 +14,11 @@ sha512sums=('9b747a85e0a313845f11d5567a85d7e87e8fcc9a8042c7840bffe293af26fd1ee6a
 prepare() {
   # Install node dependencies
   cd $pkgname-$pkgver
-  npm install
+  npm install 2>/dev/null
 }
 
 package() {
-  # Install python directory to /usr/share/$pkgname
+  # Install the js-beautify directory
   cd $pkgname-$pkgver
   install -Dm644 package.json "$pkgdir/usr/share/$pkgname/package.json"
   cp -r --no-preserve=ownership node_modules "$pkgdir/usr/share/$pkgname/"
