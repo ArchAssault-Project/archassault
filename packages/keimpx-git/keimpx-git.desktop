@@ -7,4 +7,4 @@ Exec=keimpx
 Icon=archassault-menu.png
 Terminal=false
 StartupNotify=false
-Categories=ArchAssault;ArchAssaultCracker;
+Categories=ArchAssault;ArchAssaultCrackers;
