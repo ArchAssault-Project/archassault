@@ -1,0 +1,6 @@
+# Maintainer:  ArchAssault <team@archassault.org>
+
+post_remove() {
+	rm -rf /usr/share/onetwopunch-git/
+}
+
