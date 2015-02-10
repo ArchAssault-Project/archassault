@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-digest-crc
 _realname=Digest-CRC
-pkgver=0.18
-pkgrel=3
+pkgver=0.20
+pkgrel=1
 pkgdesc="Generic interface to CRC algorithms"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('PerlArtistic')
@@ -10,7 +10,7 @@ url="http://search.cpan.org/dist/Digest-CRC/"
 depends=('perl>=5.10.0')
 options=('!emptydirs')
 source=("http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-$pkgver.tar.gz")
-sha256sums=('5c5329f37c46eb79835169508583da8767d9839350b69bb2b48ac6f594f70374')
+sha512sums=('4372717f2f90cfb43452fa13bd77f8e957a8ae33de01b0b96cf7241fb9e005649fd3722462cdb2dabcd264f794f9a00568deeb5fd26529e156ea185a72e063df')
 
 build() {
   cd "$srcdir/Digest-CRC-$pkgver"
