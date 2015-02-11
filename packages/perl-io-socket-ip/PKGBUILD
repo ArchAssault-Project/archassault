@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-io-socket-ip'
-pkgver='0.34'
+pkgver='0.36'
 _distdir="IO-Socket-IP-${pkgver}"
 pkgrel='1'
 pkgdesc="Family-neutral IP socket supporting both IPv4 and IPv6"
@@ -11,7 +11,7 @@ depends=('perl>=0')
 makedepends=()
 url='http://search.cpan.org/dist/IO-Socket-IP'
 source=("http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/${_distdir}.tar.gz")
-sha512sums=('8a0864b3c270f2bcf629449890da512f50197c555acf7b94ca704380cdd547e10799e9e947c41b0d1bf4310dcf22638174214d4bd580c85434c3fb94710689a8')
+sha512sums=('e47aecc5709e0096d05c0a123e4b9941f5efe8b838d8a63d6bf724e8af17571940de99717da1dbea7d4f696a559af1103b96dd0c920072389fcc570792d563b8')
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
