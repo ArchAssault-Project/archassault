@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=spiderfoot
-pkgver=2.1.5
+pkgver=2.3.0
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="The Open Source Footprinting Tool"
 url='http://spiderfoot.net'
 arch=('any')
 license=('GPL2')
-depends=('python2' 'python2-mako' 'python2-cherrypy' 'python2-m2crypto' 'python2-netaddr')
+depends=('python2-lxml' 'python2-mako' 'python2-cherrypy' 'python2-m2crypto' 'python2-netaddr')
 source=("http://downloads.sourceforge.net/project/spiderfoot/spiderfoot-$pkgver-src.tar.gz")
-sha512sums=('b4dd23d104def4e6ad6dacf44d7f96f792dc43c7621450497d6ec959a2d09000ea1d93d5b0df522ed39c10034e33321632c5f8ec4113b501a9bbd4891ad7709d')
+sha512sums=('a54de82cad2ed5557ca001e90f3a4bfae23b3d7179ae083dd5bcd3af4bb2afad1b8e8ae7256337a90b3f61ed614a3d3fd8e0cf4be394a86ed8a71e4a5929f527')
 
 package() {
   cd "$srcdir/spiderfoot-$pkgver"
@@ -19,7 +19,7 @@ package() {
   install -dm755 "$pkgdir/usr/share/spiderfoot"
 
   cp -a * "$pkgdir/usr/share/spiderfoot"
-
+  sed -i 's|python|python2|' $pkgdir/usr/share/spiderfoot/ext/metapdf/metapdf.py
 cat > "$pkgdir/usr/bin/spiderfoot" << EOF
 #!/bin/sh
 cd /usr/share/spiderfoot
