@@ -4,5 +4,6 @@ Newest Tools Added:
 * [veracrypt](http://veracrypt.codeplex.com) - Free disk encryption software based on TrueCrypt
 * [beeswarm](http://www.beeswarm-ids.org/) - An active IDS project that provides easy configuration, deployment and management of honeypots and clients.
 * [waidps-git](https://github.com/SYWorks/waidps) - A Wireless Auditing, Intrusion Detection & Prevention System. Author [Syworks](https://www.facebook.com/syworks)
+* [watchman](https://facebook.github.io/watchman/) - A FILE WATCHING SERVICE. Author: [@facebook](https://twitter.com/facebook)
 
 **Thanks for the most recent requests!**
