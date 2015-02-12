@@ -9,7 +9,7 @@ arch=('any')
 license=('GPL2')
 depends=('python2-lxml' 'python2-mako' 'python2-cherrypy' 'python2-m2crypto' 'python2-netaddr')
 source=("http://downloads.sourceforge.net/project/spiderfoot/spiderfoot-$pkgver-src.tar.gz")
-sha512sums=('a54de82cad2ed5557ca001e90f3a4bfae23b3d7179ae083dd5bcd3af4bb2afad1b8e8ae7256337a90b3f61ed614a3d3fd8e0cf4be394a86ed8a71e4a5929f527')
+sha512sums=('9d13f08046ab17c087905c9335fef801db1c2e116abdab770684028a478597bbd7441d3a64a91930bbf90d52384d2b5662d32468510399c81b98583072cd6add')
 
 package() {
   cd "$srcdir/spiderfoot-$pkgver"
