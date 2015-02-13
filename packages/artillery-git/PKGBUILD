@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=artillery-git
-pkgver=20150126.r109
+pkgver=20150211.r113
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-defense')
