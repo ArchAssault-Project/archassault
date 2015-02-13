@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fakedns-git
-pkgver=20140804.r17.87d4216
+pkgver=20150212.r25.fc6efb2
 pkgrel=1
 groups=('archassault' 'archassault-spoof' 'archassault-proxy')
 pkgdesc="A regular-expression based python MITM DNS server with correct DNS request passthrough and \"Not Found\" responses."
