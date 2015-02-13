@@ -26,7 +26,7 @@ package() {
   install -dm755 "$pkgdir"/usr/bin/
   install -dm755 "$pkgdir"/usr/share/hashid-git
   install -Dm644 doc/LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
-  install -m644 README.md "$pkgdir"/usr/share/hashid-git/README.md
+  install -m644 README.rst "$pkgdir"/usr/share/hashid-git/README.rst
   install -m644 doc/CHANGELOG "$pkgdir"/usr/share/hashid-git/CHANGELOG
   install -m644 doc/hashinfo.xlsx "$pkgdir"/usr/share/hashid-git/hashinfo.xslx
   install -Dm755 hashid.py "$pkgdir"/usr/share/hashid-git/hashid.py
