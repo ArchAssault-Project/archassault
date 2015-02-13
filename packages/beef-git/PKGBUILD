@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=beef-git
-pkgver=20150109.r2304
+pkgver=20150209.r2304
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-exploits')
