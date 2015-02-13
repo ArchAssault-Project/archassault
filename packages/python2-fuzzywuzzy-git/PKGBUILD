@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=python2-fuzzywuzzy-git
-pkgver=r170.31f57b2
+pkgver=r173.95fac01
 pkgrel=1
 pkgdesc="Fuzzy string matching in python"
 arch=('any')
