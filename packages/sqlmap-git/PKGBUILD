@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sqlmap-git
-pkgver=20150128.r6567
+pkgver=20150213.r6581
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-webapps' 'archassault-exploits' 'archassault-fuzzers')
