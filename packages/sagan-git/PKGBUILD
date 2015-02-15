@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor : Sebastien Duquette <ekse.0x@gmail.com>
 pkgname=sagan-git
-pkgver=20141107.r492
+pkgver=20141107.r523
 pkgrel=1
 pkgdesc="a snort-like log analysis engine"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-analysis')
 url="http://sagan.softwink.com"
 license=('GPL')
-depends=('sagan-rules' 'pcre' 'libdnet' 'libesmtp' 'mysql-clients' 'postgresql-libs' 'liblognorm' 'geoip')
+depends=('sagan-rules' 'pcre' 'libdnet' 'libesmtp' 'mysql-clients' 'postgresql-libs' 'liblognorm' 'geoip' 'js185')
 makedepends=('git')
 options=('!makeflags' '!emptydirs')
 provides=('sagan')
