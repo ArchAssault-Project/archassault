@@ -10,9 +10,9 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/PherricOxide/Neighbor-Cache-Fingerprinter'
 license=('GPL2')
 if [[ $CARCH == 'x86_64' ]]; then
-      depends=('libpcap' 'libdnet' 'boost-libs' 'gcc-libs-multilib')
+      depends=('libpcap' 'libdnet' 'boost' 'gcc-libs-multilib')
 else
-      depends=('libpcap' 'libdnet' 'boost-libs' 'gcc-libs')
+      depends=('libpcap' 'libdnet' 'boost' 'gcc-libs')
 fi
 makedepends=('git' 'libpcap' 'libdnet' 'boost-libs')
 provides=('neighborhood-cache-fingerprinter')
