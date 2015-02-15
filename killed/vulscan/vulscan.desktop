@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Vulscan
+Comment=A collection of NSE scripts to turn Nmap into a vuln scanner
+Exec=vulscan
+Icon=archassault-menu.png
+Terminal=false
+StartupNotify=false
+Categories=ArchAssault;ArchAssaultScanner;ArchAssaultFuzzer;
