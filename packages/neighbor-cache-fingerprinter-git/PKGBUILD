@@ -14,7 +14,7 @@ if [[ $CARCH == 'x86_64' ]]; then
 else
       depends=('libpcap' 'libdnet' 'boost' 'gcc-libs')
 fi
-makedepends=('git' 'libpcap' 'libdnet' 'boost-libs')
+makedepends=('automake-1.11' 'git' 'libpcap' 'libdnet' 'boost-libs')
 provides=('neighborhood-cache-fingerprinter')
 source=("git+https://github.com/PherricOxide/Neighbor-Cache-Fingerprinter.git")
 md5sums=('SKIP')
