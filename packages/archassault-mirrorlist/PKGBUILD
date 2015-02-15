@@ -29,5 +29,5 @@ package() {
   install -m644 $srcdir/archassault-mirrorlist $pkgdir/etc/pacman.d/
 }
 
-sha512sums=('081d024020127546646649f36bac42d3aa0c60de6a9b40f046e4626ff34ab9073afc9cd40cb9739004042cd77f1426ca59576c184de699fc46a850222d35f6f4')
+sha512sums=('036e7509cafab24e2694aadebf18b332644a45cbbba1577f0d003cdaed06ddd0f05e70a3e3972441435d23c38e1a73305fe0d2285ca5e1aca8101fb516d5b08c')
 
