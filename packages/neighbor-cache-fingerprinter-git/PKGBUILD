@@ -1,7 +1,7 @@
 #Maintainer: ArchAssault <team at archassault dot org>
 pkgname=neighbor-cache-fingerprinter-git
 pkgver=r83.f1e596f
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A mechanism for remote operating system detection by
 extrapolating characteristics of the target system's underlying Neighbor Cache
