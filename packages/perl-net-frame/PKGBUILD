@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='perl-net-frame'
-pkgver='1.14'
+pkgver='1.15'
 pkgrel='1'
 pkgdesc='The base framework for frame crafting.'
 arch=('any')
@@ -10,7 +10,7 @@ depends=('perl-bit-vector' 'perl-class-gomor' 'perl-net-ipv6addr'
 'perl-socket6')
 url='http://search.cpan.org/dist/Net-Frame'
 source=("http://search.cpan.org/CPAN/authors/id/G/GO/GOMOR/Net-Frame-$pkgver.tar.gz")
-sha512sums=('311b48cb9737c9fc4695d3deddc8beb62105a975bab53bbb9525980f6f87651df080fa3020fe16f36907459cf8cd0d8827d804e1062e3f2bf0cb5c2d31ee3635')
+sha512sums=('8cd641bcb6a6451a6a2fce9a9ae0b25f5489d6e69c57ce0e411cf269d2aa4b3913769e0639ec176a46313fea17c0f4f041746410fe68f95b74934b9df971dfee')
 _distdir="Net-Frame-$pkgver"
 
 prepare() {
