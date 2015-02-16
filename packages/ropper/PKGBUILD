@@ -3,7 +3,7 @@
 
 pkgname=ropper
 _pkgname=Ropper
-pkgver=1.4.0
+pkgver=1.4.1
 pkgrel=1
 pkgdesc="Show information about binary files and find gadgets to build rop chains for different architectures"
 arch=('any')
@@ -12,7 +12,7 @@ license=('GPL2')
 depends=('python2-capstone' 'python2')
 makedepends=('python2-setuptools')
 source=(https://github.com/sashs/${_pkgname}/archive/v${pkgver}.tar.gz)
-sha512sums=('748d40a6ffcd4f2fdfcf71f1294c9720ee27ed21d6842f37ba1c0da1a1f7b9d9861363e817908b5b3c9d267fdd8b505dab9aaf98d4eb7bea0bfc12bf9942ab26')
+sha512sums=('c40d6c022a262eb3b35d28b99ebe9670f07244b2e184e9ff9341eaf7a147a14a17366dc94b5f31d3dc8746f81b89dffa249133446b17442e717027ff20b63603')
 
 prepare() {
   cd ${_pkgname}-${pkgver}
