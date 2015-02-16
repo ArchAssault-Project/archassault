@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=owtf-git
-pkgver=r1016.fef357e
+pkgver=r1017.0bbeea1
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="The Offensive (Web) Testing Framework"
