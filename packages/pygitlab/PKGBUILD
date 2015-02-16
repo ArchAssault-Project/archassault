@@ -1,0 +1,22 @@
+# Maintainer: ArchAssault <team archassault org>
+
+pkgname=pygitlab
+pkgver=0.8
+pkgrel=1
+pkgdesc="A Python wrapper for the GitLab API"
+url="https://github.com/gpocentek/python-gitlab"
+arch=('any')
+license=('GPL3')
+depends=('python2-requests' 'python2-six')
+makedepends=('python2-setuptools' 'python2-sphinx')
+source=(https://github.com/gpocentek/python-gitlab/archive/$pkgver.tar.gz)
+sha512sums=('9a1b62d5e0c8890f077ed0b1bb6fc386d954b46aa98f2faef603cb9b073aa9447b598baaba7fb4eab660ba298fe5a4fc1ffdb6e17d6be707cd412b12f3eb6262')
+
+
+package(){
+  cd "$srcdir/python-gitlab-$pkgver"
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 README.md "$pkgdir/usr/share/$pkgname/README.md"
+  # Rename bin to not conflict with gitlab
+  mv $pkgdir/usr/bin/gitlab $pkgdir/usr/bin/pygitlab
+}
