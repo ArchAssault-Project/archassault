@@ -1,40 +1,26 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-class-errorhandler
-pkgver=0.02
-pkgrel=4
+pkgver=0.03
+pkgrel=1
 pkgdesc="Base class for error handling"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
 url='http://search.cpan.org/dist/Class-ErrorHandler'
-source=('http://search.cpan.org/CPAN/authors/id/T/TO/TOKUHIROM/Class-ErrorHandler-0.02.tar.gz')
-md5sums=('b516490ce7cf919d690f40f68c59a37c')
-_distdir="Class-ErrorHandler-0.02"
+source=("http://search.cpan.org/CPAN/authors/id/T/TO/TOKUHIROM/Class-ErrorHandler-$pkgver.tar.gz")
+sha512sums=('aefc6497b8ebdd3efe1643a84051b2739879f5472753a484b8eb14a29ba1826806bdc17ddb46efb50e969ceedae309fe7cfa965d9c45054b40fe2fbaed7b60a7')
+_distdir="Class-ErrorHandler-$pkgver"
 
 build() {
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
-      PERL_AUTOINSTALL=--skipdeps                            \
-      PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
-      PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
-      MODULEBUILDRC=/dev/null
-
-    cd "$srcdir/$_distdir"
-    /usr/bin/perl Makefile.PL
-    make
-  )
+  cd $srcdir/${_distdir}
+  perl Build.PL installdirs=vendor destdir=$pkgdir
+  perl Build
 }
 
-check() {
-  cd "$srcdir/$_distdir"
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
-    make test
-  )
-}
-
-package() {
-  cd "$srcdir/$_distdir"
-  make install
-
-  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+package(){
+  cd $srcdir/${_distdir}
+  perl Build install
+  find $pkgdir -name '.packlist' -delete
+  find $pkgdir -name '*.pod' -delete
 }
