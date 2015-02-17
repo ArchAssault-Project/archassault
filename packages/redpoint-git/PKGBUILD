@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=redpoint-git
-pkgver=20150212.r105
+pkgver=20150213.r109
 pkgrel=1
 groups=('archassault' 'archassault-scanners' 'archassault-reconnaissance')
 pkgdesc="Digital Bond's ICS Enumeration Tools"
