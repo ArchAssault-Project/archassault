@@ -1,19 +1,27 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=argus-clients
 pkgver=3.0.8
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-networking' 'archassault-defensive')
 pkgdesc="Network monitoring client for Argus"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://qosient.com/argus/"
-depends=('libedit' 'geoip' 'libmariadbclient' 'libsasl')
+depends=('geoip' 'libsasl' 'pcre')
 license=('GPL3')
 source=("http://qosient.com/argus/src/argus-clients-$pkgver.tar.gz")
 sha512sums=('79022b3c3e472ebc526b27c20c25ae97abdb9a363a91ebbe3baf405f2aba9bdd80fbc0250b444d3d7ab4488e3c1325389a4719e92d9aded7598a91c3309369c2')
 
 build() {
   cd $srcdir/argus-clients-$pkgver
-  ./configure --sbindir=/usr/bin --prefix=/usr --with-sasl
+  ./configure --prefix=/usr \
+              --sbindir=/usr/bin \
+              --with-sasl \
+              --with-GeoIP \
+              --with-mysql \
+              --with-libpcre \
+              --with-libft \
+              --with-readline \
+              --with-perl
   make
 }
 
