@@ -32,5 +32,5 @@ package() {
 	cd "$srcdir/PHoss"
 
 	install -Dm755 PHoss "$pkgdir/usr/bin/PHoss"
-  install -Dm644 "$srcdir/phoss.desktop" "$pkgdir/usr/share/applications/phoss.desktop"
+        install -Dm644 "$srcdir/phoss.desktop" "$pkgdir/usr/share/applications/phoss.desktop"
 }
