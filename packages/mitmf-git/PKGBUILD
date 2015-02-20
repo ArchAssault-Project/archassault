@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=20150122.r185
+pkgver=20150220.r186
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
@@ -9,7 +9,7 @@ url='https://github.com/byt3bl33d3r/MITMf'
 license=('GPL3')
 depends=('python2-configobj' 'python2-pillow' 'python2-user-agents' 
          'python2-twisted' 'python2-nfqueue' 'python2-msgpack' 'python2-requests' 
-         'scapy' 'capstone' 'python2-pefile' 'python2-dnspython' 'systemd')
+         'scapy' 'capstone' 'python2-pefile' 'python2-dnspython' 'systemd' 'backdoor-factory-git')
 makedepends=('git')
 provides=('mitmf')
 replaces=('mitmf')
@@ -25,9 +25,6 @@ pkgver() {
 
 prepare(){
   grep -iRl 'python' "$srcdir/${pkgname}" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
-  cd "${pkgname}"
-  git submodule init
-  git submodule update
 }
 
 package() {
@@ -42,8 +39,8 @@ package() {
   cd ${pkgdir}
   find ./ -type d -exec chmod 755 {} \+
   find ./ -type f -exec chmod 644 {} \+
-  # fixing python issues for backdoor factory
-  grep -iRl 'python' "${pkgdir}/usr/share/mitmf/libs/bdfactory" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+  # symlink current build of bdf to mitmf dir
+  ln -s "${pkgdir}/usr/share/backdoor-factory" "${pkgdir}/usr/share/mitmf/bdf"
   
 cat > "${pkgdir}/usr/bin/mitmf" <<EOF
 #!/bin/sh
