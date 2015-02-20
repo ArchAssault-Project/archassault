@@ -1,0 +1,298 @@
+#!/usr/bin/env bash
+
+taskdir="$HOME/.cache/aatasklist"
+taskdb="$taskdir/tasks.db"
+domain='https://bugs.archassault.org'
+short_headerlist=('tasktype' 'category' 'status' 'assignedto' 'severity' 'url')
+
+# Set the name of the script
+script_name="${0##*/}"
+
+# Colour scheme
+[[ -t 1 ]] && {
+    c_d=$'\e[1;30m'    # DARK GREY
+    c_r=$'\e[1;31m'    # RED
+    c_g=$'\e[1;32m'    # GREEN
+    c_y=$'\e[1;33m'    # YELLOW
+    c_b=$'\e[1;34m'    # BLUE
+    c_v=$'\e[1;35m'    # VIOLET
+    c_t=$'\e[1;36m'    # TEAL
+    c_w=$'\e[1;37m'    # WHITE
+    c_hr=$'\e[1;41m'   # HIGHLIGHT RED
+    c_c=$'\e[0m'       # DISABLES COLOUR
+}
+
+function error() {
+    printf '%s %s\n' "${c_r}ERROR:$c_c" "$1" >&2
+    exit 1
+}
+
+# Convert HTML entities to UTF-8
+html2utf8() {
+    perl -ne 'binmode STDOUT, ":utf8"; s/&#([0-9]*);/pack("U",$1)/eg; print' | sed 's|&nbsp;| |g;s|\s*$||'
+}
+
+# Extract the value associated with a header
+function taskval() {
+    case "$1" in
+        assignedto)
+            egrep -o '<td headers="assignedto">\s*<a[^>]*>[^<]*' <<< $2 \
+                | sed 's|^.*<a href="[^"]*/||;s|">| |' \
+                | html2utf8
+            ;;
+        percent)
+            egrep -o '<td headers="'"$1"'">[^<]**<img\s*src="[^"]*"\s*title="[0-9]*' <<< $2 \
+                | sed 's|^.*"||'
+            ;;
+        *)
+            egrep -o '<td headers="'"$1"'">[^<]*' <<< $2 \
+                | sed 's|^\s*<[^>]*>\s*||' \
+                | html2utf8
+            ;;
+    esac
+}
+
+# Sync tasks with bugs.archassault.org
+function task_sync() {
+    printf '%s\n' "${c_w}Syncing with $c_v$domain$c_c"
+
+    # Delete the current database if it exists
+    [[ -f "$taskdb" ]] \
+        && rm "$taskdb"
+
+    while read -r; do
+        local -a header_types header_values
+        local task_id="${REPLY/*\/}"
+        local task_page=$(curl -s "$REPLY")
+
+        if [[ -z "$task_id" ]] || [[ -z "$task_page" ]]; then
+            error "failed to download tasks from $c_v$domain$c_c"
+        fi
+
+        # Add each header and its value to the respective array
+        while read -r header; do
+            header="${header/*=\"}"
+            header="${header/\"*}"
+            header_types=("${header_types[@]}" "$header")
+            header_values=("${header_values[@]}" "$(taskval "$header" "$task_page")")
+        done < <(egrep -o '<td headers="[^"]*">' <<< "$task_page")
+
+        # Create the database if it doesn't exist
+        [[ -f "$taskdb" ]] || {
+            # Create the task list table
+            local sqlite_create_tasklist="${header_types[*]}"
+            sqlite_create_tasklist="${sqlite_create_tasklist//\ /\ TEXT,\ }"
+            sqlite_create_tasklist="${sqlite_create_tasklist/assignedto\ TEXT/assignedto\ INTEGER}"
+            sqlite_create_tasklist="${sqlite_create_tasklist/percent\ TEXT/percent\ INTEGER}"
+            sqlite_create_tasklist="${sqlite_create_tasklist/votes\ TEXT/votes\ INTEGER}"
+            sqlite_create_tasklist="$sqlite_create_tasklist, url TEXT"
+            sqlite3 "$taskdb" "$(printf '%s %s%s\n' 'CREATE TABLE IF NOT EXISTS TaskList(id INTEGER PRIMARY KEY NOT NULL,' "$sqlite_create_tasklist" ' TEXT);')" \
+                || error 'failed to create TaskList table'
+
+            # Create the user list table
+            sqlite3 "$taskdb" 'CREATE TABLE IF NOT EXISTS UserList(userId INTEGER PRIMARY KEY NOT NULL, nick TEXT, name TEXT);' \
+                || error 'failed to create UserList table'
+            unset sqlite_create_tasklist
+        }
+
+        # Add all the values to he database
+        sqlite3 "$taskdb" "INSERT OR FAIL INTO TaskList('id') VALUES($task_id);" \
+            || error "failed to insert task ID $task_id into TaskList"
+        for (( x=0; x<${#header_types[@]}; x++ )); do
+            case "${header_types[$x]}" in
+                assignedto)
+                    if [[ -n "${header_values[$x]}" ]]; then
+                        user_id="${header_values[$x]/\ *}"
+                        user_nick="${header_values[$x]#*\ }"
+                        user_nick="${user_nick/\ *}"
+                        user_name="${header_values[$x]/*\ }"
+                        user_name="${user_name//[()]}"
+                        sqlite3 "$taskdb" "INSERT OR IGNORE INTO UserList VALUES($user_id, '$user_nick', '$user_name');"
+                        sqlite3 "$taskdb" "UPDATE TaskList SET ${header_types[$x]}=$user_id WHERE id=$task_id;" \
+                            || error "failed to add ${header_type[$x]} for $task_id to TaskList"
+                    else
+                        sqlite3 "$taskdb" "UPDATE TaskList SET ${header_types[$x]}=0 WHERE id=$task_id;" \
+                            || error "failed to add ${header_type[$x]} for $task_id to TaskList"
+                    fi
+                    ;;
+                percent|votes)
+                    # Integer values
+                    sqlite3 "$taskdb" "UPDATE TaskList SET ${header_types[$x]}=${header_values[$x]} WHERE id=$task_id;" \
+                        || error "failed to add ${header_type[$x]} for $task_id to TaskList"
+                    ;;
+                *)
+                    # Text values
+                    sqlite3 "$taskdb" "UPDATE TaskList SET ${header_types[$x]}='${header_values[$x]}' WHERE id=$task_id;" \
+                        || error "failed to add ${header_types[$x]} for $task_id to TaskList"
+                    ;;
+            esac
+        done
+        sqlite3 "$taskdb" "UPDATE TaskList SET url='$REPLY' WHERE id=$task_id;" \
+                        || error "failed to add the URL for $task_id to TaskList"
+
+        # Cleanup leftover variables
+        unset task_id header_types header_values task_page
+    done< <(curl -s "$domain"/proj0?do=index \
+        | egrep -o "${domain//\./\\\.}"'/task/[^?]*' \
+        | sort -u)
+
+    printf '%s\n' "${c_g}Sync successful$c_c"
+}
+
+function user_list() {
+    local ulist
+    printf '%s ' "${c_w}Users with tasks:$c_c"
+        ulist="$(
+            [[ "$verbose" = 1 ]] && printf '\n'
+            while read -r; do
+                local count=$(sqlite3 "$taskdb" "SELECT COUNT(*) FROM TaskList WHERE assignedto=$(cut -d '|' -f 1 <<< "$REPLY");")
+                if [[ "$verbose" = 0 ]]; then
+                    printf '%s ' "$c_y$(cut -d '|' -f 2 <<< "$REPLY") $c_d($c_r$count$c_d)$c_w,"
+                else
+                    printf '  %s %s %s %s\n' "$c_y$(cut -d '|' -f 2 <<< "$REPLY")$c_w" "$c_d(${c_r}tasks:$count$c_d)" "$c_w$(cut -d '|' -f 3 <<< "$REPLY")" "$c_v$domain/user/$(cut -d '|' -f 1 <<< "$REPLY")$c_c"
+                fi
+                unset count
+            done < <(sqlite3 "$taskdb" "SELECT * FROM UserList;"))"
+    printf '%s\n' "${ulist/%, }"
+    unset ulist
+}
+
+function task_print() {
+    local -a header_types
+    if [[ "$verbose" = 1 ]]; then
+        local header_width=32
+    else
+        local header_width=24
+    fi
+    local content_width=40
+    header_types=( $(sqlite3 "$taskdb" '.schema TaskList' \
+        | sed -re 's|( *[A-Z][A-Z]*\|T?ask?List\|[,();])||g') )
+    local search_cmd
+    [[ -n "$1" ]] \
+        && search_cmd=" $1"
+    while read -r; do
+        for (( x=0; x<${#header_types[@]}; x++ )); do
+            [[ "$verbose" = 1 ]] || [[ "${short_headerlist[*]}" =~ ${header_types[$x]} ]] && {
+                header_value=$(sqlite3 "$taskdb" "SELECT ${header_types[$x]} FROM TaskList WHERE id=$REPLY;")
+                local header_string
+                case "${header_types[$x]}" in
+                    assignedto)
+                        header_string=${header_types[$x]/assignedto/Assigned\ To}
+                        if [[ "$header_value" = 0 ]]; then
+                            header_value='No-one'
+                        else
+                            user_id="$header_value"
+                            header_value="$(sqlite3 "$taskdb" "SELECT nick FROM UserList WHERE userId=$user_id") $c_d($(sqlite3 "$taskdb" "SELECT name FROM UserList WHERE userId=$user_id"))"
+                            [[ "$verbose" = 1 ]] \
+                                && header_value="$header_value $c_v$domain/user/$user_id"
+                            unset user_id
+                        fi
+                        ;;
+                    duedate)
+                        header_string=${header_types[$x]/duedate/Due\ Date}
+                        ;;
+                    dueversion)
+                        header_string=${header_types[$x]/dueversion/Due\ in\ Version}
+                        ;;
+                    os)
+                        header_string=${header_types[$x]/os/Operating\ System}
+                        ;;
+                    percent)
+                        header_string=${header_types[$x]/percent/Percent\ Complete}
+                        ;;
+                    reportedver)
+                        header_string=${header_types[$x]/reportedver/Reported\ in\ Version}
+                        ;;
+                    tasktype)
+                        header_string=${header_types[$x]/tasktype/Task\ Type}
+                        ;;
+                    url)
+                        header_string=${header_types[$x]/url/URL}
+                        header_value=$c_v$header_value
+                        ;;
+                    *)
+                        header_string=$(tr '[:lower:]' '[:upper:]' <<< "${header_types[$x]::1}")${header_types[$x]#?}
+                        ;;
+                esac
+                [[ "${header_types[$x]}" = 'severity' ]] && {
+                    case "$header_value" in
+                        Very\ Low)
+                            header_value="$c_d$header_value"
+                            ;;
+                        Low)
+                            header_value="$c_d$header_value"
+                            ;;
+                        Medium)
+                            header_value="$c_y$header_value"
+                            ;;
+                        High)
+                            header_value="$c_r$header_value"
+                            ;;
+                        Critical)
+                            header_value="$c_hr$header_value"
+                            ;;
+                    esac
+                }
+                printf "%${header_width}s %-${content_width}s\n" \
+                    "$c_b$header_string$c_c:" \
+                    "$c_w$header_value$c_c"
+                unset header_string
+            }
+        done
+        printf '\n'
+    done < <(sqlite3 "$taskdb" "SELECT id FROM TaskList${search_cmd};")
+    unset header_types search_cmd
+}
+
+function aatasklist_help {
+    printf '\n%s %s\n\n' "${c_b}USAGE:${c_c}" "$c_r$script_name$c_c $c_d[${c_g}OPTIONS$c_d]$c_c $c_d[${c_g}COMMAND$c_d]$c_c $c_d[${c_g}ARGS$c_d]$c_c"
+    printf '%s\n' "${c_b}COMMANDS:$c_c"
+    printf "   %-62s%s\n" "${c_w}l $c_d| ${c_w}list $c_d[${c_g}USER$c_d]$c_c" 'list archassault tasks (optionally filtering by username)'
+    printf "   %-41s%s\n" "${c_w}u $c_d| ${c_w}users$c_c" 'lists users currently assigned tasks'
+    printf "   %-41s%s\n\n" "${c_w}s $c_d| ${c_w}sync$c_c" "synchronize the task list with $c_v$domain$c_c"
+    printf '%s\n' "${c_b}OPTIONS:$c_c"
+    printf "  %-42s%s\n" "${c_w}-v $c_d| ${c_w}--verbose$c_c" 'show the full set of details'
+    printf "  %-42s%s\n\n" "${c_w}-h $c_d| ${c_w}--help$c_c" 'show this help and exit'
+    exit 0
+}
+
+# Create the tasks directory if it doesn't exist
+if [[ ! -d "$taskdir" ]]; then
+    install -d "$taskdir" \
+        || error "unable to create task list directory @ $taskdir"
+fi
+
+verbose=0
+while [[ "$1" =~ ^- ]]; do
+    case "$1" in
+        -h|--help)
+            aatasklist_help
+            ;;
+        -v|--verbose)
+            shift
+            verbose=1
+            ;;
+        *)
+            error "$1 is not a valid command"
+            ;;
+    esac
+done
+
+case "$1" in
+    l|list)
+        shift
+        if [[ -n "$1" ]]; then
+            task_print 'INNER JOIN UserList on TaskList.assignedto = UserList.userId WHERE UserList.nick="'"$1"'";'
+        else
+            task_print
+        fi
+        ;;
+    s|sync)
+        task_sync
+        ;;
+    u|users)
+        user_list
+        ;;
+esac
+
+exit 0
