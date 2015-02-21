@@ -58,99 +58,99 @@ package() {
   ln -s /etc/metasploit "${pkgdir}/usr/share/metasploit/config"
 
   cd ${pkgdir}/usr/share/metasploit
-  bundle-1.9 config build.nokogiri --use-system-libraries
-  bundle-1.9 install --deployment
+  bundle config build.nokogiri --use-system-libraries
+  bundle install --deployment
   rm msfupdate
-  chmod 0644 vendor/bundle/ruby/1.9.1/gems/robots-0.10.1/lib/robots.rb
+  #chmod 0644 vendor/bundle/ruby/1.9.1/gems/robots-0.10.1/lib/robots.rb
   install -Dm0666 /dev/null "${pkgdir}"/usr/share/metasploit/log/production.log
 
   cat > "${pkgdir}/usr/bin/msfbinscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfbinscan "\$@"
+ruby ./msfbinscan "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfcli" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfcli "\$@"
+ruby ./msfcli "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfconsole" <<EOF
 #!/bin/sh
 if ! [[ -f /usr/share/metasploit/database.yml ]]; then
     cd /usr/share/metasploit
-    ruby-1.9 ./msfconsole -y msfconsole/database.yml "\$@"
+    ruby ./msfconsole -y msfconsole/database.yml "\$@"
 else
     cd /usr/share/metasploit
-    ruby-1.9 ./msfconsole "\$@"
+    ruby ./msfconsole "\$@"
 fi
 EOF
 
   cat > "${pkgdir}/usr/bin/msfd" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfd "\$@"
+ruby ./msfd "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfelfscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfelfscan "\$@"
+ruby ./msfelfscan "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfencode" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfencode "\$@"
+ruby ./msfencode "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfmachscan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfmachscan "\$@"
+ruby ./msfmachscan "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfpayload" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfpayload "\$@"
+ruby ./msfpayload "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfpescan" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfpescan "\$@"
+ruby ./msfpescan "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfrop" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfrop "\$@"
+ruby ./msfrop "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfrpc" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfrpc "\$@"
+ruby ./msfrpc "\$@"
 EOF
 
   cat > "${pkgdir}/usr/bin/msfrpcd" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfrpcd "\$@"
+ruby ./msfrpcd "\$@"
 EOF
 
 # Commenting out since we are locking out msfupdate
 #  cat > "${pkgdir}/usr/bin/msfupdate" <<EOF
 ##!/bin/sh
-#ruby-1.9 /usr/share/metasploit/msfupdate "\$@"
+#ruby /usr/share/metasploit/msfupdate "\$@"
 #EOF
 
   cat > "${pkgdir}/usr/bin/msfvenom" <<EOF
 #!/bin/sh
 cd /usr/share/metasploit
-ruby-1.9 ./msfvenom "\$@"
+ruby ./msfvenom "\$@"
 EOF
 
   chmod +x "${pkgdir}"/usr/bin/*
