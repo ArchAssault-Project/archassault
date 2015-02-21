@@ -62,6 +62,8 @@ package() {
   bundle install --deployment
   rm msfupdate
   #chmod 0644 vendor/bundle/ruby/1.9.1/gems/robots-0.10.1/lib/robots.rb
+  chmod 0644 vendor/bundle/ruby/2.2.0/gems/robots-0.10.1/lib/robots.rb 
+  chmod 0644 vendor/bundle/ruby/2.2.0/gems/*/*/*.rb
   install -Dm0666 /dev/null "${pkgdir}"/usr/share/metasploit/log/production.log
 
   cat > "${pkgdir}/usr/bin/msfbinscan" <<EOF
