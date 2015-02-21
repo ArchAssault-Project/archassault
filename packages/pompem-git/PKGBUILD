@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
-pkgname=pompem
-pkgver=r77.4e77ffd
+pkgname=pompem-git
+pkgver=r78.bc9a0de
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="A python exploit tool finder"
@@ -9,16 +9,19 @@ url='https://github.com/rfunix/Pompem'
 license=('custom')
 depends=('python2' 'python2-beautifulsoup3' 'python2-requests')
 makedepends=('git')
-source=("pompem::git+https://github.com/rfunix/Pompem.git")
+conflicts=('pompem')
+replaces=('pompem')
+provides=('pompem')
+source=("${pkgname}::git+https://github.com/rfunix/Pompem.git")
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$srcdir/pompem"
+  cd "${pkgname}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-  cd "$srcdir/pompem"
+  cd "${pkgname}"
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/pompem"
@@ -36,5 +39,4 @@ python2 pompem.py "\$@"
 EOF
 
 chmod +x "$pkgdir/usr/bin/pompem"
-
 }
