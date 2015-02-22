@@ -1,10 +1,10 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=novnc-git
 pkgver=r841.2ec29db
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-networking')
 pkgdesc="VNC client using HTML5 (Web Sockets, Canvas) with encryption (wss://) support."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url='https://github.com/kanaka/noVNC'
 license=('custom')
 makedepends=('git')
@@ -27,35 +27,23 @@ prepare(){
   git submodule update
 }
 
-build(){
-  cd "$srcdir/novnc"
-  make -C utils rebind.so
-}
-
 package() {
   cd "$srcdir/novnc"
 
   # Make base directories.
   install -dm755 "$pkgdir/usr/share/novnc"
-  install -dm755 "$pkgdir/usr/lib/novnc"
   install -dm755 "$pkgdir/usr/share/licenses/novnc-git"
   install -dm755 "$pkgdir/usr/bin"
   for i in include utils images docs; do 
 	install -dm755 $pkgdir/usr/share/novnc/$i
         cp -a --no-preserve=ownership $i/* "$pkgdir/usr/share/novnc/$i/";
   done
-  install -Dm755 utils/rebind.so "$pkgdir/usr/lib/novnc"
-  install -Dm755 utils/rebind.o "$pkgdir/usr/lib/novnc"
   install -Dm644 vnc.html "$pkgdir/usr/share/novnc"
   install -Dm644 vnc_auto.html "$pkgdir/usr/share/novnc"
 
   #docs
   install -Dm644 README.md "$pkgdir/usr/share/doc/novnc/README"
   install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/novnc-git/LICENSE"
-
-  #cleanup
-  rm -f "$pkgdir/usr/share/novnc/utils/rebind.so"
-  rm -f "$pkgdir/usr/share/novnc/utils/rebind.o"
 
   cat >$pkgdir/usr/bin/novnc <<EOF
 #!/bin/sh
