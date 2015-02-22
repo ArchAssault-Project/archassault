@@ -6,7 +6,7 @@ epoch=2
 groups=('archassault' 'archassault-exploits' 'archassault-fuzzers' 'archassault-scanners')
 pkgdesc="An open source platform that supports vulnerability research, exploit development and the creation of custom security tools representing the largest collection of quality-assured exploits"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-depends_x86_64+=('ruby' 'ruby-bundler' 'git' 'lib32-libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
+depends_x86_64+=('lib32-libxslt')
 depends+=('ruby' 'ruby-bundler' 'git' 'libxslt' 'postgresql-libs' 'sqlite' 'libpcap')
 optdepends=('java-environment: msfgui'
             'dradis: dradisis database system')
