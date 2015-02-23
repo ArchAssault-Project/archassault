@@ -2,7 +2,7 @@
 
 pkgname=snmp-brute-git
 pkgver=20150218.r11
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-bruteforce')
 pkgdesc="SNMP brute force, enumeration, CISCO config downloader and password cracking script."
 url="https://github.com/SECFORCE/SNMP-Brute"
