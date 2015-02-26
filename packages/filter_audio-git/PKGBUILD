@@ -3,7 +3,7 @@
 _pkgname=filter_audio
 pkgname=${_pkgname}-git
 _pkgver=dd59d99
-pkgver=r28.5254f2d
+pkgver=r30.6b4db1b
 pkgrel=1
 pkgdesc="An easy to use audio filtering library made from webrtc code"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
