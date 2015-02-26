@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dfvfs
-pkgver=20150129
+pkgver=20150224
 pkgrel=1
 groups=('archassault' 'archassault-forensics')
 pkgdesc="A tool that provides read-only access to file-system objects from various storage media types and file formats."
 arch=('any')
 url='https://github.com/log2timeline/dfvfs'
 license=('APACHE')
-depends=('python2' 'python2-six' 'python2-construct' 'python2-protobuf' 'libewf' 'libqcow' 'libbde' 'libsmdev' 'libsmraw' 'libvhdi' 'libvmdk' 'libvshadow')
+depends=('python2-six' 'python2-construct' 'python2-protobuf' 'libewf' 'libqcow' 'libbde' 'libsmdev' 'libsmraw' 'libvhdi' 'libvmdk' 'libvshadow')
 makedepends=('python2-setuptools')
 source=("https://github.com/log2timeline/dfvfs/archive/${pkgver}.tar.gz")
-sha512sums=('43605715bbe950843e9382a7432b855372989fc32b74eab0bcb653e98d67b56648dfec1f59bf1719dd2830bd6aab71a939cfd337d2faff261508ecaf12b45a58')
+sha512sums=('87b330e2a38f197ef7335722aa75b389e29b24d33b0b100a2feb6c458a3092a328d02d502e0ecbbbe58dea3f8ab3eab5f7804cee456078651e804a1b0ccb5465')
 
 prepare(){
   grep -iRl 'python' "$srcdir/$pkgname-$pkgver/" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
