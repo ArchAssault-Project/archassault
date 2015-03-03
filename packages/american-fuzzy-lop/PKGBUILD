@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=american-fuzzy-lop
-pkgver=1.50b
+pkgver=1.53b
 pkgrel=1
 groups=('archassault' 'archassault-fuzzers')
 pkgdesc="A practical, instrumentation-driven fuzzer for binary formats"
@@ -10,7 +10,7 @@ license=('APACHE')
 depends=('bash')
 options=('!strip')
 source=("http://lcamtuf.coredump.cx/afl/releases/afl-${pkgver}.tgz" "makefile.patch")
-sha512sums=('c1eda342a4355a2e6bd4f9ced3b6f5b8d6a674bac329ad13072c7a0547e42db92b28f916d87a55dabd3ef70689b11add3e2a2804eb3b48c340b2de6cf7a77e63'
+sha512sums=('2e902cfe25752c2e2efdf72c180642edb2548a199d0661ce67bd74aeb90e59ed2ab5f857c5858f7dc3e8375376c8ef8e3f6fa44813f8bba7be38aa316d79e90d'
             '33e8838fb4f9dfc312753dcc59e94086abf26607614a6bf31ec0a5fe06d891f84d931766f9f07b94b29cdefe6b8e736cb4ab3b1ce4f9af4148bc750de279c485')
 
 prepare(){
