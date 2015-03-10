@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=cuckoo
-pkgver=1.1.1
+pkgver=1.2
 pkgrel=1
 pkgdesc="A malware analysis system"
 url="http://cuckoosandbox.org/"
@@ -9,14 +9,15 @@ license=('GPL3')
 install='cuckoo.install'
 options=('!emptydirs')
 groups=('archassault' 'archassault-malware')
-depends=('python2' 'python2-sqlalchemy' 'python2-bson' 'python2-dpkt' 
+depends=('python2-sqlalchemy' 'python2-bson' 'python2-dpkt' 
 	 'python2-jinja' 'python2-django' 'volatility' 'python2-maec'
-         'python2-magic' 'python2-pydeep' 'libvirt' 'python2-bottle'
+         'python2-magic' 'libvirt' 'python2-bottle'
          'python2-pefile' 'python2-pymongo' 'tcpdump' 'yara' 'python2-yara'
 	 'python2-chardet')
+optdepends=('python2-pydeep')
 source=("http://downloads.cuckoosandbox.org/$pkgver/cuckoo_$pkgver.tar.gz"
-				'cuckoo.desktop')
-sha512sums=('796e8b10f8fbd4f5a01ce7c77993e9273b6f9a5e1921ba8af5a546636072250e9b7615f0b4b19fa987996f017750a153ed6947aaaa7674d05800e6fe1e41408d'
+	'cuckoo.desktop')
+sha512sums=('fe523a1aca99e01ce93d1e4e888a9b00bb042c65630f02966dffab09c3e1fcff47dfea55527bfa57efef5a305b6fe93821b26a1f2dd28f4eaa36ebd860c25696'
             'fde1e6d9c4bea273d848b9dbee09027f6eb7e8b48116ee4bcaddef314c7c22f8bca5a3e7e9dabe06d007fe603fe7c1cd518b2c707b41866945b0adf83dcc42a4')
 
 prepare() {
