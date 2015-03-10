@@ -7,13 +7,9 @@ arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://mark0.net/soft-trid-e.html"
 groups=('archassault')
 license=('CUSTOM')
-
-_depends=('trid-defs' 'bash' 'lib32-ncurses')
-[[ ! "$CARCH" = "x86_64" ]] \
-    && _depends=(${_depends[@]/lib32-}) \
-    || _makedepends+=('gcc-multilib')
-depends=(${_depends[@]})
-makedepends=(${_makedepends[@]})
+depends=('trid-defs' 'bash')
+depends_i686+=('ncurses')
+depends_x86_64+=('lib32-ncurses' 'gcc-multilib')
 
 source=("http://mark0.net/download/trid_linux.zip"
         "${pkgname}.sh"

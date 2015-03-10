@@ -2,15 +2,15 @@
 
 _pkgname=utox
 pkgname=${_pkgname}-git
-_pkgver=058a3c7
-pkgver=r1170.058a3c7
+_pkgver=b3cd0a0
+pkgver=r1185.b3cd0a0
 pkgrel=1
 pkgdesc="Lightweight Tox client"
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="https://github.com/notsecure/uTox"
 license=('GPL3')
 groups=('archassault')
-depends=('tox-git=1:r3143.af10ca7-1' 'openal' 'v4l-utils' 'libdbus' 'fontconfig' 'freetype2' 'filter_audio-git' 'libxrender' 'libxext' 'desktop-file-utils' 'hicolor-icon-theme')
+depends=('tox-git=1:r3147.972e6a9-1' 'openal' 'v4l-utils' 'libdbus' 'fontconfig' 'freetype2' 'filter_audio-git' 'libxrender' 'libxext' 'desktop-file-utils' 'hicolor-icon-theme')
 makedepends=('git' 'libxft')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
