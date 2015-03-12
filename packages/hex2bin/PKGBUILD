@@ -1,23 +1,27 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='hex2bin'
-pkgver='1.0.7'
+pkgver='2.0'
 pkgrel=1
 pkgdesc='Converts Motorola and Intel hex files to binary.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://hex2bin.sourceforge.net/'
 license=('GPL')
-groups=('archassault')
+depends=('glibc')
+groups=('archassault' 'archassault-misc')
 source=("http://downloads.sourceforge.net/project/hex2bin/hex2bin/Hex2bin-$pkgver.tar.bz2")
-md5sums=('0a72e092a7d33a19432c0de8d255902a')
+sha512sums=('2aced3259e9fc462c5fabdfec7e9113675f58e23c8deb85540c3af7f0244fddc842eed71df40528321c8b1a3fe991f2c14c6d621b11a1291dd979cb84e933501')
 
 build() {
-  cd "$srcdir/Hex2bin"
-  gcc hex2bin.c -o hex2bin
-  gcc mot2bin.c -o mot2bin
+  cd "$srcdir/Hex2bin-$pkgver"
+  make 
 }
 
 package() {
-  cd "$srcdir/Hex2bin"
-  install -Dm755 hex2bin "$pkgdir/usr/bin/hex2bin"
-  install -Dm755 mot2bin "$pkgdir/usr/bin/mot2bin"
+  cd "$srcdir/Hex2bin-$pkgver"
+  install -dm755 "$pkgdir/usr/share/man/man1"
+  install -dm755 "$pkgdir/usr/bin"
+  install -Dm644 hex2bin.1 "$pkgdir/usr/share/man/man1/"
+  install -Dm755 hex2bin "$pkgdir/usr/bin/"
+  install -Dm755 mot2bin "$pkgdir/usr/bin/"
+
 }
