@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pip3line
-pkgver=2.4
-pkgrel=2
+pkgver=2.5.2
+pkgrel=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="Swiss army knife of byte manipulation"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -13,11 +13,11 @@ elif [[ "$CARCH" == 'x86_64' ]]; then
      depends=('qt4' 'python2' 'python' 'gcc-libs-multilib' 'openssl' 'distorm' 'xdg-utils')
 fi
 makedepends=('cmake')
-source=("https://github.com/nccgroup/pip3line/archive/$pkgver.tar.gz" "py3-pip3line.patch" "pip3line.install" "libdir.patch") 
-sha512sums=('0d3122630c8362c21264ea561fedb3f2dd0ad830fb423a4ab16821e1ff6f063e772aabfba5793ac23e920deabd8752b5f4c97c38b2a52c70636129c9bfa71e41'
-            '4173d38f1996c0de52b5a13845a3a3b2888703e252de0f1db1980840288b68ce31c18a1bd6490224e1ae2ecbcac1463a776435f71f0a62c5328343602256db24'
+source=("https://github.com/nccgroup/pip3line/archive/v$pkgver.tar.gz" "py3-pip3line.patch" "pip3line.install" "libdir.patch") 
+sha512sums=('8c158c5746eddf5bd6ea6f00e0f9ea0a31ea3905117e59c492c8f277a281982b4492bec6b1fc3c15e4fc13358e0881d2fe6e21c03f6e8104ca4200e00a68033b'
+            '48957f4c027db2cae6d4485e7378126f376dbd20ca047b68d270f537bdf3cb3294ceff427e99abed5edb598428cb3994391292e0354ddfc2ff10d9e5585c63c5'
             'ca869745675aceabe2b130ffe69db508ecd7558b47dc909eded0115b8250ffe2e1898ef013c57c33c7dbd6ec7fb31404c5e120be0e59a5cda7bdecb0612c01c8'
-            '4308c59a5c150d203345960a35c5b43eee6c8919008cb898fd29eecdf73cbc7f0810527ae85a8c4666a2986f7d13bcb9586f895719eaac4d16f4d940dca0876b')
+            '8904cf09217a990f0ee879ae647f0a62a9953ff860dee7cbe174734cf9980c3a4ce8a013d3d97d29508dd37a4f0893132a0582489f4df5001970864053ab1c30')
 install='pip3line.install'
 
 prepare(){
