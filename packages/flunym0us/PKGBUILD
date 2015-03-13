@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=flunym0us
 pkgver=2.0
-pkgrel=1
-groups=('archassault' 'archassault-scanner')
+pkgrel=2
+groups=('archassault' 'archassault-scanners')
 pkgdesc="a Python-based tool that searches Twitter for keywords and then parses any tweets that are found."
 arch=('any')
-url='https://github.com/ColinKeigher/Avivore'
+url='https://code.google.com/p/flunym0us/'
 license=('GPL3')
 depends=('python2')
 source=("https://flunym0us.googlecode.com/files/flunym0us$pkgver.tar.gz")
-md5sums=('69595c6c2a9ae745b4b4332985e4150e')
+sha512sums=('99ed23f2a9b5833ed64582ebad5cbd1198b29a49427efb90044198436248d49e290eb1b46b66d84dda2a8bae84c129819e9970300ad3bf0e137ac78c7a8903bc')
 
 package(){
   cd "$srcdir"
