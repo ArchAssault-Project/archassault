@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=js-beautify
-pkgver=1.5.4
+pkgver=1.5.5
 pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="Beautify, unpack or deobfuscate JavaScript and HTML, make JSON/JSONP readable"
@@ -9,7 +9,7 @@ url="https://github.com/beautify-web/js-beautify"
 license=('MIT')
 depends=('rhino' 'coffee-script')
 source=("$url/archive/v$pkgver.tar.gz")
-sha512sums=('9b747a85e0a313845f11d5567a85d7e87e8fcc9a8042c7840bffe293af26fd1ee6a9b96d9cb183ef640ebffff14104672976a4c852a3864f095d063e8ea16ea9')
+sha512sums=('9d34fcee38617ca8f676ae1b60cbb5d4a9c93fc8025fd19c418d81e747293af76b4c1ac8974c37ae367cbaddc8f2796af61c908a0cf660f4782588531b0a1a72')
 
 prepare() {
   # Install node dependencies
