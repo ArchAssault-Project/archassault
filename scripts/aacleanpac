@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
 ARCHASSAULT_DOMAIN=${ARCHASSAULT_DOMAIN:='https://repo.archassault.org'}
-script_path="$(readlink -f "$0")"
-script_name="${script_path//*\/}"
+
+script_name="${0//*\/}"
+script_path="${0%$script_name}"
+if [[ -z "$script_path" ]]; then
+    script_path="$PWD"
+else
+    pushd "$script_path" >/dev/null
+    script_path="$PWD"
+    popd >/dev/null
+fi
 declare -a repo_packages=()
 
 # Colourscheme
@@ -12,13 +20,13 @@ declare -a repo_packages=()
     c_g=$'\e[1;32m' # GREEN
     c_y=$'\e[1;33m' # YELLOW
     c_b=$'\e[1;34m' # BLUE
-    c_m=$'\e[1;35m' # VIOLET
+    c_m=$'\e[1;35m' # MAGENTA
     c_t=$'\e[1;36m' # TEAL
     c_w=$'\e[1;37m' # WHITE
     c_c=$'\e[0m'    # DISABLES COLOUR
 }
 
-function help_function() {
+function help_function {
     printf '\n%s\n\n'       "${c_b}USAGE $c_y$script_name $c_d[${c_r}OPTIONS$c_d] $c_d[${c_r}PKGDIR$c_d] [$c_d[${c_r}PKGDIR...$c_d]$c_c"
     printf '%s\n'           "${c_b}OPTIONS$c_c"
     printf '  %-13s %s\n'   "$c_w-v$c_d|$c_w--verbose$c_c" 'output information about each package'
@@ -27,61 +35,65 @@ function help_function() {
     exit
 }
 
-function error_exit() {
+function error_exit {
     printf '%s %s\n' "${c_r}ERROR:$c_c" "$c_w$1$c_c" >&2
     exit 1
 }
 
-function msg() {
-    printf '%s %s\n' "$c_b==>" "$c_w$1$c_c"
-}
+msg() { printf '%s %s\n' "$c_b==>" "$c_w$1$c_c" >&2; }
 
 # Handle arguments passed at runtime
-unset verbose
+verbose=0
 while [[ "$1" =~ ^- ]]; do
     case "$1" in
-        -h|--help)    help_function                           ;;
-        -v|--verbose) verbose=1                               ;;
-        *)            error_exit "$1 is not a valid argument" ;;
+        -h|--help) help_function ;;
+        -v|--verbose) verbose=1 ;;
+        *) error_exit "$1 is not a valid argument" ;;
     esac
     shift
 done
 
-[[ -n "$1" ]] \
-    || error_exit 'run this script with one or more package directories as an argument'
+[[ -n "$1" ]] || error_exit 'run this script with one or more package directories as an argument'
 
 for pkgdir in "$@"; do
     # Remove trailing slash from the directory if one exists
-    pkgdir=$(sed 's|\/$||' <<< "$pkgdir")
+    pkgdir="${pkgdir%\/}"
 
     # Exit if the pkgdir isn't a valid directory
     [[ -d "$pkgdir" ]] || error_exit "$pkgdir is not a directory"
 
     # Detect the arch from the pkgdir and fail if it can't be found
-    arch=$(find "$pkgdir" -mindepth 1 -maxdepth 1 -type f -regextype posix-egrep -regex "$pkgdir/[a-z].*-[0-9]:?[^-]*-[^\.]*\.pkg\..*" ! -name '*any.pkg.*' | head -n 1)
-    arch="${pkgtmp/*\/}"
-    arch="${pkgtmp/*-}"
-    arch="${pkgtmp/\.*}"
-    if [[ ! "$arch" =~ ^(x86_64|i686|armv6h|armv7h)$ && -z "$arch" ]]; then
+    for pkg in "$pkgdir"/*; do
+        [[ "$pkg" =~ $pkgdir/[a-z].*-[0-9]:?[^-]*-([^\.]*)\.pkg\..* ]] && {
+            arch="${BASH_REMATCH[1]}"
+            break
+        }
+    done
+    if [[ ! "$arch" =~ ^(x86_64|i686|armv6h|armv7h)$ ]]; then
         for pkg in "$pkgdir"/*; do
             if [[ "$pkg" =~ any\.pkg\. ]]; then
                 tmparch="$(uname -m)"
-                case $tmparch in
+                case "$tmparch" in
                     armv*) arch="${tmparch}h" ;;
-                    *)     arch="$tmparch"    ;;
+                    *) arch="$tmparch" ;;
                 esac
                 break
             fi
         done
-        [[ -z "$tmparch" ]] && error_exit "could not determine architecture, is $pkgdir a package directory?"
+        [[ -z "$tmparch" ]] \
+            && error_exit "could not determine architecture, is $pkgdir a package directory?"
         unset tmparch
     fi
-    [[ "$verbose" = 1 ]] && msg "arch set to $c_m$arch"
+    (( verbose )) && msg "arch set to $c_m$arch"
 
     # Load the latest DB for the pkgdir's arch into repo_packages and fail if it's empty or the fails don't contain $1
     unset tmp_pkg
     repo_packages=()
-    tmp_packages="$(curl -s -0 "$ARCHASSAULT_DOMAIN/archassault/archassault/os/$arch/archassault.db" | tar Jt)"
+    (( verbose )) && msg "downloading database @ $c_m$ARCHASSAULT_DOMAIN/archassault/archassault/os/$arch/archassault.db"
+    tmp_packages="$(
+        curl -s -0 "$ARCHASSAULT_DOMAIN/archassault/archassault/os/$arch/archassault.db" \
+            | tar Jt
+    )"
 
     # Display an error if the repo db couldn't be downloaded
     [[ -n "${tmp_packages[*]}" ]] \
@@ -102,39 +114,64 @@ for pkgdir in "$@"; do
         package="${pkgfile/*\/}"
         package="${package%-*}"
         pkgname="${package%-*-*}"
-        [[ "$package" =~ \-[^\-]*\-[^\-]*$ ]] \
-            && pkgver="${BASH_REMATCH[0]%\-*}"
+        [[ "$package" =~ \-[^\-]*\-[^\-]*$ ]] && pkgver="${BASH_REMATCH[0]%\-*}"
         pkgver="${pkgver//\-}"
         pkgrev="${package/*-}"
 
         # Failsafe: only run if the pieces match, and the package itself is in the repo
-        [[ $(find "$pkgdir" -mindepth 1 -maxdepth 1 -type f -name "$pkgname-$pkgver-$pkgrev*$pkgext") ]] || {
-            [[ "$verbose" = 1 ]] && msg "$c_r$pkgfile$c_w isn't recognized as a package"
-            exit 1
+        valid=0
+        for pkg in "$pkgdir"/*; do
+            [[ "$pkg" =~ ^.*\/$pkgname-$pkgver-$pkgrev.*$pkgext$ ]] && {
+                valid=1
+                break
+            }
+        done
+        (( valid )) || {
+            (( verbose )) && msg "$c_m$pkgfile$c_w isn't recognized as a package"
+            continue
         }
+
         [[ "$pkgfile" =~ ($arch|any)\.$pkgext ]] || {
-            [[ "$verbose" = 1 ]] && msg "$pkgfile isn't the correct arch"
-            exit 1
+            (( verbose )) && msg "$c_m$pkgfile$c_w isn't the correct arch"
+            continue
         }
+
+        valid=0
         for pkg in "${repo_packages[@]}"; do
             [[ "$pkg" =~ ^$pkgname-[^-]*-[0-9]*$ ]] && {
-                [[ "$verbose" = 1 ]] && msg "$pkgfile isn't in the repo"
-                exit 1
+                valid=1
+                break
             }
         done
+        (( valid )) || {
+            (( verbose )) && msg "$c_m$pkgfile$c_w isn't in the repo"
+            continue
+        }
+
+        vercmp=-1
         for pkg in "${repo_packages[@]}"; do
-            [[ "$pkg" =~ ^$pkgname-$pkgver-$pkgrev$ ]] && {
-                [[ "$verbose" = 1 ]] && msg "$pkgfile is up to date"
-                exit 1
+            [[ "$pkg" =~ ^(.*)-([^\-]*-.*)$ ]] && {
+                tmp_pkg="${BASH_REMATCH[1]}"
+                tmp_ver="${BASH_REMATCH[2]}"
+                [[ "$tmp_pkg" = "$pkgname" ]] && {
+                    vercmp=$(vercmp "$pkgver-$pkgrev" "$tmp_ver")
+                    break
+                }
             }
         done
 
-        [[ "$verbose" = 1 ]] && printf '%s ' "$c_b==>$c_c"
-        printf '%s' "$pkgfile"
-
-        [[ "$verbose" = 1 ]] && printf ' %s' 'is out of date'
-        printf '\n'
+        if (( vercmp < 0 )); then
+            (( verbose )) && printf '%s ' "$c_b==>$c_m" >&2
+            printf '%s' "$pkgfile"
+            (( verbose )) && printf ' %s' "${c_w}is ${c_r}out of date$c_c" >&2
+            printf '\n'
+        elif (( vercmp > 0 )); then
+            (( verbose )) && msg "$c_m$pkgfile$c_w is ${c_y}newer than the repo" >&2
+        else
+            (( verbose )) && msg "$c_m$pkgfile$c_w is ${c_g}up to date" >&2
+        fi
     done
 done
 
 exit 0
+
