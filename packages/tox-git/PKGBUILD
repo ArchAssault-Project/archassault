@@ -5,15 +5,21 @@
 
 _pkgname=tox
 pkgname=$_pkgname-git
-_pkgver=972e6a9
-pkgver=r3147.972e6a9
+_pkgver=4ad7649
+pkgver=r3156.4ad7649
 pkgrel=1
 epoch=1
 pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://tox.im'
 license=('GPL3')
-depends=('libsodium' 'opus' 'libvpx' 'libconfig')
+depends=(
+  'libsodium'
+  'opus'
+  'libvpx'
+  'libconfig'
+  'openal-soft-tox-git'
+)
 makedepends=('git' 'check')
 optdepends=('qtox-git: qt-based frontend'
             'utox-git: lightweight tox client'
@@ -21,7 +27,6 @@ optdepends=('qtox-git: qt-based frontend'
 conflicts=("$_pkgname")
 provides=("$_pkgname")
 replaces=("$_pkgname")
-
 source=("$_pkgname::git+https://github.com/irungentoo/toxcore.git#commit=$_pkgver")
 sha512sums=('SKIP')
 
@@ -49,4 +54,5 @@ check() {
 package() {
   cd $_pkgname
   make DESTDIR="$pkgdir" install
+  install -Dm644 ./other/bootstrap_daemon/tox-bootstrapd.service "$pkgdir/usr/lib/systemd/system/tox-bootstrapd.service"
 }
