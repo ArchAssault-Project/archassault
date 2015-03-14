@@ -5,12 +5,12 @@ _pkgname=toxbot
 pkgname=$_pkgname-git
 _pkgver=acfabb8
 pkgver=r32.acfabb8
-pkgrel=1
+pkgrel=2
 pkgdesc='Remotely controlled Tox bot whose purpose is to auto-invite friends to Tox groupchats'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/JFreegman/ToxBot'
 license=('GPL3')
-depends=('tox-git=1:r3147.972e6a9-1')
+depends=('tox-git=1:r3156.4ad7649-1')
 makedepends=('git')
 conflicts=("$_pkgname")
 provides=("$_pkgname")
