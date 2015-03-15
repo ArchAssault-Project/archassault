@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 # Contributor: William Robertson <nullptr@gmail.com>
 pkgname=silk
-pkgver=3.10.0
+pkgver=3.10.1
 pkgrel=1
 pkgdesc='CERT netflow tools.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -12,7 +12,7 @@ depends=('libfixbuf' 'lzo2' 'libpcap' 'python2' 'gnutls' 'c-ares' 'adns')
 makedepends=('perl' 'flex' 'bison')
 install="$pkgname.install"
 source=("http://tools.netsa.cert.org/releases/$pkgname-$pkgver.tar.gz")
-sha512sums=('91e54018477cc7e01ec59dd3650c4020ff0392cd21cdc6c7485ac5a0d6f68a908afe854736d3ed52de1bb44e9bb23d29cea38685253cbce49e9510798025560c')
+sha512sums=('73c1804f39014d6b63b43a1d6689a060f700e78dbaeba9b04a0136c0d35873a8e1b0d2c30279f9cb8aaebd0982aa1c212d3a8d8817ceb721715e2b815fc1556e')
 
 prepare(){
   grep -iRl 'python' "$srcdir/$pkgname-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
