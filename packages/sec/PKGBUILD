@@ -3,17 +3,17 @@
 # Contributor: Ansuransax <ansuransax at hotmail dot com>
 
 pkgname=sec
-pkgver=2.7.5
-pkgrel=2
+pkgver=2.7.7
+pkgrel=1
 pkgdesc="A logfile monitoring tool with support for event correlation, written in perl"
 arch=('any')
 url="http://kodu.neti.ee/~risto/sec/"
 license=('GPL')
 depends=('perl')
-groups=('archassault')
+groups=('archassault' 'archassault-misc')
 source=("http://downloads.sourceforge.net/simple-evcorr/${pkgname}-${pkgver}.tar.gz"
 	'sec.service')
-sha512sums=('fdbf62c7f14d0e793d33bdaadc503feb13867763b8699fbab20288d7ff9136925ffbf7890a961c24488a4a036aca9f0a13c55cca814ca23f7fb4092291a2196f'
+sha512sums=('18f960c19babb8068a46b9477f780e457c6b7b17bff0b16d8a7ca6df72d7fc849fadd04743ba3d3e1e5bef18d017c42fc2ef6f12a10ba90a0f2800183639286d'
             '49ba9dfda023b615cb8c3312a2000eadbe5798deb4f7232ee3927ecd9ea5ee1751e35a430a135f52850336e9a02e3c309187d60b2db9b64e5ba84af5a17102d4')
 
 package() {
