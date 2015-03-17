@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=ridenum-git
-pkgver=r39.ebbfaca
+pkgver=r40.a50ea22
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="Rid_enum is a null session RID cycle attack for brute forcing domain controllers."
 url="https://github.com/trustedsec/ridenum"
 arch=('any')
 license=('custom')
-depends=('python2' 'python2-pexpect')
+depends=('python2-pexpect')
 makedepends=('git')
 source=("git+https://github.com/trustedsec/ridenum.git")
 sha512sums=('SKIP')
