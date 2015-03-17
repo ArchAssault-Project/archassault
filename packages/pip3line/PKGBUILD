@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=pip3line
 pkgver=2.5.2
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="Swiss army knife of byte manipulation"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/nccgroup/pip3line'
 license=('GPL3')
-if [[ "$CARCH" == 'i686' ]]; then
-     depends=('qt4' 'python2' 'python' 'gcc-libs' 'openssl' 'distorm' 'xdg-utils')
-elif [[ "$CARCH" == 'x86_64' ]]; then
+if [[ "$CARCH" == 'x86_64' ]]; then
      depends=('qt4' 'python2' 'python' 'gcc-libs-multilib' 'openssl' 'distorm' 'xdg-utils')
+else
+     depends=('qt4' 'python2' 'python' 'gcc-libs' 'openssl' 'distorm' 'xdg-utils')
 fi
 makedepends=('cmake')
 source=("https://github.com/nccgroup/pip3line/archive/v$pkgver.tar.gz" "py3-pip3line.patch" "pip3line.install" "libdir.patch") 
@@ -38,4 +38,3 @@ package(){
   cd "$srcdir/pip3line-$pkgver/build"
   make DESTDIR=$pkgdir install
 }
-
