@@ -1,14 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
 pkgver=2.0.7
-pkgrel=1
+pkgrel=2
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
 license=('GPL2')
 groups=('archassault')
-depends=('nss' 'jansson' 'libcap-ng' 'libnetfilter_queue' 'libnet' 'libpcap' 'libyaml' 'python2-magic' 'file')
+depends=('nss' 'jansson' 'libcap-ng' 'libnetfilter_queue' 'libnet' 'libpcap' 'libyaml' 'python2-magic' 'file' 'lua' 'luajit' 'geoip' 'libnetfilter_log')
 optdepends=('snort: suricata can use rulesets provided by snort')
+options=('!emptydirs')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
 sha512sums=('2f3d465d025b43570fb6845b2c0e5a7ae8c16435b15aeac61526895b8cfae1c51294f9dc3b49ad61bb1fa49f3ace2cac3c670a9a2a14e9a6ebb82ddbf5dea2b3')
@@ -21,7 +22,16 @@ prepare() {
 
 build() {
   cd ${srcdir}/$pkgname-$pkgver
-  ./configure --prefix=/usr --sysconfdir=/etc HAVE_PYTHON_CONFIG=/usr/bin/python2
+  ./configure --prefix=/usr --sysconfdir=/etc \
+  HAVE_PYTHON_CONFIG=/usr/bin/python2 \
+  --enable-gccprotect \
+  --enable-nfqueue \
+  --enable-nflog \
+  --enable-lua \
+  --enable-luajit \
+  --enable-geoip \
+  --enable-old-barnyard2 \
+  --with-pic
   make
 }
 
