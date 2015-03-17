@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=meterssh-git
-pkgver=
+pkgver=20150119.r10
 pkgrel=1
 pkgdesc="a way to take shellcode, inject it into memory then tunnel whatever port you want to over SSH to mask any type of communications as a normal SSH connection"
 url="https://github.com/trustedsec/meterssh"
