@@ -2,7 +2,7 @@
 # Contributor: William Robertson <nullptr@gmail.com>
 pkgname=silk
 pkgver=3.10.1
-pkgrel=1
+pkgrel=2
 pkgdesc='CERT netflow tools.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='http://tools.netsa.cert.org/silk'
@@ -21,6 +21,7 @@ prepare(){
 
 build() {
 	cd "$srcdir/$pkgname-$pkgver"
+        export LIBS="-lpthread"
         ./configure --prefix=/usr --sysconfdir=/etc --sbindir=/usr/bin --enable-ipv6 --with-python=$(which python2) --with-pcap --with-libfixbuf --with-gnutls --enable-output-compression --enable-localtime
 	make
 }
