@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wfuzz
-pkgver=2.1.1
+pkgver=2.1.3
 pkgrel=1
 groups=('archassault' 'archassault-webapps' 'archassault-fuzzers')
 pkgdesc="Utility to bruteforce web applications to find their not linked resources"
@@ -9,7 +9,7 @@ arch=('any')
 license=('GPL')
 depends=('python2-pycurl')
 source=("https://github.com/xmendez/${pkgname}/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
-sha512sums=('093aea7896e6dd9b8d43580fe6d03eec9fbfc74c851afe660336f00a87d8f9d3e3d201bfb61c023de41b5515c00746660cec28755357b0ab225885708919f63c')
+sha512sums=('06d841388bd4cd257156e85805105ba53c3ff5c232b6b6010f7dbaa85268d22cea1a084a0a30ed1e753edf79c21451f061e52e94fc1452b06be54f5588095a7c')
 
 package() {
   grep '#!/usr/bin/python' * -Rl | xargs -I{} sed -i 's|#!/usr/bin/python|#!/usr/bin/python2|g' {}
