@@ -1,19 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=shodan
-pkgver=1.2.3
+pkgver=1.3.1
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc="A Python2 library for Shodan.io (https://developer.shodan.io)"
 url="http://github.com/achillean/shodan-python/tree/master"
-depends=('python2' 'python2-click' 'python2-colorama' 'python2-requests' 'python2-simplejson')
+depends=('python2-click' 'python2-colorama' 'python2-requests' 'python2-simplejson')
 replaces=('python-shodan')
 provides=('python-shodan')
 conflicts=('python-shodan')
 license=('MIT')
 arch=('any')
 source=("https://pypi.python.org/packages/source/s/shodan/shodan-${pkgver}.tar.gz")
-sha512sums=('2c4dde9c0d9bc2522a5b7b551e0f781b7e274c90c435ce6711490fc418fa5c45500e4c98120e372fc76008942f70a8d07cdad083585b8d2e6a7a13a5c4eba304')
+sha512sums=('80ed7963c5f491b9d297c81d4136f5c535700670fdffc074e0bd18a269351f3a66933005ace7a8c8ee7014dc0cf9edc2d9b2fecaa6f55bae4413380cd1d5b271')
 
 build() {
   cd ${srcdir}/shodan-${pkgver}
