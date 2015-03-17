@@ -1,19 +1,20 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=leo
-pkgver=4.11
-pkgrel=4
+pkgver=5.0
+pkgrel=1
 pkgdesc="Literate programmer's editor, outliner, and project manager"
 arch=('any')
 url="http://webpages.charter.net/edreamleo/front.html"
 license=('custom')
-depends=('python2' 'tk' 'python2-pmw')
-optdepends=('python2-pyqt')
-makedepends=('unzip' 'python2-setuptools')
+depends=('python-pyqt4')
+optdepends=('python-pyenchant: For Spelling support')
+makedepends=('unzip' 'python-setuptools')
 groups=('archassault' 'archassault-misc')
 source=(http://downloads.sourceforge.net/sourceforge/leo/Leo-$pkgver-final.zip)
-md5sums=('2e68122eb0ecb8d9efe3fba7f3b0360b')
+sha512sums=('771b00857143ea6de48bc0f1ace5c4518265462c8720a5b52868cf0490f4de7f4d987fd939141e00bf0c7abaddf1cb4b18a6186151739f6ec2024fd50d564c6e')
 
 package() {
-  cd $srcdir/Leo-$pkgver-final
-  python2 setup.py install --prefix=/usr --root=$pkgdir --optimize=1
+  cd $srcdir/Leo$pkgver-final
+  python setup.py install --prefix=/usr --root=$pkgdir --optimize=1
+  install -Dm644 LICENSE.TXT "$pkgdir/usr/share/licenses/$pkgname/LICENSE.TXT"
 }
