@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=3.0.1
+pkgver=3.0.2
 pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
@@ -11,7 +11,7 @@ depends=('glibc')
 makedepends=('python2-setuptools' 'python-setuptools')
 provides=('python2-capstone' 'python-capstone')
 source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "python.patch")
-sha512sums=('d4fdcc658273fd9aa844fdaea9c01e7da7be1cc09a7fc62c631ac35783b0ed13e32b5ac89c49b4cbeab5c55bed0da4f5e62c3190bceff5abd0819209913979ef'
+sha512sums=('f145bfe8b5c87582b0145d3fce2ee0e24ceed9fd7f22585e54d4898e5d6596fbd757d51ea5238effd162a8f2b2296c4f553f2f1314b0b3e55a1c0fcaac1465e5'
             'd7d85469ab382e02b13f5bf3345bb4241070997bd5d88611511cb1d839865172f757db09e05ccb02d40699b5429d818d8700d4b09b3d1fe8b3028d647cec5e48')
 
 prepare(){
