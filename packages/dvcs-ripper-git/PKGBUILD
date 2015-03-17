@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=dvcs-ripper-git
-pkgver=20150204.r10
+pkgver=20150205.r12
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="Rip web accessible (distributed) version control systems: SVN/GIT/..."
