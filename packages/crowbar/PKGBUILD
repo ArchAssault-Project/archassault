@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=crowbar
-pkgver=v.3.2
-pkgrel=2
+pkgver=v.3.3
+pkgrel=1
 pkgdesc="A brute forcing tool that can be used during penetration tests. It is developed to support protocols that are not currently supported by thc-hydra and other popular brute forcing tools."
 arch=('any')
 groups=('archassault' 'archassault-bruteforce')
@@ -10,7 +10,7 @@ url="https://github.com/galkan/crowbar"
 license=('custom')
 depends=('python2' 'openvpn' 'freerdp' 'tigervnc')
 source=("https://github.com/galkan/crowbar/archive/${pkgver}.tar.gz")
-sha512sums=('a8313ac818ad85f4f88e31dbf494c8f941bcec1ee9e4d0b20e385e3f501765ed199528a669abd693fb6e6983d9e2deb8e63b798249edb566d062dab7a279c71c')
+sha512sums=('efbe81d3b28bbda0f66f4c59e6ab3b0601bdb08058484918999ebba747eba65b0de68ef93a519219a242e36440d038d90cb7049310c94ecf2307d839f0de6eaa')
 
 prepare(){
   grep -iRl 'python' "$srcdir/$pkgname-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
