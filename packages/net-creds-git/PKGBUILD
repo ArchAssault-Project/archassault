@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=net-creds-git
-pkgver=20150206.r26
+pkgver=20150311.r58
 pkgrel=1
 groups=('archassault' 'archassault-proxies')
 pkgdesc="Sniffs sensitive data from interface or pcap"
 arch=('any')
 url='https://github.com/DanMcInerney/net-creds'
 license=('GPL3')
-depends=('scapy')
+depends=('scapy' 'python2-wsgiref')
 makedepends=('git')
 provides=('net-creds')
 source=("${pkgname}::git+https://github.com/DanMcInerney/net-creds.git")
