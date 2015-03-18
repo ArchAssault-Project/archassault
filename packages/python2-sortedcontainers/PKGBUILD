@@ -2,7 +2,7 @@
 
 pkgname=python2-sortedcontainers
 _realname=sortedcontainers
-pkgver=0.9.4
+pkgver=0.9.5
 pkgrel=1
 pkgdesc="A containers library, written in pure-Python, and fast as C-extensions"
 url="https://pypi.python.org/pypi/sortedcontainers/"
@@ -11,7 +11,7 @@ license=('APACHE')
 depends=('python2')
 makedepends=('python2-setuptools')
 source=(https://pypi.python.org/packages/source/s/$_realname/$_realname-$pkgver.tar.gz)
-sha512sums=('0b51b3e7cd94dbdb4dc0f70e8ac547eff33ec44c000f42714056c2deae0c47bbc3e1e9f4af9aed78d20cfbabf6c24f8910e7b7b4d45b9f16635ecbb6e3b84106')
+sha512sums=('825f409b3e28595234ee8a7716f12137a09f295fbb6c5720e68f372a0dad999ad961a76c1f11a2e874de1710556ac6e7bea09b5d88b7d729a46f2d98c26bd003')
 
 
 
