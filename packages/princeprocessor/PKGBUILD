@@ -1,8 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
-# Contributor: Cthulu201 <cthulu201@archassault.org>
  
 pkgname=princeprocessor
-pkgver=0.19
+pkgver=0.21
 pkgrel=1
 pkgdesc="Standalone password candidate generator using the PRINCE algorithm"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -11,12 +10,12 @@ groups=('archassault')
 license=('MIT')
 depends=('gmp')
 source=("https://github.com/jsteube/princeprocessor/archive/v${pkgver}.tar.gz" "makefile.patch")
-sha512sums=('7c70b895085ec07c16ecd570a7eacf5c0adeea5d3df3bc70b2335cafe8ed57d70b67235f863665c028087d1b67f69f47958bc87be27bb4602a9657c29df1d6a7'
-            'f5d0ccdcaea34cb33884fcfc06b7345099fc27058b4c2d829f49b3f94dab85d8a9398c48d603de788e1fa20ec4c2233a9910d2c61e4b60b2dac6038851fff909')
+sha512sums=('1cd3a1640fd0d8f8373596fc9c54d6bdf48ba074205f4a070b39dc00a25700b85972d4e71950ffecba332202f060530afeb645483f0231cb6cba6de9bf0e8850'
+            '5a7c03a2327afa414aafbc9a0757c9699cd3dd7ccc302b1df8d2ca5cb0ff97926ce6d41509d7ee968cdb85353df30431e911ede0e4bb0eb8d94961da12d4d6ab')
  
 prepare(){
    cd "$srcdir/$pkgname-$pkgver/src"
-   patch -Np1 -i $srcdir/makefile.patch
+   patch -Np1 Makefile < "$srcdir/makefile.patch"
 }
 
 build(){
