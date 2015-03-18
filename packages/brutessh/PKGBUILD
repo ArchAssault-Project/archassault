@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=brutessh
 pkgver=0.6
-pkgrel=3
+pkgrel=1
 pkgdesc="A simple sshd password bruteforcer using a wordlist, it's very fast for internal networks. It's multithreads."
 url="http://www.edge-security.com/edge-soft.php"
 groups=('archassault' 'archassault-crackers')
