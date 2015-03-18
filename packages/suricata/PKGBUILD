@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
 pkgver=2.0.7
-pkgrel=2
+pkgrel=3
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
@@ -23,6 +23,7 @@ prepare() {
 build() {
   cd ${srcdir}/$pkgname-$pkgver
   ./configure --prefix=/usr --sysconfdir=/etc \
+  --localstatedir=/var \
   HAVE_PYTHON_CONFIG=/usr/bin/python2 \
   --enable-gccprotect \
   --enable-nfqueue \
@@ -30,6 +31,7 @@ build() {
   --enable-lua \
   --enable-luajit \
   --enable-geoip \
+  --disable-coccinelle \
   --enable-old-barnyard2 \
   --with-pic
   make
@@ -38,10 +40,10 @@ build() {
 package() {
   cd ${srcdir}/$pkgname-$pkgver
   make DESTDIR=${pkgdir} install
-  install -d ${pkgdir}/var/log/$pkgname
+  install -dm755 ${pkgdir}/var/log/$pkgname
   install -Dm644 $pkgname.yaml "${pkgdir}/etc/$pkgname/$pkgname.yaml"
   install -Dm644 classification.config "${pkgdir}/etc/$pkgname/classification.config"
   install -Dm644 reference.config "${pkgdir}/etc/$pkgname/reference.config"
-  install -d "${pkgdir}/etc/$pkgname/rules"
+  install -dm755 "${pkgdir}/etc/$pkgname/rules"
   install -Dm644 rules/*.rules "${pkgdir}/etc/$pkgname/rules/"
 }
