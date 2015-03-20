@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=mitmf-git
-pkgver=20150310.r203
+pkgver=20150319.r217
 pkgrel=1
 groups=('archassault' 'archassault-proxy' 'archassault-spoof')
 pkgdesc="A Framework for Man-In-The-Middle attacks written in Python."
@@ -40,7 +40,7 @@ package() {
   find ./ -type d -exec chmod 755 {} \+
   find ./ -type f -exec chmod 644 {} \+
   # symlink current build of bdf to mitmf dir
-  ln -s "${pkgdir}/usr/share/backdoor-factory" "${pkgdir}/usr/share/mitmf/bdf"
+  ln -s "/usr/share/backdoor-factory" "${pkgdir}/usr/share/mitmf/libs/bdfactory"
   
 cat > "${pkgdir}/usr/bin/mitmf" <<EOF
 #!/bin/sh
