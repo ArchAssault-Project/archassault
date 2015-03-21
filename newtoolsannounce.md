@@ -4,4 +4,6 @@ Newest Tools Added:
 
 * [firesql](https://bitbucket.org/camp0/firesql) - A mysql firewall. Author: [camp0](https://bitbucket.org/camp0/)
 
+* [mana-git](https://github.com/sensepost/mana) - Our mana toolkit for wifi rogue AP attacks and MitM. Author: Dominic White (singe) & Ian de Villiers [@sensepost](https://twitter.com/sensepost)
+
 **Thanks for the most recent requests!**
