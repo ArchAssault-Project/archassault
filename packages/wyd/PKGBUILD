@@ -1,28 +1,32 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wyd
 pkgver=0.2
-pkgrel=1
-groups=('archassault' 'archassault-forensic' 'archassault-cracker')
+pkgrel=2
+groups=('archassault' 'archassault-forensics' 'archassault-crackers')
 pkgdesc="Gets keywords from personal files. IT security/forensic tool."
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 url="http://www.remote-exploit.org/?page_id=418"
 license=('GPL')
-depends=('perl')
-source=("http://packetstorm.interhost.co.il/Crackers/wyd-$pkgver.tar.gz")
-md5sums=('a032c851e10a9eb102f5196c27b8e6b0')
+depends=('jhead' 'catdoc' 'mp3info')
+source=("http://packetstorm.interhost.co.il/Crackers/${pkgname}-${pkgver}.tar.gz")
+sha512sums=('3908072d49e7a4724e1020cbe101f337b9cee892ed211b56b1a85bccef324a6f3ba5d56570cdf493a44f0d26510fad552172c5d0d58616601c49d5f7b622447c')
 
 package() {
-  cd "$srcdir/wyd-$pkgver"
+  cd "${srcdir}/${pkgname}-${pkgver}"
 
-  install -dm755 "$pkgdir/usr/share/wyd"
-  install -dm755 "$pkgdir/usr/bin"
+  install -dm755 "${pkgdir}/usr/share/${pkgname}"
+  install -dm755 "${pkgdir}/usr/bin"
 
-  cp -r * "$pkgdir/usr/share/wyd"
+  cp -r * "${pkgdir}/usr/share/${pkgname}"
 
-  chmod 755 "$pkgdir/usr/share/wyd/wyd.pl"
-  cat > "$pkgdir/usr/bin/wyd" <<EOF
-#!/bin/sh
-/usr/share/wyd/wyd.pl
+  chmod 755 "${pkgdir}/usr/share/${pkgname}/${pkgname}.pl"
+  cat > "${pkgdir}/usr/bin/${pkgname}" <<EOF
+#!/bin/bash
+args=( "$@" )
+file=\$PWD/\${@: -1} # get filename with path
+unset args[\${#args[@]}-1] # remove filename
+cd /usr/share/${pkgname} # get into dir for wglmod deps
+/usr/bin/perl ${pkgname}.pl \$args \$file
 EOF
-  chmod 755 "$pkgdir/usr/bin/wyd"
+  chmod 755 "${pkgdir}/usr/bin/${pkgname}"
 }

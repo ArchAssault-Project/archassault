@@ -1,10 +1,10 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=crackhor-git
 pkgver=r9.5cfc8f8
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A Password cracking utility"
-arch=('any')
+arch=('i686' 'x86_64')
 url='https://github.com/CoalfireLabs/crackHOR'
 license=('GPL2')
 depends=('python2' 'ophcrack' 'hashcat')

@@ -1,13 +1,12 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=malcom-git
-pkgver=20141104.r386
+pkgver=20150306.r466
 pkgrel=1
 pkgdesc="Analyze a system's network communication using graphical representations of network traffic"
 url="https://github.com/tomchop/malcom"
 arch=('any')
-groups=('archassault')
+groups=('archassault' 'archassault-networking')
 license=('CUSTOM')
-groups=('archassault')
 depends=('python2-virtualenv' 'scapy' 'mongodb' 'libxml2' 'libxslt' 'python2-flask' 'python2-pymongo' 'python2-pygeoip' 'python2-gevent-websocket' 'python2-dateutil' 'python2-netifaces' 'python2-lxml' 'python2-twisted' 'python2-pyopenssl')
 optdepends=('python2-celery')
 makedepends=('git')
@@ -20,6 +19,7 @@ sha512sums=('SKIP')
 
 prepare() {
   find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/env python|#!/usr/bin/env python2|'
+  find "${srcdir}" -type f -name '*.py' | xargs sed -i 's|#!/usr/bin/python|#!/usr/bin/env python2|'
 }
 
 pkgver() {
@@ -33,6 +33,7 @@ package() {
   install -dm0755 "${pkgdir}"/usr/bin
   cp -a --no-preserve=ownership * "${pkgdir}"/usr/share/"${pkgname}"
   install -Dm0644 LICENSE.md "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE.md
+  
 
   cat > "${pkgdir}/usr/bin/malcom" << EOF
 #!/bin/sh

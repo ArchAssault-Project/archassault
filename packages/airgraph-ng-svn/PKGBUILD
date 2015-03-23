@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
-pkgname=airgraph-ng
-pkgver=2459
+pkgname=airgraph-ng-svn
+pkgver=2466
 pkgrel=1
 pkgdesc="Graphing tool for the aircrack suite"
 arch=('any')
@@ -8,8 +8,11 @@ url="http://www.aircrack-ng.org"
 license=('GPL2')
 depends=('graphviz' 'python2')
 makedepends=("subversion")
-groups=('archassault' 'archassault-misc')
+groups=('archassault' 'archassault-miscellaneous')
 source=('svn+http://svn.aircrack-ng.org/trunk/scripts/airgraph-ng' 'airgraph-ng.desktop')
+provides=('airgraph-ng')
+conflicts=('airgraph-ng')
+replaces=('airgraph-ng')
 sha512sums=('SKIP'
             '9415be15bdcaa9b3644838929e88e19745392c2eeaab132db81b15d8b74389bbb0552c8b540f02706fc063a06bf24a9ac4545fd667e870e031326d1b2fd1631d')
 

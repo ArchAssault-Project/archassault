@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-gitdb
-pkgver=0.6.0
+pkgver=0.6.4
 pkgrel=1
 pkgdesc="IO of git-style object databases"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,7 +9,7 @@ license=('BSD')
 makedepends=('python2-setuptools')
 depends=('python2-async' 'python2-smmap')
 source=("http://pypi.python.org/packages/source/g/gitdb/gitdb-$pkgver.tar.gz")
-sha512sums=('649dbc25181020ed34b699cbc3275248ed7f47110bc1bb331484c6faa5cacca92940d17881943fb7bae5127abba02721d79a105fdbd0b1da90c9155690b080c9')
+sha512sums=('2314ae70ec26c46c559cc69a1300ead8cd65a0a22425a3bb36b04edb73bd5e2628cbdcd8e515830c74b21af2badea662c915a727d9a46ed2f92f169eb71bdf62')
 
 package() {
   cd "$srcdir/gitdb-$pkgver"

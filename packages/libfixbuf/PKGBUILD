@@ -2,14 +2,15 @@
 # Contributor: Jipuf <jipuf@gmx.fr>
 
 pkgname="libfixbuf"
-pkgver="1.6.0"
+pkgver="1.6.2"
 pkgrel=1
 pkgdesc="IPFIX Message Format Implementation"
 arch=("i686" "x86_64" "armv6h" "armv7h")
 url='http://tools.netsa.cert.org/fixbuf/'
 license=('GPL')
+depends=('glib2')
 source=("http://tools.netsa.cert.org/releases/$pkgname-$pkgver.tar.gz")
-sha512sums=('c6583c5f363ba0a113953e8fc622be768a5d9d30868becd6281f81de8db888819aaf600cd3c6136aadec08b5e9d3ce22272890ef40bcd136d26b6f2f5cfbd1de')
+sha512sums=('5ee5a38d9df45238a263b983f727b6e2ac4d0bc2e25f1ea03aa8950af8518b96c536f595709b96c807997392b86648f2286f739fcc60225a1d7b6f92e5822700')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"

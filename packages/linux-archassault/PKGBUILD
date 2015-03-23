@@ -4,8 +4,8 @@
 
 #pkgbase=linux-archassault   # Build stock -ARCH kernel
 pkgbase=linux-archassault       # Build kernel with a different name
-_srcname=linux-3.17
-pkgver=3.17.4
+_srcname=linux-3.18
+pkgver=3.18.3
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.kernel.org/"
@@ -13,13 +13,15 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc')
 options=('!strip')
 source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
+        #"https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.sign"
         "https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.xz"
+        #"https://www.kernel.org/pub/linux/kernel/v3.x/patch-${pkgver}.sign"
         # the main kernel config files
         'config' 'config.x86_64'
         # standard config files for mkinitcpio ramdisk
         'linux.preset'
         'change-default-console-loglevel.patch'
-        'fix_CPU0_microcode_on_resume.patch'
+        '0001-drm-i915-Disallow-pin-ioctl-completely-for-kms-drive.patch'
         'kali-wifi-injection.patch'
         'add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by-default.patch'
         'af_802154-Disable-auto-loading-as-mitigation-against.patch'
@@ -38,13 +40,13 @@ source=("https://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         'yama-disable-by-default.patch'
         'misc-bmp085-Enable-building-as-a-module.patch'
         )
-sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b608369162ae6bd76bec4d8719cf491257ac57fdd5277cce8941b7f90246a0'
-            'aa722cf47374ab58c022ddc1dd8c2273eca4f3776139b8fb2ac61dc114ff13ac667b22427c0857ab9a2cf117b5c4d52352ae8fe9d26a30c9b48c860f93f75ce6'
-            '96426a2bb43f17b8db1add6e5fb249a55c411ada43efb1b33d6d1ca2e9d9fa35e08bc178a83033442c9dcc5438e0066386574d695140688be648e446b5fe93d2'
-            '8ea213c9bea7ab61fcc38b23d7168f4cd90cbd8e4f411313375fc2196e8ad4580bb3495cea9cdb53dc358580cc7c0ae63074587d852e9952907fcae541251e11'
+sha512sums=('2f0b72466e9bc538a675738aa416573d41bbbd7e3e2ffd5b5b127afde609ebc278cec5a3c37e73479607e957c13f1b4ed9782a3795e0dcc2cf8e550228594009'
+            'e7c683e4bcd984df927eabe61352dbf9d0fa4906ce95561374914693259c2ac741a58bd14d6e89acd57969de57f4036e38c029c2d5be14d6bd875057f8b02cab'
+            'f9a12882f20cdafd16ebbde26a9bc7be04dd76c6ca5435645f6b4550f42c5d2f08cbfdba095dca6851cc334f06bfcfbec806cb55941a5639af47694ff45dfb52'
+            '6d3d60b555cac78542a9203bcf6e9a316b5dc040d16bb2e7e06c4c9fae75ae60c0fea4462eee50334188756274d946d621ffe761223cea32aedb19fb20845cee'
             '5fe243dea17fdb71edc7098e0e1938beb7f2d851bd2be3981c4ef3d617aaad81ff1cb4c84689082472ebd13b721e849ad2214aefb9ffe40ec3d76abfd40b87ad'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            '532df1bdcacfb5453dc8b4a0f44c33146cb3c01a28c073a3b8f9900f4e65cb23763c99eeb7128d3448ba1e6f54632c5867f5f3d82ee2ee1b7033ff921ef8e7ba'
+            'e014bb316a4440474dfb07e064f5c34c7c472143b57cecc111242359fe2db6cad14e52857f51aa4f1f385e00925bbb1118946986c3315d4fb48ff28c75b45d4b'
             '71f99b5b904b7bc157df3a3db2d56bada800c4258c3358408069ef6646d5a238df22602e9edad48fbaa156847a7fdac521a16d5582313f9b4bb6045b9abe4de3'
             '2bc514925c434ee75e40ea12348bcd91d4527b8450e34187bb6e18d1ec734e01a3b3393a7d57aa37b263108f5f4aba798c01c196a4fae435e4bfd51a52007d21'
             '7d5547887d0390a1c0eea1ccd7b9f38a5ce8e34bf83114d8c865a55590b90604b8852955d3d937124f49a37409e8a43ff126a21359679f58c6b2f3a175bb89b7'
@@ -64,6 +66,7 @@ sha512sums=('29c99764e371f7005dbbe2bbe4458b4deeae5297da7e5b719b0f29f6f018629338b
             '940368779b28c325585257a4775938d08e6923acad7ffe38bd56b2534f6f905adab6c3cd5b8749ff4f6bd5969493509a043e3e1a998b0d00c208fbd5f545a3fe')
 
 
+
 _kernelname=${pkgbase#linux}
 
 prepare() {
@@ -75,14 +78,13 @@ prepare() {
   # add latest fixes from stable queue, if needed
   # http://git.kernel.org/?p=linux/kernel/git/stable/stable-queue.git
 
+  # fix #43143
+  patch -p1 -i "${srcdir}/0001-drm-i915-Disallow-pin-ioctl-completely-for-kms-drive.patch"
+
   # set DEFAULT_CONSOLE_LOGLEVEL to 4 (same value as the 'quiet' kernel param)
   # remove this when a Kconfig knob is made available by upstream
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   patch -p1 -i "${srcdir}/change-default-console-loglevel.patch"
-
-  # Fix FS#42689
-  # https://bugzilla.kernel.org/show_bug.cgi?id=88001
-  patch -p1 -i "${srcdir}/fix_CPU0_microcode_on_resume.patch"
 
   #kali specific patches
   patch -p1 -i "${srcdir}/kali-wifi-injection.patch"

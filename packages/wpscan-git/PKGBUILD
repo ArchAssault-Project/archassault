@@ -1,37 +1,39 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=wpscan-git
-pkgver=20141215.r1808
+pkgver=20150213.r1865
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-webapps' 'archassault-scanners')
 pkgdesc='A vulnerability scanner which checks the security of WordPress installations using a black box approach'
 arch=(armv6h armv7h i686 x86_64)
 url="http://wpscan.org"
-license=('GPL3')
+license=('custom')
 depends=('ruby1.9' 'ruby1.9-bundler' 'java-environment' 'libxslt')
-makedepends=('git')
+makedepends=('git' 'unzip')
 options=(!strip)
 replaces=('wpscan')
 conflicts=('wpscan')
 provides=('wpscan')
 source=("${pkgname}::git+http://github.com/wpscanteam/wpscan")
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
-    cd "${pkgname}"
-    printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
+  cd "${pkgname}"
+  printf "%s.r%s" "$(git show -s --format=%ci master | sed 's/\ .*//g;s/-//g')" "$(git rev-list --count HEAD)"
 }
 
 package() {
   cd "${pkgname}"
 
-  install -dm755 "${pkgdir}/usr/share/wpscan-git"
+  install -dm755 "${pkgdir}/usr/share/${pkgname}"
   install -dm755 "${pkgdir}/usr/bin"
-  cp -a --no-preserve=owner * "${pkgdir}/usr/share/wpscan-git"
-  cd ${pkgdir}/usr/share/wpscan-git
+  cp -a --no-preserve=owner * "${pkgdir}/usr/share/${pkgname}"
+  cd ${pkgdir}/usr/share/"${pkgname}"
   bundle-1.9 config build.nokogiri --use-system-libraries 
   bundle-1.9 install --path vendor/bundle
-
+  unzip data.zip
+  rm "${pkgdir}"/usr/share/"${pkgname}"/data.zip
+  install -Dm0644 LICENSE "${pkgdir}"/usr/share/licenses/"${pkgname}"/LICENSE
   cat > "${pkgdir}/usr/bin/wpscan" <<EOF
 #!/bin/sh
 cd /usr/share/wpscan-git
@@ -39,5 +41,5 @@ ruby-1.9 ./wpscan.rb "\$@"
 EOF
   sed -i "s/ROOT_DIR + '\/log.txt/'\/home\/' + ENV['USER'] + '\/wpscan.log/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
   sed -i "s/ROOT_DIR + '\/cache/'\/home\/' + ENV['USER'] + '\/cache/" "${pkgdir}/usr/share/wpscan-git/lib/common/common_helper.rb"
-  chmod +x "${pkgdir}/usr/bin/wpscan"
+  chmod 0755 "${pkgdir}/usr/bin/wpscan"
 }

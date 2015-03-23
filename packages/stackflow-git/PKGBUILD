@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=stackflow-git
 pkgver=0.r2.2af525d
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Universal stack-based buffer overfow exploitation tool"
 arch=('any')

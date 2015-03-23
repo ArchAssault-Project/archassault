@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=aiengine
-pkgver=1.0
-pkgrel=3
+pkgver=1.1
+pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A packet inspection engine with capabilities of learning without any human intervention."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -12,9 +12,9 @@ if [[ $CARCH == 'x86_64' ]]; then
 else 
      makedepends=('boost' 'boost-bloom-filters-git' 'log4cxx' 'python2' 'gcc-libs')
 fi
-depends=('libpcap' 'boost-libs' 'python2')
+depends=('libpcap' 'boost-libs' 'python2' 'pcre')
 source=("https://bitbucket.org/camp0/aiengine/downloads/aiengine-$pkgver.tar.gz")
-sha512sums=('24c5cc2782229c6597fff07ffcb57945b362b7af20e762f23cb30bdcedebd80c4d9931ab63b5a47d30f61a813c2833b8955472fd97ab0689f6e7b195aaf150a5')
+sha512sums=('9dcb5e21118db352ed2f13dd6f204d880e4eac578c4bba04ead4ff60e01d91be9b98ba1349c247441822aadac1431396741728ccae524ba8f60c6530c433082e')
 
 prepare(){
    grep -iRl 'python' "$srcdir/aiengine-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
@@ -24,7 +24,7 @@ build() {
   cd $srcdir/aiengine-$pkgver
   ./autogen.sh
   export PYTHON=/usr/bin/python2.7
-  ./configure --prefix=/usr --enable-adaptor --enable-bloomfilter --enable-fscompress
+  ./configure --prefix=/usr --enable-adaptor --enable-bloomfilter --enable-fscompress --with-pic
   make
 }
 

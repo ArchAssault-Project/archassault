@@ -1,7 +1,7 @@
 #Maintainer: ArchAssault <team at archassault dot org>
 pkgname=neighbor-cache-fingerprinter-git
 pkgver=r83.f1e596f
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A mechanism for remote operating system detection by
 extrapolating characteristics of the target system's underlying Neighbor Cache
@@ -10,11 +10,11 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/PherricOxide/Neighbor-Cache-Fingerprinter'
 license=('GPL2')
 if [[ $CARCH == 'x86_64' ]]; then
-      depends=('libpcap' 'libdnet' 'boost-libs' 'gcc-libs-multilib')
+      depends=('libpcap' 'libdnet' 'boost' 'gcc-libs-multilib')
 else
-      depends=('libpcap' 'libdnet' 'boost-libs' 'gcc-libs')
+      depends=('libpcap' 'libdnet' 'boost' 'gcc-libs')
 fi
-makedepends=('git' 'libpcap' 'libdnet' 'boost-libs')
+makedepends=('automake-1.11' 'git' 'libpcap' 'libdnet' 'boost-libs')
 provides=('neighborhood-cache-fingerprinter')
 source=("git+https://github.com/PherricOxide/Neighbor-Cache-Fingerprinter.git")
 md5sums=('SKIP')

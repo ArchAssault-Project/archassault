@@ -1,5 +1,5 @@
 rebuild_module_dependencies() {
-	EXTRAMODULES='extramodules-3.17-archassault'
+	EXTRAMODULES='extramodules-3.18-archassault'
 	depmod $(cat /lib/modules/$EXTRAMODULES/version)
 }
 

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=snarf-git
-pkgver=20141016.r31
+pkgver=20150205.r40
 pkgrel=1
 pkgdesc="man-in-the-middle / relay suite"
 url="https://github.com/purpleteam/snarf"

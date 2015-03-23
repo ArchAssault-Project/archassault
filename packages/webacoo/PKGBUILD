@@ -1,29 +1,28 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webacoo
 pkgver=0.2.3
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-webapps' 'archassault-backdoors')
 pkgdesc="Web Backdoor Cookie Script-Kit"
-url="https://bechtsoudis.com/webacoo/"
+url="https://github.com/anestisb/WeBaCoo"
 arch=('any')
 license=('GPL3')
-depends=('perl' 'perl-io-socket-socks')
-makedepends=('git')
-source=("git+https://github.com/anestisb/WeBaCoo.git")
-md5sums=('SKIP')
+depends=('perl-io-socket-socks')
+source=("https://github.com/anestisb/WeBaCoo/archive/v${pkgver}.tar.gz")
+sha512sums=('2ed6656acf0123d16486087a9bf74b026b2016cb3bdbb4391a32ac7bf95a027ac138de6b09932b9536dc8626c03a116ee033f720f60415d53e536d539e295ef4')
 
 package() {
-  cd "$srcdir/WeBaCoo"
+  cd "${srcdir}/WeBaCoo-${pkgver}"
 
   # Base directories.
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/share/webacoo"
+  install -dm755 "${pkgdir}/usr/bin"
+  install -dm755 "${pkgdir}/usr/share/${pkgname}"
 
- cp -a * "$pkgdir/usr/share/webacoo"
+  cp -a * "${pkgdir}/usr/share/${pkgname}"
 
-  cat > "$pkgdir/usr/bin/webacoo" << EOF
+  cat > "${pkgdir}/usr/bin/${pkgname}" << EOF
 #!/bin/sh
-perl /usr/share/webacoo/webacoo.pl "\$@"
+perl /usr/share/${pkgname}/${pkgname}.pl "\$@"
 EOF
-  chmod +x "$pkgdir/usr/bin/webacoo"
+  chmod +x "${pkgdir}/usr/bin/${pkgname}"
 }

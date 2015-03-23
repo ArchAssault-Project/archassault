@@ -8,8 +8,8 @@
 /////////////////////////////////////////////yH5BAEKAD8ALAAAAAAQABAAAAZVwJ9w
 SCwahQbH8ch4LI2QBuc5pEgiGOoQc5mEqB+Qp6MBUUmjjaWSES1LFwVhTlgsE3PAgY4w0gNCAnRF
 dAREdAeHg0NzBUQDdAZEBgFzjI5PllpFQQA7</Image>
-<Url type="text/html" method="GET" template="https://www.archassault.org/packages/">
+<Url type="text/html" method="GET" template="https://archassault.org/packages/">
   <Param name="q" value="{searchTerms}"/>
 </Url>
-<SearchForm>https://www.archassault.org/</SearchForm>
+<SearchForm>https://archassault.org/</SearchForm>
 </SearchPlugin>

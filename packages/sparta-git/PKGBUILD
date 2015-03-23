@@ -2,7 +2,7 @@
 # Contributor: Cthulu201 <cthulu201@archassault.org>
 
 pkgname=sparta-git
-pkgver=1.0
+pkgver=20150213.r15
 pkgrel=1
 pkgdesc="A GUI application which simplifies network infrastructure penetration testing by aiding the penetration tester in the scanning and enumeration phase"
 arch=('any')

@@ -3,7 +3,7 @@
 # Contributor: Scott Hansen (firecat53) firecat4153 at gmail
 
 pkgname=urlscan-git
-pkgver=20141210.r40
+pkgver=20141218.r49
 pkgrel=1
 pkgdesc="Interactively browse and open URLs contained in HTML passed from stdin"
 url="https://github.com/firecat53/${pkgname}"
@@ -11,7 +11,7 @@ license=('GPL')
 arch=('any')
 groups=('archassault')
 depends=('python-urwid')
-makedepends=('git')
+makedepends=('git' 'python-setuptools')
 conflicts=("urlscan")
 replaces=("urlscan")
 provides=('urlscan')

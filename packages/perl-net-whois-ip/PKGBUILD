@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=perl-net-whois-ip
-pkgver=1.10
-pkgrel=3
+pkgver=1.15
+pkgrel=1
 pkgdesc="Perl extension for looking up the whois information for ip addresses"
 arch=('any')
 url='http://search.cpan.org/dist/Net-Whois-IP'
@@ -9,7 +9,7 @@ license=('GPL' 'PerlArtistic')
 depends=('perl')
 options=('!emptydirs')
 source=(http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/Net-Whois-IP-$pkgver.tar.gz)
-md5sums=('67edb62a49801464e0b4c6049cfbdfc4')
+sha512sums=('5a574f14c72d9c49646128a41dc31a9b37cedfdc0f26cd871739a108aeca1c11e3685dc4a74f15ac2c520401d8593c443fec7598be10a1131aa7e70ef7b5b3d8')
 
 build() {
   cd  ${srcdir}/Net-Whois-IP-${pkgver}
@@ -20,11 +20,6 @@ build() {
 
   perl Makefile.PL
   make
-}
-
-check() {
-  cd  ${srcdir}/Net-Whois-IP-${pkgver}
-  make test
 }
 
 package() {

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-netaddr
-pkgver=0.7.12
+pkgver=0.7.13
 pkgrel=1
 pkgdesc="A pure Python network address representation and manipulation library"
 arch=('any')
@@ -8,7 +8,7 @@ license=('BSD')
 url="http://github.com/drkjam/netaddr/"
 depends=('python2')
 source=("https://github.com/drkjam/netaddr/archive/release-${pkgver}.zip")
-sha512sums=('bb0bd6076ec1313bbdfa2f41805cb43cd603ce6a9d59f2f2cae3777aad013f99de87f2e18c73b63c1631a667e4b4b7d660f94aab674fb84d2d431ab4c8976c6d')
+sha512sums=('cc7bb4ccd0181ceca2e925715e73d1fbe7fd24c7fd0de6cc04a7b50e52bcdd44202a1922c7ae885516f4ec16ea22cb7e66ae0f2597ff2c7145185eb26fafe946')
 
 package() {
   cd "${srcdir}/netaddr-release-${pkgver}/"

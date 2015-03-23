@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fbht-git
-pkgver=r47.ac1955d
+pkgver=r53.9e515ef
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="A Facebook Hacking Tool"

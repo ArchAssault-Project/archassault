@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=3.0
+pkgver=3.0.2
 pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
@@ -11,12 +11,10 @@ depends=('glibc')
 makedepends=('python2-setuptools' 'python-setuptools')
 provides=('python2-capstone' 'python-capstone')
 source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "python.patch")
-sha512sums=('8369fd5b768886807928ea7afe0518435fc97cf7a6b148f148588f4dd031673c544f26d042f5914b3fff50c972c33ffc177a3d813de3afb2ace799a0e6f09720'
-            'debccae5eb6d38a2cbb54076feb52c6c348e50a10091d6579f669ba3c27317489a6bb47f9e54cb96f0803642bf62ae23947c2f9a1990935ded2301ad3be03514')
+sha512sums=('f145bfe8b5c87582b0145d3fce2ee0e24ceed9fd7f22585e54d4898e5d6596fbd757d51ea5238effd162a8f2b2296c4f553f2f1314b0b3e55a1c0fcaac1465e5'
+            'd7d85469ab382e02b13f5bf3345bb4241070997bd5d88611511cb1d839865172f757db09e05ccb02d40699b5429d818d8700d4b09b3d1fe8b3028d647cec5e48')
 
 prepare(){
-  cd "$srcdir/capstone-$pkgver"
-  #patch -i $srcdir/libdir.patch
   cd $srcdir/$pkgname-$pkgver/bindings/python
   sed -i 's|^python|python2|' Makefile
   patch -i $srcdir/python.patch
@@ -29,7 +27,7 @@ prepare(){
 
 build() {
   cd "$srcdir/capstone-$pkgver"
-  make
+  ./make.sh
   cd $srcdir/$pkgname-$pkgver/bindings/python
   make
   #cd $srcdir/$pkgname-$pkgver/bindings/java

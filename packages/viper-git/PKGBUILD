@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgbase=viper-git
 pkgname=(viper-git viper-git-docs)
-pkgver=r501.5f6a19a
+pkgver=r633.e35789e
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A Binary analysis framework"
@@ -24,7 +24,7 @@ pkgver() {
 
 
 package_viper-git() {
-  depends=('python2' 'python2-magic' 'python2-bottle' 'python2-pefile' 'python2-pyliblzma' 'python2-pydeep' 'python2-requests' 'python2-sqlalchemy' 'python2-crypto' 'python2-beautifulsoup4' 'python2-olefileio_pl' 'python2-prettytable' 'python2-pyelftools' 'python2-bitstring')
+  depends=('python2-magic' 'python2-bottle' 'python2-pefile' 'python2-pyliblzma' 'python2-pydeep' 'python2-requests' 'python2-sqlalchemy' 'python2-crypto' 'python2-beautifulsoup4' 'python2-olefile' 'python2-prettytable' 'python2-pyelftools' 'python2-bitstring' 'python2-dnspython' 'python2-m2crypto' 'python2-pyasn1' 'python2-pyexiftool-git')
   provides=('viper')
   conflicts=('viper')
   replaces=('viper')
@@ -59,8 +59,10 @@ package_viper-git() {
   install -Dm644 data/yara/*.yara "$pkgdir/usr/share/viper/data/yara/"
   install -Dm755 viper.py "$pkgdir/usr/share/viper/viper.py"
   install -Dm755 api.py "$pkgdir/usr/share/viper/api.py"
-  install -Dm644 AUTHORS "$pkgdir/usr/share/viper/AUTHORS"
+  install -Dm755 web.py "$pkgdir/usr/share/viper/web.py"
+  install -Dm755 update.py "$pkgdir/usr/share/viper/update.py"
   install -Dm644 README.md "$pkgdir/usr/share/viper/README.md"
+  install -Dm644 CHANGELOG "$pkgdir/usr/share/viper/CHANGELOG"
   install -Dm644 requirements.txt "$pkgdir/usr/share/viper/requirements.txt"
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 

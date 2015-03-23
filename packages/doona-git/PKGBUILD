@@ -1,5 +1,5 @@
 pkgname=doona-git
-pkgver=r118.ff1e17b
+pkgver=r127.06cd178
 pkgrel=1
 groups=('archassault' 'archassault-fuzzer')
 pkgdesc="A fork of the Bruteforce Exploit Detector Tool (BED)."

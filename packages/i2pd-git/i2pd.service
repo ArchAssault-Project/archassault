@@ -1,14 +1,14 @@
 [Unit]
 Description=I2P Router written in C++
-Wants=network.target
 After=network.target
 
 [Service]
-Type=simple
 User=i2p
 Group=i2p
+Type=simple
 EnvironmentFile=/etc/default/i2pd.conf
 ExecStart=/usr/bin/i2p "$I2P_ARGS"
+ExecReload=/usr/bin/kill -HUP $MAINPID
 KillSignal=SIGINT
 Restart=always
 

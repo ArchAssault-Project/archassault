@@ -1,0 +1,62 @@
+diff --git a/w3af/core/controllers/dependency_check/dependency_check.py b/w3af/core/controllers/dependency_check/dependency_check.py
+index 0c731c4..debadd5 100644
+--- a/w3af/core/controllers/dependency_check/dependency_check.py
++++ b/w3af/core/controllers/dependency_check/dependency_check.py
+@@ -23,24 +23,6 @@ import sys
+ import warnings
+ import logging
+ 
+-try:
+-    # Is pip even there?
+-    import pip
+-    # We do this in order to check for really old versions of pip
+-    pip.get_installed_distributions()
+-except ImportError:
+-    print('We recommend you install pip before continuing.')
+-    print('http://www.pip-installer.org/en/latest/installing.html')
+-    HAS_PIP = False
+-except AttributeError:
+-    print('A very old version of pip was detected. We recommend a pip update'
+-          ' before continuing:')
+-    print('    sudo pip install --upgrade pip')
+-    HAS_PIP = False
+-else:
+-    HAS_PIP = True
+-
+-from .lazy_load import lazy_load
+ from .utils import verify_python_version
+ from .helper_script import (generate_helper_script,
+                             generate_pip_install_non_git,
+@@ -63,32 +45,7 @@ def dependency_check(dependency_set=CORE, exit_on_failure=True):
+ 
+     platform = get_current_platform()
+ 
+-    #
+-    #    Check for missing python modules
+-    #
+     failed_deps = []
+-    pip_distributions = []
+-
+-    if HAS_PIP:
+-        pip_distributions = pip.get_installed_distributions()
+-    
+-    for w3af_req in platform.PIP_PACKAGES[dependency_set]:
+-        if HAS_PIP:
+-            dependency_specs = w3af_req.package_name, w3af_req.package_version
+-            for dist in pip_distributions:
+-                if (dist.project_name, dist.version) == dependency_specs:
+-                    # It's installed and the version matches!
+-                    break
+-            else:
+-                failed_deps.append(w3af_req)
+-        else:
+-            # The pip module is not installed (really strange for new unixes)
+-            try:
+-                if not lazy_load(w3af_req.module_name):
+-                    failed_deps.append(w3af_req)
+-            except KeyboardInterrupt:
+-                print('User exit with Ctrl+C.')
+-                sys.exit(-1)
+     
+     #
+     #    Check for missing operating system packages

@@ -1,10 +1,10 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=crackserver-git
-pkgver=r31.c268a80
-pkgrel=2
+pkgver=r33.e5763ab
+pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="An XMLRPC server for password cracking"
-arch=('any')
+arch=('i686' 'x86_64')
 url='https://github.com/averagesecurityguy/crack'
 license=('custom')
 depends=('python2' 'rcracki_mt' 'john' 'hashcat' 'ike-scan' 'pyrit')

@@ -1,16 +1,17 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Théophile Studer
 pkgname=yara
-pkgver=3.2.0
+pkgver=3.3.0
 pkgrel=1
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://plusvic.github.io/${pkgname}"
-depends=('jansson' 'file')
+depends=('jansson' 'file' 'openssl')
 license=('APACHE')
+install="${pkgname}.install"
 source=("https://github.com/plusvic/${pkgname}/archive/v${pkgver}.tar.gz")
-sha512sums=('0688fdd6abf8b092d5821b646d8f28742bf24f488bbfe19998b11ae5abdce283cfb36a0b27616bad5f0ede505cdacdf3d2866c910169da3bd4620d6979fe427c')
+sha512sums=('f763f4d5b71caf5aef20995d128e1e16f176746dd2fade1f3991a7a81e050ba8c0d9aa1d96bb4dc754e5f0a44fa799d620c5f4797bcd3205fad77f9c493c5532')
 
 build() {
     cd ${pkgname}-${pkgver}

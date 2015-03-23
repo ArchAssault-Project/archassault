@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Generator  : CPANPLUS::Dist::Arch 1.28
 pkgname='perl-string-random'
-pkgver='0.26'
+pkgver='0.28'
 pkgrel='1'
 pkgdesc="Perl module to generate random strings based on a pattern"
 arch=('any')
@@ -9,10 +9,9 @@ license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
 url='http://search.cpan.org/dist/String-Random'
-source=('http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/String-Random-0.26.tar.gz')
-md5sums=('d98a5d8eec5b46c3d357236cbf7c70d6')
-sha512sums=('9ab397aafe017de605665fb8aeceae1d8888e97aec04fa1baddda527592d7aff4a24ed6e1997065b08148a7cd8f9b32502f1979e3d74263a0f7268b36026fdf5')
-_distdir="String-Random-0.26"
+source=("http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/String-Random-$pkgver.tar.gz")
+sha512sums=('d2ab5820b5dde8c9a270a8fa852ad07ddf2f108c242ec756802979802bf599fe2004dd1b1caab48458f5f4e9521f7acedaadc72f96b9d6bb708cc5072a896a01')
+_distdir="String-Random-$pkgver"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

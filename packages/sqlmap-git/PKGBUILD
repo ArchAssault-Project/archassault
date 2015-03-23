@@ -1,16 +1,19 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sqlmap-git
-pkgver=20141211.r6455
+pkgver=20150221.r6613
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-webapps' 'archassault-exploits' 'archassault-fuzzers')
 pkgdesc="An automatic SQL injection tool developed in Python"
 url='https://github.com/sqlmapproject/sqlmap'
 license=('GPL')
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('any')
 depends=('python2')
 makedepends=('git')
 options=(!strip)
+provides=('sqlmap')
+conflicts=('sqlmap')
+replaces=('sqlmap')
 source=("${pkgname}::git+https://github.com/sqlmapproject/sqlmap")
 sha512sums=('SKIP')
 
@@ -28,10 +31,7 @@ package() {
   cp --no-preserve=ownership -R * "${pkgdir}/usr/share/${pkgname}"
 
   if [[ ${CARCH} == i686 ]]; then
-    rm "${pkgdir}/usr/share/${pkgname}/udf/mysql/linux/64/lib_mysqludf_sys.so"
-    rm "${pkgdir}/usr/share/${pkgname}/udf/postgresql/linux/64/8.2/lib_postgresqludf_sys.so"
-    rm "${pkgdir}/usr/share/${pkgname}/udf/postgresql/linux/64/8.3/lib_postgresqludf_sys.so"
-    rm "${pkgdir}/usr/share/${pkgname}/udf/postgresql/linux/64/8.4/lib_postgresqludf_sys.so"
+    rm -rf "${pkgdir}/usr/share/${pkgname}/udf/mysql/linux/64/"
   fi
 
   cat > "${pkgdir}/usr/bin/sqlmap" << EOF

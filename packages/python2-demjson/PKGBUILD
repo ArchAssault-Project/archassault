@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=demjson
 pkgname=python2-demjson
-pkgver=2.2.2
+pkgver=2.2.3
 pkgrel=1
 pkgdesc="Encoder, decoder, and lint/validator for JSON (JavaScript Object Notation) compliant with RFC 4627"
 arch=('any')
@@ -9,8 +9,8 @@ url='http://deron.meranda.us/python/demjson/'
 license=('LGPL')
 depends=(python2)
 makedepends=(python2-distribute)
-sha512sums=('c5df57fdc286b33fbceada0ff8531d559fb183b29ca114fbfef7dfd0615ad5bae3882da91b6818ad58be5e20d3c2091db7cb75b1c31285b8ed5f466984b5fc15')
-source=(http://pypi.python.org/packages/source/d/${_pkgname}/${_pkgname}-${pkgver}.tar.gz)
+sha512sums=('058f8429967e21b30a9e28ec7790c372f5eb3126d7ab05c17d6f0548002650314048bf2f4eb3e2c8f75bb91169722c90eeeddb815ca166dfb14b2d1385504b14')
+source=(http://deron.meranda.us/python/demjson/dist/demjson-$pkgver.tar.gz)
 
 package() {
   cd "${srcdir}/${_pkgname}-${pkgver}"

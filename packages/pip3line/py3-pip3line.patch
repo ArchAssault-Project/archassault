@@ -1,36 +1,14 @@
-diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt
---- pip3line-2.4.orig/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 00:08:46.525912536 -0400
-+++ pip3line-2.4/defaultplugins/pythonplugin/CMakeLists.txt	2014-03-30 00:09:15.189244980 -0400
-@@ -57,7 +57,7 @@
- if(WIN32)
- 	set ( EXTERN_LIB transform python33 )
+diff -aur pip3line-2.5.2.orig/defaultplugins/pythonplugin/CMakeLists.txt pip3line-2.5.2/defaultplugins/pythonplugin/CMakeLists.txt
+--- pip3line-2.5.2.orig/defaultplugins/pythonplugin/CMakeLists.txt	2015-03-12 10:48:18.249379235 -0400
++++ pip3line-2.5.2/defaultplugins/pythonplugin/CMakeLists.txt	2015-03-12 10:48:45.626045102 -0400
+@@ -33,8 +33,8 @@
+   set (PYTHON_HARDCODED_INCLUDE "C:\\Python34\\include")
+   set (PYTHON_HARDCODED_LIBS "C:\\Python34\\libs\\python34.lib")
  else()
--	set ( EXTERN_LIB transform python3.3 )
-+	set ( EXTERN_LIB transform python3.4m )
+-  set (PYTHON_HARDCODED_INCLUDE "/usr/include/python3.3")
+-  set (PYTHON_HARDCODED_LIBS "/usr/lib/libpython3.3.so")
++  set (PYTHON_HARDCODED_INCLUDE "/usr/include/python3.4")
++  set (PYTHON_HARDCODED_LIBS "/usr/lib/libpython3.4.so")
  endif()
- 
- add_library ( python3plugin MODULE ${pythonplugin_SRCS} )
-diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/pythonplugin.h pip3line-2.4/defaultplugins/pythonplugin/pythonplugin.h
---- pip3line-2.4.orig/defaultplugins/pythonplugin/pythonplugin.h	2014-03-30 00:08:46.525912536 -0400
-+++ pip3line-2.4/defaultplugins/pythonplugin/pythonplugin.h	2014-03-30 00:09:48.522577279 -0400
-@@ -15,7 +15,7 @@
- 
- #ifdef Q_OS_LINUX
- #ifdef BUILD_PYTHON_3
--#include <python3.3/Python.h>
-+#include <python3.4m/Python.h>
- #else
- #include <python2.7/Python.h>
- #endif // BUILD_PYTHON_X
-diff -aur pip3line-2.4.orig/defaultplugins/pythonplugin/pythontransform.h pip3line-2.4/defaultplugins/pythonplugin/pythontransform.h
---- pip3line-2.4.orig/defaultplugins/pythonplugin/pythontransform.h	2014-03-30 00:08:46.525912536 -0400
-+++ pip3line-2.4/defaultplugins/pythonplugin/pythontransform.h	2014-03-30 00:10:04.862576775 -0400
-@@ -15,7 +15,7 @@
- 
- #ifdef Q_OS_LINUX
- #ifdef BUILD_PYTHON_3
--#include <python3.3/Python.h>
-+#include <python3.4m/Python.h>
- #else
- #include <python2.7/Python.h>
- #endif // BUILD_PYTHON_X
+ 	
+ if (NOT PYTHON3_INCLUDE_DIRS OR NOT PYTHON3_LIBRARIES)

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=fakedns-git
-pkgver=20140804.r17.87d4216
+pkgver=20150219.r36.90bd7e1
 pkgrel=1
 groups=('archassault' 'archassault-spoof' 'archassault-proxy')
 pkgdesc="A regular-expression based python MITM DNS server with correct DNS request passthrough and \"Not Found\" responses."
@@ -10,6 +10,8 @@ license=('GPL3')
 depends=('python2')
 makedepends=('git')
 replaces=('fakedns')
+conflicts=('fakedns')
+provides=('fakedns')
 source=("git+https://github.com/Crypt0s/FakeDns.git")
 sha512sums=('SKIP')
 
@@ -29,5 +31,12 @@ package() {
   install -Dm644 dns.conf.example "${pkgdir}"/usr/share/"${pkgname}"/dns.conf.example
   install -Dm755 fakedns.py "${pkgdir}"/usr/share/"${pkgname}"/fakedns.py
   install -Dm644 README.md "${pkgdir}"/usr/share/doc/"${pkgname}"/README.md
-  ln -s "/usr/share/${pkgname}/fakedns.py" "${pkgdir}"/usr/bin/fakedns
+
+cat > "${pkgdir}"/usr/bin/fakedns << EOF
+#!/bin/sh
+cd /usr/share/${pkgname}
+python2 fakedns.py "\$@"
+EOF
+
+chmod +x "$pkgdir/usr/bin/fakedns"
 }

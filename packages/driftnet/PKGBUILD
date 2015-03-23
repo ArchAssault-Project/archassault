@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=driftnet
 pkgver=1.1.5
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-scanners' 'archassault-sniffers')
 pkgdesc="Listens to network traffic and picks out images from TCP streams it observes"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')

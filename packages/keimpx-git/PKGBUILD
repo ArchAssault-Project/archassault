@@ -7,7 +7,7 @@ pkgdesc="Tool to verify the usefulness of credentials across a network over SMB"
 url='https://github.com/inquisb/keimpx'
 license=("Apache")
 depends=('impacket' 'python2-crypto')
-makedepends=('python2-distribute')
+makedepends=('git' 'python2-distribute')
 arch=('any')
 source=("${pkgname}::git+https://github.com/inquisb/keimpx.git"
         "setup.py-remove_py2exe.patch"

@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=conpot
-pkgver=0.3.1
-pkgrel=4
+pkgver=0.4.0
+pkgrel=1
 pkgdesc="ICS honeypot with the goal to collect intelligence about the motives
     and methods of adversaries targeting industrial control systems"
 url="http://conpot.org"
@@ -11,7 +11,7 @@ makedepends=('python2-distribute')
 license=('GPL2')
 arch=('any')
 source=("https://pypi.python.org/packages/source/C/Conpot/Conpot-${pkgver}.tar.gz")
-sha512sums=('1da2e94fe9fe19ac819504f604127d53a823110bb48f4bc6fad9428538c59fc01c43c7a31a7322a1f9394591d7a8b55b90932d857caa696cf85ce8f3e2795398')
+sha512sums=('06cd8463db9a2e16200582cfc1a354610ceef928a4d1b36c81ee3f3bc6d43c2ae805f717fe901fb6789d7bebe66de8e796dba7981655eeb70998bd7b889885fa')
 
 build() {
   cd "${srcdir}"/Conpot-"${pkgver}"

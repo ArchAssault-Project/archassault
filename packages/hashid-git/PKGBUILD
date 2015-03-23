@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashid-git
-pkgver=r247.0314fd9
+pkgver=r396.3ab2f50
 pkgrel=1
 pkgdesc="dentify the different types of hashes used to encrypt data and especially passwords."
 url="https://github.com/psypanda/hashID"
@@ -10,7 +10,7 @@ groups=('archassault')
 depends=('python')
 makedepends=('git')
 provides=('hashid')
-changelog=$pkgname.changelog
+changelog=${pkgname}.changelog
 conflicts=('hashid')
 replaces=('hashid')
 source=(hashid-git::git+https://github.com/psypanda/hashID.git)
@@ -25,12 +25,12 @@ package() {
   cd "$srcdir"/hashid-git
   install -dm755 "$pkgdir"/usr/bin/
   install -dm755 "$pkgdir"/usr/share/hashid-git
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
-  install -m644 README.md "$pkgdir"/usr/share/hashid-git/README.md
-  install -m644 CHANGELOG "$pkgdir"/usr/share/hashid-git/CHANGELOG
-  install -m644 hashinfo.xlsx "$pkgdir"/usr/share/hashid-git/hashinfo.xslx
+  install -Dm644 doc/LICENSE "$pkgdir"/usr/share/licenses/hashid-git/LICENSE
+  install -m644 README.rst "$pkgdir"/usr/share/hashid-git/README.rst
+  install -m644 doc/CHANGELOG "$pkgdir"/usr/share/hashid-git/CHANGELOG
+  install -m644 doc/HASHINFO.xlsx "$pkgdir"/usr/share/hashid-git/HASHINFO.xslx
   install -Dm755 hashid.py "$pkgdir"/usr/share/hashid-git/hashid.py
-  install -Dm644 man/hashid.7 "$pkgdir"/usr/share/man/man7/hashid/hashid.7
+  install -Dm644 doc/man/hashid.7 "$pkgdir"/usr/share/man/man7/hashid/hashid.7
   cat > "$pkgdir"/usr/bin/hashid.py <<EOF
 #!/bin/sh
 cd /usr/share/hashid-git

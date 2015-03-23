@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname='httping'
-pkgver='2.3.4'
+pkgver='2.4'
 pkgrel=1
 pkgdesc="A 'ping'-like tool for http-requests."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -9,10 +9,11 @@ url=('http://www.vanheusden.com/httping/')
 license=('GPL')
 groups=('archassault' 'archassault-networking' 'archassault-reconnaissance')
 source=("http://www.vanheusden.com/httping/httping-$pkgver.tgz")
-sha512sums=('680139d907a49b0a7b13904af8437331168e0b3cf838c3443b81b82cb36204d238a7497a7456bb3d39e0ae79fd0b0425f789f6ef72d1a1ec17bdb987e0afa148')
+sha512sums=('11d9e9e3b222548c9754cc0e7bf947f1a55ccc9f1a2401681f95d21b7b7a56c07665955b558a56d07a5c98497ea3644758e4f85006c42fda2134556be8d9e804')
 
 build() {
   cd "$srcdir"/httping-"$pkgver"
+  ./configure --with-tfo --with-ncurses --with-openssl --with-fftw3
   make
 }
 

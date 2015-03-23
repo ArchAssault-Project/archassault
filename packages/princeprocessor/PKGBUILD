@@ -1,0 +1,54 @@
+# Maintainer: ArchAssault <team archassault org>
+ 
+pkgname=princeprocessor
+pkgver=0.21
+pkgrel=1
+pkgdesc="Standalone password candidate generator using the PRINCE algorithm"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://github.com/jsteube/princeprocessor"
+groups=('archassault')
+license=('MIT')
+depends=('gmp')
+source=("https://github.com/jsteube/princeprocessor/archive/v${pkgver}.tar.gz" "makefile.patch")
+sha512sums=('1cd3a1640fd0d8f8373596fc9c54d6bdf48ba074205f4a070b39dc00a25700b85972d4e71950ffecba332202f060530afeb645483f0231cb6cba6de9bf0e8850'
+            '5a7c03a2327afa414aafbc9a0757c9699cd3dd7ccc302b1df8d2ca5cb0ff97926ce6d41509d7ee968cdb85353df30431e911ede0e4bb0eb8d94961da12d4d6ab')
+ 
+prepare(){
+   cd "$srcdir/$pkgname-$pkgver/src"
+   patch -Np1 Makefile < "$srcdir/makefile.patch"
+}
+
+build(){
+   cd "$srcdir/$pkgname-$pkgver/src"
+   if [[ $CARCH == 'x86_64' ]]; then
+         make
+   elif [[ $CARCH == "i686" ]]; then
+         make pp32
+   else
+         make pparm
+   fi
+}
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+
+    install -dm755 "$pkgdir/usr/share/$pkgname"
+    install -dm755 "$pkgdir/usr/share/$pkgname/rules"
+
+    # rules
+    install -Dm644 rules/* "$pkgdir/usr/share/$pkgname/rules/"
+
+    # License
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 README.md "$pkgdir/usr/share/$pkgname/"
+    install -Dm644 CHANGES "$pkgdir/usr/share/$pkgname/"
+   
+    # Bin
+    if [[ $CARCH == "x86_64" ]]; then
+          install -Dm755 src/pp64.bin "$pkgdir/usr/bin/$pkgname"
+    elif [[ $CARCH == "i686" ]]; then
+          install -Dm755 src/pp32.bin "$pkgdir/usr/bin/$pkgname"
+    else
+          install -Dm755 src/pparm.bin "$pkgdir/usr/bin/$pkgname"
+    fi
+}

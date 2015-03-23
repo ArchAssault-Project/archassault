@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=canto-daemon
-pkgver=0.8.2
+pkgver=0.9.1
 pkgrel=1
 pkgdesc="Atom/RSS feed reader daemon"
 url="http://codezen.org/canto-ng/"
@@ -8,9 +8,9 @@ license=('GPL')
 arch=('any')
 depends=('python-feedparser')
 source=("http://codezen.org/static/${pkgname}-${pkgver}.tar.gz")
-sha512sums=('5f8772d06ff085437e37fbfbc09ede26dce9ed42947eca3033a54b349b49c482e5deeb6ed533c082e17dbd6c209248fe31121d54b8b01eb6edb921dda5776e35')
+sha512sums=('88e708c92813ddda44a8ea6a5d21722510822f22ebc0a4fb4165e6793ea50d89b139a51a4b1e06f811d7073c6b103590b52e4299c674f904e8b5aae7645484fd')
 
 package() {
-    cd ${pkgname}-${pkgver}
+    cd canto-next-${pkgver}
     python setup.py install --prefix=/usr --root="$pkgdir"
 }

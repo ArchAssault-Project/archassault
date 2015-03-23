@@ -1,9 +1,9 @@
 # Maintainer: Arch3y <arch3y archassault org>
 pkgbase=archassault-meta
 pkgname=('archassault-meta-iso-all')
-pkgver=0.5
+pkgver=0.6
 pkgrel=1
-arch=('any')
+arch=('i686' 'x86_64')
 url='https://www.archassault.org/'
 license=('GPL')
 groups=('archassault' 'archassault-meta')
@@ -70,7 +70,6 @@ package_archassault-meta-iso-all() {
         pdnsd
         playpen
         privoxy
-        rust
         scrypt
         tinyproxy
         torsocks

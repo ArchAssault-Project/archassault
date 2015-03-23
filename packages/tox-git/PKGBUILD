@@ -4,42 +4,55 @@
 # Contributor: naxuroqa <naxuroqa at gmail.com>
 
 _pkgname=tox
-pkgname=${_pkgname}-git
-_pkgver=dd59d99
-pkgver=r3040.dd59d99
+pkgname=$_pkgname-git
+_pkgver=4ad7649
+pkgver=r3156.4ad7649
 pkgrel=1
 epoch=1
-pkgdesc="Secure, configuration-free, P2P Skype replacement backend"
+pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url="https://tox.im/"
+url='https://tox.im'
 license=('GPL3')
-depends=('libsodium' 'opus' 'libvpx')
+depends=(
+  'libsodium'
+  'opus'
+  'libvpx'
+  'libconfig'
+  'openal-soft-tox-git'
+)
 makedepends=('git' 'check')
 optdepends=('qtox-git: qt-based frontend'
             'utox-git: lightweight tox client'
-            'venom-git: gtk/vala-based frontend'
             'toxic-git: ncurses-based frontend')
 conflicts=("$_pkgname")
 provides=("$_pkgname")
 replaces=("$_pkgname")
-
-source=("$pkgname"::"git://github.com/irungentoo/toxcore.git#commit=${_pkgver}")
+source=("$_pkgname::git+https://github.com/irungentoo/toxcore.git#commit=$_pkgver")
 sha512sums=('SKIP')
 
 pkgver() {
-    cd $pkgname
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd $_pkgname
+  printf 'r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-    cd $pkgname
-    libtoolize --force
-    ./autogen.sh
-    ./configure --prefix=/usr
-    make
+  cd $_pkgname
+  ./autogen.sh
+  ./configure \
+    --prefix=/usr \
+    --enable-daemon \
+    --disable-ntox \
+    --disable-tests
+  make
+}
+
+check() {
+  cd $_pkgname
+  make check
 }
 
 package() {
-    cd $pkgname
-    make DESTDIR="$pkgdir" install
+  cd $_pkgname
+  make DESTDIR="$pkgdir" install
+  install -Dm644 ./other/bootstrap_daemon/tox-bootstrapd.service "$pkgdir/usr/lib/systemd/system/tox-bootstrapd.service"
 }

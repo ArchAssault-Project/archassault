@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-dnspython-git
-pkgver=v1.12.0.r2.g43c14fd
+pkgver=v1.12.0.r13.g6d52fda
 pkgrel=1
 epoch=1
 pkgdesc="A DNS toolkit for python"
