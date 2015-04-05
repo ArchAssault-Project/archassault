@@ -1,5 +1,7 @@
 Newest Tools Added:
 
+* [cangibrina-git](https://github.com/fnk0c/cangibrina) -  A fast and powerfull dashboard (admin) finder. Author: [Franco Colombino](franco.c.colombino@gmail.com)
+
 * [packetsender](http://packetsender.com/) - A utility to allow sending and receiving TCP and UDP packets. Author: [@NagleCode](https://twitter.com/NagleCode) Documenation: [http://packetsender.com/documentation](http://packetsender.com/documentation)
 
 * [firesql](https://bitbucket.org/camp0/firesql) - A mysql firewall. Author: [camp0](https://bitbucket.org/camp0/)
