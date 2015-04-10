@@ -1,6 +1,6 @@
 ##
 ## ArchAssault repository mirrorlist
-## Generated on 2015-02-14
+## Generated on 2015-04-09
 ##
 
 ## Australia
@@ -73,7 +73,7 @@
 #Server = https://repo.archassault.org/archassault/$repo/os/$arch
 #Server = ftp://psg.mtu.edu/archassault/$repo/os/$arch
 #Server = http://psg.mtu.edu/pub/archassault/$repo/os/$arch
-Server = http://aam.warheads.net/archassault/$repo/os/$arch
+#Server = http://aam.warheads.net/archassault/$repo/os/$arch
 #Server = ftp://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = http://mirror.jmu.edu/pub/archassault/$repo/os/$arch
 #Server = ftp://mirror.keystealth.org/archassault/$repo/os/$arch
@@ -83,7 +83,7 @@ Server = http://aam.warheads.net/archassault/$repo/os/$arch
 #Server = http://mirror.pw/archassault/$repo/os/$arch
 #Server = ftp://mirror.team-cymru.org/archassault/$repo/os/$arch
 #Server = http://mirror.team-cymru.org/archassault/$repo/os/$arch
-#Server = http://mirror.umd.edu/archassault/$repo/os/$arch
+Server = http://mirror.umd.edu/archassault/$repo/os/$arch
 #Server = ftp://mirrors.arsc.edu/archassault/$repo/os/$arch
 #Server = http://mirrors.arsc.edu/archassault/$repo/os/$arch
 #Server = ftp://noodle.portalus.net/ArchAssault/$repo/os/$arch
