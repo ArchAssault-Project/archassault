@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname='recon-ng'
-pkgver=888.e3a09d1
+pkgver=v4.5.1
 pkgrel=1
 groups=('archassault' 'archassault-reconnaissance')
 pkgdesc='A full-featured Web Reconnaissance framework written in Python.'
