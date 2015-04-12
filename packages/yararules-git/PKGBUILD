@@ -7,7 +7,6 @@ pkgdesc="A Repository of yara rules"
 arch=('any')
 url="https://github.com/Yara-Rules/rules"
 license=("GPL2")
-depends=("yara")
 source=("${pkgname}::git+https://github.com/Yara-Rules/rules.git")
 sha512sums=('SKIP')
 
