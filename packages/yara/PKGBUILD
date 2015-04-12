@@ -2,12 +2,12 @@
 # Contributor: Théophile Studer
 pkgname=yara
 pkgver=3.3.0
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://plusvic.github.io/${pkgname}"
-depends=('jansson' 'file' 'openssl')
+depends=('jansson' 'file' 'openssl' 'yararules-git')
 license=('APACHE')
 install="${pkgname}.install"
 source=("https://github.com/plusvic/${pkgname}/archive/v${pkgver}.tar.gz")
@@ -22,5 +22,6 @@ build() {
 
 package() {
     cd ${pkgname}-${pkgver}
+    install -dm755 "$pkgdir/usr/share/$pkgname"
     make DESTDIR="$pkgdir" install
 }
