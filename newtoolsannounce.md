@@ -12,4 +12,6 @@ Newest Tools Added:
 
 * [commix-git](https://github.com/stasinopoulos/commix) - An Automated All-in-One OS Command Injection and Exploitation Tool. Author: [@ancst](https://twitter.com/ancst)
 
+* [od1n-git](https://github.com/CoolerVoid/0d1n) - A Web security tool to make fuzzing at HTTP inputs, made in C with libCurl. 
+
 **Thanks for the most recent requests!**
