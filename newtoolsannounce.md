@@ -10,4 +10,6 @@ Newest Tools Added:
 
 * [pixiewps](https://github.com/wiire/pixiewps) - A tool written in C used to bruteforce offline the WPS pin exploiting the low or non-existing entropy of some APs (pixie dust attack).
 
+* [commix-git](https://github.com/stasinopoulos/commix) - An Automated All-in-One OS Command Injection and Exploitation Tool. Author: [@ancst](https://twitter.com/ancst)
+
 **Thanks for the most recent requests!**
