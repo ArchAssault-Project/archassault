@@ -8,4 +8,6 @@ Newest Tools Added:
 
 * [mana-git](https://github.com/sensepost/mana) - Our mana toolkit for wifi rogue AP attacks and MitM. Author: Dominic White (singe) & Ian de Villiers [@sensepost](https://twitter.com/sensepost)
 
+* [pixiewps](https://github.com/wiire/pixiewps) - A tool written in C used to bruteforce offline the WPS pin exploiting the low or non-existing entropy of some APs (pixie dust attack).
+
 **Thanks for the most recent requests!**
