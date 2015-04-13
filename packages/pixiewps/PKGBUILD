@@ -1,0 +1,27 @@
+# Maintainer: ArchAssault <team@archassault.org>
+
+pkgname=pixiewps
+pkgver=1.0.5
+pkgrel=1
+pkgdesc="A tool written in C used to bruteforce offline the WPS pin"
+arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+url="https://github.com/wiire/pixiewps"
+license=('GPL3')
+depends=('openssl')
+source=("https://github.com/wiire/pixiewps/archive/v1.0.5.tar.gz")
+sha512sums=('9eff5de647f93b946d70615be08c26e8e9cb93ff2940bd7983ebba3be34c4af8b8de279bade7facff9414e68777692653bd870fa29aefbcf6b6582f851fd677d')
+
+prepare(){
+  cd "$srcdir/$pkgname-$pkgver/src"
+  sed -i 's|/usr/local|/usr|' Makefile
+}
+
+build(){
+  cd "$srcdir/$pkgname-$pkgver/src"
+  make 
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver/src"
+  make DESTDIR=$pkgdir install
+}
