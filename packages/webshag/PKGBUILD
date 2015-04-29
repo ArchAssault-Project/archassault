@@ -11,11 +11,13 @@ depends=('python2' 'wxpython2.8' 'nmap' 'nikto')
 makedepends=('dos2unix')
 source=("http://www.scrt.ch/outils/webshag/ws110.tar.gz"
         "webshag.install"
-        "core_file.patch")
+        "core_file.patch"
+        "wxversion_fix.patch")
 install='webshag.install'
 sha512sums=('35a2af786dda2e02dae8e0edbec0e2f3ddd595fb062fb3317501e2627ceec373835ec60a769176a2b4b14df1ef2eec0a4b1acd92b5d6e59fe301c6a88832fab8'
             'e23d73499b9d8d856c0e644dac8855e7273d96390e4220097cc332744e5a4d2b38c0726b5750d7c9ae7a0a127b35df603f93810498c1bf8fc48baa361efbad76'
-            '13e6248ac12a73a3003652e671e18d7d75b636af0f3ee645759e286815447e44db7ef772810255b6cc16d2ab5f49d0b2fcc8459e485858a25c62b0fe33ad1c9b')
+            '13e6248ac12a73a3003652e671e18d7d75b636af0f3ee645759e286815447e44db7ef772810255b6cc16d2ab5f49d0b2fcc8459e485858a25c62b0fe33ad1c9b'
+            '21c4e65f68f4b85fd429a03ea8768fb4baba9e736d357113b3417b5ddfb2566c3f51f98325aa054b618f34fb179f58334f5109e51e60e9bdae5452b60402bed3')
 
 prepare(){
   cd "$srcdir"
@@ -26,6 +28,8 @@ prepare(){
   done
 
   grep -iRl python "$srcdir" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+
+  patch < "$srcdir/wxversion_fix.patch"
 
   cd "webshag/core"
   patch < "$srcdir/core_file.patch"
