@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=webshag
 pkgver=1.10
-pkgrel=4
-groups=('archassault' 'archassault-webapp' 'archassault-scanners' 'archassault-fuzzer')
+pkgrel=5
+groups=('archassault' 'archassault-webapps' 'archassault-scanners' 'archassault-fuzzers')
 pkgdesc="A multi-threaded, multi-platform web server audit tool."
 url="http://www.scrt.ch/en/attack/downloads/webshag"
 arch=('any')
