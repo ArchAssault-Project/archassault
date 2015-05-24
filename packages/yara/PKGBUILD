@@ -2,7 +2,7 @@
 # Contributor: Théophile Studer
 pkgname=yara
 pkgver=3.3.0
-pkgrel=2
+pkgrel=3
 groups=('archassault' 'archassault-malware')
 pkgdesc="A malware identification and classification tool"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -22,6 +22,5 @@ build() {
 
 package() {
     cd ${pkgname}-${pkgver}
-    install -dm755 "$pkgdir/usr/share/$pkgname"
     make DESTDIR="$pkgdir" install
 }
