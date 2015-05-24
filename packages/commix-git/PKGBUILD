@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 
 pkgname=commix-git
-pkgver=20150324.r20
+pkgver=20150524.r130
 pkgrel=1
 groups=('archassault' 'archassault-webapps')
 pkgdesc="Find and exploit a command injection vulnerability in a certain vulnerable parameter or string."
