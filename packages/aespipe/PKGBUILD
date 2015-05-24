@@ -2,7 +2,7 @@
 # Contributor: Prurigro
 
 pkgname=aespipe
-pkgver=2.4c
+pkgver=2.4d
 pkgrel=1
 pkgdesc="Reads data from stdin and outputs encrypted or decrypted results to stdout"
 url="http://loop-aes.sourceforge.net/aespipe"
@@ -11,7 +11,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-encryption')
 depends=('bash')
 source=("http://loop-aes.sourceforge.net/${pkgname}/${pkgname}-v${pkgver}.tar.bz2")
-sha512sums=('6738c019e4c1e5377650f9a982b328ce38e127ebe838cfe61c7d3fad878eaf0a4fd051d32897eb4c2ff33f94669203ccba25fc246405b50f9ac24fdf5d2831cf')
+sha512sums=('3c48facedf2e57978e9762ca1bfaa7c435897d75ab127697e20fa935a4797fde1d88e31db1b46f35968626e1bda3f2d2251d1b3f171cd27ee3cfc7a3d0193248')
 
 prepare() {
     cd ${pkgname}-v${pkgver}
