@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=wifijammer-git
-pkgver=20150222.r55
+pkgver=20150330.r57
 pkgrel=1
 groups=('archassault' 'archassault-wireless')
 pkgdesc="A python script to continuosly jam all wifi clients within range"
