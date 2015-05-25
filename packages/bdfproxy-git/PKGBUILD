@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=bdfproxy-git
-pkgver=20150111.r58
+pkgver=20150420.r62
 pkgrel=1
 groups=('archassault' 'archassault-proxy')
 pkgdesc="Patch Binaries via MITM: BackdoorFactory + mitmProxy."
