@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=maskprocessor
-pkgver=0.71
+pkgver=0.73
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A High-Performance word generator with a per-position configurable charset"
@@ -9,7 +9,7 @@ url='http://hashcat.net/wiki/doku.php?id=maskprocessor'
 license=('custom')
 makedepends=('p7zip')
 source=("http://hashcat.net/tools/maskprocessor/maskprocessor-$pkgver.7z")
-sha512sums=('40d30f049ecac130512aac4c0cad72af86758fa4919ca6048ba23137bac258a415cfe182b91c837e4121207604cf6c7da6f2d879a463af49ba3c446e54371e8f')
+sha512sums=('79da3253b8608df498ae420d09aa5ec9f5a7dff5071eeef70ebb2deb1a24ba9b903fca1bb03655b6a85d4c6fdd853bebe9fe55cec56447b6d5774e15ff83c434')
 
 prepare() {
   cd "$srcdir/maskprocessor-$pkgver"
