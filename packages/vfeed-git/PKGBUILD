@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=vfeed-git
-pkgver=20141011.r36
+pkgver=20150511.r41
 pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-misc')
