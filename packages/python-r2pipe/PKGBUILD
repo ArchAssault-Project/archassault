@@ -3,7 +3,7 @@
 _pkgname=r2pipe
 pkgbase=python-$_pkgname
 pkgname=(python-$_pkgname python2-$_pkgname)
-pkgver=0.6.0
+pkgver=0.6.5
 pkgrel=1
 pkgdesc="A Pipe interface for radare2"
 url="https://pypi.python.org/pypi/r2pipe/"
@@ -11,7 +11,7 @@ arch=('any')
 license=('MIT')
 makedepends=('python-setuptools' 'python2-setuptools')
 source=("https://pypi.python.org/packages/source/r/$_pkgname/$_pkgname-$pkgver.tar.gz")
-sha512sums=('7180ecf95b9a6a694e23edc2b7a1019ffe36d267fd2e5b0ae4242ed11d4193344c965f0bde6d1f261379e9eeaca55efcbdb5e30d3ef4aae2bf6a93c76de8a25b')
+sha512sums=('a912e1581964c8152c42d67a944620d72138ec821386cb64706d0a8c480b032b33edf69db7865533fef1658815d5ad68cea65032b6a636e44a3de2ce54fd0a58')
 
 
 prepare() {
