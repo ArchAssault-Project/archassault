@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=yararules-git
-pkgver=20150411.r3
-pkgrel=2
+pkgver=20150525.r73
+pkgrel=1
 pkgdesc="A Repository of yara rules"
 arch=('any')
 url="https://github.com/Yara-Rules/rules"
