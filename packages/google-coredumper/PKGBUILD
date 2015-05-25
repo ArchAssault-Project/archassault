@@ -2,12 +2,12 @@
 # Contributor: Anatol Pomozov <anatol@google.com>
 pkgname=google-coredumper
 pkgver=1.2.1
-pkgrel=1
+pkgrel=2
 groups=('archassault' 'archassault-debugging')
 pkgdesc='Library can be compiled into applications to create core dumps of the running program -- without terminating.'
 url='https://code.google.com/p/google-coredumper/'
 license=(GPL)
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64')
 depends=('glibc')
 # Upstream is currently broken.
 # Here are fixs for upstream https://github.com/anatol/google-coredumper
