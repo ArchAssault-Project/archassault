@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team AT archassault org>
 pkgname=ircsnapshot
-pkgver=r93.9ba3c6c
+pkgver=r94.cb02a85
 pkgrel=1
 pkgdesc="Tool to gather information from IRC servers"
 arch=('any')
