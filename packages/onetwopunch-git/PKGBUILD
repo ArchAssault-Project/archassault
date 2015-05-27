@@ -1,8 +1,8 @@
 # Maintainer:  ArchAssault <team@archassault.org>
  
 pkgname=onetwopunch-git
-pkgver=20150212.r7
-pkgrel=2
+pkgver=20150408.r8
+pkgrel=1
 pkgdesc='Script combining the speed of unicornscan w/ the versitility of nmap'
 arch=('any')
 url='https://github.com/superkojiman/onetwopunch'
