@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=flowinspect-git
-pkgver=r94.01c8921
+pkgver=r96.1f62b3b
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A network traffic inspection tool"
