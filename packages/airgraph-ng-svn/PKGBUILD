@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=airgraph-ng-svn
-pkgver=2561
+pkgver=2562
 pkgrel=1
 pkgdesc="Graphing tool for the aircrack suite"
 arch=('any')
