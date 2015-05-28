@@ -1,16 +1,16 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ptp
-pkgver=0.2.0
-pkgrel=2
+pkgver=0.3.0
+pkgrel=1
 pkgdesc="Ranks the discoveries listed in security tool reports."
 url="http://owtf.github.io/ptp"
 depends=('python2')
 makedepends=('python2-distribute')
 license=('BSD')
 arch=('any')
-source=('https://pypi.python.org/packages/source/P/PTP/PTP-0.2.0.tar.gz'
+source=("https://pypi.python.org/packages/source/P/PTP/PTP-${pkgver}.tar.gz"
         'LICENSE')
-sha512sums=('7590460b2e834a045dcc404513b1e6e9432db318509e473efb6a8718dd0177d21aaa5dd74f6e0b692f388e7818bda57eb585ef1a9e895b932c9b55b34e1d7600'
+sha512sums=('e6f78a19dd999cb2880a9cecc53dbd66db940055fa8b3f3a73c88f2f6cd7ff06ad182fbe510ca5226b9d7eb675fa624d896546856498688ddab09e1fef0db08d'
             '42e5bbd8115b16d6153cea57898870729f5a6fa0a177544b873f15333311c8ea5de950a076a2031233a292da0e08861b8678784ba6f055021f3d2ae6ae5305bd')
 
 build() {
