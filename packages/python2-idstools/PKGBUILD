@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-idstools
-pkgver=0.4.4
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="A collection of Python libraries for working with IDS systems (typically Snort and Suricata)."
 arch=('any')
@@ -10,7 +10,7 @@ depends=('python2')
 makedepends=('python2-setuptools')
 groups=('archassault' 'archassault-networking')
 source=("https://pypi.python.org/packages/source/i/idstools/idstools-$pkgver.tar.gz" "LICENSE")
-sha512sums=('0304b8304be6a9e0f2509ebfc0ac6d3585e2e2babbd524115f6b84242b9fbbf45b1ffe8f613230a28b5319d8608c6532df52f8eb6805f46d2f64234bf5ff7445'
+sha512sums=('46bf96c4c2e39539cb76f522e0a4c10d229978eaa42989bc8d8fab3a0aeb6723a15067ef41f72860ed33d733e7075cd2ace23d6cbb7446b22968ee2dc7e355c2'
             'f5df92f91db41a289c34387ccc13c05eb0073a21763061464e303a6f25b10abe998bb7c9a6afb660414b30eb78c69abb6a32d5f46d53b0bcddc49309e565abbd')
 
 prepare(){
