@@ -1,14 +1,14 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=sasm
-pkgver=3.1.3
-pkgrel=2
+pkgver=3.1.4
+pkgrel=1
 pkgdesc="A simple crossplatform IDE for NASM, MASM, GAS and FASM assembly languages"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/Dman95/SASM"
 license=('custom')
 depends=('nasm' 'gdb' 'qt5-base')
 makedepends=('qt4>=4.8')
-sha512sums=('82394f4fa2102ea34d0a9e20ecfe0258905df2e70ec6174d26209c569bbcde9f776b279b78aae0724c80759ed795c7af4a161d0987499f9fc66707d19bca74b4')
+sha512sums=('9b70b09bbb3271530acd8801ae6e5867da4aa1262452f66cd92dcb34c30bc6543d5330fc8eb98cf9a05955e2c6a6c290c0d9c52c8f7ca1b4a5b787f10d8733dc')
 source=("https://github.com/Dman95/SASM/archive/v$pkgver.tar.gz")
 
 build() {
