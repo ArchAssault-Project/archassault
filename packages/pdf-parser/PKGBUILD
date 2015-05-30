@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=pdf-parser
-pkgver=0.6.0
+pkgver=0.6.3
 pkgrel=1
 groups=('archassault' 'archassault-forensics')
 pkgdesc="Parses a PDF document to identify the fundamental elements used in the analyzed file"
@@ -10,7 +10,7 @@ license=('custom')
 depends=(python2)
 source=(http://www.didierstevens.com/files/software/pdf-parser_V${pkgver//./_}.zip
         LICENSE)
-sha512sums=('7efadb7216a87bfc72deaf00163035ab78af45fbb95996db4e3e98431d9e6951e2bcf3965522b1ba9190dd53f40008803e70214920aeb65bb9fa9bbc240f0780'
+sha512sums=('9080f51f28b6e3c69f135f6d15d885461219f456149c8ac763486bf0885a85af4b33662169657b0c28cf5adf1283755e28d246ca7d8cf302fa59d4d0a49165b5'
             '81c04aad50b9a4a702b53cc9a155d5ae87dc35db114e0a11ae1249268adecefbe2f0581fa7147dddf5399ae36e21ff089d0c11037f239be806146bddf4023375')
 
 package() {
