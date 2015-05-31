@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=nield
-pkgver=0.6.0
+pkgver=0.6.1
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A tool to receive notifications from kernel through netlink socket, and generate logs related to interfaces, neighbor cache(ARP,NDP), IP address(IPv4,IPv6), routing, FIB rules, traffic control."
@@ -9,7 +9,7 @@ url="http://nield.sourceforge.net/"
 license=('GPL2')
 depends=("glibc")
 source=("https://github.com/t2mune/nield/archive/v${pkgver}.zip")
-sha512sums=('f16e0adf60ad598267e7fbea263ecfd7c7b4be15e388f056e0af3fee668cef33a7f79ab80538493375ee4175fac2dd0b9d922d72fa298bbcaeafbfe697b12059')
+sha512sums=('ca3070ae01516b2c99e47ba3984e86b116677540ca4c3b0d99892d8f3a3e26838791d0e252bc342b91a1545c8071971a354dcbf8b37233f98997f4de7c2b43a3')
 
 build() {
   cd "${pkgname}"-"${pkgver}"
