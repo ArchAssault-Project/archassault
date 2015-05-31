@@ -1,15 +1,15 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=pixiewps
-pkgver=1.0.5
+pkgver=1.1
 pkgrel=1
 pkgdesc="A tool written in C used to bruteforce offline the WPS pin"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="https://github.com/wiire/pixiewps"
 license=('GPL3')
 depends=('openssl')
-source=("https://github.com/wiire/pixiewps/archive/v1.0.5.tar.gz")
-sha512sums=('9eff5de647f93b946d70615be08c26e8e9cb93ff2940bd7983ebba3be34c4af8b8de279bade7facff9414e68777692653bd870fa29aefbcf6b6582f851fd677d')
+source=("https://github.com/wiire/pixiewps/archive/v${pkgver}.tar.gz")
+sha512sums=('781c72c78cf12850afadb968d12b6c11965d373cedc0eddffeae7e3b279cdc77fee08cb031fb7716725294a3fde24ecd1e4ce91a327709d6d9378668a5559d50')
 
 prepare(){
   cd "$srcdir/$pkgname-$pkgver/src"
