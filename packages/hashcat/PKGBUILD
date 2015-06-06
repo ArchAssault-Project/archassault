@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=hashcat
-pkgver=0.49
+pkgver=0.50
 pkgrel=1
 groups=('archassault' 'archassault-cracker')
 pkgdesc="A multithreaded cross platform hash cracker."
@@ -10,7 +10,7 @@ license=('custom')
 makedepends=('p7zip')
 depends=('gmp')
 source=("https://hashcat.net/files/hashcat-${pkgver}.7z")
-sha512sums=('3e51a803c87de4f659ad3f72337234392140cd714a40eb221cb7697aa6f8df4da92ed7a7852deae5fdf36439c46fe4eaa312ed45a72dedbf13eaa6d9767e95bb')
+sha512sums=('cf3895046bcd42344e8f9fc7867905873d73e56cfdb9853d37e25c0b88a0250b0a3f361fb73a5a65ecdc33a39b3925611d6325b63e86e733b293a3aa76c5d7b4')
 
 prepare() {
   cd "${srcdir}/hashcat-${pkgver}"
