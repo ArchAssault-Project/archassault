@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=burst-git
-pkgver=20150304.r202
+pkgver=20150611.r206
 pkgrel=1
 groups=('archassault' 'archassault-misc')
 pkgdesc="An HTTP framework."
