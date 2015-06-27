@@ -16,4 +16,6 @@ Newest Tools Added:
 
 * [google-coredumper](https://code.google.com/p/google-coredumper/) - The coredumper library can be compiled into applications to create core dumps of the running program -- without terminating.
 
+* [smbmap](https://github.com/ShawnDEvans/smbmap) - A handy SMB enumeration tool
+
 **Thanks for the most recent requests!**
