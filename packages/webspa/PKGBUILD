@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=webspa
-pkgver=0.7
+pkgver=0.8
 pkgrel=1
 pkgdesc="A web knocking tool, sending a single HTTP/S to run O/S commands"
 arch=('any')
@@ -9,7 +9,12 @@ url="http://sourceforge.net/projects/webspa/"
 license=('GPL3')
 depends=('java-environment' 'bash')
 source=("http://downloads.sourceforge.net/project/webspa/webspa-${pkgver/./}.zip")
-sha512sums=('75fabd3bc993b2a3f929a2ce3db92bb03f7e8a4c38a84cc22414150daea6cbcc2b4a94a8fff004d69678bc4003de9c767f72e562ec9b3fa2273aaad305f07def')
+sha512sums=('8dd008eb04017c9faf3b282a5bf4ddb1c925ccfa945f471ef75c3933558981d1f6e6a648e032268f45a47d3744b7a461356cb9b2e384da608afada13654c1d53')
+
+prepare() {
+  cd "$srcdir/$pkgname-${pkgver/./}"
+  sed -i 's|webspa-0.8.jar|webspa-08.jar|' webspa.sh
+}
 
 package() {
   cd "$srcdir/$pkgname-${pkgver/./}"
