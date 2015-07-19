@@ -7,6 +7,7 @@ arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url='https://github.com/CoreSecurity/pcapy'
 license=('Apache')
 depends=('python2' 'libpcap')
+makedepends=('python2-setuptools')
 source=("https://github.com/CoreSecurity/pcapy/archive/$pkgver.tar.gz")
 sha512sums=('b36c300cd5c60641de6341344051658981cd55b90ad3e7ef57a08386b666e1adfd0825dbf413ccb4dee8ae0864346aa60b77ee5a73d0a5c6b5249089958d073a')
 
