@@ -3,7 +3,7 @@
 pkgname=python2-sortedcontainers
 _realname=sortedcontainers
 pkgver=0.9.6
-pkgrel=1
+pkgrel=2
 pkgdesc="A containers library, written in pure-Python, and fast as C-extensions"
 url="https://pypi.python.org/pypi/sortedcontainers/"
 arch=('any')
@@ -18,4 +18,5 @@ sha512sums=('7194c5848dc0291fad31a4caa467cbb9c8da2f20873fd1ab3b36847b9e8ebd9ee40
 package(){
   cd "$srcdir/$_realname-$pkgver"
   python2 setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
