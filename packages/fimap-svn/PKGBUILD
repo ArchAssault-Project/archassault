@@ -1,8 +1,8 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=fimap-svn
-pkgver=20121015.r332
-pkgrel=3
+pkgver=20150325.r334
+pkgrel=1
 groups=('archassault' 'archassault-fuzzer' 'archassault-exploit')
 pkgdesc="A little tool for local and remote file inclusion auditing and exploitation"
 arch=('any')

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=o-saft
-pkgver=14.12.07
+pkgver=15.05.15
 pkgrel=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="an easy to use tool to show informations about SSL certificate and tests the SSL connection according given list of ciphers and various SSL configurations."

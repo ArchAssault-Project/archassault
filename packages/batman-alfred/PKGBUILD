@@ -2,7 +2,7 @@
 _pkgname=alfred
 pkgname=batman-${_pkgname}
 groups=('archassault' 'archassault-wireless')
-pkgver=2014.4.0
+pkgver=2015.0
 pkgrel=1
 pkgdesc="Almighty Lightweight Fact Remote Exchange Daemon"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -10,7 +10,7 @@ url="http://www.open-mesh.org"
 license=('GPL')
 depends=('gpsd')
 source=("http://downloads.open-mesh.org/batman/releases/batman-adv-${pkgver}/${_pkgname}-${pkgver}.tar.gz")
-sha512sums=('b3ff349ec57f5c623d16cc16c5673cea0e47447467b9deb54e0f0be796fff20edd777e6b82232f4859b07b7e1f300a6b4f60da825829a1ae2350e7bc7ff7dbd3')
+sha512sums=('a79767e691f4b893906aff2efb23391fbd50339c46d5f368b01ea84a2cc54bed4dddabeab15da1af1ff42cf31401dbb6434164229652286f97a9ec2e8ca806d1')
 
 build(){
     cd ${_pkgname}-${pkgver}

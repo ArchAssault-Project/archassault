@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=jnetmap
-pkgver=0.5.3
-pkgrel=2
+pkgver=0.5.4
+pkgrel=1
 pkgdesc="Graphical network monitoring and documentation tool"
 arch=('any')
 url="http://rakudave.ch/jnetmap"
@@ -10,7 +10,7 @@ groups=('archassault')
 depends=('java-environment')
 source=(http://sourceforge.net/projects/$pkgname/files/jNetMap%20$pkgver/jNetMap-$pkgver.jar)
 noextract=("jNetMap-$pkgver.jar")
-sha512sums=('9bee9906922b226db9d62df985e1a69d4d5a72d7089bfc7e7915bbc134f35acaf75056e279853043880278c879cac0460915474714bd15f38a534e1ce7e87d70')
+sha512sums=('4c2068bf2bbf040187c022cdbdf49a0bfa24487206145704b23ced600b8ecc6b91261af8d5e4d1845b8da830ad0a8583725d678f5b957b69aec37e6caf57f100')
 
 package() {
   cd ${srcdir}

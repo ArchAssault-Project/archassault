@@ -1,16 +1,20 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-selenium
-pkgver=2.44.0
-pkgrel=1
+pkgver=2.46.0
+pkgrel=2
 pkgdesc="Python binding for Selenium Remote Control [Python 2]"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 url="http://pypi.python.org/pypi/selenium"
 license=('Apache')
-depends=('python2')
+if [[ $CARCH == "x86_64" ]]; then
+      depends=('python2' 'lib32-glibc')
+else
+      depends=('python2')
+fi
 makedepends=('python2-setuptools')
-optdepends=('lib32-glibc: Firefox x86 webdriver support for x86_64')
+options=("!strip")
 source=("http://pypi.python.org/packages/source/s/selenium/selenium-${pkgver}.tar.gz")
-sha512sums=('ab9466fb529785294890347b51094d293942ea353ccb916485ead529b8d076f012ab2d44e6787b34680f4a1b84ff6c835a67c5af49e1edabc341def4471639b2')
+sha512sums=('58d2bbc2768ccee7c238ed64c0e73d6e56977581ebda5d71a58dfd262e6b724501b49cac11a56fc79b700810ac8f7e09d968f4135f6aed4abf8147eecdce99ea')
 
 build() {
   cd "$srcdir/selenium-$pkgver"

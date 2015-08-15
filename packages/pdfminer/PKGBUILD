@@ -1,32 +1,36 @@
 # Maintainer: ArchAssault <team@archassault.org>
+
 pkgname=pdfminer
-pkgver=20110515
-pkgrel=2
+pkgver=20140328
+pkgrel=1
 epoch=1
-pkgdesc="A tool for extracting information from PDF documents"
 arch=('any')
-url='https://github.com/euske/pdfminer/'
+pkgdesc='PDF parser and analyzer'
 license=('MIT')
+url='http://euske.github.io/pdfminer/index.html'
 depends=('python2')
 makedepends=('python2-setuptools')
 provides=('python2-pdfminer')
 replaces=('python2-pdfminer')
 conflicts=('python2-pdfminer')
-source=("https://pypi.python.org/packages/source/p/pdfminer/pdfminer-${pkgver}.tar.gz" "LICENSE")
-sha512sums=('87e66c4a864259e7b75581ec95c5e1e9bfb79a4a126e7ec6e23c55d6954b0766f0aa874291c770089c7fb2b72d6c8c6bbc2e54612a30c90150437d5ce850c0e3'
-            '92b00b825662282d7b8f27755081b4b77632e08627adea8b379a27db8e70ffd8a20ec539f32833fde666f36191e2ae05852bb6c72bc861bf20b4a0f18ef8f5e8')
+source=("https://pypi.python.org/packages/source/p/$pkgname/$pkgname-$pkgver.tar.gz" 'LICENSE')
+md5sums=('dfe3eb1b7b7017ab514aad6751a7c2ea' '7d5b03b556811d959a94d9336ba04fe5')
+sha512sums=('8abb2328f7824ee980df0ce42d758c15534e97379ea9213b4aa1d29864d24d73c9e2d6020964e9ab734c0c6f7d1ae70bccbd6605168eaadf83923718a1f4849a' '21de58a9ffd486ad1b4616b6c0674d04f05c4f2173ed4050da134a721b8fc23022a2254494d4e9e892691f5e6e1f3bfbdf8fed57ed9a4f2e19349041a2e53974')
 
-prepare(){
-  grep -iRl 'python' "$srcdir/pdfminer-$pkgver" | xargs sed -i 's|#!.*/usr/bin/python|#!/usr/bin/python2|;s|#!.*/usr/bin/env python$|#!/usr/bin/env python2|'
+prepare() {
+  cd $pkgname-$pkgver
+  sed -i -re 's|#!\s*(/usr)?(/local)?/bin/.*python.*$|#!/usr/bin/env python2|g' $(egrep -rl '^\s*#!\s*(/usr)?(/local)?/bin/.*python')
 }
 
-build(){
-  cd "$srcdir"/pdfminer-$pkgver
+build() {
+  cd $pkgname-$pkgver
+  python2 setup.py build
   make cmap
 }
 
 package() {
-  cd "$srcdir"/pdfminer-$pkgver
-  python2 setup.py install "--root=$pkgdir" --optimize=1
-  install -Dm644 $srcdir/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+  cd $pkgname-$pkgver
+  export PYTHONPATH="$pkgdir/usr/lib/python2.7/site-packages/"
+  python2 setup.py install --root="$pkgdir" --optimize=1
 }

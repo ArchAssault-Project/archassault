@@ -1,6 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
+
 pkgname=perl-class-errorhandler
-pkgver=0.03
+pkgver=0.04
 pkgrel=1
 pkgdesc="Base class for error handling"
 arch=('any')
@@ -9,18 +10,18 @@ options=('!emptydirs')
 depends=('perl')
 url='http://search.cpan.org/dist/Class-ErrorHandler'
 source=("http://search.cpan.org/CPAN/authors/id/T/TO/TOKUHIROM/Class-ErrorHandler-$pkgver.tar.gz")
-sha512sums=('aefc6497b8ebdd3efe1643a84051b2739879f5472753a484b8eb14a29ba1826806bdc17ddb46efb50e969ceedae309fe7cfa965d9c45054b40fe2fbaed7b60a7')
+sha512sums=('9e235da1c2091f9422723af4528305b8ed2b50920a865e6fee76380a8c512fcd837d752f4ea5146df12c506c776e88c1075419ab3809be3296995387df759c83')
 _distdir="Class-ErrorHandler-$pkgver"
 
 build() {
   cd $srcdir/${_distdir}
-  perl Build.PL installdirs=vendor destdir=$pkgdir
-  perl Build
+  perl Makefile.PL installdirs=vendor destdir=$pkgdir
+  make
 }
 
 package(){
   cd $srcdir/${_distdir}
-  perl Build install
+  make install
   find $pkgdir -name '.packlist' -delete
   find $pkgdir -name '*.pod' -delete
 }

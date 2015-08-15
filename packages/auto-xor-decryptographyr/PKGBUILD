@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=auto-xor-decryptographyr
-pkgver=3.6a1f8f7
+pkgver=5.1f552be
 pkgrel=1
 groups=('archassault' 'archassault-cryptography')
 pkgdesc="Automatic XOR decryptographyr tool."

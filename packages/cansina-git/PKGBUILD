@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team archassautl org>
 pkgname=cansina-git
-pkgver=r120.8f7aa9e
-pkgrel=2
+pkgver=r133.e7deee9
+pkgrel=1
 epoch=1
 groups=('archassault' 'archassault-scanner')
 pkgdesc="A python-based Web Content Discovery Tool"

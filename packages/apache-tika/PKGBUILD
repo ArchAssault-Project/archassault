@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 # Contributor: Filip Gralinski <filipg@amu.edu.pl>
 pkgname=apache-tika
-pkgver=1.7
+pkgver=1.9
 pkgrel=1
 pkgdesc="Toolkit for detecting and extracting metadata and structured text content"
 arch=('any')
@@ -10,7 +10,7 @@ url="https://tika.apache.org"
 depends=('java-environment' 'bash')
 noextract=(tika-server-${pkgver}.jar)
 source=("http://central.maven.org/maven2/org/apache/tika/tika-server/$pkgver/tika-server-$pkgver.jar" "apache-tika.service")
-sha512sums=('54eafab0c129cbba9f49555b1f8eb1789bf6f8ea44a29b7b11786b4877fba6de60709ffbf31898128fb70699348864e934a3bf2455a64407909bcbaa5d0953a5'
+sha512sums=('484e5fe6fd16678150ae9700840c108f74704a1fc4b9b36e543a2530f2dac366360c2bb6c22d35f5800ab3e07aa0e6bd0168a023194d449e892df334bc4ae896'
             '9d104dcb5c9cb545f5e21121bbdb6e1f8b2eaa533f951e1bc681cb71f5105b15020a330a81a59926c5790bfd12b80cbf1c733df6e974fb7fea3e1a469433f0ae')
 
 package() {

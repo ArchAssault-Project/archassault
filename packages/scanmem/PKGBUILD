@@ -1,19 +1,22 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=scanmem
-pkgver=0.13
+pkgver=0.15.2
 pkgrel=1
-groups=('archassault' 'archassault-reversing')
+groups=('archassault' 'archassault-reverse')
 pkgdesc="A utility used to locate the address of a variable in an executing process."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://code.google.com/p/scanmem/'
+url='https://github.com/scanmem'
 license=('GPL3')
-depends=('python2' 'pygtk')
+depends=('pygtk' 'desktop-file-utils') 
+makedepends=('intltool')
 optdepends=('gksu: for the GameConqueror GUI.')
-source=(http://scanmem.googlecode.com/files/scanmem-$pkgver.tar.gz)
-md5sums=('1c23eda15db242ff0aac96d94be11db1')
+install=${pkgname}.install
+source=("https://github.com/scanmem/scanmem/archive/v${pkgver}.tar.gz")
+sha512sums=('9d1211b10b30962e35821895d7dd7d5a179e64b3f539b6dd2585a3f6b0ade7cd092fe377454b2582ec66e2c7a7676f8c7f04e8aff5c9e6e449a9eb6fb0498501')
 
 build() {
   cd "$srcdir/scanmem-$pkgver"
+  ./autogen.sh
   chmod 755 configure
   ./configure --enable-gui --prefix=/usr
   make

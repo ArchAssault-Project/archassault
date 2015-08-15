@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=scout2-git
-pkgver=r209.a779020
+pkgver=r287.e83e870
 pkgrel=1
 pkgdesc="Security auditing tool for AWS environments"
 url="http://isecpartners.github.io/Scout2/"
@@ -20,6 +20,12 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+prepare() {
+  cd "$srcdir/scout2-git"
+  git submodule init
+  git submodule update
+}
+
 package() {
   cd "$srcdir"/scout2-git
   install -dm755 "$pkgdir"/usr/bin/
@@ -28,7 +34,7 @@ package() {
   install -m644 README.md "$pkgdir"/usr/share/scout2-git/README.md
   install -m644 Scout2.py "$pkgdir"/usr/share/scout2-git/Scout2.py
   install -m644 report.html "$pkgdir"/usr/share/scout2-git/report.html
-  cp --no-preserve=ownership -r AWSScout2 inc-bootstrap inc-handlebars inc-jquery inc-scout2 rules "$pkgdir"/usr/share/scout2-git
+  cp --no-preserve=ownership -r AWSUtils AWSScout2 inc-bootstrap inc-handlebars inc-jquery inc-scout2 rules "$pkgdir"/usr/share/scout2-git
   cat > "$pkgdir"/usr/bin/Scout2.py <<EOF
 #!/bin/sh
 cd /usr/share/scout2-git

@@ -1,17 +1,17 @@
 # Maintainer: ArchAssault <team archassault org>
 
 pkgname=american-fuzzy-lop
-pkgver=1.57b
+pkgver=1.80b
 pkgrel=1
 groups=('archassault' 'archassault-fuzzers')
 pkgdesc="A practical, instrumentation-driven fuzzer for binary formats"
-arch=('i686' 'x86_64' 'armv7h')
+arch=('i686' 'x86_64')
 url="http://lcamtuf.coredump.cx/afl/"
 license=('APACHE')
 depends=('bash')
 options=('!strip')
 source=("http://lcamtuf.coredump.cx/afl/releases/afl-${pkgver}.tgz" "makefile.patch")
-sha512sums=('87d29ee22c7d097c672c106cc2eeac2fa26de646f2539e46444640c836887f8a4c7188e7bc30ab43d1a94b340bd55aaeea25171531d09331393395b0156e9cda'
+sha512sums=('822e93643f0ca10e9ce3eb726667e70eae1789029385cb5332eef65589f7ef0350e6775108634b642e5b394c46599b1e7943227c93cb1b1b50facf1f9e069095'
             '33e8838fb4f9dfc312753dcc59e94086abf26607614a6bf31ec0a5fe06d891f84d931766f9f07b94b29cdefe6b8e736cb4ab3b1ce4f9af4148bc750de279c485')
 
 prepare(){
@@ -21,25 +21,12 @@ prepare(){
 
 build() {
   cd "$srcdir/afl-$pkgver"
-  if [[ $CARCH == "armv7h" ]] || [[ $CARCH == "armv6h" ]]; then
-     cp  experimental/arm_support/*.c .
-     cp  experimental/arm_support/*.h .
-     sed -i '/__asm__/d' Makefile
-     export CFLAGS='-Wcpp -fstack-protector-strong'
-     make
-  else
-     make
-  fi
+  make
 }
 
 package() {
   cd "$srcdir/afl-$pkgver"
   install -dm755 $pkgdir/usr/bin
   install -dm755 $pkgdir/usr/lib/afl
-  if [[ $CARCH == "armv7h" ]] || [[ $CARCH == "armv6h" ]]; then
-        export CFLAGS='-Wcpp -fstack-protector-strong'
-        make DESTDIR=$pkgdir install
-  else
-        make DESTDIR=$pkgdir install
-  fi
+  make DESTDIR=$pkgdir install
 }

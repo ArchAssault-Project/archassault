@@ -3,8 +3,8 @@
 # Contributor: Andrea Benazzo <andy@qitty.net>
 
 pkgname=cryptmount
-pkgver=5.0
-pkgrel=2
+pkgver=5.1
+pkgrel=1
 pkgdesc='Utility which allows an ordinary user to mount an encrypted file system'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 groups=('archassault' 'archassault-cryptography')
@@ -13,19 +13,24 @@ license=('GPL')
 depends=('cryptsetup')
 source=("http://downloads.sourceforge.net/project/$pkgname/$pkgname/$pkgname-$pkgver/$pkgname-$pkgver.tar.gz")
 backup=('etc/cryptmount/cmtab')
-sha512sums=('2f4686f8e0d3331aa45891582250dfd02aa8a55a8204b686ca3ea5b476640bd61373552dd2f050fdf3f4040ea984623cf1c4ef50ae464a37ebea313440a7a8bc')
+sha512sums=('f9e46b365dae10cd70baa5f89de3c964690d51a6be0cd66392fccbac2b4b3634cc69cf61efa8a08533879ba6231ee74a597aad2c9f3b53200ece3d947fde461c')
 
 build() {
   cd $pkgname-$pkgver
   ./configure \
     --prefix=/usr \
     --sbindir=/usr/bin \
-    --sysconfdir=/etc
+    --sysconfdir=/etc \
+    --with-libgcrypt \
+    --with-systemd
   make
 }
 
 package() {
   cd $pkgname-$pkgver
   make DESTDIR="$pkgdir" install
+  # fixing perms
+  chmod 644 $pkgdir/usr/lib/cryptmount/cm-gcry.so $pkgdir/usr/lib/cryptmount/cm-luks.so
+  chmod 2755 $pkgdir/usr/bin/cryptmount
 }
 

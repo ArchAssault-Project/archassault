@@ -1,25 +1,27 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=rifiuti2
-pkgver=0.5.1
-pkgrel=2
+pkgver=0.6.1
+pkgrel=1
 groups=('archassault' 'archassault-reconnaissance' 'archassault-forensic')
 pkgdesc="A rewrite of rifiuti, a great tool from Foundstone folks for analyzing Windows Recycle Bin INFO2 file."
-url="https://code.google.com/p/rifiuti2/"
+url="https://github.com/abelcheung/rifiuti2"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
 license=('custom:BSD')
+depends=('glib2')
 conflicts=('rifiuti')
 options=('!emptydirs')
-source=("https://rifiuti2.googlecode.com/files/rifiuti2-$pkgver.tar.gz")
-sha512sums=('453052a4f5b6141b16259517226ce314d6b0096605d553e4fe935031e8e211455c8bfef2404a5b02b68005f6b7b6394cba642bd2ff94dcaa4c5ac2f8a8709f9d')
+source=("https://github.com/abelcheung/rifiuti2/archive/${pkgver}.tar.gz")
+sha512sums=('2e83b13dc15d05a770719048a1d8f503c63ac660c80d5ae14c859c51272b4ccc4091138504f128b2551113d0cd4c005ffadb0939cb2f3565916e9c97b733ae58')
 
 build() {
   cd "$srcdir/rifiuti2-$pkgver"
-  ./configure --bindir=/usr/bin --mandir=/usr/share/man
+  ./autogen.sh
+  ./configure --prefix=/usr --bindir=/usr/bin --mandir=/usr/share/man
   make
 }
 
 package() {
   cd "$srcdir/rifiuti2-$pkgver"
   make DESTDIR="$pkgdir" install
-  install -Dm644 COPYING "$pkgdir/usr/share/licenses/rifiuti2/COPYING"
+  install -Dm644 docs/LICENSE "$pkgdir/usr/share/licenses/rifiuti2/LICENSE"
 }

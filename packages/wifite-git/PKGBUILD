@@ -1,11 +1,12 @@
 # Maintainer: ArchAssault <team@archassault.org>
 _pkgname=wifite
 pkgname=${_pkgname}-git
-pkgver=20140805.r131.fd486ba
-pkgrel=4
+pkgver=20150525.r138.edbdedd
+pkgrel=1
 groups=('archassault' 'archassault-wireless' 'archassault-cracker')
 pkgdesc="A tool to attack multiple WEP and WPA encrypted networks at the same time"
 arch=('any')
+groups=('archassault')
 url="https://github.com/derv82/${_pkgname}"
 license=('GPL')
 depends=('python2' 'aircrack-ng' 'net-tools' 'wireless_tools' 'which' 'iw')

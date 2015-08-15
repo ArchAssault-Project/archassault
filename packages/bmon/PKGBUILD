@@ -1,13 +1,13 @@
 # Maintainer: ArchAssault <team@archassault.org>
 
 pkgname=bmon
-pkgver=3.6
+pkgver=3.7
 pkgrel=1
 pkgdesc="Bandwidth monitor and rate estimator"
 url="https://github.com/tgraf/bmon"
 license=('BSD' 'MIT')
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
-depends=('confuse' 'libnl' 'ncurses')
+depends=('confuse' 'libnl')
 makedepends=('git')
 groups=('archassault')
 source=("git+${url}.git#tag=tags/v${pkgver}")

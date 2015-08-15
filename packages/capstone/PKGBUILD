@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=capstone
-pkgver=3.0.2
+pkgver=3.0.3
 pkgrel=1
 groups=('archassault' 'archassault-reversing')
 pkgdesc="A lightweight multi-platform, multi-architecture disassembly framework."
@@ -11,8 +11,8 @@ depends=('glibc')
 makedepends=('python2-setuptools' 'python-setuptools')
 provides=('python2-capstone' 'python-capstone')
 source=("http://www.capstone-engine.org/download/$pkgver/capstone-$pkgver.tgz" "python.patch")
-sha512sums=('f145bfe8b5c87582b0145d3fce2ee0e24ceed9fd7f22585e54d4898e5d6596fbd757d51ea5238effd162a8f2b2296c4f553f2f1314b0b3e55a1c0fcaac1465e5'
-            'd7d85469ab382e02b13f5bf3345bb4241070997bd5d88611511cb1d839865172f757db09e05ccb02d40699b5429d818d8700d4b09b3d1fe8b3028d647cec5e48')
+sha512sums=('f16c7968e2efd647f69992e12ad0b22f16aadf22771fd58a0d0a1fc9ac1d7d6c543103cb95e1cf6e45d3ebcc05fc77961f9e8411870f247290ca6be93d218db2'
+            '70b1fc07d67fae733f74f0cbb2445307a71d73bcaa4278dfe646a20d6c39cd13d8448edaa60ca560fd55ee0685983a96a03920d5979d4e50070ed5766f38f8db')
 
 prepare(){
   cd $srcdir/$pkgname-$pkgver/bindings/python
@@ -29,7 +29,7 @@ build() {
   cd "$srcdir/capstone-$pkgver"
   ./make.sh
   cd $srcdir/$pkgname-$pkgver/bindings/python
-  make
+  make DESTDIR=/usr
   #cd $srcdir/$pkgname-$pkgver/bindings/java
   #make
   #cd $srcdir/$pkgname-$pkgver/bindings/ocaml
@@ -38,10 +38,10 @@ build() {
 
 package() {
   cd "$srcdir/capstone-$pkgver"
-  make DESTDIR="$pkgdir" install
+  make DESTDIR=$pkgdir install
   cd bindings/python
   # install py2 bindings
-  sed -i 's|--root=|--root='"$pkgdir"'|' Makefile
+  #sed -i 's|--root=|--root='"$pkgdir"'|' Makefile
   msg "Building python2 bindings"
   make DESTDIR="$pkgdir" install
   # install py3 bindings

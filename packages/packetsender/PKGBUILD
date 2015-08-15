@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=packetsender
-pkgver=2.0
+pkgver=4.1
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A utility to allow sending and receiving TCP and UDP packets."
@@ -9,7 +9,7 @@ url='http://packetsender.com/'
 license=('GPL2')
 depends=('qt5-base')
 source=("https://github.com/dannagle/PacketSender/archive/v$pkgver.tar.gz")
-sha512sums=('5520634132a55e8eec68b8e837e962a294c12ee957779cf1615f78d0f77f9d3520e6b3cd878ffaf21e18151fe38d40de8d3a2a9731f468ab8fb8ad7b865457fe')
+sha512sums=('df16b3a65be2764ec6563fc748a2a3102876cec20a2e2a9ac8c2662f762062e495fc96578cc8a5a7b8d0ea50417a604ad220453f2927927c44be289ec6154089')
 
 build(){
   cd "$srcdir/PacketSender-$pkgver/src"

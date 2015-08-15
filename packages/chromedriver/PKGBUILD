@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=chromedriver
-pkgver=2.14
+pkgver=2.15
 pkgrel=1
 pkgdesc="Standalone server which implements WebDriver's wire protocol"
 arch=('i686' 'x86_64')
@@ -10,8 +10,8 @@ depends=('libxi' 'gconf' 'nss')
 optdepends=('chromium' 'google-chrome')
 source_i686+=("http://chromedriver.storage.googleapis.com/${pkgver}/${pkgname}_linux32.zip")
 source_x86_64+=("http://chromedriver.storage.googleapis.com/${pkgver}/${pkgname}_linux64.zip")
-sha512sums_i686=('6f9257384ba57c15873e2d093445cff5ec5165cf7e872b4ce6d933308ff8bc939312483d054c2c11c328c899335eacc59eb4650635332346376b0b9f3ce798bc')
-sha512sums_x86_64=('f48b1cf497c614f0a2332e4f841190d7e606e68de4724fe6b877afc592ea6da8adcec96326688cdeefc753f13e71b68f1cdc830398ef12f108a972e788c5edb7')
+sha512sums_i686=('70deffa2acf004b1fad691b03170d90f6b21b107f414b6768d68fe6d9e55e6336bd67e829ce69e338bb34a714e92d91793431e6a359165d18ad6574ec4c50c22')
+sha512sums_x86_64=('72e4710f5d55cbdf4dd6a2768d5b1ce51f8041ff25b650e9ab5b57f6d48b20f81880474d8d71586749e2a4ce3f28cf1ea62888f2755af39073a407ab81cd559e')
 
 package() {
   mkdir -p "$pkgdir/usr/bin/"

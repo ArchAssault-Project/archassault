@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=python2-maec
-pkgver=4.1.0.10
+pkgver=4.1.0.12
 pkgrel=1
 pkgdesc="An API for parsing and creating MAEC content."
 url="http://maec.mitre.org"
@@ -9,7 +9,7 @@ makedepends=('python2-setuptools')
 license=('BSD')
 arch=('any')
 source=("https://pypi.python.org/packages/source/m/maec/maec-$pkgver.tar.gz")
-sha512sums=('0628b871eb6bd2358c07be3966110329be3c86bf9951777a537e5d0b30d23e988188c9934aa7d52b69c17dbc7b928a384ab23502adaa7f7914229c82ac391dfa')
+sha512sums=('0ebb9b9343308924bca7477a58f9b772f4587f84b57822fca663ecc5ad7592585ddf617ceb12796aa45bc0fae2b904e53e497e634c92d6f4877fafdfc3a488cd')
 
 build() {
   cd $srcdir/maec-$pkgver

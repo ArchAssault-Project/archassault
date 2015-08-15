@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault org>
 pkgname=aircrack-ng-beta
-pkgver=1.2.rc1
+pkgver=1.2.rc2
 pkgrel=1
 epoch=2
 pkgdesc="A key cracker for the 802.11 WEP and WPA-PSK protocols"

@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team archassault.org>
 pkgname=prometheus-git
-pkgver=r175.497b2ce
+pkgver=r176.a316d66
 pkgrel=1
 groups=('archassault' 'archassault-networking')
 pkgdesc="A Firewall analyzer written in ruby"

@@ -1,7 +1,7 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=suricata
-pkgver=2.0.7
-pkgrel=3
+pkgver=2.0.8
+pkgrel=1
 pkgdesc="An Open Source Next Generation Intrusion Detection and Prevention Engine"
 arch=('armv6h' 'armv7h' 'i686' 'x86_64')
 url="http://openinfosecfoundation.org/index.php/download-suricata"
@@ -12,7 +12,7 @@ optdepends=('snort: suricata can use rulesets provided by snort')
 options=('!emptydirs')
 backup=('etc/suricata/suricata.yaml')
 source=(http://openinfosecfoundation.org/download/$pkgname-$pkgver.tar.gz)
-sha512sums=('2f3d465d025b43570fb6845b2c0e5a7ae8c16435b15aeac61526895b8cfae1c51294f9dc3b49ad61bb1fa49f3ace2cac3c670a9a2a14e9a6ebb82ddbf5dea2b3')
+sha512sums=('3e823ef1e022527026ab7d3b157239abfd25c67752b609d58073d66e3ad7cc9d49ff74e8971b60b8058e4b8adfef48caf0f28c7338061e20d6c7f294123da018')
 
 prepare() {
   cd "$srcdir/$pkgname-$pkgver"

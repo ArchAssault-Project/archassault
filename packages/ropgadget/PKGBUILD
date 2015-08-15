@@ -1,6 +1,6 @@
 # Maintainer: ArchAssault <team@archassault.org>
 pkgname=ropgadget
-pkgver=5.3
+pkgver=5.4
 pkgrel=1
 groups=('archassault' 'archassault-exploit')
 pkgdesc="Lets you search your gadgets on your binaries (ELF format) to facilitate your ROP exploit."
@@ -10,7 +10,7 @@ license=('GPL')
 depends=('python2' 'capstone')
 makedepends=('python2-setuptools')
 source=("https://github.com/JonathanSalwan/ROPgadget/archive/v$pkgver.tar.gz")
-sha512sums=('a6eefbf90795192ffe67dbbfdde257e09471995f8fce719d4034576e7240cdbb261060d7be044e6169aedccc8049ec497f05d04e6ce773d92cb894057987fd91')
+sha512sums=('7b3777ccce10000e1cf1fadedd4010f05ae21d5794c45994d380eebecb8876c203899cc30716a677e3c31b575898d7fad763d66c502432f3a4dc4493ad4ae0da')
 
 package(){
   cd "$srcdir/ROPgadget-$pkgver"
